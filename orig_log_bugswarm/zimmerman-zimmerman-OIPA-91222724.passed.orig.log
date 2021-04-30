@@ -1,0 +1,755 @@
+Using worker: worker-linux-docker-e1a72018.prod.travis-ci.org:travis-linux-5
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:168582f3[0K$ git clone --depth=50 --branch=develop https://github.com/openaid-IATI/OIPA.git openaid-IATI/OIPA
+Cloning into 'openaid-IATI/OIPA'...
+remote: Counting objects: 1602, done.[K
+remote: Compressing objects:   0% (1/1080)   [Kremote: Compressing objects:   1% (11/1080)   [Kremote: Compressing objects:   2% (22/1080)   [Kremote: Compressing objects:   3% (33/1080)   [Kremote: Compressing objects:   4% (44/1080)   [Kremote: Compressing objects:   5% (54/1080)   [Kremote: Compressing objects:   6% (65/1080)   [Kremote: Compressing objects:   7% (76/1080)   [Kremote: Compressing objects:   8% (87/1080)   [Kremote: Compressing objects:   9% (98/1080)   [Kremote: Compressing objects:  10% (108/1080)   [Kremote: Compressing objects:  11% (119/1080)   [Kremote: Compressing objects:  12% (130/1080)   [Kremote: Compressing objects:  13% (141/1080)   [Kremote: Compressing objects:  14% (152/1080)   [Kremote: Compressing objects:  15% (162/1080)   [Kremote: Compressing objects:  16% (173/1080)   [Kremote: Compressing objects:  17% (184/1080)   [Kremote: Compressing objects:  18% (195/1080)   [Kremote: Compressing objects:  19% (206/1080)   [Kremote: Compressing objects:  20% (216/1080)   [Kremote: Compressing objects:  21% (227/1080)   [Kremote: Compressing objects:  22% (238/1080)   [Kremote: Compressing objects:  23% (249/1080)   [Kremote: Compressing objects:  24% (260/1080)   [Kremote: Compressing objects:  25% (270/1080)   [Kremote: Compressing objects:  26% (281/1080)   [Kremote: Compressing objects:  27% (292/1080)   [Kremote: Compressing objects:  28% (303/1080)   [Kremote: Compressing objects:  29% (314/1080)   [Kremote: Compressing objects:  30% (324/1080)   [Kremote: Compressing objects:  31% (335/1080)   [Kremote: Compressing objects:  32% (346/1080)   [Kremote: Compressing objects:  33% (357/1080)   [Kremote: Compressing objects:  34% (368/1080)   [Kremote: Compressing objects:  35% (378/1080)   [Kremote: Compressing objects:  36% (389/1080)   [Kremote: Compressing objects:  37% (400/1080)   [Kremote: Compressing objects:  37% (404/1080)   [Kremote: Compressing objects:  38% (411/1080)   [Kremote: Compressing objects:  39% (422/1080)   [Kremote: Compressing objects:  40% (432/1080)   [Kremote: Compressing objects:  41% (443/1080)   [Kremote: Compressing objects:  42% (454/1080)   [Kremote: Compressing objects:  43% (465/1080)   [Kremote: Compressing objects:  44% (476/1080)   [Kremote: Compressing objects:  45% (486/1080)   [Kremote: Compressing objects:  46% (497/1080)   [Kremote: Compressing objects:  47% (508/1080)   [Kremote: Compressing objects:  48% (519/1080)   [Kremote: Compressing objects:  49% (530/1080)   [Kremote: Compressing objects:  50% (540/1080)   [Kremote: Compressing objects:  51% (551/1080)   [Kremote: Compressing objects:  52% (562/1080)   [Kremote: Compressing objects:  53% (573/1080)   [Kremote: Compressing objects:  54% (584/1080)   [Kremote: Compressing objects:  55% (594/1080)   [Kremote: Compressing objects:  56% (605/1080)   [Kremote: Compressing objects:  57% (616/1080)   [Kremote: Compressing objects:  58% (627/1080)   [Kremote: Compressing objects:  59% (638/1080)   [Kremote: Compressing objects:  60% (648/1080)   [Kremote: Compressing objects:  61% (659/1080)   [Kremote: Compressing objects:  62% (670/1080)   [Kremote: Compressing objects:  63% (681/1080)   [Kremote: Compressing objects:  64% (692/1080)   [Kremote: Compressing objects:  65% (702/1080)   [Kremote: Compressing objects:  66% (713/1080)   [Kremote: Compressing objects:  67% (724/1080)   [Kremote: Compressing objects:  68% (735/1080)   [Kremote: Compressing objects:  69% (746/1080)   [Kremote: Compressing objects:  70% (756/1080)   [Kremote: Compressing objects:  71% (767/1080)   [Kremote: Compressing objects:  72% (778/1080)   [Kremote: Compressing objects:  73% (789/1080)   [Kremote: Compressing objects:  74% (800/1080)   [Kremote: Compressing objects:  75% (810/1080)   [Kremote: Compressing objects:  76% (821/1080)   [Kremote: Compressing objects:  77% (832/1080)   [Kremote: Compressing objects:  78% (843/1080)   [Kremote: Compressing objects:  79% (854/1080)   [Kremote: Compressing objects:  80% (864/1080)   [Kremote: Compressing objects:  81% (875/1080)   [Kremote: Compressing objects:  82% (886/1080)   [Kremote: Compressing objects:  83% (897/1080)   [Kremote: Compressing objects:  84% (908/1080)   [Kremote: Compressing objects:  85% (918/1080)   [Kremote: Compressing objects:  86% (929/1080)   [Kremote: Compressing objects:  87% (940/1080)   [Kremote: Compressing objects:  88% (951/1080)   [Kremote: Compressing objects:  89% (962/1080)   [Kremote: Compressing objects:  90% (972/1080)   [Kremote: Compressing objects:  91% (983/1080)   [Kremote: Compressing objects:  92% (994/1080)   [Kremote: Compressing objects:  93% (1005/1080)   [Kremote: Compressing objects:  94% (1016/1080)   [Kremote: Compressing objects:  95% (1026/1080)   [Kremote: Compressing objects:  96% (1037/1080)   [Kremote: Compressing objects:  97% (1048/1080)   [Kremote: Compressing objects:  98% (1059/1080)   [Kremote: Compressing objects:  99% (1070/1080)   [Kremote: Compressing objects: 100% (1080/1080)   [Kremote: Compressing objects: 100% (1080/1080), done.[K
+Receiving objects:   0% (1/1602)   Receiving objects:   1% (17/1602)   Receiving objects:   2% (33/1602)   Receiving objects:   3% (49/1602)   Receiving objects:   4% (65/1602)   Receiving objects:   5% (81/1602)   Receiving objects:   6% (97/1602)   Receiving objects:   7% (113/1602)   Receiving objects:   8% (129/1602)   Receiving objects:   9% (145/1602)   Receiving objects:  10% (161/1602)   Receiving objects:  11% (177/1602)   Receiving objects:  12% (193/1602)   Receiving objects:  13% (209/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  14% (225/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  15% (241/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  16% (257/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  17% (273/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  18% (289/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  19% (305/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  20% (321/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  21% (337/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  22% (353/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  23% (369/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  24% (385/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  25% (401/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  26% (417/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  27% (433/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  28% (449/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  29% (465/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  30% (481/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  31% (497/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  32% (513/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  33% (529/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  34% (545/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  35% (561/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  36% (577/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  37% (593/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  38% (609/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  39% (625/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  40% (641/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  41% (657/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  42% (673/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  43% (689/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  44% (705/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  45% (721/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  46% (737/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  47% (753/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  48% (769/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  49% (785/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  50% (801/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  51% (818/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  52% (834/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  53% (850/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  54% (866/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  55% (882/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  56% (898/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  57% (914/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  58% (930/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  59% (946/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  60% (962/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  61% (978/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  62% (994/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  63% (1010/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  64% (1026/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  65% (1042/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  66% (1058/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  67% (1074/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  68% (1090/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  69% (1106/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  70% (1122/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  71% (1138/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  72% (1154/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  73% (1170/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  74% (1186/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  75% (1202/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  76% (1218/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  77% (1234/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  78% (1250/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  79% (1266/1602), 14.91 MiB | 29.76 MiB/s   remote: Total 1602 (delta 614), reused 1248 (delta 455), pack-reused 0[K
+Receiving objects:  80% (1282/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  81% (1298/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  82% (1314/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  83% (1330/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  84% (1346/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  85% (1362/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  86% (1378/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  87% (1394/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  88% (1410/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  89% (1426/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  90% (1442/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  91% (1458/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  92% (1474/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  93% (1490/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  94% (1506/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  95% (1522/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  96% (1538/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  97% (1554/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  98% (1570/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects:  99% (1586/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects: 100% (1602/1602), 14.91 MiB | 29.76 MiB/s   Receiving objects: 100% (1602/1602), 24.55 MiB | 29.76 MiB/s, done.
+Resolving deltas:   0% (0/614)   Resolving deltas:   9% (59/614)   Resolving deltas:  10% (63/614)   Resolving deltas:  17% (106/614)   Resolving deltas:  18% (113/614)   Resolving deltas:  19% (120/614)   Resolving deltas:  20% (128/614)   Resolving deltas:  25% (154/614)   Resolving deltas:  27% (171/614)   Resolving deltas:  29% (179/614)   Resolving deltas:  30% (186/614)   Resolving deltas:  32% (197/614)   Resolving deltas:  33% (206/614)   Resolving deltas:  34% (214/614)   Resolving deltas:  36% (222/614)   Resolving deltas:  37% (230/614)   Resolving deltas:  38% (234/614)   Resolving deltas:  39% (240/614)   Resolving deltas:  40% (246/614)   Resolving deltas:  41% (252/614)   Resolving deltas:  42% (259/614)   Resolving deltas:  43% (269/614)   Resolving deltas:  44% (274/614)   Resolving deltas:  46% (287/614)   Resolving deltas:  47% (291/614)   Resolving deltas:  48% (297/614)   Resolving deltas:  49% (302/614)   Resolving deltas:  50% (310/614)   Resolving deltas:  51% (319/614)   Resolving deltas:  52% (322/614)   Resolving deltas:  53% (326/614)   Resolving deltas:  54% (333/614)   Resolving deltas:  55% (338/614)   Resolving deltas:  56% (344/614)   Resolving deltas:  57% (351/614)   Resolving deltas:  58% (358/614)   Resolving deltas:  59% (367/614)   Resolving deltas:  60% (373/614)   Resolving deltas:  61% (378/614)   Resolving deltas:  62% (381/614)   Resolving deltas:  63% (387/614)   Resolving deltas:  65% (402/614)   Resolving deltas:  66% (406/614)   Resolving deltas:  67% (417/614)   Resolving deltas:  68% (419/614)   Resolving deltas:  69% (424/614)   Resolving deltas:  70% (432/614)   Resolving deltas:  71% (440/614)   Resolving deltas:  72% (447/614)   Resolving deltas:  73% (451/614)   Resolving deltas:  74% (458/614)   Resolving deltas:  75% (462/614)   Resolving deltas:  76% (469/614)   Resolving deltas:  77% (473/614)   Resolving deltas:  78% (479/614)   Resolving deltas:  79% (489/614)   Resolving deltas:  82% (504/614)   Resolving deltas:  83% (510/614)   Resolving deltas:  84% (521/614)   Resolving deltas:  85% (526/614)   Resolving deltas:  88% (542/614)   Resolving deltas:  89% (552/614)   Resolving deltas:  90% (555/614)   Resolving deltas:  91% (559/614)   Resolving deltas:  92% (566/614)   Resolving deltas:  95% (586/614)   Resolving deltas:  96% (590/614)   Resolving deltas:  99% (609/614)   Resolving deltas: 100% (614/614)   Resolving deltas: 100% (614/614), done.
+Checking connectivity... done.
+travis_time:end:168582f3:start=1447594749948796273,finish=1447594753864932338,duration=3916136065[0K$ cd openaid-IATI/OIPA
+$ git checkout -qf cd3e11198aebed9621dd03772b3c03934998f4fb
+travis_fold:end:git.checkout[0Ktravis_fold:start:services[0Ktravis_time:start:3899eba8[0K$ sudo service elasticsearch start
+ * Starting Elasticsearch Server       [80G /etc/init.d/elasticsearch: 153: ulimit: error setting limit (Operation not permitted)
+error: permission denied on key 'vm.max_map_count'
+[74G[ OK ]
+travis_time:end:3899eba8:start=1447594754496603840,finish=1447594754529714240,duration=33110400[0Ktravis_fold:end:services[0Ktravis_fold:start:postgresql[0K[33;1mStarting PostgreSQL v9.4[0m
+travis_time:start:00e40a78[0K$ sudo service postgresql stop
+ * Stopping PostgreSQL 9.1 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.2 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.3 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.4 database server       [80G [74G[ OK ]
+travis_time:end:00e40a78:start=1447594757535975176,finish=1447594758848284003,duration=1312308827[0Ktravis_time:start:06d28bf8[0K$ sudo service postgresql start 9.4
+ * Starting PostgreSQL 9.4 database server       [80G [74G[ OK ]
+travis_time:end:06d28bf8:start=1447594758851943428,finish=1447594761111245172,duration=2259301744[0Ktravis_time:start:1a1f00d7[0K$ sudo -u postgres createuser -s -p 5432 travis &>/dev/null
+travis_time:end:1a1f00d7:start=1447594761114933134,finish=1447594761160079828,duration=45146694[0Ktravis_time:start:0dfd5731[0K$ sudo -u postgres createdb -O travis -p 5432 travis &>/dev/null
+travis_time:end:0dfd5731:start=1447594761163770722,finish=1447594761421327555,duration=257556833[0Ktravis_time:start:0167f8a8[0K$ sudo -u postgres createuser -s -p 5433 travis &>/dev/null
+travis_time:end:0167f8a8:start=1447594761425151089,finish=1447594761464853648,duration=39702559[0Ktravis_time:start:15cf6786[0K$ sudo -u postgres createdb -O travis -p 5433 travis &>/dev/null
+travis_time:end:15cf6786:start=1447594761468529807,finish=1447594761507856881,duration=39327074[0Ktravis_fold:end:postgresql[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:21eb3c1d[0K$ Installing caching utilities
+travis_time:end:21eb3c1d:start=1447594764420184024,finish=1447594764501757926,duration=81573902[0Ktravis_time:start:0e2848c2[0Ktravis_time:end:0e2848c2:start=1447594764506302659,finish=1447594764509336448,duration=3033789[0Ktravis_time:start:0c2c6b07[0Kattempting to download cache archive
+fetching develop/cache--python-2.7.tgz
+found cache
+travis_time:end:0c2c6b07:start=1447594764512996570,finish=1447594765138190336,duration=625193766[0Ktravis_time:start:1a39913a[0Ktravis_time:end:1a39913a:start=1447594765141974766,finish=1447594765145259249,duration=3284483[0Ktravis_time:start:235d2d24[0Kadding /home/travis/.cache/pip to cache
+travis_time:end:235d2d24:start=1447594765149138786,finish=1447594766531974676,duration=1382835890[0Ktravis_fold:end:cache.1[0Ktravis_time:start:2b8988e0[0K$ source ~/virtualenv/python2.7/bin/activate
+travis_time:end:2b8988e0:start=1447594766537518494,finish=1447594766542419193,duration=4900699[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install.1[0Ktravis_time:start:06aa4ebe[0K$ pip install -r OIPA/requirements.txt
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting git+git://github.com/gkuhn1/django-admin-multiupload.git (from -r OIPA/requirements.txt (line 30))
+  Cloning git://github.com/gkuhn1/django-admin-multiupload.git to /tmp/pip-V9cmDd-build
+Collecting lxml==3.4.4 (from -r OIPA/requirements.txt (line 1))
+  Using cached lxml-3.4.4.tar.gz
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'bugtrack_url'
+      warnings.warn(msg)
+    Building lxml version 3.4.4.
+    Building without Cython.
+    Using build configuration of libxslt 1.1.26
+    Building against libxml2/libxslt in the following directory: /usr/lib/x86_64-linux-gnu
+Collecting psycopg2==2.6.1 (from -r OIPA/requirements.txt (line 2))
+  Using cached psycopg2-2.6.1.tar.gz
+Collecting django-debug-toolbar==1.3.2 (from -r OIPA/requirements.txt (line 3))
+  Using cached django_debug_toolbar-1.3.2-py2.py3-none-any.whl
+Collecting Django==1.8.4 (from -r OIPA/requirements.txt (line 4))
+  Using cached Django-1.8.4-py2.py3-none-any.whl
+Collecting python-dateutil==2.2 (from -r OIPA/requirements.txt (line 5))
+  Using cached python-dateutil-2.2.tar.gz
+Collecting defusedxml==0.4.1 (from -r OIPA/requirements.txt (line 6))
+  Using cached defusedxml-0.4.1.tar.gz
+Collecting contexttimer==0.3.0 (from -r OIPA/requirements.txt (line 7))
+  Using cached contexttimer-0.3.0.tar.gz
+Collecting mechanize==0.2.5 (from -r OIPA/requirements.txt (line 8))
+  Using cached mechanize-0.2.5.tar.gz
+Collecting django-suit==0.2.14 (from -r OIPA/requirements.txt (line 9))
+  Using cached django-suit-0.2.14.tar.gz
+Collecting objgraph==1.8.1 (from -r OIPA/requirements.txt (line 10))
+  Using cached objgraph-1.8.1.tar.gz
+Collecting guppy==0.1.10 (from -r OIPA/requirements.txt (line 11))
+  Using cached guppy-0.1.10.tar.gz
+Collecting ujson==1.33 (from -r OIPA/requirements.txt (line 12))
+  Using cached ujson-1.33.zip
+Collecting redis==2.10.3 (from -r OIPA/requirements.txt (line 13))
+  Using cached redis-2.10.3.tar.gz
+Collecting rq==0.4.6 (from -r OIPA/requirements.txt (line 14))
+  Using cached rq-0.4.6-py2.py3-none-any.whl
+Collecting rq-scheduler==0.5.0 (from -r OIPA/requirements.txt (line 15))
+  Using cached rq-scheduler-0.5.0.tar.gz
+Collecting django-rq==0.7.0 (from -r OIPA/requirements.txt (line 16))
+  Using cached django-rq-0.7.0.tar.gz
+Collecting supervisor==3.1.3 (from -r OIPA/requirements.txt (line 17))
+  Using cached supervisor-3.1.3.tar.gz
+Collecting django-supervisor==0.3.2 (from -r OIPA/requirements.txt (line 18))
+  Using cached django-supervisor-0.3.2.tar.gz
+Collecting djangorestframework==3.2.3 (from -r OIPA/requirements.txt (line 19))
+  Using cached djangorestframework-3.2.3-py2.py3-none-any.whl
+Collecting django-cors-headers==0.11 (from -r OIPA/requirements.txt (line 20))
+  Using cached django-cors-headers-0.11.tar.gz
+Collecting django-filter==0.11.0 (from -r OIPA/requirements.txt (line 21))
+  Using cached django_filter-0.11.0-py2.py3-none-any.whl
+Collecting markdown==2.6.2 (from -r OIPA/requirements.txt (line 22))
+  Using cached Markdown-2.6.2-py2.py3-none-any.whl
+Collecting django-otp==0.3.1 (from -r OIPA/requirements.txt (line 23))
+  Using cached django-otp-0.3.1.tar.gz
+Collecting django-otp-yubikey==0.3.1 (from -r OIPA/requirements.txt (line 24))
+  Using cached django-otp-yubikey-0.3.1.tar.gz
+Collecting django-two-factor-auth==1.2.0 (from -r OIPA/requirements.txt (line 25))
+  Using cached django_two_factor_auth-1.2.0-py2.py3-none-any.whl
+Collecting django-formtools==1.0 (from -r OIPA/requirements.txt (line 26))
+  Using cached django_formtools-1.0-py2.py3-none-any.whl
+Collecting django-haystack==2.4.0 (from -r OIPA/requirements.txt (line 27))
+  Using cached django-haystack-2.4.0.tar.gz
+Collecting elasticsearch==1.7.0 (from -r OIPA/requirements.txt (line 28))
+  Using cached elasticsearch-1.7.0-py2.py3-none-any.whl
+Collecting django-nested-inline==0.3.5 (from -r OIPA/requirements.txt (line 29))
+  Using cached django-nested-inline-0.3.5.tar.gz
+Collecting sqlparse (from django-debug-toolbar==1.3.2->-r OIPA/requirements.txt (line 3))
+  Using cached sqlparse-0.1.18.tar.gz
+Collecting six (from python-dateutil==2.2->-r OIPA/requirements.txt (line 5))
+  Using cached six-1.10.0-py2.py3-none-any.whl
+Collecting meld3>=0.6.5 (from supervisor==3.1.3->-r OIPA/requirements.txt (line 17))
+  Using cached meld3-1.0.2-py2.py3-none-any.whl
+Collecting watchdog (from django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Using cached watchdog-0.8.3.tar.gz
+Collecting YubiOTP>=0.2.1 (from django-otp-yubikey==0.3.1->-r OIPA/requirements.txt (line 24))
+  Using cached YubiOTP-0.2.1-py2.py3-none-any.whl
+Collecting qrcode<4.99,>=4.0.0 (from django-two-factor-auth==1.2.0->-r OIPA/requirements.txt (line 25))
+  Using cached qrcode-4.0.4.tar.gz
+Collecting urllib3<2.0,>=1.8 (from elasticsearch==1.7.0->-r OIPA/requirements.txt (line 28))
+  Using cached urllib3-1.12-py2.py3-none-any.whl
+Collecting PyYAML>=3.10 (from watchdog->django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Using cached PyYAML-3.11.tar.gz
+Collecting argh>=0.24.1 (from watchdog->django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Using cached argh-0.26.1.tar.gz
+Collecting pathtools>=0.1.1 (from watchdog->django-supervisor==0.3.2->-r OIPA/requirements.txt (line 18))
+  Using cached pathtools-0.1.2.tar.gz
+Collecting pycrypto (from YubiOTP>=0.2.1->django-otp-yubikey==0.3.1->-r OIPA/requirements.txt (line 24))
+  Using cached pycrypto-2.6.1.tar.gz
+Installing collected packages: pycrypto, pathtools, argh, PyYAML, urllib3, qrcode, YubiOTP, watchdog, meld3, six, sqlparse, admin-multiupload, django-nested-inline, elasticsearch, django-haystack, django-formtools, django-two-factor-auth, django-otp-yubikey, django-otp, markdown, django-filter, django-cors-headers, djangorestframework, django-supervisor, supervisor, django-rq, rq-scheduler, rq, redis, ujson, guppy, objgraph, django-suit, mechanize, contexttimer, defusedxml, python-dateutil, Django, django-debug-toolbar, psycopg2, lxml
+  Running setup.py install for pycrypto
+    checking for gcc... gcc
+    checking whether the C compiler works... yes
+    checking for C compiler default output file name... a.out
+    checking for suffix of executables...
+    checking whether we are cross compiling... no
+    checking for suffix of object files... o
+    checking whether we are using the GNU C compiler... yes
+    checking whether gcc accepts -g... yes
+    checking for gcc option to accept ISO C89... none needed
+    checking for __gmpz_init in -lgmp... no
+    checking for __gmpz_init in -lmpir... no
+    checking whether mpz_powm is declared... no
+    checking whether mpz_powm_sec is declared... no
+    checking how to run the C preprocessor... gcc -E
+    checking for grep that handles long lines and -e... /bin/grep
+    checking for egrep... /bin/grep -E
+    checking for ANSI C header files... yes
+    checking for sys/types.h... yes
+    checking for sys/stat.h... yes
+    checking for stdlib.h... yes
+    checking for string.h... yes
+    checking for memory.h... yes
+    checking for strings.h... yes
+    checking for inttypes.h... yes
+    checking for stdint.h... yes
+    checking for unistd.h... yes
+    checking for inttypes.h... (cached) yes
+    checking limits.h usability... yes
+    checking limits.h presence... yes
+    checking for limits.h... yes
+    checking stddef.h usability... yes
+    checking stddef.h presence... yes
+    checking for stddef.h... yes
+    checking for stdint.h... (cached) yes
+    checking for stdlib.h... (cached) yes
+    checking for string.h... (cached) yes
+    checking wchar.h usability... yes
+    checking wchar.h presence... yes
+    checking for wchar.h... yes
+    checking for inline... inline
+    checking for int16_t... yes
+    checking for int32_t... yes
+    checking for int64_t... yes
+    checking for int8_t... yes
+    checking for size_t... yes
+    checking for uint16_t... yes
+    checking for uint32_t... yes
+    checking for uint64_t... yes
+    checking for uint8_t... yes
+    checking for stdlib.h... (cached) yes
+    checking for GNU libc compatible malloc... yes
+    checking for memmove... yes
+    checking for memset... yes
+    configure: creating ./config.status
+    config.status: creating src/config.h
+    warning: GMP or MPIR library not found; Not building Crypto.PublicKey._fastmath.
+    building 'Crypto.Hash._MD2' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD2.c -o build/temp.linux-x86_64-2.7/src/MD2.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD2.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD2.so
+    building 'Crypto.Hash._MD4' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/MD4.c -o build/temp.linux-x86_64-2.7/src/MD4.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/MD4.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_MD4.so
+    building 'Crypto.Hash._SHA256' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA256.c -o build/temp.linux-x86_64-2.7/src/SHA256.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA256.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA256.so
+    building 'Crypto.Hash._SHA224' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA224.c -o build/temp.linux-x86_64-2.7/src/SHA224.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA224.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA224.so
+    building 'Crypto.Hash._SHA384' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA384.c -o build/temp.linux-x86_64-2.7/src/SHA384.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA384.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA384.so
+    building 'Crypto.Hash._SHA512' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/SHA512.c -o build/temp.linux-x86_64-2.7/src/SHA512.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/SHA512.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_SHA512.so
+    building 'Crypto.Hash._RIPEMD160' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -DPCT_LITTLE_ENDIAN=1 -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/RIPEMD160.c -o build/temp.linux-x86_64-2.7/src/RIPEMD160.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/RIPEMD160.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Hash/_RIPEMD160.so
+    building 'Crypto.Cipher._AES' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/AES.c -o build/temp.linux-x86_64-2.7/src/AES.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/AES.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_AES.so
+    building 'Crypto.Cipher._ARC2' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC2.c -o build/temp.linux-x86_64-2.7/src/ARC2.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC2.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_ARC2.so
+    building 'Crypto.Cipher._Blowfish' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/Blowfish.c -o build/temp.linux-x86_64-2.7/src/Blowfish.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/Blowfish.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_Blowfish.so
+    building 'Crypto.Cipher._CAST' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/CAST.c -o build/temp.linux-x86_64-2.7/src/CAST.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/CAST.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_CAST.so
+    building 'Crypto.Cipher._DES' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES.c -o build/temp.linux-x86_64-2.7/src/DES.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_DES.so
+    building 'Crypto.Cipher._DES3' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -Isrc/libtom/ -I/opt/python/2.7.9/include/python2.7 -c src/DES3.c -o build/temp.linux-x86_64-2.7/src/DES3.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/DES3.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_DES3.so
+    building 'Crypto.Cipher._ARC4' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/ARC4.c -o build/temp.linux-x86_64-2.7/src/ARC4.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/ARC4.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_ARC4.so
+    building 'Crypto.Cipher._XOR' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/XOR.c -o build/temp.linux-x86_64-2.7/src/XOR.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/XOR.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Cipher/_XOR.so
+    building 'Crypto.Util.strxor' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/strxor.c -o build/temp.linux-x86_64-2.7/src/strxor.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/strxor.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Util/strxor.so
+    building 'Crypto.Util._counter' extension
+    gcc -pthread -fno-strict-aliasing -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fwrapv -Wall -Wstrict-prototypes -fPIC -std=c99 -O3 -fomit-frame-pointer -Isrc/ -I/opt/python/2.7.9/include/python2.7 -c src/_counter.c -o build/temp.linux-x86_64-2.7/src/_counter.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/_counter.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/Crypto/Util/_counter.so
+  Running setup.py install for pathtools
+  Running setup.py install for argh
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c build/temp.linux-x86_64-2.7/check_libyaml.c -o build/temp.linux-x86_64-2.7/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-2.7/check_libyaml.o -L/opt/python/2.7.9/lib -lyaml -o build/temp.linux-x86_64-2.7/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c ext/_yaml.c -o build/temp.linux-x86_64-2.7/ext/_yaml.o
+    In file included from ext/_yaml.c:343:0:
+    ext/_yaml.h:6:0: warning: "PyUnicode_FromString" redefined [enabled by default]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:281:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1346:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2471:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, int,  int *)’
+    ext/_yaml.c:2664:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4938:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6737:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:9532:3: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:11721:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, int)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:12898:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12991:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:13248:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+    ext/_yaml.c:15784:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15877:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:16616:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/ext/_yaml.o -L/opt/python/2.7.9/lib -lyaml -lpython2.7 -o build/lib.linux-x86_64-2.7/_yaml.so
+
+  Running setup.py install for qrcode
+    changing mode of build/scripts-2.7/qr from 664 to 775
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/qr to 775
+
+  Running setup.py install for watchdog
+    Installing watchmedo script to /home/travis/virtualenv/python2.7.9/bin
+
+
+  Running setup.py install for sqlparse
+    changing mode of build/scripts-2.7/sqlformat from 664 to 775
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/sqlformat to 775
+  Running setup.py install for admin-multiupload
+  Running setup.py install for django-nested-inline
+
+  Running setup.py install for django-haystack
+
+
+  Running setup.py install for django-otp-yubikey
+  Running setup.py install for django-otp
+
+
+  Running setup.py install for django-cors-headers
+
+  Running setup.py install for django-supervisor
+  Running setup.py install for supervisor
+    Skipping installation of /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/supervisor/__init__.py (namespace package)
+    Installing /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/supervisor-3.1.3-py2.7-nspkg.pth
+    Installing echo_supervisord_conf script to /home/travis/virtualenv/python2.7.9/bin
+    Installing pidproxy script to /home/travis/virtualenv/python2.7.9/bin
+    Installing supervisorctl script to /home/travis/virtualenv/python2.7.9/bin
+    Installing supervisord script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for django-rq
+  Running setup.py install for rq-scheduler
+    Installing rqscheduler script to /home/travis/virtualenv/python2.7.9/bin
+
+  Running setup.py install for redis
+  Running setup.py install for ujson
+    building 'ujson' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/ujson.c -o build/temp.linux-x86_64-2.7/./python/ujson.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/objToJSON.c -o build/temp.linux-x86_64-2.7/./python/objToJSON.o -D_GNU_SOURCE
+    ./python/objToJSON.c:94:14: warning: ‘PyIntToINT32’ defined but not used [-Wunused-function]
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./python/JSONtoObj.c -o build/temp.linux-x86_64-2.7/./python/JSONtoObj.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./lib/ultrajsonenc.c -o build/temp.linux-x86_64-2.7/./lib/ultrajsonenc.o -D_GNU_SOURCE
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./python -I./lib -I/opt/python/2.7.9/include/python2.7 -c ./lib/ultrajsondec.c -o build/temp.linux-x86_64-2.7/./lib/ultrajsondec.o -D_GNU_SOURCE
+    ./lib/ultrajsondec.c:78:13: warning: ‘ClearError’ defined but not used [-Wunused-function]
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/./python/ujson.o build/temp.linux-x86_64-2.7/./python/objToJSON.o build/temp.linux-x86_64-2.7/./python/JSONtoObj.o build/temp.linux-x86_64-2.7/./lib/ultrajsonenc.o build/temp.linux-x86_64-2.7/./lib/ultrajsondec.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/ujson.so
+  Running setup.py install for guppy
+    building 'guppy.sets.setsc' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/sets.c -o build/temp.linux-x86_64-2.7/src/sets/sets.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/bitset.c -o build/temp.linux-x86_64-2.7/src/sets/bitset.o
+    src/sets/bitset.c: In function ‘mutbitset_findpos_ins’:
+    src/sets/bitset.c:1241:14: warning: variable ‘lo’ set but not used [-Wunused-but-set-variable]
+    src/sets/bitset.c: In function ‘mutbitset_iop_PyLongObject’:
+    src/sets/bitset.c:2021:2: warning: passing argument 1 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘struct PyLongObject *’ but argument is of type ‘struct PyObject *’
+    src/sets/bitset.c:2021:2: warning: passing argument 2 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘Py_ssize_t *’ but argument is of type ‘int *’
+    src/sets/bitset.c:2034:2: warning: passing argument 1 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘struct PyLongObject *’ but argument is of type ‘struct PyObject *’
+    src/sets/bitset.c:2034:2: warning: passing argument 2 of ‘_PyLong_Frexp’ from incompatible pointer type [enabled by default]
+    /opt/python/2.7.9/include/python2.7/longobject.h:43:20: note: expected ‘Py_ssize_t *’ but argument is of type ‘int *’
+    src/sets/bitset.c: In function ‘NyImmBitSet_Range’:
+    src/sets/bitset.c:4546:26: warning: variable ‘fhi’ set but not used [-Wunused-but-set-variable]
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/sets/nodeset.c -o build/temp.linux-x86_64-2.7/src/sets/nodeset.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/sets/sets.o build/temp.linux-x86_64-2.7/src/sets/bitset.o build/temp.linux-x86_64-2.7/src/sets/nodeset.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/guppy/sets/setsc.so
+    building 'guppy.heapy.heapyc' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/heapy/heapyc.c -o build/temp.linux-x86_64-2.7/src/heapy/heapyc.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c src/heapy/stdtypes.c -o build/temp.linux-x86_64-2.7/src/heapy/stdtypes.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/heapy/heapyc.o build/temp.linux-x86_64-2.7/src/heapy/stdtypes.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/guppy/heapy/heapyc.so
+  Running setup.py install for objgraph
+  Running setup.py install for django-suit
+  Running setup.py install for mechanize
+  Running setup.py install for contexttimer
+  Running setup.py install for defusedxml
+  Running setup.py install for python-dateutil
+
+
+  Running setup.py install for psycopg2
+    building 'psycopg2._psycopg' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/psycopgmodule.c -o build/temp.linux-x86_64-2.7/psycopg/psycopgmodule.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/green.c -o build/temp.linux-x86_64-2.7/psycopg/green.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/pqpath.c -o build/temp.linux-x86_64-2.7/psycopg/pqpath.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/utils.c -o build/temp.linux-x86_64-2.7/psycopg/utils.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/bytes_format.c -o build/temp.linux-x86_64-2.7/psycopg/bytes_format.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/connection_int.c -o build/temp.linux-x86_64-2.7/psycopg/connection_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/connection_type.c -o build/temp.linux-x86_64-2.7/psycopg/connection_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/cursor_int.c -o build/temp.linux-x86_64-2.7/psycopg/cursor_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/cursor_type.c -o build/temp.linux-x86_64-2.7/psycopg/cursor_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/diagnostics_type.c -o build/temp.linux-x86_64-2.7/psycopg/diagnostics_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/error_type.c -o build/temp.linux-x86_64-2.7/psycopg/error_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/lobject_int.c -o build/temp.linux-x86_64-2.7/psycopg/lobject_int.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/lobject_type.c -o build/temp.linux-x86_64-2.7/psycopg/lobject_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/notify_type.c -o build/temp.linux-x86_64-2.7/psycopg/notify_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/xid_type.c -o build/temp.linux-x86_64-2.7/psycopg/xid_type.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_asis.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_asis.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_binary.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_binary.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_datetime.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_datetime.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_list.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_list.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pboolean.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pboolean.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pdecimal.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pdecimal.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pint.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pint.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_pfloat.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_pfloat.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/adapter_qstring.c -o build/temp.linux-x86_64-2.7/psycopg/adapter_qstring.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/microprotocols.c -o build/temp.linux-x86_64-2.7/psycopg/microprotocols.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/microprotocols_proto.c -o build/temp.linux-x86_64-2.7/psycopg/microprotocols_proto.o -Wdeclaration-after-statement
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPSYCOPG_DEFAULT_PYDATETIME=1 -DPSYCOPG_VERSION="2.6.1 (dt dec pq3 ext lo64)" -DPG_VERSION_HEX=0x090400 -DHAVE_LO64=1 -I/opt/python/2.7.9/include/python2.7 -I. -I/usr/include/postgresql -I/usr/include/postgresql/9.4/server -c psycopg/typecast.c -o build/temp.linux-x86_64-2.7/psycopg/typecast.o -Wdeclaration-after-statement
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/psycopg/psycopgmodule.o build/temp.linux-x86_64-2.7/psycopg/green.o build/temp.linux-x86_64-2.7/psycopg/pqpath.o build/temp.linux-x86_64-2.7/psycopg/utils.o build/temp.linux-x86_64-2.7/psycopg/bytes_format.o build/temp.linux-x86_64-2.7/psycopg/connection_int.o build/temp.linux-x86_64-2.7/psycopg/connection_type.o build/temp.linux-x86_64-2.7/psycopg/cursor_int.o build/temp.linux-x86_64-2.7/psycopg/cursor_type.o build/temp.linux-x86_64-2.7/psycopg/diagnostics_type.o build/temp.linux-x86_64-2.7/psycopg/error_type.o build/temp.linux-x86_64-2.7/psycopg/lobject_int.o build/temp.linux-x86_64-2.7/psycopg/lobject_type.o build/temp.linux-x86_64-2.7/psycopg/notify_type.o build/temp.linux-x86_64-2.7/psycopg/xid_type.o build/temp.linux-x86_64-2.7/psycopg/adapter_asis.o build/temp.linux-x86_64-2.7/psycopg/adapter_binary.o build/temp.linux-x86_64-2.7/psycopg/adapter_datetime.o build/temp.linux-x86_64-2.7/psycopg/adapter_list.o build/temp.linux-x86_64-2.7/psycopg/adapter_pboolean.o build/temp.linux-x86_64-2.7/psycopg/adapter_pdecimal.o build/temp.linux-x86_64-2.7/psycopg/adapter_pint.o build/temp.linux-x86_64-2.7/psycopg/adapter_pfloat.o build/temp.linux-x86_64-2.7/psycopg/adapter_qstring.o build/temp.linux-x86_64-2.7/psycopg/microprotocols.o build/temp.linux-x86_64-2.7/psycopg/microprotocols_proto.o build/temp.linux-x86_64-2.7/psycopg/typecast.o -L/opt/python/2.7.9/lib -L/usr/lib/x86_64-linux-gnu -lpython2.7 -lpq -o build/lib.linux-x86_64-2.7/psycopg2/_psycopg.so
+  Running setup.py install for lxml
+    /opt/python/2.7.9/lib/python2.7/distutils/dist.py:267: UserWarning: Unknown distribution option: 'bugtrack_url'
+      warnings.warn(msg)
+    Building lxml version 3.4.4.
+    Building without Cython.
+    Using build configuration of libxslt 1.1.26
+    Building against libxml2/libxslt in the following directory: /usr/lib/x86_64-linux-gnu
+    building 'lxml.etree' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/include/libxml2 -I/tmp/pip-build-7roHv5/lxml/src/lxml/includes -I/opt/python/2.7.9/include/python2.7 -c src/lxml/lxml.etree.c -o build/temp.linux-x86_64-2.7/src/lxml/lxml.etree.o -w
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/lxml/lxml.etree.o -L/usr/lib/x86_64-linux-gnu -L/opt/python/2.7.9/lib -lxslt -lexslt -lxml2 -lz -lm -lpython2.7 -o build/lib.linux-x86_64-2.7/lxml/etree.so
+    building 'lxml.objectify' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/include/libxml2 -I/tmp/pip-build-7roHv5/lxml/src/lxml/includes -I/opt/python/2.7.9/include/python2.7 -c src/lxml/lxml.objectify.c -o build/temp.linux-x86_64-2.7/src/lxml/lxml.objectify.o -w
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/lxml/lxml.objectify.o -L/usr/lib/x86_64-linux-gnu -L/opt/python/2.7.9/lib -lxslt -lexslt -lxml2 -lz -lm -lpython2.7 -o build/lib.linux-x86_64-2.7/lxml/objectify.so
+Successfully installed Django-1.8.4 PyYAML-3.11 YubiOTP-0.2.1 admin-multiupload-0.1 argh-0.26.1 contexttimer-0.3.0 defusedxml-0.4.1 django-cors-headers-0.11 django-debug-toolbar-1.3.2 django-filter-0.11.0 django-formtools-1.0 django-haystack-2.4.0 django-nested-inline-0.3.5 django-otp-0.3.1 django-otp-yubikey-0.3.1 django-rq-0.7.0 django-suit-0.2.14 django-supervisor-0.3.2 django-two-factor-auth-1.2.0 djangorestframework-3.2.3 elasticsearch-1.7.0 guppy-0.1.10 lxml-3.4.4 markdown-2.6.2 mechanize-0.2.5 meld3-1.0.2 objgraph-1.8.1 pathtools-0.1.2 psycopg2-2.6.1 pycrypto-2.6.1 python-dateutil-2.2 qrcode-4.0.4 redis-2.10.3 rq-0.4.6 rq-scheduler-0.5.0 six-1.10.0 sqlparse-0.1.18 supervisor-3.1.3 ujson-1.33 urllib3-1.12 watchdog-0.8.3
+travis_time:end:06aa4ebe:start=1447594766912578907,finish=1447594870878872506,duration=103966293599[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:2852f4ce[0K$ pip install -r OIPA/test_requirements.txt
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Requirement already satisfied (use --upgrade to upgrade): pytest in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from -r OIPA/test_requirements.txt (line 1))
+Collecting pytest-django (from -r OIPA/test_requirements.txt (line 2))
+  Using cached pytest_django-2.9.1-py2.py3-none-any.whl
+Collecting factory-boy (from -r OIPA/test_requirements.txt (line 3))
+  Using cached factory_boy-2.6.0-py2.py3-none-any.whl
+Collecting python-coveralls (from -r OIPA/test_requirements.txt (line 4))
+  Using cached python_coveralls-2.5.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): mock in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from -r OIPA/test_requirements.txt (line 5))
+Collecting django-test-without-migrations==0.2 (from -r OIPA/test_requirements.txt (line 6))
+  Using cached django_test_without_migrations-0.2-py2.py3-none-any.whl
+Collecting django-extensions==1.5.6 (from -r OIPA/test_requirements.txt (line 7))
+  Using cached django_extensions-1.5.6-py2.py3-none-any.whl
+Collecting pysqlite==2.8.1 (from -r OIPA/test_requirements.txt (line 8))
+  Using cached pysqlite-2.8.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.25 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from pytest->-r OIPA/test_requirements.txt (line 1))
+Collecting fake-factory>=0.5.0 (from factory-boy->-r OIPA/test_requirements.txt (line 3))
+  Using cached fake-factory-0.5.3.tar.gz
+Collecting sh (from python-coveralls->-r OIPA/test_requirements.txt (line 4))
+  Using cached sh-1.11.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): six in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from python-coveralls->-r OIPA/test_requirements.txt (line 4))
+Collecting coverage==3.7.1 (from python-coveralls->-r OIPA/test_requirements.txt (line 4))
+  Using cached coverage-3.7.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): PyYAML in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from python-coveralls->-r OIPA/test_requirements.txt (line 4))
+Collecting requests (from python-coveralls->-r OIPA/test_requirements.txt (line 4))
+  Using cached requests-2.8.1-py2.py3-none-any.whl
+Installing collected packages: requests, coverage, sh, fake-factory, pysqlite, django-extensions, django-test-without-migrations, python-coveralls, factory-boy, pytest-django
+
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for sh
+  Running setup.py install for fake-factory
+    Installing faker script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for pysqlite
+    building 'pysqlite2._sqlite' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/module.c -o build/temp.linux-x86_64-2.7/src/module.o
+    In file included from src/module.c:276:0:
+    src/sqlite_constants.h:743:1: warning: initialization makes integer from pointer without a cast [enabled by default]
+    src/sqlite_constants.h:743:1: warning: (near initialization for ‘_int_constants[191].constant_value’) [enabled by default]
+    src/sqlite_constants.h:746:1: warning: initialization makes integer from pointer without a cast [enabled by default]
+    src/sqlite_constants.h:746:1: warning: (near initialization for ‘_int_constants[192].constant_value’) [enabled by default]
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/connection.c -o build/temp.linux-x86_64-2.7/src/connection.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/cursor.c -o build/temp.linux-x86_64-2.7/src/cursor.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/cache.c -o build/temp.linux-x86_64-2.7/src/cache.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/microprotocols.c -o build/temp.linux-x86_64-2.7/src/microprotocols.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/prepare_protocol.c -o build/temp.linux-x86_64-2.7/src/prepare_protocol.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/statement.c -o build/temp.linux-x86_64-2.7/src/statement.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/util.c -o build/temp.linux-x86_64-2.7/src/util.o
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/opt/python/2.7.9/include/python2.7 -c src/row.c -o build/temp.linux-x86_64-2.7/src/row.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/src/module.o build/temp.linux-x86_64-2.7/src/connection.o build/temp.linux-x86_64-2.7/src/cursor.o build/temp.linux-x86_64-2.7/src/cache.o build/temp.linux-x86_64-2.7/src/microprotocols.o build/temp.linux-x86_64-2.7/src/prepare_protocol.o build/temp.linux-x86_64-2.7/src/statement.o build/temp.linux-x86_64-2.7/src/util.o build/temp.linux-x86_64-2.7/src/row.o -L/opt/python/2.7.9/lib -lpython2.7 -lsqlite3 -o build/lib.linux-x86_64-2.7/pysqlite2/_sqlite.so
+
+
+
+
+
+Successfully installed coverage-3.7.1 django-extensions-1.5.6 django-test-without-migrations-0.2 factory-boy-2.6.0 fake-factory-0.5.3 pysqlite-2.8.1 pytest-django-2.9.1 python-coveralls-2.5.0 requests-2.8.1 sh-1.11
+travis_time:end:2852f4ce:start=1447594870884244105,finish=1447594878580090797,duration=7695846692[0Ktravis_fold:end:install.2[0Ktravis_fold:start:before_script[0Ktravis_time:start:081f3bd0[0K$ psql -U postgres -c "create extension postgis"
+CREATE EXTENSION
+travis_time:end:081f3bd0:start=1447594878586443816,finish=1447594879735663933,duration=1149220117[0Ktravis_fold:end:before_script[0Ktravis_time:start:0024684f[0K$ cd OIPA
+travis_time:end:0024684f:start=1447594879752709138,finish=1447594879757853619,duration=5144481[0K
+[32;1mThe command "cd OIPA" exited with 0.[0m
+travis_time:start:262d9904[0K$ python manage.py migrate --database=psql --settings=OIPA.travis_test_settings
+[36;1mOperations to perform:[0m
+[1m  Synchronize unmigrated apps: [0mdjsupervisor, test_without_migrations, django_rq, task_queue, gis, staticfiles, admindocs, messages, rest_framework, nested_inline, django_otp, debug_toolbar, api, suit, django_extensions, corsheaders, haystack, translation_model, multiupload
+[1m  Apply all migrations: [0mindicator, iati, iati_vocabulary, iati_codelists, sessions, admin, two_factor, otp_static, indicator_unesco, auth, sites, parse_logger, contenttypes, otp_yubikey, geodata, otp_totp, iati_synchroniser, iati_organisation
+[36;1mSynchronizing apps without migrations:[0m
+  Creating tables...
+    Creating table translation_model_translationmodel
+    Running deferred SQL...
+  Installing custom SQL...
+[36;1mRunning migrations:[0m
+  Rendering model states...[32;1m DONE[0m
+  Applying contenttypes.0001_initial...[32;1m OK[0m
+  Applying auth.0001_initial...[32;1m OK[0m
+  Applying admin.0001_initial...[32;1m OK[0m
+  Applying contenttypes.0002_remove_content_type_name...[32;1m OK[0m
+  Applying auth.0002_alter_permission_name_max_length...[32;1m OK[0m
+  Applying auth.0003_alter_user_email_max_length...[32;1m OK[0m
+  Applying auth.0004_alter_user_username_opts...[32;1m OK[0m
+  Applying auth.0005_alter_user_last_login_null...[32;1m OK[0m
+  Applying auth.0006_require_contenttypes_0002...[32;1m OK[0m
+  Applying iati_vocabulary.0001_initial...[32;1m OK[0m
+  Applying geodata.0001_initial...[32;1m OK[0m
+  Applying iati_codelists.0001_initial...[32;1m OK[0m
+  Applying iati.0001_initial...[32;1m OK[0m
+  Applying iati.0002_auto_20151104_1515...[32;1m OK[0m
+  Applying iati_organisation.0001_initial...[32;1m OK[0m
+  Applying iati_synchroniser.0001_initial...[32;1m OK[0m
+  Applying indicator.0001_initial...[32;1m OK[0m
+  Applying indicator_unesco.0001_initial...[32;1m OK[0m
+  Applying otp_static.0001_initial...[32;1m OK[0m
+  Applying otp_totp.0001_initial...[32;1m OK[0m
+  Applying otp_yubikey.0001_initial...[32;1m OK[0m
+  Applying parse_logger.0001_initial...[32;1m OK[0m
+  Applying sessions.0001_initial...[32;1m OK[0m
+  Applying sites.0001_initial...[32;1m OK[0m
+  Applying two_factor.0001_initial...[32;1m OK[0m
+  Applying two_factor.0002_auto_20150110_0810...[32;1m OK[0m
+travis_time:end:262d9904:start=1447594879764377381,finish=1447594999169515770,duration=119405138389[0K
+[32;1mThe command "python manage.py migrate --database=psql --settings=OIPA.travis_test_settings" exited with 0.[0m
+travis_time:start:1a3ab727[0K$ coverage run --source=. --omit=*__init__*,*data_backup* manage.py test --settings OIPA.travis_test_settings --nomigrations
+Creating test database for alias 'default'...
+Creating test database for alias 'psql'...
+...................................s..............Installed 3662 object(s) from 1 fixture(s)
+Installed 23 object(s) from 1 fixture(s)
+s....ssssInstalled 3 object(s) from 1 fixture(s)
+Installed 3662 object(s) from 1 fixture(s)
+Installed 23 object(s) from 1 fixture(s)
+Installed 269 object(s) from 1 fixture(s)
+..........................s.NL-KVK-51018586-0666
+.NL-KVK-51018586-0666
+.NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+.NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+.NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+.s.NL-KVK-51018586-0666
+NL-KVK-51018586-0666
+........ss.........................................called
+random text
+.ss..ss...ss............s....s.s....s...Installed 3 object(s) from 1 fixture(s)
+Installed 3662 object(s) from 1 fixture(s)
+Installed 23 object(s) from 1 fixture(s)
+Installed 269 object(s) from 1 fixture(s)
+.................................Installed 3 object(s) from 1 fixture(s)
+Installed 3662 object(s) from 1 fixture(s)
+Installed 23 object(s) from 1 fixture(s)
+Installed 269 object(s) from 1 fixture(s)
+...............
+----------------------------------------------------------------------
+Ran 233 tests in 18.687s
+
+OK (skipped=20)
+Destroying test database for alias 'default'...
+Destroying test database for alias 'psql'...
+travis_time:end:1a3ab727:start=1447594999174747256,finish=1447595024896418891,duration=25721671635[0K
+[32;1mThe command "coverage run --source=. --omit=*__init__*,*data_backup* manage.py test --settings OIPA.travis_test_settings --nomigrations" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:190804fd[0Ktravis_time:end:190804fd:start=1447595024901061552,finish=1447595024904667079,duration=3605527[0Ktravis_time:start:0e36434f[0Kchange detected:
+/home/travis/.cache/pip/log/debug.log
+/home/travis/.cache/pip/log/debug.log
+
+changes detected, packing new archive
+uploading archive
+travis_time:end:0e36434f:start=1447595024909255945,finish=1447595027254954264,duration=2345698319[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:1adf7440[0K$ coveralls
+INFO:sh.command:<Command '/bin/pwd' call_args {'bg': False, 'timeo...(476 more)>: starting process
+INFO:sh.command:<Command '/usr/bin/git --no-pa...(53 more)' call_args {'bg': False, 'timeo...(476 more)>: starting process
+INFO:sh.command:<Command '/usr/bin/git rev-par...(20 more)' call_args {'bg': False, 'timeo...(476 more)>: starting process
+INFO:sh.command:<Command '/usr/bin/git remote ...(2 more)' call_args {'bg': False, 'timeo...(476 more)>: starting process
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): coveralls.io
+INFO:coveralls:200
+INFO:coveralls:{"message":"Job #800.1","url":"https://coveralls.io/jobs/9720551"}
+travis_time:end:1adf7440:start=1447595027258978767,finish=1447595029517567805,duration=2258589038[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

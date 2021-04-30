@@ -1,0 +1,595 @@
+Using worker: worker-linux-docker-83cdab6a.prod.travis-ci.org:travis-linux-8
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:00874f08[0K$ git clone --depth=50 --branch=TREE-KIND git://github.com/SonarSource/sonar-java.git SonarSource/sonar-java
+Cloning into 'SonarSource/sonar-java'...
+remote: Counting objects: 4360, done.[K
+remote: Compressing objects:   0% (1/2364)   [Kremote: Compressing objects:   1% (24/2364)   [Kremote: Compressing objects:   2% (48/2364)   [Kremote: Compressing objects:   3% (71/2364)   [Kremote: Compressing objects:   4% (95/2364)   [Kremote: Compressing objects:   5% (119/2364)   [Kremote: Compressing objects:   6% (142/2364)   [Kremote: Compressing objects:   7% (166/2364)   [Kremote: Compressing objects:   8% (190/2364)   [Kremote: Compressing objects:   9% (213/2364)   [Kremote: Compressing objects:  10% (237/2364)   [Kremote: Compressing objects:  11% (261/2364)   [Kremote: Compressing objects:  12% (284/2364)   [Kremote: Compressing objects:  13% (308/2364)   [Kremote: Compressing objects:  14% (331/2364)   [Kremote: Compressing objects:  15% (355/2364)   [Kremote: Compressing objects:  16% (379/2364)   [Kremote: Compressing objects:  17% (402/2364)   [Kremote: Compressing objects:  18% (426/2364)   [Kremote: Compressing objects:  19% (450/2364)   [Kremote: Compressing objects:  20% (473/2364)   [Kremote: Compressing objects:  21% (497/2364)   [Kremote: Compressing objects:  22% (521/2364)   [Kremote: Compressing objects:  23% (544/2364)   [Kremote: Compressing objects:  24% (568/2364)   [Kremote: Compressing objects:  25% (591/2364)   [Kremote: Compressing objects:  26% (615/2364)   [Kremote: Compressing objects:  27% (639/2364)   [Kremote: Compressing objects:  28% (662/2364)   [Kremote: Compressing objects:  29% (686/2364)   [Kremote: Compressing objects:  30% (710/2364)   [Kremote: Compressing objects:  31% (733/2364)   [Kremote: Compressing objects:  32% (757/2364)   [Kremote: Compressing objects:  33% (781/2364)   [Kremote: Compressing objects:  34% (804/2364)   [Kremote: Compressing objects:  35% (828/2364)   [Kremote: Compressing objects:  36% (852/2364)   [Kremote: Compressing objects:  37% (875/2364)   [Kremote: Compressing objects:  38% (899/2364)   [Kremote: Compressing objects:  39% (922/2364)   [Kremote: Compressing objects:  40% (946/2364)   [Kremote: Compressing objects:  41% (970/2364)   [Kremote: Compressing objects:  42% (993/2364)   [Kremote: Compressing objects:  43% (1017/2364)   [Kremote: Compressing objects:  44% (1041/2364)   [Kremote: Compressing objects:  45% (1064/2364)   [Kremote: Compressing objects:  46% (1088/2364)   [Kremote: Compressing objects:  47% (1112/2364)   [Kremote: Compressing objects:  48% (1135/2364)   [Kremote: Compressing objects:  49% (1159/2364)   [Kremote: Compressing objects:  50% (1182/2364)   [Kremote: Compressing objects:  51% (1206/2364)   [Kremote: Compressing objects:  52% (1230/2364)   [Kremote: Compressing objects:  53% (1253/2364)   [Kremote: Compressing objects:  54% (1277/2364)   [Kremote: Compressing objects:  55% (1301/2364)   [Kremote: Compressing objects:  56% (1324/2364)   [Kremote: Compressing objects:  57% (1348/2364)   [Kremote: Compressing objects:  58% (1372/2364)   [Kremote: Compressing objects:  59% (1395/2364)   [Kremote: Compressing objects:  60% (1419/2364)   [Kremote: Compressing objects:  61% (1443/2364)   [Kremote: Compressing objects:  62% (1466/2364)   [Kremote: Compressing objects:  63% (1490/2364)   [Kremote: Compressing objects:  64% (1513/2364)   [Kremote: Compressing objects:  65% (1537/2364)   [Kremote: Compressing objects:  66% (1561/2364)   [Kremote: Compressing objects:  67% (1584/2364)   [Kremote: Compressing objects:  68% (1608/2364)   [Kremote: Compressing objects:  69% (1632/2364)   [Kremote: Compressing objects:  70% (1655/2364)   [Kremote: Compressing objects:  71% (1679/2364)   [Kremote: Compressing objects:  72% (1703/2364)   [Kremote: Compressing objects:  73% (1726/2364)   [Kremote: Compressing objects:  74% (1750/2364)   [Kremote: Compressing objects:  75% (1773/2364)   [Kremote: Compressing objects:  76% (1797/2364)   [Kremote: Compressing objects:  77% (1821/2364)   [Kremote: Compressing objects:  78% (1844/2364)   [Kremote: Compressing objects:  79% (1868/2364)   [Kremote: Compressing objects:  80% (1892/2364)   [Kremote: Compressing objects:  81% (1915/2364)   [Kremote: Compressing objects:  82% (1939/2364)   [Kremote: Compressing objects:  83% (1963/2364)   [Kremote: Compressing objects:  84% (1986/2364)   [Kremote: Compressing objects:  85% (2010/2364)   [Kremote: Compressing objects:  86% (2034/2364)   [Kremote: Compressing objects:  87% (2057/2364)   [Kremote: Compressing objects:  88% (2081/2364)   [Kremote: Compressing objects:  89% (2104/2364)   [Kremote: Compressing objects:  90% (2128/2364)   [Kremote: Compressing objects:  91% (2152/2364)   [Kremote: Compressing objects:  92% (2175/2364)   [Kremote: Compressing objects:  93% (2199/2364)   [Kremote: Compressing objects:  94% (2223/2364)   [Kremote: Compressing objects:  95% (2246/2364)   [Kremote: Compressing objects:  96% (2270/2364)   [Kremote: Compressing objects:  97% (2294/2364)   [Kremote: Compressing objects:  98% (2317/2364)   [Kremote: Compressing objects:  99% (2341/2364)   [Kremote: Compressing objects: 100% (2364/2364)   [Kremote: Compressing objects: 100% (2364/2364), done.[K
+Receiving objects:   0% (1/4360)   Receiving objects:   1% (44/4360)   Receiving objects:   2% (88/4360)   Receiving objects:   3% (131/4360)   Receiving objects:   4% (175/4360)   Receiving objects:   5% (218/4360)   Receiving objects:   6% (262/4360)   Receiving objects:   7% (306/4360)   Receiving objects:   8% (349/4360)   Receiving objects:   9% (393/4360)   Receiving objects:  10% (436/4360)   Receiving objects:  11% (480/4360)   Receiving objects:  12% (524/4360)   Receiving objects:  13% (567/4360)   Receiving objects:  14% (611/4360)   Receiving objects:  15% (654/4360)   Receiving objects:  16% (698/4360)   Receiving objects:  17% (742/4360)   Receiving objects:  18% (785/4360)   Receiving objects:  19% (829/4360)   Receiving objects:  20% (872/4360)   Receiving objects:  21% (916/4360)   Receiving objects:  22% (960/4360)   Receiving objects:  23% (1003/4360)   Receiving objects:  24% (1047/4360)   Receiving objects:  25% (1090/4360)   Receiving objects:  26% (1134/4360)   Receiving objects:  27% (1178/4360)   Receiving objects:  28% (1221/4360)   Receiving objects:  29% (1265/4360)   Receiving objects:  30% (1308/4360)   Receiving objects:  31% (1352/4360)   Receiving objects:  32% (1396/4360)   Receiving objects:  33% (1439/4360)   Receiving objects:  34% (1483/4360)   Receiving objects:  35% (1526/4360)   Receiving objects:  36% (1570/4360)   Receiving objects:  37% (1614/4360)   Receiving objects:  38% (1657/4360)   Receiving objects:  39% (1701/4360)   Receiving objects:  40% (1744/4360)   Receiving objects:  41% (1788/4360)   Receiving objects:  42% (1832/4360)   Receiving objects:  43% (1875/4360)   Receiving objects:  44% (1919/4360)   Receiving objects:  45% (1962/4360)   Receiving objects:  46% (2006/4360)   Receiving objects:  47% (2050/4360)   Receiving objects:  48% (2093/4360)   Receiving objects:  49% (2137/4360)   Receiving objects:  50% (2180/4360)   Receiving objects:  51% (2224/4360)   Receiving objects:  52% (2268/4360)   Receiving objects:  53% (2311/4360)   Receiving objects:  54% (2355/4360)   Receiving objects:  55% (2398/4360)   Receiving objects:  56% (2442/4360)   Receiving objects:  57% (2486/4360)   Receiving objects:  58% (2529/4360)   Receiving objects:  59% (2573/4360)   Receiving objects:  60% (2616/4360)   Receiving objects:  61% (2660/4360)   Receiving objects:  62% (2704/4360)   Receiving objects:  63% (2747/4360)   Receiving objects:  64% (2791/4360)   Receiving objects:  65% (2834/4360)   Receiving objects:  66% (2878/4360)   Receiving objects:  67% (2922/4360)   Receiving objects:  68% (2965/4360)   Receiving objects:  69% (3009/4360)   Receiving objects:  70% (3052/4360)   Receiving objects:  71% (3096/4360)   Receiving objects:  72% (3140/4360)   Receiving objects:  73% (3183/4360)   Receiving objects:  74% (3227/4360)   Receiving objects:  75% (3270/4360)   Receiving objects:  76% (3314/4360)   Receiving objects:  77% (3358/4360)   Receiving objects:  78% (3401/4360)   Receiving objects:  79% (3445/4360)   Receiving objects:  80% (3488/4360)   Receiving objects:  81% (3532/4360)   Receiving objects:  82% (3576/4360)   Receiving objects:  83% (3619/4360)   Receiving objects:  84% (3663/4360)   Receiving objects:  85% (3706/4360)   Receiving objects:  86% (3750/4360)   Receiving objects:  87% (3794/4360)   Receiving objects:  88% (3837/4360)   Receiving objects:  89% (3881/4360)   Receiving objects:  90% (3924/4360)   Receiving objects:  91% (3968/4360)   Receiving objects:  92% (4012/4360)   Receiving objects:  93% (4055/4360)   Receiving objects:  94% (4099/4360)   Receiving objects:  95% (4142/4360)   Receiving objects:  96% (4186/4360)   Receiving objects:  97% (4230/4360)   remote: Total 4360 (delta 1732), reused 3440 (delta 1459), pack-reused 0[K
+Receiving objects:  98% (4273/4360)   Receiving objects:  99% (4317/4360)   Receiving objects: 100% (4360/4360)   Receiving objects: 100% (4360/4360), 3.83 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1732)   Resolving deltas:   1% (29/1732)   Resolving deltas:   2% (47/1732)   Resolving deltas:   3% (58/1732)   Resolving deltas:   4% (71/1732)   Resolving deltas:   5% (87/1732)   Resolving deltas:   8% (141/1732)   Resolving deltas:   9% (168/1732)   Resolving deltas:  10% (177/1732)   Resolving deltas:  11% (191/1732)   Resolving deltas:  12% (209/1732)   Resolving deltas:  13% (232/1732)   Resolving deltas:  14% (244/1732)   Resolving deltas:  15% (261/1732)   Resolving deltas:  16% (286/1732)   Resolving deltas:  17% (299/1732)   Resolving deltas:  18% (314/1732)   Resolving deltas:  20% (347/1732)   Resolving deltas:  21% (364/1732)   Resolving deltas:  22% (384/1732)   Resolving deltas:  23% (402/1732)   Resolving deltas:  24% (416/1732)   Resolving deltas:  25% (433/1732)   Resolving deltas:  26% (452/1732)   Resolving deltas:  27% (468/1732)   Resolving deltas:  28% (488/1732)   Resolving deltas:  29% (505/1732)   Resolving deltas:  30% (522/1732)   Resolving deltas:  31% (543/1732)   Resolving deltas:  32% (555/1732)   Resolving deltas:  33% (572/1732)   Resolving deltas:  34% (590/1732)   Resolving deltas:  35% (607/1732)   Resolving deltas:  36% (625/1732)   Resolving deltas:  37% (655/1732)   Resolving deltas:  38% (663/1732)   Resolving deltas:  39% (677/1732)   Resolving deltas:  40% (694/1732)   Resolving deltas:  41% (713/1732)   Resolving deltas:  42% (733/1732)   Resolving deltas:  43% (758/1732)   Resolving deltas:  44% (765/1732)   Resolving deltas:  45% (782/1732)   Resolving deltas:  46% (814/1732)   Resolving deltas:  47% (818/1732)   Resolving deltas:  48% (836/1732)   Resolving deltas:  49% (850/1732)   Resolving deltas:  50% (868/1732)   Resolving deltas:  51% (888/1732)   Resolving deltas:  52% (911/1732)   Resolving deltas:  53% (918/1732)   Resolving deltas:  54% (941/1732)   Resolving deltas:  55% (956/1732)   Resolving deltas:  56% (971/1732)   Resolving deltas:  57% (988/1732)   Resolving deltas:  59% (1033/1732)   Resolving deltas:  60% (1041/1732)   Resolving deltas:  61% (1057/1732)   Resolving deltas:  62% (1074/1732)   Resolving deltas:  74% (1287/1732)   Resolving deltas:  77% (1341/1732)   Resolving deltas:  80% (1399/1732)   Resolving deltas:  81% (1404/1732)   Resolving deltas:  82% (1421/1732)   Resolving deltas:  83% (1438/1732)   Resolving deltas:  85% (1479/1732)   Resolving deltas:  87% (1514/1732)   Resolving deltas:  88% (1526/1732)   Resolving deltas:  89% (1553/1732)   Resolving deltas:  90% (1559/1732)   Resolving deltas:  91% (1579/1732)   Resolving deltas:  92% (1609/1732)   Resolving deltas:  93% (1611/1732)   Resolving deltas:  94% (1631/1732)   Resolving deltas:  95% (1646/1732)   Resolving deltas:  96% (1668/1732)   Resolving deltas:  97% (1681/1732)   Resolving deltas:  98% (1698/1732)   Resolving deltas: 100% (1732/1732)   Resolving deltas: 100% (1732/1732), done.
+Checking connectivity... done.
+travis_time:end:00874f08:start=1440053254204368738,finish=1440053255229182216,duration=1024813478[0K$ cd SonarSource/sonar-java
+$ git checkout -qf c6c51ca538a2b04035eae2ee533bc55f7088304c
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:09c692d0[0K$ git submodule init
+Submodule 'its/sources' (https://github.com/SonarSource/ruling_java.git) registered for path 'its/sources'
+travis_time:end:09c692d0:start=1440053255386141431,finish=1440053255426728716,duration=40587285[0Ktravis_time:start:2d8050d7[0K$ git submodule update
+Cloning into 'its/sources'...
+remote: Counting objects: 13228, done.[K
+remote: Compressing objects:   0% (1/4907)   [Kremote: Compressing objects:   1% (50/4907)   [Kremote: Compressing objects:   2% (99/4907)   [Kremote: Compressing objects:   3% (148/4907)   [Kremote: Compressing objects:   4% (197/4907)   [Kremote: Compressing objects:   5% (246/4907)   [Kremote: Compressing objects:   6% (295/4907)   [Kremote: Compressing objects:   7% (344/4907)   [Kremote: Compressing objects:   8% (393/4907)   [Kremote: Compressing objects:   9% (442/4907)   [Kremote: Compressing objects:  10% (491/4907)   [Kremote: Compressing objects:  11% (540/4907)   [Kremote: Compressing objects:  12% (589/4907)   [Kremote: Compressing objects:  13% (638/4907)   [Kremote: Compressing objects:  14% (687/4907)   [Kremote: Compressing objects:  15% (737/4907)   [Kremote: Compressing objects:  16% (786/4907)   [Kremote: Compressing objects:  17% (835/4907)   [Kremote: Compressing objects:  18% (884/4907)   [Kremote: Compressing objects:  19% (933/4907)   [Kremote: Compressing objects:  20% (982/4907)   [Kremote: Compressing objects:  21% (1031/4907)   [Kremote: Compressing objects:  22% (1080/4907)   [Kremote: Compressing objects:  23% (1129/4907)   [Kremote: Compressing objects:  24% (1178/4907)   [Kremote: Compressing objects:  25% (1227/4907)   [Kremote: Compressing objects:  26% (1276/4907)   [Kremote: Compressing objects:  27% (1325/4907)   [Kremote: Compressing objects:  28% (1374/4907)   [Kremote: Compressing objects:  29% (1424/4907)   [Kremote: Compressing objects:  30% (1473/4907)   [Kremote: Compressing objects:  31% (1522/4907)   [Kremote: Compressing objects:  31% (1537/4907)   [Kremote: Compressing objects:  32% (1571/4907)   [Kremote: Compressing objects:  33% (1620/4907)   [Kremote: Compressing objects:  34% (1669/4907)   [Kremote: Compressing objects:  35% (1718/4907)   [Kremote: Compressing objects:  36% (1767/4907)   [Kremote: Compressing objects:  37% (1816/4907)   [Kremote: Compressing objects:  38% (1865/4907)   [Kremote: Compressing objects:  39% (1914/4907)   [Kremote: Compressing objects:  40% (1963/4907)   [Kremote: Compressing objects:  41% (2012/4907)   [Kremote: Compressing objects:  42% (2061/4907)   [Kremote: Compressing objects:  43% (2111/4907)   [Kremote: Compressing objects:  44% (2160/4907)   [Kremote: Compressing objects:  45% (2209/4907)   [Kremote: Compressing objects:  46% (2258/4907)   [Kremote: Compressing objects:  47% (2307/4907)   [Kremote: Compressing objects:  48% (2356/4907)   [Kremote: Compressing objects:  49% (2405/4907)   [Kremote: Compressing objects:  50% (2454/4907)   [Kremote: Compressing objects:  51% (2503/4907)   [Kremote: Compressing objects:  52% (2552/4907)   [Kremote: Compressing objects:  53% (2601/4907)   [Kremote: Compressing objects:  54% (2650/4907)   [Kremote: Compressing objects:  55% (2699/4907)   [Kremote: Compressing objects:  56% (2748/4907)   [Kremote: Compressing objects:  57% (2797/4907)   [Kremote: Compressing objects:  58% (2847/4907)   [Kremote: Compressing objects:  59% (2896/4907)   [Kremote: Compressing objects:  60% (2945/4907)   [Kremote: Compressing objects:  61% (2994/4907)   [Kremote: Compressing objects:  62% (3043/4907)   [Kremote: Compressing objects:  63% (3092/4907)   [Kremote: Compressing objects:  64% (3141/4907)   [Kremote: Compressing objects:  65% (3190/4907)   [Kremote: Compressing objects:  66% (3239/4907)   [Kremote: Compressing objects:  67% (3288/4907)   [Kremote: Compressing objects:  68% (3337/4907)   [Kremote: Compressing objects:  69% (3386/4907)   [Kremote: Compressing objects:  70% (3435/4907)   [Kremote: Compressing objects:  71% (3484/4907)   [Kremote: Compressing objects:  72% (3534/4907)   [Kremote: Compressing objects:  73% (3583/4907)   [Kremote: Compressing objects:  74% (3632/4907)   [Kremote: Compressing objects:  75% (3681/4907)   [Kremote: Compressing objects:  76% (3730/4907)   [Kremote: Compressing objects:  76% (3768/4907)   [Kremote: Compressing objects:  77% (3779/4907)   [Kremote: Compressing objects:  78% (3828/4907)   [Kremote: Compressing objects:  79% (3877/4907)   [Kremote: Compressing objects:  80% (3926/4907)   [Kremote: Compressing objects:  81% (3975/4907)   [Kremote: Compressing objects:  82% (4024/4907)   [Kremote: Compressing objects:  83% (4073/4907)   [Kremote: Compressing objects:  84% (4122/4907)   [Kremote: Compressing objects:  85% (4171/4907)   [Kremote: Compressing objects:  86% (4221/4907)   [Kremote: Compressing objects:  87% (4270/4907)   [Kremote: Compressing objects:  88% (4319/4907)   [Kremote: Compressing objects:  89% (4368/4907)   [Kremote: Compressing objects:  90% (4417/4907)   [Kremote: Compressing objects:  91% (4466/4907)   [Kremote: Compressing objects:  92% (4515/4907)   [Kremote: Compressing objects:  93% (4564/4907)   [Kremote: Compressing objects:  94% (4613/4907)   [Kremote: Compressing objects:  95% (4662/4907)   [Kremote: Compressing objects:  96% (4711/4907)   [Kremote: Compressing objects:  97% (4760/4907)   [Kremote: Compressing objects:  98% (4809/4907)   [Kremote: Compressing objects:  99% (4858/4907)   [Kremote: Compressing objects: 100% (4907/4907)   [Kremote: Compressing objects: 100% (4907/4907), done.[K
+Receiving objects:   0% (1/13228)   Receiving objects:   1% (133/13228)   Receiving objects:   2% (265/13228)   Receiving objects:   3% (397/13228)   Receiving objects:   4% (530/13228)   Receiving objects:   5% (662/13228)   Receiving objects:   6% (794/13228)   Receiving objects:   7% (926/13228)   Receiving objects:   8% (1059/13228)   Receiving objects:   9% (1191/13228)   Receiving objects:  10% (1323/13228)   Receiving objects:  11% (1456/13228)   Receiving objects:  12% (1588/13228)   Receiving objects:  13% (1720/13228)   Receiving objects:  14% (1852/13228)   Receiving objects:  15% (1985/13228)   Receiving objects:  16% (2117/13228)   Receiving objects:  17% (2249/13228)   Receiving objects:  18% (2382/13228)   Receiving objects:  19% (2514/13228)   Receiving objects:  20% (2646/13228)   Receiving objects:  21% (2778/13228)   Receiving objects:  22% (2911/13228)   Receiving objects:  23% (3043/13228)   Receiving objects:  24% (3175/13228)   Receiving objects:  25% (3307/13228)   Receiving objects:  26% (3440/13228)   Receiving objects:  27% (3572/13228)   Receiving objects:  28% (3704/13228)   Receiving objects:  29% (3837/13228)   Receiving objects:  30% (3969/13228)   Receiving objects:  31% (4101/13228)   Receiving objects:  32% (4233/13228)   Receiving objects:  33% (4366/13228)   Receiving objects:  34% (4498/13228)   Receiving objects:  35% (4630/13228)   Receiving objects:  36% (4763/13228)   Receiving objects:  37% (4895/13228)   Receiving objects:  38% (5027/13228)   Receiving objects:  39% (5159/13228)   Receiving objects:  40% (5292/13228)   Receiving objects:  41% (5424/13228)   Receiving objects:  42% (5556/13228)   Receiving objects:  43% (5689/13228)   Receiving objects:  44% (5821/13228)   Receiving objects:  45% (5953/13228)   Receiving objects:  46% (6085/13228)   Receiving objects:  47% (6218/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  48% (6350/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  49% (6482/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  50% (6614/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  51% (6747/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  52% (6879/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  53% (7011/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  54% (7144/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  55% (7276/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  56% (7408/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  57% (7540/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  58% (7673/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  59% (7805/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  60% (7937/13228), 12.93 MiB | 25.80 MiB/s   Receiving objects:  60% (7991/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  61% (8070/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  62% (8202/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  63% (8334/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  64% (8466/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  65% (8599/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  66% (8731/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  67% (8863/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  68% (8996/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  69% (9128/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  70% (9260/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  71% (9392/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  72% (9525/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  73% (9657/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  74% (9789/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  75% (9921/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  76% (10054/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  77% (10186/13228), 35.82 MiB | 35.74 MiB/s   Receiving objects:  78% (10318/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  79% (10451/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  80% (10583/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  81% (10715/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  82% (10847/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  83% (10980/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  84% (11112/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  84% (11218/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  85% (11244/13228), 48.29 MiB | 32.11 MiB/s   Receiving objects:  86% (11377/13228), 49.85 MiB | 24.86 MiB/s   Receiving objects:  87% (11509/13228), 49.85 MiB | 24.86 MiB/s   Receiving objects:  88% (11641/13228), 49.85 MiB | 24.86 MiB/s   Receiving objects:  89% (11773/13228), 49.85 MiB | 24.86 MiB/s   Receiving objects:  90% (11906/13228), 49.85 MiB | 24.86 MiB/s   Receiving objects:  91% (12038/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  92% (12170/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  93% (12303/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  94% (12435/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  95% (12567/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  96% (12699/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  97% (12832/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  98% (12964/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects:  99% (13096/13228), 52.44 MiB | 20.92 MiB/s   remote: Total 13228 (delta 1610), reused 0 (delta 0), pack-reused 7992[K
+Receiving objects: 100% (13228/13228), 52.44 MiB | 20.92 MiB/s   Receiving objects: 100% (13228/13228), 58.67 MiB | 20.92 MiB/s, done.
+Resolving deltas:   0% (0/3943)   Resolving deltas:   1% (43/3943)   Resolving deltas:   2% (84/3943)   Resolving deltas:   3% (147/3943)   Resolving deltas:   4% (188/3943)   Resolving deltas:   5% (199/3943)   Resolving deltas:   6% (242/3943)   Resolving deltas:   7% (277/3943)   Resolving deltas:   8% (316/3943)   Resolving deltas:   9% (359/3943)   Resolving deltas:  10% (395/3943)   Resolving deltas:  11% (434/3943)   Resolving deltas:  12% (474/3943)   Resolving deltas:  13% (513/3943)   Resolving deltas:  14% (553/3943)   Resolving deltas:  15% (593/3943)   Resolving deltas:  17% (684/3943)   Resolving deltas:  18% (713/3943)   Resolving deltas:  19% (759/3943)   Resolving deltas:  20% (794/3943)   Resolving deltas:  21% (832/3943)   Resolving deltas:  22% (869/3943)   Resolving deltas:  23% (909/3943)   Resolving deltas:  24% (949/3943)   Resolving deltas:  25% (986/3943)   Resolving deltas:  26% (1026/3943)   Resolving deltas:  27% (1065/3943)   Resolving deltas:  28% (1108/3943)   Resolving deltas:  29% (1146/3943)   Resolving deltas:  30% (1183/3943)   Resolving deltas:  31% (1223/3943)   Resolving deltas:  32% (1264/3943)   Resolving deltas:  33% (1303/3943)   Resolving deltas:  34% (1341/3943)   Resolving deltas:  35% (1381/3943)   Resolving deltas:  36% (1420/3943)   Resolving deltas:  37% (1464/3943)   Resolving deltas:  38% (1504/3943)   Resolving deltas:  39% (1542/3943)   Resolving deltas:  40% (1583/3943)   Resolving deltas:  41% (1617/3943)   Resolving deltas:  42% (1659/3943)   Resolving deltas:  43% (1696/3943)   Resolving deltas:  44% (1740/3943)   Resolving deltas:  45% (1777/3943)   Resolving deltas:  46% (1815/3943)   Resolving deltas:  47% (1854/3943)   Resolving deltas:  48% (1893/3943)   Resolving deltas:  49% (1938/3943)   Resolving deltas:  50% (1972/3943)   Resolving deltas:  51% (2011/3943)   Resolving deltas:  52% (2051/3943)   Resolving deltas:  53% (2099/3943)   Resolving deltas:  54% (2138/3943)   Resolving deltas:  55% (2169/3943)   Resolving deltas:  56% (2210/3943)   Resolving deltas:  57% (2251/3943)   Resolving deltas:  58% (2289/3943)   Resolving deltas:  59% (2327/3943)   Resolving deltas:  60% (2379/3943)   Resolving deltas:  61% (2413/3943)   Resolving deltas:  62% (2446/3943)   Resolving deltas:  63% (2493/3943)   Resolving deltas:  64% (2526/3943)   Resolving deltas:  65% (2563/3943)   Resolving deltas:  66% (2605/3943)   Resolving deltas:  67% (2643/3943)   Resolving deltas:  68% (2685/3943)   Resolving deltas:  69% (2721/3943)   Resolving deltas:  70% (2767/3943)   Resolving deltas:  71% (2800/3943)   Resolving deltas:  72% (2839/3943)   Resolving deltas:  73% (2880/3943)   Resolving deltas:  74% (2918/3943)   Resolving deltas:  75% (2959/3943)   Resolving deltas:  76% (3010/3943)   Resolving deltas:  77% (3042/3943)   Resolving deltas:  78% (3076/3943)   Resolving deltas:  79% (3115/3943)   Resolving deltas:  80% (3155/3943)   Resolving deltas:  81% (3196/3943)   Resolving deltas:  82% (3234/3943)   Resolving deltas:  83% (3278/3943)   Resolving deltas:  84% (3317/3943)   Resolving deltas:  85% (3372/3943)   Resolving deltas:  86% (3391/3943)   Resolving deltas:  87% (3431/3943)   Resolving deltas:  88% (3472/3943)   Resolving deltas:  89% (3512/3943)   Resolving deltas:  90% (3549/3943)   Resolving deltas:  91% (3590/3943)   Resolving deltas:  92% (3628/3943)   Resolving deltas:  93% (3667/3943)   Resolving deltas:  94% (3707/3943)   Resolving deltas:  95% (3746/3943)   Resolving deltas:  96% (3786/3943)   Resolving deltas:  97% (3833/3943)   Resolving deltas:  98% (3865/3943)   Resolving deltas:  99% (3904/3943)   Resolving deltas: 100% (3943/3943)   Resolving deltas: 100% (3943/3943), done.
+Checking connectivity... done.
+Submodule path 'its/sources': checked out '23259e9132c5c7816db57dded166000df2578f75'
+travis_time:end:2d8050d7:start=1440053255430323227,finish=1440053262122261116,duration=6691937889[0Ktravis_fold:end:git.submodule[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from repository settings[0m
+$ export SONAR_HOST_URL=[secure]
+$ export SONAR_GITHUB_REPOSITORY=git@github.com:SonarSource/sonar-java.git
+$ export SONAR_GITHUB_LOGIN=[secure]
+$ export SONAR_GITHUB_OAUTH=[secure]
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TESTS=CI
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:063bdccf[0K$ Installing caching utilities
+travis_time:end:063bdccf:start=1440053263754971488,finish=1440053263814683958,duration=59712470[0Ktravis_time:start:2cafcd62[0Kattempting to download cache archive
+fetching TREE-KIND/cache--jdk-oraclejdk7.tgz
+fetching TREE-KIND/cache--jdk-oraclejdk7.tbz
+fetching master/cache--jdk-oraclejdk7.tgz
+found cache
+travis_time:end:2cafcd62:start=1440053263820815249,finish=1440053272472554442,duration=8651739193[0Ktravis_time:start:11dd2820[0Kadding /home/travis/.m2/repository to cache
+travis_time:end:11dd2820:start=1440053272476348360,finish=1440053279125712359,duration=6649363999[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:062bcb3f[0K$ true
+travis_time:end:062bcb3f:start=1440053279481669332,finish=1440053279484676608,duration=3007276[0Ktravis_fold:end:install[0Ktravis_time:start:043b7eb4[0K$ ./travis.sh
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] SonarQube Java
+[INFO] SonarQube Java :: Squid
+[INFO] SonarQube Java :: Checks
+[INFO] SonarQube Java :: Surefire
+[INFO] java-jacoco-previous
+[INFO] SonarQube Java :: JaCoCo
+[INFO] SonarQube Java :: Plugin
+[INFO] SonarQube Java :: JaCoCo Listeners
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SonarQube Java 3.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ java ---
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarSource/sonar-java && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarSource/sonar-java
+[INFO] Storing buildNumber: c6c51ca538a2b04035eae2ee533bc55f7088304c at timestamp: 1440053285305
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarSource/sonar-java && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarSource/sonar-java
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ java ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ java ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ java ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ java ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SonarQube Java :: Squid 3.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ java-squid ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ java-squid ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ java-squid ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ java-squid ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ java-squid ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 262 source files to /home/travis/build/SonarSource/sonar-java/java-squid/target/classes
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/main/java/org/sonar/java/ast/parser/ListTreeImpl.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/main/java/org/sonar/java/ast/parser/ListTreeImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.9:unpack (unpack-test-projects) @ java-squid ---
+[INFO] Configured Artifact: commons-collections:commons-collections:sources:3.2.1:jar
+[INFO] Configured Artifact: commons-collections:commons-collections:3.2.1:jar
+[INFO] Configured Artifact: org.apache.struts:struts-core:sources:1.3.9:jar
+[INFO] Configured Artifact: org.apache.struts:struts-core:1.3.9:jar
+[INFO] Unpacking /home/travis/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1-sources.jar to /home/travis/build/SonarSource/sonar-java/java-squid/target/test-projects/commons-collections-3.2.1/src with includes "" and excludes ""
+[INFO] Unpacking /home/travis/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar to /home/travis/build/SonarSource/sonar-java/java-squid/target/test-projects/commons-collections-3.2.1/bin with includes "" and excludes ""
+[INFO] Unpacking /home/travis/.m2/repository/org/apache/struts/struts-core/1.3.9/struts-core-1.3.9-sources.jar to /home/travis/build/SonarSource/sonar-java/java-squid/target/test-projects/struts-core-1.3.9/src with includes "" and excludes ""
+[INFO] Unpacking /home/travis/.m2/repository/org/apache/struts/struts-core/1.3.9/struts-core-1.3.9.jar to /home/travis/build/SonarSource/sonar-java/java-squid/target/test-projects/struts-core-1.3.9/bin with includes "" and excludes ""
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ java-squid ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ java-squid ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 161 source files to /home/travis/build/SonarSource/sonar-java/java-squid/target/test-classes
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/test/java/org/sonar/java/ast/visitors/FileLinesVisitorTest.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/test/java/org/sonar/java/ast/visitors/FileLinesVisitorTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/test/java/org/sonar/java/SonarComponentsTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarSource/sonar-java/java-squid/src/test/java/org/sonar/java/SonarComponentsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ java-squid ---
+[INFO] Surefire report directory: /home/travis/build/SonarSource/sonar-java/java-squid/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.java.ast.parser.grammar.statements.VariableDeclaratorsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.415 sec - in org.sonar.java.ast.parser.grammar.statements.VariableDeclaratorsTest
+Running org.sonar.java.ast.parser.grammar.statements.ThrowStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.sonar.java.ast.parser.grammar.statements.ThrowStatementTest
+Running org.sonar.java.ast.parser.grammar.literals.LiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.literals.LiteralTest
+Running org.sonar.java.signature.ParameterSignaturePrinterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.signature.ParameterSignaturePrinterTest
+Running org.sonar.java.bytecode.visitor.DependenciesVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.bytecode.visitor.DependenciesVisitorTest
+Running org.sonar.java.model.LiteralUtilsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 sec - in org.sonar.java.model.LiteralUtilsTest
+Running org.sonar.java.model.declaration.ClassTreeImplTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in org.sonar.java.model.declaration.ClassTreeImplTest
+Running org.sonar.java.resolve.SymbolTableTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.763 sec - in org.sonar.java.resolve.SymbolTableTest
+Running org.sonar.java.ast.parser.grammar.statements.ReturnStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 sec - in org.sonar.java.ast.parser.grammar.statements.ReturnStatementTest
+Running org.sonar.java.bytecode.loader.SquidClassLoaderTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.sonar.java.bytecode.loader.SquidClassLoaderTest
+Running org.sonar.java.ast.parser.grammar.parameters.FormalParametersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in org.sonar.java.ast.parser.grammar.parameters.FormalParametersTest
+Running org.sonar.java.ast.parser.grammar.interfaces.InterfaceDeclarationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in org.sonar.java.ast.parser.grammar.interfaces.InterfaceDeclarationTest
+Running org.sonar.java.ast.parser.grammar.statements.StatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec - in org.sonar.java.ast.parser.grammar.statements.StatementTest
+Running org.sonar.plugins.java.api.CheckRegistrarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.plugins.java.api.CheckRegistrarTest
+Running org.sonar.java.bytecode.asm.AsmFieldVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in org.sonar.java.bytecode.asm.AsmFieldVisitorTest
+Running org.sonar.java.ast.parser.grammar.statements.IfStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec - in org.sonar.java.ast.parser.grammar.statements.IfStatementTest
+Running org.sonar.java.ast.parser.grammar.enums.EnumConstantTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in org.sonar.java.ast.parser.grammar.enums.EnumConstantTest
+Running org.sonar.java.MeasurerTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.173 sec - in org.sonar.java.MeasurerTest
+Running org.sonar.java.ast.api.JavaPunctuatorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.api.JavaPunctuatorTest
+Running org.sonar.java.bytecode.asm.AsmSignatureTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.bytecode.asm.AsmSignatureTest
+Running org.sonar.java.JavaFilesCacheTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 sec - in org.sonar.java.JavaFilesCacheTest
+Running org.sonar.java.filters.SuppressWarningsFilterTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in org.sonar.java.filters.SuppressWarningsFilterTest
+Running org.sonar.java.resolve.JavaSymbolTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 sec - in org.sonar.java.resolve.JavaSymbolTest
+Running org.sonar.java.resolve.SymbolsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.java.resolve.SymbolsTest
+Running org.sonar.java.resolve.TypeSubstitutionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.java.resolve.TypeSubstitutionTest
+Running org.sonar.java.resolve.SafetyNetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.191 sec - in org.sonar.java.resolve.SafetyNetTest
+Running org.sonar.java.ast.parser.grammar.literals.StringLiteralTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.java.ast.parser.grammar.literals.StringLiteralTest
+Running org.sonar.java.ast.parser.grammar.expressions.ExpressionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.java.ast.parser.grammar.expressions.ExpressionTest
+Running org.sonar.java.ast.parser.grammar.statements.BlockStatementsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.sonar.java.ast.parser.grammar.statements.BlockStatementsTest
+Running org.sonar.java.resolve.ResolveTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.sonar.java.resolve.ResolveTest
+Running org.sonar.java.ast.parser.PrinterVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.java.ast.parser.PrinterVisitorTest
+Running org.sonar.java.resolve.ConvertTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.resolve.ConvertTest
+Running org.sonar.java.ast.visitors.FileLinesVisitorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 sec - in org.sonar.java.ast.visitors.FileLinesVisitorTest
+Running org.sonar.java.resolve.BytecodeCompleterTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in org.sonar.java.resolve.BytecodeCompleterTest
+Running org.sonar.java.ast.parser.grammar.enums.EnumDeclarationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.sonar.java.ast.parser.grammar.enums.EnumDeclarationTest
+Running org.sonar.java.ast.parser.grammar.types.TypeParameterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.types.TypeParameterTest
+Running org.sonar.java.bytecode.loader.JarLoaderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.sonar.java.bytecode.loader.JarLoaderTest
+Running org.sonar.java.bytecode.asm.AsmMethodVisitorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in org.sonar.java.bytecode.asm.AsmMethodVisitorTest
+Running org.sonar.java.ast.parser.grammar.literals.FloatLiteralTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.sonar.java.ast.parser.grammar.literals.FloatLiteralTest
+Running org.sonar.java.ast.parser.grammar.parameters.VariableDeclaratorIdTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.parameters.VariableDeclaratorIdTest
+Running org.sonar.java.model.VisitorsBridgeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec - in org.sonar.java.model.VisitorsBridgeTest
+Running org.sonar.java.ast.parser.grammar.statements.BreakStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.sonar.java.ast.parser.grammar.statements.BreakStatementTest
+Running org.sonar.java.ast.parser.grammar.units.ImportDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.units.ImportDeclarationTest
+Running org.sonar.java.ast.parser.grammar.types.ModifiersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.types.ModifiersTest
+Running org.sonar.java.ast.JavaAstScannerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 sec - in org.sonar.java.ast.JavaAstScannerTest
+Running org.sonar.java.ast.parser.grammar.literals.IdentifierTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.literals.IdentifierTest
+Running org.sonar.java.bytecode.asm.AsmFieldTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.bytecode.asm.AsmFieldTest
+Running org.sonar.java.ast.parser.grammar.literals.KeywordTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.literals.KeywordTest
+Running org.sonar.java.ast.visitors.SyntaxHighlighterVisitorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 sec - in org.sonar.java.ast.visitors.SyntaxHighlighterVisitorTest
+Running org.sonar.java.ast.parser.grammar.statements.DoStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.grammar.statements.DoStatementTest
+Running org.sonar.java.ast.parser.grammar.CornerCasesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec - in org.sonar.java.ast.parser.grammar.CornerCasesTest
+Running org.sonar.java.ast.parser.grammar.statements.SwitchStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.statements.SwitchStatementTest
+Running org.sonar.java.bytecode.asm.AsmClassTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.bytecode.asm.AsmClassTest
+Running org.sonar.plugins.java.api.IssuableSubscriptionVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in org.sonar.plugins.java.api.IssuableSubscriptionVisitorTest
+Running org.sonar.java.resolve.FlagsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.resolve.FlagsTest
+Running org.sonar.java.ast.parser.grammar.parameters.FormalParameterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.parameters.FormalParameterTest
+Running org.sonar.java.ast.parser.grammar.parameters.FormalParameterDeclsRestTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.java.ast.parser.grammar.parameters.FormalParameterDeclsRestTest
+Running org.sonar.java.model.KindMapsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.sonar.java.model.KindMapsTest
+Running org.sonar.java.resolve.ScopeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.resolve.ScopeTest
+Running org.sonar.plugins.java.api.tree.TreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.plugins.java.api.tree.TreeTest
+Running org.sonar.java.ast.parser.grammar.statements.ForStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.java.ast.parser.grammar.statements.ForStatementTest
+Running org.sonar.java.model.TreeTokenCompletenessTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 sec - in org.sonar.java.model.TreeTokenCompletenessTest
+Running org.sonar.java.resolve.JavaTypeTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.sonar.java.resolve.JavaTypeTest
+Running org.sonar.java.ast.parser.JavaParserIntegrationTest
+Tests run: 489, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.866 sec - in org.sonar.java.ast.parser.JavaParserIntegrationTest
+Running org.sonar.java.bytecode.BytecodeVisitorsTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 sec - in org.sonar.java.bytecode.BytecodeVisitorsTest
+Running org.sonar.java.ast.parser.grammar.statements.SynchronizedStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.statements.SynchronizedStatementTest
+Running org.sonar.java.ast.visitors.AccessorsUtilsTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in org.sonar.java.ast.visitors.AccessorsUtilsTest
+Running org.sonar.java.bytecode.asm.AsmClassVisitorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec - in org.sonar.java.bytecode.asm.AsmClassVisitorTest
+Running org.sonar.java.bytecode.loader.FileSystemLoaderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.sonar.java.bytecode.loader.FileSystemLoaderTest
+Running org.sonar.java.ast.parser.grammar.classes.MemberDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.classes.MemberDeclTest
+Running org.sonar.java.signature.MethodSignatureScannerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.signature.MethodSignatureScannerTest
+Running org.sonar.java.ast.parser.grammar.types.TypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.types.TypeTest
+Running org.sonar.java.model.ModifiersUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.model.ModifiersUtilsTest
+Running org.sonar.java.signature.ParameterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.signature.ParameterTest
+Running org.sonar.java.bytecode.asm.AsmSignatureVisitorTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.bytecode.asm.AsmSignatureVisitorTest
+Running org.sonar.java.model.SyntacticEquivalenceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.sonar.java.model.SyntacticEquivalenceTest
+Running org.sonar.java.ast.parser.grammar.units.PackageDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.units.PackageDeclarationTest
+Running org.sonar.java.ast.parser.grammar.statements.VariableDeclaratorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.sonar.java.ast.parser.grammar.statements.VariableDeclaratorTest
+Running org.sonar.java.resolve.MethodJavaSymbolTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.sonar.java.resolve.MethodJavaSymbolTest
+Running org.sonar.java.bytecode.asm.AsmMethodTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec - in org.sonar.java.bytecode.asm.AsmMethodTest
+Running org.sonar.java.ast.parser.grammar.types.TypeArgumentsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.types.TypeArgumentsTest
+Running org.sonar.java.ast.parser.grammar.statements.FinallyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.statements.FinallyTest
+Running org.sonar.java.ast.api.JavaTokenTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.api.JavaTokenTypeTest
+Running org.sonar.java.model.declaration.MethodTreeImplTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.186 sec - in org.sonar.java.model.declaration.MethodTreeImplTest
+Running org.sonar.java.model.expression.MethodInvocationTreeImplTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.java.model.expression.MethodInvocationTreeImplTest
+Running org.sonar.java.ast.parser.grammar.statements.LocalVariableDeclarationStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.statements.LocalVariableDeclarationStatementTest
+Running org.sonar.java.ast.parser.grammar.statements.SwitchLabelTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.statements.SwitchLabelTest
+Running org.sonar.java.DefaultJavaResourceLocatorTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.sonar.java.DefaultJavaResourceLocatorTest
+Running org.sonar.java.ast.parser.grammar.parameters.FormalParameterDeclsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.grammar.parameters.FormalParameterDeclsTest
+Running org.sonar.java.resolve.TypesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.resolve.TypesTest
+Running org.sonar.java.SonarComponentsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec - in org.sonar.java.SonarComponentsTest
+Running org.sonar.java.ast.parser.grammar.types.TypeParametersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.grammar.types.TypeParametersTest
+Running org.sonar.java.ast.visitors.SonarSymbolTableVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.sonar.java.ast.visitors.SonarSymbolTableVisitorTest
+Running org.sonar.java.ast.parser.grammar.statements.BlockTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.java.ast.parser.grammar.statements.BlockTest
+Running org.sonar.java.ast.parser.grammar.statements.ContinueStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.statements.ContinueStatementTest
+Running org.sonar.java.syntaxtoken.FirstSyntaxTokenFinderTest
+Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in org.sonar.java.syntaxtoken.FirstSyntaxTokenFinderTest
+Running org.sonar.java.ast.parser.grammar.statements.BlockStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.statements.BlockStatementTest
+Running org.sonar.java.signature.ParameterSignatureScannerTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.java.signature.ParameterSignatureScannerTest
+Running org.sonar.java.JavaTestClasspathTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in org.sonar.java.JavaTestClasspathTest
+Running org.sonar.java.ast.parser.grammar.units.TypeDeclarationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.sonar.java.ast.parser.grammar.units.TypeDeclarationTest
+Running org.sonar.java.ast.parser.grammar.literals.IntegerLiteralTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec - in org.sonar.java.ast.parser.grammar.literals.IntegerLiteralTest
+Running org.sonar.java.ast.parser.grammar.statements.LabeledStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.statements.LabeledStatementTest
+Running org.sonar.java.ast.parser.grammar.statements.ExpressionStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.grammar.statements.ExpressionStatementTest
+Running org.sonar.java.bytecode.asm.AsmTypeTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.bytecode.asm.AsmTypeTest
+Running org.sonar.java.ast.parser.grammar.statements.TryStatementTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.sonar.java.ast.parser.grammar.statements.TryStatementTest
+Running org.sonar.java.model.JavaTreeModelTest
+Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.538 sec - in org.sonar.java.model.JavaTreeModelTest
+Running org.sonar.java.ast.parser.grammar.statements.WhileStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.statements.WhileStatementTest
+Running org.sonar.java.ast.parser.grammar.expressions.RelationalExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.expressions.RelationalExpressionTest
+Running org.sonar.java.bytecode.asm.AsmClassProviderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.bytecode.asm.AsmClassProviderTest
+Running org.sonar.java.ast.parser.grammar.classes.ClassDeclarationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.classes.ClassDeclarationTest
+Running org.sonar.java.ast.parser.grammar.statements.EmptyStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.java.ast.parser.grammar.statements.EmptyStatementTest
+Running org.sonar.java.ast.parser.grammar.units.CompilationUnitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.units.CompilationUnitTest
+Running org.sonar.java.StrutsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.492 sec - in org.sonar.java.StrutsTest
+Running org.sonar.java.ast.parser.grammar.types.TypeArgumentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.types.TypeArgumentTest
+Running org.sonar.java.ast.api.JavaKeywordTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.api.JavaKeywordTest
+Running org.sonar.java.ast.parser.ListTreeImplTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.ListTreeImplTest
+Running org.sonar.java.signature.MethodSignaturePrinterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.signature.MethodSignaturePrinterTest
+Running org.sonar.java.syntaxtoken.LastSyntaxTokenFinderTest
+Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec - in org.sonar.java.syntaxtoken.LastSyntaxTokenFinderTest
+Running org.sonar.java.JavaClasspathTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.sonar.java.JavaClasspathTest
+Running org.sonar.java.ast.parser.grammar.statements.AssertStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.statements.AssertStatementTest
+Running org.sonar.java.ast.parser.grammar.statements.CatchClauseTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.statements.CatchClauseTest
+Running org.sonar.java.ast.parser.grammar.annotations.AnnotationTypeDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.annotations.AnnotationTypeDeclarationTest
+Running org.sonar.java.ast.parser.grammar.types.BoundTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.java.ast.parser.grammar.types.BoundTest
+Running org.sonar.java.resolve.TypeAndReferenceSolverTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.7 sec - in org.sonar.java.resolve.TypeAndReferenceSolverTest
+Running org.sonar.java.ast.visitors.PublicApiCheckerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec - in org.sonar.java.ast.visitors.PublicApiCheckerTest
+Running org.sonar.java.ast.parser.grammar.literals.CharacterLiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.java.ast.parser.grammar.literals.CharacterLiteralTest
+Running org.sonar.java.ast.parser.grammar.statements.SwitchBlockStatementGroupTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.java.ast.parser.grammar.statements.SwitchBlockStatementGroupTest
+Running org.sonar.java.bytecode.asm.AsmClassProviderImplTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.255 sec - in org.sonar.java.bytecode.asm.AsmClassProviderImplTest
+Running org.sonar.java.resolve.ImportResolutionTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.489 sec - in org.sonar.java.resolve.ImportResolutionTest
+Running org.sonar.java.model.PackageUtilsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.java.model.PackageUtilsTest
+Running org.sonar.java.SquidUserGuideTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.881 sec - in org.sonar.java.SquidUserGuideTest
+Running org.sonar.java.bytecode.BytecodeScannerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.bytecode.BytecodeScannerTest
+Running org.sonar.java.ast.parser.grammar.statements.ResourceTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.java.ast.parser.grammar.statements.ResourceTest
+
+Results :
+
+
+
+
+Tests run: 1124, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ java-squid ---
+[INFO] Building jar: /home/travis/build/SonarSource/sonar-java/java-squid/target/java-squid-3.5-SNAPSHOT.jar
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ java-squid ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ java-squid ---
+[INFO] Building jar: /home/travis/build/SonarSource/sonar-java/java-squid/target/java-squid-3.5-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SonarQube Java :: Checks 3.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ java-checks ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ java-checks ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ java-checks ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ java-checks ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 319 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ java-checks ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 364 source files to /home/travis/build/SonarSource/sonar-java/java-checks/target/classes
+[INFO] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/TabCharacter_S00105_Check.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/TabCharacter_S00105_Check.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/DeprecatedHashAlgorithmCheck.java:[31,37] cannot find symbol
+  symbol:   class TypeCriteria
+  location: package org.sonar.java.checks.methods
+[ERROR] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/DeprecatedHashAlgorithmCheck.java:[81,23] cannot find symbol
+  symbol:   variable TypeCriteria
+  location: class org.sonar.java.checks.DeprecatedHashAlgorithmCheck
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] SonarQube Java ..................................... SUCCESS [  2.154 s]
+[INFO] SonarQube Java :: Squid ............................ SUCCESS [01:11 min]
+[INFO] SonarQube Java :: Checks ........................... FAILURE [  2.724 s]
+[INFO] SonarQube Java :: Surefire ......................... SKIPPED
+[INFO] java-jacoco-previous ............................... SKIPPED
+[INFO] SonarQube Java :: JaCoCo ........................... SKIPPED
+[INFO] SonarQube Java :: Plugin ........................... SKIPPED
+[INFO] SonarQube Java :: JaCoCo Listeners ................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:17 min
+[INFO] Finished at: 2015-08-20T06:49:21+00:00
+[INFO] Final Memory: 31M/411M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.2:compile (default-compile) on project java-checks: Compilation failure: Compilation failure:
+[ERROR] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/DeprecatedHashAlgorithmCheck.java:[31,37] cannot find symbol
+[ERROR] symbol:   class TypeCriteria
+[ERROR] location: package org.sonar.java.checks.methods
+[ERROR] /home/travis/build/SonarSource/sonar-java/java-checks/src/main/java/org/sonar/java/checks/DeprecatedHashAlgorithmCheck.java:[81,23] cannot find symbol
+[ERROR] symbol:   variable TypeCriteria
+[ERROR] location: class org.sonar.java.checks.DeprecatedHashAlgorithmCheck
+[ERROR] -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.2:compile (default-compile) on project java-checks: Compilation failure
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:120)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:355)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:216)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.apache.maven.plugin.compiler.CompilationFailureException: Compilation failure
+	at org.apache.maven.plugin.compiler.AbstractCompilerMojo.execute(AbstractCompilerMojo.java:909)
+	at org.apache.maven.plugin.compiler.CompilerMojo.execute(CompilerMojo.java:129)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:132)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	... 19 more
+[ERROR] 
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :java-checks
+travis_time:end:043b7eb4:start=1440053279488571447,finish=1440053361980208393,duration=82491636946[0K
+[31;1mThe command "./travis.sh" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0c35eabc[0Knothing changed, not updating cache
+travis_time:end:0c35eabc:start=1440053361985874036,finish=1440053364679189236,duration=2693315200[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

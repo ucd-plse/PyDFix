@@ -1,0 +1,1242 @@
+Using worker: worker-linux-docker-9172fd78.prod.travis-ci.org:travis-linux-8
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: scala
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[33;1mUpdating sbt[0m
+travis_fold:start:git.checkout[0Ktravis_time:start:07494bfd[0K$ git clone --depth=50 --branch=ianoc/addScrooge211SupportCrossPublishingniceness git://github.com/twitter/chill.git twitter/chill
+Cloning into 'twitter/chill'...
+remote: Counting objects: 1425, done.[K
+remote: Compressing objects:   0% (1/530)   [Kremote: Compressing objects:   1% (6/530)   [Kremote: Compressing objects:   2% (11/530)   [Kremote: Compressing objects:   3% (16/530)   [Kremote: Compressing objects:   4% (22/530)   [Kremote: Compressing objects:   5% (27/530)   [Kremote: Compressing objects:   6% (32/530)   [Kremote: Compressing objects:   7% (38/530)   [Kremote: Compressing objects:   8% (43/530)   [Kremote: Compressing objects:   9% (48/530)   [Kremote: Compressing objects:  10% (53/530)   [Kremote: Compressing objects:  11% (59/530)   [Kremote: Compressing objects:  12% (64/530)   [Kremote: Compressing objects:  13% (69/530)   [Kremote: Compressing objects:  14% (75/530)   [Kremote: Compressing objects:  15% (80/530)   [Kremote: Compressing objects:  16% (85/530)   [Kremote: Compressing objects:  17% (91/530)   [Kremote: Compressing objects:  18% (96/530)   [Kremote: Compressing objects:  19% (101/530)   [Kremote: Compressing objects:  20% (106/530)   [Kremote: Compressing objects:  21% (112/530)   [Kremote: Compressing objects:  22% (117/530)   [Kremote: Compressing objects:  23% (122/530)   [Kremote: Compressing objects:  24% (128/530)   [Kremote: Compressing objects:  25% (133/530)   [Kremote: Compressing objects:  26% (138/530)   [Kremote: Compressing objects:  27% (144/530)   [Kremote: Compressing objects:  28% (149/530)   [Kremote: Compressing objects:  29% (154/530)   [Kremote: Compressing objects:  30% (159/530)   [Kremote: Compressing objects:  31% (165/530)   [Kremote: Compressing objects:  32% (170/530)   [Kremote: Compressing objects:  33% (175/530)   [Kremote: Compressing objects:  34% (181/530)   [Kremote: Compressing objects:  35% (186/530)   [Kremote: Compressing objects:  36% (191/530)   [Kremote: Compressing objects:  37% (197/530)   [Kremote: Compressing objects:  38% (202/530)   [Kremote: Compressing objects:  39% (207/530)   [Kremote: Compressing objects:  40% (212/530)   [Kremote: Compressing objects:  41% (218/530)   [Kremote: Compressing objects:  42% (223/530)   [Kremote: Compressing objects:  43% (228/530)   [Kremote: Compressing objects:  44% (234/530)   [Kremote: Compressing objects:  45% (239/530)   [Kremote: Compressing objects:  46% (244/530)   [Kremote: Compressing objects:  47% (250/530)   [Kremote: Compressing objects:  48% (255/530)   [Kremote: Compressing objects:  49% (260/530)   [Kremote: Compressing objects:  50% (265/530)   [Kremote: Compressing objects:  51% (271/530)   [Kremote: Compressing objects:  52% (276/530)   [Kremote: Compressing objects:  53% (281/530)   [Kremote: Compressing objects:  54% (287/530)   [Kremote: Compressing objects:  55% (292/530)   [Kremote: Compressing objects:  56% (297/530)   [Kremote: Compressing objects:  57% (303/530)   [Kremote: Compressing objects:  58% (308/530)   [Kremote: Compressing objects:  59% (313/530)   [Kremote: Compressing objects:  60% (318/530)   [Kremote: Compressing objects:  61% (324/530)   [Kremote: Compressing objects:  62% (329/530)   [Kremote: Compressing objects:  63% (334/530)   [Kremote: Compressing objects:  64% (340/530)   [Kremote: Compressing objects:  65% (345/530)   [Kremote: Compressing objects:  66% (350/530)   [Kremote: Compressing objects:  67% (356/530)   [Kremote: Compressing objects:  68% (361/530)   [Kremote: Compressing objects:  69% (366/530)   [Kremote: Compressing objects:  70% (371/530)   [Kremote: Compressing objects:  71% (377/530)   [Kremote: Compressing objects:  72% (382/530)   [Kremote: Compressing objects:  73% (387/530)   [Kremote: Compressing objects:  74% (393/530)   [Kremote: Compressing objects:  75% (398/530)   [Kremote: Compressing objects:  76% (403/530)   [Kremote: Compressing objects:  77% (409/530)   [Kremote: Compressing objects:  78% (414/530)   [Kremote: Compressing objects:  79% (419/530)   [Kremote: Compressing objects:  80% (424/530)   [Kremote: Compressing objects:  81% (430/530)   [Kremote: Compressing objects:  82% (435/530)   [Kremote: Compressing objects:  83% (440/530)   [Kremote: Compressing objects:  84% (446/530)   [Kremote: Compressing objects:  85% (451/530)   [Kremote: Compressing objects:  86% (456/530)   [Kremote: Compressing objects:  87% (462/530)   [Kremote: Compressing objects:  88% (467/530)   [Kremote: Compressing objects:  89% (472/530)   [Kremote: Compressing objects:  90% (477/530)   [Kremote: Compressing objects:  91% (483/530)   [Kremote: Compressing objects:  92% (488/530)   [Kremote: Compressing objects:  93% (493/530)   [Kremote: Compressing objects:  94% (499/530)   [Kremote: Compressing objects:  95% (504/530)   [Kremote: Compressing objects:  96% (509/530)   [Kremote: Compressing objects:  97% (515/530)   [Kremote: Compressing objects:  98% (520/530)   [Kremote: Compressing objects:  99% (525/530)   [Kremote: Compressing objects: 100% (530/530)   [Kremote: Compressing objects: 100% (530/530), done.[K
+Receiving objects:   0% (1/1425)   Receiving objects:   1% (15/1425)   Receiving objects:   2% (29/1425)   Receiving objects:   3% (43/1425)   Receiving objects:   4% (57/1425)   Receiving objects:   5% (72/1425)   Receiving objects:   6% (86/1425)   Receiving objects:   7% (100/1425)   Receiving objects:   8% (114/1425)   Receiving objects:   9% (129/1425)   Receiving objects:  10% (143/1425)   Receiving objects:  11% (157/1425)   Receiving objects:  12% (171/1425)   Receiving objects:  13% (186/1425)   Receiving objects:  14% (200/1425)   Receiving objects:  15% (214/1425)   Receiving objects:  16% (228/1425)   Receiving objects:  17% (243/1425)   Receiving objects:  18% (257/1425)   Receiving objects:  19% (271/1425)   Receiving objects:  20% (285/1425)   Receiving objects:  21% (300/1425)   Receiving objects:  22% (314/1425)   Receiving objects:  23% (328/1425)   Receiving objects:  24% (342/1425)   Receiving objects:  25% (357/1425)   Receiving objects:  26% (371/1425)   Receiving objects:  27% (385/1425)   Receiving objects:  28% (399/1425)   Receiving objects:  29% (414/1425)   Receiving objects:  30% (428/1425)   Receiving objects:  31% (442/1425)   Receiving objects:  32% (456/1425)   Receiving objects:  33% (471/1425)   Receiving objects:  34% (485/1425)   Receiving objects:  35% (499/1425)   Receiving objects:  36% (513/1425)   Receiving objects:  37% (528/1425)   Receiving objects:  38% (542/1425)   Receiving objects:  39% (556/1425)   Receiving objects:  40% (570/1425)   Receiving objects:  41% (585/1425)   Receiving objects:  42% (599/1425)   Receiving objects:  43% (613/1425)   Receiving objects:  44% (627/1425)   Receiving objects:  45% (642/1425)   Receiving objects:  46% (656/1425)   Receiving objects:  47% (670/1425)   Receiving objects:  48% (684/1425)   Receiving objects:  49% (699/1425)   Receiving objects:  50% (713/1425)   Receiving objects:  51% (727/1425)   Receiving objects:  52% (741/1425)   remote: Total 1425 (delta 343), reused 1357 (delta 293), pack-reused 0[K
+Receiving objects:  53% (756/1425)   Receiving objects:  54% (770/1425)   Receiving objects:  55% (784/1425)   Receiving objects:  56% (798/1425)   Receiving objects:  57% (813/1425)   Receiving objects:  58% (827/1425)   Receiving objects:  59% (841/1425)   Receiving objects:  60% (855/1425)   Receiving objects:  61% (870/1425)   Receiving objects:  62% (884/1425)   Receiving objects:  63% (898/1425)   Receiving objects:  64% (912/1425)   Receiving objects:  65% (927/1425)   Receiving objects:  66% (941/1425)   Receiving objects:  67% (955/1425)   Receiving objects:  68% (969/1425)   Receiving objects:  69% (984/1425)   Receiving objects:  70% (998/1425)   Receiving objects:  71% (1012/1425)   Receiving objects:  72% (1026/1425)   Receiving objects:  73% (1041/1425)   Receiving objects:  74% (1055/1425)   Receiving objects:  75% (1069/1425)   Receiving objects:  76% (1083/1425)   Receiving objects:  77% (1098/1425)   Receiving objects:  78% (1112/1425)   Receiving objects:  79% (1126/1425)   Receiving objects:  80% (1140/1425)   Receiving objects:  81% (1155/1425)   Receiving objects:  82% (1169/1425)   Receiving objects:  83% (1183/1425)   Receiving objects:  84% (1197/1425)   Receiving objects:  85% (1212/1425)   Receiving objects:  86% (1226/1425)   Receiving objects:  87% (1240/1425)   Receiving objects:  88% (1254/1425)   Receiving objects:  89% (1269/1425)   Receiving objects:  90% (1283/1425)   Receiving objects:  91% (1297/1425)   Receiving objects:  92% (1311/1425)   Receiving objects:  93% (1326/1425)   Receiving objects:  94% (1340/1425)   Receiving objects:  95% (1354/1425)   Receiving objects:  96% (1368/1425)   Receiving objects:  97% (1383/1425)   Receiving objects:  98% (1397/1425)   Receiving objects:  99% (1411/1425)   Receiving objects: 100% (1425/1425)   Receiving objects: 100% (1425/1425), 274.49 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/343)   Resolving deltas:   1% (4/343)   Resolving deltas:  10% (37/343)   Resolving deltas:  12% (43/343)   Resolving deltas:  15% (52/343)   Resolving deltas:  16% (55/343)   Resolving deltas:  17% (60/343)   Resolving deltas:  18% (62/343)   Resolving deltas:  20% (72/343)   Resolving deltas:  21% (73/343)   Resolving deltas:  25% (86/343)   Resolving deltas:  26% (90/343)   Resolving deltas:  27% (94/343)   Resolving deltas:  28% (97/343)   Resolving deltas:  29% (101/343)   Resolving deltas:  30% (103/343)   Resolving deltas:  31% (109/343)   Resolving deltas:  32% (110/343)   Resolving deltas:  34% (118/343)   Resolving deltas:  35% (123/343)   Resolving deltas:  36% (124/343)   Resolving deltas:  37% (130/343)   Resolving deltas:  38% (132/343)   Resolving deltas:  39% (134/343)   Resolving deltas:  41% (142/343)   Resolving deltas:  42% (146/343)   Resolving deltas:  48% (166/343)   Resolving deltas:  50% (173/343)   Resolving deltas:  51% (175/343)   Resolving deltas:  52% (180/343)   Resolving deltas:  53% (184/343)   Resolving deltas:  55% (191/343)   Resolving deltas:  56% (193/343)   Resolving deltas:  57% (196/343)   Resolving deltas:  59% (204/343)   Resolving deltas:  60% (206/343)   Resolving deltas:  61% (210/343)   Resolving deltas:  62% (214/343)   Resolving deltas:  65% (226/343)   Resolving deltas:  67% (231/343)   Resolving deltas:  76% (262/343)   Resolving deltas:  77% (266/343)   Resolving deltas:  78% (268/343)   Resolving deltas:  94% (325/343)   Resolving deltas:  95% (326/343)   Resolving deltas:  98% (339/343)   Resolving deltas: 100% (343/343)   Resolving deltas: 100% (343/343), done.
+Checking connectivity... done.
+travis_time:end:07494bfd:start=1438098003869159802,finish=1438098004045483896,duration=176324094[0K$ cd twitter/chill
+$ git checkout -qf 1937c9452de60e8e4a1f6eb1587ae19f39c29051
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+$ jdk_switcher use default
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export JVM_OPTS=@/etc/sbt/jvmopts
+$ export SBT_OPTS=@/etc/sbt/sbtopts
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+Using Scala 2.11.7
+travis_time:start:0ec8e980[0K$ sbt ++2.11.7 test
+Detected sbt version 0.13.5
+Downloading sbt launcher for 0.13.5:
+  From  http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.5/sbt-launch.jar
+    To  /home/travis/.sbt/launchers/0.13.5/sbt-launch.jar
+Using jvm options defined in file /etc/sbt/jvmopts
+# Executing command line:
+/usr/lib/jvm/java-7-oracle/bin/java
+-Xms2048M
+-Xmx2048M
+-Xss6M
+-XX:MaxPermSize=512M
+-jar
+/home/travis/.sbt/launchers/0.13.5/sbt-launch.jar
+warn
+"set javaHome in ThisBuild := Some(file("/usr/lib/jvm/java-7-oracle"))"
+info
+++2.11.7
+test
+
+Getting org.scala-sbt sbt 0.13.5 ...
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt/0.13.5/jars/sbt.jar ...
+	[SUCCESSFUL ] org.scala-sbt#sbt;0.13.5!sbt.jar (315ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/main/0.13.5/jars/main.jar ...
+	[SUCCESSFUL ] org.scala-sbt#main;0.13.5!main.jar (462ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-interface/0.13.5/jars/compiler-interface-src.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-interface;0.13.5!compiler-interface-src.jar (354ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-interface/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-interface;0.13.5!compiler-interface-bin.jar (351ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_8_2/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_8_2;0.13.5!compiler-interface-bin.jar (364ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_9_2/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_9_2;0.13.5!compiler-interface-bin.jar (386ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/precompiled-2_9_3/0.13.5/jars/compiler-interface-bin.jar ...
+	[SUCCESSFUL ] org.scala-sbt#precompiled-2_9_3;0.13.5!compiler-interface-bin.jar (338ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/actions/0.13.5/jars/actions.jar ...
+	[SUCCESSFUL ] org.scala-sbt#actions;0.13.5!actions.jar (364ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/main-settings/0.13.5/jars/main-settings.jar ...
+	[SUCCESSFUL ] org.scala-sbt#main-settings;0.13.5!main-settings.jar (367ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/interface/0.13.5/jars/interface.jar ...
+	[SUCCESSFUL ] org.scala-sbt#interface;0.13.5!interface.jar (356ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/io/0.13.5/jars/io.jar ...
+	[SUCCESSFUL ] org.scala-sbt#io;0.13.5!io.jar (356ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/ivy/0.13.5/jars/ivy.jar ...
+	[SUCCESSFUL ] org.scala-sbt#ivy;0.13.5!ivy.jar (369ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/launcher-interface/0.13.5/jars/launcher-interface.jar ...
+	[SUCCESSFUL ] org.scala-sbt#launcher-interface;0.13.5!launcher-interface.jar (311ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/logging/0.13.5/jars/logging.jar ...
+	[SUCCESSFUL ] org.scala-sbt#logging;0.13.5!logging.jar (395ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/logic/0.13.5/jars/logic.jar ...
+	[SUCCESSFUL ] org.scala-sbt#logic;0.13.5!logic.jar (315ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/process/0.13.5/jars/process.jar ...
+	[SUCCESSFUL ] org.scala-sbt#process;0.13.5!process.jar (309ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/run/0.13.5/jars/run.jar ...
+	[SUCCESSFUL ] org.scala-sbt#run;0.13.5!run.jar (324ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/command/0.13.5/jars/command.jar ...
+	[SUCCESSFUL ] org.scala-sbt#command;0.13.5!command.jar (337ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/classpath/0.13.5/jars/classpath.jar ...
+	[SUCCESSFUL ] org.scala-sbt#classpath;0.13.5!classpath.jar (400ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/completion/0.13.5/jars/completion.jar ...
+	[SUCCESSFUL ] org.scala-sbt#completion;0.13.5!completion.jar (362ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/api/0.13.5/jars/api.jar ...
+	[SUCCESSFUL ] org.scala-sbt#api;0.13.5!api.jar (335ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-integration/0.13.5/jars/compiler-integration.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-integration;0.13.5!compiler-integration.jar (400ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compiler-ivy-integration/0.13.5/jars/compiler-ivy-integration.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compiler-ivy-integration;0.13.5!compiler-ivy-integration.jar (272ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/relation/0.13.5/jars/relation.jar ...
+	[SUCCESSFUL ] org.scala-sbt#relation;0.13.5!relation.jar (276ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/task-system/0.13.5/jars/task-system.jar ...
+	[SUCCESSFUL ] org.scala-sbt#task-system;0.13.5!task-system.jar (396ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/tasks/0.13.5/jars/tasks.jar ...
+	[SUCCESSFUL ] org.scala-sbt#tasks;0.13.5!tasks.jar (316ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/tracking/0.13.5/jars/tracking.jar ...
+	[SUCCESSFUL ] org.scala-sbt#tracking;0.13.5!tracking.jar (281ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/testing/0.13.5/jars/testing.jar ...
+	[SUCCESSFUL ] org.scala-sbt#testing;0.13.5!testing.jar (331ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/control/0.13.5/jars/control.jar ...
+	[SUCCESSFUL ] org.scala-sbt#control;0.13.5!control.jar (327ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/collections/0.13.5/jars/collections.jar ...
+	[SUCCESSFUL ] org.scala-sbt#collections;0.13.5!collections.jar (346ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/incremental-compiler/0.13.5/jars/incremental-compiler.jar ...
+	[SUCCESSFUL ] org.scala-sbt#incremental-compiler;0.13.5!incremental-compiler.jar (336ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/compile/0.13.5/jars/compile.jar ...
+	[SUCCESSFUL ] org.scala-sbt#compile;0.13.5!compile.jar (439ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/persist/0.13.5/jars/persist.jar ...
+	[SUCCESSFUL ] org.scala-sbt#persist;0.13.5!persist.jar (356ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/classfile/0.13.5/jars/classfile.jar ...
+	[SUCCESSFUL ] org.scala-sbt#classfile;0.13.5!classfile.jar (321ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/cross/0.13.5/jars/cross.jar ...
+	[SUCCESSFUL ] org.scala-sbt#cross;0.13.5!cross.jar (307ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/cache/0.13.5/jars/cache.jar ...
+	[SUCCESSFUL ] org.scala-sbt#cache;0.13.5!cache.jar (347ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/test-agent/0.13.5/jars/test-agent.jar ...
+	[SUCCESSFUL ] org.scala-sbt#test-agent;0.13.5!test-agent.jar (318ms)
+downloading http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/apply-macro/0.13.5/jars/apply-macro.jar ...
+	[SUCCESSFUL ] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar (328ms)
+:: retrieving :: org.scala-sbt#boot-app
+	confs: [default]
+	44 artifacts copied, 0 already retrieved (13482kB/96ms)
+[0m[[0minfo[0m] [0mLoading project definition from /home/travis/build/twitter/chill/project[0m
+[0m[[33mwarn[0m] [0mMultiple resolvers having different access mechanism configured with same name 'sbt-plugin-releases'. To avoid conflict, Remove duplicate project resolvers (`resolvers`) or rename publishing resolver (`publishTo`).[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/project/}chill-build...[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe#sbt-mima-plugin;0.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#mima-reporter_2.10;0.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#mima-core_2.10;0.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-actors;2.10.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-swing;2.10.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#config;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-scalariform;1.3.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalariform#scalariform_2.10;0.1.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#sbt;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#actions;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classpath;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#launcher-interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#io;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#control;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#completion;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#collections;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#api;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-integration;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#incremental-compiler;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logging;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#process;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#relation;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compile;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#persist;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-tools.sbinary#sbinary_2.10;0.4.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classfile;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-ivy-integration;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#ivy;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cross;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.ivy#ivy;2.3.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.jcraft#jsch;0.1.46 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#run;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#task-system;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tasks;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tracking;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cache;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#testing;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-agent;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main-settings;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#apply-macro;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#command;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logic;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-interface;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_8_2;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_2;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_3;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe/sbt-mima-plugin/scala_2.10/sbt_0.13/0.1.6/jars/sbt-mima-plugin.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#sbt-mima-plugin;0.1.6!sbt-mima-plugin.jar (357ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-scalariform/scala_2.10/sbt_0.13/1.3.0/jars/sbt-scalariform.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.sbt#sbt-scalariform;1.3.0!sbt-scalariform.jar (320ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/typesafe/mima-reporter_2.10/0.1.6/mima-reporter_2.10-0.1.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#mima-reporter_2.10;0.1.6!mima-reporter_2.10.jar (21ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/typesafe/mima-core_2.10/0.1.6/mima-core_2.10-0.1.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#mima-core_2.10;0.1.6!mima-core_2.10.jar (20ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-actors/2.10.2/scala-actors-2.10.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-actors;2.10.2!scala-actors.jar (24ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-swing/2.10.2/scala-swing-2.10.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-swing;2.10.2!scala-swing.jar (34ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/typesafe/config/1.0.0/config-1.0.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#config;1.0.0!config.jar(bundle) (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalariform/scalariform_2.10/0.1.4/scalariform_2.10-0.1.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalariform#scalariform_2.10;0.1.4!scalariform_2.10.jar (50ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/project/target/scala-2.10/sbt-0.13/classes...[0m
+[0m[[33mwarn[0m] [0mthere were 1 deprecation warning(s); re-run with -deprecation for details[0m
+[0m[[33mwarn[0m] [0mone warning found[0m
+[0m[[0minfo[0m] [0mSet current project to chill-all (in build file:/home/travis/build/twitter/chill/)[0m
+[0m[[0minfo[0m] [0mSetting version to 2.11.7[0m
+[0m[[0minfo[0m] [0mSet current project to chill-all (in build file:/home/travis/build/twitter/chill/)[0m
+[0m[[0minfo[0m] [0mFormatting 6 Scala sources {file:/home/travis/build/twitter/chill/}chill(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-protobuf(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-hadoop(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-bijection(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-algebird(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 4 Scala sources {file:/home/travis/build/twitter/chill/}chill-java(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-avro(test) ...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-akka(test) ...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-thrift...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-java...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-parent;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2#ow2;1.3 ...[0m
+[0m[[0minfo[0m] [0mReformatted 1 Scala source {file:/home/travis/build/twitter/chill/}chill-java(test).[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis-parent;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.thrift#libthrift;0.6.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-log4j12;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving log4j#log4j;1.2.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-lang#commons-lang;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving junit#junit;4.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.servlet#servlet-api;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcomponents-client;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#project;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcomponents-core;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#project;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/esotericsoftware/kryo/kryo/2.21/kryo-2.21.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.esotericsoftware.kryo#kryo;2.21!kryo.jar(bundle) (42ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.esotericsoftware.reflectasm#reflectasm;1.07!reflectasm.jar (14ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.esotericsoftware.minlog#minlog;1.2!minlog.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/objenesis/objenesis/1.2/objenesis-1.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.objenesis#objenesis;1.2!objenesis.jar (9ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.ow2.asm#asm;4.0!asm.jar (11ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalacheck/scalacheck_2.11/1.11.5/scalacheck_2.11-1.11.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalacheck#scalacheck_2.11;1.11.5!scalacheck_2.11.jar (58ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.2/scalatest_2.11-2.2.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scalatest#scalatest_2.11;2.2.2!scalatest_2.11.jar(bundle) (226ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.1/scala-parser-combinators_2.11-1.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1!scala-parser-combinators_2.11.jar(bundle) (17ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.2/scala-library-2.11.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-library;2.11.2!scala-library.jar (128ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.2/scala-reflect-2.11.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.11.2!scala-reflect.jar (99ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.2/scala-xml_2.11-1.0.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle) (18ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/thrift/libthrift/0.6.1/libthrift-0.6.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.thrift#libthrift;0.6.1!libthrift.jar (35ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#slf4j-api;1.5.8!slf4j-api.jar (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.5.8/slf4j-log4j12-1.5.8.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#slf4j-log4j12;1.5.8!slf4j-log4j12.jar (44ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-lang/commons-lang/2.5/commons-lang-2.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-lang#commons-lang;2.5!commons-lang.jar (11ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/junit/junit/4.4/junit-4.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] junit#junit;4.4!junit.jar (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] javax.servlet#servlet-api;2.5!servlet-api.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.0.1/httpclient-4.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.httpcomponents#httpclient;4.0.1!httpclient.jar (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/log4j/log4j/1.2.14/log4j-1.2.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] log4j#log4j;1.2.14!log4j.jar (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.httpcomponents#httpcore;4.0.1!httpcore.jar (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-logging#commons-logging;1.1.1!commons-logging.jar (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-codec/commons-codec/1.3/commons-codec-1.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-codec#commons-codec;1.3!commons-codec.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.11.7/scala-compiler-2.11.7.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.11.7!scala-compiler.jar (239ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-library;2.11.7!scala-library.jar (86ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.11.7!scala-reflect.jar (76ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.4/scala-xml_2.11-1.0.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(bundle) (16ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4!scala-parser-combinators_2.11.jar(bundle) (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/jline/jline/2.12.1/jline-2.12.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] jline#jline;2.12.1!jline.jar (10ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Java source to /home/travis/build/twitter/chill/chill-thrift/target/classes...[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-storm...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill...[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-hadoop...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-protobuf...[0m
+[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+[0m[[0minfo[0m] [0mCompiling 31 Java sources to /home/travis/build/twitter/chill/chill-java/target/classes...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-akka...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-algebird...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-scrooge...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-bijection...[0m
+[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+[0m[[0minfo[0m] [0mFormatting 27 Scala sources {file:/home/travis/build/twitter/chill/}chill(compile) ...[0m
+[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.protobuf#protobuf-java;2.3.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google#google;3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.3.0/protobuf-java-2.3.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.protobuf#protobuf-java;2.3.0!protobuf-java.jar (47ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving storm#storm;0.9.0-wip9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#clojure;1.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;5 ...[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 134 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 0[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 0, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 0, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[33mNo tests were executed.[0m[0m
+[0m[[0minfo[0m] [0mResolving commons-io#commons-io;1.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-exec;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;17 ...[0m
+[0m[[33mwarn[0m] [0mNote: Some input files use unchecked or unsafe operations.[0m
+[0m[[33mwarn[0m] [0mNote: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0minfo[0m] [0mResolving org.apache#apache;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving storm#libthrift7;0.7.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-lang#commons-lang;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.servlet#servlet-api;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving clj-time#clj-time;0.4.1 ...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Java source to /home/travis/build/twitter/chill/chill-protobuf/target/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 4 Scala sources and 1 Java source to /home/travis/build/twitter/chill/chill-java/target/test-classes...[0m
+[0m[[0minfo[0m] [0mCompiling 27 Scala sources to /home/travis/build/twitter/chill/chill-scala/target/scala-2.11/classes...[0m
+[0m[[0minfo[0m] [0mResolving joda-time#joda-time;2.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.netflix.curator#curator-framework;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.netflix.curator#curator;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.netflix.curator#curator-client;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.netflix.curator#curator;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.6.3 ...[0m
+[0m[[33mwarn[0m] [0mNote: /home/travis/build/twitter/chill/chill-protobuf/src/main/java/com/twitter/chill/protobuf/ProtobufSerializer.java uses unchecked or unsafe operations.[0m
+[0m[[33mwarn[0m] [0mNote: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.3 ...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source and 1 Java source to /home/travis/build/twitter/chill/chill-protobuf/target/test-classes...[0m
+[0m[[0minfo[0m] [0mResolving org.apache.zookeeper#zookeeper;3.3.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;0.9.94 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving junit#junit;3.8.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving backtype#jzmq;2.1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.googlecode.json-simple#json-simple;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving compojure#compojure;0.6.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#core.incubator;0.1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#pom.contrib;0.0.20 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#tools.macro;0.1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#pom.contrib;0.0.20 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving clout#clout;0.4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ring#ring-core;0.3.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-fileupload#commons-fileupload;1.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving hiccup#hiccup;0.3.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ring#ring-jetty-adapter;0.3.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ring#ring-core;0.3.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ring#ring-servlet;0.3.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty;6.1.26 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.26 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty-parent;10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-parent;14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty-util;6.1.26 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.26 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#servlet-api;2.5-20081211 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#tools.logging;0.2.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#pom.contrib;0.0.23 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#math.numeric-tower;0.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#pom.contrib;0.0.25 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving storm#carbonite;1.5.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.17 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.yaml#snakeyaml;1.9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcomponents-client;4.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#project;4.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcomponents-core;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#project;4.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving storm#tools.cli;0.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.clojure#pom.contrib;0.0.25 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.googlecode.disruptor#disruptor;2.10.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving storm#jgrapht;0.8.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.guava#guava;13.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.guava#guava-parent;13.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-classic;1.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-parent;1.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-core;1.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-parent;1.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.6.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#log4j-over-slf4j;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/storm/storm/0.9.0-wip9/storm-0.9.0-wip9.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] storm#storm;0.9.0-wip9!storm.jar (246ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/clojure/clojure/1.4.0/clojure-1.4.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.clojure#clojure;1.4.0!clojure.jar (42ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-io/commons-io/1.4/commons-io-1.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-io#commons-io;1.4!commons-io.jar (291ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-exec;1.1!commons-exec.jar (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/storm/libthrift7/0.7.0/libthrift7-0.7.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] storm#libthrift7;0.7.0!libthrift7.jar (60ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/clj-time/clj-time/0.4.1/clj-time-0.4.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] clj-time#clj-time;0.4.1!clj-time.jar (76ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/netflix/curator/curator-framework/1.0.1/curator-framework-1.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.netflix.curator#curator-framework;1.0.1!curator-framework.jar (31ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/backtype/jzmq/2.1.0/jzmq-2.1.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] backtype#jzmq;2.1.0!jzmq.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.googlecode.json-simple#json-simple;1.1!json-simple.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/compojure/compojure/0.6.4/compojure-0.6.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] compojure#compojure;0.6.4!compojure.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/hiccup/hiccup/0.3.6/hiccup-0.3.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] hiccup#hiccup;0.3.6!hiccup.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/ring/ring-jetty-adapter/0.3.11/ring-jetty-adapter-0.3.11.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ring#ring-jetty-adapter;0.3.11!ring-jetty-adapter.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/clojure/tools.logging/0.2.3/tools.logging-0.2.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.clojure#tools.logging;0.2.3!tools.logging.jar (7ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/clojure/math.numeric-tower/0.0.1/math.numeric-tower-0.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.clojure#math.numeric-tower;0.0.1!math.numeric-tower.jar (7ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/storm/carbonite/1.5.0/carbonite-1.5.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] storm#carbonite;1.5.0!carbonite.jar (58ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/yaml/snakeyaml/1.9/snakeyaml-1.9.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.yaml#snakeyaml;1.9!snakeyaml.jar(bundle) (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.httpcomponents#httpclient;4.1.1!httpclient.jar (11ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/storm/tools.cli/0.2.2/tools.cli-0.2.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] storm#tools.cli;0.2.2!tools.cli.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/googlecode/disruptor/disruptor/2.10.1/disruptor-2.10.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.googlecode.disruptor#disruptor;2.10.1!disruptor.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/storm/jgrapht/0.8.3/jgrapht-0.8.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] storm#jgrapht;0.8.3!jgrapht.jar (59ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/google/guava/guava/13.0/guava-13.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;13.0!guava.jar (24ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.0.6/logback-classic-1.0.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ch.qos.logback#logback-classic;1.0.6!logback-classic.jar (14ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/log4j-over-slf4j/1.6.6/log4j-over-slf4j-1.6.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#log4j-over-slf4j;1.6.6!log4j-over-slf4j.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/joda-time/joda-time/2.0/joda-time-2.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] joda-time#joda-time;2.0!joda-time.jar (21ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/netflix/curator/curator-client/1.0.1/curator-client-1.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.netflix.curator#curator-client;1.0.1!curator-client.jar (31ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/zookeeper/zookeeper/3.3.3/zookeeper-3.3.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.zookeeper#zookeeper;3.3.3!zookeeper.jar (216ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/jline/jline/0.9.94/jline-0.9.94.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] jline#jline;0.9.94!jline.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] junit#junit;3.8.1!junit.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/clojure/core.incubator/0.1.0/core.incubator-0.1.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.clojure#core.incubator;0.1.0!core.incubator.jar (7ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/clojure/tools.macro/0.1.0/tools.macro-0.1.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.clojure#tools.macro;0.1.0!tools.macro.jar (7ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/clout/clout/0.4.1/clout-0.4.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] clout#clout;0.4.1!clout.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-codec/commons-codec/1.4/commons-codec-1.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-codec#commons-codec;1.4!commons-codec.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-fileupload#commons-fileupload;1.2.1!commons-fileupload.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/ring/ring-core/0.3.11/ring-core-0.3.11.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ring#ring-core;0.3.11!ring-core.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://clojars.org/repo/ring/ring-servlet/0.3.11/ring-servlet-0.3.11.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ring#ring-servlet;0.3.11!ring-servlet.jar (57ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jetty;6.1.26!jetty.jar (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jetty-util;6.1.26!jetty-util.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#servlet-api;2.5-20081211!servlet-api.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/esotericsoftware/kryo/kryo/2.17/kryo-2.17.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.esotericsoftware.kryo#kryo;2.17!kryo.jar (9ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.httpcomponents#httpcore;4.1!httpcore.jar (9ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.0.6/logback-core-1.0.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ch.qos.logback#logback-core;1.0.6!logback-core.jar (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#slf4j-api;1.6.6!slf4j-api.jar (7ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Java source to /home/travis/build/twitter/chill/chill-storm/target/classes...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.hadoop#hadoop-core;0.20.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-cli#commons-cli;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xmlenc#xmlenc;0.52 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-httpclient#commons-httpclient;3.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-net#commons-net;1.4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving oro#oro;2.0.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty-parent;7 ...[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 13 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 0[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 0, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 0, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[33mNo tests were executed.[0m[0m
+[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jetty-util;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#servlet-api-2.5;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving tomcat#jasper-runtime;5.5.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving tomcat#jasper-compiler;5.5.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jsp-api-2.1;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#jsp-2.1;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mortbay.jetty#project;6.1.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jdt#core;3.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ant#ant;1.6.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-el#commons-el;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.java.dev.jets3t#jets3t;0.7.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sf.kosmosfs#kfs;0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving junit#junit;4.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving hsqldb#hsqldb;1.8.0.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-log4j12;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving log4j#log4j;1.2.17 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-core/0.20.2/hadoop-core-0.20.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.hadoop#hadoop-core;0.20.2!hadoop-core.jar (69ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#slf4j-log4j12;1.6.6!slf4j-log4j12.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-cli/commons-cli/1.2/commons-cli-1.2.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-cli#commons-cli;1.2!commons-cli.jar (9ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/xmlenc/xmlenc/0.52/xmlenc-0.52.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] xmlenc#xmlenc;0.52!xmlenc.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-httpclient/commons-httpclient/3.0.1/commons-httpclient-3.0.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-httpclient#commons-httpclient;3.0.1!commons-httpclient.jar (19ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-net/commons-net/1.4.1/commons-net-1.4.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-net#commons-net;1.4.1!commons-net.jar (9ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jetty/6.1.14/jetty-6.1.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jetty;6.1.14!jetty.jar (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jetty-util/6.1.14/jetty-util-6.1.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jetty-util;6.1.14!jetty-util.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/tomcat/jasper-runtime/5.5.12/jasper-runtime-5.5.12.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] tomcat#jasper-runtime;5.5.12!jasper-runtime.jar (11ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/tomcat/jasper-compiler/5.5.12/jasper-compiler-5.5.12.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] tomcat#jasper-compiler;5.5.12!jasper-compiler.jar (17ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jsp-api-2.1;6.1.14!jsp-api-2.1.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#jsp-2.1;6.1.14!jsp-2.1.jar (21ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/commons-el/commons-el/1.0/commons-el-1.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] commons-el#commons-el;1.0!commons-el.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/net/java/dev/jets3t/jets3t/0.7.1/jets3t-0.7.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] net.java.dev.jets3t#jets3t;0.7.1!jets3t.jar (12ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.mortbay.jetty#servlet-api-2.5;6.1.14!servlet-api-2.5.jar (10ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/net/sf/kosmosfs/kfs/0.3/kfs-0.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] net.sf.kosmosfs#kfs;0.3!kfs.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/junit/junit/4.5/junit-4.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] junit#junit;4.5!junit.jar (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] hsqldb#hsqldb;1.8.0.10!hsqldb.jar (14ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/oro/oro/2.0.8/oro-2.0.8.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] oro#oro;2.0.8!oro.jar (7ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.eclipse.jdt#core;3.1.1!core.jar (90ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/ant/ant/1.6.5/ant-1.6.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] ant#ant;1.6.5!ant.jar (43ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] log4j#log4j;1.2.17!log4j.jar(bundle) (29ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#bijection-core_2.11;0.8.0 ...[0m
+[0m[[0minfo[0m] [0mCompiling 4 Java sources to /home/travis/build/twitter/chill/chill-hadoop/target/classes...[0m
+[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/twitter/bijection-core_2.11/0.8.0/bijection-core_2.11-0.8.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.twitter#bijection-core_2.11;0.8.0!bijection-core_2.11.jar(bundle) (70ms)[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving com.twitter#chill_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/twitter/chill/}chill-avro...[0m
+[0m[[0minfo[0m] [0mFormatting 4 Scala sources {file:/home/travis/build/twitter/chill/}chill-bijection(compile) ...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.thrift#libthrift;0.6.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-log4j12;1.5.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving log4j#log4j;1.2.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-lang#commons-lang;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.servlet#servlet-api;2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#scrooge-serializer_2.11;3.13.0 ...[0m
+[0m[[33mwarn[0m] [0m	module not found: com.twitter#scrooge-serializer_2.11;3.13.0[0m
+[0m[[33mwarn[0m] [0m==== local: tried[0m
+[0m[[33mwarn[0m] [0m  /home/travis/.ivy2/local/com.twitter/scrooge-serializer_2.11/3.13.0/ivys/ivy.xml[0m
+[0m[[33mwarn[0m] [0m==== public: tried[0m
+[0m[[33mwarn[0m] [0m  http://repo1.maven.org/maven2/com/twitter/scrooge-serializer_2.11/3.13.0/scrooge-serializer_2.11-3.13.0.pom[0m
+[0m[[33mwarn[0m] [0m==== sonatype-snapshots: tried[0m
+[0m[[33mwarn[0m] [0m  https://oss.sonatype.org/content/repositories/snapshots/com/twitter/scrooge-serializer_2.11/3.13.0/scrooge-serializer_2.11-3.13.0.pom[0m
+[0m[[33mwarn[0m] [0m==== sonatype-releases: tried[0m
+[0m[[33mwarn[0m] [0m  https://oss.sonatype.org/content/repositories/releases/com/twitter/scrooge-serializer_2.11/3.13.0/scrooge-serializer_2.11-3.13.0.pom[0m
+[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	::          UNRESOLVED DEPENDENCIES         ::[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[33mwarn[0m] [0m	:: com.twitter#scrooge-serializer_2.11;3.13.0: not found[0m
+[0m[[33mwarn[0m] [0m	::::::::::::::::::::::::::::::::::::::::::::::[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#algebird-core_2.11;0.10.0 ...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/chill-hadoop/target/test-classes...[0m
+[0m[[0minfo[0m] [0mResolving com.googlecode.javaewah#JavaEWAH;0.6.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/twitter/algebird-core_2.11/0.10.0/algebird-core_2.11-0.10.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.twitter#algebird-core_2.11;0.10.0!algebird-core_2.11.jar (244ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/googlecode/javaewah/JavaEWAH/0.6.6/JavaEWAH-0.6.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.googlecode.javaewah#JavaEWAH;0.6.6!JavaEWAH.jar (11ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+[0m[[0minfo[0m] [0mFormatting 2 Scala sources {file:/home/travis/build/twitter/chill/}chill-algebird(compile) ...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#config;1.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-actor_2.11;2.3.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/typesafe/config/1.2.1/config-1.2.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe#config;1.2.1!config.jar(bundle) (19ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.11/2.3.6/akka-actor_2.11-2.3.6.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.typesafe.akka#akka-actor_2.11;2.3.6!akka-actor_2.11.jar (104ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-java;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.kryo#kryo;2.21 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.esotericsoftware.reflectasm#reflectasm;1.07 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+[0m[[0minfo[0m] [0mFormatting 3 Scala sources {file:/home/travis/build/twitter/chill/}chill-akka(compile) ...[0m
+[0m[[0minfo[0m] [0mResolving com.esotericsoftware.minlog#minlog;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#chill-bijection_2.11;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#bijection-core_2.11;0.8.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.twitter#bijection-avro_2.11;0.8.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.avro#avro;1.7.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.avro#avro-parent;1.7.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.avro#avro-toplevel;1.7.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.jackson#jackson-core-asl;1.9.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.jackson#jackson-mapper-asl;1.9.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.thoughtworks.paranamer#paranamer;2.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.thoughtworks.paranamer#paranamer-parent;2.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus#codehaus-parent;1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.xerial.snappy#snappy-java;1.0.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-compress;1.4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-parent;24 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache#apache;9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.tukaani#xz;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.6.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-parent;1.6.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalacheck#scalacheck_2.11;1.11.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalatest#scalatest_2.11;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving junit#junit;4.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.11.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-xml_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.12.1 ...[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/twitter/bijection-avro_2.11/0.8.0/bijection-avro_2.11-0.8.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.twitter#bijection-avro_2.11;0.8.0!bijection-avro_2.11.jar(bundle) (33ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/avro/avro/1.7.5/avro-1.7.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.avro#avro;1.7.5!avro.jar (22ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.codehaus.jackson#jackson-core-asl;1.9.13!jackson-core-asl.jar (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.codehaus.jackson#jackson-mapper-asl;1.9.13!jackson-mapper-asl.jar (28ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.thoughtworks.paranamer#paranamer;2.3!paranamer.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.0.5/snappy-java-1.0.5.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.0.5!snappy-java.jar(bundle) (50ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.apache.commons#commons-compress;1.4.1!commons-compress.jar (13ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.slf4j#slf4j-api;1.6.4!slf4j-api.jar (8ms)[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/org/tukaani/xz/1.0/xz-1.0.jar ...[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.tukaani#xz;1.0!xz.jar (11ms)[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0m'compiler-interface' not yet compiled for Scala 2.11.7. Compiling...[0m
+[0m[[0minfo[0m] [0mFormatting 1 Scala source {file:/home/travis/build/twitter/chill/}chill-avro(compile) ...[0m
+[0m[[0minfo[0m] [0m  Compilation completed in 16.84 s[0m
+[0m[[0minfo[0m] [0m[32mHadoopTests:[0m[0m
+[0m[[0minfo[0m] [0m[32mKryoSerialization[0m[0m
+[0m[[0minfo[0m] [0m[32m- should accept anything[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Serialize a list of random things[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 600 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 2[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 2, Failed 0, Errors 0, Passed 2[0m
+[0m[[0minfo[0m] [0m[32mProtobufTest:[0m[0m
+[0m[[0minfo[0m] [0m[32m- Protobuf round-trips[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 229 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 1[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 1, Failed 0, Errors 0, Passed 1[0m
+[0m[[33mwarn[0m] [0mNote: /home/travis/build/twitter/chill/chill-java/src/test/scala/com/twitter/chill/java/OldBitSetSerializer.java uses unchecked or unsafe operations.[0m
+[0m[[33mwarn[0m] [0mNote: Recompile with -Xlint:unchecked for details.[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:19: type ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0mclass ClassManifestSerializer[T] extends KSerializer[ClassManifest[T]] {[0m
+[0m[[33mwarn[0m] [0m                                         ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:21: type ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0m  def write(kser: Kryo, out: Output, obj: ClassManifest[T]) {[0m
+[0m[[33mwarn[0m] [0m                                          ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:22: method erasure in trait ClassManifestDeprecatedApis is deprecated: Use runtimeClass instead[0m
+[0m[[33mwarn[0m] [0m    kser.writeObject(out, obj.erasure)[0m
+[0m[[33mwarn[0m] [0m                              ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:25: type ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0m  def read(kser: Kryo, in: Input, cls: Class[ClassManifest[T]]): ClassManifest[T] = {[0m
+[0m[[33mwarn[0m] [0m                                       ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:25: type ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0m  def read(kser: Kryo, in: Input, cls: Class[ClassManifest[T]]): ClassManifest[T] = {[0m
+[0m[[33mwarn[0m] [0m                                                                 ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ClassManifestSerializer.scala:27: value ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0m    ClassManifest.fromClass[T](clazz)[0m
+[0m[[33mwarn[0m] [0m    ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ManifestSerializer.scala:35: method erasure in trait ClassManifestDeprecatedApis is deprecated: Use runtimeClass instead[0m
+[0m[[33mwarn[0m] [0m      kser.writeObject(out, obj.erasure)[0m
+[0m[[33mwarn[0m] [0m                                ^[0m
+[0m[[0minfo[0m] [0m[32mPriorityQueueSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mA PriorityQueue Serializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle PriorityQueue[0m[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/ScalaKryoInstantiator.scala:190: type ClassManifest in object Predef is deprecated: Use `scala.reflect.ClassTag` instead[0m
+[0m[[33mwarn[0m] [0m      .forClass[ClassManifest[Any]](new ClassManifestSerializer[Any])[0m
+[0m[[33mwarn[0m] [0m                ^[0m
+[0m[[0minfo[0m] [0m[32mReflectingInstantiatorTest:[0m[0m
+[0m[[0minfo[0m] [0m[32mA ConfiguredInstantiator[0m[0m
+[0m[[0minfo[0m] [0m[32m- should work with a reflected instantiator[0m[0m
+[0m[[0minfo[0m] [0m[32m- should work with a serialized instantiator[0m[0m
+[0m[[0minfo[0m] [0m[32mLocaleSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mA Locale Serializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize all the things[0m[0m
+[0m[[0minfo[0m] [0m+ ConfiguredInstantiator.properly split keys: OK, passed 100 tests.[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-scala/src/main/scala/com/twitter/chill/WrappedArraySerializer.scala:28: method elemManifest in class WrappedArray is deprecated: use elemTag instead[0m
+[0m[[33mwarn[0m] [0m    kser.writeObject(out, obj.elemManifest.runtimeClass)[0m
+[0m[[33mwarn[0m] [0m                              ^[0m
+[0m[[33mwarn[0m] [0mthere were 7 feature warnings; re-run with -feature for details[0m
+[0m[[33mwarn[0m] [0m10 warnings found[0m
+[0m[[0minfo[0m] [0mCompiling 4 Scala sources to /home/travis/build/twitter/chill/chill-bijection/target/scala-2.11/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 2 Scala sources to /home/travis/build/twitter/chill/chill-algebird/target/scala-2.11/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 3 Scala sources to /home/travis/build/twitter/chill/chill-akka/target/scala-2.11/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 6 Scala sources to /home/travis/build/twitter/chill/chill-scala/target/scala-2.11/test-classes...[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-bijection/src/main/scala/com/twitter/chill/InjectionRegistrar.scala:21: no valid targets for annotation on value b - it is discarded unused. You may specify targets with meta-annotations, e.g. @(transient @param)[0m
+[0m[[33mwarn[0m] [0mclass InjectionRegistrar[T](val klass: Class[T], @transient b: Injection[T, Array[Byte]])[0m
+[0m[[33mwarn[0m] [0m                                                  ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-bijection/src/main/scala/com/twitter/chill/InjectionRegistrar.scala:39: no valid targets for annotation on value b - it is discarded unused. You may specify targets with meta-annotations, e.g. @(transient @param)[0m
+[0m[[33mwarn[0m] [0mclass InjectionDefaultRegistrar[T](klass: Class[T], @transient b: Injection[T, Array[Byte]])[0m
+[0m[[33mwarn[0m] [0m                                                     ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-akka/src/main/scala/com/twitter/chill/akka/ActorRefSerializer.scala:49: method actorFor in trait ActorRefFactory is deprecated: use actorSelection instead of actorFor[0m
+[0m[[33mwarn[0m] [0m    system.actorFor(path)[0m
+[0m[[33mwarn[0m] [0m           ^[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/chill-algebird/target/scala-2.11/test-classes...[0m
+[0m[[33mwarn[0m] [0mone warning found[0m
+[0m[[33mwarn[0m] [0mthere was one feature warning; re-run with -feature for details[0m
+[0m[[33mwarn[0m] [0mthree warnings found[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/chill-avro/target/scala-2.11/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source and 2 Java sources to /home/travis/build/twitter/chill/chill-avro/target/scala-2.11/test-classes...[0m
+[0m[[0minfo[0m] [0m[32mAlgebirdSerializersSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mkryo with AlgebirdRegistrar[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize AveragedValue[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize DecayedValue[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize HyperLogLogMonoid[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize Moments[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize HLL[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize SparseVector and DenseVector[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 466 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 6[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 6, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 6, Failed 0, Errors 0, Passed 6[0m
+The old serializer took 6421ms
+The new serializer took 482ms
+The old serializer needs 2052 bytes
+The new serializer needs 514 bytes
+[0m[[0minfo[0m] [0m[32mBitSetSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mA BitSetSerializer serializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle BitSet[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle a BitSet efficiently[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 14 seconds, 999 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 6[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 4, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 6, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 7, Failed 0, Errors 0, Passed 7[0m
+[0m[[0minfo[0m] [0m[32mAvroSerializerSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mSpecificRecordSerializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Serialize and Deserialize Avro Record[0m[0m
+[0m[[0minfo[0m] [0m[32mSpecificRecordBinarySerializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Serialize and Deserialize Avro Record[0m[0m
+[0m[[0minfo[0m] [0m[32mSpecificRecordJsonSerializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Serialize and Deserialize Avro Record[0m[0m
+[0m[[0minfo[0m] [0m[32mGenericRecordSerializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Serialize and Deserialize Avro Record[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 888 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 4[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 4, Failed 0, Errors 0, Passed 4[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/chill-bijection/target/scala-2.11/test-classes...[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/travis/build/twitter/chill/chill-akka/target/scala-2.11/test-classes...[0m
+[0m[[0minfo[0m] [0m[32mClosureCleanerSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mClosureCleaner[0m[0m
+[0m[[0minfo[0m] [0m[32m- should clean normal objects[0m[0m
+[0m[[0minfo[0m] [0m[32m- should clean actual closures[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle outers with constructors[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Handle functions in traits[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Handle captured vals[0m[0m
+[0m[[0minfo[0m] [0m[32mFunctionSerialization:[0m[0m
+[0m[[0minfo[0m] [0m[32mSerialize objects with Fns[0m[0m
+[0m[[0minfo[0m] [0m[32m- should fn calling[0m[0m
+[0m[[0minfo[0m] [0m[32m- should roundtrip the object[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Handle traits with abstract vals/def[0m[0m
+[0m[[0minfo[0m] [0m[32mReflectingInstantiatorTest:[0m[0m
+[0m[[0minfo[0m] [0m[32mA ReflectingInstantiator[0m[0m
+[0m[[0minfo[0m] [0m[32m- should set keys into a config as expected[0m[0m
+[0m[[0minfo[0m] [0m[32m- should roundtrip through a config[0m[0m
+[0m[[0minfo[0m] [0m[32m- should be serialized when added onto a ConfiguredInstantiator[0m[0m
+[0m[[0minfo[0m] [0m[32mExternalizerSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mKryoSerializers and KryoDeserializers[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer handle circular references with Java[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer handle circular references with Java2[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer handle circular references with kryo only serialzable objects[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer circular reference with scala tuples(java and kryo Serializable[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer handle circular references with non Kryo Serializable members[0m[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-akka/src/test/scala/com/twitter/chill/akka/AkkaTests.scala:49: method actorFor in trait ActorRefFactory is deprecated: use actorSelection instead of actorFor[0m
+[0m[[33mwarn[0m] [0m      val serializer = serialization.findSerializerFor(system.actorFor("akka://test-system/test-actor"))[0m
+[0m[[33mwarn[0m] [0m                                                              ^[0m
+[0m[[33mwarn[0m] [0m/home/travis/build/twitter/chill/chill-akka/src/test/scala/com/twitter/chill/akka/AkkaTests.scala:54: method actorFor in trait ActorRefFactory is deprecated: use actorSelection instead of actorFor[0m
+[0m[[33mwarn[0m] [0m      val actorRef = system.actorFor("akka://test-system/test-actor")[0m
+[0m[[33mwarn[0m] [0m                            ^[0m
+[0m[[0minfo[0m] [0m[32mKryoSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mKryoSerializers and KryoDeserializers[0m[0m
+[0m[[0minfo[0m] [0m[32m- should round trip any non-array object[0m[0m
+[0m[[0minfo[0m] [0m[32m- should round trip a SortedSet[0m[0m
+[0m[[0minfo[0m] [0m[32m- should round trip a ListSet[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle trait with reference of self[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle manifests[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle arrays[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle WrappedArray instances[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle lists of lists[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle scala singletons[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize a giant list[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle scala enums[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle asJavaIterable[0m[0m
+[0m[[0minfo[0m] [0m[32m- should use java serialization[0m[0m
+[0m[[0minfo[0m] [0m[32m- should work with Meatlocker[0m[0m
+[0m[[0minfo[0m] [0m[32m- should work with Externalizer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should work with Externalizer with non-java-ser[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Externalizer can RT with Kryo[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle Regex[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle small immutable maps when registration is required[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle small immutable sets when registration is required[0m[0m
+[0m[[0minfo[0m] [0m[32m- should handle nested mutable maps[0m[0m
+[0m[[0minfo[0m] [0m[32m- should deserialize InputStream[0m[0m
+[0m[[0minfo[0m] [0m[32m- should deserialize ByteBuffer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Handle Ordering.reverse[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Ranges should be fixed size[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 2 seconds, 78 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 41[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 5, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 41, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 41, Failed 0, Errors 0, Passed 41[0m
+[0m[[33mwarn[0m] [0mtwo warnings found[0m
+[WARN] [07/28/2015 15:42:25.821] [pool-6-thread-11-ScalaTest-running-AkkaTests] [akka.serialization.Serialization(akka://example)] Multiple serializers found for class scala.Tuple3, choosing first: Vector((interface scala.Product,com.twitter.chill.akka.AkkaSerializer@332db5b0), (interface java.io.Serializable,akka.serialization.JavaSerializer@7df3500f))
+[0m[[0minfo[0m] [0m[32mAkkaTests:[0m[0m
+[0m[[0minfo[0m] [0m[32mAkkaSerializer[0m[0m
+[0m[[0minfo[0m] [0m[32m- should be selected for tuples[0m[0m
+[0m[[0minfo[0m] [0m[32m- should be selected for ActorRef[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize and deserialize ActorRef successfully[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 442 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 3[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 3, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 3, Failed 0, Errors 0, Passed 3[0m
+
+[0m[[0minfo[0m] [0m[32mCustomSerializationSpec:[0m[0m
+[0m[[0minfo[0m] [0m[32mCustom KryoSerializers and KryoDeserializers[0m[0m
+[0m[[0minfo[0m] [0m[32m- should serialize objects that have registered serialization[0m[0m
+[0m[[0minfo[0m] [0m[32m- should use bijections[0m[0m
+[0m[[0minfo[0m] [0m[32m- should Make sure KryoInjection and instances are Java Serializable[0m[0m
+[0m[[0minfo[0m] [0m[32m- KryoInjection handle an example with closure to function[0m[0m
+[0m[[0minfo[0m] [0m[32m- handle a closure to println[0m[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 770 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 5[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 5, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0mPassed: Total 5, Failed 0, Errors 0, Passed 5[0m
+sbt.ResolveException: unresolved dependency: com.twitter#scrooge-serializer_2.11;3.13.0: not found
+	at sbt.IvyActions$.sbt$IvyActions$$resolve(IvyActions.scala:217)
+	at sbt.IvyActions$$anonfun$update$1.apply(IvyActions.scala:126)
+	at sbt.IvyActions$$anonfun$update$1.apply(IvyActions.scala:125)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:115)
+	at sbt.IvySbt$Module$$anonfun$withModule$1.apply(Ivy.scala:115)
+	at sbt.IvySbt$$anonfun$withIvy$1.apply(Ivy.scala:103)
+	at sbt.IvySbt.sbt$IvySbt$$action$1(Ivy.scala:48)
+	at sbt.IvySbt$$anon$3.call(Ivy.scala:57)
+	at xsbt.boot.Locks$GlobalLock.withChannel$1(Locks.scala:98)
+	at xsbt.boot.Locks$GlobalLock.xsbt$boot$Locks$GlobalLock$$withChannelRetries$1(Locks.scala:81)
+	at xsbt.boot.Locks$GlobalLock$$anonfun$withFileLock$1.apply(Locks.scala:102)
+	at xsbt.boot.Using$.withResource(Using.scala:11)
+	at xsbt.boot.Using$.apply(Using.scala:10)
+	at xsbt.boot.Locks$GlobalLock.ignoringDeadlockAvoided(Locks.scala:62)
+	at xsbt.boot.Locks$GlobalLock.withLock(Locks.scala:52)
+	at xsbt.boot.Locks$.apply0(Locks.scala:31)
+	at xsbt.boot.Locks$.apply(Locks.scala:28)
+	at sbt.IvySbt.withDefaultLogger(Ivy.scala:57)
+	at sbt.IvySbt.withIvy(Ivy.scala:98)
+	at sbt.IvySbt.withIvy(Ivy.scala:94)
+	at sbt.IvySbt$Module.withModule(Ivy.scala:115)
+	at sbt.IvyActions$.update(IvyActions.scala:125)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1223)
+	at sbt.Classpaths$$anonfun$sbt$Classpaths$$work$1$1.apply(Defaults.scala:1221)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$74.apply(Defaults.scala:1244)
+	at sbt.Classpaths$$anonfun$doWork$1$1$$anonfun$74.apply(Defaults.scala:1242)
+	at sbt.Tracked$$anonfun$lastOutput$1.apply(Tracked.scala:35)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1246)
+	at sbt.Classpaths$$anonfun$doWork$1$1.apply(Defaults.scala:1241)
+	at sbt.Tracked$$anonfun$inputChanged$1.apply(Tracked.scala:45)
+	at sbt.Classpaths$.cachedUpdate(Defaults.scala:1249)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1214)
+	at sbt.Classpaths$$anonfun$updateTask$1.apply(Defaults.scala:1192)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:42)
+	at sbt.std.Transform$$anon$4.work(System.scala:64)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:237)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18)
+	at sbt.Execute.work(Execute.scala:244)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:237)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[0m[[31merror[0m] [0m(chill-scrooge/*:[31mupdate[0m) sbt.ResolveException: unresolved dependency: com.twitter#scrooge-serializer_2.11;3.13.0: not found[0m
+[0m[[31merror[0m] [0mTotal time: 80 s, completed Jul 28, 2015 3:42:26 PM[0m
+travis_time:end:0ec8e980:start=1438098008049476060,finish=1438098146303495530,duration=138254019470[0K
+[31;1mThe command "sbt ++2.11.7 test" exited with 1.[0m
+
+Done. Your build exited with 1.

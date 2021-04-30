@@ -1,0 +1,615 @@
+Using worker: worker-linux-docker-8dfa4474.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:1af65450[0K$ git clone --depth=50 --branch=SONARXML-29 https://github.com/SonarCommunity/sonar-xml.git SonarCommunity/sonar-xml
+Cloning into 'SonarCommunity/sonar-xml'...
+remote: Counting objects: 1214, done.[K
+remote: Compressing objects:   0% (1/539)   [Kremote: Compressing objects:   1% (6/539)   [Kremote: Compressing objects:   2% (11/539)   [Kremote: Compressing objects:   3% (17/539)   [Kremote: Compressing objects:   4% (22/539)   [Kremote: Compressing objects:   5% (27/539)   [Kremote: Compressing objects:   6% (33/539)   [Kremote: Compressing objects:   7% (38/539)   [Kremote: Compressing objects:   8% (44/539)   [Kremote: Compressing objects:   9% (49/539)   [Kremote: Compressing objects:  10% (54/539)   [Kremote: Compressing objects:  11% (60/539)   [Kremote: Compressing objects:  12% (65/539)   [Kremote: Compressing objects:  13% (71/539)   [Kremote: Compressing objects:  14% (76/539)   [Kremote: Compressing objects:  15% (81/539)   [Kremote: Compressing objects:  16% (87/539)   [Kremote: Compressing objects:  17% (92/539)   [Kremote: Compressing objects:  18% (98/539)   [Kremote: Compressing objects:  19% (103/539)   [Kremote: Compressing objects:  20% (108/539)   [Kremote: Compressing objects:  21% (114/539)   [Kremote: Compressing objects:  22% (119/539)   [Kremote: Compressing objects:  23% (124/539)   [Kremote: Compressing objects:  24% (130/539)   [Kremote: Compressing objects:  25% (135/539)   [Kremote: Compressing objects:  26% (141/539)   [Kremote: Compressing objects:  27% (146/539)   [Kremote: Compressing objects:  28% (151/539)   [Kremote: Compressing objects:  29% (157/539)   [Kremote: Compressing objects:  30% (162/539)   [Kremote: Compressing objects:  31% (168/539)   [Kremote: Compressing objects:  32% (173/539)   [Kremote: Compressing objects:  33% (178/539)   [Kremote: Compressing objects:  34% (184/539)   [Kremote: Compressing objects:  35% (189/539)   [Kremote: Compressing objects:  36% (195/539)   [Kremote: Compressing objects:  37% (200/539)   [Kremote: Compressing objects:  38% (205/539)   [Kremote: Compressing objects:  39% (211/539)   [Kremote: Compressing objects:  40% (216/539)   [Kremote: Compressing objects:  41% (221/539)   [Kremote: Compressing objects:  42% (227/539)   [Kremote: Compressing objects:  43% (232/539)   [Kremote: Compressing objects:  44% (238/539)   [Kremote: Compressing objects:  45% (243/539)   [Kremote: Compressing objects:  46% (248/539)   [Kremote: Compressing objects:  47% (254/539)   [Kremote: Compressing objects:  48% (259/539)   [Kremote: Compressing objects:  49% (265/539)   [Kremote: Compressing objects:  50% (270/539)   [Kremote: Compressing objects:  51% (275/539)   [Kremote: Compressing objects:  52% (281/539)   [Kremote: Compressing objects:  53% (286/539)   [Kremote: Compressing objects:  54% (292/539)   [Kremote: Compressing objects:  55% (297/539)   [Kremote: Compressing objects:  56% (302/539)   [Kremote: Compressing objects:  57% (308/539)   [Kremote: Compressing objects:  58% (313/539)   [Kremote: Compressing objects:  59% (319/539)   [Kremote: Compressing objects:  60% (324/539)   [Kremote: Compressing objects:  61% (329/539)   [Kremote: Compressing objects:  62% (335/539)   [Kremote: Compressing objects:  63% (340/539)   [Kremote: Compressing objects:  64% (345/539)   [Kremote: Compressing objects:  65% (351/539)   [Kremote: Compressing objects:  66% (356/539)   [Kremote: Compressing objects:  67% (362/539)   [Kremote: Compressing objects:  68% (367/539)   [Kremote: Compressing objects:  69% (372/539)   [Kremote: Compressing objects:  70% (378/539)   [Kremote: Compressing objects:  71% (383/539)   [Kremote: Compressing objects:  72% (389/539)   [Kremote: Compressing objects:  73% (394/539)   [Kremote: Compressing objects:  74% (399/539)   [Kremote: Compressing objects:  75% (405/539)   [Kremote: Compressing objects:  76% (410/539)   [Kremote: Compressing objects:  77% (416/539)   [Kremote: Compressing objects:  78% (421/539)   [Kremote: Compressing objects:  79% (426/539)   [Kremote: Compressing objects:  80% (432/539)   [Kremote: Compressing objects:  81% (437/539)   [Kremote: Compressing objects:  82% (442/539)   [Kremote: Compressing objects:  83% (448/539)   [Kremote: Compressing objects:  84% (453/539)   [Kremote: Compressing objects:  85% (459/539)   [Kremote: Compressing objects:  86% (464/539)   [Kremote: Compressing objects:  87% (469/539)   [Kremote: Compressing objects:  88% (475/539)   [Kremote: Compressing objects:  89% (480/539)   [Kremote: Compressing objects:  90% (486/539)   [Kremote: Compressing objects:  91% (491/539)   [Kremote: Compressing objects:  92% (496/539)   [Kremote: Compressing objects:  93% (502/539)   [Kremote: Compressing objects:  94% (507/539)   [Kremote: Compressing objects:  95% (513/539)   [Kremote: Compressing objects:  96% (518/539)   [Kremote: Compressing objects:  97% (523/539)   [Kremote: Compressing objects:  98% (529/539)   [Kremote: Compressing objects:  99% (534/539)   [Kremote: Compressing objects: 100% (539/539)   [Kremote: Compressing objects: 100% (539/539), done.[K
+Receiving objects:   0% (1/1214)   Receiving objects:   1% (13/1214)   Receiving objects:   2% (25/1214)   Receiving objects:   3% (37/1214)   Receiving objects:   4% (49/1214)   Receiving objects:   5% (61/1214)   Receiving objects:   6% (73/1214)   Receiving objects:   7% (85/1214)   Receiving objects:   8% (98/1214)   Receiving objects:   9% (110/1214)   Receiving objects:  10% (122/1214)   Receiving objects:  11% (134/1214)   Receiving objects:  12% (146/1214)   Receiving objects:  13% (158/1214)   Receiving objects:  14% (170/1214)   Receiving objects:  15% (183/1214)   Receiving objects:  16% (195/1214)   Receiving objects:  17% (207/1214)   Receiving objects:  18% (219/1214)   Receiving objects:  19% (231/1214)   Receiving objects:  20% (243/1214)   Receiving objects:  21% (255/1214)   Receiving objects:  22% (268/1214)   Receiving objects:  23% (280/1214)   Receiving objects:  24% (292/1214)   Receiving objects:  25% (304/1214)   Receiving objects:  26% (316/1214)   Receiving objects:  27% (328/1214)   Receiving objects:  28% (340/1214)   Receiving objects:  29% (353/1214)   Receiving objects:  30% (365/1214)   Receiving objects:  31% (377/1214)   Receiving objects:  32% (389/1214)   Receiving objects:  33% (401/1214)   Receiving objects:  34% (413/1214)   Receiving objects:  35% (425/1214)   Receiving objects:  36% (438/1214)   Receiving objects:  37% (450/1214)   Receiving objects:  38% (462/1214)   Receiving objects:  39% (474/1214)   Receiving objects:  40% (486/1214)   Receiving objects:  41% (498/1214)   Receiving objects:  42% (510/1214)   Receiving objects:  43% (523/1214)   Receiving objects:  44% (535/1214)   Receiving objects:  45% (547/1214)   Receiving objects:  46% (559/1214)   Receiving objects:  47% (571/1214)   Receiving objects:  48% (583/1214)   Receiving objects:  49% (595/1214)   Receiving objects:  50% (607/1214)   Receiving objects:  51% (620/1214)   Receiving objects:  52% (632/1214)   Receiving objects:  53% (644/1214)   Receiving objects:  54% (656/1214)   Receiving objects:  55% (668/1214)   Receiving objects:  56% (680/1214)   Receiving objects:  57% (692/1214)   Receiving objects:  58% (705/1214)   Receiving objects:  59% (717/1214)   Receiving objects:  60% (729/1214)   Receiving objects:  61% (741/1214)   Receiving objects:  62% (753/1214)   Receiving objects:  63% (765/1214)   Receiving objects:  64% (777/1214)   Receiving objects:  65% (790/1214)   Receiving objects:  66% (802/1214)   Receiving objects:  67% (814/1214)   Receiving objects:  68% (826/1214)   Receiving objects:  69% (838/1214)   remote: Total 1214 (delta 475), reused 1044 (delta 350), pack-reused 0[K
+Receiving objects:  70% (850/1214)   Receiving objects:  71% (862/1214)   Receiving objects:  72% (875/1214)   Receiving objects:  73% (887/1214)   Receiving objects:  74% (899/1214)   Receiving objects:  75% (911/1214)   Receiving objects:  76% (923/1214)   Receiving objects:  77% (935/1214)   Receiving objects:  78% (947/1214)   Receiving objects:  79% (960/1214)   Receiving objects:  80% (972/1214)   Receiving objects:  81% (984/1214)   Receiving objects:  82% (996/1214)   Receiving objects:  83% (1008/1214)   Receiving objects:  84% (1020/1214)   Receiving objects:  85% (1032/1214)   Receiving objects:  86% (1045/1214)   Receiving objects:  87% (1057/1214)   Receiving objects:  88% (1069/1214)   Receiving objects:  89% (1081/1214)   Receiving objects:  90% (1093/1214)   Receiving objects:  91% (1105/1214)   Receiving objects:  92% (1117/1214)   Receiving objects:  93% (1130/1214)   Receiving objects:  94% (1142/1214)   Receiving objects:  95% (1154/1214)   Receiving objects:  96% (1166/1214)   Receiving objects:  97% (1178/1214)   Receiving objects:  98% (1190/1214)   Receiving objects:  99% (1202/1214)   Receiving objects: 100% (1214/1214)   Receiving objects: 100% (1214/1214), 399.62 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/475)   Resolving deltas:   2% (12/475)   Resolving deltas:   3% (18/475)   Resolving deltas:   4% (19/475)   Resolving deltas:   5% (24/475)   Resolving deltas:   6% (30/475)   Resolving deltas:   7% (35/475)   Resolving deltas:  11% (55/475)   Resolving deltas:  12% (57/475)   Resolving deltas:  13% (64/475)   Resolving deltas:  14% (69/475)   Resolving deltas:  17% (82/475)   Resolving deltas:  18% (90/475)   Resolving deltas:  19% (92/475)   Resolving deltas:  20% (95/475)   Resolving deltas:  23% (113/475)   Resolving deltas:  24% (114/475)   Resolving deltas:  25% (120/475)   Resolving deltas:  26% (124/475)   Resolving deltas:  28% (135/475)   Resolving deltas:  29% (139/475)   Resolving deltas:  30% (144/475)   Resolving deltas:  31% (148/475)   Resolving deltas:  32% (152/475)   Resolving deltas:  34% (162/475)   Resolving deltas:  36% (172/475)   Resolving deltas:  37% (179/475)   Resolving deltas:  38% (183/475)   Resolving deltas:  41% (198/475)   Resolving deltas:  42% (201/475)   Resolving deltas:  43% (205/475)   Resolving deltas:  44% (213/475)   Resolving deltas:  46% (223/475)   Resolving deltas:  47% (224/475)   Resolving deltas:  63% (300/475)   Resolving deltas:  64% (305/475)   Resolving deltas:  65% (311/475)   Resolving deltas:  66% (314/475)   Resolving deltas:  67% (319/475)   Resolving deltas:  83% (398/475)   Resolving deltas:  84% (402/475)   Resolving deltas:  85% (404/475)   Resolving deltas:  86% (411/475)   Resolving deltas:  87% (415/475)   Resolving deltas:  88% (418/475)   Resolving deltas:  90% (432/475)   Resolving deltas:  92% (438/475)   Resolving deltas:  93% (444/475)   Resolving deltas:  99% (471/475)   Resolving deltas: 100% (475/475)   Resolving deltas: 100% (475/475), done.
+Checking connectivity... done.
+travis_time:end:1af65450:start=1447087776486323152,finish=1447087778529633284,duration=2043310132[0K$ cd SonarCommunity/sonar-xml
+$ git checkout -qf 1dde0a83f03d35e0036de01d6f3bd5710c98cd04
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TEST=ci
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:21c77290[0K$ Installing caching utilities
+travis_time:end:21c77290:start=1447087780522368123,finish=1447087780600452611,duration=78084488[0Ktravis_time:start:05463a41[0Kattempting to download cache archive
+fetching SONARXML-29/cache--jdk-oraclejdk7.tgz
+found cache
+travis_time:end:05463a41:start=1447087780607224106,finish=1447087787924603130,duration=7317379024[0Ktravis_time:start:04841021[0Kadding /home/travis/.m2/repository to cache
+travis_time:end:04841021:start=1447087787928654806,finish=1447087809647405679,duration=21718750873[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:0699fa29[0K$ true
+travis_time:end:0699fa29:start=1447087810057271380,finish=1447087810060785954,duration=3514574[0Ktravis_fold:end:install[0Ktravis_time:start:09ef8928[0K$ ./travis.sh
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] XML
+[INFO] XML :: Squid
+[INFO] XML :: SonarQube Plugin
+[INFO] XML :: SSLR Toolkit
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building XML 1.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom (5 KB at 7.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-parent/1.13/animal-sniffer-parent-1.13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-parent/1.13/animal-sniffer-parent-1.13.pom (5 KB at 104.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar (31 KB at 487.4 KB/sec)
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ xml ---
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarCommunity/sonar-xml && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarCommunity/sonar-xml
+[INFO] Storing buildNumber: 1dde0a83f03d35e0036de01d6f3bd5710c98cd04 at timestamp: 1447087814803
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarCommunity/sonar-xml && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarCommunity/sonar-xml
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ xml ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ xml ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ xml ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom (3 KB at 60.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.pom (2 KB at 52.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom (6 KB at 145.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.pom (3 KB at 62.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar (32 KB at 506.9 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.jar (5 KB at 53.4 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.jar (208 KB at 1376.0 KB/sec)
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature (649 KB at 4595.8 KB/sec)
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ xml ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building XML :: Squid 1.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ xml-squid ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ xml-squid ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ xml-squid ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ xml-squid ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ xml-squid ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /home/travis/build/SonarCommunity/sonar-xml/xml-squid/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/java/org/sonar/xml/CDataDocTokenizer.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/java/org/sonar/xml/CDataDocTokenizer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/java/org/sonar/xml/DoctypeTokenizer.java: /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/java/org/sonar/xml/DoctypeTokenizer.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/main/java/org/sonar/xml/DoctypeTokenizer.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ xml-squid ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ xml-squid ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 77 source files to /home/travis/build/SonarCommunity/sonar-xml/xml-squid/target/test-classes
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/test/java/org/sonar/xml/DoctypeTokenizerTest.java: /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/test/java/org/sonar/xml/DoctypeTokenizerTest.java uses or overrides a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/xml-squid/src/test/java/org/sonar/xml/DoctypeTokenizerTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ xml-squid ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-xml/xml-squid/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.xml.parser.ChoiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.sonar.xml.parser.ChoiceTest
+Running org.sonar.xml.parser.ContentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.xml.parser.ContentTest
+Running org.sonar.xml.parser.IntSubsetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.xml.parser.IntSubsetTest
+Running org.sonar.xml.parser.STagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.STagTest
+Running org.sonar.xml.parser.EmptyElemTagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.EmptyElemTagTest
+Running org.sonar.xml.parser.MixedTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.xml.parser.MixedTest
+Running org.sonar.xml.XmlParserConfigurationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.xml.XmlParserConfigurationTest
+Running org.sonar.xml.parser.MarkupDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.xml.parser.MarkupDeclTest
+Running org.sonar.xml.parser.VersionNumTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.VersionNumTest
+Running org.sonar.xml.parser.ElementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.xml.parser.ElementTest
+Running org.sonar.xml.parser.CommentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.CommentTest
+Running org.sonar.xml.parser.PEReferenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.PEReferenceTest
+Running org.sonar.xml.parser.AttTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec - in org.sonar.xml.parser.AttTypeTest
+Running org.sonar.xml.parser.AttributeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.xml.parser.AttributeTest
+Running org.sonar.xml.parser.ExternalIdTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.sonar.xml.parser.ExternalIdTest
+Running org.sonar.xml.parser.AttDefTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.AttDefTest
+Running org.sonar.xml.parser.DocumentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.DocumentTest
+Running org.sonar.xml.parser.SdDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.SdDeclTest
+Running org.sonar.xml.parser.PrologTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.PrologTest
+Running org.sonar.xml.parser.CpTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.CpTest
+Running org.sonar.xml.parser.EncodingDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.EncodingDeclTest
+Running org.sonar.xml.parser.NdataDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.xml.parser.NdataDeclTest
+Running org.sonar.xml.parser.CharRefTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.CharRefTest
+Running org.sonar.xml.parser.DefaultDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.DefaultDeclTest
+Running org.sonar.xml.parser.NoTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.xml.parser.NoTest
+Running org.sonar.xml.parser.PeDefTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.PeDefTest
+Running org.sonar.xml.parser.SeqTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.SeqTest
+Running org.sonar.xml.parser.GeDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.GeDeclTest
+Running org.sonar.xml.parser.ReferenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.ReferenceTest
+Running org.sonar.xml.parser.DocTypeDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.xml.parser.DocTypeDeclTest
+Running org.sonar.xml.parser.CharTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.CharTest
+Running org.sonar.xml.parser.PubidLiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.xml.parser.PubidLiteralTest
+Running org.sonar.xml.parser.EntityDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.sonar.xml.parser.EntityDeclTest
+Running org.sonar.xml.parser.YesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.YesTest
+Running org.sonar.xml.parser.ConditionalSectTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.ConditionalSectTest
+Running org.sonar.xml.parser.IgnoreTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.IgnoreTest
+Running org.sonar.xml.parser.VersionInfoTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.VersionInfoTest
+Running org.sonar.xml.parser.PublicIdTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.PublicIdTest
+Running org.sonar.xml.parser.TextDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.TextDeclTest
+Running org.sonar.xml.parser.EntityDefTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.EntityDefTest
+Running org.sonar.xml.parser.EntityRefTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.EntityRefTest
+Running org.sonar.xml.parser.IncludeSectTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.xml.parser.IncludeSectTest
+Running org.sonar.xml.parser.CDEndTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.CDEndTest
+Running org.sonar.xml.parser.CDStartTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.CDStartTest
+Running org.sonar.xml.parser.ContentSpecTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.ContentSpecTest
+Running org.sonar.xml.parser.CDataTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.CDataTest
+Running org.sonar.xml.parser.IgnoreSectContentsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.xml.parser.IgnoreSectContentsTest
+Running org.sonar.xml.parser.EnumeratedTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.EnumeratedTypeTest
+Running org.sonar.xml.parser.SystemLiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.SystemLiteralTest
+Running org.sonar.xml.parser.EnumerationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.EnumerationTest
+Running org.sonar.xml.parser.TokenizedTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.TokenizedTypeTest
+Running org.sonar.xml.parser.EntityValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.EntityValueTest
+Running org.sonar.xml.parser.EqTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.EqTest
+Running org.sonar.xml.parser.EncNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.EncNameTest
+Running org.sonar.xml.parser.MiscTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.MiscTest
+Running org.sonar.xml.parser.PITest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.PITest
+Running org.sonar.xml.parser.PITargetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.PITargetTest
+Running org.sonar.xml.DoctypeTokenizerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in org.sonar.xml.DoctypeTokenizerTest
+Running org.sonar.xml.parser.CDSectTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.CDSectTest
+Running org.sonar.xml.parser.NameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.NameTest
+Running org.sonar.xml.parser.ChildrenTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.xml.parser.ChildrenTest
+Running org.sonar.xml.parser.AttListDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.xml.parser.AttListDeclTest
+Running org.sonar.xml.parser.ElementDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.xml.parser.ElementDeclTest
+Running org.sonar.xml.parser.AttValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.AttValueTest
+Running org.sonar.xml.parser.ETagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.ETagTest
+Running org.sonar.xml.parser.PeDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.PeDeclTest
+Running org.sonar.xml.parser.NotationDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.NotationDeclTest
+Running org.sonar.xml.parser.StringTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.StringTypeTest
+Running org.sonar.xml.parser.STest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.STest
+Running org.sonar.xml.parser.IgnoreSectTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.xml.parser.IgnoreSectTest
+Running org.sonar.xml.parser.DeclSepTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.DeclSepTest
+Running org.sonar.xml.parser.ExtSubsetDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.ExtSubsetDeclTest
+Running org.sonar.xml.parser.XmlDeclTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.XmlDeclTest
+Running org.sonar.xml.parser.NmTokenTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.xml.parser.NmTokenTest
+Running org.sonar.xml.parser.NotationTypeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.NotationTypeTest
+Running org.sonar.xml.parser.CharDataTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.xml.parser.CharDataTest
+Running org.sonar.xml.parser.ExtSubsetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.xml.parser.ExtSubsetTest
+
+Results :
+
+
+
+
+Tests run: 82, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ xml-squid ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/xml-squid/target/xml-squid-1.4-SNAPSHOT.jar
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ xml-squid ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ xml-squid ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/xml-squid/target/xml-squid-1.4-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building XML :: SonarQube Plugin 1.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ sonar-xml-plugin ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ sonar-xml-plugin ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ sonar-xml-plugin ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- sonar-packaging-maven-plugin:1.12.1:check-dependencies (default-check-dependencies) @ sonar-xml-plugin ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ sonar-xml-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 34 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ sonar-xml-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 32 source files to /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/main/java/org/sonar/plugins/xml/parsers/AbstractParser.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/main/java/org/sonar/plugins/xml/parsers/AbstractParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/main/java/org/sonar/plugins/xml/checks/XmlSchemaCheck.java: /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/main/java/org/sonar/plugins/xml/checks/XmlSchemaCheck.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/main/java/org/sonar/plugins/xml/checks/XmlSchemaCheck.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ sonar-xml-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 15 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ sonar-xml-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/target/test-classes
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/test/java/org/sonar/plugins/xml/checks/XmlSchemaCheckTest.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/test/java/org/sonar/plugins/xml/checks/XmlSchemaCheckTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/test/java/org/sonar/plugins/xml/XmlSensorTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/src/test/java/org/sonar/plugins/xml/XmlSensorTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ sonar-xml-plugin ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.plugins.xml.language.XmlTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec - in org.sonar.plugins.xml.language.XmlTest
+Running org.sonar.plugins.xml.XmlPluginTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.plugins.xml.XmlPluginTest
+Running org.sonar.plugins.xml.checks.CharBeforePrologCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.37 sec - in org.sonar.plugins.xml.checks.CharBeforePrologCheckTest
+Running org.sonar.plugins.xml.parsers.SaxParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.plugins.xml.parsers.SaxParserTest
+Running org.sonar.plugins.xml.highlighting.XmlHighlightingTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 sec - in org.sonar.plugins.xml.highlighting.XmlHighlightingTest
+Running org.sonar.plugins.xml.rules.XmlSonarWayProfileTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec - in org.sonar.plugins.xml.rules.XmlSonarWayProfileTest
+Running org.sonar.plugins.xml.parsers.LineCountParserTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.sonar.plugins.xml.parsers.LineCountParserTest
+Running org.sonar.plugins.xml.checks.IllegalTabCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.sonar.plugins.xml.checks.IllegalTabCheckTest
+Running org.sonar.plugins.xml.schemas.DetectSchemaParserTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.sonar.plugins.xml.schemas.DetectSchemaParserTest
+Running org.sonar.plugins.xml.rules.XmlRulesDefinitionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec - in org.sonar.plugins.xml.rules.XmlRulesDefinitionTest
+Running org.sonar.plugins.xml.checks.CheckRepositoryTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.plugins.xml.checks.CheckRepositoryTest
+Running org.sonar.plugins.xml.LineCountSensorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec - in org.sonar.plugins.xml.LineCountSensorTest
+Running org.sonar.plugins.xml.checks.IndentCheckTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.sonar.plugins.xml.checks.IndentCheckTest
+Running org.sonar.plugins.xml.checks.XPathCheckTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.369 sec - in org.sonar.plugins.xml.checks.XPathCheckTest
+Running org.sonar.plugins.xml.checks.XmlSchemaCheckTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.447 sec - in org.sonar.plugins.xml.checks.XmlSchemaCheckTest
+Running org.sonar.plugins.xml.checks.NewlineCheckTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.sonar.plugins.xml.checks.NewlineCheckTest
+Running org.sonar.plugins.xml.XmlSensorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in org.sonar.plugins.xml.XmlSensorTest
+
+Results :
+
+
+
+
+Tests run: 73, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- sonar-packaging-maven-plugin:1.12.1:sonar-plugin (default-sonar-plugin) @ sonar-xml-plugin ---
+[INFO] -------------------------------------------------------
+[INFO] Plugin definition in update center
+[INFO]     Key: xml
+[INFO]     Name: XML
+[INFO]     Description: Enable analysis and reporting on XML files.
+[INFO]     Version: 1.4-SNAPSHOT
+[INFO]     Main class: org.sonar.plugins.xml.XmlPlugin
+[INFO]     Homepage: http://redirect.sonarsource.com/plugins/xml.html
+[INFO]     Sonar version: 4.5.4
+[INFO]     License: The Apache Software License, Version 2.0
+[INFO]     Organization: SonarSource
+[INFO]     Organization URL: http://www.sonarsource.com
+[INFO]     Terms & Conditions URL: 
+[INFO]     Issue Tracker URL: http://jira.codehaus.org/browse/SONARPLUGINS/component/14607
+[INFO]     Build date: 2015-11-09T16:50:45+0000
+[INFO]     Sources URL: https://github.com/SonarCommunity/sonar-xml
+[INFO]     Developers: Matthijs Galesloot,Julien Henry,Linda Martin
+[INFO] -------------------------------------------------------
+[WARNING] com.google.code.findbugs:jsr305:jar:1.3.9:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.slf4j:slf4j-api:jar:1.6.2:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.picocontainer:picocontainer:jar:2.14.3:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.slf4j:jcl-over-slf4j:jar:1.7.5:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] commons-io:commons-io:jar:2.4:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.codehaus.sonar:sonar-colorizer:jar:4.5.4:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] com.google.guava:guava:jar:10.0.1:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] xml-apis:xml-apis:jar:1.3.03:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.codehaus.sonar:sonar-channel:jar:4.1:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[INFO] Following dependencies are packaged in the plugin:
+
+	org.sonarsource.xml:xml-squid:jar
+	jaxen:jaxen:jar
+	xalan:xalan:jar
+	org.codehaus.sonar.sslr:sslr-core:jar
+	org.codehaus.sonar.sslr-squid-bridge:sslr-squid-bridge:jar
+	xerces:xercesImpl:jar
+	xalan:serializer:jar
+	org.codehaus.sonar.sslr:sslr-xpath:jar
+
+[INFO] See following page for more details about plugin dependencies:
+
+	http://docs.codehaus.org/display/SONAR/Coding+a+plugin
+
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/target/sonar-xml-plugin.jar
+[INFO]  already added, skipping
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ sonar-xml-plugin ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ sonar-xml-plugin ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/sonar-xml-plugin/target/sonar-xml-plugin-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building XML :: SSLR Toolkit 1.4-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ sslr-xml-toolkit ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ sslr-xml-toolkit ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ sslr-xml-toolkit ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ sslr-xml-toolkit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ sslr-xml-toolkit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/src/main/java/org/sonar/xml/toolkit/XmlConfigurationModel.java: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/src/main/java/org/sonar/xml/toolkit/XmlConfigurationModel.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/src/main/java/org/sonar/xml/toolkit/XmlConfigurationModel.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ sslr-xml-toolkit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ sslr-xml-toolkit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ sslr-xml-toolkit ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.xml.toolkit.XmlToolkitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.sonar.xml.toolkit.XmlToolkitTest
+Running org.sonar.xml.toolkit.XmlConfigurationModelTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 sec - in org.sonar.xml.toolkit.XmlConfigurationModelTest
+
+Results :
+
+
+
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ sslr-xml-toolkit ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/sslr-xml-toolkit-1.4-SNAPSHOT.jar
+[INFO] 
+[INFO] --- jarjar-maven-plugin:1.5:jarjar (default) @ sslr-xml-toolkit ---
+[INFO] Processing: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/sslr-xml-toolkit-1.4-SNAPSHOT.jar
+[INFO] Building zip: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/jarjar/uber-sslr-xml-toolkit-1.4-SNAPSHOT.jar
+[INFO] META-INF/LICENSE.txt already added, skipping
+[INFO] META-INF/NOTICE.txt already added, skipping
+[INFO] JarJar'ing to: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/sslr-xml-toolkit-1.4-SNAPSHOT.jar
+[INFO] Original: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/original-sslr-xml-toolkit-1.4-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-size) @ sslr-xml-toolkit ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ sslr-xml-toolkit ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ sslr-xml-toolkit ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-xml/sslr-xml-toolkit/target/sslr-xml-toolkit-1.4-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] XML ................................................ SUCCESS [  3.706 s]
+[INFO] XML :: Squid ....................................... SUCCESS [  4.971 s]
+[INFO] XML :: SonarQube Plugin ............................ SUCCESS [ 25.849 s]
+[INFO] XML :: SSLR Toolkit ................................ SUCCESS [  6.505 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 42.081 s
+[INFO] Finished at: 2015-11-09T16:50:54+00:00
+[INFO] Final Memory: 34M/439M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:09ef8928:start=1447087810064937007,finish=1447087854703020697,duration=44638083690[0K
+[32;1mThe command "./travis.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:21df3f8c[0Kchange detected:
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar.sha1
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom.sha1
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer/1.13/_remote.repositories
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar.sha1
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom.sha1
+/home/travis/.m2/repository/org/codehaus/mojo/animal-sniffer-maven-plu
+...
+changes detected, packing new archive
+.
+.
+.
+.
+uploading archive
+travis_time:end:21df3f8c:start=1447087854708245429,finish=1447087893752067663,duration=39043822234[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

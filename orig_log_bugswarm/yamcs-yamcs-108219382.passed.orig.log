@@ -1,0 +1,777 @@
+Using worker: worker-linux-docker-67e8c4e2.prod.travis-ci.org:travis-linux-3
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0f41eae8[0K$ git clone --depth=50 --branch=master https://github.com/yamcs/yamcs.git yamcs/yamcs
+Cloning into 'yamcs/yamcs'...
+remote: Counting objects: 2941, done.[K
+remote: Compressing objects:   0% (1/1871)   [Kremote: Compressing objects:   1% (19/1871)   [Kremote: Compressing objects:   2% (38/1871)   [Kremote: Compressing objects:   3% (57/1871)   [Kremote: Compressing objects:   4% (75/1871)   [Kremote: Compressing objects:   5% (94/1871)   [Kremote: Compressing objects:   6% (113/1871)   [Kremote: Compressing objects:   7% (131/1871)   [Kremote: Compressing objects:   8% (150/1871)   [Kremote: Compressing objects:   9% (169/1871)   [Kremote: Compressing objects:  10% (188/1871)   [Kremote: Compressing objects:  11% (206/1871)   [Kremote: Compressing objects:  12% (225/1871)   [Kremote: Compressing objects:  13% (244/1871)   [Kremote: Compressing objects:  14% (262/1871)   [Kremote: Compressing objects:  15% (281/1871)   [Kremote: Compressing objects:  16% (300/1871)   [Kremote: Compressing objects:  17% (319/1871)   [Kremote: Compressing objects:  18% (337/1871)   [Kremote: Compressing objects:  19% (356/1871)   [Kremote: Compressing objects:  20% (375/1871)   [Kremote: Compressing objects:  21% (393/1871)   [Kremote: Compressing objects:  22% (412/1871)   [Kremote: Compressing objects:  23% (431/1871)   [Kremote: Compressing objects:  24% (450/1871)   [Kremote: Compressing objects:  25% (468/1871)   [Kremote: Compressing objects:  26% (487/1871)   [Kremote: Compressing objects:  27% (506/1871)   [Kremote: Compressing objects:  28% (524/1871)   [Kremote: Compressing objects:  29% (543/1871)   [Kremote: Compressing objects:  30% (562/1871)   [Kremote: Compressing objects:  31% (581/1871)   [Kremote: Compressing objects:  32% (599/1871)   [Kremote: Compressing objects:  33% (618/1871)   [Kremote: Compressing objects:  34% (637/1871)   [Kremote: Compressing objects:  35% (655/1871)   [Kremote: Compressing objects:  36% (674/1871)   [Kremote: Compressing objects:  37% (693/1871)   [Kremote: Compressing objects:  38% (711/1871)   [Kremote: Compressing objects:  39% (730/1871)   [Kremote: Compressing objects:  40% (749/1871)   [Kremote: Compressing objects:  41% (768/1871)   [Kremote: Compressing objects:  42% (786/1871)   [Kremote: Compressing objects:  43% (805/1871)   [Kremote: Compressing objects:  44% (824/1871)   [Kremote: Compressing objects:  45% (842/1871)   [Kremote: Compressing objects:  46% (861/1871)   [Kremote: Compressing objects:  47% (880/1871)   [Kremote: Compressing objects:  48% (899/1871)   [Kremote: Compressing objects:  49% (917/1871)   [Kremote: Compressing objects:  50% (936/1871)   [Kremote: Compressing objects:  51% (955/1871)   [Kremote: Compressing objects:  52% (973/1871)   [Kremote: Compressing objects:  53% (992/1871)   [Kremote: Compressing objects:  54% (1011/1871)   [Kremote: Compressing objects:  55% (1030/1871)   [Kremote: Compressing objects:  56% (1048/1871)   [Kremote: Compressing objects:  57% (1067/1871)   [Kremote: Compressing objects:  58% (1086/1871)   [Kremote: Compressing objects:  59% (1104/1871)   [Kremote: Compressing objects:  60% (1123/1871)   [Kremote: Compressing objects:  61% (1142/1871)   [Kremote: Compressing objects:  62% (1161/1871)   [Kremote: Compressing objects:  63% (1179/1871)   [Kremote: Compressing objects:  64% (1198/1871)   [Kremote: Compressing objects:  65% (1217/1871)   [Kremote: Compressing objects:  66% (1235/1871)   [Kremote: Compressing objects:  67% (1254/1871)   [Kremote: Compressing objects:  68% (1273/1871)   [Kremote: Compressing objects:  69% (1291/1871)   [Kremote: Compressing objects:  70% (1310/1871)   [Kremote: Compressing objects:  71% (1329/1871)   [Kremote: Compressing objects:  72% (1348/1871)   [Kremote: Compressing objects:  73% (1366/1871)   [Kremote: Compressing objects:  74% (1385/1871)   [Kremote: Compressing objects:  75% (1404/1871)   [Kremote: Compressing objects:  76% (1422/1871)   [Kremote: Compressing objects:  77% (1441/1871)   [Kremote: Compressing objects:  78% (1460/1871)   [Kremote: Compressing objects:  79% (1479/1871)   [Kremote: Compressing objects:  80% (1497/1871)   [Kremote: Compressing objects:  81% (1516/1871)   [Kremote: Compressing objects:  82% (1535/1871)   [Kremote: Compressing objects:  83% (1553/1871)   [Kremote: Compressing objects:  84% (1572/1871)   [Kremote: Compressing objects:  85% (1591/1871)   [Kremote: Compressing objects:  86% (1610/1871)   [Kremote: Compressing objects:  87% (1628/1871)   [Kremote: Compressing objects:  88% (1647/1871)   [Kremote: Compressing objects:  89% (1666/1871)   [Kremote: Compressing objects:  90% (1684/1871)   [Kremote: Compressing objects:  91% (1703/1871)   [Kremote: Compressing objects:  92% (1722/1871)   [Kremote: Compressing objects:  93% (1741/1871)   [Kremote: Compressing objects:  94% (1759/1871)   [Kremote: Compressing objects:  95% (1778/1871)   [Kremote: Compressing objects:  96% (1797/1871)   [Kremote: Compressing objects:  97% (1815/1871)   [Kremote: Compressing objects:  98% (1834/1871)   [Kremote: Compressing objects:  99% (1853/1871)   [Kremote: Compressing objects: 100% (1871/1871)   [Kremote: Compressing objects: 100% (1871/1871), done.[K
+Receiving objects:   0% (1/2941)   Receiving objects:   1% (30/2941)   Receiving objects:   2% (59/2941)   Receiving objects:   3% (89/2941)   Receiving objects:   4% (118/2941)   Receiving objects:   5% (148/2941)   Receiving objects:   6% (177/2941)   Receiving objects:   7% (206/2941)   Receiving objects:   8% (236/2941)   Receiving objects:   9% (265/2941)   Receiving objects:  10% (295/2941)   Receiving objects:  11% (324/2941)   Receiving objects:  12% (353/2941)   Receiving objects:  13% (383/2941)   Receiving objects:  14% (412/2941)   Receiving objects:  15% (442/2941)   Receiving objects:  16% (471/2941)   Receiving objects:  17% (500/2941)   Receiving objects:  18% (530/2941)   Receiving objects:  19% (559/2941)   Receiving objects:  20% (589/2941)   Receiving objects:  21% (618/2941)   Receiving objects:  22% (648/2941)   Receiving objects:  23% (677/2941)   Receiving objects:  24% (706/2941)   Receiving objects:  25% (736/2941)   Receiving objects:  26% (765/2941)   Receiving objects:  27% (795/2941)   Receiving objects:  28% (824/2941)   Receiving objects:  29% (853/2941)   Receiving objects:  30% (883/2941)   Receiving objects:  31% (912/2941)   Receiving objects:  32% (942/2941)   Receiving objects:  33% (971/2941)   Receiving objects:  34% (1000/2941)   Receiving objects:  35% (1030/2941)   Receiving objects:  36% (1059/2941)   Receiving objects:  37% (1089/2941)   Receiving objects:  38% (1118/2941)   Receiving objects:  39% (1147/2941)   Receiving objects:  40% (1177/2941)   Receiving objects:  41% (1206/2941)   Receiving objects:  42% (1236/2941)   Receiving objects:  43% (1265/2941)   Receiving objects:  44% (1295/2941)   Receiving objects:  45% (1324/2941)   Receiving objects:  46% (1353/2941)   Receiving objects:  47% (1383/2941)   Receiving objects:  48% (1412/2941)   Receiving objects:  49% (1442/2941)   Receiving objects:  50% (1471/2941)   Receiving objects:  51% (1500/2941)   Receiving objects:  52% (1530/2941)   Receiving objects:  53% (1559/2941)   Receiving objects:  54% (1589/2941)   Receiving objects:  55% (1618/2941)   Receiving objects:  56% (1647/2941)   Receiving objects:  57% (1677/2941)   Receiving objects:  58% (1706/2941)   Receiving objects:  59% (1736/2941)   Receiving objects:  60% (1765/2941)   Receiving objects:  61% (1795/2941)   Receiving objects:  62% (1824/2941)   Receiving objects:  63% (1853/2941)   Receiving objects:  64% (1883/2941)   Receiving objects:  65% (1912/2941)   Receiving objects:  66% (1942/2941)   Receiving objects:  67% (1971/2941)   Receiving objects:  68% (2000/2941)   Receiving objects:  69% (2030/2941)   Receiving objects:  70% (2059/2941)   Receiving objects:  71% (2089/2941)   Receiving objects:  72% (2118/2941)   Receiving objects:  73% (2147/2941)   Receiving objects:  74% (2177/2941)   Receiving objects:  75% (2206/2941)   Receiving objects:  76% (2236/2941)   Receiving objects:  77% (2265/2941)   Receiving objects:  78% (2294/2941)   Receiving objects:  79% (2324/2941)   Receiving objects:  80% (2353/2941)   Receiving objects:  81% (2383/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  82% (2412/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  83% (2442/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  84% (2471/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  85% (2500/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  86% (2530/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  87% (2559/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  88% (2589/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  89% (2618/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  90% (2647/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  91% (2677/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  92% (2706/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  93% (2736/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  94% (2765/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  95% (2794/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  96% (2824/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  97% (2853/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  98% (2883/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects:  99% (2912/2941), 13.29 MiB | 26.51 MiB/s   remote: Total 2941 (delta 1148), reused 2069 (delta 831), pack-reused 0[K
+Receiving objects: 100% (2941/2941), 13.29 MiB | 26.51 MiB/s   Receiving objects: 100% (2941/2941), 14.79 MiB | 26.51 MiB/s, done.
+Resolving deltas:   0% (0/1148)   Resolving deltas:   1% (21/1148)   Resolving deltas:   2% (23/1148)   Resolving deltas:   3% (40/1148)   Resolving deltas:  10% (122/1148)   Resolving deltas:  15% (183/1148)   Resolving deltas:  20% (235/1148)   Resolving deltas:  25% (287/1148)   Resolving deltas:  26% (300/1148)   Resolving deltas:  27% (311/1148)   Resolving deltas:  28% (323/1148)   Resolving deltas:  29% (336/1148)   Resolving deltas:  30% (345/1148)   Resolving deltas:  31% (360/1148)   Resolving deltas:  32% (370/1148)   Resolving deltas:  33% (381/1148)   Resolving deltas:  34% (392/1148)   Resolving deltas:  35% (404/1148)   Resolving deltas:  36% (415/1148)   Resolving deltas:  37% (427/1148)   Resolving deltas:  38% (437/1148)   Resolving deltas:  39% (448/1148)   Resolving deltas:  40% (461/1148)   Resolving deltas:  41% (471/1148)   Resolving deltas:  42% (483/1148)   Resolving deltas:  43% (498/1148)   Resolving deltas:  44% (507/1148)   Resolving deltas:  45% (518/1148)   Resolving deltas:  46% (532/1148)   Resolving deltas:  47% (540/1148)   Resolving deltas:  48% (553/1148)   Resolving deltas:  49% (570/1148)   Resolving deltas:  50% (574/1148)   Resolving deltas:  51% (587/1148)   Resolving deltas:  52% (601/1148)   Resolving deltas:  53% (609/1148)   Resolving deltas:  54% (620/1148)   Resolving deltas:  55% (636/1148)   Resolving deltas:  56% (643/1148)   Resolving deltas:  57% (655/1148)   Resolving deltas:  58% (666/1148)   Resolving deltas:  59% (679/1148)   Resolving deltas:  60% (690/1148)   Resolving deltas:  61% (701/1148)   Resolving deltas:  62% (714/1148)   Resolving deltas:  63% (726/1148)   Resolving deltas:  64% (737/1148)   Resolving deltas:  65% (747/1148)   Resolving deltas:  66% (758/1148)   Resolving deltas:  67% (770/1148)   Resolving deltas:  68% (781/1148)   Resolving deltas:  69% (794/1148)   Resolving deltas:  70% (806/1148)   Resolving deltas:  71% (817/1148)   Resolving deltas:  72% (827/1148)   Resolving deltas:  73% (839/1148)   Resolving deltas:  74% (851/1148)   Resolving deltas:  75% (861/1148)   Resolving deltas:  76% (873/1148)   Resolving deltas:  79% (907/1148)   Resolving deltas:  80% (922/1148)   Resolving deltas:  81% (930/1148)   Resolving deltas:  82% (943/1148)   Resolving deltas:  83% (954/1148)   Resolving deltas:  84% (965/1148)   Resolving deltas:  85% (977/1148)   Resolving deltas:  86% (989/1148)   Resolving deltas:  87% (999/1148)   Resolving deltas:  88% (1011/1148)   Resolving deltas:  89% (1023/1148)   Resolving deltas:  90% (1034/1148)   Resolving deltas:  91% (1045/1148)   Resolving deltas:  92% (1060/1148)   Resolving deltas:  93% (1068/1148)   Resolving deltas:  94% (1081/1148)   Resolving deltas:  95% (1096/1148)   Resolving deltas:  96% (1105/1148)   Resolving deltas:  97% (1116/1148)   Resolving deltas:  99% (1137/1148)   Resolving deltas: 100% (1148/1148)   Resolving deltas: 100% (1148/1148), done.
+Checking connectivity... done.
+
+travis_time:end:0f41eae8:start=1455091155634304454,finish=1455091157116762386,duration=1482457932[0K$ cd yamcs/yamcs
+$ git checkout -qf 888e53471ab918a6ab28004ce2594128d695aaf4
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0adc12a6[0K$ Installing caching utilities
+
+travis_time:end:0adc12a6:start=1455091160192348203,finish=1455091160249297291,duration=56949088[0Ktravis_time:start:1275fa4f[0K
+travis_time:end:1275fa4f:start=1455091160254116333,finish=1455091160257691040,duration=3574707[0Ktravis_time:start:08909a48[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching master/cache--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:08909a48:start=1455091160261322348,finish=1455091161872228720,duration=1610906372[0Ktravis_time:start:03254b41[0K
+travis_time:end:03254b41:start=1455091161877136350,finish=1455091161881224106,duration=4087756[0Ktravis_time:start:072001c8[0K[32;1madding /home/travis/.m2 to cache[0m
+
+travis_time:end:072001c8:start=1455091161886013485,finish=1455091163357717379,duration=1471703894[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:065ec158[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Yamcs
+[INFO] Yamcs API
+[INFO] Yamcs XTCE
+[INFO] Yamcs Core
+[INFO] Yamcs Simulation
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs/0.29.2/yamcs-0.29.2.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs API 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-api ---
+[INFO] Compiling 64 source files to /home/travis/build/yamcs/yamcs/yamcs-api/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-api ---
+[INFO] Compiling 4 source files to /home/travis/build/yamcs/yamcs/yamcs-api/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-api ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.29.2.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-api ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.29.2.jar to /home/travis/.m2/repository/org/yamcs/yamcs-api/0.29.2/yamcs-api-0.29.2.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-api/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-api/0.29.2/yamcs-api-0.29.2.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs XTCE 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-xtce ---
+[INFO] Compiling 106 source files to /home/travis/build/yamcs/yamcs/yamcs-xtce/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-xtce/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-xtce ---
+[INFO] Compiling 1 source file to /home/travis/build/yamcs/yamcs/yamcs-xtce/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-xtce ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-xtce ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.29.2.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-xtce ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.29.2.jar to /home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.29.2/yamcs-xtce-0.29.2.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-xtce/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.29.2/yamcs-xtce-0.29.2.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Core 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:add-source (add-source) @ yamcs-core ---
+[INFO] Source directory: /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (generate-version) @ yamcs-core ---
+[INFO] Executing tasks
+     [copy] Copying 1 file to /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version/org/yamcs
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-core ---
+[INFO] Compiling 496 source files to /home/travis/build/yamcs/yamcs/yamcs-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 37 resources
+[INFO] Copying 21 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-core ---
+[INFO] Compiling 67 source files to /home/travis/build/yamcs/yamcs/yamcs-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-core ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.29.2.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:copy-dependencies (copy-dependencies) @ yamcs-core ---
+[INFO] Copying netty-all-4.0.13.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/netty-all-4.0.13.Final.jar
+[INFO] Copying rocksdbjni-3.13.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/rocksdbjni-3.13.1.jar
+[INFO] Copying yamcs-api-0.29.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/yamcs-api-0.29.2.jar
+[INFO] Copying jackson-core-2.4.4.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jackson-core-2.4.4.jar
+[INFO] Copying yamcs-xtce-0.29.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/yamcs-xtce-0.29.2.jar
+[INFO] Copying snakeyaml-1.9.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/snakeyaml-1.9.jar
+[INFO] Copying protobuf-java-2.5.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protobuf-java-2.5.0.jar
+[INFO] Copying log4j-1.2.14.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/log4j-1.2.14.jar
+[INFO] Copying jgroups-3.3.4.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jgroups-3.3.4.Final.jar
+[INFO] Copying hornetq-server-2.4.6.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/hornetq-server-2.4.6.Final.jar
+[INFO] Copying protostuff-api-1.3.3.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protostuff-api-1.3.3.jar
+[INFO] Copying slf4j-jdk14-1.7.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/slf4j-jdk14-1.7.1.jar
+[INFO] Copying jxl-2.6.10.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jxl-2.6.10.jar
+[INFO] Copying hornetq-native-2.4.6.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/hornetq-native-2.4.6.Final.jar
+[INFO] Copying hornetq-core-client-2.4.6.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/hornetq-core-client-2.4.6.Final.jar
+[INFO] Copying guava-18.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/guava-18.0.jar
+[INFO] Copying jdatepicker-1.3.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jdatepicker-1.3.2.jar
+[INFO] Copying janino-2.5.15.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/janino-2.5.15.jar
+[INFO] Copying javacsv-2.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/javacsv-2.0.jar
+[INFO] Copying jboss-logging-3.1.0.GA.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jboss-logging-3.1.0.GA.jar
+[INFO] Copying hornetq-commons-2.4.6.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/hornetq-commons-2.4.6.Final.jar
+[INFO] Copying hornetq-journal-2.4.6.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/hornetq-journal-2.4.6.Final.jar
+[INFO] Copying protostuff-json-1.3.3.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protostuff-json-1.3.3.jar
+[INFO] Copying slf4j-api-1.7.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/slf4j-api-1.7.1.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-core ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.29.2.jar to /home/travis/.m2/repository/org/yamcs/yamcs-core/0.29.2/yamcs-core-0.29.2.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-core/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-core/0.29.2/yamcs-core-0.29.2.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Simulation 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-simulation ---
+[INFO] Compiling 34 source files to /home/travis/build/yamcs/yamcs/yamcs-simulation/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-simulation ---
+[INFO] Compiling 1 source file to /home/travis/build/yamcs/yamcs/yamcs-simulation/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-simulation ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-simulation ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.29.2.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-simulation ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.29.2.jar to /home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.29.2/yamcs-simulation-0.29.2.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-simulation/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.29.2/yamcs-simulation-0.29.2.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Yamcs .............................................. SUCCESS [  0.515 s]
+[INFO] Yamcs API .......................................... SUCCESS [ 39.731 s]
+[INFO] Yamcs XTCE ......................................... SUCCESS [  6.321 s]
+[INFO] Yamcs Core ......................................... SUCCESS [ 31.755 s]
+[INFO] Yamcs Simulation ................................... SUCCESS [  8.469 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:26 min
+[INFO] Finished at: 2016-02-10T08:00:53+00:00
+[INFO] Final Memory: 71M/455M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:065ec158:start=1455091163879054070,finish=1455091255365828353,duration=91486774283[0Ktravis_fold:end:install[0Ktravis_time:start:01897b68[0K$ mvn -Dsurefire.useFile=false test && mvn -Dtest=PermissionsTest -pl yamcs-core test
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Yamcs
+[INFO] Yamcs API
+[INFO] Yamcs XTCE
+[INFO] Yamcs Core
+[INFO] Yamcs Simulation
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs API 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-api ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.utils.TimeEncodingTest
+sdf,format:2010-12-31T23:59:59.000
+d=Fri Dec 31 23:59:59 UTC 2010
+cal=Fri Dec 31 23:59:59 UTC 2010
+hod=23
+s=2010-12-31T23:59:59.000
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 sec - in org.yamcs.utils.TimeEncodingTest
+Running org.yamcs.utils.TaiUtcConverterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec - in org.yamcs.utils.TaiUtcConverterTest
+Running org.yamcs.api.AbstractEventProducerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 sec - in org.yamcs.api.AbstractEventProducerTest
+
+Results :
+
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs XTCE 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-xtce ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-xtce/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-xtce ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-xtce ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.xtce.HistoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in org.yamcs.xtce.HistoryTest
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Core 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:add-source (add-source) @ yamcs-core ---
+[INFO] Source directory: /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (generate-version) @ yamcs-core ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 37 resources
+[INFO] Copying 21 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-core ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.yarch.StarSelectTest
+Created directory: /home/travis/.yamcs/log
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 sec - in org.yamcs.yarch.StarSelectTest
+Running org.yamcs.yarch.rocksdb.PartitioningTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.673 sec - in org.yamcs.yarch.rocksdb.PartitioningTest
+Running org.yamcs.yarch.rocksdb.RdbSelectTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.781 sec - in org.yamcs.yarch.rocksdb.RdbSelectTest
+Running org.yamcs.yarch.rocksdb.RdbEngineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.355 sec - in org.yamcs.yarch.rocksdb.RdbEngineTest
+Running org.yamcs.yarch.rocksdb.HistogramDbTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.325 sec - in org.yamcs.yarch.rocksdb.HistogramDbTest
+Running org.yamcs.yarch.rocksdb.PartitionManagerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.746 sec - in org.yamcs.yarch.rocksdb.PartitionManagerTest
+Running org.yamcs.yarch.rocksdb.TagsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.541 sec - in org.yamcs.yarch.rocksdb.TagsTest
+Running org.yamcs.yarch.rocksdb.RDBFactoryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.305 sec - in org.yamcs.yarch.rocksdb.RDBFactoryTest
+Running org.yamcs.yarch.DynamicSchemaTableTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.49 sec - in org.yamcs.yarch.DynamicSchemaTableTest
+Running org.yamcs.yarch.ConcurrencyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.706 sec - in org.yamcs.yarch.ConcurrencyTest
+Running org.yamcs.yarch.StreamSelectPerfTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.751 sec - in org.yamcs.yarch.StreamSelectPerfTest
+Running org.yamcs.yarch.HistogramDbTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 sec - in org.yamcs.yarch.HistogramDbTest
+Running org.yamcs.yarch.StreamSqlParserTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.45 sec - in org.yamcs.yarch.StreamSqlParserTest
+Running org.yamcs.yarch.hornet.StreamAdapterTest
+Feb 10 08:01:40.338 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:01:40.347 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:01:41.232 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.923 sec - in org.yamcs.yarch.hornet.StreamAdapterTest
+Running org.yamcs.yarch.hornet.ProducerKillerTest
+log4j:WARN No appenders could be found for logger (org.jboss.logging).
+log4j:WARN Please initialize the log4j system properly.
+Feb 10 08:01:42.755 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:01:42.783 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:02:45.254 [265] org.yamcs.api.Protocol onMessage WARNING:closing producer org.hornetq.core.client.impl.ClientProducerImpl@a9cd3b1 because the consumer to the address tempDataAddress.472cb216-4159-4f19-82d3-334fc67213f7 has closed
+HornetQObjectClosedException[errorType=OBJECT_CLOSED message=HQ119018: Producer is closed]
+	at org.hornetq.core.client.impl.ClientProducerImpl.checkClosed(ClientProducerImpl.java:346)
+	at org.hornetq.core.client.impl.ClientProducerImpl.send(ClientProducerImpl.java:133)
+	at org.yamcs.yarch.hornet.ProducerKillerTest$2.run(ProducerKillerTest.java:63)
+	at java.lang.Thread.run(Thread.java:745)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 63.468 sec - in org.yamcs.yarch.hornet.ProducerKillerTest
+Running org.yamcs.yarch.StreamSelect2Test
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.006 sec - in org.yamcs.yarch.StreamSelect2Test
+Running org.yamcs.yarch.StreamSelectTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.656 sec - in org.yamcs.yarch.StreamSelectTest
+Running org.yamcs.yarch.HistogramStreamTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.872 sec - in org.yamcs.yarch.HistogramStreamTest
+Running org.yamcs.yarch.EnumTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.625 sec - in org.yamcs.yarch.EnumTest
+Running org.yamcs.yarch.StreamMergeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.471 sec - in org.yamcs.yarch.StreamMergeTest
+Running org.yamcs.yarch.TableDefinitionSerializationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 sec - in org.yamcs.yarch.TableDefinitionSerializationTest
+Running org.yamcs.yarch.StandaloneStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.325 sec - in org.yamcs.yarch.StandaloneStreamTest
+Running org.yamcs.yarch.StreamSelect1Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.605 sec - in org.yamcs.yarch.StreamSelect1Test
+Running org.yamcs.xtceproc.XtceDbFactoryTest
+Warning:  Cell at E17 not present - adding a blank
+Warning:  Some cells exceeded the specified bounds.  Resizing sheet dimensions from 4x42 to 5x42
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.35 sec - in org.yamcs.xtceproc.XtceDbFactoryTest
+Running org.yamcs.xtceproc.XtceTmExtractorTest
+Feb 10 08:03:10.071 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateFloat WARNING:StringFloatTSCPara1_4_2: failed to parse string 'invalidfloat' to double
+Feb 10 08:03:10.092 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateInteger WARNING:StringIntTermPara1_5_2: failed to parse string 'invalidint' to long
+Feb 10 08:03:10.101 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateEnumerated WARNING:StringIntTermPara20_1: failed to parse string 'invalidlong' to long
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.845 sec - in org.yamcs.xtceproc.XtceTmExtractorTest
+Running org.yamcs.xtceproc.XtceCommandEncodingTest
+Warning:  Cell at E17 not present - adding a blank
+Warning:  Some cells exceeded the specified bounds.  Resizing sheet dimensions from 4x42 to 5x42
+command buffer: 0B0A1200
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.797 sec - in org.yamcs.xtceproc.XtceCommandEncodingTest
+Running org.yamcs.utils.TimeEncodingTest
+max = 185539080470435999
+5881469-05-27T23:59:59.999
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 sec - in org.yamcs.utils.TimeEncodingTest
+Running org.yamcs.utils.StringConvertorsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 sec - in org.yamcs.utils.StringConvertorsTest
+Running org.yamcs.algorithms.WindowBufferTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in org.yamcs.algorithms.WindowBufferTest
+Running org.yamcs.algorithms.AlgorithmManagerTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 15.982 sec - in org.yamcs.algorithms.AlgorithmManagerTest
+Running org.yamcs.algorithms.AlgorithmManagerPyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.803 sec - in org.yamcs.algorithms.AlgorithmManagerPyTest
+Running org.yamcs.algorithms.AlgorithmWithContextTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.852 sec - in org.yamcs.algorithms.AlgorithmWithContextTest
+Running org.yamcs.ContainerRequestManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.716 sec - in org.yamcs.ContainerRequestManagerTest
+Running org.yamcs.ui.eventviewer.UtilsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec - in org.yamcs.ui.eventviewer.UtilsTest
+Running org.yamcs.ui.CcsdsCompletenessGuiTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 sec - in org.yamcs.ui.CcsdsCompletenessGuiTest
+Running org.yamcs.web.rest.archive.RestDownsamplerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec - in org.yamcs.web.rest.archive.RestDownsamplerTest
+Running org.yamcs.web.rest.mdb.NameDescriptionSearchMatcherTest
+/REFMDB/ccsds-apid
+/REFMDB/ccsds-apid
+/REFMDB/ccsds-apid
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 sec - in org.yamcs.web.rest.mdb.NameDescriptionSearchMatcherTest
+Running org.yamcs.web.rest.RouterTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.47 sec - in org.yamcs.web.rest.RouterTest
+Running org.yamcs.web.rest.RestRequestTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 sec - in org.yamcs.web.rest.RestRequestTest
+Running org.yamcs.archive.PpTupleTranslatorTest
+Feb 10 08:03:50.710 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:03:50.731 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:03:54.520 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.741 sec - in org.yamcs.archive.PpTupleTranslatorTest
+Running org.yamcs.archive.CmdHistoryRecordingTest
+Feb 10 08:03:55.998 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:03:56.042 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:03:57.579 [1] org.yamcs.cmdhistory.CommandHistoryRecorder[yarchtest_CmdHistoryRecordingTest] doStart SEVERE:The stream cmdhist_dump has not been found
+Feb 10 08:03:58.910 [71] org.yamcs.api.Protocol onMessage WARNING:closing producer org.hornetq.core.client.impl.ClientProducerImpl@4d462164 because the consumer to the address tempDataAddress.ed0ed002-ddd9-45e2-8347-421a46fcd0cf has closed
+Feb 10 08:03:58.933 [71] org.hornetq.core.client fail WARNING:HQ212037: Connection failure has been detected: HQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Feb 10 08:03:58.934 [58] org.yamcs.hornetq.HornetQRetrievalServer run WARNING:null message received from the control queue
+Feb 10 08:03:58.934 [58] org.yamcs.hornetq.HornetQRetrievalServer run WARNING:caught exception in packet reply: : HornetQObjectClosedException[errorType=OBJECT_CLOSED message=HQ119017: Consumer is closed]
+	org.hornetq.core.client.impl.ClientConsumerImpl.checkClosed(ClientConsumerImpl.java:1044)
+	org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:191)
+	org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:408)
+	org.yamcs.hornetq.HornetQRetrievalServer$HornetQReplayListener.run(HornetQRetrievalServer.java:198)
+	java.lang.Thread.run(Thread.java:745)
+
+HornetQObjectClosedException[errorType=OBJECT_CLOSED message=HQ119017: Consumer is closed]
+	at org.hornetq.core.client.impl.ClientConsumerImpl.checkClosed(ClientConsumerImpl.java:1044)
+	at org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:191)
+	at org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:408)
+	at org.yamcs.hornetq.HornetQRetrievalServer$HornetQReplayListener.run(HornetQRetrievalServer.java:198)
+	at java.lang.Thread.run(Thread.java:745)
+Feb 10 08:03:58.951 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.735 sec - in org.yamcs.archive.CmdHistoryRecordingTest
+Running org.yamcs.archive.CcsdsTmIndexTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.075 sec - in org.yamcs.archive.CcsdsTmIndexTest
+Running org.yamcs.archive.EventRecordingTest
+Feb 10 08:04:01.884 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:01.890 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:06.160 [30] org.yamcs.api.Protocol onMessage WARNING:closing producer org.hornetq.core.client.impl.ClientProducerImpl@61735be4 because the consumer to the address tempDataAddress.5f0ec4d0-5edc-4f94-8689-a32ff010371f has closed
+Feb 10 08:04:06.228 [30] org.hornetq.core.client fail WARNING:HQ212037: Connection failure has been detected: HQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Feb 10 08:04:06.231 [72] org.yamcs.hornetq.HornetQRetrievalServer run WARNING:null message received from the control queue
+Feb 10 08:04:06.231 [72] org.yamcs.hornetq.HornetQRetrievalServer run WARNING:caught exception in packet reply: : HornetQObjectClosedException[errorType=OBJECT_CLOSED message=HQ119017: Consumer is closed]
+	org.hornetq.core.client.impl.ClientConsumerImpl.checkClosed(ClientConsumerImpl.java:1044)
+	org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:191)
+	org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:408)
+	org.yamcs.hornetq.HornetQRetrievalServer$HornetQReplayListener.run(HornetQRetrievalServer.java:198)
+	java.lang.Thread.run(Thread.java:745)
+
+HornetQObjectClosedException[errorType=OBJECT_CLOSED message=HQ119017: Consumer is closed]
+	at org.hornetq.core.client.impl.ClientConsumerImpl.checkClosed(ClientConsumerImpl.java:1044)
+	at org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:191)
+	at org.hornetq.core.client.impl.ClientConsumerImpl.receive(ClientConsumerImpl.java:408)
+	at org.yamcs.hornetq.HornetQRetrievalServer$HornetQReplayListener.run(HornetQRetrievalServer.java:198)
+	at java.lang.Thread.run(Thread.java:745)
+Feb 10 08:04:06.235 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.133 sec - in org.yamcs.archive.EventRecordingTest
+Running org.yamcs.IntegrationTest
+Feb 10 08:04:15.457 [30] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: Invalid parameters: [name: "/REFMDB/SUBSYS1/InvalidParaName"
+]
+Feb 10 08:04:15.463 [30] org.yamcs.web.HttpHandler sendError WARNING:GET /api/processors/IntegrationTest/realtime/parameters/mget 400
+Feb 10 08:04:18.532 [1] org.yamcs.IntegrationTest testRestParameterGet SEVERE:GET  BACK                      { }
+
+Feb 10 08:04:19.611 [35] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: Cannot find a local(software) parameter for 'name: "/REFMDB/SUBSYS1/IntegerPara1_1_6"
+'
+Feb 10 08:04:19.612 [35] org.yamcs.web.HttpHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 400
+Feb 10 08:04:19.657 [37] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: Cannot assign integer from STRING
+Feb 10 08:04:19.658 [37] org.yamcs.web.HttpHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 400
+Feb 10 08:04:24.114 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 2 unexpected registered MBeans: [core.acceptor.in-vm, core.acceptor.netty]
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 17.696 sec - in org.yamcs.IntegrationTest
+Running org.yamcs.derivedvalues.DerivedValuesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.36 sec - in org.yamcs.derivedvalues.DerivedValuesTest
+Running org.yamcs.security.PasswordHashTest
+1000:f2519b399cf0b845347c3a4768be912bdfbe38d75ae55b9c:805fdb8473acfbb0c340935a57b8e2b9877bc3290e1c9425
+1000:520fc6cec878f743743e3237e970bf973b8b816031ded942:8b46e033a163604167ab86312c058c93fd11a98112e54830
+1000:bbc2897fabd1afe67feba93ca91f86b32dec5dfd3ec9d4ba:b8fb3c72486cce7450de7b4d9e6ad2f43193a29a84303d7b
+1000:5469be7ef185f93e6ffc0922f228b4659f630ebcb5451ce2:13f05375389073e93950c80376995f34d2520782f5601ab6
+1000:74fec27020166372a2a699136a41b0c3be94e69e7cd7925e:9f0b080c353487a4881285c6826c18d507b3d95b4ca19270
+1000:b54e7c6a403f04a9dc2d1bdec64d50012bc4661cb68d777c:2bab6c5875b7e16138b12ea3f4541e0af2ba184c81bab319
+1000:ad06bb395a0d6e4893198442650baabd393e861921dd6afd:1a92576d4595d7e81713957aaf817925cedbcc4ccf12d15b
+1000:0b526d220eebdd85f529919fc839b6c69ec3c5298ca09969:59a034910ae6e16b768ad06672eb1ddea9d8df540d1aa59e
+1000:11a83c075da0d929995b4f91875f137f322aa02ea8b58ed7:6b252984688e52e62e7fc5b28cfaaf64282a54d8e7723cc5
+1000:fce06a0086fd445e49f744559d35e86da6bf49ad5709a95a:3717d1fb4bf3299f0b0ed8cc7405b48bc1ba5e7f49bdf529
+Running tests...
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.703 sec - in org.yamcs.security.PasswordHashTest
+Running org.yamcs.commanding.CommandingManagerTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.425 sec - in org.yamcs.commanding.CommandingManagerTest
+Running org.yamcs.api.EventProducerTest
+Feb 10 08:04:31.832 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:31.851 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:32.454 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.353 sec - in org.yamcs.api.EventProducerTest
+Running org.yamcs.AlarmTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.639 sec - in org.yamcs.AlarmTest
+Running org.yamcs.parameter.ParameterValueListTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 sec - in org.yamcs.parameter.ParameterValueListTest
+Running org.yamcs.parameter.SubsriptionArrayTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in org.yamcs.parameter.SubsriptionArrayTest
+Running org.yamcs.parameter.SoftwareParameterManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.539 sec - in org.yamcs.parameter.SoftwareParameterManagerTest
+Running org.yamcs.client.YamcsConnectDataTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in org.yamcs.client.YamcsConnectDataTest
+Running org.yamcs.alarms.AlarmServerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 sec - in org.yamcs.alarms.AlarmServerTest
+Running org.yamcs.tctm.TmFileReaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 sec - in org.yamcs.tctm.TmFileReaderTest
+Running org.yamcs.management.YProcessorsTest
+Feb 10 08:04:40.932 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:40.939 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:41.920 [32] org.yamcs.management.ManagementService createProcessor WARNING:createYProcessor called with invalid client id:10; ignored.
+Feb 10 08:04:41.920 [32] org.yamcs.management.ManagementService createProcessor WARNING:createYProcessor called with invalid client id:14; ignored.
+Feb 10 08:04:41.921 [32] org.yamcs.hornetq.HornetQProcessorManagement processControlMessage WARNING:Sending error reply createYProcessor invoked with a list full of invalid client ids
+Feb 10 08:04:41.925 [1] org.yamcs.api.YamcsConnector disconnect WARNING:Disconnection requested
+Feb 10 08:04:48.074 [1] org.yamcs.api.YamcsConnector disconnect WARNING:Disconnection requested
+Feb 10 08:04:48.116 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.836 sec - in org.yamcs.management.YProcessorsTest
+Running org.yamcs.YamcsServerTest
+Feb 10 08:04:49.393 [1] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:49.417 [1] org.yamcs.security.HornetQAuthManager start WARNING:Privileges disabled, all connections are allowed and have full permissions
+Feb 10 08:04:50.208 [1] org.yamcs.StreamConfig <init> WARNING:No streamConfig defined for instance instance1
+Feb 10 08:04:50.804 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 1 unexpected registered MBeans: [core.acceptor.in-vm]
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.28 sec - in org.yamcs.YamcsServerTest
+
+Results :
+
+Tests run: 203, Failures: 0, Errors: 0, Skipped: 4
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Simulation 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-simulation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-simulation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-simulation ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.simulation.SimulationPpProviderTest
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ppSimulation>
+    <parameterSequence>
+        <parameter spaceSystem="APM" paraName="SOLAR_toto" generationStep="2" aquisitionStep="1"/>
+    </parameterSequence>
+</ppSimulation>
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.023 sec - in org.yamcs.simulation.SimulationPpProviderTest
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Yamcs .............................................. SUCCESS [  0.003 s]
+[INFO] Yamcs API .......................................... SUCCESS [  3.601 s]
+[INFO] Yamcs XTCE ......................................... SUCCESS [  0.697 s]
+[INFO] Yamcs Core ......................................... SUCCESS [03:49 min]
+[INFO] Yamcs Simulation ................................... SUCCESS [  4.838 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:59 min
+[INFO] Finished at: 2016-02-10T08:04:56+00:00
+[INFO] Final Memory: 10M/491M
+[INFO] ------------------------------------------------------------------------
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Core 0.29.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:add-source (add-source) @ yamcs-core ---
+[INFO] Source directory: /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (generate-version) @ yamcs-core ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 37 resources
+[INFO] Copying 21 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-core ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.PermissionsTest
+Feb 10 08:05:08.259 [28] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_parameter_privileges for role EmptyRole
+Feb 10 08:05:08.274 [28] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_parameter_set_privileges for role EmptyRole
+Feb 10 08:05:08.274 [28] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_packet_privileges for role EmptyRole
+Feb 10 08:05:08.274 [28] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tc_privileges for role EmptyRole
+Feb 10 08:05:08.274 [28] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type system_privileges for role EmptyRole
+Feb 10 08:05:08.590 [29] org.yamcs.web.rest.RestHandler verifyCommand WARNING:Command name: "FLOAT_ARG_TC"
+namespace: "/REFMDB/SUBSYS1"
+ found, but withheld due to insufficient privileges. Returning 404 instead
+Feb 10 08:05:08.591 [29] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: No resource named '/api/processors/IntegrationTest/realtime/commands/REFMDB/SUBSYS1/FLOAT_ARG_TC' (No such command)
+Feb 10 08:05:08.595 [29] org.yamcs.web.HttpHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/commands/REFMDB/SUBSYS1/FLOAT_ARG_TC 404
+Feb 10 08:05:08.706 [32] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: User testuser/***** has no permission for parameter /REFMDB/SUBSYS1/FloatPara1_1_3
+Feb 10 08:05:08.707 [32] org.yamcs.web.HttpHandler sendError WARNING:GET /api/processors/IntegrationTest/realtime/parameters/mget 403
+Feb 10 08:05:13.124 [35] org.yamcs.web.HttpHandler sendError WARNING:GET /api/archive/IntegrationTest/REFMDB/SUBSYS1/FixedStringPara1_3_1?start=2015-03-02T10:10:00&stop=2015-03-02T10:10:02&order=asc 404
+Feb 10 08:05:13.378 [37] org.yamcs.security.YamlRealm loadUser WARNING:Unable to load user baduser/***** from YamlRealm: cannot find a mapping for key 'baduser'
+Feb 10 08:05:13.378 [37] org.yamcs.web.HttpHandler sendUnauthorized WARNING:GET /api/user 401 [realm="YamlRealm"]
+Feb 10 08:05:13.515 [39] org.yamcs.web.rest.Router dispatch WARNING:Sending nominal exception back to client: User operator/***** has no 'set' permission for parameter /REFMDB/SUBSYS1/LocalPara1
+Feb 10 08:05:13.515 [39] org.yamcs.web.HttpHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 403
+Feb 10 08:05:13.573 [1] org.hornetq.core.server stop WARNING:HQ222113: On ManagementService stop, there are 2 unexpected registered MBeans: [core.acceptor.in-vm, core.acceptor.netty]
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.649 sec - in org.yamcs.PermissionsTest
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16.053 s
+[INFO] Finished at: 2016-02-10T08:05:14+00:00
+[INFO] Final Memory: 13M/491M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:01897b68:start=1455091255370082655,finish=1455091515357714528,duration=259987631873[0K
+[32;1mThe command "mvn -Dsurefire.useFile=false test && mvn -Dtest=PermissionsTest -pl yamcs-core test" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:06d5da3d[0K
+travis_time:end:06d5da3d:start=1455091515361862019,finish=1455091515365179394,duration=3317375[0Ktravis_time:start:05696280[0K[32;1mchange detected:
+/home/travis/.m2/repository/org/yamcs/yamcs/0.29.2/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-api/0.29.2/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-api/0.29.2/yamcs-api-0.29.2.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-api/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs-core/0.29.2/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-core/0.29.2/yamcs-core-0.29.2.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-core/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.29.2/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.29.2/yamcs-simulation-0.29.2.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.29.2/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.29.2/yamcs-xtce-0.29.2.ja
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+[32;1muploading archive[0m
+
+travis_time:end:05696280:start=1455091515368974650,finish=1455091520621877800,duration=5252903150[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

@@ -1,0 +1,869 @@
+Using worker: worker-linux-docker-3178161e.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:14b5492c[0K$ git clone --depth=50 --branch=master git://github.com/vkostyukov/la4j.git vkostyukov/la4j
+Cloning into 'vkostyukov/la4j'...
+remote: Counting objects: 1864, done.[K
+remote: Compressing objects:   0% (1/675)   [Kremote: Compressing objects:   1% (7/675)   [Kremote: Compressing objects:   2% (14/675)   [Kremote: Compressing objects:   3% (21/675)   [Kremote: Compressing objects:   4% (27/675)   [Kremote: Compressing objects:   5% (34/675)   [Kremote: Compressing objects:   6% (41/675)   [Kremote: Compressing objects:   7% (48/675)   [Kremote: Compressing objects:   8% (54/675)   [Kremote: Compressing objects:   9% (61/675)   [Kremote: Compressing objects:  10% (68/675)   [Kremote: Compressing objects:  11% (75/675)   [Kremote: Compressing objects:  12% (81/675)   [Kremote: Compressing objects:  13% (88/675)   [Kremote: Compressing objects:  14% (95/675)   [Kremote: Compressing objects:  15% (102/675)   [Kremote: Compressing objects:  16% (108/675)   [Kremote: Compressing objects:  17% (115/675)   [Kremote: Compressing objects:  18% (122/675)   [Kremote: Compressing objects:  19% (129/675)   [Kremote: Compressing objects:  20% (135/675)   [Kremote: Compressing objects:  21% (142/675)   [Kremote: Compressing objects:  22% (149/675)   [Kremote: Compressing objects:  23% (156/675)   [Kremote: Compressing objects:  24% (162/675)   [Kremote: Compressing objects:  25% (169/675)   [Kremote: Compressing objects:  26% (176/675)   [Kremote: Compressing objects:  27% (183/675)   [Kremote: Compressing objects:  28% (189/675)   [Kremote: Compressing objects:  29% (196/675)   [Kremote: Compressing objects:  30% (203/675)   [Kremote: Compressing objects:  31% (210/675)   [Kremote: Compressing objects:  32% (216/675)   [Kremote: Compressing objects:  33% (223/675)   [Kremote: Compressing objects:  34% (230/675)   [Kremote: Compressing objects:  35% (237/675)   [Kremote: Compressing objects:  36% (243/675)   [Kremote: Compressing objects:  37% (250/675)   [Kremote: Compressing objects:  38% (257/675)   [Kremote: Compressing objects:  39% (264/675)   [Kremote: Compressing objects:  40% (270/675)   [Kremote: Compressing objects:  41% (277/675)   [Kremote: Compressing objects:  42% (284/675)   [Kremote: Compressing objects:  43% (291/675)   [Kremote: Compressing objects:  44% (297/675)   [Kremote: Compressing objects:  45% (304/675)   [Kremote: Compressing objects:  46% (311/675)   [Kremote: Compressing objects:  47% (318/675)   [Kremote: Compressing objects:  48% (324/675)   [Kremote: Compressing objects:  49% (331/675)   [Kremote: Compressing objects:  50% (338/675)   [Kremote: Compressing objects:  51% (345/675)   [Kremote: Compressing objects:  52% (351/675)   [Kremote: Compressing objects:  53% (358/675)   [Kremote: Compressing objects:  54% (365/675)   [Kremote: Compressing objects:  55% (372/675)   [Kremote: Compressing objects:  56% (378/675)   [Kremote: Compressing objects:  57% (385/675)   [Kremote: Compressing objects:  58% (392/675)   [Kremote: Compressing objects:  59% (399/675)   [Kremote: Compressing objects:  60% (405/675)   [Kremote: Compressing objects:  61% (412/675)   [Kremote: Compressing objects:  62% (419/675)   [Kremote: Compressing objects:  63% (426/675)   [Kremote: Compressing objects:  64% (432/675)   [Kremote: Compressing objects:  65% (439/675)   [Kremote: Compressing objects:  66% (446/675)   [Kremote: Compressing objects:  67% (453/675)   [Kremote: Compressing objects:  68% (459/675)   [Kremote: Compressing objects:  69% (466/675)   [Kremote: Compressing objects:  70% (473/675)   [Kremote: Compressing objects:  71% (480/675)   [Kremote: Compressing objects:  72% (486/675)   [Kremote: Compressing objects:  73% (493/675)   [Kremote: Compressing objects:  74% (500/675)   [Kremote: Compressing objects:  75% (507/675)   [Kremote: Compressing objects:  76% (513/675)   [Kremote: Compressing objects:  77% (520/675)   [Kremote: Compressing objects:  78% (527/675)   [Kremote: Compressing objects:  79% (534/675)   [Kremote: Compressing objects:  80% (540/675)   [Kremote: Compressing objects:  81% (547/675)   [Kremote: Compressing objects:  82% (554/675)   [Kremote: Compressing objects:  83% (561/675)   [Kremote: Compressing objects:  84% (567/675)   [Kremote: Compressing objects:  85% (574/675)   [Kremote: Compressing objects:  86% (581/675)   [Kremote: Compressing objects:  87% (588/675)   [Kremote: Compressing objects:  88% (594/675)   [Kremote: Compressing objects:  89% (601/675)   [Kremote: Compressing objects:  90% (608/675)   [Kremote: Compressing objects:  91% (615/675)   [Kremote: Compressing objects:  92% (621/675)   [Kremote: Compressing objects:  93% (628/675)   [Kremote: Compressing objects:  94% (635/675)   [Kremote: Compressing objects:  95% (642/675)   [Kremote: Compressing objects:  96% (648/675)   [Kremote: Compressing objects:  97% (655/675)   [Kremote: Compressing objects:  98% (662/675)   [Kremote: Compressing objects:  99% (669/675)   [Kremote: Compressing objects: 100% (675/675)   [Kremote: Compressing objects: 100% (675/675), done.[K
+Receiving objects:   0% (1/1864)   Receiving objects:   1% (19/1864)   Receiving objects:   2% (38/1864)   Receiving objects:   3% (56/1864)   Receiving objects:   4% (75/1864)   Receiving objects:   5% (94/1864)   Receiving objects:   6% (112/1864)   Receiving objects:   7% (131/1864)   Receiving objects:   8% (150/1864)   Receiving objects:   9% (168/1864)   Receiving objects:  10% (187/1864)   Receiving objects:  11% (206/1864)   Receiving objects:  12% (224/1864)   Receiving objects:  13% (243/1864)   Receiving objects:  14% (261/1864)   Receiving objects:  15% (280/1864)   Receiving objects:  16% (299/1864)   Receiving objects:  17% (317/1864)   Receiving objects:  18% (336/1864)   Receiving objects:  19% (355/1864)   Receiving objects:  20% (373/1864)   Receiving objects:  21% (392/1864)   Receiving objects:  22% (411/1864)   Receiving objects:  23% (429/1864)   Receiving objects:  24% (448/1864)   Receiving objects:  25% (466/1864)   Receiving objects:  26% (485/1864)   Receiving objects:  27% (504/1864)   Receiving objects:  28% (522/1864)   Receiving objects:  29% (541/1864)   Receiving objects:  30% (560/1864)   Receiving objects:  31% (578/1864)   Receiving objects:  32% (597/1864)   Receiving objects:  33% (616/1864)   Receiving objects:  34% (634/1864)   Receiving objects:  35% (653/1864)   Receiving objects:  36% (672/1864)   Receiving objects:  37% (690/1864)   Receiving objects:  38% (709/1864)   Receiving objects:  39% (727/1864)   Receiving objects:  40% (746/1864)   Receiving objects:  41% (765/1864)   Receiving objects:  42% (783/1864)   Receiving objects:  43% (802/1864)   Receiving objects:  44% (821/1864)   Receiving objects:  45% (839/1864)   Receiving objects:  46% (858/1864)   Receiving objects:  47% (877/1864)   Receiving objects:  48% (895/1864)   Receiving objects:  49% (914/1864)   Receiving objects:  50% (932/1864)   Receiving objects:  51% (951/1864)   Receiving objects:  52% (970/1864)   Receiving objects:  53% (988/1864)   Receiving objects:  54% (1007/1864)   Receiving objects:  55% (1026/1864)   Receiving objects:  56% (1044/1864)   Receiving objects:  57% (1063/1864)   Receiving objects:  58% (1082/1864)   Receiving objects:  59% (1100/1864)   Receiving objects:  60% (1119/1864)   Receiving objects:  61% (1138/1864)   Receiving objects:  62% (1156/1864)   Receiving objects:  63% (1175/1864)   Receiving objects:  64% (1193/1864)   Receiving objects:  65% (1212/1864)   Receiving objects:  66% (1231/1864)   Receiving objects:  67% (1249/1864)   Receiving objects:  68% (1268/1864)   Receiving objects:  69% (1287/1864)   Receiving objects:  70% (1305/1864)   Receiving objects:  71% (1324/1864)   Receiving objects:  72% (1343/1864)   Receiving objects:  73% (1361/1864)   Receiving objects:  74% (1380/1864)   Receiving objects:  75% (1398/1864)   Receiving objects:  76% (1417/1864)   Receiving objects:  77% (1436/1864)   remote: Total 1864 (delta 1015), reused 1583 (delta 766)[K
+Receiving objects:  78% (1454/1864)   Receiving objects:  79% (1473/1864)   Receiving objects:  80% (1492/1864)   Receiving objects:  81% (1510/1864)   Receiving objects:  82% (1529/1864)   Receiving objects:  83% (1548/1864)   Receiving objects:  84% (1566/1864)   Receiving objects:  85% (1585/1864)   Receiving objects:  86% (1604/1864)   Receiving objects:  87% (1622/1864)   Receiving objects:  88% (1641/1864)   Receiving objects:  89% (1659/1864)   Receiving objects:  90% (1678/1864)   Receiving objects:  91% (1697/1864)   Receiving objects:  92% (1715/1864)   Receiving objects:  93% (1734/1864)   Receiving objects:  94% (1753/1864)   Receiving objects:  95% (1771/1864)   Receiving objects:  96% (1790/1864)   Receiving objects:  97% (1809/1864)   Receiving objects:  98% (1827/1864)   Receiving objects:  99% (1846/1864)   Receiving objects: 100% (1864/1864)   Receiving objects: 100% (1864/1864), 373.80 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1015)   Resolving deltas:  11% (112/1015)   Resolving deltas:  15% (154/1015)   Resolving deltas:  16% (164/1015)   Resolving deltas:  17% (175/1015)   Resolving deltas:  18% (190/1015)   Resolving deltas:  20% (208/1015)   Resolving deltas:  21% (214/1015)   Resolving deltas:  22% (228/1015)   Resolving deltas:  23% (237/1015)   Resolving deltas:  24% (247/1015)   Resolving deltas:  25% (259/1015)   Resolving deltas:  27% (275/1015)   Resolving deltas:  28% (288/1015)   Resolving deltas:  31% (323/1015)   Resolving deltas:  32% (329/1015)   Resolving deltas:  34% (346/1015)   Resolving deltas:  36% (367/1015)   Resolving deltas:  37% (376/1015)   Resolving deltas:  38% (391/1015)   Resolving deltas:  39% (398/1015)   Resolving deltas:  42% (436/1015)   Resolving deltas:  43% (437/1015)   Resolving deltas:  44% (456/1015)   Resolving deltas:  45% (458/1015)   Resolving deltas:  46% (477/1015)   Resolving deltas:  51% (526/1015)   Resolving deltas:  57% (581/1015)   Resolving deltas:  58% (589/1015)   Resolving deltas:  59% (608/1015)   Resolving deltas:  60% (609/1015)   Resolving deltas:  61% (620/1015)   Resolving deltas:  62% (633/1015)   Resolving deltas:  63% (640/1015)   Resolving deltas:  65% (664/1015)   Resolving deltas:  66% (671/1015)   Resolving deltas:  68% (696/1015)   Resolving deltas:  69% (701/1015)   Resolving deltas:  72% (737/1015)   Resolving deltas:  73% (748/1015)   Resolving deltas:  74% (758/1015)   Resolving deltas:  75% (769/1015)   Resolving deltas:  78% (801/1015)   Resolving deltas:  79% (806/1015)   Resolving deltas:  80% (814/1015)   Resolving deltas:  81% (825/1015)   Resolving deltas:  82% (837/1015)   Resolving deltas:  83% (845/1015)   Resolving deltas:  84% (859/1015)   Resolving deltas:  85% (865/1015)   Resolving deltas:  89% (905/1015)   Resolving deltas:  91% (925/1015)   Resolving deltas:  92% (943/1015)   Resolving deltas:  93% (944/1015)   Resolving deltas:  94% (956/1015)   Resolving deltas:  95% (968/1015)   Resolving deltas:  96% (977/1015)   Resolving deltas:  97% (989/1015)   Resolving deltas:  99% (1006/1015)   Resolving deltas: 100% (1015/1015)   Resolving deltas: 100% (1015/1015), done.
+Checking connectivity... done.
+travis_time:end:14b5492c:start=1419368802050088417,finish=1419368802284559654,duration=234471237[0K$ cd vkostyukov/la4j
+$ git checkout -qf 74402524f188391b908ab7e6db63b4e5ecdacf2b
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:0a34806d[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom (5 KB at 21.0 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+[INFO] Downloading: https://repository.apache.org/releases/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building la4j 0.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-enforcer-plugin/1.0/maven-enforcer-plugin-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-enforcer-plugin/1.0/maven-enforcer-plugin-1.0.pom (7 KB at 56.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer/1.0/enforcer-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer/1.0/enforcer-1.0.pom (12 KB at 255.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/17/maven-parent-17.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/17/maven-parent-17.pom (25 KB at 442.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/7/apache-7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/7/apache-7.pom (15 KB at 370.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-enforcer-plugin/1.0/maven-enforcer-plugin-1.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-enforcer-plugin/1.0/maven-enforcer-plugin-1.0.jar (22 KB at 221.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.pom (8 KB at 203.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom (9 KB at 236.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/22/maven-parent-22.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/22/maven-parent-22.pom (30 KB at 548.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/11/apache-11.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/11/apache-11.pom (15 KB at 380.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-resources-plugin/2.6/maven-resources-plugin-2.6.jar (29 KB at 543.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.pom (8 KB at 198.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom (13 KB at 335.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/21/maven-parent-21.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/21/maven-parent-21.pom (26 KB at 485.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/10/apache-10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/10/apache-10.pom (15 KB at 361.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/2.5.1/maven-compiler-plugin-2.5.1.jar (32 KB at 577.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom (11 KB at 276.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom (14 KB at 328.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar (30 KB at 572.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.pom (6 KB at 154.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar (34 KB at 626.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom (7 KB at 168.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar (27 KB at 496.6 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/junit/junit/4.11/junit-4.11.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/junit/junit/4.11/junit-4.11.pom (3 KB at 65.4 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/junit/junit/4.11/junit-4.11.pom
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/releases/junit/junit/4.11/junit-4.11.pom (3 KB at 8.4 KB/sec)
+[INFO] Downloading: https://repository.apache.org/releases/junit/junit/4.11/junit-4.11.pom
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom (766 B at 20.8 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom (766 B at 0.3 KB/sec)
+[INFO] Downloading: https://repository.apache.org/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom (2 KB at 55.0 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom (2 KB at 16.6 KB/sec)
+[INFO] Downloading: https://repository.apache.org/releases/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+[INFO] Downloading: http://repo.maven.apache.org/maven2/junit/junit/4.11/junit-4.11.jar
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar (44 KB at 556.6 KB/sec)
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/junit/junit/4.11/junit-4.11.jar (240 KB at 2080.8 KB/sec)
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/junit/junit/4.11/junit-4.11.jar
+[INFO] Downloading: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar (44 KB at 108.0 KB/sec)
+[INFO] Downloaded: https://oss.sonatype.org/content/repositories/releases/junit/junit/4.11/junit-4.11.jar (240 KB at 519.1 KB/sec)
+[INFO] Downloading: https://repository.apache.org/releases/junit/junit/4.11/junit-4.11.jar
+[INFO] Downloading: https://repository.apache.org/releases/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.pom (2 KB at 42.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.9/maven-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.9/maven-2.0.9.pom (19 KB at 499.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/8/maven-parent-8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/8/maven-parent-8.pom (24 KB at 462.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom (5 KB at 63.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom (8 KB at 201.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom (12 KB at 306.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.pom (2 KB at 41.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.pom (3 KB at 75.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.pom (3 KB at 57.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.pom (4 KB at 85.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom (4 KB at 91.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom (492 B at 13.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom (6 KB at 160.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/junit/junit/3.8.2/junit-3.8.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/junit/junit/3.8.2/junit-3.8.2.pom (747 B at 20.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom (4 KB at 82.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.pom (3 KB at 55.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.pom (3 KB at 73.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.pom (2 KB at 48.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.pom (2 KB at 55.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.pom (8 KB at 211.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.pom (2 KB at 46.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.pom (2 KB at 50.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting/2.0.9/maven-reporting-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting/2.0.9/maven-reporting-2.0.9.pom (2 KB at 40.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-10/doxia-sink-api-1.0-alpha-10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-10/doxia-sink-api-1.0-alpha-10.pom (2 KB at 36.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0-alpha-10/doxia-1.0-alpha-10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0-alpha-10/doxia-1.0-alpha-10.pom (9 KB at 241.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/6/maven-parent-6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/6/maven-parent-6.pom (20 KB at 383.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.pom (2 KB at 47.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-cli/commons-cli/1.0/commons-cli-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-cli/commons-cli/1.0/commons-cli-1.0.pom (3 KB at 57.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.pom (3 KB at 56.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.pom (7 KB at 98.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.pom (2 KB at 34.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/classworlds/classworlds/1.1/classworlds-1.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/classworlds/classworlds/1.1/classworlds-1.1.pom (4 KB at 87.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.3/commons-lang-2.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.3/commons-lang-2.3.pom (11 KB at 293.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/1.0/enforcer-api-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/1.0/enforcer-api-1.0.pom (4 KB at 80.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.pom (2 KB at 30.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/1.0/enforcer-rules-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/1.0/enforcer-rules-1.0.pom (5 KB at 106.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.2/maven-common-artifact-filters-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.2/maven-common-artifact-filters-1.2.pom (5 KB at 119.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/11/maven-shared-components-11.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/11/maven-shared-components-11.pom (9 KB at 226.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/11/maven-parent-11.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/11/maven-parent-11.pom (32 KB at 620.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/5/apache-5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/5/apache-5.pom (5 KB at 111.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.8/maven-model-2.0.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.8/maven-model-2.0.8.pom (4 KB at 87.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.8/maven-2.0.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.8/maven-2.0.8.pom (12 KB at 328.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-plugin-testing-harness/1.1/maven-plugin-testing-harness-1.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-plugin-testing-harness/1.1/maven-plugin-testing-harness-1.1.pom (7 KB at 162.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/7/maven-shared-components-7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/7/maven-shared-components-7.pom (3 KB at 70.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/5/maven-parent-5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/5/maven-parent-5.pom (15 KB at 402.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/3/apache-3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/3/apache-3.pom (4 KB at 93.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/1.0-alpha-7/plexus-archiver-1.0-alpha-7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/1.0-alpha-7/plexus-archiver-1.0-alpha-7.pom (2 KB at 28.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.6/plexus-components-1.1.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.6/plexus-components-1.1.6.pom (2 KB at 51.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.8/plexus-1.0.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.8/plexus-1.0.8.pom (8 KB at 196.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-8/plexus-container-default-1.0-alpha-8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-8/plexus-container-default-1.0-alpha-8.pom (8 KB at 173.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/beanshell/bsh/2.0b4/bsh-2.0b4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/beanshell/bsh/2.0b4/bsh-2.0b4.pom (2 KB at 31.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/beanshell/beanshell/2.0b4/beanshell-2.0b4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/beanshell/beanshell/2.0b4/beanshell-2.0b4.pom (2 KB at 37.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/1.2/maven-dependency-tree-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/1.2/maven-dependency-tree-1.2.pom (4 KB at 100.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/9/maven-shared-components-9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/9/maven-shared-components-9.pom (4 KB at 97.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-6/plexus-i18n-1.0-beta-6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-6/plexus-i18n-1.0-beta-6.pom (771 B at 11.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.4/plexus-components-1.1.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.4/plexus-components-1.1.4.pom (3 KB at 57.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-10/doxia-sink-api-1.0-alpha-10.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-cli/commons-cli/1.0/commons-cli-1.0.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-10/doxia-sink-api-1.0-alpha-10.jar (10 KB at 241.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.3/commons-lang-2.3.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar (10 KB at 143.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/1.0/enforcer-api-1.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-cli/commons-cli/1.0/commons-cli-1.0.jar (30 KB at 350.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/1.0/enforcer-rules-1.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar (14 KB at 154.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.2/maven-common-artifact-filters-1.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/1.0/enforcer-api-1.0.jar (10 KB at 180.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.2/maven-common-artifact-filters-1.2.jar (31 KB at 582.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/1.2/maven-dependency-tree-1.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/1.0/enforcer-rules-1.0.jar (60 KB at 888.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-6/plexus-i18n-1.0-beta-6.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.3/commons-lang-2.3.jar (240 KB at 2138.6 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.jar (262 KB at 1755.5 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-6/plexus-i18n-1.0-beta-6.jar (12 KB at 325.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/1.2/maven-dependency-tree-1.2.jar (34 KB at 649.0 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar (276 KB at 2149.2 KB/sec)
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.pom (2 KB at 38.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.6/maven-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.6/maven-2.0.6.pom (9 KB at 238.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.pom (3 KB at 71.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.pom (2 KB at 54.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.pom (3 KB at 78.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.4.1/plexus-utils-1.4.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.4.1/plexus-utils-1.4.1.pom (2 KB at 51.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom (9 KB at 243.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.pom (998 B at 24.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom (7 KB at 186.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.pom (2 KB at 55.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.pom (3 KB at 69.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.pom (2 KB at 38.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.pom (2 KB at 42.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.pom (2 KB at 52.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.pom (7 KB at 177.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.pom (2 KB at 49.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.pom (2 KB at 47.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting/2.0.6/maven-reporting-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting/2.0.6/maven-reporting-2.0.6.pom (2 KB at 39.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.pom (424 B at 11.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0-alpha-7/doxia-1.0-alpha-7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.0-alpha-7/doxia-1.0-alpha-7.pom (4 KB at 106.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.pom (2 KB at 46.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.pom (2 KB at 54.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.pom (2 KB at 34.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom (4 KB at 88.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom (17 KB at 442.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.pom (6 KB at 152.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/17/maven-shared-components-17.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/17/maven-shared-components-17.pom (9 KB at 236.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom (7 KB at 185.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.12/plexus-interpolation-1.12.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.12/plexus-interpolation-1.12.pom (889 B at 24.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom (6 KB at 139.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.pom (3 KB at 77.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/10/spice-parent-10.pom (3 KB at 81.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/3/forge-parent-3.pom (5 KB at 136.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.pom (890 B at 24.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.15/plexus-components-1.1.15.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.15/plexus-components-1.1.15.pom (3 KB at 75.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.3/plexus-2.0.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.3/plexus-2.0.3.pom (16 KB at 296.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar (6 KB at 161.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar (10 KB at 215.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar (119 KB at 1876.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar (7 KB at 184.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar (218 KB at 2421.6 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/1.1/maven-filtering-1.1.jar (43 KB at 412.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.13/plexus-interpolation-1.13.jar (60 KB at 754.8 KB/sec)
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/vkostyukov/la4j/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.pom (3 KB at 64.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/1.0/maven-toolchain-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/1.0/maven-toolchain-1.0.pom (4 KB at 95.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.pom (4 KB at 113.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/16/spice-parent-16.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/16/spice-parent-16.pom (9 KB at 233.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/5/forge-parent-5.pom (9 KB at 233.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.pom (867 B at 24.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler/1.9.1/plexus-compiler-1.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler/1.9.1/plexus-compiler-1.9.1.pom (4 KB at 107.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.20/plexus-components-1.1.20.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.20/plexus-components-1.1.20.pom (3 KB at 81.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.1/plexus-3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.1/plexus-3.1.pom (19 KB at 422.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/spice/spice-parent/17/spice-parent-17.pom (7 KB at 188.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/forge/forge-parent/10/forge-parent-10.pom (14 KB at 367.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.pom (692 B at 19.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.pom (688 B at 19.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compilers/1.9.1/plexus-compilers-1.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compilers/1.9.1/plexus-compilers-1.9.1.pom (2 KB at 34.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/1.9.1/plexus-compiler-manager-1.9.1.jar (5 KB at 85.6 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/1.9.1/plexus-compiler-api-1.9.1.jar (21 KB at 394.2 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/1.9.1/plexus-compiler-javac-1.9.1.jar (14 KB at 303.9 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar (221 KB at 2453.0 KB/sec)
+[INFO] Compiling 92 source files to /home/travis/build/vkostyukov/la4j/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/EigenDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/source/LoopbackVectorSource.java:[27,45] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/source/RandomVectorSource.java:[27,43] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/GaussianSolver.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/SingularValueDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/SeidelSolver.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/QRDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/RawQRDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/CompressedFactory.java:[28,29] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/CompressedFactory.java:[32,48] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/dense/BasicVector.java:[34,29] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/sparse/CRSMatrix.java:[33,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/sparse/AbstractCompressedMatrix.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/sparse/CompressedVector.java:[38,29] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/LeastNormSolver.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/io/MatrixMarketStream.java:[33,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/io/MatrixStream.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/io/VectorStream.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/source/StreamVectorSource.java:[30,43] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/LUDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/RawLUDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/Matrices.java:[44,29] [deprecation] RandomSymmetricMatrixSource in org.la4j.matrix.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/Matrices.java:[45,29] [deprecation] StreamMatrixSource in org.la4j.matrix.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/SweepSolver.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/ForwardBackSubstitutionSolver.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/CRSFactory.java:[34,32] [deprecation] CompressedFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/BasicFactory.java:[28,29] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/BasicFactory.java:[31,43] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/Basic2DFactory.java:[32,36] [deprecation] BasicFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/SquareRootSolver.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/CCSFactory.java:[35,32] [deprecation] CompressedFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/Vectors.java:[39,29] [deprecation] LoopbackVectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/Vectors.java:[40,29] [deprecation] RandomVectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/Vectors.java:[41,29] [deprecation] StreamVectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/Vectors.java:[42,29] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/factory/Basic1DFactory.java:[32,36] [deprecation] BasicFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/JacobiSolver.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/decomposition/CholeskyDecompositor.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/linear/LeastSquaresSolver.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/inversion/GaussJordanInverter.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/io/SymbolSeparatedStream.java:[31,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/vector/source/ArrayVectorSource.java:[25,42] [deprecation] VectorSource in org.la4j.vector.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1244,18] [deprecation] foldColumns(MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1226,18] [deprecation] foldColumn(int,MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1205,18] [deprecation] foldRows(MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1187,18] [deprecation] foldRow(int,MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1160,16] [deprecation] updateColumn(int,MatrixFunction) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1145,16] [deprecation] updateRow(int,MatrixFunction) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1110,18] [deprecation] transformColumn(int,MatrixFunction,Factory) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1100,18] [deprecation] transformColumn(int,MatrixFunction) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1079,18] [deprecation] transformRow(int,MatrixFunction,Factory) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1069,18] [deprecation] transformRow(int,MatrixFunction) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[993,16] [deprecation] eachInColumn(int,MatrixProcedure) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[979,16] [deprecation] eachInRow(int,MatrixProcedure) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[99,16] [deprecation] assignColumn(int,double) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[94,16] [deprecation] assignRow(int,double) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[89,16] [deprecation] assign(double) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[77,14] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[79,29] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[129,32] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[147,35] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[191,35] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[211,38] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[231,33] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[241,36] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[251,32] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[261,35] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[293,28] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[324,25] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[424,31] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[450,41] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[470,42] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[500,42] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[536,41] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[565,41] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[575,42] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[601,36] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[621,37] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[707,39] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[717,50] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[774,49] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[805,24] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[817,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[834,39] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[844,45] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[849,48] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[869,26] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[900,29] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[925,62] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[935,64] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[945,64] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[965,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1042,53] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1060,67] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1079,63] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1091,63] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1110,66] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1122,66] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/main/java/org/la4j/matrix/AbstractMatrix.java:[1299,30] [deprecation] Factory in org.la4j.factory has been deprecated
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ la4j ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/vkostyukov/la4j/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ la4j ---
+[INFO] Compiling 39 source files to /home/travis/build/vkostyukov/la4j/target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[32,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CRSMatrixTest.java:[23,23] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CRSMatrixTest.java:[24,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[42,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CCSMatrixTest.java:[24,23] [deprecation] CCSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CCSMatrixTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic2DMatrixTest.java:[24,23] [deprecation] Basic2DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic2DMatrixTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/linear/AbstractSolverTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/inversion/AbstractInverterTest.java:[26,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[36,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/decomposition/AbstractDecompositorTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic1DMatrixTest.java:[24,23] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic1DMatrixTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[25,23] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[26,23] [deprecation] Basic2DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[27,23] [deprecation] CCSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[28,23] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[29,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/sparse/CompressedVectorTest.java:[24,23] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/sparse/CompressedVectorTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/dense/BasicVectorTest.java:[24,23] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/dense/BasicVectorTest.java:[25,23] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/AbstractFactoryTest.java:[34,20] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/CCSFactoryTest.java:[27,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/CCSFactoryTest.java:[28,19] [deprecation] CCSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[43,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[43,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[68,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[68,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[92,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[92,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[117,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[117,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[138,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[138,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[159,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[159,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[180,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[180,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[201,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/io/AbstractStreamTest.java:[201,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[48,20] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[2203,26] [deprecation] foldColumn(int,MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[2207,20] [deprecation] foldColumns(MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[2215,26] [deprecation] foldRow(int,MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/AbstractMatrixTest.java:[2219,13] [deprecation] foldRows(MatrixAccumulator) in Matrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/SparseMatrixTest.java:[140,28] [deprecation] foldNonZeroInRow(int,MatrixAccumulator) in SparseMatrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/SparseMatrixTest.java:[141,28] [deprecation] foldNonZeroInColumn(int,MatrixAccumulator) in SparseMatrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/SparseMatrixTest.java:[143,35] [deprecation] foldNonZeroInColumns(MatrixAccumulator) in SparseMatrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/SparseMatrixTest.java:[147,32] [deprecation] foldNonZeroInRows(MatrixAccumulator) in SparseMatrix has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CRSMatrixTest.java:[29,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CRSMatrixTest.java:[30,19] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CCSMatrixTest.java:[30,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/sparse/CCSMatrixTest.java:[31,19] [deprecation] CCSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic2DMatrixTest.java:[30,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic2DMatrixTest.java:[31,19] [deprecation] Basic2DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/linear/AbstractSolverTest.java:[37,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/linear/AbstractSolverTest.java:[37,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/inversion/AbstractInverterTest.java:[37,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/inversion/AbstractInverterTest.java:[37,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/converter/VectorConverterTest.java:[15,37] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/converter/VectorConverterTest.java:[23,37] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/converter/VectorConverterTest.java:[31,37] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/converter/VectorConverterTest.java:[39,37] [deprecation] CCS_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/converter/VectorConverterTest.java:[47,37] [deprecation] CCS_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[47,20] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[721,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[725,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[729,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[748,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[752,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[756,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/vector/AbstractVectorTest.java:[760,9] [deprecation] assign(double) in Vector has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/decomposition/AbstractDecompositorTest.java:[37,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/decomposition/AbstractDecompositorTest.java:[37,43] [deprecation] FACTORIES in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/Basic1DFactoryTest.java:[27,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/Basic1DFactoryTest.java:[28,19] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic1DMatrixTest.java:[30,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/dense/Basic1DMatrixTest.java:[31,19] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[15,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[21,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[29,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[38,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[46,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[55,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[65,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/converter/MatrixConverterTest.java:[75,32] [deprecation] DEFAULT_FACTORY in LinearAlgebra has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/CRSFactoryTest.java:[27,11] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/factory/CRSFactoryTest.java:[28,19] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[37,24] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[38,12] [deprecation] Basic1DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[38,34] [deprecation] Basic2DFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[39,12] [deprecation] CRSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[39,30] [deprecation] CCSFactory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[44,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[45,48] [deprecation] RandomSymmetricMatrixSource in org.la4j.matrix.source has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[60,13] [deprecation] Factory in org.la4j.factory has been deprecated
+[WARNING] /home/travis/build/vkostyukov/la4j/src/test/java/org/la4j/matrix/source/MatrixSourcesTest.java:[61,48] [deprecation] IdentityMatrixSource in org.la4j.matrix.source has been deprecated
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.pom (3 KB at 77.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.pom (3 KB at 64.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.pom (6 KB at 146.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.pom (2 KB at 42.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-tools/3.1/maven-plugin-tools-3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-tools/3.1/maven-plugin-tools-3.1.pom (16 KB at 415.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom (4 KB at 85.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom (19 KB at 508.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.pom (4 KB at 91.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom (17 KB at 441.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/22/commons-parent-22.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/22/commons-parent-22.pom (41 KB at 818.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/9/apache-9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/9/apache-9.pom (15 KB at 400.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.pom (4 KB at 84.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/12/maven-shared-components-12.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/12/maven-shared-components-12.pom (10 KB at 253.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/13/maven-parent-13.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/13/maven-parent-13.pom (23 KB at 597.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom (13 KB at 347.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar (115 KB at 2208.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.jar (34 KB at 651.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar (257 KB at 4579.9 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar (14 KB at 370.1 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar (31 KB at 344.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar (227 KB at 2663.4 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar (309 KB at 1927.5 KB/sec)
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.pom (5 KB at 123.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.pom (3 KB at 76.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.pom (2 KB at 45.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom (3 KB at 73.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom (19 KB at 504.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.pom (1018 B at 27.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.pom (10 KB at 262.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar (22 KB at 575.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar (57 KB at 1115.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar (60 KB at 894.8 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.jar (203 KB at 3325.5 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar (181 KB at 1667.7 KB/sec)
+[INFO] Building jar: /home/travis/build/vkostyukov/la4j/target/la4j-0.5.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ la4j ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.5/plexus-utils-3.0.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.5/plexus-utils-3.0.5.pom (3 KB at 68.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.pom (2 KB at 28.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.7/plexus-components-1.1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.1.7/plexus-components-1.1.7.pom (5 KB at 135.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.5/plexus-utils-3.0.5.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-digest/1.0/plexus-digest-1.0.jar (12 KB at 321.7 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.5/plexus-utils-3.0.5.jar (226 KB at 3358.9 KB/sec)
+[INFO] Installing /home/travis/build/vkostyukov/la4j/target/la4j-0.5.0.jar to /home/travis/.m2/repository/org/la4j/la4j/0.5.0/la4j-0.5.0.jar
+[INFO] Installing /home/travis/build/vkostyukov/la4j/pom.xml to /home/travis/.m2/repository/org/la4j/la4j/0.5.0/la4j-0.5.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.860 s
+[INFO] Finished at: 2014-12-23T21:07:07+00:00
+[INFO] Final Memory: 16M/451M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:0a34806d:start=1419368805490321128,finish=1419368827939021500,duration=22448700372[0Ktravis_fold:end:install[0Ktravis_time:start:05dbeb12[0K$ mvn test -B
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building la4j 0.5.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ la4j ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ la4j ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/vkostyukov/la4j/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ la4j ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ la4j ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/vkostyukov/la4j/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ la4j ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ la4j ---
+[INFO] Surefire report directory: /home/travis/build/vkostyukov/la4j/target/surefire-reports
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom (3 KB at 5.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (3 KB at 58.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar (37 KB at 507.8 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.la4j.factory.CCSFactoryTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec
+Running org.la4j.factory.Basic1DFactoryTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running org.la4j.factory.CRSFactoryTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec
+Running org.la4j.factory.Basic2DFactoryTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.la4j.io.SymbolSeparatedStreamTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running org.la4j.io.MatrixMarketStreamTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running org.la4j.matrix.sparse.CRSMatrixTest
+Tests run: 140, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 sec
+Running org.la4j.matrix.sparse.CCSMatrixTest
+Tests run: 140, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 sec
+Running org.la4j.matrix.dense.Basic2DMatrixTest
+Tests run: 127, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec
+Running org.la4j.matrix.dense.Basic1DMatrixTest
+Tests run: 127, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 sec
+Running org.la4j.matrix.converter.MatrixConverterTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.matrix.source.MatrixSourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.la4j.linear.ForwardBackSubstitutionSolverTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.la4j.linear.LeastSquaresSolverTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.la4j.linear.SquareRootSolverTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.linear.SeidelSolverTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.la4j.linear.JacobiSolverTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.la4j.linear.SweepSolverTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.linear.GaussianSolverTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.la4j.inversion.GaussJordanInverterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+Running org.la4j.vector.converter.VectorConverterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.vector.sparse.CompressedVectorTest
+Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running org.la4j.vector.dense.BasicVectorTest
+Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running org.la4j.decomposition.EigenDecompositorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.767 sec
+Running org.la4j.decomposition.QRDecompositorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.decomposition.LUDecompositorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.la4j.decomposition.SingularValueDecompositorTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.la4j.decomposition.CholeskyDecompositorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+
+Results :
+
+Tests run: 823, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.074 s
+[INFO] Finished at: 2014-12-23T21:07:13+00:00
+[INFO] Final Memory: 14M/465M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:05dbeb12:start=1419368827942536874,finish=1419368833416557600,duration=5474020726[0K
+[32;1mThe command "mvn test -B" exited with 0.[0m
+
+Done. Your build exited with 0.

@@ -1,0 +1,60 @@
+PROJECT_NAME: tornado
+BUG_ID: 15
+VERSION_ID: 1
+WORK_DIR: /home/sumukher/evals/BugsInPy/framework/bin/temp
+https://github.com/tornadoweb/tornado
+github_url="https://github.com/tornadoweb/tornado"
+status="OK"
+fatal: destination path '/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado' already exists and is not an empty directory.
+HEAD is now at ecb3ea75 Fix path traversal check in StaticFileHandler.
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/MANIFEST.in' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/MANIFEST.in'
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/setup.py' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/setup.py'
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/tornado/test/static_foo.txt' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/static_foo.txt'
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/tornado/test/web_test.py' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/web_test.py'
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/tornado/web.py' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/web.py'
+'/home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/tornado/test/web_test.py' -> '/home/sumukher/evals/BugsInPy/projects/tornado/bugs/15/web_test.py'
+HEAD is now at fdfaf3df Set version number to 4.2.0
+Removing bugsinpy_bug.info
+Removing bugsinpy_compile_flag
+Removing bugsinpy_patchfile.info
+Removing bugsinpy_requirements.txt
+Removing bugsinpy_run_test.sh
+Removing bugsinpy_setup.sh
+pip install unittest
+pip install python-gettext
+dos2unix: converting file /home/sumukher/evals/BugsInPy/framework/bin/temp/tornado/bugsinpy_requirements.txt to Unix format...
+Collecting tornado==6.0.4
+  Using cached https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz
+Installing collected packages: tornado
+  Running setup.py install for tornado: started
+    Running setup.py install for tornado: finished with status 'done'
+Successfully installed tornado-6.0.4
+WARNING: You are using pip version 19.2.3, however version 21.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting unittest
+  ERROR: Could not find a version that satisfies the requirement unittest (from versions: none)
+ERROR: No matching distribution found for unittest
+WARNING: You are using pip version 19.2.3, however version 21.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting python-gettext
+  Using cached https://files.pythonhosted.org/packages/86/64/1475ff167cf6e6b6f9e50973900011cb53be8260010e3d016ad3778c4565/python-gettext-4.0.tar.gz
+Installing collected packages: python-gettext
+  Running setup.py install for python-gettext: started
+    Running setup.py install for python-gettext: finished with status 'done'
+Successfully installed python-gettext-4.0
+WARNING: You are using pip version 19.2.3, however version 21.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied: tornado==6.0.4 in ./env/lib/python3.8/site-packages (6.0.4)
+WARNING: You are using pip version 19.2.3, however version 21.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+python -m unittest -q tornado.test.web_test.StaticFileTest.test_path_traversal_protection
+RUN EVERY COMMAND
+0
+
+
+WARNING:tornado.access:403 HEAD /static/../static_foo.txt (127.0.0.1) 0.34ms
+WARNING:tornado.access:403 GET /static/../static_foo.txt (127.0.0.1) 0.27ms
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+OK

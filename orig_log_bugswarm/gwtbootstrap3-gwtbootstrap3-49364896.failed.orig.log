@@ -1,0 +1,686 @@
+Using worker: worker-linux-docker-89275aa6.prod.travis-ci.org:travis-linux-4
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:05509525[0K$ git clone --depth=50 git://github.com/gwtbootstrap3/gwtbootstrap3.git gwtbootstrap3/gwtbootstrap3
+Cloning into 'gwtbootstrap3/gwtbootstrap3'...
+remote: Counting objects: 2033, done.[K
+remote: Compressing objects:   0% (1/990)   [Kremote: Compressing objects:   1% (10/990)   [Kremote: Compressing objects:   2% (20/990)   [Kremote: Compressing objects:   3% (30/990)   [Kremote: Compressing objects:   4% (40/990)   [Kremote: Compressing objects:   5% (50/990)   [Kremote: Compressing objects:   6% (60/990)   [Kremote: Compressing objects:   7% (70/990)   [Kremote: Compressing objects:   8% (80/990)   [Kremote: Compressing objects:   9% (90/990)   [Kremote: Compressing objects:  10% (99/990)   [Kremote: Compressing objects:  11% (109/990)   [Kremote: Compressing objects:  12% (119/990)   [Kremote: Compressing objects:  13% (129/990)   [Kremote: Compressing objects:  14% (139/990)   [Kremote: Compressing objects:  15% (149/990)   [Kremote: Compressing objects:  16% (159/990)   [Kremote: Compressing objects:  17% (169/990)   [Kremote: Compressing objects:  18% (179/990)   [Kremote: Compressing objects:  19% (189/990)   [Kremote: Compressing objects:  20% (198/990)   [Kremote: Compressing objects:  21% (208/990)   [Kremote: Compressing objects:  22% (218/990)   [Kremote: Compressing objects:  23% (228/990)   [Kremote: Compressing objects:  24% (238/990)   [Kremote: Compressing objects:  25% (248/990)   [Kremote: Compressing objects:  26% (258/990)   [Kremote: Compressing objects:  27% (268/990)   [Kremote: Compressing objects:  28% (278/990)   [Kremote: Compressing objects:  29% (288/990)   [Kremote: Compressing objects:  30% (297/990)   [Kremote: Compressing objects:  31% (307/990)   [Kremote: Compressing objects:  32% (317/990)   [Kremote: Compressing objects:  33% (327/990)   [Kremote: Compressing objects:  34% (337/990)   [Kremote: Compressing objects:  35% (347/990)   [Kremote: Compressing objects:  36% (357/990)   [Kremote: Compressing objects:  37% (367/990)   [Kremote: Compressing objects:  38% (377/990)   [Kremote: Compressing objects:  39% (387/990)   [Kremote: Compressing objects:  40% (396/990)   [Kremote: Compressing objects:  41% (406/990)   [Kremote: Compressing objects:  42% (416/990)   [Kremote: Compressing objects:  43% (426/990)   [Kremote: Compressing objects:  44% (436/990)   [Kremote: Compressing objects:  45% (446/990)   [Kremote: Compressing objects:  46% (456/990)   [Kremote: Compressing objects:  47% (466/990)   [Kremote: Compressing objects:  48% (476/990)   [Kremote: Compressing objects:  49% (486/990)   [Kremote: Compressing objects:  50% (495/990)   [Kremote: Compressing objects:  51% (505/990)   [Kremote: Compressing objects:  52% (515/990)   [Kremote: Compressing objects:  53% (525/990)   [Kremote: Compressing objects:  54% (535/990)   [Kremote: Compressing objects:  55% (545/990)   [Kremote: Compressing objects:  56% (555/990)   [Kremote: Compressing objects:  57% (565/990)   [Kremote: Compressing objects:  58% (575/990)   [Kremote: Compressing objects:  59% (585/990)   [Kremote: Compressing objects:  60% (594/990)   [Kremote: Compressing objects:  61% (604/990)   [Kremote: Compressing objects:  62% (614/990)   [Kremote: Compressing objects:  63% (624/990)   [Kremote: Compressing objects:  64% (634/990)   [Kremote: Compressing objects:  65% (644/990)   [Kremote: Compressing objects:  66% (654/990)   [Kremote: Compressing objects:  67% (664/990)   [Kremote: Compressing objects:  68% (674/990)   [Kremote: Compressing objects:  69% (684/990)   [Kremote: Compressing objects:  70% (693/990)   [Kremote: Compressing objects:  71% (703/990)   [Kremote: Compressing objects:  72% (713/990)   [Kremote: Compressing objects:  73% (723/990)   [Kremote: Compressing objects:  74% (733/990)   [Kremote: Compressing objects:  75% (743/990)   [Kremote: Compressing objects:  76% (753/990)   [Kremote: Compressing objects:  77% (763/990)   [Kremote: Compressing objects:  78% (773/990)   [Kremote: Compressing objects:  79% (783/990)   [Kremote: Compressing objects:  80% (792/990)   [Kremote: Compressing objects:  81% (802/990)   [Kremote: Compressing objects:  82% (812/990)   [Kremote: Compressing objects:  83% (822/990)   [Kremote: Compressing objects:  84% (832/990)   [Kremote: Compressing objects:  85% (842/990)   [Kremote: Compressing objects:  86% (852/990)   [Kremote: Compressing objects:  87% (862/990)   [Kremote: Compressing objects:  88% (872/990)   [Kremote: Compressing objects:  89% (882/990)   [Kremote: Compressing objects:  90% (891/990)   [Kremote: Compressing objects:  91% (901/990)   [Kremote: Compressing objects:  92% (911/990)   [Kremote: Compressing objects:  93% (921/990)   [Kremote: Compressing objects:  94% (931/990)   [Kremote: Compressing objects:  95% (941/990)   [Kremote: Compressing objects:  96% (951/990)   [Kremote: Compressing objects:  97% (961/990)   [Kremote: Compressing objects:  98% (971/990)   [Kremote: Compressing objects:  99% (981/990)   [Kremote: Compressing objects: 100% (990/990)   [Kremote: Compressing objects: 100% (990/990), done.[K
+Receiving objects:   0% (1/2033)   Receiving objects:   1% (21/2033)   Receiving objects:   2% (41/2033)   Receiving objects:   3% (61/2033)   Receiving objects:   4% (82/2033)   Receiving objects:   5% (102/2033)   Receiving objects:   6% (122/2033)   Receiving objects:   7% (143/2033)   Receiving objects:   8% (163/2033)   Receiving objects:   9% (183/2033)   Receiving objects:  10% (204/2033)   Receiving objects:  11% (224/2033)   Receiving objects:  12% (244/2033)   Receiving objects:  13% (265/2033)   Receiving objects:  14% (285/2033)   Receiving objects:  15% (305/2033)   Receiving objects:  16% (326/2033)   Receiving objects:  17% (346/2033)   Receiving objects:  18% (366/2033)   Receiving objects:  19% (387/2033)   Receiving objects:  20% (407/2033)   Receiving objects:  21% (427/2033)   Receiving objects:  22% (448/2033)   Receiving objects:  23% (468/2033)   Receiving objects:  24% (488/2033)   Receiving objects:  25% (509/2033)   Receiving objects:  26% (529/2033)   Receiving objects:  27% (549/2033)   Receiving objects:  28% (570/2033)   Receiving objects:  29% (590/2033)   Receiving objects:  30% (610/2033)   Receiving objects:  31% (631/2033)   Receiving objects:  32% (651/2033)   Receiving objects:  33% (671/2033)   Receiving objects:  34% (692/2033)   Receiving objects:  35% (712/2033)   Receiving objects:  36% (732/2033)   Receiving objects:  37% (753/2033)   Receiving objects:  38% (773/2033)   Receiving objects:  39% (793/2033)   Receiving objects:  40% (814/2033)   Receiving objects:  41% (834/2033)   Receiving objects:  42% (854/2033)   Receiving objects:  43% (875/2033)   Receiving objects:  44% (895/2033)   Receiving objects:  45% (915/2033)   Receiving objects:  46% (936/2033)   Receiving objects:  47% (956/2033)   Receiving objects:  48% (976/2033)   Receiving objects:  49% (997/2033)   Receiving objects:  50% (1017/2033)   Receiving objects:  51% (1037/2033)   Receiving objects:  52% (1058/2033)   Receiving objects:  53% (1078/2033)   Receiving objects:  54% (1098/2033)   Receiving objects:  55% (1119/2033)   Receiving objects:  56% (1139/2033)   Receiving objects:  57% (1159/2033)   Receiving objects:  58% (1180/2033)   Receiving objects:  59% (1200/2033)   Receiving objects:  60% (1220/2033)   Receiving objects:  61% (1241/2033)   Receiving objects:  62% (1261/2033)   Receiving objects:  63% (1281/2033)   Receiving objects:  64% (1302/2033)   Receiving objects:  65% (1322/2033)   Receiving objects:  66% (1342/2033)   Receiving objects:  67% (1363/2033)   Receiving objects:  68% (1383/2033)   Receiving objects:  69% (1403/2033)   Receiving objects:  70% (1424/2033)   Receiving objects:  71% (1444/2033)   Receiving objects:  72% (1464/2033)   Receiving objects:  73% (1485/2033)   Receiving objects:  74% (1505/2033)   Receiving objects:  75% (1525/2033)   Receiving objects:  76% (1546/2033)   Receiving objects:  77% (1566/2033)   Receiving objects:  78% (1586/2033)   Receiving objects:  79% (1607/2033)   Receiving objects:  80% (1627/2033)   Receiving objects:  81% (1647/2033)   Receiving objects:  82% (1668/2033)   Receiving objects:  83% (1688/2033)   Receiving objects:  84% (1708/2033)   Receiving objects:  85% (1729/2033)   Receiving objects:  86% (1749/2033)   Receiving objects:  87% (1769/2033)   Receiving objects:  88% (1790/2033)   Receiving objects:  89% (1810/2033)   Receiving objects:  90% (1830/2033)   Receiving objects:  91% (1851/2033)   Receiving objects:  92% (1871/2033)   Receiving objects:  93% (1891/2033)   Receiving objects:  94% (1912/2033)   Receiving objects:  95% (1932/2033)   Receiving objects:  96% (1952/2033)   Receiving objects:  97% (1973/2033)   Receiving objects:  98% (1993/2033)   Receiving objects:  99% (2013/2033)   remote: Total 2033 (delta 979), reused 1668 (delta 668)[K
+Receiving objects: 100% (2033/2033)   Receiving objects: 100% (2033/2033), 1.54 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/979)   Resolving deltas:   1% (11/979)   Resolving deltas:  16% (157/979)   Resolving deltas:  20% (203/979)   Resolving deltas:  21% (207/979)   Resolving deltas:  30% (303/979)   Resolving deltas:  33% (329/979)   Resolving deltas:  35% (347/979)   Resolving deltas:  36% (356/979)   Resolving deltas:  37% (366/979)   Resolving deltas:  38% (381/979)   Resolving deltas:  39% (382/979)   Resolving deltas:  40% (396/979)   Resolving deltas:  41% (404/979)   Resolving deltas:  42% (414/979)   Resolving deltas:  46% (457/979)   Resolving deltas:  48% (478/979)   Resolving deltas:  49% (481/979)   Resolving deltas:  52% (511/979)   Resolving deltas:  60% (592/979)   Resolving deltas:  61% (602/979)   Resolving deltas:  62% (614/979)   Resolving deltas:  63% (624/979)   Resolving deltas:  66% (651/979)   Resolving deltas:  67% (664/979)   Resolving deltas:  68% (674/979)   Resolving deltas:  69% (680/979)   Resolving deltas:  72% (705/979)   Resolving deltas:  77% (757/979)   Resolving deltas:  79% (775/979)   Resolving deltas:  80% (792/979)   Resolving deltas:  81% (795/979)   Resolving deltas:  82% (803/979)   Resolving deltas:  83% (816/979)   Resolving deltas:  84% (825/979)   Resolving deltas:  85% (835/979)   Resolving deltas:  86% (845/979)   Resolving deltas:  87% (855/979)   Resolving deltas:  88% (863/979)   Resolving deltas:  89% (876/979)   Resolving deltas:  90% (882/979)   Resolving deltas:  91% (892/979)   Resolving deltas:  92% (904/979)   Resolving deltas:  93% (915/979)   Resolving deltas:  94% (921/979)   Resolving deltas:  95% (936/979)   Resolving deltas:  97% (950/979)   Resolving deltas:  98% (960/979)   Resolving deltas:  99% (971/979)   Resolving deltas: 100% (979/979)   Resolving deltas: 100% (979/979), done.
+Checking connectivity... done.
+travis_time:end:05509525:start=1422994652606099449,finish=1422994652999846701,duration=393747252[0K$ cd gwtbootstrap3/gwtbootstrap3
+travis_time:start:07537128[0K$ git fetch origin +refs/pull/294/merge:
+remote: Counting objects: 24, done.[K
+remote: Compressing objects:   7% (1/14)   [Kremote: Compressing objects:  14% (2/14)   [Kremote: Compressing objects:  21% (3/14)   [Kremote: Compressing objects:  28% (4/14)   [Kremote: Compressing objects:  35% (5/14)   [Kremote: Compressing objects:  42% (6/14)   [Kremote: Compressing objects:  50% (7/14)   [Kremote: Compressing objects:  57% (8/14)   [Kremote: Compressing objects:  64% (9/14)   [Kremote: Compressing objects:  71% (10/14)   [Kremote: Compressing objects:  78% (11/14)   [Kremote: Compressing objects:  85% (12/14)   [Kremote: Compressing objects:  92% (13/14)   [Kremote: Compressing objects: 100% (14/14)   [Kremote: Compressing objects: 100% (14/14), done.[K
+remote: Total 24 (delta 9), reused 19 (delta 4)[K
+Unpacking objects:   4% (1/24)   Unpacking objects:   8% (2/24)   Unpacking objects:  12% (3/24)   Unpacking objects:  16% (4/24)   Unpacking objects:  20% (5/24)   Unpacking objects:  25% (6/24)   Unpacking objects:  29% (7/24)   Unpacking objects:  33% (8/24)   Unpacking objects:  37% (9/24)   Unpacking objects:  41% (10/24)   Unpacking objects:  45% (11/24)   Unpacking objects:  50% (12/24)   Unpacking objects:  54% (13/24)   Unpacking objects:  58% (14/24)   Unpacking objects:  62% (15/24)   Unpacking objects:  66% (16/24)   Unpacking objects:  70% (17/24)   Unpacking objects:  75% (18/24)   Unpacking objects:  79% (19/24)   Unpacking objects:  83% (20/24)   Unpacking objects:  87% (21/24)   Unpacking objects:  91% (22/24)   Unpacking objects:  95% (23/24)   Unpacking objects: 100% (24/24)   Unpacking objects: 100% (24/24), done.
+From git://github.com/gwtbootstrap3/gwtbootstrap3
+ * branch            refs/pull/294/merge -> FETCH_HEAD
+travis_time:end:07537128:start=1422994653003744033,finish=1422994653091686960,duration=87942927[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:09360a73[0K$ Installing caching utilities
+travis_time:end:09360a73:start=1422994655786455270,finish=1422994655838402907,duration=51947637[0Ktravis_time:start:048f01a4[0Kattempting to download cache archive
+found cache
+travis_time:end:048f01a4:start=1422994655842750495,finish=1422994658458730792,duration=2615980297[0Ktravis_time:start:120579b2[0Kadding /home/travis/.m2 to cache
+travis_time:end:120579b2:start=1422994658463701814,finish=1422994672695413965,duration=14231712151[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:2cd0cd38[0K$ mvn install -DskipTests=true -DdryRun=true
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 2 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 2 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] GwtBootstrap3 Parent
+[INFO] GwtBootstrap3
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building GwtBootstrap3 Parent 0.9-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- license-maven-plugin:1.7:update-file-header (license) @ gwtbootstrap3-parent ---
+[WARNING] No file to scan.
+[INFO] 
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (default) @ gwtbootstrap3-parent ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gwtbootstrap3-parent ---
+[INFO] Installing /home/travis/build/gwtbootstrap3/gwtbootstrap3/pom.xml to /home/travis/.m2/repository/org/gwtbootstrap3/gwtbootstrap3-parent/0.9-SNAPSHOT/gwtbootstrap3-parent-0.9-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building GwtBootstrap3 0.9-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- license-maven-plugin:1.7:update-file-header (license) @ gwtbootstrap3 ---
+[INFO] Will search files to update from root /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src
+[INFO] Scan 326 files header done in 584.693ms.
+[INFO] All files are up-to-date.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gwtbootstrap3 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:resources (default) @ gwtbootstrap3 ---
+[INFO] auto discovered modules [org.gwtbootstrap3.GwtBootstrap3Theme, org.gwtbootstrap3.GwtBootstrap3, org.gwtbootstrap3.GwtBootstrap3CDN, org.gwtbootstrap3.GwtBootstrap3Base, org.gwtbootstrap3.client.Resources, org.gwtbootstrap3.GwtBootstrap3NoTheme, org.gwtbootstrap3.client.NoThemeResources]
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3Theme
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3CDN
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3Base
+[INFO] 1 source files from GWT module org.gwtbootstrap3.client.Resources
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3NoTheme
+[INFO] 1 source files from GWT module org.gwtbootstrap3.client.NoThemeResources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gwtbootstrap3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 312 source files to /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gwtbootstrap3 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gwtbootstrap3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ gwtbootstrap3 ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:compile (default) @ gwtbootstrap3 ---
+[INFO] auto discovered modules [org.gwtbootstrap3.GwtBootstrap3Theme, org.gwtbootstrap3.GwtBootstrap3, org.gwtbootstrap3.GwtBootstrap3CDN, org.gwtbootstrap3.GwtBootstrap3Base, org.gwtbootstrap3.client.Resources, org.gwtbootstrap3.GwtBootstrap3NoTheme, org.gwtbootstrap3.client.NoThemeResources]
+[INFO] org.gwtbootstrap3.GwtBootstrap3CDN has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.GwtBootstrap3Base has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.client.Resources has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.client.NoThemeResources has no EntryPoint - compilation skipped
+[ERROR] Feb 03, 2015 8:18:06 PM java.util.prefs.FileSystemPreferences$1 run
+[ERROR] INFO: Created user preferences directory.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gwtbootstrap3 ---
+[INFO] Building jar: /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/gwtbootstrap3-0.9-SNAPSHOT.jar
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:test (default) @ gwtbootstrap3 ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (default) @ gwtbootstrap3 ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gwtbootstrap3 ---
+[INFO] Installing /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/gwtbootstrap3-0.9-SNAPSHOT.jar to /home/travis/.m2/repository/org/gwtbootstrap3/gwtbootstrap3/0.9-SNAPSHOT/gwtbootstrap3-0.9-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/pom.xml to /home/travis/.m2/repository/org/gwtbootstrap3/gwtbootstrap3/0.9-SNAPSHOT/gwtbootstrap3-0.9-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] GwtBootstrap3 Parent ............................... SUCCESS [  2.193 s]
+[INFO] GwtBootstrap3 ...................................... SUCCESS [ 42.738 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 46.869 s
+[INFO] Finished at: 2015-02-03T20:18:41+00:00
+[INFO] Final Memory: 26M/459M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:2cd0cd38:start=1422994673395743282,finish=1422994722692170579,duration=49296427297[0Ktravis_fold:end:install[0Ktravis_time:start:1862e68d[0K$ mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 2 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 2 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] GwtBootstrap3 Parent
+[INFO] GwtBootstrap3
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building GwtBootstrap3 Parent 0.9-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gwtbootstrap3-parent ---
+[INFO] Deleting /home/travis/build/gwtbootstrap3/gwtbootstrap3/target
+[INFO] 
+[INFO] --- license-maven-plugin:1.7:update-file-header (license) @ gwtbootstrap3-parent ---
+[WARNING] No file to scan.
+[INFO] 
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.13:check (default) @ gwtbootstrap3-parent ---
+[INFO] 
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gwtbootstrap3-parent ---
+[INFO] Installing /home/travis/build/gwtbootstrap3/gwtbootstrap3/pom.xml to /home/travis/.m2/repository/org/gwtbootstrap3/gwtbootstrap3-parent/0.9-SNAPSHOT/gwtbootstrap3-parent-0.9-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building GwtBootstrap3 0.9-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gwtbootstrap3 ---
+[INFO] Deleting /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target
+[INFO] 
+[INFO] --- license-maven-plugin:1.7:update-file-header (license) @ gwtbootstrap3 ---
+[INFO] Will search files to update from root /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src
+[INFO] Scan 326 files header done in 595.817ms.
+[INFO] All files are up-to-date.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gwtbootstrap3 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:resources (default) @ gwtbootstrap3 ---
+[INFO] auto discovered modules [org.gwtbootstrap3.GwtBootstrap3Theme, org.gwtbootstrap3.GwtBootstrap3, org.gwtbootstrap3.GwtBootstrap3CDN, org.gwtbootstrap3.GwtBootstrap3Base, org.gwtbootstrap3.client.Resources, org.gwtbootstrap3.GwtBootstrap3NoTheme, org.gwtbootstrap3.client.NoThemeResources]
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3Theme
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3CDN
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3Base
+[INFO] 1 source files from GWT module org.gwtbootstrap3.client.Resources
+[INFO] 313 source files from GWT module org.gwtbootstrap3.GwtBootstrap3NoTheme
+[INFO] 1 source files from GWT module org.gwtbootstrap3.client.NoThemeResources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gwtbootstrap3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 312 source files to /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gwtbootstrap3 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gwtbootstrap3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ gwtbootstrap3 ---
+[INFO] Surefire report directory: /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.gwtbootstrap3.client.ui.base.helper.StyleHelperTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running org.gwtbootstrap3.client.ui.base.helper.EnumHelperTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:compile (default) @ gwtbootstrap3 ---
+[INFO] auto discovered modules [org.gwtbootstrap3.GwtBootstrap3Theme, org.gwtbootstrap3.GwtBootstrap3, org.gwtbootstrap3.GwtBootstrap3CDN, org.gwtbootstrap3.GwtBootstrap3Base, org.gwtbootstrap3.client.Resources, org.gwtbootstrap3.GwtBootstrap3NoTheme, org.gwtbootstrap3.client.NoThemeResources]
+[INFO] org.gwtbootstrap3.GwtBootstrap3CDN has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.GwtBootstrap3Base has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.client.Resources has no EntryPoint - compilation skipped
+[INFO] org.gwtbootstrap3.client.NoThemeResources has no EntryPoint - compilation skipped
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gwtbootstrap3 ---
+[INFO] Building jar: /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/gwtbootstrap3-0.9-SNAPSHOT.jar
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.7.0:test (default) @ gwtbootstrap3 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running gwtbootstrap3 suite
+[INFO] Ignored 3 units with compilation errors in first pass.
+[INFO] Compile with -strict or with -logLevel set to TRACE or DEBUG to see all errors.
+[INFO] Starting http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/junit.html?gwt.codesvr=172.17.8.103:42097 on browser FF17
+[INFO] 200 - GET /org.gwtbootstrap3.GwtBootstrap3.JUnit/junit.html?gwt.codesvr=172.17.8.103:42097 (172.17.8.103) 2064 bytes
+[INFO] 200 - GET /org.gwtbootstrap3.GwtBootstrap3.JUnit/org.gwtbootstrap3.GwtBootstrap3.JUnit.nocache.js (172.17.8.103) 8630 bytes
+[INFO] 200 - GET /org.gwtbootstrap3.GwtBootstrap3.JUnit/org.gwtbootstrap3.GwtBootstrap3.JUnit.devmode.js (172.17.8.103) 15036 bytes
+[INFO] 200 - GET /org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css (172.17.8.103) 23739 bytes
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:1810] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:1810] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:1973] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:1973] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2139] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2139] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2310] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2310] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2483] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/font-awesome-4.3.0.min.cache.css' [4:2483] Ignoring the following declarations in this rule.
+[INFO] 200 - GET /org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css (172.17.8.103) 117150 bytes
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:17442] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:19017] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:21262] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:21311] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:21360] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:23844] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:25610] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:27376] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:33502] Error in @media rule. (Invalid token "and". Was expecting one of: <S>, <LBRACE>, <COMMA>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:33502] Ignoring the whole rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:36868] Error in @media rule. (Invalid token "and". Was expecting one of: <S>, <LBRACE>, <COMMA>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:36868] Ignoring the whole rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:42817] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:44037] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:44209] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:44302] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:54463] Error in style rule. (Invalid token ":". Was expecting one of: <EOF>, <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, <PLUS>, <COMMA>, <HASH>, <IMPORTANT_SYM>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <DIMENSION>, <URI>, <FUNCTION>, "}", ";", "/", "-".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:54463] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:55098] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:63732] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:64056] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:64759] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:65085] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:65608] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:65660] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:65987] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:66508] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:66816] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:67044] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:67187] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:67560] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:68047] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:68203] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:68670] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:69136] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:70062] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:70183] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:70816] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:70901] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:72260] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:74570] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:80466] Error in @media rule. (Invalid token "and". Was expecting one of: <S>, <LBRACE>, <COMMA>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:80466] Ignoring the whole rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:82983] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:83122] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:83122] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:83888] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:84027] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:84027] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:84514] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:84653] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:84653] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85146] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85285] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85285] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85776] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85915] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:85915] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:102743] Error in expression. (Invalid token "25". Was expecting: <NUMBER>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:102748] Error in style rule. (Invalid token "-ms-transform". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:102748] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:104089] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:104277] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:108197] Error in @media rule. (Invalid token "and". Was expecting one of: <S>, <LBRACE>, <COMMA>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:108197] Ignoring the whole rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:109602] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:109643] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:109643] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:110145] Error in expression. (Invalid token "rgba(". Was expecting one of: <S>, <NUMBER>, <IDENT>, <STRING>, <PLUS>, <COMMA>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <PERCENTAGE>, <URI>, "-", "=", ")".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:110186] Error in style rule. (Invalid token "background-image". Was expecting one of: <EOF>, "}", ";".)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:110186] Ignoring the following declarations in this rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:112034] Error in @media rule. (Invalid token "and". Was expecting one of: <S>, <LBRACE>, <COMMA>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler warning
+[ERROR] WARNING: CSS warning: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:112034] Ignoring the whole rule.
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114258] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114450] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114518] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114588] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114670] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114884] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:114974] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115066] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115170] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115385] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115476] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115569] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115674] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115867] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:115936] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:116007] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:116090] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:116150] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:116232] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[ERROR] Feb 03, 2015 8:19:41 PM com.gargoylesoftware.htmlunit.DefaultCssErrorHandler error
+[ERROR] WARNING: CSS error: 'http://172.17.8.103:50684/org.gwtbootstrap3.GwtBootstrap3.JUnit/css/bootstrap-3.3.2.min.cache.css' [5:116315] Error in media list. (Invalid token "(". Was expecting one of: <S>, <IDENT>.)
+[INFO] Ignored 3 units with compilation errors in first pass.
+[INFO] Compile with -strict or with -logLevel set to TRACE or DEBUG to see all errors.
+[INFO] Module org.gwtbootstrap3.GwtBootstrap3.JUnit has been loaded
+[INFO] 200 - POST /org.gwtbootstrap3.GwtBootstrap3.JUnit/junithost (172.17.8.103) 224 bytes
+[INFO] 200 - POST /org.gwtbootstrap3.GwtBootstrap3.JUnit/junithost (172.17.8.103) 193 bytes
+[INFO] 200 - POST /org.gwtbootstrap3.GwtBootstrap3.JUnit/junithost (172.17.8.103) 194 bytes
+[INFO] 200 - POST /org.gwtbootstrap3.GwtBootstrap3.JUnit/junithost (172.17.8.103) 189 bytes
+[INFO] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 17.556 sec <<< FAILURE!
+[INFO] testCheckBoxButton(org.gwtbootstrap3.client.ui.CheckBoxButtonGwt)  Time elapsed: 0.1 sec  <<< FAILURE!
+[INFO] junit.framework.AssertionFailedError: expected: <2>, actual: <4>
+[INFO] 	at junit.framework.Assert.fail(Assert.java:193)
+[INFO] 	at junit.framework.Assert.failNotEquals(Assert.java:198)
+[INFO] 	at junit.framework.Assert.assertEquals(Assert.java:94)
+[INFO] 	at junit.framework.Assert.assertEquals(Assert.java:43)
+[INFO] 	at org.gwtbootstrap3.client.ui.InputToggleButtonGwt.checkLayout(InputToggleButtonGwt.java:43)
+[INFO] 	at org.gwtbootstrap3.client.ui.CheckBoxButtonGwt.testCheckBoxButton(CheckBoxButtonGwt.java:26)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTTestAccessor.invoke(GWTTestAccessor.java:39)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.executeTestMethod(GWTRunner.java:226)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.doRunTest(GWTTestCase.java:157)
+[INFO] 	at junit.framework.TestCase.runTest(TestCase.java:59)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.runBare(GWTTestCase.java:151)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.__doRunTest(GWTTestCase.java:115)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.runTest(GWTRunner.java:302)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.doRunTest(GWTRunner.java:235)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.access$9(GWTRunner.java:229)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner$TestBlockListener.onSuccess(GWTRunner.java:106)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner$TestBlockListener.onSuccess(GWTRunner.java:1)
+[INFO] 	at com.google.gwt.user.client.rpc.impl.RequestCallbackAdapter.onResponseReceived(RequestCallbackAdapter.java:232)
+[INFO] 	at com.google.gwt.http.client.Request.fireOnResponseReceived(Request.java:250)
+[INFO] 	at com.google.gwt.http.client.RequestBuilder$1.onReadyStateChange(RequestBuilder.java:412)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.dev.shell.MethodAdaptor.invoke(MethodAdaptor.java:103)
+[INFO] 	at com.google.gwt.dev.shell.MethodDispatch.invoke(MethodDispatch.java:72)
+[INFO] 	at com.google.gwt.dev.shell.OophmSessionHandler.invoke(OophmSessionHandler.java:172)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.reactToMessagesWhileWaitingForReturn(BrowserChannelServer.java:341)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.invokeJavascript(BrowserChannelServer.java:222)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpaceOOPHM.doInvoke(ModuleSpaceOOPHM.java:137)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpace.invokeNative(ModuleSpace.java:589)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpace.invokeNativeObject(ModuleSpace.java:293)
+[INFO] 	at com.google.gwt.dev.shell.JavaScriptHost.invokeNativeObject(JavaScriptHost.java:91)
+[INFO] 	at com.google.gwt.core.client.impl.Impl.apply(Impl.java)
+[INFO] 	at com.google.gwt.core.client.impl.Impl.entry0(Impl.java:306)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.dev.shell.MethodAdaptor.invoke(MethodAdaptor.java:103)
+[INFO] 	at com.google.gwt.dev.shell.MethodDispatch.invoke(MethodDispatch.java:72)
+[INFO] 	at com.google.gwt.dev.shell.OophmSessionHandler.invoke(OophmSessionHandler.java:172)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.reactToMessages(BrowserChannelServer.java:296)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.processConnection(BrowserChannelServer.java:551)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.run(BrowserChannelServer.java:368)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] testRadioButton(org.gwtbootstrap3.client.ui.RadioButtonGwt)  Time elapsed: 0.112 sec  <<< FAILURE!
+[INFO] junit.framework.AssertionFailedError: expected: <2>, actual: <4>
+[INFO] 	at junit.framework.Assert.fail(Assert.java:193)
+[INFO] 	at junit.framework.Assert.failNotEquals(Assert.java:198)
+[INFO] 	at junit.framework.Assert.assertEquals(Assert.java:94)
+[INFO] 	at junit.framework.Assert.assertEquals(Assert.java:43)
+[INFO] 	at org.gwtbootstrap3.client.ui.InputToggleButtonGwt.checkLayout(InputToggleButtonGwt.java:43)
+[INFO] 	at org.gwtbootstrap3.client.ui.RadioButtonGwt.testRadioButton(RadioButtonGwt.java:26)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTTestAccessor.invoke(GWTTestAccessor.java:39)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.executeTestMethod(GWTRunner.java:226)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.doRunTest(GWTTestCase.java:157)
+[INFO] 	at junit.framework.TestCase.runTest(TestCase.java:59)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.runBare(GWTTestCase.java:151)
+[INFO] 	at com.google.gwt.junit.client.GWTTestCase.__doRunTest(GWTTestCase.java:115)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.runTest(GWTRunner.java:302)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.doRunTest(GWTRunner.java:235)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner.access$9(GWTRunner.java:229)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner$TestBlockListener.onSuccess(GWTRunner.java:106)
+[INFO] 	at com.google.gwt.junit.client.impl.GWTRunner$TestBlockListener.onSuccess(GWTRunner.java:1)
+[INFO] 	at com.google.gwt.user.client.rpc.impl.RequestCallbackAdapter.onResponseReceived(RequestCallbackAdapter.java:232)
+[INFO] 	at com.google.gwt.http.client.Request.fireOnResponseReceived(Request.java:250)
+[INFO] 	at com.google.gwt.http.client.RequestBuilder$1.onReadyStateChange(RequestBuilder.java:412)
+[INFO] 	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.dev.shell.MethodAdaptor.invoke(MethodAdaptor.java:103)
+[INFO] 	at com.google.gwt.dev.shell.MethodDispatch.invoke(MethodDispatch.java:72)
+[INFO] 	at com.google.gwt.dev.shell.OophmSessionHandler.invoke(OophmSessionHandler.java:172)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.reactToMessagesWhileWaitingForReturn(BrowserChannelServer.java:341)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.invokeJavascript(BrowserChannelServer.java:222)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpaceOOPHM.doInvoke(ModuleSpaceOOPHM.java:137)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpace.invokeNative(ModuleSpace.java:589)
+[INFO] 	at com.google.gwt.dev.shell.ModuleSpace.invokeNativeObject(ModuleSpace.java:293)
+[INFO] 	at com.google.gwt.dev.shell.JavaScriptHost.invokeNativeObject(JavaScriptHost.java:91)
+[INFO] 	at com.google.gwt.core.client.impl.Impl.apply(Impl.java)
+[INFO] 	at com.google.gwt.core.client.impl.Impl.entry0(Impl.java:306)
+[INFO] 	at sun.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[INFO] 	at com.google.gwt.dev.shell.MethodAdaptor.invoke(MethodAdaptor.java:103)
+[INFO] 	at com.google.gwt.dev.shell.MethodDispatch.invoke(MethodDispatch.java:72)
+[INFO] 	at com.google.gwt.dev.shell.OophmSessionHandler.invoke(OophmSessionHandler.java:172)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.reactToMessages(BrowserChannelServer.java:296)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.processConnection(BrowserChannelServer.java:551)
+[INFO] 	at com.google.gwt.dev.shell.BrowserChannelServer.run(BrowserChannelServer.java:368)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] 
+[INFO] Results :
+[INFO] 
+[INFO] Failed tests: 
+[INFO]   testCheckBoxButton(org.gwtbootstrap3.client.ui.CheckBoxButtonGwt)
+[INFO]   testRadioButton(org.gwtbootstrap3.client.ui.RadioButtonGwt)
+[INFO] 
+[INFO] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] GwtBootstrap3 Parent ............................... SUCCESS [  2.259 s]
+[INFO] GwtBootstrap3 ...................................... FAILURE [ 59.976 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:03 min
+[INFO] Finished at: 2015-02-03T20:19:47+00:00
+[INFO] Final Memory: 27M/449M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.codehaus.mojo:gwt-maven-plugin:2.7.0:test (default) on project gwtbootstrap3: Failed to run GWT tests: Command [[
+[ERROR] /bin/sh -c '/usr/lib/jvm/java-7-oracle/jre/bin/java' '-Xmx512m' '-classpath' '/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/classes:/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src/main/java:/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src/test/java:/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/src/test/resources:/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/test-classes:/home/travis/.m2/repository/com/google/gwt/gwt-user/2.7.0/gwt-user-2.7.0.jar:/home/travis/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar:/home/travis/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar:/home/travis/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/travis/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/travis/.m2/repository/com/google/gwt/gwt-user/2.7.0/gwt-user-2.7.0.jar:/home/travis/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar:/home/travis/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar:/home/travis/.m2/repository/com/google/gwt/gwt-dev/2.7.0/gwt-dev-2.7.0.jar:/home/travis/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar:/home/travis/.m2/repository/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar:/home/travis/.m2/repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar:/home/travis/.m2/repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar:/home/travis/.m2/repository/org/codehaus/mojo/gwt-maven-plugin/2.7.0/gwt-maven-plugin-2.7.0.jar:/home/travis/.m2/repository/org/apache/maven/surefire/surefire-api/2.4.3/surefire-api-2.4.3.jar' '-Dgwt.args=-war /home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/www-test -logLevel INFO -devMode -nocheckAssertions -XclusterFunctions -XcheckCasts -XclassMetadata -XcodeSplitting -nodraftCompile -XinlineLiteralParameters -XoptimizeDataflow -XordinalizeEnums -XremoveDuplicateFunctions -noshowUi -sourceLevel auto -testBeginTimeout 1 -testMethodTimeout 5 -Xtries 1 -noincremental -precompile simple -runStyle HtmlUnit:FF17' '-Dsurefire.reports=/home/travis/build/gwtbootstrap3/gwtbootstrap3/gwtbootstrap3/target/surefire-reports' 'org.codehaus.mojo.gwt.test.MavenTestRunner' 'org.gwtbootstrap3.client.ui.GwtTestSuite'
+[ERROR] ]] failed with status 1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :gwtbootstrap3
+travis_time:end:1862e68d:start=1422994722695963564,finish=1422994788383107370,duration=65687143806[0K
+[31;1mThe command "mvn clean install -DdryRun=true -Dlicense.failOnMissingHeader=true -Dlicense.failOnNotUptodateHeader=true" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:03999ad1[0Kchange detected: /home/travis/.m2/repository/org/gwtbootstrap3/gwtbootstrap3-parent/0.9-SNAPSHOT/_remote.repositories
+changes detected, packing new archive
+uploading archive
+travis_time:end:03999ad1:start=1422994788387786418,finish=1422994817659622406,duration=29271835988[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

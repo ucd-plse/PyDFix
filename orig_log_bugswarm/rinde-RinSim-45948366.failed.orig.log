@@ -1,0 +1,616 @@
+Using worker: worker-linux-docker-36b3da19.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:000d345f[0K$ git clone --depth=50 --branch=develop git://github.com/rinde/RinSim.git rinde/RinSim
+Cloning into 'rinde/RinSim'...
+remote: Counting objects: 2708, done.[K
+remote: Compressing objects:   0% (1/977)   [Kremote: Compressing objects:   1% (10/977)   [Kremote: Compressing objects:   2% (20/977)   [Kremote: Compressing objects:   3% (30/977)   [Kremote: Compressing objects:   4% (40/977)   [Kremote: Compressing objects:   5% (49/977)   [Kremote: Compressing objects:   6% (59/977)   [Kremote: Compressing objects:   7% (69/977)   [Kremote: Compressing objects:   8% (79/977)   [Kremote: Compressing objects:   9% (88/977)   [Kremote: Compressing objects:  10% (98/977)   [Kremote: Compressing objects:  11% (108/977)   [Kremote: Compressing objects:  12% (118/977)   [Kremote: Compressing objects:  13% (128/977)   [Kremote: Compressing objects:  14% (137/977)   [Kremote: Compressing objects:  15% (147/977)   [Kremote: Compressing objects:  16% (157/977)   [Kremote: Compressing objects:  17% (167/977)   [Kremote: Compressing objects:  18% (176/977)   [Kremote: Compressing objects:  19% (186/977)   [Kremote: Compressing objects:  20% (196/977)   [Kremote: Compressing objects:  21% (206/977)   [Kremote: Compressing objects:  22% (215/977)   [Kremote: Compressing objects:  23% (225/977)   [Kremote: Compressing objects:  24% (235/977)   [Kremote: Compressing objects:  25% (245/977)   [Kremote: Compressing objects:  26% (255/977)   [Kremote: Compressing objects:  27% (264/977)   [Kremote: Compressing objects:  28% (274/977)   [Kremote: Compressing objects:  29% (284/977)   [Kremote: Compressing objects:  30% (294/977)   [Kremote: Compressing objects:  31% (303/977)   [Kremote: Compressing objects:  32% (313/977)   [Kremote: Compressing objects:  33% (323/977)   [Kremote: Compressing objects:  34% (333/977)   [Kremote: Compressing objects:  35% (342/977)   [Kremote: Compressing objects:  36% (352/977)   [Kremote: Compressing objects:  37% (362/977)   [Kremote: Compressing objects:  38% (372/977)   [Kremote: Compressing objects:  39% (382/977)   [Kremote: Compressing objects:  40% (391/977)   [Kremote: Compressing objects:  41% (401/977)   [Kremote: Compressing objects:  42% (411/977)   [Kremote: Compressing objects:  43% (421/977)   [Kremote: Compressing objects:  44% (430/977)   [Kremote: Compressing objects:  45% (440/977)   [Kremote: Compressing objects:  46% (450/977)   [Kremote: Compressing objects:  47% (460/977)   [Kremote: Compressing objects:  48% (469/977)   [Kremote: Compressing objects:  49% (479/977)   [Kremote: Compressing objects:  50% (489/977)   [Kremote: Compressing objects:  51% (499/977)   [Kremote: Compressing objects:  52% (509/977)   [Kremote: Compressing objects:  53% (518/977)   [Kremote: Compressing objects:  54% (528/977)   [Kremote: Compressing objects:  55% (538/977)   [Kremote: Compressing objects:  56% (548/977)   [Kremote: Compressing objects:  57% (557/977)   [Kremote: Compressing objects:  58% (567/977)   [Kremote: Compressing objects:  59% (577/977)   [Kremote: Compressing objects:  60% (587/977)   [Kremote: Compressing objects:  61% (596/977)   [Kremote: Compressing objects:  62% (606/977)   [Kremote: Compressing objects:  63% (616/977)   [Kremote: Compressing objects:  64% (626/977)   [Kremote: Compressing objects:  65% (636/977)   [Kremote: Compressing objects:  66% (645/977)   [Kremote: Compressing objects:  67% (655/977)   [Kremote: Compressing objects:  68% (665/977)   [Kremote: Compressing objects:  69% (675/977)   [Kremote: Compressing objects:  70% (684/977)   [Kremote: Compressing objects:  71% (694/977)   [Kremote: Compressing objects:  72% (704/977)   [Kremote: Compressing objects:  73% (714/977)   [Kremote: Compressing objects:  74% (723/977)   [Kremote: Compressing objects:  75% (733/977)   [Kremote: Compressing objects:  76% (743/977)   [Kremote: Compressing objects:  77% (753/977)   [Kremote: Compressing objects:  78% (763/977)   [Kremote: Compressing objects:  79% (772/977)   [Kremote: Compressing objects:  80% (782/977)   [Kremote: Compressing objects:  81% (792/977)   [Kremote: Compressing objects:  82% (802/977)   [Kremote: Compressing objects:  83% (811/977)   [Kremote: Compressing objects:  84% (821/977)   [Kremote: Compressing objects:  85% (831/977)   [Kremote: Compressing objects:  86% (841/977)   [Kremote: Compressing objects:  87% (850/977)   [Kremote: Compressing objects:  88% (860/977)   [Kremote: Compressing objects:  89% (870/977)   [Kremote: Compressing objects:  90% (880/977)   [Kremote: Compressing objects:  91% (890/977)   [Kremote: Compressing objects:  92% (899/977)   [Kremote: Compressing objects:  93% (909/977)   [Kremote: Compressing objects:  94% (919/977)   [Kremote: Compressing objects:  95% (929/977)   [Kremote: Compressing objects:  96% (938/977)   [Kremote: Compressing objects:  97% (948/977)   [Kremote: Compressing objects:  98% (958/977)   [Kremote: Compressing objects:  99% (968/977)   [Kremote: Compressing objects: 100% (977/977)   [Kremote: Compressing objects: 100% (977/977), done.[K
+Receiving objects:   0% (1/2708)   Receiving objects:   1% (28/2708)   Receiving objects:   2% (55/2708)   Receiving objects:   3% (82/2708)   Receiving objects:   4% (109/2708)   Receiving objects:   5% (136/2708)   Receiving objects:   6% (163/2708)   Receiving objects:   7% (190/2708)   Receiving objects:   8% (217/2708)   Receiving objects:   9% (244/2708)   Receiving objects:  10% (271/2708)   Receiving objects:  11% (298/2708)   Receiving objects:  12% (325/2708)   Receiving objects:  13% (353/2708)   Receiving objects:  14% (380/2708)   Receiving objects:  15% (407/2708)   Receiving objects:  16% (434/2708)   Receiving objects:  17% (461/2708)   Receiving objects:  18% (488/2708)   Receiving objects:  19% (515/2708)   Receiving objects:  20% (542/2708)   Receiving objects:  21% (569/2708)   Receiving objects:  22% (596/2708)   Receiving objects:  23% (623/2708)   Receiving objects:  24% (650/2708)   Receiving objects:  25% (677/2708)   Receiving objects:  26% (705/2708)   Receiving objects:  27% (732/2708)   Receiving objects:  28% (759/2708)   Receiving objects:  29% (786/2708)   Receiving objects:  30% (813/2708)   Receiving objects:  31% (840/2708)   Receiving objects:  32% (867/2708)   Receiving objects:  33% (894/2708)   Receiving objects:  34% (921/2708)   Receiving objects:  35% (948/2708)   Receiving objects:  36% (975/2708)   Receiving objects:  37% (1002/2708)   Receiving objects:  38% (1030/2708)   Receiving objects:  39% (1057/2708)   Receiving objects:  40% (1084/2708)   Receiving objects:  41% (1111/2708)   Receiving objects:  42% (1138/2708)   Receiving objects:  43% (1165/2708)   Receiving objects:  44% (1192/2708)   Receiving objects:  45% (1219/2708)   Receiving objects:  46% (1246/2708)   Receiving objects:  47% (1273/2708)   Receiving objects:  48% (1300/2708)   Receiving objects:  49% (1327/2708)   Receiving objects:  50% (1354/2708)   Receiving objects:  51% (1382/2708)   Receiving objects:  52% (1409/2708)   Receiving objects:  53% (1436/2708)   Receiving objects:  54% (1463/2708)   Receiving objects:  55% (1490/2708)   Receiving objects:  56% (1517/2708)   Receiving objects:  57% (1544/2708)   Receiving objects:  58% (1571/2708)   Receiving objects:  59% (1598/2708)   Receiving objects:  60% (1625/2708)   Receiving objects:  61% (1652/2708)   Receiving objects:  62% (1679/2708)   Receiving objects:  63% (1707/2708)   Receiving objects:  64% (1734/2708)   Receiving objects:  65% (1761/2708)   Receiving objects:  66% (1788/2708)   Receiving objects:  67% (1815/2708)   Receiving objects:  68% (1842/2708)   Receiving objects:  69% (1869/2708)   Receiving objects:  70% (1896/2708)   Receiving objects:  71% (1923/2708)   Receiving objects:  72% (1950/2708)   Receiving objects:  73% (1977/2708)   Receiving objects:  74% (2004/2708)   Receiving objects:  75% (2031/2708)   Receiving objects:  76% (2059/2708)   Receiving objects:  77% (2086/2708)   Receiving objects:  78% (2113/2708)   Receiving objects:  79% (2140/2708)   Receiving objects:  80% (2167/2708)   Receiving objects:  81% (2194/2708)   Receiving objects:  82% (2221/2708)   Receiving objects:  83% (2248/2708)   Receiving objects:  84% (2275/2708)   Receiving objects:  85% (2302/2708)   remote: Total 2708 (delta 1110), reused 2300 (delta 946)[K
+Receiving objects:  86% (2329/2708)   Receiving objects:  87% (2356/2708)   Receiving objects:  88% (2384/2708)   Receiving objects:  89% (2411/2708)   Receiving objects:  90% (2438/2708)   Receiving objects:  91% (2465/2708)   Receiving objects:  92% (2492/2708)   Receiving objects:  93% (2519/2708)   Receiving objects:  94% (2546/2708)   Receiving objects:  95% (2573/2708)   Receiving objects:  96% (2600/2708)   Receiving objects:  97% (2627/2708)   Receiving objects:  98% (2654/2708)   Receiving objects:  99% (2681/2708)   Receiving objects: 100% (2708/2708)   Receiving objects: 100% (2708/2708), 3.37 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1110)   Resolving deltas:   1% (19/1110)   Resolving deltas:   2% (25/1110)   Resolving deltas:   3% (37/1110)   Resolving deltas:   4% (47/1110)   Resolving deltas:   5% (59/1110)   Resolving deltas:   6% (68/1110)   Resolving deltas:   7% (78/1110)   Resolving deltas:   8% (89/1110)   Resolving deltas:   9% (104/1110)   Resolving deltas:  10% (112/1110)   Resolving deltas:  11% (124/1110)   Resolving deltas:  12% (141/1110)   Resolving deltas:  14% (164/1110)   Resolving deltas:  15% (168/1110)   Resolving deltas:  16% (178/1110)   Resolving deltas:  17% (190/1110)   Resolving deltas:  19% (216/1110)   Resolving deltas:  20% (226/1110)   Resolving deltas:  21% (234/1110)   Resolving deltas:  22% (245/1110)   Resolving deltas:  23% (262/1110)   Resolving deltas:  24% (273/1110)   Resolving deltas:  25% (283/1110)   Resolving deltas:  26% (292/1110)   Resolving deltas:  28% (311/1110)   Resolving deltas:  29% (323/1110)   Resolving deltas:  30% (333/1110)   Resolving deltas:  32% (362/1110)   Resolving deltas:  33% (367/1110)   Resolving deltas:  35% (398/1110)   Resolving deltas:  36% (401/1110)   Resolving deltas:  37% (415/1110)   Resolving deltas:  38% (422/1110)   Resolving deltas:  39% (434/1110)   Resolving deltas:  40% (455/1110)   Resolving deltas:  41% (459/1110)   Resolving deltas:  42% (468/1110)   Resolving deltas:  43% (480/1110)   Resolving deltas:  44% (491/1110)   Resolving deltas:  45% (503/1110)   Resolving deltas:  46% (511/1110)   Resolving deltas:  48% (534/1110)   Resolving deltas:  49% (544/1110)   Resolving deltas:  50% (557/1110)   Resolving deltas:  51% (567/1110)   Resolving deltas:  52% (578/1110)   Resolving deltas:  53% (590/1110)   Resolving deltas:  54% (600/1110)   Resolving deltas:  55% (611/1110)   Resolving deltas:  56% (622/1110)   Resolving deltas:  57% (633/1110)   Resolving deltas:  58% (644/1110)   Resolving deltas:  59% (660/1110)   Resolving deltas:  60% (667/1110)   Resolving deltas:  61% (678/1110)   Resolving deltas:  62% (689/1110)   Resolving deltas:  63% (700/1110)   Resolving deltas:  64% (713/1110)   Resolving deltas:  65% (722/1110)   Resolving deltas:  66% (734/1110)   Resolving deltas:  67% (749/1110)   Resolving deltas:  68% (756/1110)   Resolving deltas:  69% (768/1110)   Resolving deltas:  70% (779/1110)   Resolving deltas:  71% (791/1110)   Resolving deltas:  72% (800/1110)   Resolving deltas:  73% (813/1110)   Resolving deltas:  74% (824/1110)   Resolving deltas:  75% (833/1110)   Resolving deltas:  76% (846/1110)   Resolving deltas:  77% (858/1110)   Resolving deltas:  79% (877/1110)   Resolving deltas:  80% (892/1110)   Resolving deltas:  81% (900/1110)   Resolving deltas:  82% (912/1110)   Resolving deltas:  83% (922/1110)   Resolving deltas:  84% (935/1110)   Resolving deltas:  85% (945/1110)   Resolving deltas:  86% (957/1110)   Resolving deltas:  87% (966/1110)   Resolving deltas:  88% (979/1110)   Resolving deltas:  89% (988/1110)   Resolving deltas:  90% (999/1110)   Resolving deltas:  91% (1011/1110)   Resolving deltas:  96% (1068/1110)   Resolving deltas:  97% (1077/1110)   Resolving deltas:  98% (1089/1110)   Resolving deltas:  99% (1102/1110)   Resolving deltas: 100% (1110/1110)   Resolving deltas: 100% (1110/1110), done.
+Checking connectivity... done.
+travis_time:end:000d345f:start=1420466647918386376,finish=1420466648415958401,duration=497572025[0K$ cd rinde/RinSim
+$ git checkout -qf e799a8709d2594b8b24ec2a4f6cfcffad2c98cf2
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export GH_TOKEN=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:1af67120[0K$ Installing caching utilities
+travis_time:end:1af67120:start=1420466654111460968,finish=1420466654221003131,duration=109542163[0Ktravis_time:start:033fbc92[0Kattempting to download cache archive
+found cache
+travis_time:end:033fbc92:start=1420466654225626495,finish=1420466655189805248,duration=964178753[0Ktravis_time:start:03aa60c8[0Kadding /home/travis/.m2/repository to cache
+travis_time:end:03aa60c8:start=1420466655193506962,finish=1420466659928213628,duration=4734706666[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use openjdk7
+Switching to OpenJDK7 (java-1.7.0-openjdk-amd64), JAVA_HOME will be set to /usr/lib/jvm/java-7-openjdk-amd64
+$ java -version
+java version "1.7.0_65"
+OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.12.04.1)
+OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
+$ javac -version
+javac 1.7.0_65
+travis_fold:start:install[0Ktravis_time:start:1e552a8f[0K$ mvn install -DskipTests=true
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 15 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 15 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] RinSim
+[INFO] RinSim Test Utils
+[INFO] RinSim Event
+[INFO] RinSim CLI
+[INFO] RinSim Geometry
+[INFO] RinSim Core
+[INFO] RinSim UI
+[INFO] RinSim FSM
+[INFO] RinSim IO
+[INFO] RinSim Scenario
+[INFO] RinSim PDPTW
+[INFO] RinSim Scenario Utils
+[INFO] RinSim Experiment
+[INFO] RinSim Examples
+[INFO] RinSim Central
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RinSim 3.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-main ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-main ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ rinsim-main >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-main ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-main ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ rinsim-main <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ rinsim-main ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.9.1:jar (default) @ rinsim-main ---
+[INFO] Not executing Javadoc as the project is not a Java classpath-capable package
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:test-jar (default) @ rinsim-main ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/travis/build/rinde/RinSim/target/rinsim-main-3.0.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ rinsim-main ---
+[INFO] Installing /home/travis/build/rinde/RinSim/pom.xml to /home/travis/.m2/repository/com/github/rinde/rinsim-main/3.0.1-SNAPSHOT/rinsim-main-3.0.1-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/rinde/RinSim/target/rinsim-main-3.0.1-SNAPSHOT-tests.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-main/3.0.1-SNAPSHOT/rinsim-main-3.0.1-SNAPSHOT-tests.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RinSim Test Utils 3.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/releases/com/google/code/findbugs/jsr305/maven-metadata.xml
+Downloading: https://repository.apache.org/releases/com/google/code/findbugs/jsr305/maven-metadata.xml
+Downloading: https://repository.apache.org/snapshots/com/google/code/findbugs/jsr305/maven-metadata.xml
+399/399 B               Downloaded: https://oss.sonatype.org/content/repositories/releases/com/google/code/findbugs/jsr305/maven-metadata.xml (399 B at 0.5 KB/sec)
+                        [INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-test-util ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-test-util ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rinsim-test-util ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/test-util/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rinsim-test-util ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rinsim-test-util ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/test-util/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rinsim-test-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/rinde/RinSim/test-util/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ rinsim-test-util ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ rinsim-test-util ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/travis/build/rinde/RinSim/test-util/target/rinsim-test-util-3.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ rinsim-test-util >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-test-util ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-test-util ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ rinsim-test-util <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ rinsim-test-util ---
+[INFO] No sources in project. Archive not created.
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.9.1:jar (default) @ rinsim-test-util ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:test-jar (default) @ rinsim-test-util ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/test-util/target/rinsim-test-util-3.0.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- japi-checker-maven-plugin:0.1.4:check (check-bc) @ rinsim-test-util ---
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] Checking backward compatibility of com.github.rinde:rinsim-test-util:jar:3.0.1-SNAPSHOT against com.github.rinde:rinsim-test-util:jar:3.0.0:compile
+[INFO] No backward compatibility issue found.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ rinsim-test-util ---
+[INFO] Installing /home/travis/build/rinde/RinSim/test-util/target/rinsim-test-util-3.0.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-test-util/3.0.1-SNAPSHOT/rinsim-test-util-3.0.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/test-util/pom.xml to /home/travis/.m2/repository/com/github/rinde/rinsim-test-util/3.0.1-SNAPSHOT/rinsim-test-util-3.0.1-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/rinde/RinSim/test-util/target/rinsim-test-util-3.0.1-SNAPSHOT-tests.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-test-util/3.0.1-SNAPSHOT/rinsim-test-util-3.0.1-SNAPSHOT-tests.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RinSim Event 3.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: https://oss.sonatype.org/content/repositories/releases/com/google/guava/guava/maven-metadata.xml
+Downloading: https://repository.apache.org/releases/com/google/guava/guava/maven-metadata.xml
+Downloading: https://repository.apache.org/snapshots/com/google/guava/guava/maven-metadata.xml
+2/2 KB                                 Downloaded: https://oss.sonatype.org/content/repositories/releases/com/google/guava/guava/maven-metadata.xml (2 KB at 4.3 KB/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-event ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-event ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rinsim-event ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/event/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rinsim-event ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/rinde/RinSim/event/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rinsim-event ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/event/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rinsim-event ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/rinde/RinSim/event/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ rinsim-event ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ rinsim-event ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ rinsim-event >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-event ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-event ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ rinsim-event <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ rinsim-event ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.9.1:jar (default) @ rinsim-event ---
+[INFO] 
+Loading source files for package com.github.rinde.rinsim.event...
+Constructing Javadoc information...
+Standard Doclet version 1.7.0_65
+Building tree for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/Event.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/EventAPI.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/EventDispatcher.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/Listener.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/package-frame.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/package-summary.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/package-tree.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/constant-values.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/class-use/Listener.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/class-use/EventAPI.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/class-use/EventDispatcher.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/class-use/Event.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/com/github/rinde/rinsim/event/package-use.html...
+Building index for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/overview-tree.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/index-all.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/allclasses-frame.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/allclasses-noframe.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/index.html...
+Generating /home/travis/build/rinde/RinSim/event/target/apidocs/help-doc.html...
+[INFO] Building jar: /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:test-jar (default) @ rinsim-event ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- japi-checker-maven-plugin:0.1.4:check (check-bc) @ rinsim-event ---
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] Checking backward compatibility of com.github.rinde:rinsim-event:jar:3.0.1-SNAPSHOT against com.github.rinde:rinsim-event:jar:3.0.0:compile
+[INFO] No backward compatibility issue found.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ rinsim-event ---
+[INFO] Installing /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-event/3.0.1-SNAPSHOT/rinsim-event-3.0.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/event/pom.xml to /home/travis/.m2/repository/com/github/rinde/rinsim-event/3.0.1-SNAPSHOT/rinsim-event-3.0.1-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-sources.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-event/3.0.1-SNAPSHOT/rinsim-event-3.0.1-SNAPSHOT-sources.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-javadoc.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-event/3.0.1-SNAPSHOT/rinsim-event-3.0.1-SNAPSHOT-javadoc.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/event/target/rinsim-event-3.0.1-SNAPSHOT-tests.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-event/3.0.1-SNAPSHOT/rinsim-event-3.0.1-SNAPSHOT-tests.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RinSim CLI 3.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-cli ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-cli ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rinsim-cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/cli/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rinsim-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /home/travis/build/rinde/RinSim/cli/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rinsim-cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/cli/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rinsim-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/rinde/RinSim/cli/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ rinsim-cli ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ rinsim-cli ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ rinsim-cli >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-cli ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-cli ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ rinsim-cli <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ rinsim-cli ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.9.1:jar (default) @ rinsim-cli ---
+[INFO] 
+Loading source files for package com.github.rinde.rinsim.cli...
+Constructing Javadoc information...
+Standard Doclet version 1.7.0_65
+Building tree for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/ArgHandler.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/ArgumentParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/ArgumentParser.NumberListParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/ArgumentParser.NumberParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/CliException.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/CliException.CauseType.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/DefaultHelpFormatter.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/HelpFormatter.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Menu.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Menu.Builder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/NoArgHandler.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Option.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Option.ArgBuilder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Option.NoArgBuilder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Option.OptionArg.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/Option.OptionNoArg.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/package-frame.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/package-summary.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/package-tree.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/constant-values.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/serialized-form.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/DefaultHelpFormatter.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/NoArgHandler.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/ArgHandler.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Menu.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Menu.Builder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/HelpFormatter.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/ArgumentParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/ArgumentParser.NumberParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/ArgumentParser.NumberListParser.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Option.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Option.OptionArg.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Option.OptionNoArg.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Option.NoArgBuilder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/Option.ArgBuilder.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/CliException.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/class-use/CliException.CauseType.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/com/github/rinde/rinsim/cli/package-use.html...
+Building index for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/overview-tree.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/index-all.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/allclasses-frame.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/allclasses-noframe.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/index.html...
+Generating /home/travis/build/rinde/RinSim/cli/target/apidocs/help-doc.html...
+[INFO] Building jar: /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:test-jar (default) @ rinsim-cli ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- japi-checker-maven-plugin:0.1.4:check (check-bc) @ rinsim-cli ---
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] Checking backward compatibility of com.github.rinde:rinsim-cli:jar:3.0.1-SNAPSHOT against com.github.rinde:rinsim-cli:jar:3.0.0:compile
+[INFO] No backward compatibility issue found.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ rinsim-cli ---
+[INFO] Installing /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-cli/3.0.1-SNAPSHOT/rinsim-cli-3.0.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/cli/pom.xml to /home/travis/.m2/repository/com/github/rinde/rinsim-cli/3.0.1-SNAPSHOT/rinsim-cli-3.0.1-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-sources.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-cli/3.0.1-SNAPSHOT/rinsim-cli-3.0.1-SNAPSHOT-sources.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-javadoc.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-cli/3.0.1-SNAPSHOT/rinsim-cli-3.0.1-SNAPSHOT-javadoc.jar
+[INFO] Installing /home/travis/build/rinde/RinSim/cli/target/rinsim-cli-3.0.1-SNAPSHOT-tests.jar to /home/travis/.m2/repository/com/github/rinde/rinsim-cli/3.0.1-SNAPSHOT/rinsim-cli-3.0.1-SNAPSHOT-tests.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building RinSim Geometry 3.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-geom ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-geom ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rinsim-geom ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/geom/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rinsim-geom ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 12 source files to /home/travis/build/rinde/RinSim/geom/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rinsim-geom ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/rinde/RinSim/geom/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rinsim-geom ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/rinde/RinSim/geom/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ rinsim-geom ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ rinsim-geom ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/geom/target/rinsim-geom-3.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ rinsim-geom >>>
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ rinsim-geom ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.3:check (check-license) @ rinsim-geom ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ rinsim-geom <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ rinsim-geom ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/geom/target/rinsim-geom-3.0.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.9.1:jar (default) @ rinsim-geom ---
+[INFO] 
+Loading source files for package com.github.rinde.rinsim.geom...
+Constructing Javadoc information...
+Standard Doclet version 1.7.0_65
+Building tree for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/AbstractGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Connection.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/ConnectionData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Graph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Graphs.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Graphs.Heuristic.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/LengthData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/MultiAttributeData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/MultimapGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/PathNotFoundException.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Point.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Point.Comparators.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/Point.Transformers.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/TableGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/package-frame.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/package-summary.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/package-tree.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/constant-values.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/serialized-form.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/LengthData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/PathNotFoundException.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/MultimapGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/TableGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/MultiAttributeData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Graphs.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Graphs.Heuristic.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Connection.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Point.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Point.Comparators.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Point.Transformers.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/ConnectionData.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/Graph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/class-use/AbstractGraph.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/com/github/rinde/rinsim/geom/package-use.html...
+Building index for all the packages and classes...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/overview-tree.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/index-all.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/allclasses-frame.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/allclasses-noframe.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/index.html...
+Generating /home/travis/build/rinde/RinSim/geom/target/apidocs/help-doc.html...
+2 warnings
+[WARNING] Javadoc Warnings
+[WARNING] /home/travis/build/rinde/RinSim/geom/src/main/java/com/github/rinde/rinsim/geom/Graphs.java:198: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+[WARNING] /home/travis/build/rinde/RinSim/geom/src/main/java/com/github/rinde/rinsim/geom/Graphs.java:198: warning - Tag @author cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+[INFO] Building jar: /home/travis/build/rinde/RinSim/geom/target/rinsim-geom-3.0.1-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:test-jar (default) @ rinsim-geom ---
+[INFO] Building jar: /home/travis/build/rinde/RinSim/geom/target/rinsim-geom-3.0.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- japi-checker-maven-plugin:0.1.4:check (check-bc) @ rinsim-geom ---
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype
+[INFO] artifact com.google.guava:guava: checking for updates from sonatype-apache
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype
+[INFO] artifact com.google.code.findbugs:jsr305: checking for updates from sonatype-apache
+[INFO] Checking backward compatibility of com.github.rinde:rinsim-geom:jar:3.0.1-SNAPSHOT against com.github.rinde:rinsim-geom:jar:3.0.0:compile
+[ERROR] com/github/rinde/rinsim/geom/MultimapGraph.java: Could not find method equals in newer version.
+[ERROR] com/github/rinde/rinsim/geom/TableGraph.java: Could not find method equals in newer version.
+[ERROR] You have 2 backward compatibility issues.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] RinSim ............................................. SUCCESS [  2.671 s]
+[INFO] RinSim Test Utils .................................. SUCCESS [  4.334 s]
+[INFO] RinSim Event ....................................... SUCCESS [  7.263 s]
+[INFO] RinSim CLI ......................................... SUCCESS [  5.439 s]
+[INFO] RinSim Geometry .................................... FAILURE [  5.963 s]
+[INFO] RinSim Core ........................................ SKIPPED
+[INFO] RinSim UI .......................................... SKIPPED
+[INFO] RinSim FSM ......................................... SKIPPED
+[INFO] RinSim IO .......................................... SKIPPED
+[INFO] RinSim Scenario .................................... SKIPPED
+[INFO] RinSim PDPTW ....................................... SKIPPED
+[INFO] RinSim Scenario Utils .............................. SKIPPED
+[INFO] RinSim Experiment .................................. SKIPPED
+[INFO] RinSim Examples .................................... SKIPPED
+[INFO] RinSim Central ..................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 27.276 s
+[INFO] Finished at: 2015-01-05T14:04:49+00:00
+[INFO] Final Memory: 29M/445M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.googlecode.japi-checker:japi-checker-maven-plugin:0.1.4:check (check-bc) on project rinsim-geom: You have 2 backward compatibility issues. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :rinsim-geom
+travis_time:end:1e552a8f:start=1420466660337534020,finish=1420466690180757121,duration=29843223101[0K
+[31;1mThe command "mvn install -DskipTests=true" failed and exited with 1 during .[0m
+
+Your build has been stopped.

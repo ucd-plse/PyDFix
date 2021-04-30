@@ -1,0 +1,903 @@
+Using worker: worker-linux-docker-ec9f3315.prod.travis-ci.org:travis-linux-8
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:05f9e20c[0K$ git clone --depth=50 --branch=master https://github.com/tornadoweb/tornado.git tornadoweb/tornado
+Cloning into 'tornadoweb/tornado'...
+remote: Counting objects: 1350, done.[K
+remote: Compressing objects:   0% (1/762)   [Kremote: Compressing objects:   1% (8/762)   [Kremote: Compressing objects:   2% (16/762)   [Kremote: Compressing objects:   3% (23/762)   [Kremote: Compressing objects:   4% (31/762)   [Kremote: Compressing objects:   5% (39/762)   [Kremote: Compressing objects:   6% (46/762)   [Kremote: Compressing objects:   7% (54/762)   [Kremote: Compressing objects:   8% (61/762)   [Kremote: Compressing objects:   9% (69/762)   [Kremote: Compressing objects:  10% (77/762)   [Kremote: Compressing objects:  11% (84/762)   [Kremote: Compressing objects:  12% (92/762)   [Kremote: Compressing objects:  13% (100/762)   [Kremote: Compressing objects:  14% (107/762)   [Kremote: Compressing objects:  15% (115/762)   [Kremote: Compressing objects:  16% (122/762)   [Kremote: Compressing objects:  17% (130/762)   [Kremote: Compressing objects:  18% (138/762)   [Kremote: Compressing objects:  19% (145/762)   [Kremote: Compressing objects:  20% (153/762)   [Kremote: Compressing objects:  21% (161/762)   [Kremote: Compressing objects:  22% (168/762)   [Kremote: Compressing objects:  23% (176/762)   [Kremote: Compressing objects:  24% (183/762)   [Kremote: Compressing objects:  25% (191/762)   [Kremote: Compressing objects:  26% (199/762)   [Kremote: Compressing objects:  27% (206/762)   [Kremote: Compressing objects:  28% (214/762)   [Kremote: Compressing objects:  29% (221/762)   [Kremote: Compressing objects:  30% (229/762)   [Kremote: Compressing objects:  31% (237/762)   [Kremote: Compressing objects:  32% (244/762)   [Kremote: Compressing objects:  33% (252/762)   [Kremote: Compressing objects:  34% (260/762)   [Kremote: Compressing objects:  35% (267/762)   [Kremote: Compressing objects:  36% (275/762)   [Kremote: Compressing objects:  37% (282/762)   [Kremote: Compressing objects:  38% (290/762)   [Kremote: Compressing objects:  39% (298/762)   [Kremote: Compressing objects:  40% (305/762)   [Kremote: Compressing objects:  41% (313/762)   [Kremote: Compressing objects:  42% (321/762)   [Kremote: Compressing objects:  43% (328/762)   [Kremote: Compressing objects:  44% (336/762)   [Kremote: Compressing objects:  45% (343/762)   [Kremote: Compressing objects:  46% (351/762)   [Kremote: Compressing objects:  47% (359/762)   [Kremote: Compressing objects:  48% (366/762)   [Kremote: Compressing objects:  49% (374/762)   [Kremote: Compressing objects:  50% (381/762)   [Kremote: Compressing objects:  51% (389/762)   [Kremote: Compressing objects:  52% (397/762)   [Kremote: Compressing objects:  53% (404/762)   [Kremote: Compressing objects:  54% (412/762)   [Kremote: Compressing objects:  55% (420/762)   [Kremote: Compressing objects:  56% (427/762)   [Kremote: Compressing objects:  57% (435/762)   [Kremote: Compressing objects:  58% (442/762)   [Kremote: Compressing objects:  59% (450/762)   [Kremote: Compressing objects:  60% (458/762)   [Kremote: Compressing objects:  61% (465/762)   [Kremote: Compressing objects:  62% (473/762)   [Kremote: Compressing objects:  63% (481/762)   [Kremote: Compressing objects:  64% (488/762)   [Kremote: Compressing objects:  65% (496/762)   [Kremote: Compressing objects:  66% (503/762)   [Kremote: Compressing objects:  67% (511/762)   [Kremote: Compressing objects:  68% (519/762)   [Kremote: Compressing objects:  69% (526/762)   [Kremote: Compressing objects:  70% (534/762)   [Kremote: Compressing objects:  71% (542/762)   [Kremote: Compressing objects:  72% (549/762)   [Kremote: Compressing objects:  73% (557/762)   [Kremote: Compressing objects:  74% (564/762)   [Kremote: Compressing objects:  75% (572/762)   [Kremote: Compressing objects:  76% (580/762)   [Kremote: Compressing objects:  77% (587/762)   [Kremote: Compressing objects:  78% (595/762)   [Kremote: Compressing objects:  79% (602/762)   [Kremote: Compressing objects:  80% (610/762)   [Kremote: Compressing objects:  81% (618/762)   [Kremote: Compressing objects:  82% (625/762)   [Kremote: Compressing objects:  83% (633/762)   [Kremote: Compressing objects:  84% (641/762)   [Kremote: Compressing objects:  85% (648/762)   [Kremote: Compressing objects:  86% (656/762)   [Kremote: Compressing objects:  87% (663/762)   [Kremote: Compressing objects:  88% (671/762)   [Kremote: Compressing objects:  89% (679/762)   [Kremote: Compressing objects:  90% (686/762)   [Kremote: Compressing objects:  91% (694/762)   [Kremote: Compressing objects:  92% (702/762)   [Kremote: Compressing objects:  93% (709/762)   [Kremote: Compressing objects:  94% (717/762)   [Kremote: Compressing objects:  95% (724/762)   [Kremote: Compressing objects:  96% (732/762)   [Kremote: Compressing objects:  97% (740/762)   [Kremote: Compressing objects:  98% (747/762)   [Kremote: Compressing objects:  99% (755/762)   [Kremote: Compressing objects: 100% (762/762)   [Kremote: Compressing objects: 100% (762/762), done.[K
+Receiving objects:   0% (1/1350)   Receiving objects:   1% (14/1350)   Receiving objects:   2% (27/1350)   Receiving objects:   3% (41/1350)   Receiving objects:   4% (54/1350)   Receiving objects:   5% (68/1350)   Receiving objects:   6% (81/1350)   Receiving objects:   7% (95/1350)   Receiving objects:   8% (108/1350)   Receiving objects:   9% (122/1350)   Receiving objects:  10% (135/1350)   Receiving objects:  11% (149/1350)   Receiving objects:  12% (162/1350)   Receiving objects:  13% (176/1350)   Receiving objects:  14% (189/1350)   Receiving objects:  15% (203/1350)   Receiving objects:  16% (216/1350)   Receiving objects:  17% (230/1350)   Receiving objects:  18% (243/1350)   Receiving objects:  19% (257/1350)   Receiving objects:  20% (270/1350)   Receiving objects:  21% (284/1350)   Receiving objects:  22% (297/1350)   Receiving objects:  23% (311/1350)   Receiving objects:  24% (324/1350)   Receiving objects:  25% (338/1350)   Receiving objects:  26% (351/1350)   Receiving objects:  27% (365/1350)   Receiving objects:  28% (378/1350)   Receiving objects:  29% (392/1350)   Receiving objects:  30% (405/1350)   Receiving objects:  31% (419/1350)   Receiving objects:  32% (432/1350)   Receiving objects:  33% (446/1350)   Receiving objects:  34% (459/1350)   Receiving objects:  35% (473/1350)   Receiving objects:  36% (486/1350)   Receiving objects:  37% (500/1350)   Receiving objects:  38% (513/1350)   Receiving objects:  39% (527/1350)   Receiving objects:  40% (540/1350)   Receiving objects:  41% (554/1350)   Receiving objects:  42% (567/1350)   Receiving objects:  43% (581/1350)   Receiving objects:  44% (594/1350)   Receiving objects:  45% (608/1350)   Receiving objects:  46% (621/1350)   Receiving objects:  47% (635/1350)   Receiving objects:  48% (648/1350)   Receiving objects:  49% (662/1350)   Receiving objects:  50% (675/1350)   Receiving objects:  51% (689/1350)   Receiving objects:  52% (702/1350)   Receiving objects:  53% (716/1350)   Receiving objects:  54% (729/1350)   Receiving objects:  55% (743/1350)   Receiving objects:  56% (756/1350)   Receiving objects:  57% (770/1350)   Receiving objects:  58% (783/1350)   Receiving objects:  59% (797/1350)   Receiving objects:  60% (810/1350)   Receiving objects:  61% (824/1350)   Receiving objects:  62% (837/1350)   Receiving objects:  63% (851/1350)   Receiving objects:  64% (864/1350)   Receiving objects:  65% (878/1350)   Receiving objects:  66% (891/1350)   Receiving objects:  67% (905/1350)   Receiving objects:  68% (918/1350)   Receiving objects:  69% (932/1350)   Receiving objects:  70% (945/1350)   Receiving objects:  71% (959/1350)   Receiving objects:  72% (972/1350)   Receiving objects:  73% (986/1350)   Receiving objects:  74% (999/1350)   Receiving objects:  75% (1013/1350)   Receiving objects:  76% (1026/1350)   Receiving objects:  77% (1040/1350)   Receiving objects:  78% (1053/1350)   Receiving objects:  79% (1067/1350)   Receiving objects:  80% (1080/1350)   Receiving objects:  81% (1094/1350)   Receiving objects:  82% (1107/1350)   Receiving objects:  83% (1121/1350)   Receiving objects:  84% (1134/1350)   Receiving objects:  85% (1148/1350)   Receiving objects:  86% (1161/1350)   Receiving objects:  87% (1175/1350)   Receiving objects:  88% (1188/1350)   Receiving objects:  89% (1202/1350)   remote: Total 1350 (delta 785), reused 967 (delta 554), pack-reused 0[K
+Receiving objects:  90% (1215/1350)   Receiving objects:  91% (1229/1350)   Receiving objects:  92% (1242/1350)   Receiving objects:  93% (1256/1350)   Receiving objects:  94% (1269/1350)   Receiving objects:  95% (1283/1350)   Receiving objects:  96% (1296/1350)   Receiving objects:  97% (1310/1350)   Receiving objects:  98% (1323/1350)   Receiving objects:  99% (1337/1350)   Receiving objects: 100% (1350/1350)   Receiving objects: 100% (1350/1350), 756.53 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/785)   Resolving deltas:   4% (39/785)   Resolving deltas:  11% (93/785)   Resolving deltas:  20% (158/785)   Resolving deltas:  23% (182/785)   Resolving deltas:  24% (193/785)   Resolving deltas:  25% (199/785)   Resolving deltas:  30% (243/785)   Resolving deltas:  31% (246/785)   Resolving deltas:  32% (252/785)   Resolving deltas:  33% (263/785)   Resolving deltas:  34% (267/785)   Resolving deltas:  35% (275/785)   Resolving deltas:  36% (287/785)   Resolving deltas:  43% (345/785)   Resolving deltas:  44% (351/785)   Resolving deltas:  46% (368/785)   Resolving deltas:  47% (369/785)   Resolving deltas:  48% (384/785)   Resolving deltas:  49% (386/785)   Resolving deltas:  50% (394/785)   Resolving deltas:  52% (414/785)   Resolving deltas:  53% (417/785)   Resolving deltas:  54% (424/785)   Resolving deltas:  55% (433/785)   Resolving deltas:  56% (445/785)   Resolving deltas:  57% (448/785)   Resolving deltas:  58% (456/785)   Resolving deltas:  59% (464/785)   Resolving deltas:  60% (471/785)   Resolving deltas:  61% (480/785)   Resolving deltas:  62% (489/785)   Resolving deltas:  63% (497/785)   Resolving deltas:  64% (503/785)   Resolving deltas:  65% (511/785)   Resolving deltas:  66% (525/785)   Resolving deltas:  67% (526/785)   Resolving deltas:  68% (534/785)   Resolving deltas:  71% (559/785)   Resolving deltas:  72% (566/785)   Resolving deltas:  73% (576/785)   Resolving deltas:  74% (581/785)   Resolving deltas:  75% (589/785)   Resolving deltas:  76% (598/785)   Resolving deltas:  77% (605/785)   Resolving deltas:  78% (618/785)   Resolving deltas:  79% (621/785)   Resolving deltas:  81% (642/785)   Resolving deltas:  82% (644/785)   Resolving deltas:  83% (652/785)   Resolving deltas:  84% (660/785)   Resolving deltas:  85% (669/785)   Resolving deltas:  86% (676/785)   Resolving deltas:  88% (693/785)   Resolving deltas:  89% (699/785)   Resolving deltas:  90% (708/785)   Resolving deltas:  91% (719/785)   Resolving deltas:  92% (730/785)   Resolving deltas:  94% (740/785)   Resolving deltas:  95% (746/785)   Resolving deltas:  97% (765/785)   Resolving deltas:  98% (770/785)   Resolving deltas:  99% (784/785)   Resolving deltas: 100% (785/785)   Resolving deltas: 100% (785/785), done.
+Checking connectivity... done.
+travis_time:end:05f9e20c:start=1445707542687048101,finish=1445707543930169452,duration=1243121351[0K$ cd tornadoweb/tornado
+$ git checkout -qf 64c0f06d681b4885ce0f78a04ed24b91a7f68b4e
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DEPS=false
+
+travis_time:start:102be50c[0K$ source ~/virtualenv/python3.4/bin/activate
+travis_time:end:102be50c:start=1445707546419224550,finish=1445707546422798649,duration=3574099[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install.1[0Ktravis_time:start:293c6e45[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install unittest2; fi
+travis_time:end:293c6e45:start=1445707546843244216,finish=1445707546846082372,duration=2838156[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0c598218[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then travis_retry pip install futures mock Monotime trollius; fi
+travis_time:end:0c598218:start=1445707546849629892,finish=1445707546852365876,duration=2735984[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:196da3ab[0K$ if [[ $TRAVIS_PYTHON_VERSION == 'pypy' && $DEPS == true ]]; then travis_retry pip install futures mock; fi
+travis_time:end:196da3ab:start=1445707546855881798,finish=1445707546858588655,duration=2706857[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:00e31b7c[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install pycurl; fi
+travis_time:end:00e31b7c:start=1445707546862092022,finish=1445707546864826423,duration=2734401[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:23c39031[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' && $DEPS == true ]]; then travis_retry pip install mock; fi
+travis_time:end:23c39031:start=1445707546868347260,finish=1445707546871089177,duration=2741917[0Ktravis_fold:end:install.5[0Ktravis_fold:start:install.6[0Ktravis_time:start:05bc8ece[0K$ if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install Twisted; fi
+travis_time:end:05bc8ece:start=1445707546874625100,finish=1445707546877375936,duration=2750836[0Ktravis_fold:end:install.6[0Ktravis_fold:start:install.7[0Ktravis_time:start:087e6e36[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then travis_retry pip install sphinx sphinx_rtd_theme; fi
+travis_time:end:087e6e36:start=1445707546880881952,finish=1445707546883602384,duration=2720432[0Ktravis_fold:end:install.7[0Ktravis_fold:start:install.8[0Ktravis_time:start:017ecd98[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then travis_retry pip install sphinx sphinx_rtd_theme; fi
+travis_time:end:017ecd98:start=1445707546887164525,finish=1445707546889902951,duration=2738426[0Ktravis_fold:end:install.8[0Ktravis_fold:start:install.9[0Ktravis_time:start:1658f91a[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi
+travis_time:end:1658f91a:start=1445707546893451022,finish=1445707546896344135,duration=2893113[0Ktravis_fold:end:install.9[0Ktravis_fold:start:install.10[0Ktravis_time:start:0edb39a0[0K$ travis_retry python setup.py install
+running install
+running bdist_egg
+running egg_info
+creating tornado.egg-info
+writing dependency_links to tornado.egg-info/dependency_links.txt
+writing requirements to tornado.egg-info/requires.txt
+writing tornado.egg-info/PKG-INFO
+writing top-level names to tornado.egg-info/top_level.txt
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'docs/build'
+warning: no files found matching 'tornado/test/README'
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.4
+creating build/lib.linux-x86_64-3.4/tornado
+copying tornado/__init__.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/_locale_data.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/auth.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/autoreload.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/concurrent.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/curl_httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/escape.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/gen.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/http1connection.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httpserver.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httputil.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/ioloop.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/iostream.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/locale.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/locks.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/log.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/netutil.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/options.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/process.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/queues.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/simple_httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/stack_context.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/tcpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/tcpserver.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/template.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/testing.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/util.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/web.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/websocket.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/wsgi.py -> build/lib.linux-x86_64-3.4/tornado
+creating build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/__init__.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/__main__.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/asyncio_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/auth_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/concurrent_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/curl_httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/escape_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/gen_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httpserver_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httputil_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/import_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/ioloop_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/iostream_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/locale_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/locks_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/log_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/netutil_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/options_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/process_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/queues_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/resolve_test_helper.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/runtests.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/simple_httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/stack_context_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/tcpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/tcpserver_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/template_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/testing_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/twisted_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/util.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/util_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/web_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/websocket_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/wsgi_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/__init__.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/asyncio.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/auto.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/caresresolver.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/common.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/epoll.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/interface.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/kqueue.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/posix.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/select.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/twisted.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/windows.py -> build/lib.linux-x86_64-3.4/tornado/platform
+creating build/lib.linux-x86_64-3.4/tornado/test/csv_translations
+copying tornado/test/csv_translations/fr_FR.csv -> build/lib.linux-x86_64-3.4/tornado/test/csv_translations
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/options_test.cfg -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/robots.txt -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml.gz -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml.bz2 -> build/lib.linux-x86_64-3.4/tornado/test/static
+creating build/lib.linux-x86_64-3.4/tornado/test/static/dir
+copying tornado/test/static/dir/index.html -> build/lib.linux-x86_64-3.4/tornado/test/static/dir
+copying tornado/test/static_foo.txt -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/test/templates
+copying tornado/test/templates/utf8.html -> build/lib.linux-x86_64-3.4/tornado/test/templates
+copying tornado/test/test.crt -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/test.key -> build/lib.linux-x86_64-3.4/tornado/test
+running build_ext
+building 'tornado.speedups' extension
+creating build/temp.linux-x86_64-3.4
+creating build/temp.linux-x86_64-3.4/tornado
+gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c tornado/speedups.c -o build/temp.linux-x86_64-3.4/tornado/speedups.o
+gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/tornado/speedups.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/tornado/speedups.cpython-34m.so
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/__init__.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/_locale_data.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/auth.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/autoreload.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/concurrent.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/curl_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/escape.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/gen.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/http1connection.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httputil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/ioloop.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/iostream.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/locale.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/locks.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/log.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/netutil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/options.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/process.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/queues.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/simple_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/stack_context.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/tcpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/tcpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/template.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/testing.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/util.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/web.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/websocket.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/wsgi.py -> build/bdist.linux-x86_64/egg/tornado
+creating build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/__init__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/__main__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/asyncio_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/auth_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/concurrent_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/curl_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/escape_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/gen_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httputil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/import_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/ioloop_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/iostream_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/locale_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/locks_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/log_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/netutil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/options_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/process_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/queues_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/resolve_test_helper.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/runtests.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/simple_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/stack_context_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/tcpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/tcpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/template_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/testing_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/twisted_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/util.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/util_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/web_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/websocket_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/wsgi_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+copying build/lib.linux-x86_64-3.4/tornado/test/csv_translations/fr_FR.csv -> build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/options_test.cfg -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/robots.txt -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml.gz -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml.bz2 -> build/bdist.linux-x86_64/egg/tornado/test/static
+creating build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-3.4/tornado/test/static/dir/index.html -> build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-3.4/tornado/test/static_foo.txt -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-3.4/tornado/test/templates/utf8.html -> build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-3.4/tornado/test/test.crt -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/test.key -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/__init__.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/asyncio.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/auto.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/caresresolver.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/common.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/epoll.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/interface.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/kqueue.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/posix.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/select.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/twisted.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/windows.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/speedups.cpython-34m.so -> build/bdist.linux-x86_64/egg/tornado
+byte-compiling build/bdist.linux-x86_64/egg/tornado/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/_locale_data.py to _locale_data.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/auth.py to auth.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/autoreload.py to autoreload.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/concurrent.py to concurrent.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/curl_httpclient.py to curl_httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/escape.py to escape.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/gen.py to gen.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/http1connection.py to http1connection.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpclient.py to httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpserver.py to httpserver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httputil.py to httputil.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/ioloop.py to ioloop.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/iostream.py to iostream.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locale.py to locale.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locks.py to locks.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/log.py to log.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/netutil.py to netutil.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/options.py to options.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/process.py to process.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/queues.py to queues.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/simple_httpclient.py to simple_httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/stack_context.py to stack_context.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpclient.py to tcpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpserver.py to tcpserver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/template.py to template.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/testing.py to testing.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/util.py to util.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/web.py to web.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/websocket.py to websocket.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/wsgi.py to wsgi.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__main__.py to __main__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/asyncio_test.py to asyncio_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/auth_test.py to auth_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/concurrent_test.py to concurrent_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/curl_httpclient_test.py to curl_httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/escape_test.py to escape_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/gen_test.py to gen_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpclient_test.py to httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpserver_test.py to httpserver_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httputil_test.py to httputil_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/import_test.py to import_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/ioloop_test.py to ioloop_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/iostream_test.py to iostream_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locale_test.py to locale_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locks_test.py to locks_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/log_test.py to log_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/netutil_test.py to netutil_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/options_test.py to options_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/process_test.py to process_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/queues_test.py to queues_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/resolve_test_helper.py to resolve_test_helper.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/runtests.py to runtests.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/simple_httpclient_test.py to simple_httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/stack_context_test.py to stack_context_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpclient_test.py to tcpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpserver_test.py to tcpserver_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/template_test.py to template_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/testing_test.py to testing_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/twisted_test.py to twisted_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util.py to util.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util_test.py to util_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/web_test.py to web_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/websocket_test.py to websocket_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/wsgi_test.py to wsgi_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/asyncio.py to asyncio.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/auto.py to auto.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/caresresolver.py to caresresolver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/common.py to common.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/epoll.py to epoll.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/interface.py to interface.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/kqueue.py to kqueue.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/posix.py to posix.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/select.py to select.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/twisted.py to twisted.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/windows.py to windows.cpython-34.pyc
+creating stub loader for tornado/speedups.cpython-34m.so
+byte-compiling build/bdist.linux-x86_64/egg/tornado/speedups.py to speedups.cpython-34.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+tornado.test.__pycache__.httpserver_test.cpython-34: module references __file__
+tornado.test.__pycache__.iostream_test.cpython-34: module references __file__
+tornado.test.__pycache__.locale_test.cpython-34: module references __file__
+tornado.test.__pycache__.options_test.cpython-34: module references __file__
+tornado.test.__pycache__.template_test.cpython-34: module references __file__
+tornado.test.__pycache__.web_test.cpython-34: module references __file__
+tornado.__pycache__.autoreload.cpython-34: module references __file__
+tornado.__pycache__.testing.cpython-34: module references __file__
+tornado.__pycache__.speedups.cpython-34: module references __file__
+creating dist
+creating 'dist/tornado-4.3b1-py3.4-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing tornado-4.3b1-py3.4-linux-x86_64.egg
+creating /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg
+Extracting tornado-4.3b1-py3.4-linux-x86_64.egg to /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages
+Adding tornado 4.3b1 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg
+Processing dependencies for tornado==4.3b1
+Searching for backports-abc>=0.4
+Reading https://pypi.python.org/simple/backports_abc/
+Best match: backports-abc 0.4
+Downloading https://pypi.python.org/packages/source/b/backports_abc/backports_abc-0.4.tar.gz#md5=0b65a216ce9dc9c1a7e20a729dd7c05b
+Processing backports_abc-0.4.tar.gz
+Writing /tmp/easy_install-jovstwmb/backports_abc-0.4/setup.cfg
+Running backports_abc-0.4/setup.py -q bdist_egg --dist-dir /tmp/easy_install-jovstwmb/backports_abc-0.4/egg-dist-tmp-alpsyo79
+zip_safe flag not set; analyzing archive contents...
+Moving backports_abc-0.4-py3.4.egg to /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages
+Adding backports-abc 0.4 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/backports_abc-0.4-py3.4.egg
+Finished processing dependencies for tornado==4.3b1
+travis_time:end:0edb39a0:start=1445707546899908765,finish=1445707548485002075,duration=1585093310[0Ktravis_fold:end:install.10[0Ktravis_fold:start:install.11[0Ktravis_time:start:1f20eb38[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' ]]; then travis_retry pip install 'coverage<4.0'; fi
+travis_time:end:1f20eb38:start=1445707548488665032,finish=1445707548491446716,duration=2781684[0Ktravis_fold:end:install.11[0Ktravis_fold:start:install.12[0Ktravis_time:start:00bdbf24[0K$ travis_retry pip install codecov
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting codecov
+  Downloading codecov-1.5.1.tar.gz
+Collecting requests>=2.0.0 (from codecov)
+  Downloading requests-2.8.1-py2.py3-none-any.whl (497kB)
+[?25l[K    0% |                                | 4.1kB 52.2MB/s eta 0:00:01[K    1% |                                | 8.2kB 29.9MB/s eta 0:00:01[K    2% |                                | 12kB 29.8MB/s eta 0:00:01[K    3% |#                               | 16kB 27.5MB/s eta 0:00:01[K    4% |#                               | 20kB 28.2MB/s eta 0:00:01[K    4% |#                               | 24kB 28.5MB/s eta 0:00:01[K    5% |#                               | 28kB 29.0MB/s eta 0:00:01[K    6% |##                              | 32kB 28.0MB/s eta 0:00:01[K    7% |##                              | 36kB 28.4MB/s eta 0:00:01[K    8% |##                              | 40kB 28.6MB/s eta 0:00:01[K    9% |##                              | 45kB 27.7MB/s eta 0:00:01[K    9% |###                             | 49kB 27.8MB/s eta 0:00:01[K    10% |###                             | 53kB 27.9MB/s eta 0:00:01[K    11% |###                             | 57kB 28.9MB/s eta 0:00:01[K    12% |###                             | 61kB 29.0MB/s eta 0:00:01[K    13% |####                            | 65kB 27.9MB/s eta 0:00:01[K    13% |####                            | 69kB 27.8MB/s eta 0:00:01[K    14% |####                            | 73kB 28.6MB/s eta 0:00:01[K    15% |#####                           | 77kB 28.1MB/s eta 0:00:01[K    16% |#####                           | 81kB 26.8MB/s eta 0:00:01[K    17% |#####                           | 86kB 26.8MB/s eta 0:00:01[K    18% |#####                           | 90kB 27.9MB/s eta 0:00:01[K    18% |######                          | 94kB 28.0MB/s eta 0:00:01[K    19% |######                          | 98kB 27.3MB/s eta 0:00:01[K    20% |######                          | 102kB 27.4MB/s eta 0:00:01[K    21% |######                          | 106kB 28.4MB/s eta 0:00:01[K    22% |#######                         | 110kB 28.5MB/s eta 0:00:01[K    23% |#######                         | 114kB 27.8MB/s eta 0:00:01[K    23% |#######                         | 118kB 28.5MB/s eta 0:00:01[K    24% |#######                         | 122kB 29.8MB/s eta 0:00:01[K    25% |########                        | 126kB 29.9MB/s eta 0:00:01[K    26% |########                        | 131kB 28.9MB/s eta 0:00:01[K    27% |########                        | 135kB 29.0MB/s eta 0:00:01[K    27% |########                        | 139kB 29.9MB/s eta 0:00:01[K    28% |#########                       | 143kB 29.8MB/s eta 0:00:01[K    29% |#########                       | 147kB 29.1MB/s eta 0:00:01[K    30% |#########                       | 151kB 29.1MB/s eta 0:00:01[K    31% |##########                      | 155kB 30.1MB/s eta 0:00:01[K    32% |##########                      | 159kB 30.1MB/s eta 0:00:01[K    32% |##########                      | 163kB 28.9MB/s eta 0:00:01[K    33% |##########                      | 167kB 28.8MB/s eta 0:00:01[K    34% |###########                     | 172kB 29.7MB/s eta 0:00:01[K    35% |###########                     | 176kB 29.7MB/s eta 0:00:01[K    36% |###########                     | 180kB 28.4MB/s eta 0:00:01[K    37% |###########                     | 184kB 28.4MB/s eta 0:00:01[K    37% |############                    | 188kB 29.2MB/s eta 0:00:01[K    38% |############                    | 192kB 28.8MB/s eta 0:00:01[K    39% |############                    | 196kB 27.5MB/s eta 0:00:01[K    40% |############                    | 200kB 27.5MB/s eta 0:00:01[K    41% |#############                   | 204kB 28.6MB/s eta 0:00:01[K    41% |#############                   | 208kB 28.6MB/s eta 0:00:01[K    42% |#############                   | 212kB 27.5MB/s eta 0:00:01[K    43% |#############                   | 217kB 27.4MB/s eta 0:00:01[K    44% |##############                  | 221kB 28.5MB/s eta 0:00:01[K    45% |##############                  | 225kB 28.6MB/s eta 0:00:01[K    46% |##############                  | 229kB 27.4MB/s eta 0:00:01[K    46% |###############                 | 233kB 27.6MB/s eta 0:00:01[K    47% |###############                 | 237kB 28.8MB/s eta 0:00:01[K    48% |###############                 | 241kB 28.8MB/s eta 0:00:01[K    49% |###############                 | 245kB 27.7MB/s eta 0:00:01[K    50% |################                | 249kB 27.7MB/s eta 0:00:01[K    50% |################                | 253kB 28.9MB/s eta 0:00:01[K    51% |################                | 258kB 28.9MB/s eta 0:00:01[K    52% |################                | 262kB 28.2MB/s eta 0:00:01[K    53% |#################               | 266kB 28.1MB/s eta 0:00:01[K    54% |#################               | 270kB 29.4MB/s eta 0:00:01[K    55% |#################               | 274kB 29.5MB/s eta 0:00:01[K    55% |#################               | 278kB 28.4MB/s eta 0:00:01[K    56% |##################              | 282kB 28.4MB/s eta 0:00:01[K    57% |##################              | 286kB 29.6MB/s eta 0:00:01[K    58% |##################              | 290kB 29.7MB/s eta 0:00:01[K    59% |##################              | 294kB 28.4MB/s eta 0:00:01[K    60% |###################             | 299kB 28.4MB/s eta 0:00:01[K    60% |###################             | 303kB 29.2MB/s eta 0:00:01[K    61% |###################             | 307kB 28.6MB/s eta 0:00:01[K    62% |####################            | 311kB 27.4MB/s eta 0:00:01[K    63% |####################            | 315kB 27.4MB/s eta 0:00:01[K    64% |####################            | 319kB 28.4MB/s eta 0:00:01[K    64% |####################            | 323kB 28.5MB/s eta 0:00:01[K    65% |#####################           | 327kB 27.3MB/s eta 0:00:01[K    66% |#####################           | 331kB 27.2MB/s eta 0:00:01[K    67% |#####################           | 335kB 28.4MB/s eta 0:00:01[K    68% |#####################           | 339kB 28.4MB/s eta 0:00:01[K    69% |######################          | 344kB 27.1MB/s eta 0:00:01[K    69% |######################          | 348kB 27.6MB/s eta 0:00:01[K    70% |######################          | 352kB 28.8MB/s eta 0:00:01[K    71% |######################          | 356kB 28.8MB/s eta 0:00:01[K    72% |#######################         | 360kB 27.6MB/s eta 0:00:01[K    73% |#######################         | 364kB 27.6MB/s eta 0:00:01[K    74% |#######################         | 368kB 28.8MB/s eta 0:00:01[K    74% |#######################         | 372kB 28.8MB/s eta 0:00:01[K    75% |########################        | 376kB 27.6MB/s eta 0:00:01[K    76% |########################        | 380kB 27.5MB/s eta 0:00:01[K    77% |########################        | 385kB 29.0MB/s eta 0:00:01[K    78% |#########################       | 389kB 29.0MB/s eta 0:00:01[K    78% |#########################       | 393kB 27.7MB/s eta 0:00:01[K    79% |#########################       | 397kB 27.7MB/s eta 0:00:01[K    80% |#########################       | 401kB 28.9MB/s eta 0:00:01[K    81% |##########################      | 405kB 28.9MB/s eta 0:00:01[K    82% |##########################      | 409kB 27.8MB/s eta 0:00:01[K    83% |##########################      | 413kB 27.7MB/s eta 0:00:01[K    83% |##########################      | 417kB 28.3MB/s eta 0:00:01[K    84% |###########################     | 421kB 28.4MB/s eta 0:00:01[K    85% |###########################     | 425kB 27.2MB/s eta 0:00:01[K    86% |###########################     | 430kB 27.1MB/s eta 0:00:01[K    87% |###########################     | 434kB 28.5MB/s eta 0:00:01[K    88% |############################    | 438kB 28.5MB/s eta 0:00:01[K    88% |############################    | 442kB 27.7MB/s eta 0:00:01[K    89% |############################    | 446kB 27.7MB/s eta 0:00:01[K    90% |############################    | 450kB 28.8MB/s eta 0:00:01[K    91% |#############################   | 454kB 28.9MB/s eta 0:00:01[K    92% |#############################   | 458kB 28.7MB/s eta 0:00:01[K    92% |#############################   | 462kB 28.7MB/s eta 0:00:01[K    93% |##############################  | 466kB 29.9MB/s eta 0:00:01[K    94% |##############################  | 471kB 30.0MB/s eta 0:00:01[K    95% |##############################  | 475kB 29.0MB/s eta 0:00:01[K    96% |##############################  | 479kB 29.1MB/s eta 0:00:01[K    97% |############################### | 483kB 30.0MB/s eta 0:00:01[K    97% |############################### | 487kB 30.0MB/s eta 0:00:01[K    98% |############################### | 491kB 29.5MB/s eta 0:00:01[K    99% |############################### | 495kB 29.4MB/s eta 0:00:01[K    100% |################################| 499kB 1.2MB/s 
+[?25hCollecting coverage (from codecov)
+  Downloading coverage-4.0.1.tar.gz (349kB)
+[?25l[K    1% |                                | 4.1kB 53.2MB/s eta 0:00:01[K    2% |                                | 8.2kB 32.3MB/s eta 0:00:01[K    3% |#                               | 12kB 31.4MB/s eta 0:00:01[K    4% |#                               | 16kB 27.5MB/s eta 0:00:01[K    5% |#                               | 20kB 28.2MB/s eta 0:00:01[K    7% |##                              | 24kB 28.3MB/s eta 0:00:01[K    8% |##                              | 28kB 28.9MB/s eta 0:00:01[K    9% |##                              | 32kB 27.3MB/s eta 0:00:01[K    10% |###                             | 36kB 27.7MB/s eta 0:00:01[K    11% |###                             | 40kB 28.0MB/s eta 0:00:01[K    12% |####                            | 45kB 27.1MB/s eta 0:00:01[K    14% |####                            | 49kB 26.6MB/s eta 0:00:01[K    15% |####                            | 53kB 26.8MB/s eta 0:00:01[K    16% |#####                           | 57kB 28.0MB/s eta 0:00:01[K    17% |#####                           | 61kB 28.2MB/s eta 0:00:01[K    18% |#####                           | 65kB 27.2MB/s eta 0:00:01[K    19% |######                          | 69kB 27.2MB/s eta 0:00:01[K    21% |######                          | 73kB 28.5MB/s eta 0:00:01[K    22% |#######                         | 77kB 28.7MB/s eta 0:00:01[K    23% |#######                         | 81kB 27.8MB/s eta 0:00:01[K    24% |#######                         | 86kB 27.9MB/s eta 0:00:01[K    25% |########                        | 90kB 29.3MB/s eta 0:00:01[K    26% |########                        | 94kB 29.4MB/s eta 0:00:01[K    28% |########                        | 98kB 28.1MB/s eta 0:00:01[K    29% |#########                       | 102kB 28.0MB/s eta 0:00:01[K    30% |#########                       | 106kB 29.3MB/s eta 0:00:01[K    31% |##########                      | 110kB 29.4MB/s eta 0:00:01[K    32% |##########                      | 114kB 28.1MB/s eta 0:00:01[K    33% |##########                      | 118kB 27.9MB/s eta 0:00:01[K    35% |###########                     | 122kB 28.8MB/s eta 0:00:01[K    36% |###########                     | 126kB 28.8MB/s eta 0:00:01[K    37% |###########                     | 131kB 28.0MB/s eta 0:00:01[K    38% |############                    | 135kB 27.9MB/s eta 0:00:01[K    39% |############                    | 139kB 29.4MB/s eta 0:00:01[K    40% |#############                   | 143kB 29.5MB/s eta 0:00:01[K    42% |#############                   | 147kB 27.7MB/s eta 0:00:01[K    43% |#############                   | 151kB 27.6MB/s eta 0:00:01[K    44% |##############                  | 155kB 29.0MB/s eta 0:00:01[K    45% |##############                  | 159kB 29.0MB/s eta 0:00:01[K    46% |##############                  | 163kB 27.8MB/s eta 0:00:01[K    48% |###############                 | 167kB 27.7MB/s eta 0:00:01[K    49% |###############                 | 172kB 28.5MB/s eta 0:00:01[K    50% |################                | 176kB 28.6MB/s eta 0:00:01[K    51% |################                | 180kB 27.7MB/s eta 0:00:01[K    52% |################                | 184kB 27.7MB/s eta 0:00:01[K    53% |#################               | 188kB 29.4MB/s eta 0:00:01[K    55% |#################               | 192kB 29.5MB/s eta 0:00:01[K    56% |#################               | 196kB 28.2MB/s eta 0:00:01[K    57% |##################              | 200kB 28.3MB/s eta 0:00:01[K    58% |##################              | 204kB 29.5MB/s eta 0:00:01[K    59% |###################             | 208kB 29.6MB/s eta 0:00:01[K    60% |###################             | 212kB 28.7MB/s eta 0:00:01[K    62% |###################             | 217kB 28.6MB/s eta 0:00:01[K    63% |####################            | 221kB 29.5MB/s eta 0:00:01[K    64% |####################            | 225kB 29.6MB/s eta 0:00:01[K    65% |####################            | 229kB 28.4MB/s eta 0:00:01[K    66% |#####################           | 233kB 28.4MB/s eta 0:00:01[K    67% |#####################           | 237kB 29.7MB/s eta 0:00:01[K    69% |######################          | 241kB 29.7MB/s eta 0:00:01[K    70% |######################          | 245kB 28.5MB/s eta 0:00:01[K    71% |######################          | 249kB 28.4MB/s eta 0:00:01[K    72% |#######################         | 253kB 29.3MB/s eta 0:00:01[K    73% |#######################         | 258kB 29.4MB/s eta 0:00:01[K    74% |#######################         | 262kB 28.1MB/s eta 0:00:01[K    76% |########################        | 266kB 28.0MB/s eta 0:00:01[K    77% |########################        | 270kB 29.2MB/s eta 0:00:01[K    78% |#########################       | 274kB 29.2MB/s eta 0:00:01[K    79% |#########################       | 278kB 28.4MB/s eta 0:00:01[K    80% |#########################       | 282kB 28.4MB/s eta 0:00:01[K    81% |##########################      | 286kB 29.7MB/s eta 0:00:01[K    83% |##########################      | 290kB 29.8MB/s eta 0:00:01[K    84% |##########################      | 294kB 28.9MB/s eta 0:00:01[K    85% |###########################     | 299kB 29.0MB/s eta 0:00:01[K    86% |###########################     | 303kB 30.3MB/s eta 0:00:01[K    87% |############################    | 307kB 30.4MB/s eta 0:00:01[K    89% |############################    | 311kB 29.4MB/s eta 0:00:01[K    90% |############################    | 315kB 29.4MB/s eta 0:00:01[K    91% |#############################   | 319kB 30.3MB/s eta 0:00:01[K    92% |#############################   | 323kB 30.3MB/s eta 0:00:01[K    93% |#############################   | 327kB 29.4MB/s eta 0:00:01[K    94% |##############################  | 331kB 29.3MB/s eta 0:00:01[K    96% |##############################  | 335kB 30.3MB/s eta 0:00:01[K    97% |############################### | 339kB 30.2MB/s eta 0:00:01[K    98% |############################### | 344kB 29.7MB/s eta 0:00:01[K    99% |############################### | 348kB 29.7MB/s eta 0:00:01[K    100% |################################| 352kB 1.7MB/s 
+[?25hInstalling collected packages: coverage, requests, codecov
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+
+  Running setup.py install for codecov
+    Installing codecov script to /home/travis/virtualenv/python3.4.2/bin
+Successfully installed codecov-1.5.1 coverage-4.0.1 requests-2.8.1
+travis_time:end:00bdbf24:start=1445707548494994555,finish=1445707551363577403,duration=2868582848[0Ktravis_fold:end:install.12[0Ktravis_fold:start:install.13[0Ktravis_time:start:02815de2[0K$ curl-config --version; pip freeze
+libcurl 7.22.0
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+backports-abc==0.4
+codecov==1.5.1
+coverage==4.0.1
+mock==1.0.1
+nose==1.3.4
+numpy==1.9.1
+py==1.4.26
+pytest==2.6.4
+requests==2.8.1
+tornado==4.3b1
+wheel==0.24.0
+travis_time:end:02815de2:start=1445707551367271212,finish=1445707551663708774,duration=296437562[0Ktravis_fold:end:install.13[0Ktravis_time:start:12989b92[0K$ cd maint
+travis_time:end:12989b92:start=1445707551667195758,finish=1445707551669965352,duration=2769594[0K
+[32;1mThe command "cd maint" exited with 0.[0m
+travis_time:start:0bd7ad6f[0K$ cp ../.coveragerc .
+travis_time:end:0bd7ad6f:start=1445707551673490365,finish=1445707551677413662,duration=3923297[0K
+[32;1mThe command "cp ../.coveragerc ." exited with 0.[0m
+travis_time:start:03126fd8[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi
+travis_time:end:03126fd8:start=1445707551681064794,finish=1445707551683894742,duration=2829948[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi" exited with 0.[0m
+travis_time:start:11b3f5c0[0K$ export TARGET="-m tornado.test.runtests"
+travis_time:end:11b3f5c0:start=1445707551687412781,finish=1445707551690207071,duration=2794290[0K
+[32;1mThe command "export TARGET="-m tornado.test.runtests"" exited with 0.[0m
+travis_time:start:07154180[0K$ export ASYNC_TEST_TIMEOUT=15
+travis_time:end:07154180:start=1445707551693723471,finish=1445707551696880926,duration=3157455[0K
+[32;1mThe command "export ASYNC_TEST_TIMEOUT=15" exited with 0.[0m
+travis_time:start:086d6400[0K$ if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then export TARGET="-m coverage run $TARGET"; fi
+travis_time:end:086d6400:start=1445707551700525108,finish=1445707551703344302,duration=2819194[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then export TARGET="-m coverage run $TARGET"; fi" exited with 0.[0m
+travis_time:start:04152264[0K$ python $TARGET
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|9179106f|63a772ef25fa2940ca080ffa656ad941|1445707563; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|7b698566|23d02ce3b4b21050f84b06dd0d7e1ba5|1445707564; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|b6476d0b|be70311faab25a0dee2365d67a5194dc|1445707566; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.412s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:26:06 testing:731](B[m FAIL
+[31m[E 151024 17:26:06 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:04152264:start=1445707551706907793,finish=1445707566786350759,duration=15079442966[0K
+[31;1mThe command "python $TARGET" exited with 1.[0m
+travis_time:start:01ea3f20[0K$ python $TARGET --ioloop=tornado.platform.select.SelectIOLoop
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|c05c405e|48a2dce1462804f823f0690e69983c8a|1445707578; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|33be0879|f259114117ff5f01a0b8651160920307|1445707579; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|5256c467|65c27bcae34effa69e54fed983e56127|1445707581; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.414s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:26:21 testing:731](B[m FAIL
+[31m[E 151024 17:26:21 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:01ea3f20:start=1445707566789923350,finish=1445707581843362737,duration=15053439387[0K
+[31;1mThe command "python $TARGET --ioloop=tornado.platform.select.SelectIOLoop" exited with 1.[0m
+travis_time:start:028f8228[0K$ python -O $TARGET
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|5b670677|fe212652250a79ad71d213e0e424c2c5|1445707593; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|2f3a84f7|1caf97e5079e4e76c5e68917b72c2106|1445707595; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|314863e0|ce09eb9cc258b0a981946d1756e74892|1445707596; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.280s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:26:36 testing:731](B[m FAIL
+[31m[E 151024 17:26:36 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:028f8228:start=1445707581847005500,finish=1445707597158876635,duration=15311871135[0K
+[31;1mThe command "python -O $TARGET" exited with 1.[0m
+travis_time:start:0650d23e[0K$ LANG=C python $TARGET
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|33c10140|9d87e0122ddc62f9abb533615bb8e30e|1445707608; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|9d9f6400|0aab732c0518849b228cfc28cc76d6cc|1445707610; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|7b3fa7c1|9c0e0693878df9c09bfc8f35dff76226|1445707611; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.348s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:26:51 testing:731](B[m FAIL
+[31m[E 151024 17:26:51 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:0650d23e:start=1445707597162657059,finish=1445707612156379380,duration=14993722321[0K
+[31;1mThe command "LANG=C python $TARGET" exited with 1.[0m
+travis_time:start:0a6ea014[0K$ LANG=en_US.utf-8 python $TARGET
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|e1a8cebb|3fd47c13b488791fe3b2f3412499f3b2|1445707623; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|f83e6b59|7dbce50d17ca22f992f8a32cddd15760|1445707625; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|23faee1d|cdd43d3bd0c1a6eb8ce706239e1c5b75|1445707626; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.490s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:27:07 testing:731](B[m FAIL
+[31m[E 151024 17:27:07 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:0a6ea014:start=1445707612160007675,finish=1445707627290154686,duration=15130147011[0K
+[31;1mThe command "LANG=en_US.utf-8 python $TARGET" exited with 1.[0m
+travis_time:start:0bea9236[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then python -bb $TARGET; fi
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|0a6b064b|53572ddef57e2fb106e61a1be90e5935|1445707639; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|591718f4|d338453b8c4455ab42cc75c335c3395f|1445707641; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|179c8d62|91192b9ed1b35875a8ce85aca3cc367f|1445707642; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 15.224s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:27:22 testing:731](B[m FAIL
+[31m[E 151024 17:27:22 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:0bea9236:start=1445707627294316187,finish=1445707643164256825,duration=15869940638[0K
+[31;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then python -bb $TARGET; fi" exited with 1.[0m
+travis_time:start:0a413af0[0K$ if [[ $TRAVIS_PYTHON_VERSION != pypy* && $DEPS == true ]]; then python $TARGET --resolver=tornado.netutil.ThreadedResolver; fi
+travis_time:end:0a413af0:start=1445707643167922540,finish=1445707643170685212,duration=2762672[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != pypy* && $DEPS == true ]]; then python $TARGET --resolver=tornado.netutil.ThreadedResolver; fi" exited with 0.[0m
+travis_time:start:28cd1450[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --httpclient=tornado.curl_httpclient.CurlAsyncHTTPClient; fi
+travis_time:end:28cd1450:start=1445707643174310026,finish=1445707643177089966,duration=2779940[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --httpclient=tornado.curl_httpclient.CurlAsyncHTTPClient; fi" exited with 0.[0m
+travis_time:start:286ade5b[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop_time_monotonic; fi
+travis_time:end:286ade5b:start=1445707643180608995,finish=1445707643183337086,duration=2728091[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop_time_monotonic; fi" exited with 0.[0m
+travis_time:start:1175933c[0K$ if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.twisted.TwistedIOLoop; fi
+travis_time:end:1175933c:start=1445707643186873207,finish=1445707643189659602,duration=2786395[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.twisted.TwistedIOLoop; fi" exited with 0.[0m
+travis_time:start:0d3a5cfc[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3.4 || $TRAVIS_PYTHON_VERSION == 3.5 ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|62db254e|055a62bf4b8e51c80fe7e3cab5374d14|1445707655; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|22dfa3d0|3c0d0a944a30dbe711924aabd85755b8|1445707657; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|fc73abeb|4aeb958938b7bd6801eaa15a0e3ade7e|1445707659; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 15.925s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:27:39 testing:731](B[m FAIL
+[31m[E 151024 17:27:39 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:0d3a5cfc:start=1445707643193184847,finish=1445707659768937849,duration=16575753002[0K
+[31;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3.4 || $TRAVIS_PYTHON_VERSION == 3.5 ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi" exited with 1.[0m
+travis_time:start:0591f8b8[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi
+travis_time:end:0591f8b8:start=1445707659772904813,finish=1445707659775677025,duration=2772212[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi" exited with 0.[0m
+travis_time:start:17b1f771[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --resolver=tornado.platform.twisted.TwistedResolver; fi
+travis_time:end:17b1f771:start=1445707659779596780,finish=1445707659782365433,duration=2768653[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --resolver=tornado.platform.twisted.TwistedResolver; fi" exited with 0.[0m
+travis_time:start:1cadb3d9[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3* && $TRAVIS_PYTHON_VERSION != '3.2' ]]; then python $TARGET --ioloop_time_monotonic; fi
+.............s.............................................................ssssssssssssssssssssssssssssssss...........sss................................................s...........................s.......s.........................s......................................................ss.........................................................................ss........s.........................s.............................................................................................................................................s.......s.................ss.ss.....ssss.................................................................s......................................................s.....................ss.....s..................ss.....s.................................sss......................................s............s...ss........ssssssssssssss.......s.........................................................s.............sss........................................................................................F.......................................................................s...................................................................F.................................................s...................................................................F................
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.web_test.XSRFCookieKwargsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|8d5d2d70|5bcfc726e28a7da8a4e417cf39a3403c|1445707671; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIAdapterWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|c406691b|2a30deac06079f75511c57bc4f39be6a|1445707672; httponly; Path=/'
+
+======================================================================
+FAIL: test_xsrf_httponly (tornado.test.wsgi_test.WSGIApplicationWrappedTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/testing.py", line 132, in __call__
+    result = self.orig_method(*args, **kwargs)
+  File "/home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg/tornado/test/web_test.py", line 2610, in test_xsrf_httponly
+    self.assertIn('HttpOnly;', response.headers['Set-Cookie'])
+AssertionError: 'HttpOnly;' not found in '_xsrf=2|d122f69d|c9aeb561e62fd42ef771c16289461325|1445707674; httponly; Path=/'
+
+----------------------------------------------------------------------
+Ran 1315 tests in 14.430s
+
+FAILED (failures=3, skipped=92)
+Some tests were skipped because: PEP 492 (async/await) not available,
+SO_REUSEPORT is not supported, dual-stack servers often have port
+conflicts on travis, needs fix, no testable future imports, pycares
+module not present, pycurl module not present, timing tests unreliable
+on travis, twisted module not present
+[31m[E 151024 17:27:54 testing:731](B[m FAIL
+[31m[E 151024 17:27:54 runtests:175](B[m logged 0 warnings and 1 errors
+travis_time:end:1cadb3d9:start=1445707659785760791,finish=1445707674859210584,duration=15073449793[0K
+[31;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3* && $TRAVIS_PYTHON_VERSION != '3.2' ]]; then python $TARGET --ioloop_time_monotonic; fi" exited with 1.[0m
+travis_time:start:03188c2c[0K$ if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then coverage xml; fi
+travis_time:end:03188c2c:start=1445707674862900198,finish=1445707680397786521,duration=5534886323[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then coverage xml; fi" exited with 0.[0m
+travis_time:start:1fa7913c[0K$ export TORNADO_EXTENSION=0
+travis_time:end:1fa7913c:start=1445707680401538939,finish=1445707680404425324,duration=2886385[0K
+[32;1mThe command "export TORNADO_EXTENSION=0" exited with 0.[0m
+travis_time:start:0e861f20[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out; fi
+travis_time:end:0e861f20:start=1445707680408034089,finish=1445707680410821481,duration=2787392[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out; fi" exited with 0.[0m
+travis_time:start:19060a9a[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi
+travis_time:end:19060a9a:start=1445707680414440085,finish=1445707680417307293,duration=2867208[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi" exited with 0.[0m
+travis_time:start:0351aace[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi
+travis_time:end:0351aace:start=1445707680420908414,finish=1445707680423703877,duration=2795463[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi" exited with 0.[0m
+
+Done. Your build exited with 1.

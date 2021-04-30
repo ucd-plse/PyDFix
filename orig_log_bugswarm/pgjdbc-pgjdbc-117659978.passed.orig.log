@@ -1,0 +1,761 @@
+Using worker: worker-linux-docker-8d292874.prod.travis-ci.org:travis-linux-16
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 36669 36677
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 36729 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 236 not upgraded.
+Need to get 8,844 kB of archives.
+After this operation, 9,216 B disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.13 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.13 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.13 [1,179 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.13 [4,637 kB]
+Fetched 8,844 kB in 0s (28.6 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.13) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.13) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.13) ...
+Setting up libc6-dev (2.15-0ubuntu10.13) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:1af0c220[0K$ git clone --depth=50 --branch=tstz_getstring https://github.com/pgjdbc/pgjdbc.git pgjdbc/pgjdbc
+Cloning into 'pgjdbc/pgjdbc'...
+remote: Counting objects: 1696, done.[K
+remote: Compressing objects:   0% (1/851)   [Kremote: Compressing objects:   1% (9/851)   [Kremote: Compressing objects:   2% (18/851)   [Kremote: Compressing objects:   3% (26/851)   [Kremote: Compressing objects:   4% (35/851)   [Kremote: Compressing objects:   5% (43/851)   [Kremote: Compressing objects:   6% (52/851)   [Kremote: Compressing objects:   7% (60/851)   [Kremote: Compressing objects:   8% (69/851)   [Kremote: Compressing objects:   9% (77/851)   [Kremote: Compressing objects:  10% (86/851)   [Kremote: Compressing objects:  11% (94/851)   [Kremote: Compressing objects:  12% (103/851)   [Kremote: Compressing objects:  13% (111/851)   [Kremote: Compressing objects:  14% (120/851)   [Kremote: Compressing objects:  15% (128/851)   [Kremote: Compressing objects:  16% (137/851)   [Kremote: Compressing objects:  17% (145/851)   [Kremote: Compressing objects:  18% (154/851)   [Kremote: Compressing objects:  19% (162/851)   [Kremote: Compressing objects:  20% (171/851)   [Kremote: Compressing objects:  21% (179/851)   [Kremote: Compressing objects:  22% (188/851)   [Kremote: Compressing objects:  23% (196/851)   [Kremote: Compressing objects:  24% (205/851)   [Kremote: Compressing objects:  25% (213/851)   [Kremote: Compressing objects:  26% (222/851)   [Kremote: Compressing objects:  27% (230/851)   [Kremote: Compressing objects:  28% (239/851)   [Kremote: Compressing objects:  29% (247/851)   [Kremote: Compressing objects:  30% (256/851)   [Kremote: Compressing objects:  31% (264/851)   [Kremote: Compressing objects:  32% (273/851)   [Kremote: Compressing objects:  33% (281/851)   [Kremote: Compressing objects:  34% (290/851)   [Kremote: Compressing objects:  35% (298/851)   [Kremote: Compressing objects:  36% (307/851)   [Kremote: Compressing objects:  37% (315/851)   [Kremote: Compressing objects:  38% (324/851)   [Kremote: Compressing objects:  39% (332/851)   [Kremote: Compressing objects:  40% (341/851)   [Kremote: Compressing objects:  41% (349/851)   [Kremote: Compressing objects:  42% (358/851)   [Kremote: Compressing objects:  43% (366/851)   [Kremote: Compressing objects:  44% (375/851)   [Kremote: Compressing objects:  45% (383/851)   [Kremote: Compressing objects:  46% (392/851)   [Kremote: Compressing objects:  47% (400/851)   [Kremote: Compressing objects:  48% (409/851)   [Kremote: Compressing objects:  49% (417/851)   [Kremote: Compressing objects:  50% (426/851)   [Kremote: Compressing objects:  51% (435/851)   [Kremote: Compressing objects:  52% (443/851)   [Kremote: Compressing objects:  53% (452/851)   [Kremote: Compressing objects:  54% (460/851)   [Kremote: Compressing objects:  55% (469/851)   [Kremote: Compressing objects:  56% (477/851)   [Kremote: Compressing objects:  57% (486/851)   [Kremote: Compressing objects:  58% (494/851)   [Kremote: Compressing objects:  59% (503/851)   [Kremote: Compressing objects:  60% (511/851)   [Kremote: Compressing objects:  61% (520/851)   [Kremote: Compressing objects:  62% (528/851)   [Kremote: Compressing objects:  63% (537/851)   [Kremote: Compressing objects:  64% (545/851)   [Kremote: Compressing objects:  65% (554/851)   [Kremote: Compressing objects:  66% (562/851)   [Kremote: Compressing objects:  67% (571/851)   [Kremote: Compressing objects:  68% (579/851)   [Kremote: Compressing objects:  69% (588/851)   [Kremote: Compressing objects:  70% (596/851)   [Kremote: Compressing objects:  71% (605/851)   [Kremote: Compressing objects:  72% (613/851)   [Kremote: Compressing objects:  73% (622/851)   [Kremote: Compressing objects:  74% (630/851)   [Kremote: Compressing objects:  75% (639/851)   [Kremote: Compressing objects:  76% (647/851)   [Kremote: Compressing objects:  77% (656/851)   [Kremote: Compressing objects:  78% (664/851)   [Kremote: Compressing objects:  79% (673/851)   [Kremote: Compressing objects:  80% (681/851)   [Kremote: Compressing objects:  81% (690/851)   [Kremote: Compressing objects:  82% (698/851)   [Kremote: Compressing objects:  83% (707/851)   [Kremote: Compressing objects:  84% (715/851)   [Kremote: Compressing objects:  85% (724/851)   [Kremote: Compressing objects:  86% (732/851)   [Kremote: Compressing objects:  87% (741/851)   [Kremote: Compressing objects:  88% (749/851)   [Kremote: Compressing objects:  89% (758/851)   [Kremote: Compressing objects:  90% (766/851)   [Kremote: Compressing objects:  91% (775/851)   [Kremote: Compressing objects:  92% (783/851)   [Kremote: Compressing objects:  93% (792/851)   [Kremote: Compressing objects:  94% (800/851)   [Kremote: Compressing objects:  95% (809/851)   [Kremote: Compressing objects:  96% (817/851)   [Kremote: Compressing objects:  97% (826/851)   [Kremote: Compressing objects:  98% (834/851)   [Kremote: Compressing objects:  99% (843/851)   [Kremote: Compressing objects: 100% (851/851)   [Kremote: Compressing objects: 100% (851/851), done.[K
+Receiving objects:   0% (1/1696)   Receiving objects:   1% (17/1696)   Receiving objects:   2% (34/1696)   Receiving objects:   3% (51/1696)   Receiving objects:   4% (68/1696)   Receiving objects:   5% (85/1696)   Receiving objects:   6% (102/1696)   Receiving objects:   7% (119/1696)   Receiving objects:   8% (136/1696)   Receiving objects:   9% (153/1696)   Receiving objects:  10% (170/1696)   Receiving objects:  11% (187/1696)   Receiving objects:  12% (204/1696)   Receiving objects:  13% (221/1696)   Receiving objects:  14% (238/1696)   Receiving objects:  15% (255/1696)   Receiving objects:  16% (272/1696)   Receiving objects:  17% (289/1696)   Receiving objects:  18% (306/1696)   Receiving objects:  19% (323/1696)   Receiving objects:  20% (340/1696)   Receiving objects:  21% (357/1696)   Receiving objects:  22% (374/1696)   Receiving objects:  23% (391/1696)   Receiving objects:  24% (408/1696)   Receiving objects:  25% (424/1696)   Receiving objects:  26% (441/1696)   Receiving objects:  27% (458/1696)   Receiving objects:  28% (475/1696)   Receiving objects:  29% (492/1696)   Receiving objects:  30% (509/1696)   Receiving objects:  31% (526/1696)   Receiving objects:  32% (543/1696)   Receiving objects:  33% (560/1696)   Receiving objects:  34% (577/1696)   Receiving objects:  35% (594/1696)   Receiving objects:  36% (611/1696)   Receiving objects:  37% (628/1696)   Receiving objects:  38% (645/1696)   Receiving objects:  39% (662/1696)   Receiving objects:  40% (679/1696)   Receiving objects:  41% (696/1696)   Receiving objects:  42% (713/1696)   Receiving objects:  43% (730/1696)   Receiving objects:  44% (747/1696)   Receiving objects:  45% (764/1696)   Receiving objects:  46% (781/1696)   Receiving objects:  47% (798/1696)   Receiving objects:  48% (815/1696)   Receiving objects:  49% (832/1696)   Receiving objects:  50% (848/1696)   Receiving objects:  51% (865/1696)   Receiving objects:  52% (882/1696)   Receiving objects:  53% (899/1696)   Receiving objects:  54% (916/1696)   Receiving objects:  55% (933/1696)   Receiving objects:  56% (950/1696)   Receiving objects:  57% (967/1696)   Receiving objects:  58% (984/1696)   Receiving objects:  59% (1001/1696)   Receiving objects:  60% (1018/1696)   Receiving objects:  61% (1035/1696)   Receiving objects:  62% (1052/1696)   Receiving objects:  63% (1069/1696)   Receiving objects:  64% (1086/1696)   Receiving objects:  65% (1103/1696)   Receiving objects:  66% (1120/1696)   Receiving objects:  67% (1137/1696)   Receiving objects:  68% (1154/1696)   Receiving objects:  69% (1171/1696)   Receiving objects:  70% (1188/1696)   Receiving objects:  71% (1205/1696)   Receiving objects:  72% (1222/1696)   Receiving objects:  73% (1239/1696)   Receiving objects:  74% (1256/1696)   Receiving objects:  75% (1272/1696)   Receiving objects:  76% (1289/1696)   Receiving objects:  77% (1306/1696)   Receiving objects:  78% (1323/1696)   Receiving objects:  79% (1340/1696)   Receiving objects:  80% (1357/1696)   Receiving objects:  81% (1374/1696)   Receiving objects:  82% (1391/1696)   Receiving objects:  83% (1408/1696)   Receiving objects:  84% (1425/1696)   Receiving objects:  85% (1442/1696)   Receiving objects:  86% (1459/1696)   Receiving objects:  87% (1476/1696)   Receiving objects:  88% (1493/1696)   Receiving objects:  89% (1510/1696)   Receiving objects:  90% (1527/1696)   Receiving objects:  91% (1544/1696)   Receiving objects:  92% (1561/1696)   Receiving objects:  93% (1578/1696)   Receiving objects:  94% (1595/1696)   Receiving objects:  95% (1612/1696)   Receiving objects:  96% (1629/1696)   Receiving objects:  97% (1646/1696)   remote: Total 1696 (delta 908), reused 1237 (delta 687), pack-reused 0[K
+Receiving objects:  98% (1663/1696)   Receiving objects:  99% (1680/1696)   Receiving objects: 100% (1696/1696)   Receiving objects: 100% (1696/1696), 1.41 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/908)   Resolving deltas:   5% (49/908)   Resolving deltas:   6% (60/908)   Resolving deltas:   7% (68/908)   Resolving deltas:   8% (75/908)   Resolving deltas:  11% (104/908)   Resolving deltas:  12% (110/908)   Resolving deltas:  13% (120/908)   Resolving deltas:  14% (130/908)   Resolving deltas:  15% (141/908)   Resolving deltas:  16% (146/908)   Resolving deltas:  17% (155/908)   Resolving deltas:  18% (164/908)   Resolving deltas:  19% (173/908)   Resolving deltas:  20% (184/908)   Resolving deltas:  21% (191/908)   Resolving deltas:  22% (200/908)   Resolving deltas:  23% (213/908)   Resolving deltas:  24% (221/908)   Resolving deltas:  25% (235/908)   Resolving deltas:  26% (239/908)   Resolving deltas:  27% (247/908)   Resolving deltas:  28% (255/908)   Resolving deltas:  29% (266/908)   Resolving deltas:  30% (279/908)   Resolving deltas:  31% (282/908)   Resolving deltas:  32% (293/908)   Resolving deltas:  33% (301/908)   Resolving deltas:  34% (310/908)   Resolving deltas:  35% (318/908)   Resolving deltas:  36% (328/908)   Resolving deltas:  38% (347/908)   Resolving deltas:  39% (359/908)   Resolving deltas:  40% (364/908)   Resolving deltas:  41% (374/908)   Resolving deltas:  42% (386/908)   Resolving deltas:  43% (393/908)   Resolving deltas:  44% (401/908)   Resolving deltas:  45% (409/908)   Resolving deltas:  46% (419/908)   Resolving deltas:  47% (428/908)   Resolving deltas:  48% (436/908)   Resolving deltas:  49% (448/908)   Resolving deltas:  50% (454/908)   Resolving deltas:  51% (464/908)   Resolving deltas:  52% (475/908)   Resolving deltas:  53% (483/908)   Resolving deltas:  54% (492/908)   Resolving deltas:  55% (502/908)   Resolving deltas:  56% (509/908)   Resolving deltas:  57% (518/908)   Resolving deltas:  58% (527/908)   Resolving deltas:  59% (538/908)   Resolving deltas:  60% (545/908)   Resolving deltas:  61% (558/908)   Resolving deltas:  62% (563/908)   Resolving deltas:  64% (583/908)   Resolving deltas:  65% (594/908)   Resolving deltas:  66% (601/908)   Resolving deltas:  67% (612/908)   Resolving deltas:  68% (620/908)   Resolving deltas:  69% (627/908)   Resolving deltas:  71% (645/908)   Resolving deltas:  72% (657/908)   Resolving deltas:  73% (664/908)   Resolving deltas:  74% (673/908)   Resolving deltas:  75% (684/908)   Resolving deltas:  76% (691/908)   Resolving deltas:  77% (704/908)   Resolving deltas:  78% (715/908)   Resolving deltas:  79% (720/908)   Resolving deltas:  80% (727/908)   Resolving deltas:  81% (737/908)   Resolving deltas:  82% (746/908)   Resolving deltas:  83% (754/908)   Resolving deltas:  84% (764/908)   Resolving deltas:  85% (775/908)   Resolving deltas:  86% (781/908)   Resolving deltas:  87% (790/908)   Resolving deltas:  88% (802/908)   Resolving deltas:  89% (809/908)   Resolving deltas:  90% (818/908)   Resolving deltas:  91% (827/908)   Resolving deltas:  92% (836/908)   Resolving deltas:  93% (846/908)   Resolving deltas:  94% (855/908)   Resolving deltas:  95% (865/908)   Resolving deltas:  96% (874/908)   Resolving deltas:  97% (883/908)   Resolving deltas:  98% (891/908)   Resolving deltas:  99% (899/908)   Resolving deltas: 100% (908/908)   Resolving deltas: 100% (908/908), done.
+Checking connectivity... done.
+
+travis_time:end:1af0c220:start=1458640147803212747,finish=1458640148625539640,duration=822326893[0K$ cd pgjdbc/pgjdbc
+$ git checkout -qf 1e1f3c4ab1fbbc5b071b50991da6c34afe92e6f0
+travis_fold:end:git.checkout[0Ktravis_fold:start:postgresql[0K[33;1mStarting PostgreSQL v9.3[0m
+travis_time:start:15301cec[0K$ sudo service postgresql stop
+ * Stopping PostgreSQL 9.1 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.2 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.3 database server       [80G [74G[ OK ]
+ * Stopping PostgreSQL 9.4 database server       [80G [74G[ OK ]
+
+travis_time:end:15301cec:start=1458640148679759969,finish=1458640149993476175,duration=1313716206[0Ktravis_time:start:1b0c6fdf[0K$ sudo service postgresql start 9.3
+ * Starting PostgreSQL 9.3 database server       [80G [74G[ OK ]
+
+travis_time:end:1b0c6fdf:start=1458640149997873168,finish=1458640152208662849,duration=2210789681[0Ktravis_time:start:042fdbb0[0K$ sudo -u postgres createuser -s -p 5432 travis &>/dev/null
+
+travis_time:end:042fdbb0:start=1458640152212424653,finish=1458640152262326889,duration=49902236[0Ktravis_time:start:0eb01cd0[0K$ sudo -u postgres createdb -O travis -p 5432 travis &>/dev/null
+
+travis_time:end:0eb01cd0:start=1458640152266108775,finish=1458640152523701478,duration=257592703[0Ktravis_time:start:34e91602[0K$ sudo -u postgres createuser -s -p 5433 travis &>/dev/null
+
+travis_time:end:34e91602:start=1458640152527449030,finish=1458640152567276171,duration=39827141[0Ktravis_time:start:0055d92f[0K$ sudo -u postgres createdb -O travis -p 5433 travis &>/dev/null
+
+travis_time:end:0055d92f:start=1458640152570805305,finish=1458640152611764934,duration=40959629[0Ktravis_fold:end:postgresql[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export SONATYPE_USERNAME=[secure]
+$ export SONATYPE_PASSWORD=[secure]
+$ export PG_VERSION=9.3
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:06f6fbce[0K$ Installing caching utilities
+
+travis_time:end:06f6fbce:start=1458640155198362276,finish=1458640155294702366,duration=96340090[0Ktravis_time:start:2e0b9942[0K
+travis_time:end:2e0b9942:start=1458640155299396736,finish=1458640155302511838,duration=3115102[0Ktravis_time:start:088d6d59[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching tstz_getstring/cache--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:088d6d59:start=1458640155306383375,finish=1458640156203160551,duration=896777176[0Ktravis_time:start:091a0d00[0K
+travis_time:end:091a0d00:start=1458640156207460379,finish=1458640156211258280,duration=3797901[0Ktravis_time:start:013a6e92[0K[32;1madding /home/travis/.m2/repository to cache[0m
+
+travis_time:end:013a6e92:start=1458640156215295158,finish=1458640157669887883,duration=1454592725[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:051c5d46[0K$ true
+
+travis_time:end:051c5d46:start=1458640158343213756,finish=1458640158346477730,duration=3263974[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:1b4da65a[0K$ test "x$XA" == 'x' || ./travis_install_dependencies.sh
+
+travis_time:end:1b4da65a:start=1458640158350908270,finish=1458640158354488511,duration=3580241[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:0fb3eea8[0K$ psql -U postgres -c "create user test with password 'test';"
+CREATE ROLE
+
+travis_time:end:0fb3eea8:start=1458640158358652984,finish=1458640158369376754,duration=10723770[0Ktravis_fold:end:before_script.2[0Ktravis_fold:start:before_script.3[0Ktravis_time:start:0dc2a734[0K$ psql -c 'create database test owner test;' -U postgres
+CREATE DATABASE
+
+travis_time:end:0dc2a734:start=1458640158373406693,finish=1458640158600693761,duration=227287068[0Ktravis_fold:end:before_script.3[0Ktravis_fold:start:before_script.4[0Ktravis_time:start:0247268a[0K$ echo "MAVEN_OPTS='-Xmx1g -Dgpg.skip=true'" > ~/.mavenrc
+
+travis_time:end:0247268a:start=1458640158604943254,finish=1458640158608196441,duration=3253187[0Ktravis_fold:end:before_script.4[0Ktravis_fold:start:before_script.5[0Ktravis_time:start:0c8ee1d7[0K$ test "x$PG_VERSION" == 'x' || test $PG_VERSION == '8.4' || test $PG_VERSION == '9.0' || psql test -c 'CREATE EXTENSION hstore;' -U postgres
+CREATE EXTENSION
+
+travis_time:end:0c8ee1d7:start=1458640158612241293,finish=1458640158641911976,duration=29670683[0Ktravis_fold:end:before_script.5[0Ktravis_fold:start:before_script.6[0Ktravis_time:start:0b866b38[0K$ test "x$PG_VERSION" == 'x' || test $PG_VERSION != '8.4' || createlang -U postgres plpgsql test
+
+travis_time:end:0b866b38:start=1458640158646228729,finish=1458640158649371687,duration=3142958[0Ktravis_fold:end:before_script.6[0Ktravis_time:start:0242839c[0K$ rm -rf $HOME/.m2/repository/org/postgresql || true
+
+travis_time:end:0242839c:start=1458640158653384789,finish=1458640158657422982,duration=4038193[0K
+[32;1mThe command "rm -rf $HOME/.m2/repository/org/postgresql || true" exited with 0.[0m
+travis_time:start:00e2f5b4[0K$ export JDK6_HOME=$(jdk_switcher home openjdk6)
+
+travis_time:end:00e2f5b4:start=1458640158661461734,finish=1458640158665562934,duration=4101200[0K
+[32;1mThe command "export JDK6_HOME=$(jdk_switcher home openjdk6)" exited with 0.[0m
+travis_time:start:051ef50a[0K$ export JDK7_HOME=$(jdk_switcher home openjdk7)
+
+travis_time:end:051ef50a:start=1458640158669564839,finish=1458640158673542254,duration=3977415[0K
+[32;1mThe command "export JDK7_HOME=$(jdk_switcher home openjdk7)" exited with 0.[0m
+travis_time:start:154447fb[0K$ export JDK8_HOME=$(jdk_switcher home oraclejdk8)
+
+travis_time:end:154447fb:start=1458640158677695365,finish=1458640158681763338,duration=4067973[0K
+[32;1mThe command "export JDK8_HOME=$(jdk_switcher home oraclejdk8)" exited with 0.[0m
+travis_time:start:263ca7fe[0K$ envsubst < toolchains.xml > ~/.m2/toolchains.xml
+
+travis_time:end:263ca7fe:start=1458640158686047229,finish=1458640158691394608,duration=5347379[0K
+[32;1mThe command "envsubst < toolchains.xml > ~/.m2/toolchains.xml" exited with 0.[0m
+travis_time:start:0fc793bf[0K$ ./travis_build.sh
++MVN_ARGS='clean package -B -V'
++MVN_PROFILES=release
++[[ '' == *\Y* ]]
++[[ oraclejdk8 == *\j\d\k\6* ]]
++[[ oraclejdk8 == *\j\d\k\7* ]]
++'[' 9.3 == 9.4 ']'
++mvn clean package -B -V -P release
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-versions/1.0.5/pgjdbc-versions-1.0.5.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-versions/1.0.5/pgjdbc-versions-1.0.5.pom (21 KB at 75.1 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-core-parent/1.0.5/pgjdbc-core-parent-1.0.5.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-core-parent/1.0.5/pgjdbc-core-parent-1.0.5.pom (15 KB at 331.8 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-versions/1.0.4/pgjdbc-versions-1.0.4.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/postgresql/pgjdbc-versions/1.0.4/pgjdbc-versions-1.0.4.pom (22 KB at 357.1 KB/sec)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] PostgreSQL JDBC Driver - JDBC 4.2
+[INFO] PostgreSQL JDBC Driver - benchmarks
+[INFO] PostgreSQL JDBC Driver aggregate
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PostgreSQL JDBC Driver - JDBC 4.2 9.4.1209-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ postgresql ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-java) @ postgresql ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-toolchains-plugin:1.1:toolchain (default) @ postgresql ---
+[INFO] Required toolchain: jdk [ version='1.8' ]
+[INFO] Found matching toolchain for type jdk: JDK[/usr/lib/jvm/java-8-oracle]
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.5:parse-version (parse-version) @ postgresql ---
+[INFO] 
+[INFO] --- properties-maven-plugin:1.0-alpha-2:read-project-properties (default) @ postgresql ---
+[WARNING] Ignoring missing properties file: /home/travis/build/pgjdbc/pgjdbc/pgjdbc/../build.local.properties
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (create-unzipjdkant.xml) @ postgresql ---
+[INFO] Executing tasks
+
+main:
+     [echo] Generating /home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/unzip-jdk-ant.xml
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- exec-maven-plugin:1.4.0:exec (unzip-jdk-src) @ postgresql ---
+[INFO] skipping execute as per configuraion
+[INFO] 
+[INFO] --- jcp:6.0.1:preprocess (preprocessSources) @ postgresql ---
+[INFO] Added MAVEN property mvn.project.name=PostgreSQL JDBC Driver - JDBC 4.2
+[INFO] Added MAVEN property mvn.project.version=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.url=https://github.com/pgjdbc/pgjdbc
+[INFO] Added MAVEN property mvn.project.packaging=bundle
+[INFO] Added MAVEN property mvn.project.modelversion=4.0.0
+[INFO] Added MAVEN property mvn.project.inceptionyear=
+[INFO] Added MAVEN property mvn.project.id=org.postgresql:postgresql:bundle:9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.groupid=org.postgresql
+[INFO] Added MAVEN property mvn.project.description=Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
+[INFO] Added MAVEN property mvn.project.artifact.id=org.postgresql:postgresql:bundle:9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.artifact.artifactid=postgresql
+[INFO] Added MAVEN property mvn.project.artifact.baseversion=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.artifact.dependencyconflictid=org.postgresql:postgresql:bundle
+[INFO] Added MAVEN property mvn.project.artifact.downloadurl=
+[INFO] Added MAVEN property mvn.project.artifact.groupid=org.postgresql
+[INFO] Added MAVEN property mvn.project.artifact.scope=
+[INFO] Added MAVEN property mvn.project.artifact.type=bundle
+[INFO] Added MAVEN property mvn.project.artifact.version=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.build.directory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target
+[INFO] Added MAVEN property mvn.project.build.defaultgoal=
+[INFO] Added MAVEN property mvn.project.build.outputdirectory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/classes
+[INFO] Added MAVEN property mvn.project.build.scriptsourcedirectory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/src/main/scripts
+[INFO] Added MAVEN property mvn.project.build.sourcedirectory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/src/main/java
+[INFO] Added MAVEN property mvn.project.build.testoutputdirectory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/test-classes
+[INFO] Added MAVEN property mvn.project.build.testsourcedirectory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/src/test/java
+[INFO] Added MAVEN property mvn.project.organization.name=PostgreSQL Global Development Group
+[INFO] Added MAVEN property mvn.project.organization.url=http://jdbc.postgresql.org/
+[INFO] Added MAVEN property mvn.project.activeprofiles=standard-with-extra-repos
+[INFO] Added MAVEN property mvn.project.property.jdbc.specification.version.nodot=42
+[INFO] Added MAVEN property mvn.project.property.password=***** [hidden because may contain private info]
+[INFO] Added MAVEN property mvn.project.property.preparethreshold=5
+[INFO] Added MAVEN property mvn.project.property.parsedversion.osgiversion=9.4.1209.SNAPSHOT
+[INFO] Added MAVEN property mvn.project.property.postgresql.preprocessed.sources.directory=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/gen-src
+[INFO] Added MAVEN property mvn.project.property.postgresql.driver.fullversion=PostgreSQL JDBC4.2
+[INFO] Added MAVEN property mvn.project.property.username=test
+[INFO] Added MAVEN property mvn.project.property.parsedversion.incrementalversion=1209
+[INFO] Added MAVEN property mvn.project.property.protocolversion=0
+[INFO] Added MAVEN property mvn.project.property.parsedversion.buildnumber=0
+[INFO] Added MAVEN property mvn.project.property.javac.target=1.8
+[INFO] Added MAVEN property mvn.project.property.project.build.sourceencoding=UTF-8
+[INFO] Added MAVEN property mvn.project.property.postgresql.jdbc.spec=JDBC4.2
+[INFO] Added MAVEN property mvn.project.property.parsedversion.minorversion=4
+[INFO] Added MAVEN property mvn.project.property.port=5432
+[INFO] Added MAVEN property mvn.project.property.unzip.jdk.ant.build.xml=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/unzip-jdk-ant.xml
+[INFO] Added MAVEN property mvn.project.property.skip.assembly=false
+[INFO] Added MAVEN property mvn.project.property.database=test
+[INFO] Added MAVEN property mvn.project.property.privilegedpassword=***** [hidden because may contain private info]
+[INFO] Added MAVEN property mvn.project.property.server=localhost
+[INFO] Added MAVEN property mvn.project.property.skip.unzip-jdk-src=true
+[INFO] Added MAVEN property mvn.project.property.waffle-jna.version=1.7
+[INFO] Added MAVEN property mvn.project.property.parsedversion.majorversion=9
+[INFO] Added MAVEN property mvn.project.property.postgresql.enforce.jdk.version=1.8
+[INFO] Added MAVEN property mvn.project.property.jdbc.specification.version=4.2
+[INFO] Added MAVEN property mvn.project.property.build.properties.relative.path=/home/travis/build/pgjdbc/pgjdbc/pgjdbc/..
+[INFO] Added MAVEN property mvn.project.property.loglevel=0
+[INFO] Added MAVEN property mvn.project.property.parsedversion.qualifier=SNAPSHOT
+[INFO] Added MAVEN property mvn.project.property.template.default.pg.port=5432
+[INFO] Added MAVEN property mvn.project.property.argline=-Xmx512m
+[INFO] Added MAVEN property mvn.project.property.privilegeduser=postgres
+[INFO] Preprocess sources : /home/travis/build/pgjdbc/pgjdbc/pgjdbc/src/main/java
+[INFO] Preprocess destination : /home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/gen-src
+[INFO] -----------------------------------------------------------------
+[INFO] Completed, preprocessed 168 files, copied 16 files, elapsed time 625ms
+[INFO] A Compile source root has been removed from the root list [/home/travis/build/pgjdbc/pgjdbc/pgjdbc/src/main/java]
+[INFO] The New compile source root has been added into the list [/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/gen-src]
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ postgresql ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 16 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ postgresql ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/usr/lib/jvm/java-8-oracle]
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 168 source files to /home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ postgresql ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ postgresql ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/usr/lib/jvm/java-8-oracle]
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 119 source files to /home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ postgresql ---
+[INFO] Toolchain in maven-surefire-plugin: JDK[/usr/lib/jvm/java-8-oracle]
+[INFO] Surefire report directory: /home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Configuration file /home/travis/build/pgjdbc/pgjdbc/pgjdbc/../build.local.properties does not exist. Consider adding it to specify test db host and login
+Configuration file /home/travis/build/pgjdbc/pgjdbc/pgjdbc/../build.local.properties does not exist. Consider adding it to specify test db host and login
+Configuration file /home/travis/build/pgjdbc/pgjdbc/pgjdbc/../ssltest.local.properties does not exist. Consider adding it to specify test db host and login
+Skipping ssloff8.
+Skipping sslhostnossl8.
+Skipping ssloff9.
+Skipping sslhostnossl9.
+Skipping sslhostgh8.
+Skipping sslhostgh9.
+Skipping sslhostbh8.
+Skipping sslhostbh9.
+Skipping sslhostsslgh8.
+Skipping sslhostsslgh9.
+Skipping sslhostsslbh8.
+Skipping sslhostsslbh9.
+Skipping sslhostsslcertgh8.
+Skipping sslhostsslcertgh9.
+Skipping sslhostsslcertbh8.
+Skipping sslhostsslcertbh9.
+Skipping sslcertgh8.
+Skipping sslcertgh9.
+Skipping sslcertbh8.
+Skipping sslcertbh9.
+Skipping SingleCertSocketFactoryTests. To enable set the property testsinglecertfactory=true in the ssltest.properties file.
+Skipping XA tests because max_prepared_transactions = 0.
+Running org.postgresql.test.jdbc4.jdbc41.Jdbc41TestSuite
+Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.177 sec - in org.postgresql.test.jdbc4.jdbc41.Jdbc41TestSuite
+Running org.postgresql.test.jdbc4.Jdbc4TestSuite
+Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.835 sec - in org.postgresql.test.jdbc4.Jdbc4TestSuite
+Running org.postgresql.test.jdbc2.optional.OptionalTestSuite
+Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.081 sec - in org.postgresql.test.jdbc2.optional.OptionalTestSuite
+Running org.postgresql.test.jdbc2.Jdbc2TestSuite
+file:/home/travis/build/pgjdbc/pgjdbc/pgjdbc/target/classes/
+Using seed = 1458640280374 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640280374 to reproduce the test
+Using seed = 1458640280769 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640280769 to reproduce the test
+Using seed = 1458640281199 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640281199 to reproduce the test
+Using seed = 1458640281578 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640281578 to reproduce the test
+Using seed = 1458640281947 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640281947 to reproduce the test
+Using seed = 1458640282346 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640282346 to reproduce the test
+Using seed = 1458640283104 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640283104 to reproduce the test
+Using seed = 1458640283481 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640283481 to reproduce the test
+Using seed = 1458640284212 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640284212 to reproduce the test
+Using seed = 1458640284587 for StrangeInputStream. Set -DStrangeInputStream.seed=1458640284587 to reproduce the test
+Tests run: 1113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.687 sec - in org.postgresql.test.jdbc2.Jdbc2TestSuite
+Running org.postgresql.test.jdbc3.Jdbc3TestSuite
+Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.687 sec - in org.postgresql.test.jdbc3.Jdbc3TestSuite
+Running org.postgresql.test.osgi.OsgiTestSuite
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.postgresql.test.osgi.OsgiTestSuite
+Running org.postgresql.test.jdbc42.Jdbc42TestSuite
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.606 sec - in org.postgresql.test.jdbc42.Jdbc42TestSuite
+Running org.postgresql.test.ssl.SslTestSuite
+Configuration file /home/travis/build/pgjdbc/pgjdbc/pgjdbc/../ssltest.local.properties does not exist. Consider adding it to specify test db host and login
+Skipping ssloff8.
+Skipping sslhostnossl8.
+Skipping ssloff9.
+Skipping sslhostnossl9.
+Skipping sslhostgh8.
+Skipping sslhostgh9.
+Skipping sslhostbh8.
+Skipping sslhostbh9.
+Skipping sslhostsslgh8.
+Skipping sslhostsslgh9.
+Skipping sslhostsslbh8.
+Skipping sslhostsslbh9.
+Skipping sslhostsslcertgh8.
+Skipping sslhostsslcertgh9.
+Skipping sslhostsslcertbh8.
+Skipping sslhostsslcertbh9.
+Skipping sslcertgh8.
+Skipping sslcertgh9.
+Skipping sslcertbh8.
+Skipping sslcertbh9.
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.postgresql.test.ssl.SslTestSuite
+Running org.postgresql.test.ssl.SingleCertValidatingFactoryTestSuite
+Skipping SingleCertSocketFactoryTests. To enable set the property testsinglecertfactory=true in the ssltest.properties file.
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.postgresql.test.ssl.SingleCertValidatingFactoryTestSuite
+Running org.postgresql.test.extensions.ExtensionsTestSuite
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.postgresql.test.extensions.ExtensionsTestSuite
+Running org.postgresql.test.hostchooser.MultiHostTestSuite
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.postgresql.test.hostchooser.MultiHostTestSuite
+Running org.postgresql.test.xa.XATestSuite
+Skipping XA tests because max_prepared_transactions = 0.
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.postgresql.test.xa.XATestSuite
+Running org.postgresql.test.socketfactory.SocketFactoryTestSuite
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.postgresql.test.socketfactory.SocketFactoryTestSuite
+
+Results :
+
+Tests run: 1422, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:bundle (default-bundle) @ postgresql ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PostgreSQL JDBC Driver - benchmarks 9.4.1209-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-core/1.11.2/jmh-core-1.11.2.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-core/1.11.2/jmh-core-1.11.2.pom (10 KB at 228.8 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-parent/1.11.2/jmh-parent-1.11.2.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-parent/1.11.2/jmh-parent-1.11.2.pom (6 KB at 214.1 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.pom (12 KB at 441.1 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom (18 KB at 740.1 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/28/commons-parent-28.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/28/commons-parent-28.pom (49 KB at 1530.4 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-generator-annprocess/1.11.2/jmh-generator-annprocess-1.11.2.pom
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-generator-annprocess/1.11.2/jmh-generator-annprocess-1.11.2.pom (4 KB at 135.8 KB/sec)
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-core/1.11.2/jmh-core-1.11.2.jar
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar
+[INFO] Downloading: http://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar
+[INFO] Downloading: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-generator-annprocess/1.11.2/jmh-generator-annprocess-1.11.2.jar
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-core/1.11.2/jmh-core-1.11.2.jar (450 KB at 4085.9 KB/sec)
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar (62 KB at 469.3 KB/sec)
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/openjdk/jmh/jmh-generator-annprocess/1.11.2/jmh-generator-annprocess-1.11.2.jar (31 KB at 320.7 KB/sec)
+[INFO] Downloaded: http://repo.maven.apache.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar (1654 KB at 9724.2 KB/sec)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ pgjdbc-benchmark ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (create-unzipjdkant.xml) @ pgjdbc-benchmark ---
+[INFO] Executing tasks
+
+main:
+     [echo] Generating /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/unzip-jdk-ant.xml
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- jcp:6.0.1:preprocess (preprocessSources) @ pgjdbc-benchmark ---
+[INFO] Added MAVEN property mvn.project.name=PostgreSQL JDBC Driver - benchmarks
+[INFO] Added MAVEN property mvn.project.version=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.url=https://github.com/pgjdbc/pgjdbc
+[INFO] Added MAVEN property mvn.project.packaging=jar
+[INFO] Added MAVEN property mvn.project.modelversion=4.0.0
+[INFO] Added MAVEN property mvn.project.inceptionyear=
+[INFO] Added MAVEN property mvn.project.id=org.postgresql:pgjdbc-benchmark:jar:9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.groupid=org.postgresql
+[INFO] Added MAVEN property mvn.project.description=PostgreSQL JDBC Driver - benchmarks
+[INFO] Added MAVEN property mvn.project.artifact.id=org.postgresql:pgjdbc-benchmark:jar:9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.artifact.artifactid=pgjdbc-benchmark
+[INFO] Added MAVEN property mvn.project.artifact.baseversion=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.artifact.dependencyconflictid=org.postgresql:pgjdbc-benchmark:jar
+[INFO] Added MAVEN property mvn.project.artifact.downloadurl=
+[INFO] Added MAVEN property mvn.project.artifact.groupid=org.postgresql
+[INFO] Added MAVEN property mvn.project.artifact.scope=
+[INFO] Added MAVEN property mvn.project.artifact.type=jar
+[INFO] Added MAVEN property mvn.project.artifact.version=9.4.1209-SNAPSHOT
+[INFO] Added MAVEN property mvn.project.build.directory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target
+[INFO] Added MAVEN property mvn.project.build.defaultgoal=
+[INFO] Added MAVEN property mvn.project.build.outputdirectory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/classes
+[INFO] Added MAVEN property mvn.project.build.scriptsourcedirectory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/main/scripts
+[INFO] Added MAVEN property mvn.project.build.sourcedirectory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/main/java
+[INFO] Added MAVEN property mvn.project.build.testoutputdirectory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/test-classes
+[INFO] Added MAVEN property mvn.project.build.testsourcedirectory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/test/java
+[INFO] Added MAVEN property mvn.project.organization.name=PostgreSQL Global Development Group
+[INFO] Added MAVEN property mvn.project.organization.url=http://jdbc.postgresql.org/
+[INFO] Added MAVEN property mvn.project.activeprofiles=standard-with-extra-repos
+[INFO] Added MAVEN property mvn.project.property.current.jdk=1.8
+[INFO] Added MAVEN property mvn.project.property.postgresql.driver.fullversion=PostgreSQL JDBC${jdbc.specification.version}
+[INFO] Added MAVEN property mvn.project.property.waffle-jna.version=1.7
+[INFO] Added MAVEN property mvn.project.property.template.default.pg.port=5432
+[INFO] Added MAVEN property mvn.project.property.skip.unzip-jdk-src=true
+[INFO] Added MAVEN property mvn.project.property.jmh.version=1.11.2
+[INFO] Added MAVEN property mvn.project.property.uberjar.name=benchmarks
+[INFO] Added MAVEN property mvn.project.property.postgresql.jdbc.spec=JDBC${jdbc.specification.version}
+[INFO] Added MAVEN property mvn.project.property.project.build.sourceencoding=UTF-8
+[INFO] Added MAVEN property mvn.project.property.postgresql.preprocessed.sources.directory=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/gen-src
+[INFO] Added MAVEN property mvn.project.property.unzip.jdk.ant.build.xml=/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/unzip-jdk-ant.xml
+[INFO] Added MAVEN property mvn.project.property.argline=-Xmx512m
+[INFO] Preprocess sources : /home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/main/java
+[INFO] Preprocess destination : /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/gen-src
+[INFO] -----------------------------------------------------------------
+[INFO] Completed, preprocessed 13 files, copied 0 files, elapsed time 57ms
+[INFO] A Compile source root has been removed from the root list [/home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/main/java]
+[INFO] The New compile source root has been added into the list [/home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/gen-src]
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ pgjdbc-benchmark ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ pgjdbc-benchmark ---
+[INFO] Compiling 13 source files to /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ pgjdbc-benchmark ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/pgjdbc/pgjdbc/ubenchmark/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ pgjdbc-benchmark ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ pgjdbc-benchmark ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ pgjdbc-benchmark ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.6/maven-archiver-2.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.6/maven-archiver-2.6.pom (5 KB at 7.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.8.1/plexus-archiver-2.8.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.8.1/plexus-archiver-2.8.1.pom (5 KB at 125.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3/plexus-components-1.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.3/plexus-components-1.3.pom (3 KB at 66.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.3.2/plexus-io-2.3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.3.2/plexus-io-2.3.2.pom (3 KB at 66.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.2/plexus-components-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-components/1.2/plexus-components-1.2.pom (3 KB at 129.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.pom (12 KB at 253.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/34/commons-parent-34.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/34/commons-parent-34.pom (55 KB at 1050.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.9/plexus-archiver-2.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.9/plexus-archiver-2.9.pom (5 KB at 185.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.4/plexus-io-2.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.4/plexus-io-2.4.pom (4 KB at 173.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.2/commons-io-2.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.2/commons-io-2.2.pom (11 KB at 449.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/24/commons-parent-24.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/24/commons-parent-24.pom (47 KB at 1073.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.6/maven-archiver-2.6.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.9/plexus-archiver-2.9.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.4/plexus-io-2.4.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.2/commons-io-2.2.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.6/maven-archiver-2.6.jar (23 KB at 209.9 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.4/plexus-io-2.4.jar (80 KB at 332.0 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.9/plexus-archiver-2.9.jar (142 KB at 550.3 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.2/commons-io-2.2.jar (170 KB at 612.0 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.9/commons-compress-1.9.jar (370 KB at 1003.7 KB/sec)
+[INFO] Building jar: /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/pgjdbc-benchmark-9.4.1209-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.2:shade (default) @ pgjdbc-benchmark ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom (3 KB at 77.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.0/maven-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.0/maven-3.0.pom (22 KB at 628.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.0/maven-model-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.0/maven-model-3.0.pom (4 KB at 118.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom (4 KB at 130.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom (2 KB at 85.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom (6 KB at 149.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom (4 KB at 113.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom (3 KB at 106.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom (2 KB at 38.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom (8 KB at 292.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom (4 KB at 86.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom (6 KB at 42.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom (11 KB at 432.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.0/maven-core-3.0.pom (7 KB at 269.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom (2 KB at 83.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom (3 KB at 90.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom (2 KB at 85.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom (3 KB at 39.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom (3 KB at 104.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom (2 KB at 77.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom (8 KB at 228.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom (3 KB at 80.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom (4 KB at 88.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom (2 KB at 56.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-compat/3.0/maven-compat-3.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-compat/3.0/maven-compat-3.0.pom (4 KB at 163.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/1.0-beta-6/wagon-provider-api-1.0-beta-6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/1.0-beta-6/wagon-provider-api-1.0-beta-6.pom (2 KB at 68.8 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/1.0-beta-6/wagon-1.0-beta-6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/1.0-beta-6/wagon-1.0-beta-6.pom (13 KB at 390.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.4.2/plexus-utils-1.4.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.4.2/plexus-utils-1.4.2.pom (2 KB at 61.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm/3.3.1/asm-3.3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm/3.3.1/asm-3.3.1.pom (266 B at 9.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-parent/3.3.1/asm-parent-3.3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-parent/3.3.1/asm-parent-3.3.1.pom (5 KB at 145.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.pom (417 B at 13.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-tree/3.3.1/asm-tree-3.3.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-tree/3.3.1/asm-tree-3.3.1.pom (406 B at 12.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom/1.1/jdom-1.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom/1.1/jdom-1.1.pom (3 KB at 79.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.pom (8 KB at 283.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2.pom (10 KB at 243.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/3/commons-parent-3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/3/commons-parent-3.pom (12 KB at 411.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm/3.2/asm-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm/3.2/asm-3.2.pom (264 B at 12.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-parent/3.2/asm-parent-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-parent/3.2/asm-parent-3.2.pom (5 KB at 177.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-analysis/3.2/asm-analysis-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-analysis/3.2/asm-analysis-3.2.pom (417 B at 18.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-tree/3.2/asm-tree-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-tree/3.2/asm-tree-3.2.pom (404 B at 15.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-commons/3.2/asm-commons-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-commons/3.2/asm-commons-3.2.pom (415 B at 17.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-util/3.2/asm-util-3.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-util/3.2/asm-util-3.2.pom (409 B at 16.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.pom (6 KB at 232.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/11.0.2/guava-parent-11.0.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/11.0.2/guava-parent-11.0.2.pom (2 KB at 79.7 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom (965 B at 36.2 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm/3.3.1/asm-3.3.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm/3.3.1/asm-3.3.1.jar (43 KB at 216.0 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar (106 KB at 413.4 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-tree/3.3.1/asm-tree-3.3.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-commons/3.3.1/asm-commons-3.3.1.jar (38 KB at 160.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/jdom/jdom/1.1/jdom-1.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-tree/3.3.1/asm-tree-3.3.1.jar (22 KB at 72.9 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar (150 KB at 411.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/vafer/jdependency/0.7/jdependency-0.7.jar (12 KB at 33.5 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-analysis/3.2/asm-analysis-3.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-analysis/3.2/asm-analysis-3.2.jar (18 KB at 43.6 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/asm/asm-util/3.2/asm-util-3.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar (86 KB at 200.3 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/asm/asm-util/3.2/asm-util-3.2.jar (36 KB at 74.1 KB/sec)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.jar (234 KB at 468.6 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/jdom/jdom/1.1/jdom-1.1.jar (150 KB at 305.8 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar (33 KB at 60.9 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar (461 KB at 714.2 KB/sec)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.jar (1610 KB at 1116.2 KB/sec)
+[INFO] Including org.openjdk.jmh:jmh-core:jar:1.11.2 in the shaded jar.
+[INFO] Including net.sf.jopt-simple:jopt-simple:jar:4.6 in the shaded jar.
+[INFO] Including org.apache.commons:commons-math3:jar:3.2 in the shaded jar.
+[INFO] Including org.postgresql:postgresql:jar:9.4.1209-SNAPSHOT in the shaded jar.
+[INFO] Replacing /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/benchmarks.jar with /home/travis/build/pgjdbc/pgjdbc/ubenchmark/target/pgjdbc-benchmark-9.4.1209-SNAPSHOT-shaded.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PostgreSQL JDBC Driver aggregate 9.4.1209-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ pgjdbc-aggregate ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (create-unzipjdkant.xml) @ pgjdbc-aggregate ---
+[INFO] Executing tasks
+
+main:
+     [echo] Generating /home/travis/build/pgjdbc/pgjdbc/target/unzip-jdk-ant.xml
+[INFO] Executed tasks
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] PostgreSQL JDBC Driver - JDBC 4.2 .................. SUCCESS [02:38 min]
+[INFO] PostgreSQL JDBC Driver - benchmarks ................ SUCCESS [ 15.730 s]
+[INFO] PostgreSQL JDBC Driver aggregate ................... SUCCESS [  0.040 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:56 min
+[INFO] Finished at: 2016-03-22T09:52:17+00:00
+[INFO] Final Memory: 39M/857M
+[INFO] ------------------------------------------------------------------------
++[[ '' == \Y ]]
+
+travis_time:end:0fc793bf:start=1458640158696004465,finish=1458640339890403758,duration=181194399293[0K
+[32;1mThe command "./travis_build.sh" exited with 0.[0m
+travis_fold:start:before_cache[0Ktravis_time:start:0d6a1021[0K$ rm -rf $HOME/.m2/repository/org/postgresql
+
+travis_time:end:0d6a1021:start=1458640339894983463,finish=1458640339899961639,duration=4978176[0Ktravis_fold:end:before_cache[0Ktravis_fold:start:cache.2[0Kstore build cache
+travis_time:start:2c7ac10b[0K
+travis_time:end:2c7ac10b:start=1458640339904971506,finish=1458640339908437297,duration=3465791[0Ktravis_time:start:01402dba[0K[32;1mchange detected:
+/home/travis/.m2/repository/asm/asm/3.2/asm-3.2.pom
+/home/travis/.m2/repository/asm/asm/3.2/asm-3.2.pom.sha1
+/home/travis/.m2/repository/asm/asm/3.2/_remote.repositories
+/home/travis/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar
+/home/travis/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar.sha1
+/home/travis/.m2/repository/asm/asm/3.3.1/asm-3.3.1.pom
+/home/travis/.m2/repository/asm/asm/3.3.1/asm-3.3.1.pom.sha1
+/home/travis/.m2/repository/asm/asm/3.3.1/_remote.repositories
+/home/travis/.m2/repository/asm/asm-analysis/3.2/asm-analysis-3.2.jar
+/home/travis/.m2/repository/asm/asm-analysis/3.2/asm-analysis-3.2.jar.sha1
+/home/travis/.m2/repository/asm/asm-analysis/3.2/asm-analysis-3.2.pom
+/home/travis/.m2/repository/asm/asm-analysis/3.2/asm-analysis-3.2.pom.sha1
+/home/travis/.m2/repository/asm/asm-analysis/3.2/_remote.repositories
+/home/travis/.m2/repository/asm/asm-commons/3.2/asm-commons-3.2.pom
+/home/travis/.m2/repository/asm/asm-commons/3.2/asm-commons-3.2.pom.sha1
+/home/travis/.m2/repository/asm/a
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+[32;1muploading archive[0m
+
+travis_time:end:01402dba:start=1458640339912201123,finish=1458640344220636913,duration=4308435790[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:0908df8a[0K$ test $TRAVIS_PULL_REQUEST == 'false' && test $TRAVIS_BRANCH == 'master' && test $PG_VERSION == '9.4' && ./travis_deploy.sh
+
+travis_time:end:0908df8a:start=1458640344226548396,finish=1458640344230471303,duration=3922907[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

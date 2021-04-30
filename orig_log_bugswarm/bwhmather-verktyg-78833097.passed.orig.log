@@ -1,0 +1,655 @@
+Using worker: worker-linux-docker-680a7481.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:18910920[0K$ git clone --depth=50 --branch=master git://github.com/bwhmather/verktyg.git bwhmather/verktyg
+Cloning into 'bwhmather/verktyg'...
+remote: Counting objects: 1070, done.[K
+remote: Compressing objects:   0% (1/336)   [Kremote: Compressing objects:   1% (4/336)   [Kremote: Compressing objects:   2% (7/336)   [Kremote: Compressing objects:   3% (11/336)   [Kremote: Compressing objects:   4% (14/336)   [Kremote: Compressing objects:   5% (17/336)   [Kremote: Compressing objects:   6% (21/336)   [Kremote: Compressing objects:   7% (24/336)   [Kremote: Compressing objects:   8% (27/336)   [Kremote: Compressing objects:   9% (31/336)   [Kremote: Compressing objects:  10% (34/336)   [Kremote: Compressing objects:  11% (37/336)   [Kremote: Compressing objects:  12% (41/336)   [Kremote: Compressing objects:  13% (44/336)   [Kremote: Compressing objects:  14% (48/336)   [Kremote: Compressing objects:  15% (51/336)   [Kremote: Compressing objects:  16% (54/336)   [Kremote: Compressing objects:  17% (58/336)   [Kremote: Compressing objects:  18% (61/336)   [Kremote: Compressing objects:  19% (64/336)   [Kremote: Compressing objects:  20% (68/336)   [Kremote: Compressing objects:  21% (71/336)   [Kremote: Compressing objects:  22% (74/336)   [Kremote: Compressing objects:  23% (78/336)   [Kremote: Compressing objects:  24% (81/336)   [Kremote: Compressing objects:  25% (84/336)   [Kremote: Compressing objects:  26% (88/336)   [Kremote: Compressing objects:  27% (91/336)   [Kremote: Compressing objects:  28% (95/336)   [Kremote: Compressing objects:  29% (98/336)   [Kremote: Compressing objects:  30% (101/336)   [Kremote: Compressing objects:  31% (105/336)   [Kremote: Compressing objects:  32% (108/336)   [Kremote: Compressing objects:  33% (111/336)   [Kremote: Compressing objects:  34% (115/336)   [Kremote: Compressing objects:  35% (118/336)   [Kremote: Compressing objects:  36% (121/336)   [Kremote: Compressing objects:  37% (125/336)   [Kremote: Compressing objects:  38% (128/336)   [Kremote: Compressing objects:  39% (132/336)   [Kremote: Compressing objects:  40% (135/336)   [Kremote: Compressing objects:  41% (138/336)   [Kremote: Compressing objects:  42% (142/336)   [Kremote: Compressing objects:  43% (145/336)   [Kremote: Compressing objects:  44% (148/336)   [Kremote: Compressing objects:  45% (152/336)   [Kremote: Compressing objects:  46% (155/336)   [Kremote: Compressing objects:  47% (158/336)   [Kremote: Compressing objects:  48% (162/336)   [Kremote: Compressing objects:  49% (165/336)   [Kremote: Compressing objects:  50% (168/336)   [Kremote: Compressing objects:  51% (172/336)   [Kremote: Compressing objects:  52% (175/336)   [Kremote: Compressing objects:  53% (179/336)   [Kremote: Compressing objects:  54% (182/336)   [Kremote: Compressing objects:  55% (185/336)   [Kremote: Compressing objects:  56% (189/336)   [Kremote: Compressing objects:  57% (192/336)   [Kremote: Compressing objects:  58% (195/336)   [Kremote: Compressing objects:  59% (199/336)   [Kremote: Compressing objects:  60% (202/336)   [Kremote: Compressing objects:  61% (205/336)   [Kremote: Compressing objects:  62% (209/336)   [Kremote: Compressing objects:  63% (212/336)   [Kremote: Compressing objects:  64% (216/336)   [Kremote: Compressing objects:  65% (219/336)   [Kremote: Compressing objects:  66% (222/336)   [Kremote: Compressing objects:  67% (226/336)   [Kremote: Compressing objects:  68% (229/336)   [Kremote: Compressing objects:  69% (232/336)   [Kremote: Compressing objects:  70% (236/336)   [Kremote: Compressing objects:  71% (239/336)   [Kremote: Compressing objects:  72% (242/336)   [Kremote: Compressing objects:  73% (246/336)   [Kremote: Compressing objects:  74% (249/336)   [Kremote: Compressing objects:  75% (252/336)   [Kremote: Compressing objects:  76% (256/336)   [Kremote: Compressing objects:  77% (259/336)   [Kremote: Compressing objects:  78% (263/336)   [Kremote: Compressing objects:  79% (266/336)   [Kremote: Compressing objects:  80% (269/336)   [Kremote: Compressing objects:  81% (273/336)   [Kremote: Compressing objects:  82% (276/336)   [Kremote: Compressing objects:  83% (279/336)   [Kremote: Compressing objects:  84% (283/336)   [Kremote: Compressing objects:  85% (286/336)   [Kremote: Compressing objects:  86% (289/336)   [Kremote: Compressing objects:  87% (293/336)   [Kremote: Compressing objects:  88% (296/336)   [Kremote: Compressing objects:  89% (300/336)   [Kremote: Compressing objects:  90% (303/336)   [Kremote: Compressing objects:  91% (306/336)   [Kremote: Compressing objects:  92% (310/336)   [Kremote: Compressing objects:  93% (313/336)   [Kremote: Compressing objects:  94% (316/336)   [Kremote: Compressing objects:  95% (320/336)   [Kremote: Compressing objects:  96% (323/336)   [Kremote: Compressing objects:  97% (326/336)   [Kremote: Compressing objects:  98% (330/336)   [Kremote: Compressing objects:  99% (333/336)   [Kremote: Compressing objects: 100% (336/336)   [Kremote: Compressing objects: 100% (336/336), done.[K
+Receiving objects:   0% (1/1070)   Receiving objects:   1% (11/1070)   Receiving objects:   2% (22/1070)   Receiving objects:   3% (33/1070)   Receiving objects:   4% (43/1070)   Receiving objects:   5% (54/1070)   Receiving objects:   6% (65/1070)   Receiving objects:   7% (75/1070)   Receiving objects:   8% (86/1070)   Receiving objects:   9% (97/1070)   Receiving objects:  10% (107/1070)   Receiving objects:  11% (118/1070)   Receiving objects:  12% (129/1070)   Receiving objects:  13% (140/1070)   Receiving objects:  14% (150/1070)   Receiving objects:  15% (161/1070)   Receiving objects:  16% (172/1070)   Receiving objects:  17% (182/1070)   Receiving objects:  18% (193/1070)   Receiving objects:  19% (204/1070)   Receiving objects:  20% (214/1070)   Receiving objects:  21% (225/1070)   Receiving objects:  22% (236/1070)   Receiving objects:  23% (247/1070)   Receiving objects:  24% (257/1070)   Receiving objects:  25% (268/1070)   Receiving objects:  26% (279/1070)   Receiving objects:  27% (289/1070)   Receiving objects:  28% (300/1070)   Receiving objects:  29% (311/1070)   Receiving objects:  30% (321/1070)   Receiving objects:  31% (332/1070)   Receiving objects:  32% (343/1070)   Receiving objects:  33% (354/1070)   Receiving objects:  34% (364/1070)   Receiving objects:  35% (375/1070)   Receiving objects:  36% (386/1070)   Receiving objects:  37% (396/1070)   Receiving objects:  38% (407/1070)   Receiving objects:  39% (418/1070)   Receiving objects:  40% (428/1070)   Receiving objects:  41% (439/1070)   Receiving objects:  42% (450/1070)   Receiving objects:  43% (461/1070)   Receiving objects:  44% (471/1070)   Receiving objects:  45% (482/1070)   Receiving objects:  46% (493/1070)   Receiving objects:  47% (503/1070)   Receiving objects:  48% (514/1070)   Receiving objects:  49% (525/1070)   Receiving objects:  50% (535/1070)   Receiving objects:  51% (546/1070)   Receiving objects:  52% (557/1070)   Receiving objects:  53% (568/1070)   Receiving objects:  54% (578/1070)   Receiving objects:  55% (589/1070)   Receiving objects:  56% (600/1070)   Receiving objects:  57% (610/1070)   Receiving objects:  58% (621/1070)   Receiving objects:  59% (632/1070)   Receiving objects:  60% (642/1070)   Receiving objects:  61% (653/1070)   Receiving objects:  62% (664/1070)   Receiving objects:  63% (675/1070)   Receiving objects:  64% (685/1070)   Receiving objects:  65% (696/1070)   Receiving objects:  66% (707/1070)   Receiving objects:  67% (717/1070)   Receiving objects:  68% (728/1070)   Receiving objects:  69% (739/1070)   Receiving objects:  70% (749/1070)   Receiving objects:  71% (760/1070)   Receiving objects:  72% (771/1070)   Receiving objects:  73% (782/1070)   Receiving objects:  74% (792/1070)   Receiving objects:  75% (803/1070)   Receiving objects:  76% (814/1070)   Receiving objects:  77% (824/1070)   Receiving objects:  78% (835/1070)   Receiving objects:  79% (846/1070)   Receiving objects:  80% (856/1070)   Receiving objects:  81% (867/1070)   Receiving objects:  82% (878/1070)   Receiving objects:  83% (889/1070)   Receiving objects:  84% (899/1070)   Receiving objects:  85% (910/1070)   Receiving objects:  86% (921/1070)   Receiving objects:  87% (931/1070)   Receiving objects:  88% (942/1070)   Receiving objects:  89% (953/1070)   remote: Total 1070 (delta 771), reused 1016 (delta 727), pack-reused 0[K
+Receiving objects:  90% (963/1070)   Receiving objects:  91% (974/1070)   Receiving objects:  92% (985/1070)   Receiving objects:  93% (996/1070)   Receiving objects:  94% (1006/1070)   Receiving objects:  95% (1017/1070)   Receiving objects:  96% (1028/1070)   Receiving objects:  97% (1038/1070)   Receiving objects:  98% (1049/1070)   Receiving objects:  99% (1060/1070)   Receiving objects: 100% (1070/1070)   Receiving objects: 100% (1070/1070), 331.97 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/771)   Resolving deltas:   1% (8/771)   Resolving deltas:   2% (16/771)   Resolving deltas:   3% (25/771)   Resolving deltas:  17% (134/771)   Resolving deltas:  18% (140/771)   Resolving deltas:  19% (150/771)   Resolving deltas:  21% (165/771)   Resolving deltas:  25% (193/771)   Resolving deltas:  31% (241/771)   Resolving deltas:  32% (252/771)   Resolving deltas:  34% (267/771)   Resolving deltas:  35% (271/771)   Resolving deltas:  36% (280/771)   Resolving deltas:  37% (290/771)   Resolving deltas:  39% (308/771)   Resolving deltas:  41% (319/771)   Resolving deltas:  42% (326/771)   Resolving deltas:  44% (341/771)   Resolving deltas:  49% (381/771)   Resolving deltas:  50% (393/771)   Resolving deltas:  51% (397/771)   Resolving deltas:  54% (420/771)   Resolving deltas:  55% (430/771)   Resolving deltas:  56% (432/771)   Resolving deltas:  57% (445/771)   Resolving deltas:  58% (450/771)   Resolving deltas:  59% (460/771)   Resolving deltas:  60% (463/771)   Resolving deltas:  61% (476/771)   Resolving deltas:  63% (487/771)   Resolving deltas:  64% (494/771)   Resolving deltas:  66% (515/771)   Resolving deltas:  67% (521/771)   Resolving deltas:  68% (528/771)   Resolving deltas:  74% (578/771)   Resolving deltas:  75% (579/771)   Resolving deltas:  77% (596/771)   Resolving deltas:  78% (604/771)   Resolving deltas:  79% (612/771)   Resolving deltas:  80% (620/771)   Resolving deltas:  81% (628/771)   Resolving deltas:  82% (638/771)   Resolving deltas:  86% (669/771)   Resolving deltas:  88% (683/771)   Resolving deltas:  89% (687/771)   Resolving deltas:  93% (721/771)   Resolving deltas:  94% (728/771)   Resolving deltas:  95% (737/771)   Resolving deltas:  97% (753/771)   Resolving deltas:  98% (761/771)   Resolving deltas:  99% (768/771)   Resolving deltas: 100% (771/771)   Resolving deltas: 100% (771/771), done.
+Checking connectivity... done.
+travis_time:end:18910920:start=1441832718555015998,finish=1441832718728648289,duration=173632291[0K$ cd bwhmather/verktyg
+$ git checkout -qf 429e80e92e64422ff22c1ed55304b1cc30b57882
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_time:start:007c4508[0K$ source ~/virtualenv/python3.4/bin/activate
+travis_time:end:007c4508:start=1441832721813371760,finish=1441832721819118475,duration=5746715[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install.1[0Ktravis_time:start:2fa05eae[0K$ pip install -e .
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Obtaining file:///home/travis/build/bwhmather/verktyg
+Collecting werkzeug<0.11,>=0.10 (from verktyg==0.8.4)
+  Downloading Werkzeug-0.10.4-py2.py3-none-any.whl (293kB)
+[?25l[K    1% |                                | 4.1kB 26.5MB/s eta 0:00:01[K    2% |                                | 8.2kB 15.9MB/s eta 0:00:01[K    4% |#                               | 12kB 16.5MB/s eta 0:00:01[K    5% |#                               | 16kB 15.5MB/s eta 0:00:01[K    6% |##                              | 20kB 16.1MB/s eta 0:00:01[K    8% |##                              | 24kB 16.3MB/s eta 0:00:01[K    9% |###                             | 28kB 16.8MB/s eta 0:00:01[K    11% |###                             | 32kB 6.7MB/s eta 0:00:01[K    12% |####                            | 36kB 7.2MB/s eta 0:00:01[K    13% |####                            | 40kB 7.6MB/s eta 0:00:01[K    15% |####                            | 45kB 7.5MB/s eta 0:00:01[K    16% |#####                           | 49kB 7.5MB/s eta 0:00:01[K    18% |#####                           | 53kB 7.5MB/s eta 0:00:01[K    19% |######                          | 57kB 7.5MB/s eta 0:00:01[K    20% |######                          | 61kB 7.5MB/s eta 0:00:01[K    22% |#######                         | 65kB 7.4MB/s eta 0:00:01[K    23% |#######                         | 69kB 7.3MB/s eta 0:00:01[K    25% |########                        | 73kB 15.4MB/s eta 0:00:01[K    26% |########                        | 77kB 15.6MB/s eta 0:00:01[K    27% |########                        | 81kB 6.4MB/s eta 0:00:01[K    29% |#########                       | 86kB 6.4MB/s eta 0:00:01[K    30% |#########                       | 90kB 6.5MB/s eta 0:00:01[K    32% |##########                      | 94kB 6.5MB/s eta 0:00:01[K    33% |##########                      | 98kB 6.4MB/s eta 0:00:01[K    34% |###########                     | 102kB 6.4MB/s eta 0:00:01[K    36% |###########                     | 106kB 6.5MB/s eta 0:00:01[K    37% |############                    | 110kB 6.5MB/s eta 0:00:01[K    39% |############                    | 114kB 6.5MB/s eta 0:00:01[K    40% |############                    | 118kB 6.5MB/s eta 0:00:01[K    41% |#############                   | 122kB 16.2MB/s eta 0:00:01[K    43% |#############                   | 126kB 16.6MB/s eta 0:00:01[K    44% |##############                  | 131kB 16.3MB/s eta 0:00:01[K    46% |##############                  | 135kB 16.6MB/s eta 0:00:01[K    47% |###############                 | 139kB 17.4MB/s eta 0:00:01[K    48% |###############                 | 143kB 17.6MB/s eta 0:00:01[K    50% |################                | 147kB 17.2MB/s eta 0:00:01[K    51% |################                | 151kB 17.3MB/s eta 0:00:01[K    53% |################                | 155kB 18.2MB/s eta 0:00:01[K    54% |#################               | 159kB 18.2MB/s eta 0:00:01[K    55% |#################               | 163kB 17.6MB/s eta 0:00:01[K    57% |##################              | 167kB 17.6MB/s eta 0:00:01[K    58% |##################              | 172kB 18.2MB/s eta 0:00:01[K    60% |###################             | 176kB 18.1MB/s eta 0:00:01[K    61% |###################             | 180kB 11.1MB/s eta 0:00:01[K    62% |####################            | 184kB 11.0MB/s eta 0:00:01[K    64% |####################            | 188kB 11.2MB/s eta 0:00:01[K    65% |#####################           | 192kB 11.1MB/s eta 0:00:01[K    67% |#####################           | 196kB 10.7MB/s eta 0:00:01[K    68% |#####################           | 200kB 10.7MB/s eta 0:00:01[K    69% |######################          | 204kB 10.8MB/s eta 0:00:01[K    71% |######################          | 208kB 10.8MB/s eta 0:00:01[K    72% |#######################         | 212kB 10.5MB/s eta 0:00:01[K    74% |#######################         | 217kB 10.4MB/s eta 0:00:01[K    75% |########################        | 221kB 16.1MB/s eta 0:00:01[K    76% |########################        | 225kB 16.2MB/s eta 0:00:01[K    78% |#########################       | 229kB 15.9MB/s eta 0:00:01[K    79% |#########################       | 233kB 16.1MB/s eta 0:00:01[K    81% |#########################       | 237kB 16.9MB/s eta 0:00:01[K    82% |##########################      | 241kB 16.9MB/s eta 0:00:01[K    83% |##########################      | 245kB 16.6MB/s eta 0:00:01[K    85% |###########################     | 249kB 16.6MB/s eta 0:00:01[K    86% |###########################     | 253kB 17.3MB/s eta 0:00:01[K    88% |############################    | 258kB 17.3MB/s eta 0:00:01[K    89% |############################    | 262kB 16.8MB/s eta 0:00:01[K    90% |#############################   | 266kB 16.7MB/s eta 0:00:01[K    92% |#############################   | 270kB 17.0MB/s eta 0:00:01[K    93% |#############################   | 274kB 16.6MB/s eta 0:00:01[K    95% |##############################  | 278kB 15.9MB/s eta 0:00:01[K    96% |##############################  | 282kB 15.9MB/s eta 0:00:01[K    97% |############################### | 286kB 16.3MB/s eta 0:00:01[K    99% |############################### | 290kB 16.2MB/s eta 0:00:01[K    100% |################################| 294kB 1.2MB/s 
+[?25hInstalling collected packages: verktyg, werkzeug
+  Running setup.py develop for verktyg
+    Creating /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/verktyg.egg-link (link to .)
+    Adding verktyg 0.8.4 to easy-install.pth file
+    Installed /home/travis/build/bwhmather/verktyg
+
+Successfully installed verktyg werkzeug-0.10.4
+travis_time:end:2fa05eae:start=1441832722363447984,finish=1441832724035704867,duration=1672256883[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:06857200[0K$ pip install coveralls
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting coveralls
+  Downloading coveralls-0.5.zip
+Collecting PyYAML>=3.10 (from coveralls)
+  Downloading PyYAML-3.11.tar.gz (248kB)
+[?25l[K    1% |                                | 4.1kB 28.2MB/s eta 0:00:01[K    3% |#                               | 8.2kB 16.6MB/s eta 0:00:01[K    4% |#                               | 12kB 16.9MB/s eta 0:00:01[K    6% |##                              | 16kB 3.4MB/s eta 0:00:01[K    8% |##                              | 20kB 4.0MB/s eta 0:00:01[K    9% |###                             | 24kB 4.6MB/s eta 0:00:01[K    11% |###                             | 28kB 5.1MB/s eta 0:00:01[K    13% |####                            | 32kB 5.5MB/s eta 0:00:01[K    14% |####                            | 36kB 6.0MB/s eta 0:00:01[K    16% |#####                           | 40kB 6.4MB/s eta 0:00:01[K    18% |#####                           | 45kB 6.3MB/s eta 0:00:01[K    19% |######                          | 49kB 3.6MB/s eta 0:00:01[K    21% |######                          | 53kB 3.6MB/s eta 0:00:01[K    23% |#######                         | 57kB 5.5MB/s eta 0:00:01[K    24% |#######                         | 61kB 5.5MB/s eta 0:00:01[K    26% |########                        | 65kB 5.5MB/s eta 0:00:01[K    28% |########                        | 69kB 5.4MB/s eta 0:00:01[K    29% |#########                       | 73kB 5.5MB/s eta 0:00:01[K    31% |##########                      | 77kB 5.5MB/s eta 0:00:01[K    32% |##########                      | 81kB 5.4MB/s eta 0:00:01[K    34% |###########                     | 86kB 5.4MB/s eta 0:00:01[K    36% |###########                     | 90kB 15.5MB/s eta 0:00:01[K    37% |############                    | 94kB 15.9MB/s eta 0:00:01[K    39% |############                    | 98kB 15.5MB/s eta 0:00:01[K    41% |#############                   | 102kB 15.6MB/s eta 0:00:01[K    42% |#############                   | 106kB 16.3MB/s eta 0:00:01[K    44% |##############                  | 110kB 16.5MB/s eta 0:00:01[K    46% |##############                  | 114kB 7.7MB/s eta 0:00:01[K    47% |###############                 | 118kB 7.7MB/s eta 0:00:01[K    49% |###############                 | 122kB 7.8MB/s eta 0:00:01[K    51% |################                | 126kB 7.8MB/s eta 0:00:01[K    52% |################                | 131kB 7.6MB/s eta 0:00:01[K    54% |#################               | 135kB 7.6MB/s eta 0:00:01[K    56% |#################               | 139kB 7.7MB/s eta 0:00:01[K    57% |##################              | 143kB 7.7MB/s eta 0:00:01[K    59% |##################              | 147kB 7.6MB/s eta 0:00:01[K    60% |###################             | 151kB 7.6MB/s eta 0:00:01[K    62% |####################            | 155kB 15.9MB/s eta 0:00:01[K    64% |####################            | 159kB 16.0MB/s eta 0:00:01[K    65% |#####################           | 163kB 15.6MB/s eta 0:00:01[K    67% |#####################           | 167kB 15.6MB/s eta 0:00:01[K    69% |######################          | 172kB 16.3MB/s eta 0:00:01[K    70% |######################          | 176kB 16.4MB/s eta 0:00:01[K    72% |#######################         | 180kB 15.9MB/s eta 0:00:01[K    74% |#######################         | 184kB 15.9MB/s eta 0:00:01[K    75% |########################        | 188kB 16.6MB/s eta 0:00:01[K    77% |########################        | 192kB 16.6MB/s eta 0:00:01[K    79% |#########################       | 196kB 16.3MB/s eta 0:00:01[K    80% |#########################       | 200kB 16.4MB/s eta 0:00:01[K    82% |##########################      | 204kB 17.1MB/s eta 0:00:01[K    84% |##########################      | 208kB 17.4MB/s eta 0:00:01[K    85% |###########################     | 212kB 17.1MB/s eta 0:00:01[K    87% |###########################     | 217kB 17.3MB/s eta 0:00:01[K    88% |############################    | 221kB 17.7MB/s eta 0:00:01[K    90% |############################    | 225kB 17.7MB/s eta 0:00:01[K    92% |#############################   | 229kB 17.2MB/s eta 0:00:01[K    93% |##############################  | 233kB 17.1MB/s eta 0:00:01[K    95% |##############################  | 237kB 17.7MB/s eta 0:00:01[K    97% |############################### | 241kB 17.7MB/s eta 0:00:01[K    98% |############################### | 245kB 17.4MB/s eta 0:00:01[K    100% |################################| 249kB 1.4MB/s 
+[?25hCollecting docopt>=0.6.1 (from coveralls)
+  Downloading docopt-0.6.2.tar.gz
+Collecting coverage<3.999,>=3.6 (from coveralls)
+  Downloading coverage-3.7.1.tar.gz (284kB)
+[?25l[K    1% |                                | 4.1kB 33.8MB/s eta 0:00:01[K    2% |                                | 8.2kB 19.4MB/s eta 0:00:01[K    4% |#                               | 12kB 19.2MB/s eta 0:00:01[K    5% |#                               | 16kB 16.9MB/s eta 0:00:01[K    7% |##                              | 20kB 17.2MB/s eta 0:00:01[K    8% |##                              | 24kB 17.2MB/s eta 0:00:01[K    10% |###                             | 28kB 17.5MB/s eta 0:00:01[K    11% |###                             | 32kB 16.9MB/s eta 0:00:01[K    12% |####                            | 36kB 17.2MB/s eta 0:00:01[K    14% |####                            | 40kB 17.3MB/s eta 0:00:01[K    15% |#####                           | 45kB 16.7MB/s eta 0:00:01[K    17% |#####                           | 49kB 16.7MB/s eta 0:00:01[K    18% |#####                           | 53kB 16.5MB/s eta 0:00:01[K    20% |######                          | 57kB 17.2MB/s eta 0:00:01[K    21% |######                          | 61kB 17.1MB/s eta 0:00:01[K    23% |#######                         | 65kB 16.6MB/s eta 0:00:01[K    24% |#######                         | 69kB 16.7MB/s eta 0:00:01[K    25% |########                        | 73kB 17.2MB/s eta 0:00:01[K    27% |########                        | 77kB 17.2MB/s eta 0:00:01[K    28% |#########                       | 81kB 16.6MB/s eta 0:00:01[K    30% |#########                       | 86kB 16.5MB/s eta 0:00:01[K    31% |##########                      | 90kB 16.9MB/s eta 0:00:01[K    33% |##########                      | 94kB 17.1MB/s eta 0:00:01[K    34% |###########                     | 98kB 16.4MB/s eta 0:00:01[K    35% |###########                     | 102kB 16.6MB/s eta 0:00:01[K    37% |###########                     | 106kB 17.1MB/s eta 0:00:01[K    38% |############                    | 110kB 17.1MB/s eta 0:00:01[K    40% |############                    | 114kB 16.6MB/s eta 0:00:01[K    41% |#############                   | 118kB 16.6MB/s eta 0:00:01[K    43% |#############                   | 122kB 17.2MB/s eta 0:00:01[K    44% |##############                  | 126kB 17.3MB/s eta 0:00:01[K    46% |##############                  | 131kB 16.6MB/s eta 0:00:01[K    47% |###############                 | 135kB 16.5MB/s eta 0:00:01[K    48% |###############                 | 139kB 17.1MB/s eta 0:00:01[K    50% |################                | 143kB 17.0MB/s eta 0:00:01[K    51% |################                | 147kB 16.3MB/s eta 0:00:01[K    53% |#################               | 151kB 16.3MB/s eta 0:00:01[K    54% |#################               | 155kB 16.8MB/s eta 0:00:01[K    56% |#################               | 159kB 16.7MB/s eta 0:00:01[K    57% |##################              | 163kB 16.2MB/s eta 0:00:01[K    58% |##################              | 167kB 16.2MB/s eta 0:00:01[K    60% |###################             | 172kB 17.0MB/s eta 0:00:01[K    61% |###################             | 176kB 17.1MB/s eta 0:00:01[K    63% |####################            | 180kB 16.7MB/s eta 0:00:01[K    64% |####################            | 184kB 16.8MB/s eta 0:00:01[K    66% |#####################           | 188kB 17.5MB/s eta 0:00:01[K    67% |#####################           | 192kB 17.6MB/s eta 0:00:01[K    69% |######################          | 196kB 16.8MB/s eta 0:00:01[K    70% |######################          | 200kB 16.8MB/s eta 0:00:01[K    71% |#######################         | 204kB 17.3MB/s eta 0:00:01[K    73% |#######################         | 208kB 17.3MB/s eta 0:00:01[K    74% |#######################         | 212kB 16.8MB/s eta 0:00:01[K    76% |########################        | 217kB 16.8MB/s eta 0:00:01[K    77% |########################        | 221kB 17.4MB/s eta 0:00:01[K    79% |#########################       | 225kB 17.4MB/s eta 0:00:01[K    80% |#########################       | 229kB 16.9MB/s eta 0:00:01[K    81% |##########################      | 233kB 16.8MB/s eta 0:00:01[K    83% |##########################      | 237kB 17.6MB/s eta 0:00:01[K    84% |###########################     | 241kB 17.7MB/s eta 0:00:01[K    86% |###########################     | 245kB 17.2MB/s eta 0:00:01[K    87% |############################    | 249kB 17.2MB/s eta 0:00:01[K    89% |############################    | 253kB 17.8MB/s eta 0:00:01[K    90% |#############################   | 258kB 17.7MB/s eta 0:00:01[K    92% |#############################   | 262kB 16.4MB/s eta 0:00:01[K    93% |#############################   | 266kB 16.4MB/s eta 0:00:01[K    94% |##############################  | 270kB 16.9MB/s eta 0:00:01[K    96% |##############################  | 274kB 16.9MB/s eta 0:00:01[K    97% |############################### | 278kB 16.6MB/s eta 0:00:01[K    99% |############################### | 282kB 16.6MB/s eta 0:00:01[K    100% |################################| 286kB 1.3MB/s 
+[?25hCollecting requests>=1.0.0 (from coveralls)
+  Downloading requests-2.7.0-py2.py3-none-any.whl (470kB)
+[?25l[K    0% |                                | 4.1kB 30.6MB/s eta 0:00:01[K    1% |                                | 8.2kB 18.1MB/s eta 0:00:01[K    2% |                                | 12kB 18.0MB/s eta 0:00:01[K    3% |#                               | 16kB 16.5MB/s eta 0:00:01[K    4% |#                               | 20kB 17.1MB/s eta 0:00:01[K    5% |#                               | 24kB 17.2MB/s eta 0:00:01[K    6% |#                               | 28kB 17.6MB/s eta 0:00:01[K    6% |##                              | 32kB 16.9MB/s eta 0:00:01[K    7% |##                              | 36kB 17.1MB/s eta 0:00:01[K    8% |##                              | 40kB 17.3MB/s eta 0:00:01[K    9% |###                             | 45kB 16.5MB/s eta 0:00:01[K    10% |###                             | 49kB 16.7MB/s eta 0:00:01[K    11% |###                             | 53kB 16.8MB/s eta 0:00:01[K    12% |###                             | 57kB 17.4MB/s eta 0:00:01[K    13% |####                            | 61kB 17.4MB/s eta 0:00:01[K    13% |####                            | 65kB 16.9MB/s eta 0:00:01[K    14% |####                            | 69kB 16.9MB/s eta 0:00:01[K    15% |#####                           | 73kB 17.5MB/s eta 0:00:01[K    16% |#####                           | 77kB 17.4MB/s eta 0:00:01[K    17% |#####                           | 81kB 16.5MB/s eta 0:00:01[K    18% |#####                           | 86kB 16.6MB/s eta 0:00:01[K    19% |######                          | 90kB 17.0MB/s eta 0:00:01[K    20% |######                          | 94kB 17.0MB/s eta 0:00:01[K    20% |######                          | 98kB 16.4MB/s eta 0:00:01[K    21% |######                          | 102kB 16.3MB/s eta 0:00:01[K    22% |#######                         | 106kB 16.8MB/s eta 0:00:01[K    23% |#######                         | 110kB 16.5MB/s eta 0:00:01[K    24% |#######                         | 114kB 15.8MB/s eta 0:00:01[K    25% |########                        | 118kB 15.9MB/s eta 0:00:01[K    26% |########                        | 122kB 16.7MB/s eta 0:00:01[K    26% |########                        | 126kB 16.8MB/s eta 0:00:01[K    27% |########                        | 131kB 16.1MB/s eta 0:00:01[K    28% |#########                       | 135kB 16.1MB/s eta 0:00:01[K    29% |#########                       | 139kB 16.7MB/s eta 0:00:01[K    30% |#########                       | 143kB 16.8MB/s eta 0:00:01[K    31% |##########                      | 147kB 16.2MB/s eta 0:00:01[K    32% |##########                      | 151kB 16.4MB/s eta 0:00:01[K    33% |##########                      | 155kB 17.3MB/s eta 0:00:01[K    33% |##########                      | 159kB 17.3MB/s eta 0:00:01[K    34% |###########                     | 163kB 16.8MB/s eta 0:00:01[K    35% |###########                     | 167kB 16.8MB/s eta 0:00:01[K    36% |###########                     | 172kB 17.7MB/s eta 0:00:01[K    37% |###########                     | 176kB 17.7MB/s eta 0:00:01[K    38% |############                    | 180kB 16.9MB/s eta 0:00:01[K    39% |############                    | 184kB 16.9MB/s eta 0:00:01[K    40% |############                    | 188kB 17.7MB/s eta 0:00:01[K    40% |#############                   | 192kB 17.7MB/s eta 0:00:01[K    41% |#############                   | 196kB 17.1MB/s eta 0:00:01[K    42% |#############                   | 200kB 17.1MB/s eta 0:00:01[K    43% |#############                   | 204kB 17.6MB/s eta 0:00:01[K    44% |##############                  | 208kB 17.6MB/s eta 0:00:01[K    45% |##############                  | 212kB 17.1MB/s eta 0:00:01[K    46% |##############                  | 217kB 17.1MB/s eta 0:00:01[K    46% |###############                 | 221kB 17.9MB/s eta 0:00:01[K    47% |###############                 | 225kB 17.9MB/s eta 0:00:01[K    48% |###############                 | 229kB 17.3MB/s eta 0:00:01[K    49% |###############                 | 233kB 17.3MB/s eta 0:00:01[K    50% |################                | 237kB 17.9MB/s eta 0:00:01[K    51% |################                | 241kB 18.0MB/s eta 0:00:01[K    52% |################                | 245kB 17.3MB/s eta 0:00:01[K    53% |################                | 249kB 17.2MB/s eta 0:00:01[K    53% |#################               | 253kB 17.7MB/s eta 0:00:01[K    54% |#################               | 258kB 17.8MB/s eta 0:00:01[K    55% |#################               | 262kB 17.2MB/s eta 0:00:01[K    56% |##################              | 266kB 17.2MB/s eta 0:00:01[K    57% |##################              | 270kB 17.7MB/s eta 0:00:01[K    58% |##################              | 274kB 17.7MB/s eta 0:00:01[K    59% |##################              | 278kB 17.2MB/s eta 0:00:01[K    60% |###################             | 282kB 17.1MB/s eta 0:00:01[K    60% |###################             | 286kB 17.8MB/s eta 0:00:01[K    61% |###################             | 290kB 17.9MB/s eta 0:00:01[K    62% |####################            | 294kB 17.4MB/s eta 0:00:01[K    63% |####################            | 299kB 17.4MB/s eta 0:00:01[K    64% |####################            | 303kB 18.0MB/s eta 0:00:01[K    65% |####################            | 307kB 18.1MB/s eta 0:00:01[K    66% |#####################           | 311kB 17.4MB/s eta 0:00:01[K    67% |#####################           | 315kB 17.4MB/s eta 0:00:01[K    67% |#####################           | 319kB 17.7MB/s eta 0:00:01[K    68% |######################          | 323kB 17.8MB/s eta 0:00:01[K    69% |######################          | 327kB 17.1MB/s eta 0:00:01[K    70% |######################          | 331kB 17.1MB/s eta 0:00:01[K    71% |######################          | 335kB 17.6MB/s eta 0:00:01[K    72% |#######################         | 339kB 17.7MB/s eta 0:00:01[K    73% |#######################         | 344kB 17.1MB/s eta 0:00:01[K    73% |#######################         | 348kB 17.1MB/s eta 0:00:01[K    74% |#######################         | 352kB 17.7MB/s eta 0:00:01[K    75% |########################        | 356kB 17.7MB/s eta 0:00:01[K    76% |########################        | 360kB 17.5MB/s eta 0:00:01[K    77% |########################        | 364kB 17.4MB/s eta 0:00:01[K    78% |#########################       | 368kB 18.1MB/s eta 0:00:01[K    79% |#########################       | 372kB 18.1MB/s eta 0:00:01[K    80% |#########################       | 376kB 17.5MB/s eta 0:00:01[K    80% |#########################       | 380kB 17.5MB/s eta 0:00:01[K    81% |##########################      | 385kB 18.1MB/s eta 0:00:01[K    82% |##########################      | 389kB 17.9MB/s eta 0:00:01[K    83% |##########################      | 393kB 17.3MB/s eta 0:00:01[K    84% |###########################     | 397kB 17.3MB/s eta 0:00:01[K    85% |###########################     | 401kB 17.9MB/s eta 0:00:01[K    86% |###########################     | 405kB 17.9MB/s eta 0:00:01[K    87% |###########################     | 409kB 17.4MB/s eta 0:00:01[K    87% |############################    | 413kB 17.4MB/s eta 0:00:01[K    88% |############################    | 417kB 17.9MB/s eta 0:00:01[K    89% |############################    | 421kB 17.9MB/s eta 0:00:01[K    90% |############################    | 425kB 17.3MB/s eta 0:00:01[K    91% |#############################   | 430kB 17.5MB/s eta 0:00:01[K    92% |#############################   | 434kB 18.1MB/s eta 0:00:01[K    93% |#############################   | 438kB 18.1MB/s eta 0:00:01[K    93% |##############################  | 442kB 17.6MB/s eta 0:00:01[K    94% |##############################  | 446kB 17.5MB/s eta 0:00:01[K    95% |##############################  | 450kB 18.1MB/s eta 0:00:01[K    96% |##############################  | 454kB 18.1MB/s eta 0:00:01[K    97% |############################### | 458kB 17.4MB/s eta 0:00:01[K    98% |############################### | 462kB 17.4MB/s eta 0:00:01[K    99% |############################### | 466kB 17.9MB/s eta 0:00:01[K    100% |################################| 471kB 819kB/s 
+[?25hInstalling collected packages: requests, coverage, docopt, PyYAML, coveralls
+
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/tracer.c -o build/temp.linux-x86_64-3.4/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+  Running setup.py install for docopt
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c build/temp.linux-x86_64-3.4/check_libyaml.c -o build/temp.linux-x86_64-3.4/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-3.4/check_libyaml.o -L/opt/python/3.4.2/lib -lyaml -o build/temp.linux-x86_64-3.4/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c ext/_yaml.c -o build/temp.linux-x86_64-3.4/ext/_yaml.o
+    In file included from ext/_yaml.c:343:0:
+    ext/_yaml.h:10:0: warning: "PyString_CheckExact" redefined [enabled by default]
+    ext/_yaml.c:184:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1346:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2471:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, int,  int *)’
+    ext/_yaml.c:2664:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4938:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:1276:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6737:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:1276:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:9532:3: warning: pointer targets in passing argument 1 of ‘PyUnicode_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:1276:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘PyUnicode_FromString’ differ in signedness [-Wpointer-sign]
+    /opt/python/3.4.2/include/python3.4m/unicodeobject.h:718:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:11721:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, int)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:12898:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12991:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:13248:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+    ext/_yaml.c:15784:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15877:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:16616:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/ext/_yaml.o -L/opt/python/3.4.2/lib -lyaml -lpython3.4m -o build/lib.linux-x86_64-3.4/_yaml.cpython-34m.so
+  Running setup.py install for coveralls
+    Installing coveralls script to /home/travis/virtualenv/python3.4.2/bin
+Successfully installed PyYAML-3.11 coverage-3.7.1 coveralls-0.5 docopt-0.6.2 requests-2.7.0
+travis_time:end:06857200:start=1441832724040880019,finish=1441832736762698175,duration=12721818156[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:02c2fa54[0K$ pip install pyflakes
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting pyflakes
+  Downloading pyflakes-0.9.2-py2.py3-none-any.whl
+Installing collected packages: pyflakes
+
+Successfully installed pyflakes-0.9.2
+travis_time:end:02c2fa54:start=1441832736767426691,finish=1441832737486547867,duration=719121176[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:068364cb[0K$ pip install pep8
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting pep8
+  Downloading pep8-1.6.2-py2.py3-none-any.whl (40kB)
+[?25l[K    10% |###                             | 4.1kB 33.5MB/s eta 0:00:01[K    20% |######                          | 8.2kB 19.9MB/s eta 0:00:01[K    30% |#########                       | 12kB 20.2MB/s eta 0:00:01[K    40% |############                    | 16kB 18.4MB/s eta 0:00:01[K    50% |################                | 20kB 18.9MB/s eta 0:00:01[K    60% |###################             | 24kB 19.1MB/s eta 0:00:01[K    70% |######################          | 28kB 19.5MB/s eta 0:00:01[K    80% |#########################       | 32kB 19.1MB/s eta 0:00:01[K    90% |#############################   | 36kB 19.2MB/s eta 0:00:01[K    100% |################################| 40kB 6.2MB/s 
+[?25hInstalling collected packages: pep8
+
+Successfully installed pep8-1.6.2
+travis_time:end:068364cb:start=1441832737491569445,finish=1441832738197125455,duration=705556010[0Ktravis_fold:end:install.4[0Ktravis_time:start:04b53be3[0K$ coverage run --source=verktyg setup.py test
+running test
+running egg_info
+writing dependency_links to verktyg.egg-info/dependency_links.txt
+writing verktyg.egg-info/PKG-INFO
+writing requirements to verktyg.egg-info/requires.txt
+writing top-level names to verktyg.egg-info/top_level.txt
+reading manifest file 'verktyg.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'verktyg.egg-info/SOURCES.txt'
+running build_ext
+test_append_slash_redirect (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_cached_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_cached_property_doc (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_can_set_cached_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_environ_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_html_builder (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_inspect_treats_cached_property_as_property (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_no_unicode_header_keys (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_with_custom_response_class (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_redirect_xss (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_secure_filename (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_validate_arguments (verktyg.testsuite.test_utils.UtilsTestCase) ... ok
+test_callback_dict_reads (verktyg.testsuite.test_datastructures.CallbackDictTestCase) ... ok
+test_callback_dict_writes (verktyg.testsuite.test_datastructures.CallbackDictTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.CombinedMultiDictTestCase) ... ok
+test_length (verktyg.testsuite.test_datastructures.CombinedMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableDictTestCase) ... ok
+test_list_hashable (verktyg.testsuite.test_datastructures.ImmutableListTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_multidict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_ordered_multidict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableOrderedMultiDictTestCase) ... ok
+test_copies_are_mutable (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_dict_is_hashable (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_follows_dict_interface (verktyg.testsuite.test_datastructures.ImmutableTypeConversionDictTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_iter_interfaces (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_multidict_pop (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_pickle (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_setlistdefault (verktyg.testsuite.test_datastructures.MultiDictTestCase) ... ok
+test_basic (verktyg.testsuite.test_datastructures.NativeItermethodsTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_iterables (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_ordered_interface (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_pickle (verktyg.testsuite.test_datastructures.OrderedMultiDictTestCase) ... ok
+test_aborter_custom (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_aborter_general (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_exception_repr (verktyg.testsuite.test_exceptions.ExceptionsTestCase) ... ok
+test_parse_authorization_header (verktyg.testsuite.test_http.AuthorizationTestCase) ... ok
+test_cache_control_header (verktyg.testsuite.test_http.CacheControlTestCase) ... ok
+test_repr (verktyg.testsuite.test_http.CacheControlTestCase) ... ok
+test_parse_content_range (verktyg.testsuite.test_http.ContentRangeTestCase) ... ok
+test_parse_etags (verktyg.testsuite.test_http.ETagsTestCase) ... ok
+test_cookie_domain_encoding (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_domain_resolving (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_quoting (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_dumping (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_keys (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookie_unicode_parsing (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_cookies (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_date_formatting (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dict_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dump_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_dump_options_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_etags_nonzero (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_is_resource_modified (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_list_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_date (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_date_overflows (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_parse_options_header (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_remove_entity_headers (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_remove_hop_by_hop_headers (verktyg.testsuite.test_http.HTTPUtilityTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_http.HeaderSetTestCase) ... ok
+test_parse_set_header (verktyg.testsuite.test_http.HeaderSetTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_bytes_operations (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_copying (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_defaults_and_conversion (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_header_set_duplication_bug (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_popping (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_reject_newlines (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_set_arguments (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_slicing (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_to_wsgi_list (verktyg.testsuite.test_http.HeadersTestCase) ... ok
+test_parse_if_range_header (verktyg.testsuite.test_http.IfRangeTestCase) ... ok
+test_parse_range (verktyg.testsuite.test_http.RangeTestCase) ... ok
+test_parse_www_authenticate_header (verktyg.testsuite.test_http.WWWAuthenticateTestCase) ... ok
+test_match (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_parse (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_parse_accept_q (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_serialize (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_serialize_accept (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_serialize_accept_with_q (verktyg.testsuite.test_http_accept.CharsetTestCase) ... ok
+test_match (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_match_subtype_wildcard (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse_accept_case (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse_accept_invalid_params (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_serialize (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_serialize_accept (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_serialize_accept_q_before_params (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_http_accept.ContentTypeTestCase) ... ok
+test_match (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_match_basic (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_match_partial (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_match_quality (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_match_wildcard (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_parse (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_parse_accept_basic (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_parse_accept_multiple (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_parse_accept_params (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_parse_accept_q (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_serialize (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_serialize_accept_multiple (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_serialize_accept_redundant_q (verktyg.testsuite.test_http_accept.LanguageTestCase) ... ok
+test_basic_interface (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_bytes_operations (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_return_type_is_unicode (verktyg.testsuite.test_wsgi.EnvironHeadersTestCase) ... ok
+test_dispatchermiddleware (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_current_url_unicode (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_fallback (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_multiple_forwarded (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_get_host_validation (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_iter_functions_support_iterators (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_limited_stream (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_limited_stream_disconnection (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_lines_longer_buffer_size (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_make_chunk_iter (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_make_chunk_iter_bytes (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks_bytes (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_multi_part_line_breaks_problematic (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_path_info_and_script_name_fetching (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_path_info_extraction (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_peek_path_info (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_pop_path_info (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_query_string_fetching (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_responder (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_shared_data_middleware (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_shareddatamiddleware_get_file_loader (verktyg.testsuite.test_wsgi.WsgiTestCase) ... ok
+test_access_route (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_authorization_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_base_request (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_common_request_descriptors_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_data_descriptor_triggers_parsing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_etag_request_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_file_closing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_file_closing_with (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_form_data_ordering (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_form_parsing_failed (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_get_data_method_parsing_caching_behavior (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_modified_url_encoding (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_other_method_payload (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_query_string_is_bytes (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_method_case_sensitivity (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_mimetype_always_lowercase (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_request_repr (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_shallow_mode (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_storage_classes (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_stream_only_mixing (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_stream_wrapping (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_charset_reflection (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors_hosts (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_url_request_descriptors_query_quoting (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_user_agent_mixin (verktyg.testsuite.test_requests.RequestsTestCase) ... ok
+test_authenticate_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_authenticate_mixin_quoted_qop (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_auto_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_base_response (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_common_response_descriptors_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_disabled_auto_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_etag_response_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_etag_response_mixin_freezing (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_location_header_autocorrect (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_new_response_iterator_behavior (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_ranges (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_304_no_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_freeze (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_headers_passthrough (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_iter_wrapping (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_status_codes (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_stream_mixin (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_response_streamed (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_stream_content_length (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_type_forcing (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_urlfication (verktyg.testsuite.test_responses.ResponsesTestCase) ... ok
+test_adapter_match_return_route (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_adapter_url_parameter_sorting (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_alias_redirects (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_basic_building (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_basic_routing (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_build_append_unknown (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_complex_routing_routes (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_converter_parser (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_default_converters (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_double_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_environ_defaults (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_environ_nonascii_pathinfo (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port_bind_to_environ (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_external_building_with_port_bind_to_environ_bad_servername (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_greedy (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_host_matching (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_http_host_before_server_name (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_map_repr (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_non_string_parts (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_path (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_protocol_joining_bug (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_redirect_path_quoting (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_direct_charset_bug (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_redirect_default (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_request_redirect_default_subdomain (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_route_templates (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_server_name_casing (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_server_name_interpolation (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_unicode_routes (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_uuid_converter (verktyg.testsuite.test_routing.RoutingTestCase) ... ok
+test_accept_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_head_fallback (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_method_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_method_override (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_name_dispatch (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_nested (verktyg.testsuite.test_dispatch.DispatchTestCase) ... ok
+test_content_type_dispatch (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_not_acceptable (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_select_representation (verktyg.testsuite.test_accept.RepresentationTestCase) ... ok
+test_class_view (verktyg.testsuite.test_views.ViewsTestCase) ... ok
+test_decorators (verktyg.testsuite.test_views.ViewsTestCase) ... ok
+test_basic (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_close_request (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_exception_content_type (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_exception_handlers (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+test_middleware (verktyg.testsuite.test_application.ApplicationTestCase) ... ok
+
+----------------------------------------------------------------------
+Ran 248 tests in 0.344s
+
+OK
+travis_time:end:04b53be3:start=1441832738204785119,finish=1441832739394524434,duration=1189739315[0K
+[32;1mThe command "coverage run --source=verktyg setup.py test" exited with 0.[0m
+travis_time:start:0e6e52a4[0K$ pep8 verktyg setup.py
+travis_time:end:0e6e52a4:start=1441832739399368735,finish=1441832742476517095,duration=3077148360[0K
+[32;1mThe command "pep8 verktyg setup.py" exited with 0.[0m
+travis_time:start:0494943c[0K$ pyflakes verktyg setup.py
+travis_time:end:0494943c:start=1441832742480464582,finish=1441832743047119351,duration=566654769[0K
+[32;1mThe command "pyflakes verktyg setup.py" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:0ddb25f0[0K$ coveralls
+Submitting coverage to coveralls.io...
+Coverage submitted!
+Job #223.1
+https://coveralls.io/jobs/8190360
+travis_time:end:0ddb25f0:start=1441832743051224143,finish=1441832745274736914,duration=2223512771[0Ktravis_fold:end:after_success[0Ktravis_fold:start:dpl.0[0Ktravis_time:start:0dc7d88b[0KFetching: dpl-1.8.2.gemFetching: dpl-1.8.2.gem ( 24%)Fetching: dpl-1.8.2.gem ( 49%)Fetching: dpl-1.8.2.gem ( 74%)Fetching: dpl-1.8.2.gem ( 99%)Fetching: dpl-1.8.2.gem (100%)Fetching: dpl-1.8.2.gem (100%)
+Successfully installed dpl-1.8.2
+1 gem installed
+travis_time:end:0dc7d88b:start=1441832745278465625,finish=1441832746943488078,duration=1665022453[0Ktravis_fold:end:dpl.0[0Ktravis_time:start:0e9717f4[0Ktravis_fold:start:dpl.1[33mInstalling deploy dependencies[0m
+sudo: must be setuid root
+--2015-09-09 21:05:47--  https://bootstrap.pypa.io/ez_setup.py
+Resolving bootstrap.pypa.io (bootstrap.pypa.io)... 199.27.76.175
+Connecting to bootstrap.pypa.io (bootstrap.pypa.io)|199.27.76.175|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11434 (11K) [text/x-python]
+Saving to: `STDOUT'
+
+ 0% [                                       ] 0           --.-K/s               0% [                                       ] 0           --.-K/s   in 0s      
+
+
+Cannot write to `-' (Success).
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting twine
+  Downloading twine-1.5.0-py2.py3-none-any.whl
+Collecting pkginfo (from twine)
+  Downloading pkginfo-1.2.1.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): requests in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from twine)
+Installing collected packages: pkginfo, twine
+  Running setup.py install for pkginfo
+    Installing pkginfo script to /home/travis/virtualenv/python3.4.2/bin
+
+Successfully installed pkginfo-1.2.1 twine-1.5.0
+
+travis_fold:end:dpl.1travis_fold:start:dpl.2[33mPreparing deploy[0m
+Authenticated as bwhmather-travis
+Saved working directory and index state WIP on (no branch): 429e80e Merge branch 'release/0.8.4'
+HEAD is now at 429e80e Merge branch 'release/0.8.4'
+
+travis_fold:end:dpl.2travis_fold:start:dpl.3[33mDeploying application[0m
+running sdist
+running egg_info
+creating verktyg.egg-info
+writing requirements to verktyg.egg-info/requires.txt
+writing top-level names to verktyg.egg-info/top_level.txt
+writing dependency_links to verktyg.egg-info/dependency_links.txt
+writing verktyg.egg-info/PKG-INFO
+writing manifest file 'verktyg.egg-info/SOURCES.txt'
+reading manifest file 'verktyg.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'verktyg.egg-info/SOURCES.txt'
+running check
+creating verktyg-0.8.4
+creating verktyg-0.8.4/verktyg
+creating verktyg-0.8.4/verktyg.egg-info
+creating verktyg-0.8.4/verktyg/http
+creating verktyg-0.8.4/verktyg/testsuite
+creating verktyg-0.8.4/verktyg/testsuite/resources
+making hard links in verktyg-0.8.4...
+hard linking LICENSE -> verktyg-0.8.4
+hard linking MANIFEST.in -> verktyg-0.8.4
+hard linking README.rst -> verktyg-0.8.4
+hard linking setup.py -> verktyg-0.8.4
+hard linking tox.ini -> verktyg-0.8.4
+hard linking verktyg/__init__.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/accept.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/application.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/datastructures.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/dispatch.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/exception_dispatch.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/exceptions.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/requests.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/responses.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/routing.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/test.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/utils.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/views.py -> verktyg-0.8.4/verktyg
+hard linking verktyg/wsgi.py -> verktyg-0.8.4/verktyg
+hard linking verktyg.egg-info/PKG-INFO -> verktyg-0.8.4/verktyg.egg-info
+hard linking verktyg.egg-info/SOURCES.txt -> verktyg-0.8.4/verktyg.egg-info
+hard linking verktyg.egg-info/dependency_links.txt -> verktyg-0.8.4/verktyg.egg-info
+hard linking verktyg.egg-info/requires.txt -> verktyg-0.8.4/verktyg.egg-info
+hard linking verktyg.egg-info/top_level.txt -> verktyg-0.8.4/verktyg.egg-info
+hard linking verktyg/http/__init__.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/http/accept.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/http/auth.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/http/basic.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/http/cache_control.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/http/cookies.py -> verktyg-0.8.4/verktyg/http
+hard linking verktyg/testsuite/__init__.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_accept.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_application.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_datastructures.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_dispatch.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_exceptions.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_http.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_http_accept.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_requests.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_responses.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_routing.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_utils.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_views.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/test_wsgi.py -> verktyg-0.8.4/verktyg/testsuite
+hard linking verktyg/testsuite/resources/test.txt -> verktyg-0.8.4/verktyg/testsuite/resources
+Writing verktyg-0.8.4/setup.cfg
+creating dist
+Creating tar archive
+removing 'verktyg-0.8.4' (and everything under it)
+Uploading distributions to https://pypi.python.org/pypi
+Uploading verktyg-0.8.4.tar.gz
+running upload_docs
+creating build
+creating build/docs
+error: no files found in upload directory 'build/docs'
+
+travis_fold:end:dpl.3verktyg.egg-info/PKG-INFO already exists, no checkout
+verktyg.egg-info/SOURCES.txt already exists, no checkout
+verktyg.egg-info/dependency_links.txt already exists, no checkout
+verktyg.egg-info/requires.txt already exists, no checkout
+verktyg.egg-info/top_level.txt already exists, no checkout
+Could not restore untracked files from stash
+travis_time:end:0e9717f4:start=1441832746947824741,finish=1441832783022479109,duration=36074654368[0K
+Done. Your build exited with 0.

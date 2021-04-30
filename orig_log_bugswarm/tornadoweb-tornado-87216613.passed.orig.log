@@ -1,0 +1,779 @@
+Using worker: worker-linux-docker-3a8925c3.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:09a06bae[0K$ git clone --depth=50 --branch=master https://github.com/tornadoweb/tornado.git tornadoweb/tornado
+Cloning into 'tornadoweb/tornado'...
+remote: Counting objects: 1339, done.[K
+remote: Compressing objects:   0% (1/758)   [Kremote: Compressing objects:   1% (8/758)   [Kremote: Compressing objects:   2% (16/758)   [Kremote: Compressing objects:   3% (23/758)   [Kremote: Compressing objects:   4% (31/758)   [Kremote: Compressing objects:   5% (38/758)   [Kremote: Compressing objects:   6% (46/758)   [Kremote: Compressing objects:   7% (54/758)   [Kremote: Compressing objects:   8% (61/758)   [Kremote: Compressing objects:   9% (69/758)   [Kremote: Compressing objects:  10% (76/758)   [Kremote: Compressing objects:  11% (84/758)   [Kremote: Compressing objects:  12% (91/758)   [Kremote: Compressing objects:  13% (99/758)   [Kremote: Compressing objects:  14% (107/758)   [Kremote: Compressing objects:  15% (114/758)   [Kremote: Compressing objects:  16% (122/758)   [Kremote: Compressing objects:  17% (129/758)   [Kremote: Compressing objects:  18% (137/758)   [Kremote: Compressing objects:  19% (145/758)   [Kremote: Compressing objects:  20% (152/758)   [Kremote: Compressing objects:  21% (160/758)   [Kremote: Compressing objects:  22% (167/758)   [Kremote: Compressing objects:  23% (175/758)   [Kremote: Compressing objects:  24% (182/758)   [Kremote: Compressing objects:  25% (190/758)   [Kremote: Compressing objects:  26% (198/758)   [Kremote: Compressing objects:  27% (205/758)   [Kremote: Compressing objects:  28% (213/758)   [Kremote: Compressing objects:  29% (220/758)   [Kremote: Compressing objects:  30% (228/758)   [Kremote: Compressing objects:  31% (235/758)   [Kremote: Compressing objects:  32% (243/758)   [Kremote: Compressing objects:  33% (251/758)   [Kremote: Compressing objects:  34% (258/758)   [Kremote: Compressing objects:  35% (266/758)   [Kremote: Compressing objects:  36% (273/758)   [Kremote: Compressing objects:  37% (281/758)   [Kremote: Compressing objects:  38% (289/758)   [Kremote: Compressing objects:  39% (296/758)   [Kremote: Compressing objects:  40% (304/758)   [Kremote: Compressing objects:  41% (311/758)   [Kremote: Compressing objects:  42% (319/758)   [Kremote: Compressing objects:  43% (326/758)   [Kremote: Compressing objects:  44% (334/758)   [Kremote: Compressing objects:  45% (342/758)   [Kremote: Compressing objects:  46% (349/758)   [Kremote: Compressing objects:  47% (357/758)   [Kremote: Compressing objects:  48% (364/758)   [Kremote: Compressing objects:  49% (372/758)   [Kremote: Compressing objects:  50% (379/758)   [Kremote: Compressing objects:  51% (387/758)   [Kremote: Compressing objects:  52% (395/758)   [Kremote: Compressing objects:  53% (402/758)   [Kremote: Compressing objects:  54% (410/758)   [Kremote: Compressing objects:  55% (417/758)   [Kremote: Compressing objects:  56% (425/758)   [Kremote: Compressing objects:  57% (433/758)   [Kremote: Compressing objects:  58% (440/758)   [Kremote: Compressing objects:  59% (448/758)   [Kremote: Compressing objects:  60% (455/758)   [Kremote: Compressing objects:  61% (463/758)   [Kremote: Compressing objects:  62% (470/758)   [Kremote: Compressing objects:  63% (478/758)   [Kremote: Compressing objects:  64% (486/758)   [Kremote: Compressing objects:  65% (493/758)   [Kremote: Compressing objects:  66% (501/758)   [Kremote: Compressing objects:  67% (508/758)   [Kremote: Compressing objects:  68% (516/758)   [Kremote: Compressing objects:  69% (524/758)   [Kremote: Compressing objects:  70% (531/758)   [Kremote: Compressing objects:  71% (539/758)   [Kremote: Compressing objects:  72% (546/758)   [Kremote: Compressing objects:  73% (554/758)   [Kremote: Compressing objects:  74% (561/758)   [Kremote: Compressing objects:  75% (569/758)   [Kremote: Compressing objects:  76% (577/758)   [Kremote: Compressing objects:  77% (584/758)   [Kremote: Compressing objects:  78% (592/758)   [Kremote: Compressing objects:  79% (599/758)   [Kremote: Compressing objects:  80% (607/758)   [Kremote: Compressing objects:  81% (614/758)   [Kremote: Compressing objects:  82% (622/758)   [Kremote: Compressing objects:  83% (630/758)   [Kremote: Compressing objects:  84% (637/758)   [Kremote: Compressing objects:  85% (645/758)   [Kremote: Compressing objects:  86% (652/758)   [Kremote: Compressing objects:  87% (660/758)   [Kremote: Compressing objects:  88% (668/758)   [Kremote: Compressing objects:  89% (675/758)   [Kremote: Compressing objects:  90% (683/758)   [Kremote: Compressing objects:  91% (690/758)   [Kremote: Compressing objects:  92% (698/758)   [Kremote: Compressing objects:  93% (705/758)   [Kremote: Compressing objects:  94% (713/758)   [Kremote: Compressing objects:  95% (721/758)   [Kremote: Compressing objects:  96% (728/758)   [Kremote: Compressing objects:  97% (736/758)   [Kremote: Compressing objects:  98% (743/758)   [Kremote: Compressing objects:  99% (751/758)   [Kremote: Compressing objects: 100% (758/758)   [Kremote: Compressing objects: 100% (758/758), done.[K
+Receiving objects:   0% (1/1339)   Receiving objects:   1% (14/1339)   Receiving objects:   2% (27/1339)   Receiving objects:   3% (41/1339)   Receiving objects:   4% (54/1339)   Receiving objects:   5% (67/1339)   Receiving objects:   6% (81/1339)   Receiving objects:   7% (94/1339)   Receiving objects:   8% (108/1339)   Receiving objects:   9% (121/1339)   Receiving objects:  10% (134/1339)   Receiving objects:  11% (148/1339)   Receiving objects:  12% (161/1339)   Receiving objects:  13% (175/1339)   Receiving objects:  14% (188/1339)   Receiving objects:  15% (201/1339)   Receiving objects:  16% (215/1339)   Receiving objects:  17% (228/1339)   Receiving objects:  18% (242/1339)   Receiving objects:  19% (255/1339)   Receiving objects:  20% (268/1339)   Receiving objects:  21% (282/1339)   Receiving objects:  22% (295/1339)   Receiving objects:  23% (308/1339)   Receiving objects:  24% (322/1339)   Receiving objects:  25% (335/1339)   Receiving objects:  26% (349/1339)   Receiving objects:  27% (362/1339)   Receiving objects:  28% (375/1339)   Receiving objects:  29% (389/1339)   Receiving objects:  30% (402/1339)   Receiving objects:  31% (416/1339)   Receiving objects:  32% (429/1339)   Receiving objects:  33% (442/1339)   Receiving objects:  34% (456/1339)   Receiving objects:  35% (469/1339)   Receiving objects:  36% (483/1339)   Receiving objects:  37% (496/1339)   Receiving objects:  38% (509/1339)   Receiving objects:  39% (523/1339)   Receiving objects:  40% (536/1339)   Receiving objects:  41% (549/1339)   Receiving objects:  42% (563/1339)   Receiving objects:  43% (576/1339)   Receiving objects:  44% (590/1339)   Receiving objects:  45% (603/1339)   Receiving objects:  46% (616/1339)   Receiving objects:  47% (630/1339)   Receiving objects:  48% (643/1339)   Receiving objects:  49% (657/1339)   Receiving objects:  50% (670/1339)   Receiving objects:  51% (683/1339)   Receiving objects:  52% (697/1339)   Receiving objects:  53% (710/1339)   Receiving objects:  54% (724/1339)   Receiving objects:  55% (737/1339)   Receiving objects:  56% (750/1339)   Receiving objects:  57% (764/1339)   Receiving objects:  58% (777/1339)   Receiving objects:  59% (791/1339)   Receiving objects:  60% (804/1339)   Receiving objects:  61% (817/1339)   Receiving objects:  62% (831/1339)   Receiving objects:  63% (844/1339)   Receiving objects:  64% (857/1339)   Receiving objects:  65% (871/1339)   Receiving objects:  66% (884/1339)   Receiving objects:  67% (898/1339)   Receiving objects:  68% (911/1339)   Receiving objects:  69% (924/1339)   Receiving objects:  70% (938/1339)   Receiving objects:  71% (951/1339)   Receiving objects:  72% (965/1339)   Receiving objects:  73% (978/1339)   Receiving objects:  74% (991/1339)   Receiving objects:  75% (1005/1339)   Receiving objects:  76% (1018/1339)   Receiving objects:  77% (1032/1339)   Receiving objects:  78% (1045/1339)   Receiving objects:  79% (1058/1339)   Receiving objects:  80% (1072/1339)   Receiving objects:  81% (1085/1339)   Receiving objects:  82% (1098/1339)   Receiving objects:  83% (1112/1339)   Receiving objects:  84% (1125/1339)   Receiving objects:  85% (1139/1339)   Receiving objects:  86% (1152/1339)   Receiving objects:  87% (1165/1339)   Receiving objects:  88% (1179/1339)   Receiving objects:  89% (1192/1339)   Receiving objects:  90% (1206/1339)   Receiving objects:  91% (1219/1339)   Receiving objects:  92% (1232/1339)   Receiving objects:  93% (1246/1339)   Receiving objects:  94% (1259/1339)   Receiving objects:  95% (1273/1339)   Receiving objects:  96% (1286/1339)   Receiving objects:  97% (1299/1339)   Receiving objects:  98% (1313/1339)   remote: Total 1339 (delta 776), reused 958 (delta 547), pack-reused 0[K
+Receiving objects:  99% (1326/1339)   Receiving objects: 100% (1339/1339)   Receiving objects: 100% (1339/1339), 755.34 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/776)   Resolving deltas:   1% (8/776)   Resolving deltas:  11% (89/776)   Resolving deltas:  14% (113/776)   Resolving deltas:  15% (118/776)   Resolving deltas:  16% (126/776)   Resolving deltas:  22% (174/776)   Resolving deltas:  23% (183/776)   Resolving deltas:  24% (188/776)   Resolving deltas:  25% (194/776)   Resolving deltas:  26% (204/776)   Resolving deltas:  28% (218/776)   Resolving deltas:  35% (274/776)   Resolving deltas:  36% (280/776)   Resolving deltas:  38% (296/776)   Resolving deltas:  40% (311/776)   Resolving deltas:  41% (324/776)   Resolving deltas:  43% (338/776)   Resolving deltas:  44% (345/776)   Resolving deltas:  45% (350/776)   Resolving deltas:  46% (357/776)   Resolving deltas:  47% (369/776)   Resolving deltas:  48% (373/776)   Resolving deltas:  49% (384/776)   Resolving deltas:  50% (388/776)   Resolving deltas:  51% (397/776)   Resolving deltas:  52% (404/776)   Resolving deltas:  53% (413/776)   Resolving deltas:  54% (421/776)   Resolving deltas:  55% (427/776)   Resolving deltas:  56% (435/776)   Resolving deltas:  57% (444/776)   Resolving deltas:  58% (451/776)   Resolving deltas:  60% (470/776)   Resolving deltas:  61% (474/776)   Resolving deltas:  62% (487/776)   Resolving deltas:  70% (548/776)   Resolving deltas:  71% (555/776)   Resolving deltas:  72% (566/776)   Resolving deltas:  73% (572/776)   Resolving deltas:  74% (577/776)   Resolving deltas:  75% (582/776)   Resolving deltas:  76% (592/776)   Resolving deltas:  77% (600/776)   Resolving deltas:  78% (610/776)   Resolving deltas:  79% (614/776)   Resolving deltas:  81% (633/776)   Resolving deltas:  82% (639/776)   Resolving deltas:  83% (646/776)   Resolving deltas:  84% (652/776)   Resolving deltas:  85% (664/776)   Resolving deltas:  86% (668/776)   Resolving deltas:  87% (679/776)   Resolving deltas:  88% (683/776)   Resolving deltas:  89% (694/776)   Resolving deltas:  90% (702/776)   Resolving deltas:  91% (707/776)   Resolving deltas:  94% (733/776)   Resolving deltas:  95% (739/776)   Resolving deltas:  96% (747/776)   Resolving deltas:  97% (753/776)   Resolving deltas:  98% (765/776)   Resolving deltas: 100% (776/776)   Resolving deltas: 100% (776/776), done.
+Checking connectivity... done.
+travis_time:end:09a06bae:start=1445709533238359272,finish=1445709534081676310,duration=843317038[0K$ cd tornadoweb/tornado
+$ git checkout -qf 0f2168723b28fbcf06df28375b9163ad4e499b4b
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DEPS=true
+
+travis_time:start:075bb3e0[0K$ source ~/virtualenv/python3.4/bin/activate
+travis_time:end:075bb3e0:start=1445709536601718313,finish=1445709536606178704,duration=4460391[0K$ python --version
+Python 3.4.2
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (python 3.4)
+travis_fold:start:install.1[0Ktravis_time:start:164b2358[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install unittest2; fi
+travis_time:end:164b2358:start=1445709537112451902,finish=1445709537115700973,duration=3249071[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:27da95b3[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then travis_retry pip install futures mock Monotime trollius; fi
+travis_time:end:27da95b3:start=1445709537119567725,finish=1445709537122565765,duration=2998040[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:1327fe30[0K$ if [[ $TRAVIS_PYTHON_VERSION == 'pypy' && $DEPS == true ]]; then travis_retry pip install futures mock; fi
+travis_time:end:1327fe30:start=1445709537126376403,finish=1445709537129364520,duration=2988117[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:047fe8e8[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install pycurl; fi
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting pycurl
+  Downloading pycurl-7.19.5.1.tar.gz (142kB)
+[?25l[K    2% |                                | 4.1kB 19.6MB/s eta 0:00:01[K    5% |#                               | 8.2kB 20.5MB/s eta 0:00:01[K    8% |##                              | 12kB 23.4MB/s eta 0:00:01[K    11% |###                             | 16kB 22.0MB/s eta 0:00:01[K    14% |####                            | 20kB 23.3MB/s eta 0:00:01[K    17% |#####                           | 24kB 22.6MB/s eta 0:00:01[K    20% |######                          | 28kB 22.6MB/s eta 0:00:01[K    23% |#######                         | 32kB 22.1MB/s eta 0:00:01[K    25% |########                        | 36kB 22.9MB/s eta 0:00:01[K    28% |#########                       | 40kB 23.5MB/s eta 0:00:01[K    31% |##########                      | 45kB 23.3MB/s eta 0:00:01[K    34% |###########                     | 49kB 23.1MB/s eta 0:00:01[K    37% |###########                     | 53kB 23.1MB/s eta 0:00:01[K    40% |############                    | 57kB 24.3MB/s eta 0:00:01[K    43% |#############                   | 61kB 24.1MB/s eta 0:00:01[K    46% |##############                  | 65kB 23.5MB/s eta 0:00:01[K    48% |###############                 | 69kB 23.7MB/s eta 0:00:01[K    51% |################                | 73kB 24.2MB/s eta 0:00:01[K    54% |#################               | 77kB 23.5MB/s eta 0:00:01[K    57% |##################              | 81kB 22.6MB/s eta 0:00:01[K    60% |###################             | 86kB 23.8MB/s eta 0:00:01[K    63% |####################            | 90kB 25.0MB/s eta 0:00:01[K    66% |#####################           | 94kB 24.6MB/s eta 0:00:01[K    69% |######################          | 98kB 23.4MB/s eta 0:00:01[K    72% |#######################         | 102kB 23.8MB/s eta 0:00:01[K    74% |#######################         | 106kB 25.6MB/s eta 0:00:01[K    77% |########################        | 110kB 26.3MB/s eta 0:00:01[K    80% |#########################       | 114kB 26.0MB/s eta 0:00:01[K    83% |##########################      | 118kB 26.3MB/s eta 0:00:01[K    86% |###########################     | 122kB 27.6MB/s eta 0:00:01[K    89% |############################    | 126kB 27.7MB/s eta 0:00:01[K    92% |#############################   | 131kB 27.0MB/s eta 0:00:01[K    95% |##############################  | 135kB 27.6MB/s eta 0:00:01[K    97% |############################### | 139kB 29.2MB/s eta 0:00:01[K    100% |################################| 143kB 3.8MB/s 
+[?25h    Using curl-config (libcurl 7.22.0)
+Installing collected packages: pycurl
+  Running setup.py install for pycurl
+    Using curl-config (libcurl 7.22.0)
+    building 'pycurl' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/docstrings.c -o build/temp.linux-x86_64-3.4/src/docstrings.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/easy.c -o build/temp.linux-x86_64-3.4/src/easy.o
+    src/easy.c: In function ‘do_curl_getinfo’:
+    src/easy.c:2002:19: warning: call to ‘_curl_easy_getinfo_err_curl_slist’ declared with attribute warning: curl_easy_getinfo expects a pointer to struct curl_slist * for this info [enabled by default]
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/module.c -o build/temp.linux-x86_64-3.4/src/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/multi.c -o build/temp.linux-x86_64-3.4/src/multi.o
+    src/multi.c: In function ‘do_multi_info_read’:
+    src/multi.c:645:15: warning: call to ‘_curl_easy_getinfo_err_string’ declared with attribute warning: curl_easy_getinfo expects a pointer to char * for this info [enabled by default]
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/oscompat.c -o build/temp.linux-x86_64-3.4/src/oscompat.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/pythoncompat.c -o build/temp.linux-x86_64-3.4/src/pythoncompat.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/share.c -o build/temp.linux-x86_64-3.4/src/share.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/stringcompat.c -o build/temp.linux-x86_64-3.4/src/stringcompat.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -DPYCURL_VERSION="7.19.5.1" -DHAVE_CURL_OPENSSL=1 -DHAVE_CURL_SSL=1 -I/opt/python/3.4.2/include/python3.4m -c src/threadsupport.c -o build/temp.linux-x86_64-3.4/src/threadsupport.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/src/docstrings.o build/temp.linux-x86_64-3.4/src/easy.o build/temp.linux-x86_64-3.4/src/module.o build/temp.linux-x86_64-3.4/src/multi.o build/temp.linux-x86_64-3.4/src/oscompat.o build/temp.linux-x86_64-3.4/src/pythoncompat.o build/temp.linux-x86_64-3.4/src/share.o build/temp.linux-x86_64-3.4/src/stringcompat.o build/temp.linux-x86_64-3.4/src/threadsupport.o -L/usr/lib/x86_64-linux-gnu -L/opt/python/3.4.2/lib -lcurl -lcrypto -lpython3.4m -o build/lib.linux-x86_64-3.4/pycurl.cpython-34m.so -Wl,-Bsymbolic-functions -Wl,-z,relro
+Successfully installed pycurl-7.19.5.1
+travis_time:end:047fe8e8:start=1445709537133021988,finish=1445709540773484164,duration=3640462176[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:0b5d5414[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' && $DEPS == true ]]; then travis_retry pip install mock; fi
+travis_time:end:0b5d5414:start=1445709540777579726,finish=1445709540780520745,duration=2941019[0Ktravis_fold:end:install.5[0Ktravis_fold:start:install.6[0Ktravis_time:start:0230b796[0K$ if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then travis_retry pip install Twisted; fi
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting Twisted
+  Downloading Twisted-15.4.0.tar.bz2 (3.1MB)
+[?25l[K    0% |                                | 4.1kB 26.0MB/s eta 0:00:01[K    0% |                                | 8.2kB 15.5MB/s eta 0:00:01[K    0% |                                | 12kB 16.0MB/s eta 0:00:01[K    0% |                                | 16kB 14.5MB/s eta 0:00:01[K    0% |                                | 20kB 15.0MB/s eta 0:00:01[K    0% |                                | 24kB 15.2MB/s eta 0:00:01[K    0% |                                | 28kB 15.6MB/s eta 0:00:01[K    1% |                                | 32kB 15.2MB/s eta 0:00:01[K    1% |                                | 36kB 13.7MB/s eta 0:00:01[K    1% |                                | 40kB 13.9MB/s eta 0:00:01[K    1% |                                | 45kB 13.6MB/s eta 0:00:01[K    1% |                                | 49kB 13.5MB/s eta 0:00:01[K    1% |                                | 53kB 13.5MB/s eta 0:00:01[K    1% |                                | 57kB 14.2MB/s eta 0:00:01[K    1% |                                | 61kB 14.0MB/s eta 0:00:01[K    2% |                                | 65kB 12.4MB/s eta 0:00:01[K    2% |                                | 69kB 12.3MB/s eta 0:00:01[K    2% |                                | 73kB 12.6MB/s eta 0:00:01[K    2% |                                | 77kB 14.1MB/s eta 0:00:01[K    2% |                                | 81kB 13.3MB/s eta 0:00:01[K    2% |                                | 86kB 12.8MB/s eta 0:00:01[K    2% |                                | 90kB 13.4MB/s eta 0:00:01[K    3% |                                | 94kB 13.4MB/s eta 0:00:01[K    3% |#                               | 98kB 12.3MB/s eta 0:00:01[K    3% |#                               | 102kB 12.4MB/s eta 0:00:01[K    3% |#                               | 106kB 14.1MB/s eta 0:00:01[K    3% |#                               | 110kB 14.1MB/s eta 0:00:01[K    3% |#                               | 114kB 12.7MB/s eta 0:00:01[K    3% |#                               | 118kB 12.5MB/s eta 0:00:01[K    3% |#                               | 122kB 13.2MB/s eta 0:00:01[K    4% |#                               | 126kB 13.7MB/s eta 0:00:01[K    4% |#                               | 131kB 12.7MB/s eta 0:00:01[K    4% |#                               | 135kB 12.6MB/s eta 0:00:01[K    4% |#                               | 139kB 13.7MB/s eta 0:00:01[K    4% |#                               | 143kB 13.8MB/s eta 0:00:01[K    4% |#                               | 147kB 13.4MB/s eta 0:00:01[K    4% |#                               | 151kB 12.3MB/s eta 0:00:01[K    4% |#                               | 155kB 13.7MB/s eta 0:00:01[K    5% |#                               | 159kB 13.6MB/s eta 0:00:01[K    5% |#                               | 163kB 13.1MB/s eta 0:00:01[K    5% |#                               | 167kB 13.1MB/s eta 0:00:01[K    5% |#                               | 172kB 14.2MB/s eta 0:00:01[K    5% |#                               | 176kB 14.3MB/s eta 0:00:01[K    5% |#                               | 180kB 14.0MB/s eta 0:00:01[K    5% |#                               | 184kB 12.9MB/s eta 0:00:01[K    6% |#                               | 188kB 13.1MB/s eta 0:00:01[K    6% |#                               | 192kB 14.4MB/s eta 0:00:01[K    6% |##                              | 196kB 13.7MB/s eta 0:00:01[K    6% |##                              | 200kB 13.8MB/s eta 0:00:01[K    6% |##                              | 204kB 14.3MB/s eta 0:00:01[K    6% |##                              | 208kB 14.3MB/s eta 0:00:01[K    6% |##                              | 212kB 12.9MB/s eta 0:00:01[K    6% |##                              | 217kB 12.8MB/s eta 0:00:01[K    7% |##                              | 221kB 12.7MB/s eta 0:00:01[K    7% |##                              | 225kB 13.8MB/s eta 0:00:01[K    7% |##                              | 229kB 13.1MB/s eta 0:00:01[K    7% |##                              | 233kB 13.2MB/s eta 0:00:01[K    7% |##                              | 237kB 14.0MB/s eta 0:00:01[K    7% |##                              | 241kB 14.2MB/s eta 0:00:01[K    7% |##                              | 245kB 14.0MB/s eta 0:00:01[K    8% |##                              | 249kB 13.8MB/s eta 0:00:01[K    8% |##                              | 253kB 14.7MB/s eta 0:00:01[K    8% |##                              | 258kB 14.9MB/s eta 0:00:01[K    8% |##                              | 262kB 14.6MB/s eta 0:00:01[K    8% |##                              | 266kB 14.3MB/s eta 0:00:01[K    8% |##                              | 270kB 15.0MB/s eta 0:00:01[K    8% |##                              | 274kB 14.8MB/s eta 0:00:01[K    8% |##                              | 278kB 13.1MB/s eta 0:00:01[K    9% |##                              | 282kB 12.9MB/s eta 0:00:01[K    9% |##                              | 286kB 13.1MB/s eta 0:00:01[K    9% |##                              | 290kB 13.3MB/s eta 0:00:01[K    9% |###                             | 294kB 13.0MB/s eta 0:00:01[K    9% |###                             | 299kB 13.0MB/s eta 0:00:01[K    9% |###                             | 303kB 13.6MB/s eta 0:00:01[K    9% |###                             | 307kB 13.8MB/s eta 0:00:01[K    9% |###                             | 311kB 13.7MB/s eta 0:00:01[K    10% |###                             | 315kB 12.7MB/s eta 0:00:01[K    10% |###                             | 319kB 14.0MB/s eta 0:00:01[K    10% |###                             | 323kB 13.9MB/s eta 0:00:01[K    10% |###                             | 327kB 12.7MB/s eta 0:00:01[K    10% |###                             | 331kB 12.7MB/s eta 0:00:01[K    10% |###                             | 335kB 13.6MB/s eta 0:00:01[K    10% |###                             | 339kB 13.5MB/s eta 0:00:01[K    11% |###                             | 344kB 12.2MB/s eta 0:00:01[K    11% |###                             | 348kB 12.2MB/s eta 0:00:01[K    11% |###                             | 352kB 12.4MB/s eta 0:00:01[K    11% |###                             | 356kB 13.4MB/s eta 0:00:01[K    11% |###                             | 360kB 12.5MB/s eta 0:00:01[K    11% |###                             | 364kB 12.7MB/s eta 0:00:01[K    11% |###                             | 368kB 13.9MB/s eta 0:00:01[K    11% |###                             | 372kB 13.9MB/s eta 0:00:01[K    12% |###                             | 376kB 13.4MB/s eta 0:00:01[K    12% |###                             | 380kB 12.5MB/s eta 0:00:01[K    12% |###                             | 385kB 13.9MB/s eta 0:00:01[K    12% |###                             | 389kB 14.0MB/s eta 0:00:01[K    12% |####                            | 393kB 13.5MB/s eta 0:00:01[K    12% |####                            | 397kB 13.5MB/s eta 0:00:01[K    12% |####                            | 401kB 14.5MB/s eta 0:00:01[K    13% |####                            | 405kB 14.5MB/s eta 0:00:01[K    13% |####                            | 409kB 14.2MB/s eta 0:00:01[K    13% |####                            | 413kB 12.9MB/s eta 0:00:01[K    13% |####                            | 417kB 13.4MB/s eta 0:00:01[K    13% |####                            | 421kB 14.4MB/s eta 0:00:01[K    13% |####                            | 425kB 13.6MB/s eta 0:00:01[K    13% |####                            | 430kB 13.6MB/s eta 0:00:01[K    13% |####                            | 434kB 14.2MB/s eta 0:00:01[K    14% |####                            | 438kB 11.5MB/s eta 0:00:01[K    14% |####                            | 442kB 11.0MB/s eta 0:00:01[K    14% |####                            | 446kB 11.0MB/s eta 0:00:01[K    14% |####                            | 450kB 11.2MB/s eta 0:00:01[K    14% |####                            | 454kB 12.2MB/s eta 0:00:01[K    14% |####                            | 458kB 11.3MB/s eta 0:00:01[K    14% |####                            | 462kB 10.8MB/s eta 0:00:01[K    14% |####                            | 466kB 11.2MB/s eta 0:00:01[K    15% |####                            | 471kB 11.1MB/s eta 0:00:01[K    15% |####                            | 475kB 10.7MB/s eta 0:00:01[K    15% |####                            | 479kB 13.0MB/s eta 0:00:01[K    15% |####                            | 483kB 13.5MB/s eta 0:00:01[K    15% |#####                           | 487kB 13.5MB/s eta 0:00:01[K    15% |#####                           | 491kB 12.9MB/s eta 0:00:01[K    15% |#####                           | 495kB 12.3MB/s eta 0:00:01[K    16% |#####                           | 499kB 13.5MB/s eta 0:00:01[K    16% |#####                           | 503kB 14.4MB/s eta 0:00:01[K    16% |#####                           | 507kB 13.4MB/s eta 0:00:01[K    16% |#####                           | 512kB 13.5MB/s eta 0:00:01[K    16% |#####                           | 516kB 14.2MB/s eta 0:00:01[K    16% |#####                           | 520kB 14.2MB/s eta 0:00:01[K    16% |#####                           | 524kB 13.5MB/s eta 0:00:01[K    16% |#####                           | 528kB 13.5MB/s eta 0:00:01[K    17% |#####                           | 532kB 14.2MB/s eta 0:00:01[K    17% |#####                           | 536kB 14.9MB/s eta 0:00:01[K    17% |#####                           | 540kB 11.9MB/s eta 0:00:01[K    17% |#####                           | 544kB 11.7MB/s eta 0:00:01[K    17% |#####                           | 548kB 12.3MB/s eta 0:00:01[K    17% |#####                           | 552kB 12.2MB/s eta 0:00:01[K    17% |#####                           | 557kB 11.1MB/s eta 0:00:01[K    18% |#####                           | 561kB 11.1MB/s eta 0:00:01[K    18% |#####                           | 565kB 11.7MB/s eta 0:00:01[K    18% |#####                           | 569kB 11.6MB/s eta 0:00:01[K    18% |#####                           | 573kB 11.1MB/s eta 0:00:01[K    18% |#####                           | 577kB 11.1MB/s eta 0:00:01[K    18% |#####                           | 581kB 13.6MB/s eta 0:00:01[K    18% |######                          | 585kB 13.7MB/s eta 0:00:01[K    18% |######                          | 589kB 12.8MB/s eta 0:00:01[K    19% |######                          | 593kB 12.9MB/s eta 0:00:01[K    19% |######                          | 598kB 14.3MB/s eta 0:00:01[K    19% |######                          | 602kB 14.5MB/s eta 0:00:01[K    19% |######                          | 606kB 14.2MB/s eta 0:00:01[K    19% |######                          | 610kB 14.0MB/s eta 0:00:01[K    19% |######                          | 614kB 15.1MB/s eta 0:00:01[K    19% |######                          | 618kB 15.4MB/s eta 0:00:01[K    19% |######                          | 622kB 14.9MB/s eta 0:00:01[K    20% |######                          | 626kB 14.5MB/s eta 0:00:01[K    20% |######                          | 630kB 16.0MB/s eta 0:00:01[K    20% |######                          | 634kB 16.0MB/s eta 0:00:01[K    20% |######                          | 638kB 15.4MB/s eta 0:00:01[K    20% |######                          | 643kB 14.3MB/s eta 0:00:01[K    20% |######                          | 647kB 14.7MB/s eta 0:00:01[K    20% |######                          | 651kB 15.0MB/s eta 0:00:01[K    21% |######                          | 655kB 13.9MB/s eta 0:00:01[K    21% |######                          | 659kB 13.7MB/s eta 0:00:01[K    21% |######                          | 663kB 14.2MB/s eta 0:00:01[K    21% |######                          | 667kB 14.9MB/s eta 0:00:01[K    21% |######                          | 671kB 14.2MB/s eta 0:00:01[K    21% |######                          | 675kB 13.6MB/s eta 0:00:01[K    21% |######                          | 679kB 14.1MB/s eta 0:00:01[K    21% |#######                         | 684kB 15.2MB/s eta 0:00:01[K    22% |#######                         | 688kB 14.2MB/s eta 0:00:01[K    22% |#######                         | 692kB 13.8MB/s eta 0:00:01[K    22% |#######                         | 696kB 14.6MB/s eta 0:00:01[K    22% |#######                         | 700kB 14.5MB/s eta 0:00:01[K    22% |#######                         | 704kB 13.0MB/s eta 0:00:01[K    22% |#######                         | 708kB 12.9MB/s eta 0:00:01[K    22% |#######                         | 712kB 13.4MB/s eta 0:00:01[K    23% |#######                         | 716kB 14.0MB/s eta 0:00:01[K    23% |#######                         | 720kB 13.0MB/s eta 0:00:01[K    23% |#######                         | 724kB 12.9MB/s eta 0:00:01[K    23% |#######                         | 729kB 13.7MB/s eta 0:00:01[K    23% |#######                         | 733kB 14.1MB/s eta 0:00:01[K    23% |#######                         | 737kB 12.9MB/s eta 0:00:01[K    23% |#######                         | 741kB 13.0MB/s eta 0:00:01[K    23% |#######                         | 745kB 14.5MB/s eta 0:00:01[K    24% |#######                         | 749kB 14.6MB/s eta 0:00:01[K    24% |#######                         | 753kB 13.9MB/s eta 0:00:01[K    24% |#######                         | 757kB 13.2MB/s eta 0:00:01[K    24% |#######                         | 761kB 14.3MB/s eta 0:00:01[K    24% |#######                         | 765kB 14.3MB/s eta 0:00:01[K    24% |#######                         | 770kB 13.4MB/s eta 0:00:01[K    24% |#######                         | 774kB 13.3MB/s eta 0:00:01[K    24% |#######                         | 778kB 14.7MB/s eta 0:00:01[K    25% |########                        | 782kB 14.8MB/s eta 0:00:01[K    25% |########                        | 786kB 14.5MB/s eta 0:00:01[K    25% |########                        | 790kB 13.8MB/s eta 0:00:01[K    25% |########                        | 794kB 14.4MB/s eta 0:00:01[K    25% |########                        | 798kB 15.3MB/s eta 0:00:01[K    25% |########                        | 802kB 14.5MB/s eta 0:00:01[K    25% |########                        | 806kB 14.4MB/s eta 0:00:01[K    26% |########                        | 811kB 15.4MB/s eta 0:00:01[K    26% |########                        | 815kB 15.4MB/s eta 0:00:01[K    26% |########                        | 819kB 14.5MB/s eta 0:00:01[K    26% |########                        | 823kB 13.9MB/s eta 0:00:01[K    26% |########                        | 827kB 14.3MB/s eta 0:00:01[K    26% |########                        | 831kB 15.0MB/s eta 0:00:01[K    26% |########                        | 835kB 14.5MB/s eta 0:00:01[K    26% |########                        | 839kB 13.8MB/s eta 0:00:01[K    27% |########                        | 843kB 14.5MB/s eta 0:00:01[K    27% |########                        | 847kB 14.6MB/s eta 0:00:01[K    27% |########                        | 851kB 13.8MB/s eta 0:00:01[K    27% |########                        | 856kB 13.8MB/s eta 0:00:01[K    27% |########                        | 860kB 14.6MB/s eta 0:00:01[K    27% |########                        | 864kB 15.1MB/s eta 0:00:01[K    27% |########                        | 868kB 13.5MB/s eta 0:00:01[K    27% |########                        | 872kB 13.5MB/s eta 0:00:01[K    28% |#########                       | 876kB 14.2MB/s eta 0:00:01[K    28% |#########                       | 880kB 15.1MB/s eta 0:00:01[K    28% |#########                       | 884kB 14.5MB/s eta 0:00:01[K    28% |#########                       | 888kB 13.8MB/s eta 0:00:01[K    28% |#########                       | 892kB 14.8MB/s eta 0:00:01[K    28% |#########                       | 897kB 15.0MB/s eta 0:00:01[K    28% |#########                       | 901kB 14.3MB/s eta 0:00:01[K    29% |#########                       | 905kB 14.4MB/s eta 0:00:01[K    29% |#########                       | 909kB 16.1MB/s eta 0:00:01[K    29% |#########                       | 913kB 16.1MB/s eta 0:00:01[K    29% |#########                       | 917kB 14.9MB/s eta 0:00:01[K    29% |#########                       | 921kB 14.2MB/s eta 0:00:01[K    29% |#########                       | 925kB 14.9MB/s eta 0:00:01[K    29% |#########                       | 929kB 15.4MB/s eta 0:00:01[K    29% |#########                       | 933kB 14.2MB/s eta 0:00:01[K    30% |#########                       | 937kB 13.7MB/s eta 0:00:01[K    30% |#########                       | 942kB 14.3MB/s eta 0:00:01[K    30% |#########                       | 946kB 14.3MB/s eta 0:00:01[K    30% |#########                       | 950kB 13.3MB/s eta 0:00:01[K    30% |#########                       | 954kB 13.3MB/s eta 0:00:01[K    30% |#########                       | 958kB 14.1MB/s eta 0:00:01[K    30% |#########                       | 962kB 14.7MB/s eta 0:00:01[K    31% |#########                       | 966kB 14.4MB/s eta 0:00:01[K    31% |#########                       | 970kB 13.5MB/s eta 0:00:01[K    31% |##########                      | 974kB 14.5MB/s eta 0:00:01[K    31% |##########                      | 978kB 14.9MB/s eta 0:00:01[K    31% |##########                      | 983kB 14.3MB/s eta 0:00:01[K    31% |##########                      | 987kB 13.8MB/s eta 0:00:01[K    31% |##########                      | 991kB 14.7MB/s eta 0:00:01[K    31% |##########                      | 995kB 14.6MB/s eta 0:00:01[K    32% |##########                      | 999kB 13.7MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 13.6MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 13.9MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 15.0MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 14.6MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 13.9MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 14.4MB/s eta 0:00:01[K    32% |##########                      | 1.0MB 15.1MB/s eta 0:00:01[K    33% |##########                      | 1.0MB 14.6MB/s eta 0:00:01[K    33% |##########                      | 1.0MB 13.9MB/s eta 0:00:01[K    33% |##########                      | 1.0MB 14.5MB/s eta 0:00:01[K    33% |##########                      | 1.0MB 14.5MB/s eta 0:00:01[K    33% |##########                      | 1.0MB 13.9MB/s eta 0:00:01[K    33% |##########                      | 1.1MB 13.6MB/s eta 0:00:01[K    33% |##########                      | 1.1MB 13.8MB/s eta 0:00:01[K    34% |##########                      | 1.1MB 14.6MB/s eta 0:00:01[K    34% |##########                      | 1.1MB 13.4MB/s eta 0:00:01[K    34% |##########                      | 1.1MB 13.2MB/s eta 0:00:01[K    34% |###########                     | 1.1MB 13.6MB/s eta 0:00:01[K    34% |###########                     | 1.1MB 14.4MB/s eta 0:00:01[K    34% |###########                     | 1.1MB 14.1MB/s eta 0:00:01[K    34% |###########                     | 1.1MB 13.3MB/s eta 0:00:01[K    34% |###########                     | 1.1MB 13.9MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 14.2MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 13.3MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 13.3MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 14.5MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 14.8MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 13.9MB/s eta 0:00:01[K    35% |###########                     | 1.1MB 13.3MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 13.8MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 14.6MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 13.6MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 13.5MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 14.5MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 14.5MB/s eta 0:00:01[K    36% |###########                     | 1.1MB 14.2MB/s eta 0:00:01[K    36% |###########                     | 1.2MB 13.1MB/s eta 0:00:01[K    37% |###########                     | 1.2MB 13.9MB/s eta 0:00:01[K    37% |###########                     | 1.2MB 14.6MB/s eta 0:00:01[K    37% |###########                     | 1.2MB 14.1MB/s eta 0:00:01[K    37% |###########                     | 1.2MB 13.4MB/s eta 0:00:01[K    37% |############                    | 1.2MB 14.4MB/s eta 0:00:01[K    37% |############                    | 1.2MB 14.4MB/s eta 0:00:01[K    37% |############                    | 1.2MB 13.5MB/s eta 0:00:01[K    37% |############                    | 1.2MB 13.4MB/s eta 0:00:01[K    38% |############                    | 1.2MB 13.7MB/s eta 0:00:01[K    38% |############                    | 1.2MB 14.9MB/s eta 0:00:01[K    38% |############                    | 1.2MB 14.0MB/s eta 0:00:01[K    38% |############                    | 1.2MB 13.6MB/s eta 0:00:01[K    38% |############                    | 1.2MB 14.1MB/s eta 0:00:01[K    38% |############                    | 1.2MB 14.8MB/s eta 0:00:01[K    38% |############                    | 1.2MB 14.0MB/s eta 0:00:01[K    39% |############                    | 1.2MB 13.4MB/s eta 0:00:01[K    39% |############                    | 1.2MB 14.2MB/s eta 0:00:01[K    39% |############                    | 1.2MB 14.4MB/s eta 0:00:01[K    39% |############                    | 1.2MB 14.0MB/s eta 0:00:01[K    39% |############                    | 1.2MB 14.2MB/s eta 0:00:01[K    39% |############                    | 1.2MB 15.4MB/s eta 0:00:01[K    39% |############                    | 1.2MB 16.2MB/s eta 0:00:01[K    39% |############                    | 1.2MB 16.1MB/s eta 0:00:01[K    40% |############                    | 1.2MB 16.0MB/s eta 0:00:01[K    40% |############                    | 1.3MB 16.6MB/s eta 0:00:01[K    40% |############                    | 1.3MB 17.7MB/s eta 0:00:01[K    40% |############                    | 1.3MB 17.5MB/s eta 0:00:01[K    40% |############                    | 1.3MB 17.8MB/s eta 0:00:01[K    40% |#############                   | 1.3MB 19.4MB/s eta 0:00:01[K    40% |#############                   | 1.3MB 19.9MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 18.0MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 18.3MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 19.3MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 20.6MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 21.5MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 21.9MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 23.7MB/s eta 0:00:01[K    41% |#############                   | 1.3MB 24.2MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 22.1MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 22.0MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 25.8MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 25.9MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 23.8MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 23.8MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 25.0MB/s eta 0:00:01[K    42% |#############                   | 1.3MB 25.2MB/s eta 0:00:01[K    43% |#############                   | 1.3MB 23.1MB/s eta 0:00:01[K    43% |#############                   | 1.3MB 23.1MB/s eta 0:00:01[K    43% |#############                   | 1.4MB 25.5MB/s eta 0:00:01[K    43% |#############                   | 1.4MB 25.0MB/s eta 0:00:01[K    43% |#############                   | 1.4MB 23.8MB/s eta 0:00:01[K    43% |##############                  | 1.4MB 23.8MB/s eta 0:00:01[K    43% |##############                  | 1.4MB 26.4MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 26.4MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 22.8MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 22.6MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 24.7MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 24.3MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 23.7MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 24.1MB/s eta 0:00:01[K    44% |##############                  | 1.4MB 25.3MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 21.8MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 20.4MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 20.3MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 23.2MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 23.4MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 22.8MB/s eta 0:00:01[K    45% |##############                  | 1.4MB 21.9MB/s eta 0:00:01[K    46% |##############                  | 1.4MB 21.4MB/s eta 0:00:01[K    46% |##############                  | 1.4MB 20.6MB/s eta 0:00:01[K    46% |##############                  | 1.4MB 19.8MB/s eta 0:00:01[K    46% |##############                  | 1.4MB 22.6MB/s eta 0:00:01[K    46% |##############                  | 1.4MB 24.5MB/s eta 0:00:01[K    46% |##############                  | 1.5MB 24.5MB/s eta 0:00:01[K    46% |##############                  | 1.5MB 23.1MB/s eta 0:00:01[K    46% |###############                 | 1.5MB 23.1MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 23.4MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 25.0MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 21.3MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 21.8MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 22.7MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 22.7MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 21.8MB/s eta 0:00:01[K    47% |###############                 | 1.5MB 21.4MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 21.7MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 21.7MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 20.3MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 20.2MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 24.7MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 23.0MB/s eta 0:00:01[K    48% |###############                 | 1.5MB 21.8MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 21.8MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 22.3MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 21.8MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 21.5MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 21.0MB/s eta 0:00:01[K    49% |###############                 | 1.5MB 22.8MB/s eta 0:00:01[K    49% |###############                 | 1.6MB 20.9MB/s eta 0:00:01[K    49% |###############                 | 1.6MB 20.1MB/s eta 0:00:01[K    50% |################                | 1.6MB 21.4MB/s eta 0:00:01[K    50% |################                | 1.6MB 21.9MB/s eta 0:00:01[K    50% |################                | 1.6MB 21.9MB/s eta 0:00:01[K    50% |################                | 1.6MB 21.4MB/s eta 0:00:01[K    50% |################                | 1.6MB 21.5MB/s eta 0:00:01[K    50% |################                | 1.6MB 22.4MB/s eta 0:00:01[K    50% |################                | 1.6MB 22.6MB/s eta 0:00:01[K    50% |################                | 1.6MB 20.2MB/s eta 0:00:01[K    51% |################                | 1.6MB 21.7MB/s eta 0:00:01[K    51% |################                | 1.6MB 21.9MB/s eta 0:00:01[K    51% |################                | 1.6MB 22.2MB/s eta 0:00:01[K    51% |################                | 1.6MB 21.5MB/s eta 0:00:01[K    51% |################                | 1.6MB 21.6MB/s eta 0:00:01[K    51% |################                | 1.6MB 22.4MB/s eta 0:00:01[K    51% |################                | 1.6MB 19.9MB/s eta 0:00:01[K    52% |################                | 1.6MB 18.7MB/s eta 0:00:01[K    52% |################                | 1.6MB 18.8MB/s eta 0:00:01[K    52% |################                | 1.6MB 20.6MB/s eta 0:00:01[K    52% |################                | 1.6MB 20.3MB/s eta 0:00:01[K    52% |################                | 1.6MB 19.2MB/s eta 0:00:01[K    52% |################                | 1.6MB 19.1MB/s eta 0:00:01[K    52% |################                | 1.6MB 20.1MB/s eta 0:00:01[K    52% |################                | 1.7MB 18.8MB/s eta 0:00:01[K    53% |################                | 1.7MB 18.1MB/s eta 0:00:01[K    53% |#################               | 1.7MB 20.9MB/s eta 0:00:01[K    53% |#################               | 1.7MB 22.4MB/s eta 0:00:01[K    53% |#################               | 1.7MB 22.5MB/s eta 0:00:01[K    53% |#################               | 1.7MB 20.9MB/s eta 0:00:01[K    53% |#################               | 1.7MB 21.1MB/s eta 0:00:01[K    53% |#################               | 1.7MB 23.1MB/s eta 0:00:01[K    54% |#################               | 1.7MB 22.7MB/s eta 0:00:01[K    54% |#################               | 1.7MB 20.1MB/s eta 0:00:01[K    54% |#################               | 1.7MB 21.7MB/s eta 0:00:01[K    54% |#################               | 1.7MB 22.6MB/s eta 0:00:01[K    54% |#################               | 1.7MB 21.4MB/s eta 0:00:01[K    54% |#################               | 1.7MB 20.4MB/s eta 0:00:01[K    54% |#################               | 1.7MB 20.5MB/s eta 0:00:01[K    54% |#################               | 1.7MB 21.8MB/s eta 0:00:01[K    55% |#################               | 1.7MB 20.8MB/s eta 0:00:01[K    55% |#################               | 1.7MB 19.2MB/s eta 0:00:01[K    55% |#################               | 1.7MB 18.8MB/s eta 0:00:01[K    55% |#################               | 1.7MB 20.9MB/s eta 0:00:01[K    55% |#################               | 1.7MB 21.0MB/s eta 0:00:01[K    55% |#################               | 1.7MB 20.2MB/s eta 0:00:01[K    55% |#################               | 1.7MB 21.3MB/s eta 0:00:01[K    55% |#################               | 1.7MB 22.5MB/s eta 0:00:01[K    56% |#################               | 1.7MB 22.2MB/s eta 0:00:01[K    56% |##################              | 1.8MB 20.3MB/s eta 0:00:01[K    56% |##################              | 1.8MB 21.6MB/s eta 0:00:01[K    56% |##################              | 1.8MB 23.8MB/s eta 0:00:01[K    56% |##################              | 1.8MB 24.7MB/s eta 0:00:01[K    56% |##################              | 1.8MB 23.5MB/s eta 0:00:01[K    56% |##################              | 1.8MB 23.4MB/s eta 0:00:01[K    57% |##################              | 1.8MB 24.4MB/s eta 0:00:01[K    57% |##################              | 1.8MB 23.9MB/s eta 0:00:01[K    57% |##################              | 1.8MB 21.3MB/s eta 0:00:01[K    57% |##################              | 1.8MB 21.5MB/s eta 0:00:01[K    57% |##################              | 1.8MB 24.5MB/s eta 0:00:01[K    57% |##################              | 1.8MB 24.6MB/s eta 0:00:01[K    57% |##################              | 1.8MB 23.0MB/s eta 0:00:01[K    57% |##################              | 1.8MB 23.3MB/s eta 0:00:01[K    58% |##################              | 1.8MB 23.9MB/s eta 0:00:01[K    58% |##################              | 1.8MB 22.4MB/s eta 0:00:01[K    58% |##################              | 1.8MB 21.0MB/s eta 0:00:01[K    58% |##################              | 1.8MB 21.4MB/s eta 0:00:01[K    58% |##################              | 1.8MB 24.1MB/s eta 0:00:01[K    58% |##################              | 1.8MB 23.7MB/s eta 0:00:01[K    58% |##################              | 1.8MB 23.0MB/s eta 0:00:01[K    59% |##################              | 1.8MB 22.5MB/s eta 0:00:01[K    59% |##################              | 1.8MB 23.5MB/s eta 0:00:01[K    59% |##################              | 1.8MB 22.6MB/s eta 0:00:01[K    59% |###################             | 1.9MB 22.4MB/s eta 0:00:01[K    59% |###################             | 1.9MB 23.8MB/s eta 0:00:01[K    59% |###################             | 1.9MB 25.6MB/s eta 0:00:01[K    59% |###################             | 1.9MB 25.7MB/s eta 0:00:01[K    59% |###################             | 1.9MB 24.6MB/s eta 0:00:01[K    60% |###################             | 1.9MB 24.6MB/s eta 0:00:01[K    60% |###################             | 1.9MB 24.4MB/s eta 0:00:01[K    60% |###################             | 1.9MB 24.7MB/s eta 0:00:01[K    60% |###################             | 1.9MB 23.8MB/s eta 0:00:01[K    60% |###################             | 1.9MB 25.0MB/s eta 0:00:01[K    60% |###################             | 1.9MB 26.2MB/s eta 0:00:01[K    60% |###################             | 1.9MB 26.3MB/s eta 0:00:01[K    60% |###################             | 1.9MB 23.8MB/s eta 0:00:01[K    61% |###################             | 1.9MB 23.4MB/s eta 0:00:01[K    61% |###################             | 1.9MB 24.4MB/s eta 0:00:01[K    61% |###################             | 1.9MB 23.2MB/s eta 0:00:01[K    61% |###################             | 1.9MB 23.1MB/s eta 0:00:01[K    61% |###################             | 1.9MB 23.4MB/s eta 0:00:01[K    61% |###################             | 1.9MB 24.8MB/s eta 0:00:01[K    61% |###################             | 1.9MB 24.8MB/s eta 0:00:01[K    62% |###################             | 1.9MB 23.4MB/s eta 0:00:01[K    62% |###################             | 1.9MB 23.4MB/s eta 0:00:01[K    62% |###################             | 1.9MB 24.3MB/s eta 0:00:01[K    62% |###################             | 1.9MB 24.6MB/s eta 0:00:01[K    62% |####################            | 1.9MB 23.3MB/s eta 0:00:01[K    62% |####################            | 2.0MB 24.8MB/s eta 0:00:01[K    62% |####################            | 2.0MB 25.2MB/s eta 0:00:01[K    62% |####################            | 2.0MB 25.0MB/s eta 0:00:01[K    63% |####################            | 2.0MB 24.0MB/s eta 0:00:01[K    63% |####################            | 2.0MB 22.8MB/s eta 0:00:01[K    63% |####################            | 2.0MB 24.1MB/s eta 0:00:01[K    63% |####################            | 2.0MB 23.5MB/s eta 0:00:01[K    63% |####################            | 2.0MB 23.7MB/s eta 0:00:01[K    63% |####################            | 2.0MB 23.2MB/s eta 0:00:01[K    63% |####################            | 2.0MB 24.1MB/s eta 0:00:01[K    64% |####################            | 2.0MB 24.1MB/s eta 0:00:01[K    64% |####################            | 2.0MB 23.6MB/s eta 0:00:01[K    64% |####################            | 2.0MB 23.3MB/s eta 0:00:01[K    64% |####################            | 2.0MB 24.3MB/s eta 0:00:01[K    64% |####################            | 2.0MB 25.1MB/s eta 0:00:01[K    64% |####################            | 2.0MB 23.2MB/s eta 0:00:01[K    64% |####################            | 2.0MB 23.8MB/s eta 0:00:01[K    64% |####################            | 2.0MB 25.2MB/s eta 0:00:01[K    65% |####################            | 2.0MB 25.5MB/s eta 0:00:01[K    65% |####################            | 2.0MB 25.5MB/s eta 0:00:01[K    65% |####################            | 2.0MB 25.6MB/s eta 0:00:01[K    65% |####################            | 2.0MB 27.2MB/s eta 0:00:01[K    65% |####################            | 2.0MB 27.0MB/s eta 0:00:01[K    65% |#####################           | 2.0MB 24.5MB/s eta 0:00:01[K    65% |#####################           | 2.1MB 25.1MB/s eta 0:00:01[K    65% |#####################           | 2.1MB 27.6MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 27.7MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 27.0MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 27.4MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 28.1MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 25.3MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 23.4MB/s eta 0:00:01[K    66% |#####################           | 2.1MB 23.9MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 26.1MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 25.7MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 24.8MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 24.6MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 22.9MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 22.9MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 21.6MB/s eta 0:00:01[K    67% |#####################           | 2.1MB 23.4MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 25.2MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 25.4MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 24.3MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 23.4MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 24.1MB/s eta 0:00:01[K    68% |#####################           | 2.1MB 24.1MB/s eta 0:00:01[K    68% |######################          | 2.1MB 25.4MB/s eta 0:00:01[K    69% |######################          | 2.2MB 25.4MB/s eta 0:00:01[K    69% |######################          | 2.2MB 26.9MB/s eta 0:00:01[K    69% |######################          | 2.2MB 26.2MB/s eta 0:00:01[K    69% |######################          | 2.2MB 24.4MB/s eta 0:00:01[K    69% |######################          | 2.2MB 23.2MB/s eta 0:00:01[K    69% |######################          | 2.2MB 24.1MB/s eta 0:00:01[K    69% |######################          | 2.2MB 24.1MB/s eta 0:00:01[K    69% |######################          | 2.2MB 22.8MB/s eta 0:00:01[K    70% |######################          | 2.2MB 22.7MB/s eta 0:00:01[K    70% |######################          | 2.2MB 23.6MB/s eta 0:00:01[K    70% |######################          | 2.2MB 23.0MB/s eta 0:00:01[K    70% |######################          | 2.2MB 21.4MB/s eta 0:00:01[K    70% |######################          | 2.2MB 21.8MB/s eta 0:00:01[K    70% |######################          | 2.2MB 23.3MB/s eta 0:00:01[K    70% |######################          | 2.2MB 24.0MB/s eta 0:00:01[K    70% |######################          | 2.2MB 22.5MB/s eta 0:00:01[K    71% |######################          | 2.2MB 23.5MB/s eta 0:00:01[K    71% |######################          | 2.2MB 24.4MB/s eta 0:00:01[K    71% |######################          | 2.2MB 23.3MB/s eta 0:00:01[K    71% |######################          | 2.2MB 22.3MB/s eta 0:00:01[K    71% |######################          | 2.2MB 22.9MB/s eta 0:00:01[K    71% |######################          | 2.2MB 25.0MB/s eta 0:00:01[K    71% |#######################         | 2.2MB 25.1MB/s eta 0:00:01[K    72% |#######################         | 2.2MB 23.9MB/s eta 0:00:01[K    72% |#######################         | 2.2MB 24.2MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 24.6MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 24.6MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 23.7MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 25.0MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 26.2MB/s eta 0:00:01[K    72% |#######################         | 2.3MB 26.3MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 24.0MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 23.8MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 25.0MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 25.1MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 24.9MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 24.8MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 26.4MB/s eta 0:00:01[K    73% |#######################         | 2.3MB 26.0MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 23.3MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 23.1MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 25.1MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 24.7MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 23.1MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 23.1MB/s eta 0:00:01[K    74% |#######################         | 2.3MB 24.7MB/s eta 0:00:01[K    75% |########################        | 2.3MB 24.8MB/s eta 0:00:01[K    75% |########################        | 2.3MB 23.7MB/s eta 0:00:01[K    75% |########################        | 2.3MB 23.1MB/s eta 0:00:01[K    75% |########################        | 2.4MB 25.7MB/s eta 0:00:01[K    75% |########################        | 2.4MB 25.8MB/s eta 0:00:01[K    75% |########################        | 2.4MB 24.2MB/s eta 0:00:01[K    75% |########################        | 2.4MB 24.9MB/s eta 0:00:01[K    75% |########################        | 2.4MB 26.7MB/s eta 0:00:01[K    76% |########################        | 2.4MB 26.0MB/s eta 0:00:01[K    76% |########################        | 2.4MB 24.0MB/s eta 0:00:01[K    76% |########################        | 2.4MB 23.9MB/s eta 0:00:01[K    76% |########################        | 2.4MB 25.0MB/s eta 0:00:01[K    76% |########################        | 2.4MB 26.2MB/s eta 0:00:01[K    76% |########################        | 2.4MB 24.6MB/s eta 0:00:01[K    76% |########################        | 2.4MB 24.5MB/s eta 0:00:01[K    77% |########################        | 2.4MB 25.3MB/s eta 0:00:01[K    77% |########################        | 2.4MB 24.3MB/s eta 0:00:01[K    77% |########################        | 2.4MB 22.8MB/s eta 0:00:01[K    77% |########################        | 2.4MB 23.4MB/s eta 0:00:01[K    77% |########################        | 2.4MB 25.3MB/s eta 0:00:01[K    77% |########################        | 2.4MB 24.7MB/s eta 0:00:01[K    77% |########################        | 2.4MB 22.8MB/s eta 0:00:01[K    77% |########################        | 2.4MB 22.7MB/s eta 0:00:01[K    78% |########################        | 2.4MB 24.1MB/s eta 0:00:01[K    78% |#########################       | 2.4MB 23.9MB/s eta 0:00:01[K    78% |#########################       | 2.4MB 23.6MB/s eta 0:00:01[K    78% |#########################       | 2.4MB 24.3MB/s eta 0:00:01[K    78% |#########################       | 2.4MB 25.3MB/s eta 0:00:01[K    78% |#########################       | 2.5MB 24.0MB/s eta 0:00:01[K    78% |#########################       | 2.5MB 23.0MB/s eta 0:00:01[K    78% |#########################       | 2.5MB 23.6MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 25.6MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 25.7MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 24.5MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 23.6MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 24.5MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 24.7MB/s eta 0:00:01[K    79% |#########################       | 2.5MB 23.4MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 24.6MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 25.8MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 25.8MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 24.5MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 23.6MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 24.6MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 25.7MB/s eta 0:00:01[K    80% |#########################       | 2.5MB 24.6MB/s eta 0:00:01[K    81% |#########################       | 2.5MB 24.6MB/s eta 0:00:01[K    81% |#########################       | 2.5MB 26.6MB/s eta 0:00:01[K    81% |##########################      | 2.5MB 26.8MB/s eta 0:00:01[K    81% |##########################      | 2.5MB 24.4MB/s eta 0:00:01[K    81% |##########################      | 2.5MB 24.3MB/s eta 0:00:01[K    81% |##########################      | 2.5MB 25.7MB/s eta 0:00:01[K    81% |##########################      | 2.6MB 26.6MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 24.9MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 25.3MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 26.7MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 26.7MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 24.0MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 24.0MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 26.2MB/s eta 0:00:01[K    82% |##########################      | 2.6MB 25.8MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 23.2MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 23.1MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 24.7MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 24.2MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 23.4MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 23.3MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 25.3MB/s eta 0:00:01[K    83% |##########################      | 2.6MB 24.5MB/s eta 0:00:01[K    84% |##########################      | 2.6MB 23.1MB/s eta 0:00:01[K    84% |##########################      | 2.6MB 23.5MB/s eta 0:00:01[K    84% |###########################     | 2.6MB 25.4MB/s eta 0:00:01[K    84% |###########################     | 2.6MB 24.9MB/s eta 0:00:01[K    84% |###########################     | 2.6MB 23.8MB/s eta 0:00:01[K    84% |###########################     | 2.6MB 24.3MB/s eta 0:00:01[K    84% |###########################     | 2.6MB 25.2MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 25.2MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 25.1MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 25.9MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 27.8MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 27.9MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 27.3MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 28.0MB/s eta 0:00:01[K    85% |###########################     | 2.7MB 29.5MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 29.6MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 28.7MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 28.8MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 29.2MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 29.1MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 28.2MB/s eta 0:00:01[K    86% |###########################     | 2.7MB 28.2MB/s eta 0:00:01[K    87% |###########################     | 2.7MB 29.8MB/s eta 0:00:01[K    87% |###########################     | 2.7MB 29.9MB/s eta 0:00:01[K    87% |###########################     | 2.7MB 29.0MB/s eta 0:00:01[K    87% |###########################     | 2.7MB 28.9MB/s eta 0:00:01[K    87% |############################    | 2.7MB 29.8MB/s eta 0:00:01[K    87% |############################    | 2.7MB 29.8MB/s eta 0:00:01[K    87% |############################    | 2.7MB 29.3MB/s eta 0:00:01[K    87% |############################    | 2.7MB 29.3MB/s eta 0:00:01[K    88% |############################    | 2.7MB 30.3MB/s eta 0:00:01[K    88% |############################    | 2.7MB 30.4MB/s eta 0:00:01[K    88% |############################    | 2.8MB 29.4MB/s eta 0:00:01[K    88% |############################    | 2.8MB 29.3MB/s eta 0:00:01[K    88% |############################    | 2.8MB 30.3MB/s eta 0:00:01[K    88% |############################    | 2.8MB 30.3MB/s eta 0:00:01[K    88% |############################    | 2.8MB 29.4MB/s eta 0:00:01[K    88% |############################    | 2.8MB 29.4MB/s eta 0:00:01[K    89% |############################    | 2.8MB 30.5MB/s eta 0:00:01[K    89% |############################    | 2.8MB 30.5MB/s eta 0:00:01[K    89% |############################    | 2.8MB 28.9MB/s eta 0:00:01[K    89% |############################    | 2.8MB 28.8MB/s eta 0:00:01[K    89% |############################    | 2.8MB 29.8MB/s eta 0:00:01[K    89% |############################    | 2.8MB 29.7MB/s eta 0:00:01[K    89% |############################    | 2.8MB 28.8MB/s eta 0:00:01[K    90% |############################    | 2.8MB 28.8MB/s eta 0:00:01[K    90% |############################    | 2.8MB 29.6MB/s eta 0:00:01[K    90% |############################    | 2.8MB 29.3MB/s eta 0:00:01[K    90% |############################    | 2.8MB 28.3MB/s eta 0:00:01[K    90% |############################    | 2.8MB 28.3MB/s eta 0:00:01[K    90% |#############################   | 2.8MB 29.9MB/s eta 0:00:01[K    90% |#############################   | 2.8MB 29.9MB/s eta 0:00:01[K    90% |#############################   | 2.8MB 29.0MB/s eta 0:00:01[K    91% |#############################   | 2.8MB 29.1MB/s eta 0:00:01[K    91% |#############################   | 2.8MB 30.0MB/s eta 0:00:01[K    91% |#############################   | 2.8MB 30.0MB/s eta 0:00:01[K    91% |#############################   | 2.9MB 29.0MB/s eta 0:00:01[K    91% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    91% |#############################   | 2.9MB 30.3MB/s eta 0:00:01[K    91% |#############################   | 2.9MB 30.2MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 30.2MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 30.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 30.3MB/s eta 0:00:01[K    92% |#############################   | 2.9MB 30.3MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 29.3MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 29.4MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 30.4MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 30.4MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 29.5MB/s eta 0:00:01[K    93% |#############################   | 2.9MB 29.4MB/s eta 0:00:01[K    93% |##############################  | 2.9MB 30.3MB/s eta 0:00:01[K    93% |##############################  | 2.9MB 30.3MB/s eta 0:00:01[K    94% |##############################  | 2.9MB 28.6MB/s eta 0:00:01[K    94% |##############################  | 2.9MB 27.4MB/s eta 0:00:01[K    94% |##############################  | 2.9MB 28.3MB/s eta 0:00:01[K    94% |##############################  | 2.9MB 28.3MB/s eta 0:00:01[K    94% |##############################  | 2.9MB 27.5MB/s eta 0:00:01[K    94% |##############################  | 3.0MB 27.5MB/s eta 0:00:01[K    94% |##############################  | 3.0MB 28.3MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 28.3MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 27.5MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 27.5MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 29.1MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 30.5MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 29.4MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 29.4MB/s eta 0:00:01[K    95% |##############################  | 3.0MB 30.3MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 30.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 29.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 29.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 30.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 30.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 29.4MB/s eta 0:00:01[K    96% |##############################  | 3.0MB 29.3MB/s eta 0:00:01[K    96% |############################### | 3.0MB 30.4MB/s eta 0:00:01[K    97% |############################### | 3.0MB 30.4MB/s eta 0:00:01[K    97% |############################### | 3.0MB 29.5MB/s eta 0:00:01[K    97% |############################### | 3.0MB 29.4MB/s eta 0:00:01[K    97% |############################### | 3.0MB 30.3MB/s eta 0:00:01[K    97% |############################### | 3.0MB 30.4MB/s eta 0:00:01[K    97% |############################### | 3.0MB 28.8MB/s eta 0:00:01[K    97% |############################### | 3.1MB 28.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 29.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 29.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 28.8MB/s eta 0:00:01[K    98% |############################### | 3.1MB 28.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 29.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 29.7MB/s eta 0:00:01[K    98% |############################### | 3.1MB 28.9MB/s eta 0:00:01[K    98% |############################### | 3.1MB 28.9MB/s eta 0:00:01[K    99% |############################### | 3.1MB 30.4MB/s eta 0:00:01[K    99% |############################### | 3.1MB 30.6MB/s eta 0:00:01[K    99% |############################### | 3.1MB 29.6MB/s eta 0:00:01[K    99% |############################### | 3.1MB 29.5MB/s eta 0:00:01[K    99% |############################### | 3.1MB 30.5MB/s eta 0:00:01[K    99% |############################### | 3.1MB 30.6MB/s eta 0:00:01[K    99% |############################### | 3.1MB 30.2MB/s eta 0:00:01[K    100% |################################| 3.1MB 202kB/s 
+[?25h    file twisted.py (for module twisted) not found
+    file twisted/application.py (for module twisted.application) not found
+    file twisted/application/test.py (for module twisted.application.test) not found
+    file twisted/cred.py (for module twisted.cred) not found
+    file twisted/cred/test.py (for module twisted.cred.test) not found
+    file twisted/internet.py (for module twisted.internet) not found
+    file twisted/internet/test.py (for module twisted.internet.test) not found
+    file twisted/logger.py (for module twisted.logger) not found
+    file twisted/logger/test.py (for module twisted.logger.test) not found
+    file twisted/names.py (for module twisted.names) not found
+    file twisted/names/test.py (for module twisted.names.test) not found
+    file twisted/persisted.py (for module twisted.persisted) not found
+    file twisted/plugins.py (for module twisted.plugins) not found
+    file twisted/positioning.py (for module twisted.positioning) not found
+    file twisted/protocols.py (for module twisted.protocols) not found
+    file twisted/protocols/test.py (for module twisted.protocols.test) not found
+    file twisted/python.py (for module twisted.python) not found
+    file twisted/python/test.py (for module twisted.python.test) not found
+    file twisted/scripts.py (for module twisted.scripts) not found
+    file twisted/test.py (for module twisted.test) not found
+    file twisted/_threads.py (for module twisted._threads) not found
+    file twisted/trial.py (for module twisted.trial) not found
+    file twisted/trial/test.py (for module twisted.trial.test) not found
+    file twisted/web.py (for module twisted.web) not found
+    file twisted/web/_auth.py (for module twisted.web._auth) not found
+    file twisted/web/test.py (for module twisted.web.test) not found
+Collecting zope.interface>=4.0.2 (from Twisted)
+  Downloading zope.interface-4.1.3.tar.gz (141kB)
+[?25l[K    2% |                                | 4.1kB 29.8MB/s eta 0:00:01[K    5% |#                               | 8.2kB 17.3MB/s eta 0:00:01[K    8% |##                              | 12kB 17.4MB/s eta 0:00:01[K    11% |###                             | 16kB 14.9MB/s eta 0:00:01[K    14% |####                            | 20kB 15.5MB/s eta 0:00:01[K    17% |#####                           | 24kB 15.6MB/s eta 0:00:01[K    20% |######                          | 28kB 15.9MB/s eta 0:00:01[K    23% |#######                         | 32kB 15.4MB/s eta 0:00:01[K    26% |########                        | 36kB 15.7MB/s eta 0:00:01[K    28% |#########                       | 40kB 15.8MB/s eta 0:00:01[K    31% |##########                      | 45kB 15.2MB/s eta 0:00:01[K    34% |###########                     | 49kB 15.3MB/s eta 0:00:01[K    37% |############                    | 53kB 15.4MB/s eta 0:00:01[K    40% |############                    | 57kB 16.2MB/s eta 0:00:01[K    43% |#############                   | 61kB 16.2MB/s eta 0:00:01[K    46% |##############                  | 65kB 15.8MB/s eta 0:00:01[K    49% |###############                 | 69kB 15.9MB/s eta 0:00:01[K    52% |################                | 73kB 16.4MB/s eta 0:00:01[K    54% |#################               | 77kB 16.2MB/s eta 0:00:01[K    57% |##################              | 81kB 15.7MB/s eta 0:00:01[K    60% |###################             | 86kB 15.8MB/s eta 0:00:01[K    63% |####################            | 90kB 16.3MB/s eta 0:00:01[K    66% |#####################           | 94kB 16.4MB/s eta 0:00:01[K    69% |######################          | 98kB 16.0MB/s eta 0:00:01[K    72% |#######################         | 102kB 16.3MB/s eta 0:00:01[K    75% |########################        | 106kB 17.0MB/s eta 0:00:01[K    78% |########################        | 110kB 17.3MB/s eta 0:00:01[K    81% |#########################       | 114kB 16.9MB/s eta 0:00:01[K    83% |##########################      | 118kB 17.1MB/s eta 0:00:01[K    86% |###########################     | 122kB 17.8MB/s eta 0:00:01[K    89% |############################    | 126kB 17.9MB/s eta 0:00:01[K    92% |#############################   | 131kB 17.5MB/s eta 0:00:01[K    95% |##############################  | 135kB 17.5MB/s eta 0:00:01[K    98% |############################### | 139kB 18.0MB/s eta 0:00:01[K    100% |################################| 143kB 2.4MB/s 
+[?25hRequirement already satisfied (use --upgrade to upgrade): setuptools in /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages (from zope.interface>=4.0.2->Twisted)
+Installing collected packages: zope.interface, Twisted
+  Running setup.py install for zope.interface
+    building 'zope.interface._zope_interface_coptimizations' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c src/zope/interface/_zope_interface_coptimizations.c -o build/temp.linux-x86_64-3.4/src/zope/interface/_zope_interface_coptimizations.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/src/zope/interface/_zope_interface_coptimizations.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/zope/interface/_zope_interface_coptimizations.cpython-34m.so
+    Skipping installation of /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/zope/__init__.py (namespace package)
+    Installing /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/zope.interface-4.1.3-py3.4-nspkg.pth
+  Running setup.py install for Twisted
+    file twisted.py (for module twisted) not found
+    file twisted/application.py (for module twisted.application) not found
+    file twisted/application/test.py (for module twisted.application.test) not found
+    file twisted/cred.py (for module twisted.cred) not found
+    file twisted/cred/test.py (for module twisted.cred.test) not found
+    file twisted/internet.py (for module twisted.internet) not found
+    file twisted/internet/test.py (for module twisted.internet.test) not found
+    file twisted/logger.py (for module twisted.logger) not found
+    file twisted/logger/test.py (for module twisted.logger.test) not found
+    file twisted/names.py (for module twisted.names) not found
+    file twisted/names/test.py (for module twisted.names.test) not found
+    file twisted/persisted.py (for module twisted.persisted) not found
+    file twisted/plugins.py (for module twisted.plugins) not found
+    file twisted/positioning.py (for module twisted.positioning) not found
+    file twisted/protocols.py (for module twisted.protocols) not found
+    file twisted/protocols/test.py (for module twisted.protocols.test) not found
+    file twisted/python.py (for module twisted.python) not found
+    file twisted/python/test.py (for module twisted.python.test) not found
+    file twisted/scripts.py (for module twisted.scripts) not found
+    file twisted/test.py (for module twisted.test) not found
+    file twisted/_threads.py (for module twisted._threads) not found
+    file twisted/trial.py (for module twisted.trial) not found
+    file twisted/trial/test.py (for module twisted.trial.test) not found
+    file twisted/web.py (for module twisted.web) not found
+    file twisted/web/_auth.py (for module twisted.web._auth) not found
+    file twisted/web/test.py (for module twisted.web.test) not found
+    file twisted.py (for module twisted) not found
+    file twisted/application.py (for module twisted.application) not found
+    file twisted/application/test.py (for module twisted.application.test) not found
+    file twisted/cred.py (for module twisted.cred) not found
+    file twisted/cred/test.py (for module twisted.cred.test) not found
+    file twisted/internet.py (for module twisted.internet) not found
+    file twisted/internet/test.py (for module twisted.internet.test) not found
+    file twisted/logger.py (for module twisted.logger) not found
+    file twisted/logger/test.py (for module twisted.logger.test) not found
+    file twisted/names.py (for module twisted.names) not found
+    file twisted/names/test.py (for module twisted.names.test) not found
+    file twisted/persisted.py (for module twisted.persisted) not found
+    file twisted/plugins.py (for module twisted.plugins) not found
+    file twisted/positioning.py (for module twisted.positioning) not found
+    file twisted/protocols.py (for module twisted.protocols) not found
+    file twisted/protocols/test.py (for module twisted.protocols.test) not found
+    file twisted/python.py (for module twisted.python) not found
+    file twisted/python/test.py (for module twisted.python.test) not found
+    file twisted/scripts.py (for module twisted.scripts) not found
+    file twisted/test.py (for module twisted.test) not found
+    file twisted/_threads.py (for module twisted._threads) not found
+    file twisted/trial.py (for module twisted.trial) not found
+    file twisted/trial/test.py (for module twisted.trial.test) not found
+    file twisted/web.py (for module twisted.web) not found
+    file twisted/web/_auth.py (for module twisted.web._auth) not found
+    file twisted/web/test.py (for module twisted.web.test) not found
+    changing mode of build/scripts-3.4/trial from 664 to 775
+    file twisted.py (for module twisted) not found
+    file twisted/application.py (for module twisted.application) not found
+    file twisted/application/test.py (for module twisted.application.test) not found
+    file twisted/cred.py (for module twisted.cred) not found
+    file twisted/cred/test.py (for module twisted.cred.test) not found
+    file twisted/internet.py (for module twisted.internet) not found
+    file twisted/internet/test.py (for module twisted.internet.test) not found
+    file twisted/logger.py (for module twisted.logger) not found
+    file twisted/logger/test.py (for module twisted.logger.test) not found
+    file twisted/names.py (for module twisted.names) not found
+    file twisted/names/test.py (for module twisted.names.test) not found
+    file twisted/persisted.py (for module twisted.persisted) not found
+    file twisted/plugins.py (for module twisted.plugins) not found
+    file twisted/positioning.py (for module twisted.positioning) not found
+    file twisted/protocols.py (for module twisted.protocols) not found
+    file twisted/protocols/test.py (for module twisted.protocols.test) not found
+    file twisted/python.py (for module twisted.python) not found
+    file twisted/python/test.py (for module twisted.python.test) not found
+    file twisted/scripts.py (for module twisted.scripts) not found
+    file twisted/test.py (for module twisted.test) not found
+    file twisted/_threads.py (for module twisted._threads) not found
+    file twisted/trial.py (for module twisted.trial) not found
+    file twisted/trial/test.py (for module twisted.trial.test) not found
+    file twisted/web.py (for module twisted.web) not found
+    file twisted/web/_auth.py (for module twisted.web._auth) not found
+    file twisted/web/test.py (for module twisted.web.test) not found
+    changing mode of /home/travis/virtualenv/python3.4.2/bin/trial to 775
+    file twisted.py (for module twisted) not found
+    file twisted/application.py (for module twisted.application) not found
+    file twisted/application/test.py (for module twisted.application.test) not found
+    file twisted/cred.py (for module twisted.cred) not found
+    file twisted/cred/test.py (for module twisted.cred.test) not found
+    file twisted/internet.py (for module twisted.internet) not found
+    file twisted/internet/test.py (for module twisted.internet.test) not found
+    file twisted/logger.py (for module twisted.logger) not found
+    file twisted/logger/test.py (for module twisted.logger.test) not found
+    file twisted/names.py (for module twisted.names) not found
+    file twisted/names/test.py (for module twisted.names.test) not found
+    file twisted/persisted.py (for module twisted.persisted) not found
+    file twisted/plugins.py (for module twisted.plugins) not found
+    file twisted/positioning.py (for module twisted.positioning) not found
+    file twisted/protocols.py (for module twisted.protocols) not found
+    file twisted/protocols/test.py (for module twisted.protocols.test) not found
+    file twisted/python.py (for module twisted.python) not found
+    file twisted/python/test.py (for module twisted.python.test) not found
+    file twisted/scripts.py (for module twisted.scripts) not found
+    file twisted/test.py (for module twisted.test) not found
+    file twisted/_threads.py (for module twisted._threads) not found
+    file twisted/trial.py (for module twisted.trial) not found
+    file twisted/trial/test.py (for module twisted.trial.test) not found
+    file twisted/web.py (for module twisted.web) not found
+    file twisted/web/_auth.py (for module twisted.web._auth) not found
+    file twisted/web/test.py (for module twisted.web.test) not found
+Successfully installed Twisted-15.4.0 zope.interface-4.1.3
+travis_time:end:0230b796:start=1445709540784678134,finish=1445709546798132229,duration=6013454095[0Ktravis_fold:end:install.6[0Ktravis_fold:start:install.7[0Ktravis_time:start:062f9e1e[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then travis_retry pip install sphinx sphinx_rtd_theme; fi
+travis_time:end:062f9e1e:start=1445709546802197297,finish=1445709546805116546,duration=2919249[0Ktravis_fold:end:install.7[0Ktravis_fold:start:install.8[0Ktravis_time:start:14eb4fff[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then travis_retry pip install sphinx sphinx_rtd_theme; fi
+travis_time:end:14eb4fff:start=1445709546809071686,finish=1445709546811918819,duration=2847133[0Ktravis_fold:end:install.8[0Ktravis_fold:start:install.9[0Ktravis_time:start:11d5a9b0[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi
+travis_time:end:11d5a9b0:start=1445709546816003973,finish=1445709546819412319,duration=3408346[0Ktravis_fold:end:install.9[0Ktravis_fold:start:install.10[0Ktravis_time:start:18a79e78[0K$ travis_retry python setup.py install
+running install
+running bdist_egg
+running egg_info
+creating tornado.egg-info
+writing top-level names to tornado.egg-info/top_level.txt
+writing tornado.egg-info/PKG-INFO
+writing dependency_links to tornado.egg-info/dependency_links.txt
+writing requirements to tornado.egg-info/requires.txt
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest file 'tornado.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'docs/build'
+warning: no files found matching 'tornado/test/README'
+writing manifest file 'tornado.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.4
+creating build/lib.linux-x86_64-3.4/tornado
+copying tornado/__init__.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/_locale_data.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/auth.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/autoreload.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/concurrent.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/curl_httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/escape.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/gen.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/http1connection.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httpserver.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/httputil.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/ioloop.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/iostream.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/locale.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/locks.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/log.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/netutil.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/options.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/process.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/queues.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/simple_httpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/stack_context.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/tcpclient.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/tcpserver.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/template.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/testing.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/util.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/web.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/websocket.py -> build/lib.linux-x86_64-3.4/tornado
+copying tornado/wsgi.py -> build/lib.linux-x86_64-3.4/tornado
+creating build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/__init__.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/__main__.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/asyncio_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/auth_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/concurrent_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/curl_httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/escape_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/gen_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httpserver_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/httputil_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/import_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/ioloop_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/iostream_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/locale_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/locks_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/log_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/netutil_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/options_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/process_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/queues_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/resolve_test_helper.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/runtests.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/simple_httpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/stack_context_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/tcpclient_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/tcpserver_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/template_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/testing_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/twisted_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/util.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/util_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/web_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/websocket_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/wsgi_test.py -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/__init__.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/asyncio.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/auto.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/caresresolver.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/common.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/epoll.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/interface.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/kqueue.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/posix.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/select.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/twisted.py -> build/lib.linux-x86_64-3.4/tornado/platform
+copying tornado/platform/windows.py -> build/lib.linux-x86_64-3.4/tornado/platform
+creating build/lib.linux-x86_64-3.4/tornado/test/csv_translations
+copying tornado/test/csv_translations/fr_FR.csv -> build/lib.linux-x86_64-3.4/tornado/test/csv_translations
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR
+creating build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying tornado/test/options_test.cfg -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/robots.txt -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml.gz -> build/lib.linux-x86_64-3.4/tornado/test/static
+copying tornado/test/static/sample.xml.bz2 -> build/lib.linux-x86_64-3.4/tornado/test/static
+creating build/lib.linux-x86_64-3.4/tornado/test/static/dir
+copying tornado/test/static/dir/index.html -> build/lib.linux-x86_64-3.4/tornado/test/static/dir
+copying tornado/test/static_foo.txt -> build/lib.linux-x86_64-3.4/tornado/test
+creating build/lib.linux-x86_64-3.4/tornado/test/templates
+copying tornado/test/templates/utf8.html -> build/lib.linux-x86_64-3.4/tornado/test/templates
+copying tornado/test/test.crt -> build/lib.linux-x86_64-3.4/tornado/test
+copying tornado/test/test.key -> build/lib.linux-x86_64-3.4/tornado/test
+running build_ext
+building 'tornado.speedups' extension
+creating build/temp.linux-x86_64-3.4
+creating build/temp.linux-x86_64-3.4/tornado
+gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c tornado/speedups.c -o build/temp.linux-x86_64-3.4/tornado/speedups.o
+gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/tornado/speedups.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/tornado/speedups.cpython-34m.so
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/egg
+creating build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/__init__.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/_locale_data.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/auth.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/autoreload.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/concurrent.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/curl_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/escape.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/gen.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/http1connection.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/httputil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/ioloop.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/iostream.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/locale.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/locks.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/log.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/netutil.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/options.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/process.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/queues.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/simple_httpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/stack_context.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/tcpclient.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/tcpserver.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/template.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/testing.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/util.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/web.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/websocket.py -> build/bdist.linux-x86_64/egg/tornado
+copying build/lib.linux-x86_64-3.4/tornado/wsgi.py -> build/bdist.linux-x86_64/egg/tornado
+creating build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/__init__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/__main__.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/asyncio_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/auth_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/concurrent_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/curl_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/escape_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/gen_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/httputil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/import_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/ioloop_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/iostream_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/locale_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/locks_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/log_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/netutil_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/options_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/process_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/queues_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/resolve_test_helper.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/runtests.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/simple_httpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/stack_context_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/tcpclient_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/tcpserver_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/template_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/testing_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/twisted_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/util.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/util_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/web_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/websocket_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/wsgi_test.py -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+copying build/lib.linux-x86_64-3.4/tornado/test/csv_translations/fr_FR.csv -> build/bdist.linux-x86_64/egg/tornado/test/csv_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR
+creating build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.mo -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/gettext_translations/fr_FR/LC_MESSAGES/tornado_test.po -> build/bdist.linux-x86_64/egg/tornado/test/gettext_translations/fr_FR/LC_MESSAGES
+copying build/lib.linux-x86_64-3.4/tornado/test/options_test.cfg -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/robots.txt -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml.gz -> build/bdist.linux-x86_64/egg/tornado/test/static
+copying build/lib.linux-x86_64-3.4/tornado/test/static/sample.xml.bz2 -> build/bdist.linux-x86_64/egg/tornado/test/static
+creating build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-3.4/tornado/test/static/dir/index.html -> build/bdist.linux-x86_64/egg/tornado/test/static/dir
+copying build/lib.linux-x86_64-3.4/tornado/test/static_foo.txt -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-3.4/tornado/test/templates/utf8.html -> build/bdist.linux-x86_64/egg/tornado/test/templates
+copying build/lib.linux-x86_64-3.4/tornado/test/test.crt -> build/bdist.linux-x86_64/egg/tornado/test
+copying build/lib.linux-x86_64-3.4/tornado/test/test.key -> build/bdist.linux-x86_64/egg/tornado/test
+creating build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/__init__.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/asyncio.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/auto.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/caresresolver.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/common.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/epoll.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/interface.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/kqueue.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/posix.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/select.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/twisted.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/platform/windows.py -> build/bdist.linux-x86_64/egg/tornado/platform
+copying build/lib.linux-x86_64-3.4/tornado/speedups.cpython-34m.so -> build/bdist.linux-x86_64/egg/tornado
+byte-compiling build/bdist.linux-x86_64/egg/tornado/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/_locale_data.py to _locale_data.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/auth.py to auth.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/autoreload.py to autoreload.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/concurrent.py to concurrent.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/curl_httpclient.py to curl_httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/escape.py to escape.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/gen.py to gen.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/http1connection.py to http1connection.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpclient.py to httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httpserver.py to httpserver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/httputil.py to httputil.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/ioloop.py to ioloop.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/iostream.py to iostream.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locale.py to locale.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/locks.py to locks.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/log.py to log.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/netutil.py to netutil.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/options.py to options.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/process.py to process.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/queues.py to queues.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/simple_httpclient.py to simple_httpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/stack_context.py to stack_context.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpclient.py to tcpclient.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/tcpserver.py to tcpserver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/template.py to template.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/testing.py to testing.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/util.py to util.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/web.py to web.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/websocket.py to websocket.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/wsgi.py to wsgi.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/__main__.py to __main__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/asyncio_test.py to asyncio_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/auth_test.py to auth_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/concurrent_test.py to concurrent_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/curl_httpclient_test.py to curl_httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/escape_test.py to escape_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/gen_test.py to gen_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpclient_test.py to httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httpserver_test.py to httpserver_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/httputil_test.py to httputil_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/import_test.py to import_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/ioloop_test.py to ioloop_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/iostream_test.py to iostream_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locale_test.py to locale_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/locks_test.py to locks_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/log_test.py to log_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/netutil_test.py to netutil_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/options_test.py to options_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/process_test.py to process_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/queues_test.py to queues_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/resolve_test_helper.py to resolve_test_helper.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/runtests.py to runtests.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/simple_httpclient_test.py to simple_httpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/stack_context_test.py to stack_context_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpclient_test.py to tcpclient_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/tcpserver_test.py to tcpserver_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/template_test.py to template_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/testing_test.py to testing_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/twisted_test.py to twisted_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util.py to util.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/util_test.py to util_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/web_test.py to web_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/websocket_test.py to websocket_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/test/wsgi_test.py to wsgi_test.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/__init__.py to __init__.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/asyncio.py to asyncio.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/auto.py to auto.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/caresresolver.py to caresresolver.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/common.py to common.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/epoll.py to epoll.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/interface.py to interface.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/kqueue.py to kqueue.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/posix.py to posix.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/select.py to select.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/twisted.py to twisted.cpython-34.pyc
+byte-compiling build/bdist.linux-x86_64/egg/tornado/platform/windows.py to windows.cpython-34.pyc
+creating stub loader for tornado/speedups.cpython-34m.so
+byte-compiling build/bdist.linux-x86_64/egg/tornado/speedups.py to speedups.cpython-34.pyc
+creating build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/PKG-INFO -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/SOURCES.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/dependency_links.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/requires.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+copying tornado.egg-info/top_level.txt -> build/bdist.linux-x86_64/egg/EGG-INFO
+writing build/bdist.linux-x86_64/egg/EGG-INFO/native_libs.txt
+zip_safe flag not set; analyzing archive contents...
+tornado.test.__pycache__.httpserver_test.cpython-34: module references __file__
+tornado.test.__pycache__.iostream_test.cpython-34: module references __file__
+tornado.test.__pycache__.locale_test.cpython-34: module references __file__
+tornado.test.__pycache__.options_test.cpython-34: module references __file__
+tornado.test.__pycache__.template_test.cpython-34: module references __file__
+tornado.test.__pycache__.web_test.cpython-34: module references __file__
+tornado.__pycache__.autoreload.cpython-34: module references __file__
+tornado.__pycache__.testing.cpython-34: module references __file__
+tornado.__pycache__.speedups.cpython-34: module references __file__
+creating dist
+creating 'dist/tornado-4.3b1-py3.4-linux-x86_64.egg' and adding 'build/bdist.linux-x86_64/egg' to it
+removing 'build/bdist.linux-x86_64/egg' (and everything under it)
+Processing tornado-4.3b1-py3.4-linux-x86_64.egg
+creating /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg
+Extracting tornado-4.3b1-py3.4-linux-x86_64.egg to /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages
+Adding tornado 4.3b1 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/tornado-4.3b1-py3.4-linux-x86_64.egg
+Processing dependencies for tornado==4.3b1
+Searching for backports-abc>=0.4
+Reading https://pypi.python.org/simple/backports_abc/
+Best match: backports-abc 0.4
+Downloading https://pypi.python.org/packages/source/b/backports_abc/backports_abc-0.4.tar.gz#md5=0b65a216ce9dc9c1a7e20a729dd7c05b
+Processing backports_abc-0.4.tar.gz
+Writing /tmp/easy_install-jlj91l9d/backports_abc-0.4/setup.cfg
+Running backports_abc-0.4/setup.py -q bdist_egg --dist-dir /tmp/easy_install-jlj91l9d/backports_abc-0.4/egg-dist-tmp-ky6lvd40
+zip_safe flag not set; analyzing archive contents...
+Moving backports_abc-0.4-py3.4.egg to /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages
+Adding backports-abc 0.4 to easy-install.pth file
+
+Installed /home/travis/virtualenv/python3.4.2/lib/python3.4/site-packages/backports_abc-0.4-py3.4.egg
+Finished processing dependencies for tornado==4.3b1
+travis_time:end:18a79e78:start=1445709546823326269,finish=1445709548459327889,duration=1636001620[0Ktravis_fold:end:install.10[0Ktravis_fold:start:install.11[0Ktravis_time:start:0ec0db79[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.2' ]]; then travis_retry pip install 'coverage<4.0'; fi
+travis_time:end:0ec0db79:start=1445709548463307460,finish=1445709548466188454,duration=2880994[0Ktravis_fold:end:install.11[0Ktravis_fold:start:install.12[0Ktravis_time:start:042a2324[0K$ travis_retry pip install codecov
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting codecov
+  Downloading codecov-1.5.1.tar.gz
+Collecting requests>=2.0.0 (from codecov)
+  Downloading requests-2.8.1-py2.py3-none-any.whl (497kB)
+[?25l[K    0% |                                | 4.1kB 44.1MB/s eta 0:00:01[K    1% |                                | 8.2kB 21.4MB/s eta 0:00:01[K    2% |                                | 12kB 20.4MB/s eta 0:00:01[K    3% |#                               | 16kB 14.8MB/s eta 0:00:01[K    4% |#                               | 20kB 15.3MB/s eta 0:00:01[K    4% |#                               | 24kB 15.6MB/s eta 0:00:01[K    5% |#                               | 28kB 16.1MB/s eta 0:00:01[K    6% |##                              | 32kB 14.8MB/s eta 0:00:01[K    7% |##                              | 36kB 14.7MB/s eta 0:00:01[K    8% |##                              | 40kB 14.9MB/s eta 0:00:01[K    9% |##                              | 45kB 14.3MB/s eta 0:00:01[K    9% |###                             | 49kB 14.4MB/s eta 0:00:01[K    10% |###                             | 53kB 14.2MB/s eta 0:00:01[K    11% |###                             | 57kB 15.8MB/s eta 0:00:01[K    12% |###                             | 61kB 16.1MB/s eta 0:00:01[K    13% |####                            | 65kB 15.8MB/s eta 0:00:01[K    13% |####                            | 69kB 15.3MB/s eta 0:00:01[K    14% |####                            | 73kB 16.6MB/s eta 0:00:01[K    15% |#####                           | 77kB 17.4MB/s eta 0:00:01[K    16% |#####                           | 81kB 17.1MB/s eta 0:00:01[K    17% |#####                           | 86kB 16.4MB/s eta 0:00:01[K    18% |#####                           | 90kB 16.9MB/s eta 0:00:01[K    18% |######                          | 94kB 17.4MB/s eta 0:00:01[K    19% |######                          | 98kB 17.0MB/s eta 0:00:01[K    20% |######                          | 102kB 16.4MB/s eta 0:00:01[K    21% |######                          | 106kB 16.8MB/s eta 0:00:01[K    22% |#######                         | 110kB 17.4MB/s eta 0:00:01[K    23% |#######                         | 114kB 16.9MB/s eta 0:00:01[K    23% |#######                         | 118kB 16.9MB/s eta 0:00:01[K    24% |#######                         | 122kB 17.5MB/s eta 0:00:01[K    25% |########                        | 126kB 18.3MB/s eta 0:00:01[K    26% |########                        | 131kB 18.0MB/s eta 0:00:01[K    27% |########                        | 135kB 18.0MB/s eta 0:00:01[K    27% |########                        | 139kB 18.6MB/s eta 0:00:01[K    28% |#########                       | 143kB 19.4MB/s eta 0:00:01[K    29% |#########                       | 147kB 19.0MB/s eta 0:00:01[K    30% |#########                       | 151kB 19.3MB/s eta 0:00:01[K    31% |##########                      | 155kB 19.0MB/s eta 0:00:01[K    32% |##########                      | 159kB 18.8MB/s eta 0:00:01[K    32% |##########                      | 163kB 18.5MB/s eta 0:00:01[K    33% |##########                      | 167kB 18.4MB/s eta 0:00:01[K    34% |###########                     | 172kB 18.8MB/s eta 0:00:01[K    35% |###########                     | 176kB 18.8MB/s eta 0:00:01[K    36% |###########                     | 180kB 18.4MB/s eta 0:00:01[K    37% |###########                     | 184kB 18.2MB/s eta 0:00:01[K    37% |############                    | 188kB 18.6MB/s eta 0:00:01[K    38% |############                    | 192kB 18.6MB/s eta 0:00:01[K    39% |############                    | 196kB 19.1MB/s eta 0:00:01[K    40% |############                    | 200kB 19.3MB/s eta 0:00:01[K    41% |#############                   | 204kB 19.6MB/s eta 0:00:01[K    41% |#############                   | 208kB 19.7MB/s eta 0:00:01[K    42% |#############                   | 212kB 8.1MB/s eta 0:00:01[K    43% |#############                   | 217kB 8.1MB/s eta 0:00:01[K    44% |##############                  | 221kB 8.2MB/s eta 0:00:01[K    45% |##############                  | 225kB 8.2MB/s eta 0:00:01[K    46% |##############                  | 229kB 7.5MB/s eta 0:00:01[K    46% |###############                 | 233kB 7.4MB/s eta 0:00:01[K    47% |###############                 | 237kB 7.5MB/s eta 0:00:01[K    48% |###############                 | 241kB 7.2MB/s eta 0:00:01[K    49% |###############                 | 245kB 7.1MB/s eta 0:00:01[K    50% |################                | 249kB 7.0MB/s eta 0:00:01[K    50% |################                | 253kB 14.0MB/s eta 0:00:01[K    51% |################                | 258kB 13.9MB/s eta 0:00:01[K    52% |################                | 262kB 13.4MB/s eta 0:00:01[K    53% |#################               | 266kB 13.0MB/s eta 0:00:01[K    54% |#################               | 270kB 15.4MB/s eta 0:00:01[K    55% |#################               | 274kB 15.4MB/s eta 0:00:01[K    55% |#################               | 278kB 14.8MB/s eta 0:00:01[K    56% |##################              | 282kB 15.2MB/s eta 0:00:01[K    57% |##################              | 286kB 15.7MB/s eta 0:00:01[K    58% |##################              | 290kB 16.0MB/s eta 0:00:01[K    59% |##################              | 294kB 15.7MB/s eta 0:00:01[K    60% |###################             | 299kB 15.7MB/s eta 0:00:01[K    60% |###################             | 303kB 16.4MB/s eta 0:00:01[K    61% |###################             | 307kB 17.0MB/s eta 0:00:01[K    62% |####################            | 311kB 16.5MB/s eta 0:00:01[K    63% |####################            | 315kB 15.8MB/s eta 0:00:01[K    64% |####################            | 319kB 16.3MB/s eta 0:00:01[K    64% |####################            | 323kB 17.3MB/s eta 0:00:01[K    65% |#####################           | 327kB 17.2MB/s eta 0:00:01[K    66% |#####################           | 331kB 17.0MB/s eta 0:00:01[K    67% |#####################           | 335kB 17.1MB/s eta 0:00:01[K    68% |#####################           | 339kB 17.5MB/s eta 0:00:01[K    69% |######################          | 344kB 17.0MB/s eta 0:00:01[K    69% |######################          | 348kB 16.5MB/s eta 0:00:01[K    70% |######################          | 352kB 16.5MB/s eta 0:00:01[K    71% |######################          | 356kB 17.6MB/s eta 0:00:01[K    72% |#######################         | 360kB 17.1MB/s eta 0:00:01[K    73% |#######################         | 364kB 16.0MB/s eta 0:00:01[K    74% |#######################         | 368kB 16.4MB/s eta 0:00:01[K    74% |#######################         | 372kB 16.6MB/s eta 0:00:01[K    75% |########################        | 376kB 16.5MB/s eta 0:00:01[K    76% |########################        | 380kB 15.5MB/s eta 0:00:01[K    77% |########################        | 385kB 15.9MB/s eta 0:00:01[K    78% |#########################       | 389kB 16.5MB/s eta 0:00:01[K    78% |#########################       | 393kB 16.5MB/s eta 0:00:01[K    79% |#########################       | 397kB 15.8MB/s eta 0:00:01[K    80% |#########################       | 401kB 16.2MB/s eta 0:00:01[K    81% |##########################      | 405kB 17.3MB/s eta 0:00:01[K    82% |##########################      | 409kB 17.1MB/s eta 0:00:01[K    83% |##########################      | 413kB 17.1MB/s eta 0:00:01[K    83% |##########################      | 417kB 17.6MB/s eta 0:00:01[K    84% |###########################     | 421kB 18.8MB/s eta 0:00:01[K    85% |###########################     | 425kB 18.5MB/s eta 0:00:01[K    86% |###########################     | 430kB 18.5MB/s eta 0:00:01[K    87% |###########################     | 434kB 19.1MB/s eta 0:00:01[K    88% |############################    | 438kB 17.9MB/s eta 0:00:01[K    88% |############################    | 442kB 17.5MB/s eta 0:00:01[K    89% |############################    | 446kB 17.5MB/s eta 0:00:01[K    90% |############################    | 450kB 17.8MB/s eta 0:00:01[K    91% |#############################   | 454kB 17.8MB/s eta 0:00:01[K    92% |#############################   | 458kB 17.5MB/s eta 0:00:01[K    92% |#############################   | 462kB 17.5MB/s eta 0:00:01[K    93% |##############################  | 466kB 17.7MB/s eta 0:00:01[K    94% |##############################  | 471kB 17.5MB/s eta 0:00:01[K    95% |##############################  | 475kB 17.1MB/s eta 0:00:01[K    96% |##############################  | 479kB 19.2MB/s eta 0:00:01[K    97% |############################### | 483kB 19.7MB/s eta 0:00:01[K    97% |############################### | 487kB 19.7MB/s eta 0:00:01[K    98% |############################### | 491kB 19.2MB/s eta 0:00:01[K    99% |############################### | 495kB 19.0MB/s eta 0:00:01[K    100% |################################| 499kB 1.2MB/s 
+[?25hCollecting coverage (from codecov)
+  Downloading coverage-4.0.1.tar.gz (349kB)
+[?25l[K    1% |                                | 4.1kB 52.1MB/s eta 0:00:01[K    2% |                                | 8.2kB 25.0MB/s eta 0:00:01[K    3% |#                               | 12kB 23.0MB/s eta 0:00:01[K    4% |#                               | 16kB 20.0MB/s eta 0:00:01[K    5% |#                               | 20kB 20.1MB/s eta 0:00:01[K    7% |##                              | 24kB 20.0MB/s eta 0:00:01[K    8% |##                              | 28kB 20.2MB/s eta 0:00:01[K    9% |##                              | 32kB 19.6MB/s eta 0:00:01[K    10% |###                             | 36kB 19.2MB/s eta 0:00:01[K    11% |###                             | 40kB 18.8MB/s eta 0:00:01[K    12% |####                            | 45kB 17.5MB/s eta 0:00:01[K    14% |####                            | 49kB 17.4MB/s eta 0:00:01[K    15% |####                            | 53kB 17.5MB/s eta 0:00:01[K    16% |#####                           | 57kB 17.9MB/s eta 0:00:01[K    17% |#####                           | 61kB 17.5MB/s eta 0:00:01[K    18% |#####                           | 65kB 16.4MB/s eta 0:00:01[K    19% |######                          | 69kB 15.9MB/s eta 0:00:01[K    21% |######                          | 73kB 16.2MB/s eta 0:00:01[K    22% |#######                         | 77kB 16.6MB/s eta 0:00:01[K    23% |#######                         | 81kB 16.5MB/s eta 0:00:01[K    24% |#######                         | 86kB 15.8MB/s eta 0:00:01[K    25% |########                        | 90kB 16.2MB/s eta 0:00:01[K    26% |########                        | 94kB 16.3MB/s eta 0:00:01[K    28% |########                        | 98kB 16.0MB/s eta 0:00:01[K    29% |#########                       | 102kB 16.0MB/s eta 0:00:01[K    30% |#########                       | 106kB 17.0MB/s eta 0:00:01[K    31% |##########                      | 110kB 17.4MB/s eta 0:00:01[K    32% |##########                      | 114kB 16.9MB/s eta 0:00:01[K    33% |##########                      | 118kB 16.1MB/s eta 0:00:01[K    35% |###########                     | 122kB 16.5MB/s eta 0:00:01[K    36% |###########                     | 126kB 17.6MB/s eta 0:00:01[K    37% |###########                     | 131kB 17.2MB/s eta 0:00:01[K    38% |############                    | 135kB 17.2MB/s eta 0:00:01[K    39% |############                    | 139kB 17.7MB/s eta 0:00:01[K    40% |#############                   | 143kB 18.4MB/s eta 0:00:01[K    42% |#############                   | 147kB 17.7MB/s eta 0:00:01[K    43% |#############                   | 151kB 17.9MB/s eta 0:00:01[K    44% |##############                  | 155kB 18.5MB/s eta 0:00:01[K    45% |##############                  | 159kB 18.8MB/s eta 0:00:01[K    46% |##############                  | 163kB 17.4MB/s eta 0:00:01[K    48% |###############                 | 167kB 16.9MB/s eta 0:00:01[K    49% |###############                 | 172kB 17.2MB/s eta 0:00:01[K    50% |################                | 176kB 17.2MB/s eta 0:00:01[K    51% |################                | 180kB 16.5MB/s eta 0:00:01[K    52% |################                | 184kB 16.1MB/s eta 0:00:01[K    53% |#################               | 188kB 15.9MB/s eta 0:00:01[K    55% |#################               | 192kB 15.8MB/s eta 0:00:01[K    56% |#################               | 196kB 15.3MB/s eta 0:00:01[K    57% |##################              | 200kB 15.3MB/s eta 0:00:01[K    58% |##################              | 204kB 16.2MB/s eta 0:00:01[K    59% |###################             | 208kB 16.4MB/s eta 0:00:01[K    60% |###################             | 212kB 15.6MB/s eta 0:00:01[K    62% |###################             | 217kB 15.3MB/s eta 0:00:01[K    63% |####################            | 221kB 15.9MB/s eta 0:00:01[K    64% |####################            | 225kB 16.1MB/s eta 0:00:01[K    65% |####################            | 229kB 16.4MB/s eta 0:00:01[K    66% |#####################           | 233kB 16.6MB/s eta 0:00:01[K    67% |#####################           | 237kB 16.9MB/s eta 0:00:01[K    69% |######################          | 241kB 17.5MB/s eta 0:00:01[K    70% |######################          | 245kB 17.2MB/s eta 0:00:01[K    71% |######################          | 249kB 17.4MB/s eta 0:00:01[K    72% |#######################         | 253kB 18.7MB/s eta 0:00:01[K    73% |#######################         | 258kB 19.1MB/s eta 0:00:01[K    74% |#######################         | 262kB 18.7MB/s eta 0:00:01[K    76% |########################        | 266kB 18.9MB/s eta 0:00:01[K    77% |########################        | 270kB 19.5MB/s eta 0:00:01[K    78% |#########################       | 274kB 19.6MB/s eta 0:00:01[K    79% |#########################       | 278kB 19.5MB/s eta 0:00:01[K    80% |#########################       | 282kB 19.5MB/s eta 0:00:01[K    81% |##########################      | 286kB 20.4MB/s eta 0:00:01[K    83% |##########################      | 290kB 20.4MB/s eta 0:00:01[K    84% |##########################      | 294kB 19.9MB/s eta 0:00:01[K    85% |###########################     | 299kB 19.9MB/s eta 0:00:01[K    86% |###########################     | 303kB 20.4MB/s eta 0:00:01[K    87% |############################    | 307kB 20.4MB/s eta 0:00:01[K    89% |############################    | 311kB 20.0MB/s eta 0:00:01[K    90% |############################    | 315kB 20.0MB/s eta 0:00:01[K    91% |#############################   | 319kB 20.4MB/s eta 0:00:01[K    92% |#############################   | 323kB 20.1MB/s eta 0:00:01[K    93% |#############################   | 327kB 19.6MB/s eta 0:00:01[K    94% |##############################  | 331kB 19.6MB/s eta 0:00:01[K    96% |##############################  | 335kB 20.3MB/s eta 0:00:01[K    97% |############################### | 339kB 20.7MB/s eta 0:00:01[K    98% |############################### | 344kB 20.7MB/s eta 0:00:01[K    99% |############################### | 348kB 21.0MB/s eta 0:00:01[K    100% |################################| 352kB 1.6MB/s 
+[?25hInstalling collected packages: coverage, requests, codecov
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/datastack.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/filedisp.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/module.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o
+    gcc -pthread -Wno-unused-result -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -fPIC -I/opt/python/3.4.2/include/python3.4m -c coverage/ctracer/tracer.c -o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o
+    gcc -pthread -shared -L/opt/python/3.4.2/lib -Wl,-rpath=/opt/python/3.4.2/lib build/temp.linux-x86_64-3.4/coverage/ctracer/datastack.o build/temp.linux-x86_64-3.4/coverage/ctracer/filedisp.o build/temp.linux-x86_64-3.4/coverage/ctracer/module.o build/temp.linux-x86_64-3.4/coverage/ctracer/tracer.o -L/opt/python/3.4.2/lib -lpython3.4m -o build/lib.linux-x86_64-3.4/coverage/tracer.cpython-34m.so
+    Installing coverage-3.4 script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage script to /home/travis/virtualenv/python3.4.2/bin
+    Installing coverage3 script to /home/travis/virtualenv/python3.4.2/bin
+
+  Running setup.py install for codecov
+    Installing codecov script to /home/travis/virtualenv/python3.4.2/bin
+Successfully installed codecov-1.5.1 coverage-4.0.1 requests-2.8.1
+travis_time:end:042a2324:start=1445709548470270520,finish=1445709551511839256,duration=3041568736[0Ktravis_fold:end:install.12[0Ktravis_fold:start:install.13[0Ktravis_time:start:0ae887ff[0K$ curl-config --version; pip freeze
+libcurl 7.22.0
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+backports-abc==0.4
+codecov==1.5.1
+coverage==4.0.1
+mock==1.0.1
+nose==1.3.4
+numpy==1.9.1
+py==1.4.26
+pycurl==7.19.5.1
+pytest==2.6.4
+requests==2.8.1
+tornado==4.3b1
+Twisted==15.4.0
+wheel==0.24.0
+zope.interface==4.1.3
+travis_time:end:0ae887ff:start=1445709551515277421,finish=1445709551819251581,duration=303974160[0Ktravis_fold:end:install.13[0Ktravis_time:start:310ab42e[0K$ cd maint
+travis_time:end:310ab42e:start=1445709551822659010,finish=1445709551825330067,duration=2671057[0K
+[32;1mThe command "cd maint" exited with 0.[0m
+travis_time:start:353cfe59[0K$ cp ../.coveragerc .
+travis_time:end:353cfe59:start=1445709551828795252,finish=1445709551832539834,duration=3744582[0K
+[32;1mThe command "cp ../.coveragerc ." exited with 0.[0m
+travis_time:start:13fd0010[0K$ if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi
+travis_time:end:13fd0010:start=1445709551835982967,finish=1445709551838685708,duration=2702741[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 'pypy'* ]]; then export TORNADO_EXTENSION=1; fi" exited with 0.[0m
+travis_time:start:1336a0b0[0K$ export TARGET="-m tornado.test.runtests"
+travis_time:end:1336a0b0:start=1445709551842201219,finish=1445709551844915954,duration=2714735[0K
+[32;1mThe command "export TARGET="-m tornado.test.runtests"" exited with 0.[0m
+travis_time:start:003b4051[0K$ export ASYNC_TEST_TIMEOUT=15
+travis_time:end:003b4051:start=1445709551848320371,finish=1445709551851004262,duration=2683891[0K
+[32;1mThe command "export ASYNC_TEST_TIMEOUT=15" exited with 0.[0m
+travis_time:start:24bc21a9[0K$ if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then export TARGET="-m coverage run $TARGET"; fi
+travis_time:end:24bc21a9:start=1445709551854383131,finish=1445709551857099596,duration=2716465[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then export TARGET="-m coverage run $TARGET"; fi" exited with 0.[0m
+travis_time:start:04bc9a02[0K$ python $TARGET
+[32m[I 151024 17:59:28 testing:729](B[m PASS
+travis_time:end:04bc9a02:start=1445709551860610770,finish=1445709568757014916,duration=16896404146[0K
+[32;1mThe command "python $TARGET" exited with 0.[0m
+travis_time:start:05607c0c[0K$ python $TARGET --ioloop=tornado.platform.select.SelectIOLoop
+[32m[I 151024 17:59:46 testing:729](B[m PASS
+travis_time:end:05607c0c:start=1445709568760985044,finish=1445709586329638933,duration=17568653889[0K
+[32;1mThe command "python $TARGET --ioloop=tornado.platform.select.SelectIOLoop" exited with 0.[0m
+travis_time:start:01993c0d[0K$ python -O $TARGET
+[32m[I 151024 18:00:03 testing:729](B[m PASS
+travis_time:end:01993c0d:start=1445709586333534903,finish=1445709604042942215,duration=17709407312[0K
+[32;1mThe command "python -O $TARGET" exited with 0.[0m
+travis_time:start:15702054[0K$ LANG=C python $TARGET
+[32m[I 151024 18:00:21 testing:729](B[m PASS
+travis_time:end:15702054:start=1445709604046609104,finish=1445709621562314026,duration=17515704922[0K
+[32;1mThe command "LANG=C python $TARGET" exited with 0.[0m
+travis_time:start:01bac70e[0K$ LANG=en_US.utf-8 python $TARGET
+[32m[I 151024 18:00:38 testing:729](B[m PASS
+travis_time:end:01bac70e:start=1445709621566384007,finish=1445709638415981779,duration=16849597772[0K
+[32;1mThe command "LANG=en_US.utf-8 python $TARGET" exited with 0.[0m
+travis_time:start:269e49d0[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then python -bb $TARGET; fi
+[32m[I 151024 18:00:54 testing:729](B[m PASS
+travis_time:end:269e49d0:start=1445709638419710555,finish=1445709655080149218,duration=16660438663[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then python -bb $TARGET; fi" exited with 0.[0m
+travis_time:start:0b4ff636[0K$ if [[ $TRAVIS_PYTHON_VERSION != pypy* && $DEPS == true ]]; then python $TARGET --resolver=tornado.netutil.ThreadedResolver; fi
+[32m[I 151024 18:01:12 testing:729](B[m PASS
+travis_time:end:0b4ff636:start=1445709655084278174,finish=1445709672776704174,duration=17692426000[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != pypy* && $DEPS == true ]]; then python $TARGET --resolver=tornado.netutil.ThreadedResolver; fi" exited with 0.[0m
+travis_time:start:04f8da8b[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --httpclient=tornado.curl_httpclient.CurlAsyncHTTPClient; fi
+travis_time:end:04f8da8b:start=1445709672780589931,finish=1445709672783466178,duration=2876247[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --httpclient=tornado.curl_httpclient.CurlAsyncHTTPClient; fi" exited with 0.[0m
+travis_time:start:00b68e9d[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop_time_monotonic; fi
+travis_time:end:00b68e9d:start=1445709672787188118,finish=1445709672790081687,duration=2893569[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop_time_monotonic; fi" exited with 0.[0m
+travis_time:start:19ead61f[0K$ if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.twisted.TwistedIOLoop; fi
+[32m[I 151024 18:01:30 testing:729](B[m PASS
+travis_time:end:19ead61f:start=1445709672793922038,finish=1445709690699118231,duration=17905196193[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != '3.2' && $TRAVIS_PYTHON_VERSION != 'pypy'* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.twisted.TwistedIOLoop; fi" exited with 0.[0m
+travis_time:start:1b97d13c[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3.4 || $TRAVIS_PYTHON_VERSION == 3.5 ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi
+[32m[I 151024 18:01:48 testing:729](B[m PASS
+travis_time:end:1b97d13c:start=1445709690703213212,finish=1445709708869392315,duration=18166179103[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3.4 || $TRAVIS_PYTHON_VERSION == 3.5 ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi" exited with 0.[0m
+travis_time:start:0025d5cc[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi
+travis_time:end:0025d5cc:start=1445709708874012439,finish=1445709708877512504,duration=3500065[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --ioloop=tornado.platform.asyncio.AsyncIOLoop; fi" exited with 0.[0m
+travis_time:start:1eb86bd2[0K$ if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --resolver=tornado.platform.twisted.TwistedResolver; fi
+travis_time:end:1eb86bd2:start=1445709708882448834,finish=1445709708885965383,duration=3516549[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 2* && $DEPS == true ]]; then python $TARGET --resolver=tornado.platform.twisted.TwistedResolver; fi" exited with 0.[0m
+travis_time:start:01193e9c[0K$ if [[ $TRAVIS_PYTHON_VERSION == 3* && $TRAVIS_PYTHON_VERSION != '3.2' ]]; then python $TARGET --ioloop_time_monotonic; fi
+[32m[I 151024 18:02:05 testing:729](B[m PASS
+travis_time:end:01193e9c:start=1445709708890759964,finish=1445709726308699155,duration=17417939191[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == 3* && $TRAVIS_PYTHON_VERSION != '3.2' ]]; then python $TARGET --ioloop_time_monotonic; fi" exited with 0.[0m
+travis_time:start:09804fcc[0K$ if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then coverage xml; fi
+travis_time:end:09804fcc:start=1445709726312871113,finish=1445709733456561787,duration=7143690674[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then coverage xml; fi" exited with 0.[0m
+travis_time:start:0f9b8a44[0K$ export TORNADO_EXTENSION=0
+travis_time:end:0f9b8a44:start=1445709733460297941,finish=1445709733463209229,duration=2911288[0K
+[32;1mThe command "export TORNADO_EXTENSION=0" exited with 0.[0m
+travis_time:start:02b04c01[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out; fi
+travis_time:end:02b04c01:start=1445709733466971928,finish=1445709733469825368,duration=2853440[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-out && sphinx-build -E -n -W -b html . sphinx-out; fi" exited with 0.[0m
+travis_time:start:0d9f5908[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi
+travis_time:end:0d9f5908:start=1445709733473489333,finish=1445709733476350386,duration=2861053[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi" exited with 0.[0m
+travis_time:start:00621518[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi
+travis_time:end:00621518:start=1445709733480072482,finish=1445709733482928292,duration=2855810[0K
+[32;1mThe command "if [[ $TRAVIS_PYTHON_VERSION == '3.5' && $DEPS == true ]]; then cd ../docs && mkdir sphinx-doctest-out && sphinx-build -E -n -b doctest . sphinx-out; fi" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:01df999e[0K$ if [[ $TRAVIS_PYTHON_VERSION != 2.6 && $TRAVIS_PYTHON_VERSION != nightly ]]; then cd ../ && codecov -e DEPS; fi
+
+      _____          _
+     / ____|        | |
+    | |     ___   __| | ___  ___ _____   __
+    | |    / _ \ / _` |/ _ \/ __/ _ \ \ / /
+    | |___| (_) | (_| |  __/ (_| (_) \ V /
+     \_____\___/ \__,_|\___|\___\___/ \_/
+                                    v1.5.1
+
+[90m==>[0m Detecting CI provider
+    Travis Detected
+[90m==>[0m Prepairing upload
+[90m==>[0m Processing gcov (disable by -X gcov)
+    Executing gcov (find /home/travis/build/tornadoweb/tornado -type f -name '*.gcno'  -exec gcov  {} +)
+[90m==>[0m Collecting reports
+    Seaching for reports
+    + /home/travis/build/tornadoweb/tornado/maint/coverage.xml bytes=819882
+[90m==>[0m Appending environment variables
+    + DEPS
+[90m==>[0m Uploading
+    .url https://codecov.io
+    .query service=travis&slug=tornadoweb%2Ftornado&job=87220631&build=1886.11&pr=false&package=py1.5.1&branch=master&commit=0f2168723b28fbcf06df28375b9163ad4e499b4b
+[92m    http://codecov.io/github/tornadoweb/tornado?ref=0f2168723b28fbcf06df28375b9163ad4e499b4b[0m
+travis_time:end:01df999e:start=1445709733486615130,finish=1445709735046022056,duration=1559406926[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

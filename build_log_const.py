@@ -1,0 +1,61 @@
+class BuildLogConstants:
+    PASSED_LOG_NAME_SUFFIX = '.passed.log'
+    FAILED_LOG_NAME_SUFFIX = '.failed.log'
+    PACKAGE_TAR_SUFFIX = '.tar.gz'
+    STR_PASSED = 'passed'
+    STR_FAILED = 'failed'
+
+    # dict keys
+    KEY_LINES = 'lines'
+    KEY_LINE = 'line'
+    KEY_TYPE = 'type'
+    KEY_POSSIBLE_CANDIDATES = 'possible_candidates'
+    KEY_FILE_NAME = 'filename'
+    KEY_INSTALLED_PKGS = 'installed_packages'
+
+    PATH_ORIG_LOGS = 'orig_logs'
+
+    # Log strings
+    LOG_STR_COLLECTING = 'Collecting'
+    LOG_STR_SEARCHING = 'Searching'
+    LOG_STR_DOWNLOADING = 'Downloading'
+    LOG_STR_REQUIREMENT = 'Requirement'
+    LOG_STR_REQUIREMENT_SATISFIED = 'Requirement already satisfied:'
+    LOG_STR_FILE = 'File'
+    LOG_STR_SITE_PACKAGES = '/site-packages/'
+    LOG_STR_EGG_INFO_FAIL = 'Command "python setup.py egg_info" failed'
+    LOG_STR_PYTHON3_EGG_INFO_FAIL = 'Command "python3 setup.py egg_info" failed'
+    LOG_STR_COMMAND_PIP_INSTALL = 'The command "pip install '
+    LOG_STR_COMMAND_PIP3_INSTALL = 'The command "pip3 install '
+    LOG_STR_PIP_OPTION_R = '-r'
+    LOG_STR_PIP_OPTION_UPGRADE = '--upgrade'
+    LOG_STR_REQUIRES = 'requires'
+    LOG_STR_VERSION = 'version'
+    LOG_STR_IMPORT_ERROR_CANNOT_IMPORT_NAME = 'ImportError: cannot import name '
+    LOG_STR_IMPORT_ERROR_NO_MODULE = 'No module named '
+    LOG_STR_IMPORT = 'import'
+    LOG_STR_TRACEBACK = 'Traceback (most recent call last):'
+    LOG_STR_SITE_PACKAGES = '/site-packages/'
+    LOG_STR_FROM = '(from'
+    LOG_STR_BEST_MATCH = 'Best match: '
+    LOG_STR_TRANSITIVE_DEP_REQ_FILE_SEPERATOR = '->-r '
+    LOG_STR_REQUIREMENTS_FLAG = '-r '
+    LOG_STR_REQUIRES_DIFFERENT_PYTHON = ' requires a different '
+    LOG_STR_PYTHON_COMMAND = 'command "python '
+    LOG_STR_PYTHON3_COMMAND = 'command "python3 '
+    LOG_STR_PIP3 = 'pip3'
+    LOG_STR_PYTHON3 = 'python3'
+    LOG_STR_MODULE_ERROR = 'ModuleNotFoundError: No module named'
+    LOG_STR_NO_MODULE_ERROR = 'No module named'
+    LOG_STR_TRACEBACK = 'Traceback \(most recent call last\)\:'
+    LOG_STR_EXCEPTION = 'Exception occurred\:'
+
+    # log regex
+    LOG_REGEX_FROM_IMPORT = r'from (.*) import (.*)'
+    LOG_REGEX_SITE_PACKAGES = r'/usr/local/lib/python(.*)/site-packages/'
+    LOG_REGEX_NON_LETTER_START = '^[^A-Za-z]+'
+    LOG_REGEX_NON_ALPHANUMERIC_END = '[^A-Za-z0-9]+$'
+
+
+    # links
+    LOG_GIT_LINK_START = 'git+https'

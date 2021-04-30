@@ -1,0 +1,982 @@
+Using worker: worker-linux-docker-75e1d18d.prod.travis-ci.org:travis-linux-16
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+Build id: 173946040
+Job id: 173946041
+travis-build version: 628c8d2e6
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_precise-security_restricted_binary-amd64_Packages.gz is not what the server reported 13782 14904
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-updates_restricted_binary-amd64_Packages.gz is not what the server reported 19576 20785
+W: Size of file /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_precise-security_restricted_binary-i386_Packages.gz is not what the server reported 13751 14885
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-updates_restricted_binary-i386_Packages.gz is not what the server reported 19521 20707
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_travis-ci_zero-mq_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 832 1195
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 33653 36677
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 33699 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 263 not upgraded.
+Need to get 8,840 kB of archives.
+After this operation, 14.3 kB disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.15 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.15 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.15 [1,177 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.15 [4,636 kB]
+Fetched 8,840 kB in 0s (35.6 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.15) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72018 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.15) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.15) ...
+Setting up libc6-dev (2.15-0ubuntu10.15) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:0de57d7d[0K$ git clone --depth=50 --branch=RC3 https://github.com/yamcs/yamcs.git yamcs/yamcs
+Cloning into 'yamcs/yamcs'...
+remote: Counting objects: 4039, done.[K
+remote: Compressing objects:   0% (1/2299)   [Kremote: Compressing objects:   1% (23/2299)   [Kremote: Compressing objects:   2% (46/2299)   [Kremote: Compressing objects:   3% (69/2299)   [Kremote: Compressing objects:   4% (92/2299)   [Kremote: Compressing objects:   5% (115/2299)   [Kremote: Compressing objects:   6% (138/2299)   [Kremote: Compressing objects:   7% (161/2299)   [Kremote: Compressing objects:   8% (184/2299)   [Kremote: Compressing objects:   9% (207/2299)   [Kremote: Compressing objects:  10% (230/2299)   [Kremote: Compressing objects:  11% (253/2299)   [Kremote: Compressing objects:  12% (276/2299)   [Kremote: Compressing objects:  13% (299/2299)   [Kremote: Compressing objects:  14% (322/2299)   [Kremote: Compressing objects:  15% (345/2299)   [Kremote: Compressing objects:  16% (368/2299)   [Kremote: Compressing objects:  17% (391/2299)   [Kremote: Compressing objects:  18% (414/2299)   [Kremote: Compressing objects:  19% (437/2299)   [Kremote: Compressing objects:  20% (460/2299)   [Kremote: Compressing objects:  21% (483/2299)   [Kremote: Compressing objects:  22% (506/2299)   [Kremote: Compressing objects:  23% (529/2299)   [Kremote: Compressing objects:  24% (552/2299)   [Kremote: Compressing objects:  25% (575/2299)   [Kremote: Compressing objects:  26% (598/2299)   [Kremote: Compressing objects:  27% (621/2299)   [Kremote: Compressing objects:  28% (644/2299)   [Kremote: Compressing objects:  29% (667/2299)   [Kremote: Compressing objects:  30% (690/2299)   [Kremote: Compressing objects:  31% (713/2299)   [Kremote: Compressing objects:  32% (736/2299)   [Kremote: Compressing objects:  33% (759/2299)   [Kremote: Compressing objects:  34% (782/2299)   [Kremote: Compressing objects:  35% (805/2299)   [Kremote: Compressing objects:  36% (828/2299)   [Kremote: Compressing objects:  37% (851/2299)   [Kremote: Compressing objects:  38% (874/2299)   [Kremote: Compressing objects:  39% (897/2299)   [Kremote: Compressing objects:  40% (920/2299)   [Kremote: Compressing objects:  41% (943/2299)   [Kremote: Compressing objects:  42% (966/2299)   [Kremote: Compressing objects:  43% (989/2299)   [Kremote: Compressing objects:  44% (1012/2299)   [Kremote: Compressing objects:  45% (1035/2299)   [Kremote: Compressing objects:  46% (1058/2299)   [Kremote: Compressing objects:  47% (1081/2299)   [Kremote: Compressing objects:  48% (1104/2299)   [Kremote: Compressing objects:  49% (1127/2299)   [Kremote: Compressing objects:  50% (1150/2299)   [Kremote: Compressing objects:  51% (1173/2299)   [Kremote: Compressing objects:  52% (1196/2299)   [Kremote: Compressing objects:  53% (1219/2299)   [Kremote: Compressing objects:  54% (1242/2299)   [Kremote: Compressing objects:  55% (1265/2299)   [Kremote: Compressing objects:  56% (1288/2299)   [Kremote: Compressing objects:  57% (1311/2299)   [Kremote: Compressing objects:  58% (1334/2299)   [Kremote: Compressing objects:  59% (1357/2299)   [Kremote: Compressing objects:  60% (1380/2299)   [Kremote: Compressing objects:  61% (1403/2299)   [Kremote: Compressing objects:  62% (1426/2299)   [Kremote: Compressing objects:  63% (1449/2299)   [Kremote: Compressing objects:  64% (1472/2299)   [Kremote: Compressing objects:  65% (1495/2299)   [Kremote: Compressing objects:  66% (1518/2299)   [Kremote: Compressing objects:  67% (1541/2299)   [Kremote: Compressing objects:  68% (1564/2299)   [Kremote: Compressing objects:  69% (1587/2299)   [Kremote: Compressing objects:  70% (1610/2299)   [Kremote: Compressing objects:  71% (1633/2299)   [Kremote: Compressing objects:  72% (1656/2299)   [Kremote: Compressing objects:  73% (1679/2299)   [Kremote: Compressing objects:  74% (1702/2299)   [Kremote: Compressing objects:  75% (1725/2299)   [Kremote: Compressing objects:  76% (1748/2299)   [Kremote: Compressing objects:  77% (1771/2299)   [Kremote: Compressing objects:  78% (1794/2299)   [Kremote: Compressing objects:  79% (1817/2299)   [Kremote: Compressing objects:  80% (1840/2299)   [Kremote: Compressing objects:  81% (1863/2299)   [Kremote: Compressing objects:  82% (1886/2299)   [Kremote: Compressing objects:  83% (1909/2299)   [Kremote: Compressing objects:  84% (1932/2299)   [Kremote: Compressing objects:  85% (1955/2299)   [Kremote: Compressing objects:  86% (1978/2299)   [Kremote: Compressing objects:  87% (2001/2299)   [Kremote: Compressing objects:  88% (2024/2299)   [Kremote: Compressing objects:  89% (2047/2299)   [Kremote: Compressing objects:  90% (2070/2299)   [Kremote: Compressing objects:  91% (2093/2299)   [Kremote: Compressing objects:  92% (2116/2299)   [Kremote: Compressing objects:  93% (2139/2299)   [Kremote: Compressing objects:  94% (2162/2299)   [Kremote: Compressing objects:  95% (2185/2299)   [Kremote: Compressing objects:  96% (2208/2299)   [Kremote: Compressing objects:  97% (2231/2299)   [Kremote: Compressing objects:  98% (2254/2299)   [Kremote: Compressing objects:  99% (2277/2299)   [Kremote: Compressing objects: 100% (2299/2299)   [Kremote: Compressing objects: 100% (2299/2299), done.[K
+Receiving objects:   0% (1/4039)   Receiving objects:   1% (41/4039)   Receiving objects:   2% (81/4039)   Receiving objects:   3% (122/4039)   Receiving objects:   4% (162/4039)   Receiving objects:   5% (202/4039)   Receiving objects:   6% (243/4039)   Receiving objects:   7% (283/4039)   Receiving objects:   8% (324/4039)   Receiving objects:   9% (364/4039)   Receiving objects:  10% (404/4039)   Receiving objects:  11% (445/4039)   Receiving objects:  12% (485/4039)   Receiving objects:  13% (526/4039)   Receiving objects:  14% (566/4039)   Receiving objects:  15% (606/4039)   Receiving objects:  16% (647/4039)   Receiving objects:  17% (687/4039)   Receiving objects:  18% (728/4039)   Receiving objects:  19% (768/4039)   Receiving objects:  20% (808/4039)   Receiving objects:  21% (849/4039)   Receiving objects:  22% (889/4039)   Receiving objects:  23% (929/4039)   Receiving objects:  24% (970/4039)   Receiving objects:  25% (1010/4039)   Receiving objects:  26% (1051/4039)   Receiving objects:  27% (1091/4039)   Receiving objects:  28% (1131/4039)   Receiving objects:  29% (1172/4039)   Receiving objects:  30% (1212/4039)   Receiving objects:  31% (1253/4039)   Receiving objects:  32% (1293/4039)   Receiving objects:  33% (1333/4039)   Receiving objects:  34% (1374/4039)   Receiving objects:  35% (1414/4039)   Receiving objects:  36% (1455/4039)   Receiving objects:  37% (1495/4039)   Receiving objects:  38% (1535/4039)   Receiving objects:  39% (1576/4039)   Receiving objects:  40% (1616/4039)   Receiving objects:  41% (1656/4039)   Receiving objects:  42% (1697/4039)   Receiving objects:  43% (1737/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  44% (1778/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  45% (1818/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  46% (1858/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  47% (1899/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  48% (1939/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  49% (1980/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  50% (2020/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  51% (2060/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  52% (2101/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  53% (2141/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  54% (2182/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  55% (2222/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  56% (2262/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  57% (2303/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  58% (2343/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  59% (2384/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  60% (2424/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  61% (2464/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  62% (2505/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  63% (2545/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  64% (2585/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  65% (2626/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  66% (2666/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  67% (2707/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  68% (2747/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  69% (2787/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  70% (2828/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  71% (2868/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  72% (2909/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  73% (2949/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  74% (2989/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  75% (3030/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  76% (3070/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  77% (3111/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  78% (3151/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  79% (3191/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  80% (3232/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  81% (3272/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  82% (3312/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  83% (3353/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  84% (3393/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  85% (3434/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  86% (3474/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  87% (3514/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  88% (3555/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  89% (3595/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  90% (3636/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  91% (3676/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  92% (3716/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  93% (3757/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  94% (3797/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  95% (3838/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  96% (3878/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  97% (3918/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  98% (3959/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects:  99% (3999/4039), 8.17 MiB | 16.30 MiB/s   remote: Total 4039 (delta 1907), reused 2922 (delta 1456), pack-reused 0[K
+Receiving objects: 100% (4039/4039), 8.17 MiB | 16.30 MiB/s   Receiving objects: 100% (4039/4039), 15.08 MiB | 16.30 MiB/s, done.
+Resolving deltas:   0% (0/1907)   Resolving deltas:   5% (106/1907)   Resolving deltas:   6% (116/1907)   Resolving deltas:   7% (143/1907)   Resolving deltas:   8% (170/1907)   Resolving deltas:   9% (172/1907)   Resolving deltas:  10% (195/1907)   Resolving deltas:  11% (213/1907)   Resolving deltas:  12% (234/1907)   Resolving deltas:  13% (250/1907)   Resolving deltas:  14% (269/1907)   Resolving deltas:  15% (289/1907)   Resolving deltas:  16% (308/1907)   Resolving deltas:  21% (411/1907)   Resolving deltas:  22% (420/1907)   Resolving deltas:  23% (440/1907)   Resolving deltas:  25% (495/1907)   Resolving deltas:  26% (503/1907)   Resolving deltas:  30% (587/1907)   Resolving deltas:  31% (594/1907)   Resolving deltas:  32% (617/1907)   Resolving deltas:  33% (634/1907)   Resolving deltas:  34% (649/1907)   Resolving deltas:  35% (680/1907)   Resolving deltas:  36% (687/1907)   Resolving deltas:  37% (716/1907)   Resolving deltas:  38% (725/1907)   Resolving deltas:  39% (745/1907)   Resolving deltas:  40% (765/1907)   Resolving deltas:  41% (787/1907)   Resolving deltas:  42% (804/1907)   Resolving deltas:  43% (822/1907)   Resolving deltas:  44% (841/1907)   Resolving deltas:  45% (859/1907)   Resolving deltas:  46% (878/1907)   Resolving deltas:  48% (916/1907)   Resolving deltas:  49% (938/1907)   Resolving deltas:  50% (955/1907)   Resolving deltas:  51% (977/1907)   Resolving deltas:  52% (992/1907)   Resolving deltas:  53% (1011/1907)   Resolving deltas:  54% (1031/1907)   Resolving deltas:  56% (1069/1907)   Resolving deltas:  57% (1100/1907)   Resolving deltas:  58% (1109/1907)   Resolving deltas:  59% (1127/1907)   Resolving deltas:  60% (1146/1907)   Resolving deltas:  61% (1166/1907)   Resolving deltas:  62% (1200/1907)   Resolving deltas:  63% (1202/1907)   Resolving deltas:  64% (1226/1907)   Resolving deltas:  65% (1241/1907)   Resolving deltas:  66% (1259/1907)   Resolving deltas:  67% (1288/1907)   Resolving deltas:  68% (1297/1907)   Resolving deltas:  69% (1320/1907)   Resolving deltas:  70% (1337/1907)   Resolving deltas:  71% (1359/1907)   Resolving deltas:  72% (1376/1907)   Resolving deltas:  73% (1393/1907)   Resolving deltas:  74% (1414/1907)   Resolving deltas:  75% (1431/1907)   Resolving deltas:  76% (1454/1907)   Resolving deltas:  77% (1479/1907)   Resolving deltas:  78% (1489/1907)   Resolving deltas:  79% (1507/1907)   Resolving deltas:  80% (1527/1907)   Resolving deltas:  81% (1548/1907)   Resolving deltas:  82% (1564/1907)   Resolving deltas:  83% (1588/1907)   Resolving deltas:  84% (1602/1907)   Resolving deltas:  85% (1622/1907)   Resolving deltas:  88% (1682/1907)   Resolving deltas:  90% (1724/1907)   Resolving deltas:  91% (1737/1907)   Resolving deltas:  92% (1756/1907)   Resolving deltas:  93% (1774/1907)   Resolving deltas:  94% (1793/1907)   Resolving deltas:  95% (1812/1907)   Resolving deltas:  96% (1834/1907)   Resolving deltas:  97% (1850/1907)   Resolving deltas:  98% (1869/1907)   Resolving deltas:  99% (1888/1907)   Resolving deltas: 100% (1907/1907)   Resolving deltas: 100% (1907/1907), done.
+Checking connectivity... done.
+
+travis_time:end:0de57d7d:start=1478554614541433540,finish=1478554616420701770,duration=1879268230[0K$ cd yamcs/yamcs
+$ git checkout -qf a5504853f85492c7aa759df9b17ebc0a3f3b9f71
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0b03fedc[0K$ Installing caching utilities
+
+travis_time:end:0b03fedc:start=1478554618525385253,finish=1478554618550631345,duration=25246092[0Ktravis_time:start:0a36d832[0K
+travis_time:end:0a36d832:start=1478554618555418168,finish=1478554618558641276,duration=3223108[0Ktravis_time:start:06c2c9be[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching RC3/cache-linux-precise-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:06c2c9be:start=1478554618562851265,finish=1478554620309951269,duration=1747100004[0Ktravis_time:start:00f07fa0[0K
+travis_time:end:00f07fa0:start=1478554620314021075,finish=1478554620317324670,duration=3303595[0Ktravis_time:start:18957e4c[0K[32;1madding /home/travis/.m2 to cache[0m
+
+travis_time:end:18957e4c:start=1478554620320929423,finish=1478554621938313235,duration=1617383812[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:2392f1b2[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Yamcs
+[INFO] Yamcs API
+[INFO] Yamcs XTCE
+[INFO] Yamcs Core
+[INFO] Yamcs Simulation
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar-no-fork (attach-sources) @ yamcs ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs/0.30.0/yamcs-0.30.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs API 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-api ---
+[INFO] Compiling 67 source files to /home/travis/build/yamcs/yamcs/yamcs-api/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-api ---
+[INFO] Compiling 4 source files to /home/travis/build/yamcs/yamcs/yamcs-api/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-api ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.30.0.jar
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar-no-fork (attach-sources) @ yamcs-api ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.30.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-api ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.30.0.jar to /home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/yamcs-api-0.30.0.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-api/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/yamcs-api-0.30.0.pom
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-api/target/yamcs-api-0.30.0-sources.jar to /home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/yamcs-api-0.30.0-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs XTCE 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-xtce ---
+[INFO] Compiling 106 source files to /home/travis/build/yamcs/yamcs/yamcs-xtce/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-xtce/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-xtce ---
+[INFO] Compiling 1 source file to /home/travis/build/yamcs/yamcs/yamcs-xtce/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-xtce ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-xtce ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.30.0.jar
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar-no-fork (attach-sources) @ yamcs-xtce ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.30.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-xtce ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.30.0.jar to /home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.30.0/yamcs-xtce-0.30.0.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-xtce/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.30.0/yamcs-xtce-0.30.0.pom
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-xtce/target/yamcs-xtce-0.30.0-sources.jar to /home/travis/.m2/repository/org/yamcs/yamcs-xtce/0.30.0/yamcs-xtce-0.30.0-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Core 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.11:add-source (add-source) @ yamcs-core ---
+[INFO] Source directory: /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (generate-version) @ yamcs-core ---
+[INFO] Executing tasks
+     [copy] Copying 1 file to /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version/org/yamcs
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-core ---
+[INFO] Compiling 594 source files to /home/travis/build/yamcs/yamcs/yamcs-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 40 resources
+[INFO] Copying 20 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-core ---
+[INFO] Compiling 101 source files to /home/travis/build/yamcs/yamcs/yamcs-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-core ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.30.0.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:copy-dependencies (copy-dependencies) @ yamcs-core ---
+[INFO] Copying yamcs-xtce-0.30.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/yamcs-xtce-0.30.0.jar
+[INFO] Copying protobuf-java-2.5.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protobuf-java-2.5.0.jar
+[INFO] Copying protostuff-json-1.4.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protostuff-json-1.4.0.jar
+[INFO] Copying slf4j-jdk14-1.7.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/slf4j-jdk14-1.7.1.jar
+[INFO] Copying janino-2.5.15.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/janino-2.5.15.jar
+[INFO] Copying artemis-commons-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-commons-1.3.0.jar
+[INFO] Copying commons-collections-3.2.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/commons-collections-3.2.1.jar
+[INFO] Copying jcommander-1.48.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jcommander-1.48.jar
+[INFO] Copying artemis-jdbc-store-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-jdbc-store-1.3.0.jar
+[INFO] Copying javacsv-2.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/javacsv-2.0.jar
+[INFO] Copying rocksdbjni-4.11.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/rocksdbjni-4.11.2.jar
+[INFO] Copying artemis-server-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-server-1.3.0.jar
+[INFO] Copying artemis-selector-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-selector-1.3.0.jar
+[INFO] Copying slf4j-api-1.7.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/slf4j-api-1.7.1.jar
+[INFO] Copying jgroups-3.6.9.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jgroups-3.6.9.Final.jar
+[INFO] Copying netty-all-4.0.32.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/netty-all-4.0.32.Final.jar
+[INFO] Copying jackson-core-2.7.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jackson-core-2.7.1.jar
+[INFO] Copying artemis-native-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-native-1.3.0.jar
+[INFO] Copying snakeyaml-1.9.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/snakeyaml-1.9.jar
+[INFO] Copying commons-logging-1.1.1.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/commons-logging-1.1.1.jar
+[INFO] Copying commons-beanutils-1.9.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/commons-beanutils-1.9.2.jar
+[INFO] Copying log4j-1.2.14.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/log4j-1.2.14.jar
+[INFO] Copying artemis-journal-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-journal-1.3.0.jar
+[INFO] Copying jxl-2.6.10.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jxl-2.6.10.jar
+[INFO] Copying guava-18.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/guava-18.0.jar
+[INFO] Copying jdatepicker-1.3.2.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jdatepicker-1.3.2.jar
+[INFO] Copying protostuff-api-1.4.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/protostuff-api-1.4.0.jar
+[INFO] Copying yamcs-api-0.30.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/yamcs-api-0.30.0.jar
+[INFO] Copying jboss-logging-3.3.0.Final.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/jboss-logging-3.3.0.Final.jar
+[INFO] Copying artemis-core-client-1.3.0.jar to /home/travis/build/yamcs/yamcs/yamcs-core/lib/artemis-core-client-1.3.0.jar
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar-no-fork (attach-sources) @ yamcs-core ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.30.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-core ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.30.0.jar to /home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/yamcs-core-0.30.0.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-core/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/yamcs-core-0.30.0.pom
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-core/target/yamcs-core-0.30.0-sources.jar to /home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/yamcs-core-0.30.0-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Simulation 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-simulation ---
+[INFO] Compiling 34 source files to /home/travis/build/yamcs/yamcs/yamcs-simulation/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-simulation ---
+[INFO] Compiling 1 source file to /home/travis/build/yamcs/yamcs/yamcs-simulation/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-simulation ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ yamcs-simulation ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.30.0.jar
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar-no-fork (attach-sources) @ yamcs-simulation ---
+[INFO] Building jar: /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.30.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ yamcs-simulation ---
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.30.0.jar to /home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/yamcs-simulation-0.30.0.jar
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-simulation/pom.xml to /home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/yamcs-simulation-0.30.0.pom
+[INFO] Installing /home/travis/build/yamcs/yamcs/yamcs-simulation/target/yamcs-simulation-0.30.0-sources.jar to /home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/yamcs-simulation-0.30.0-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Yamcs .............................................. SUCCESS [  1.249 s]
+[INFO] Yamcs API .......................................... SUCCESS [ 36.774 s]
+[INFO] Yamcs XTCE ......................................... SUCCESS [  8.339 s]
+[INFO] Yamcs Core ......................................... SUCCESS [ 36.271 s]
+[INFO] Yamcs Simulation ................................... SUCCESS [  3.803 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:26 min
+[INFO] Finished at: 2016-11-07T21:38:31+00:00
+[INFO] Final Memory: 76M/450M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:2392f1b2:start=1478554622410118155,finish=1478554713485164932,duration=91075046777[0Ktravis_fold:end:install[0Ktravis_time:start:0001c840[0K$ mvn -Dsurefire.useFile=false test
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Yamcs
+[INFO] Yamcs API
+[INFO] Yamcs XTCE
+[INFO] Yamcs Core
+[INFO] Yamcs Simulation
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs API 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-api/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-api ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.utils.TimeEncodingTest
+sdf,format:2010-12-31T23:59:59.000
+d=Fri Dec 31 23:59:59 UTC 2010
+cal=Fri Dec 31 23:59:59 UTC 2010
+hod=23
+s=2010-12-31T23:59:59.000
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec - in org.yamcs.utils.TimeEncodingTest
+Running org.yamcs.utils.TaiUtcConverterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.yamcs.utils.TaiUtcConverterTest
+Running org.yamcs.api.AbstractEventProducerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 sec - in org.yamcs.api.AbstractEventProducerTest
+
+Results :
+
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs XTCE 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-xtce ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-xtce ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/yamcs/yamcs/yamcs-xtce/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-xtce ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-xtce ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.xtce.HistoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 sec - in org.yamcs.xtce.HistoryTest
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Core 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.11:add-source (add-source) @ yamcs-core ---
+[INFO] Source directory: /home/travis/build/yamcs/yamcs/yamcs-core/target/generated-sources/version added.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (generate-version) @ yamcs-core ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 40 resources
+[INFO] Copying 20 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-core ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.yarch.StarSelectTest
+Created directory: /home/travis/.yamcs/log
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.329 sec - in org.yamcs.yarch.StarSelectTest
+Running org.yamcs.yarch.rocksdb.PartitionManagerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.493 sec - in org.yamcs.yarch.rocksdb.PartitionManagerTest
+Running org.yamcs.yarch.rocksdb.TagsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.44 sec - in org.yamcs.yarch.rocksdb.TagsTest
+Running org.yamcs.yarch.rocksdb.RdbSelectPerfTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.032 sec - in org.yamcs.yarch.rocksdb.RdbSelectPerfTest
+Running org.yamcs.yarch.rocksdb.PartitioningTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.655 sec - in org.yamcs.yarch.rocksdb.PartitioningTest
+Running org.yamcs.yarch.rocksdb.RdbSelectTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.649 sec - in org.yamcs.yarch.rocksdb.RdbSelectTest
+Running org.yamcs.yarch.rocksdb.RdbEngineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.339 sec - in org.yamcs.yarch.rocksdb.RdbEngineTest
+Running org.yamcs.yarch.rocksdb.HistogramDbTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 sec - in org.yamcs.yarch.rocksdb.HistogramDbTest
+Running org.yamcs.yarch.rocksdb.RDBFactoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.276 sec - in org.yamcs.yarch.rocksdb.RDBFactoryTest
+Running org.yamcs.yarch.EnumWithPartitionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.594 sec - in org.yamcs.yarch.EnumWithPartitionTest
+Running org.yamcs.yarch.ConcurrencyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.532 sec - in org.yamcs.yarch.ConcurrencyTest
+Running org.yamcs.yarch.HistogramDbTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec - in org.yamcs.yarch.HistogramDbTest
+Running org.yamcs.yarch.StreamSqlParserTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.406 sec - in org.yamcs.yarch.StreamSqlParserTest
+Running org.yamcs.yarch.hornet.StreamAdapterTest
+Nov 07 21:39:09.009 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:39:09.045 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:39:09.242 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:39:09.242 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=9d74bd4a-a532-11e6-9d97-96c2c50dd127] 
+Nov 07 21:39:09.638 [44] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:39:09.673 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [9d74bd4a-a532-11e6-9d97-96c2c50dd127] stopped, uptime 0.705 seconds
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.424 sec - in org.yamcs.yarch.hornet.StreamAdapterTest
+Running org.yamcs.yarch.hornet.ProducerKillerTest
+log4j:WARN No appenders could be found for logger (org.jboss.logging).
+log4j:WARN Please initialize the log4j system properly.
+msg: ClientMessageImpl[messageID=9, durable=true, address=activemq.notifications,userID=null,properties=TypedProperties[_AMQ_Binding_Type=0,_AMQ_RoutingName=ProducerKiller,_AMQ_Distance=0,_AMQ_Address=activemq.notifications,_AMQ_NotifType=BINDING_ADDED,_AMQ_Binding_ID=8,_AMQ_NotifTimestamp=1478554751421,_AMQ_ClusterName=ProducerKiller9e8b84a8-a532-11e6-8159-96c2c50dd127,foobar=9ee626d8-a532-11e6-8159-96c2c50dd127]]
+msg: ClientMessageImpl[messageID=10, durable=true, address=activemq.notifications,userID=null,properties=TypedProperties[_AMQ_RoutingName=ProducerKiller,_AMQ_Distance=0,_AMQ_ConsumerCount=1,_AMQ_User=627b22cc-6c10-4d25-aee1-dbfebd2481a6,_AMQ_SessionName=9ee5b1a7-a532-11e6-8159-96c2c50dd127,_AMQ_Address=activemq.notifications,_AMQ_RemoteAddress=invm:0,_AMQ_NotifType=CONSUMER_CREATED,_AMQ_NotifTimestamp=1478554751431,_AMQ_ClusterName=ProducerKiller9e8b84a8-a532-11e6-8159-96c2c50dd127]]
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=11, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=12, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=13, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=14, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=15, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=16, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=17, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=18, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=19, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=20, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=21, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=22, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=23, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=24, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=25, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=26, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=27, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=28, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=29, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=30, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=31, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=32, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=33, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=34, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=35, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=36, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=37, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=38, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=39, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=40, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=41, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=42, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=43, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=44, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=45, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=46, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=47, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=48, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=49, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=50, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=51, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=52, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=53, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=54, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=55, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=56, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=57, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=58, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=59, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=60, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=61, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=62, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=63, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=64, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=65, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=66, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=67, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=68, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=69, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=70, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=71, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=72, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=73, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=74, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=75, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=76, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=77, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=78, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=79, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=80, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=81, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=82, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=83, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=84, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=85, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=86, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=87, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=88, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=89, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=90, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=91, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=92, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=93, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=94, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+Thread[Thread-0 (ActiveMQ-client-global-threads-384294141),5,ActiveMQ-client-global-threads-384294141] received the first message: ClientMessageImpl[messageID=95, durable=false, address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,userID=null,properties=TypedProperties[]], closing connection
+msg: ClientMessageImpl[messageID=716, durable=true, address=activemq.notifications,userID=null,properties=TypedProperties[_AMQ_RoutingName=tempDataQueue.27c8ea57-c1fa-4bca-b8a7-2279beb98e36,_AMQ_Distance=0,_AMQ_ConsumerCount=0,_AMQ_User=NULL-value,_AMQ_SessionName=9ed6705c-a532-11e6-8159-96c2c50dd127,_AMQ_Address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,_AMQ_RemoteAddress=/127.0.0.1:54252,_AMQ_NotifType=CONSUMER_CLOSED,_AMQ_FilterString=NULL-value,_AMQ_NotifTimestamp=1478554812976,_AMQ_ClusterName=tempDataQueue.27c8ea57-c1fa-4bca-b8a7-2279beb98e369e8b84a8-a532-11e6-8159-96c2c50dd127]]
+Nov 07 21:40:13.013 [285] org.yamcs.api.artemis.Protocol onMessage WARNING:closing producer org.apache.activemq.artemis.core.client.impl.ClientProducerImpl@3febb011 because the consumer to the address tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6 has closed
+msg: ClientMessageImpl[messageID=718, durable=true, address=activemq.notifications,userID=null,properties=TypedProperties[_AMQ_RoutingName=tempDataQueue.27c8ea57-c1fa-4bca-b8a7-2279beb98e36,_AMQ_Distance=0,_AMQ_Address=tempDataAddress.ff631232-3ca4-4cc0-a238-b8689c8643d6,_AMQ_NotifType=BINDING_REMOVED,_AMQ_Binding_ID=2,_AMQ_FilterString=NULL-value,_AMQ_NotifTimestamp=1478554812990,_AMQ_ClusterName=tempDataQueue.27c8ea57-c1fa-4bca-b8a7-2279beb98e369e8b84a8-a532-11e6-8159-96c2c50dd127]]
+ActiveMQObjectClosedException[errorType=OBJECT_CLOSED message=AMQ119018: Producer is closed]
+	at org.apache.activemq.artemis.core.client.impl.ClientProducerImpl.checkClosed(ClientProducerImpl.java:299)
+	at org.apache.activemq.artemis.core.client.impl.ClientProducerImpl.send(ClientProducerImpl.java:126)
+	at org.yamcs.api.artemis.YamcsClient.sendData(YamcsClient.java:380)
+	at org.yamcs.yarch.hornet.ProducerKillerTest$2.run(ProducerKillerTest.java:62)
+	at java.lang.Thread.run(Thread.java:745)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 62.878 sec - in org.yamcs.yarch.hornet.ProducerKillerTest
+Running org.yamcs.yarch.StreamSelect2Test
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.465 sec - in org.yamcs.yarch.StreamSelect2Test
+Running org.yamcs.yarch.StreamSelectTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.86 sec - in org.yamcs.yarch.StreamSelectTest
+Running org.yamcs.yarch.EnumTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.088 sec - in org.yamcs.yarch.EnumTest
+Running org.yamcs.yarch.rocksdb2.PartitioningTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.83 sec - in org.yamcs.yarch.rocksdb2.PartitioningTest
+Running org.yamcs.yarch.rocksdb2.PartitionManagerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.561 sec - in org.yamcs.yarch.rocksdb2.PartitionManagerTest
+Running org.yamcs.yarch.rocksdb2.TagsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.897 sec - in org.yamcs.yarch.rocksdb2.TagsTest
+Running org.yamcs.yarch.rocksdb2.RDBFactoryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.887 sec - in org.yamcs.yarch.rocksdb2.RDBFactoryTest
+Running org.yamcs.yarch.rocksdb2.RdbSelectTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.854 sec - in org.yamcs.yarch.rocksdb2.RdbSelectTest
+Running org.yamcs.yarch.rocksdb2.RdbEngineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.607 sec - in org.yamcs.yarch.rocksdb2.RdbEngineTest
+Running org.yamcs.yarch.DynamicSchemaTableTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.568 sec - in org.yamcs.yarch.DynamicSchemaTableTest
+Running org.yamcs.yarch.StreamSelectPerfTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.434 sec - in org.yamcs.yarch.StreamSelectPerfTest
+Running org.yamcs.yarch.HistogramStreamTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.604 sec - in org.yamcs.yarch.HistogramStreamTest
+Running org.yamcs.yarch.StreamMergeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.636 sec - in org.yamcs.yarch.StreamMergeTest
+Running org.yamcs.yarch.TableDefinitionSerializationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.666 sec - in org.yamcs.yarch.TableDefinitionSerializationTest
+Running org.yamcs.yarch.StandaloneStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.422 sec - in org.yamcs.yarch.StandaloneStreamTest
+Running org.yamcs.yarch.StreamSelect1Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.729 sec - in org.yamcs.yarch.StreamSelect1Test
+Running org.yamcs.xtceproc.XtceDbFactoryTest
+Warning:  Cell at E17 not present - adding a blank
+Warning:  Some cells exceeded the specified bounds.  Resizing sheet dimensions from 4x42 to 5x42
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.988 sec - in org.yamcs.xtceproc.XtceDbFactoryTest
+Running org.yamcs.xtceproc.XtceTmExtractorTest
+Nov 07 21:41:04.738 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateFloat WARNING:StringFloatTSCPara1_4_2: failed to parse string 'invalidfloat' to double
+Nov 07 21:41:04.757 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateInteger WARNING:StringIntTermPara1_5_2: failed to parse string 'invalidint' to long
+Nov 07 21:41:04.777 [1] org.yamcs.xtceproc.ParameterTypeProcessor calibrateEnumerated WARNING:StringIntTermPara20_1: failed to parse string 'invalidlong' to long
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.62 sec - in org.yamcs.xtceproc.XtceTmExtractorTest
+Running org.yamcs.xtceproc.XtceCommandEncodingTest
+Warning:  Cell at E17 not present - adding a blank
+Warning:  Some cells exceeded the specified bounds.  Resizing sheet dimensions from 4x42 to 5x42
+command buffer: 0B0A1200
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.363 sec - in org.yamcs.xtceproc.XtceCommandEncodingTest
+Running org.yamcs.algorithms.WindowBufferTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec - in org.yamcs.algorithms.WindowBufferTest
+Running org.yamcs.algorithms.AlgorithmWithContextTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.419 sec - in org.yamcs.algorithms.AlgorithmWithContextTest
+Running org.yamcs.algorithms.AlgorithmManagerTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 16.818 sec - in org.yamcs.algorithms.AlgorithmManagerTest
+Running org.yamcs.algorithms.AlgorithmManagerPyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.309 sec - in org.yamcs.algorithms.AlgorithmManagerPyTest
+Running org.yamcs.ContainerRequestManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.735 sec - in org.yamcs.ContainerRequestManagerTest
+Running org.yamcs.parameter.ValueTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.086 sec - in org.yamcs.parameter.ValueTest
+Running org.yamcs.parameter.ParameterCacheTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.14 sec - in org.yamcs.parameter.ParameterCacheTest
+Running org.yamcs.parameter.ParameterValueListTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 sec - in org.yamcs.parameter.ParameterValueListTest
+Running org.yamcs.parameter.SubsriptionArrayTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.yamcs.parameter.SubsriptionArrayTest
+Running org.yamcs.parameter.SoftwareParameterManagerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.653 sec - in org.yamcs.parameter.SoftwareParameterManagerTest
+Running org.yamcs.ui.eventviewer.UtilsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec - in org.yamcs.ui.eventviewer.UtilsTest
+Running org.yamcs.web.rest.archive.RestDownsamplerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 sec - in org.yamcs.web.rest.archive.RestDownsamplerTest
+Running org.yamcs.web.rest.mdb.XtceToGpbAssemblerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.62 sec - in org.yamcs.web.rest.mdb.XtceToGpbAssemblerTest
+Running org.yamcs.web.rest.mdb.NameDescriptionSearchMatcherTest
+/REFMDB/ccsds-apid
+/REFMDB/ccsds-apid
+/REFMDB/ccsds-apid
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.47 sec - in org.yamcs.web.rest.mdb.NameDescriptionSearchMatcherTest
+Running org.yamcs.web.rest.RouterTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.58 sec - in org.yamcs.web.rest.RouterTest
+Running org.yamcs.web.rest.RestRequestTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in org.yamcs.web.rest.RestRequestTest
+Running org.yamcs.PermissionsTest
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:41:55.702 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:41:55.734 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+Nov 07 21:41:55.834 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221020: Started Acceptor at 0.0.0.0:5445 for protocols [CORE]
+Nov 07 21:41:55.834 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:41:55.834 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=00d039c6-a533-11e6-a015-96c2c50dd127] 
+Nov 07 21:42:04.194 [27] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_parameter_privileges for role EmptyRole
+Nov 07 21:42:04.195 [27] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_parameter_set_privileges for role EmptyRole
+Nov 07 21:42:04.195 [27] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tm_packet_privileges for role EmptyRole
+Nov 07 21:42:04.195 [27] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type tc_privileges for role EmptyRole
+Nov 07 21:42:04.195 [27] org.yamcs.security.YamlRealm getPrivileges WARNING:No privileges of type system_privileges for role EmptyRole
+Nov 07 21:42:04.318 [28] org.yamcs.web.HttpRequestHandler sendError WARNING:GET /api/archive/IntegrationTest/REFMDB/SUBSYS1/FixedStringPara1_3_1?start=2015-03-02T10:10:00&stop=2015-03-02T10:10:02&order=asc 404
+Nov 07 21:42:04.418 [31] org.yamcs.web.rest.Router handleException WARNING:R4: Sending nominal exception back to client: User testuser/***** has no permission for parameter /REFMDB/SUBSYS1/FloatPara1_1_3
+Nov 07 21:42:04.421 [31] org.yamcs.web.HttpRequestHandler sendError WARNING:GET /api/processors/IntegrationTest/realtime/parameters/mget 403
+Nov 07 21:42:04.481 [33] org.yamcs.web.rest.Router handleException WARNING:R5: Sending nominal exception back to client: User operator/***** has no 'set' permission for parameter /REFMDB/SUBSYS1/LocalPara1
+Nov 07 21:42:04.482 [33] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 403
+Nov 07 21:42:04.579 [35] org.yamcs.commanding.CommandingManager addToCommandHistory WARNING:Throwing InsufficientPrivileges for lack of COMMANDING privilege for user testuser/*****
+Nov 07 21:42:04.579 [35] org.yamcs.web.rest.Router handleException WARNING:R6: Sending nominal exception back to client: Forbidden
+Nov 07 21:42:04.580 [35] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/commandhistory/REFMDB/SUBSYS1/ONE_INT_ARG_TC 403
+Nov 07 21:42:04.735 [38] org.yamcs.security.YamlRealm loadUser WARNING:Unable to load user baduser/***** from YamlRealm: cannot find a mapping for key 'baduser'
+Nov 07 21:42:04.735 [38] org.yamcs.web.HttpRequestHandler sendUnauthorized WARNING:GET /api/user 401 [realm="YamlRealm"]
+Nov 07 21:42:04.882 [41] org.yamcs.web.rest.RestHandler verifyCommand WARNING:Command 'FLOAT_ARG_TC' (namespace: '/REFMDB/SUBSYS1') found, but withheld due to insufficient privileges. Returning 404 instead
+Nov 07 21:42:04.882 [41] org.yamcs.web.rest.Router handleException WARNING:R9: Sending nominal exception back to client: No resource named '/api/processors/IntegrationTest/realtime/commands/REFMDB/SUBSYS1/FLOAT_ARG_TC' (No such command)
+Nov 07 21:42:04.883 [41] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/commands/REFMDB/SUBSYS1/FLOAT_ARG_TC 404
+Nov 07 21:42:14.907 [1] org.yamcs.YamcsServer[IntegrationTest] stop SEVERE:Service org.yamcs.archive.IndexServer did not stop in 10 seconds
+Nov 07 21:42:15.203 [678] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:42:15.222 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [00d039c6-a533-11e6-a015-96c2c50dd127] stopped, uptime 19.540 seconds
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.664 sec - in org.yamcs.PermissionsTest
+Running org.yamcs.parameterarchive.ParameterArchiveTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.963 sec - in org.yamcs.parameterarchive.ParameterArchiveTest
+Running org.yamcs.parameterarchive.TestParameterIdMap
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec - in org.yamcs.parameterarchive.TestParameterIdMap
+Running org.yamcs.parameterarchive.ObjectSegmentTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.3 sec - in org.yamcs.parameterarchive.ObjectSegmentTest
+Running org.yamcs.parameterarchive.DoubleValueSegmentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in org.yamcs.parameterarchive.DoubleValueSegmentTest
+Running org.yamcs.parameterarchive.BooleanValueSegmentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in org.yamcs.parameterarchive.BooleanValueSegmentTest
+Running org.yamcs.parameterarchive.LongValueSegmentTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in org.yamcs.parameterarchive.LongValueSegmentTest
+Running org.yamcs.parameterarchive.TestStructure
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.063 sec - in org.yamcs.parameterarchive.TestStructure
+Running org.yamcs.parameterarchive.FloatValueSegmentTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in org.yamcs.parameterarchive.FloatValueSegmentTest
+Running org.yamcs.parameterarchive.IntValueSegmentTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec - in org.yamcs.parameterarchive.IntValueSegmentTest
+Running org.yamcs.parameterarchive.GenericValueSegmentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in org.yamcs.parameterarchive.GenericValueSegmentTest
+Running org.yamcs.parameterarchive.TestParameterGroupIdMap
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 sec - in org.yamcs.parameterarchive.TestParameterGroupIdMap
+Running org.yamcs.parameterarchive.TimeSegmentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec - in org.yamcs.parameterarchive.TimeSegmentTest
+Running org.yamcs.parameterarchive.TestCompression
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.051 sec - in org.yamcs.parameterarchive.TestCompression
+Running org.yamcs.parameterarchive.StringValueSegmentTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 sec - in org.yamcs.parameterarchive.StringValueSegmentTest
+Running org.yamcs.IntegrationTest
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:42:26.646 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:42:26.679 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+Nov 07 21:42:26.774 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221020: Started Acceptor at 0.0.0.0:5445 for protocols [CORE]
+Nov 07 21:42:26.775 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:42:26.775 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=1341bfe9-a533-11e6-ab0e-96c2c50dd127] 
+Nov 07 21:42:36.550 [48] org.yamcs.web.rest.Router handleException WARNING:R14: Sending nominal exception back to client: Invalid parameters: [name: "/REFMDB/SUBSYS1/InvalidParaName"
+]
+Nov 07 21:42:36.553 [48] org.yamcs.web.HttpRequestHandler sendError WARNING:GET /api/processors/IntegrationTest/realtime/parameters/mget 400
+Nov 07 21:42:39.589 [278] org.yamcs.web.rest.Router lambda$dispatch$41 SEVERE:R16 blocking the netty thread for 2 seconds. uri: /api/processors/IntegrationTest/realtime/parameters/mget
+Nov 07 21:42:39.590 [1] org.yamcs.IntegrationTest testRestParameterGet SEVERE:GET  BACK                      { }
+
+Nov 07 21:42:40.658 [53] org.yamcs.web.rest.Router handleException WARNING:R18: Sending nominal exception back to client: Cannot find a local(software) parameter for 'name: "/REFMDB/SUBSYS1/IntegerPara1_1_6"
+'
+Nov 07 21:42:40.659 [53] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 400
+Nov 07 21:42:40.691 [55] org.yamcs.web.rest.Router handleException WARNING:R19: Sending nominal exception back to client: Cannot assign integer from STRING
+Nov 07 21:42:40.692 [55] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/IntegrationTest/realtime/parameters/mset 400
+Nov 07 21:42:52.851 [1] org.yamcs.YamcsServer[IntegrationTest] stop SEVERE:Service org.yamcs.archive.IndexServer did not stop in 10 seconds
+Nov 07 21:42:52.877 [946] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:42:53.183 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [1341bfe9-a533-11e6-ab0e-96c2c50dd127] stopped, uptime 26.567 seconds
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 27.705 sec - in org.yamcs.IntegrationTest
+Running org.yamcs.utils.TimeEncodingTest
+max = 185539080470435999
+5881469-05-27T23:59:59.999
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 sec - in org.yamcs.utils.TimeEncodingTest
+Running org.yamcs.utils.TestBitBuffer
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in org.yamcs.utils.TestBitBuffer
+Running org.yamcs.utils.SortedIntArrayTest
+s2 encoded: [-1, 5, 20]
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.075 sec - in org.yamcs.utils.SortedIntArrayTest
+Running org.yamcs.utils.VarIntUtilTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec - in org.yamcs.utils.VarIntUtilTest
+Running org.yamcs.alarms.AlarmServerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in org.yamcs.alarms.AlarmServerTest
+Running org.yamcs.archive.CcsdsTmIndexTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.406 sec - in org.yamcs.archive.CcsdsTmIndexTest
+Running org.yamcs.archive.PpTupleTranslatorTest
+Nov 07 21:42:58.502 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:42:58.537 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:42:58.752 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:42:58.753 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=263e972f-a533-11e6-a71d-96c2c50dd127] 
+Nov 07 21:43:02.731 [50] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:03.060 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [263e972f-a533-11e6-a71d-96c2c50dd127] stopped, uptime 4.593 seconds
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.273 sec - in org.yamcs.archive.PpTupleTranslatorTest
+Running org.yamcs.archive.CmdHistoryRecordingTest
+Nov 07 21:43:04.444 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:43:04.493 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:43:04.676 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:43:04.677 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=29c8a847-a533-11e6-965a-96c2c50dd127] 
+Nov 07 21:43:05.119 [1] org.yamcs.archive.CommandHistoryRecorder[yarchtest_CmdHistoryRecordingTest] doStart SEVERE:The stream cmdhist_dump has not been found
+Nov 07 21:43:05.323 [41] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Nov 07 21:43:06.635 [78] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:06.636 [79] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:06.637 [80] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:06.637 [78] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:06.647 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [29c8a847-a533-11e6-965a-96c2c50dd127] stopped, uptime 2.245 seconds
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.983 sec - in org.yamcs.archive.CmdHistoryRecordingTest
+Running org.yamcs.archive.EventRecordingTest
+Nov 07 21:43:08.025 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:43:08.075 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:43:08.373 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:43:08.381 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=2beb1394-a533-11e6-bfb2-96c2c50dd127] 
+Nov 07 21:43:11.911 [81] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Nov 07 21:43:12.472 [44] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:12.920 [51] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:12.930 [69] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:12.943 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [2beb1394-a533-11e6-bfb2-96c2c50dd127] stopped, uptime 4.977 seconds
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.712 sec - in org.yamcs.archive.EventRecordingTest
+Running org.yamcs.api.artemis.ArtemisEventProducerTest
+Nov 07 21:43:14.295 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:43:14.329 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:43:14.542 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:43:14.543 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=2fa86938-a533-11e6-a9f9-96c2c50dd127] 
+Nov 07 21:43:14.903 [43] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:14.907 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [2fa86938-a533-11e6-a9f9-96c2c50dd127] stopped, uptime 0.652 seconds
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.379 sec - in org.yamcs.api.artemis.ArtemisEventProducerTest
+Running org.yamcs.security.PasswordHashTest
+1000:6e143ec2d89346da138e96cfc9d3e3fdd3f11293de6a2eed:75fc46800f3b9a4b9c9daac43a9de04949793e1bf0229bf3
+1000:4c3d21e4cfc99771ea07394c43706bc87b53a9c43322925b:b48464b41b8a79bd566828cfd000f8a57196ed0ef582cdf3
+1000:9f0debb4c38444148945c9d80ebbe26d02e022fc3bd74fef:97b97faec3bccea4e02f4de8ecfee5a284614dd4d0075ee0
+1000:7be0208f850d96354a2afea0e273a2751e65bfbdf4223811:ed9755f8f6c11c33c2b36cf97b9979d26c36429a75fa7d42
+1000:04adc9af7112423d7f9c866f976df886ad215b7728a5344c:aca6ca38d2d5cb4499f16179dac0e1283c5f5dffb6b5cee1
+1000:f96b8906d716ff98814f46c4110dc3936c937549a3c81908:83ce68f2d3def3c241ac18a0a387ef2246bb5e74b4a4ee16
+1000:4325bbce9640df47e81d10bdfb0c0f9403039cd8652f2865:17e6790e2768067f4daa81ddb6a4a78405e6ac3ed7e6c5b4
+1000:b9864388875eba748bc434790268d0224a1b5fd94ac35f77:1ba91f01d96c0a26bf3be8f1fa70d4cfd0afd1cdd7c22092
+1000:330b9d248141e95dbf6aca0a69ea717c6aa42693d07b600c:05c7ac3a399289cf1b4d3905876692a32b5ce374d059fcc7
+1000:bb8b089c2b9fbf71cdd8b92ab240909515d7792753e71528:9d76719d216877167111bf09e08767c53984db26724783ed
+Running tests...
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.056 sec - in org.yamcs.security.PasswordHashTest
+Running org.yamcs.management.ProcessorsTest
+Nov 07 21:43:19.129 [1] org.yamcs.YamcsServer checkAndPrintDeprecatedWarning WARNING:The class org.yamcs.YProcessorCreatorService is deprecated: The service has been renamed to ProcessorCreatorService
+Nov 07 21:43:19.288 [1] org.yamcs.YamcsServer checkAndPrintDeprecatedWarning WARNING:The class org.yamcs.YProcessorCreatorService is deprecated: The service has been renamed to ProcessorCreatorService
+connecting to yamcs
+Nov 07 21:43:19.473 [26] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Nov 07 21:43:19.642 [28] org.yamcs.management.ManagementService createProcessor WARNING:createProcessor called with invalid client id:10; ignored.
+Nov 07 21:43:19.642 [28] org.yamcs.management.ManagementService createProcessor WARNING:createProcessor called with invalid client id:14; ignored.
+Nov 07 21:43:19.644 [28] org.yamcs.web.rest.Router handleException WARNING:R2: Sending nominal exception back to client: createProcessor invoked with a list full of invalid client ids
+Nov 07 21:43:19.647 [28] org.yamcs.web.HttpRequestHandler sendError WARNING:POST /api/processors/yproctest0 400
+log: Exception creating processor: BadRequestException : createProcessor invoked with a list full of invalid client ids
+connecting to yamcs
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.955 sec - in org.yamcs.management.ProcessorsTest
+Running org.yamcs.tctm.TcpTcUplinkerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 sec - in org.yamcs.tctm.TcpTcUplinkerTest
+Running org.yamcs.tctm.TmFileReaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec - in org.yamcs.tctm.TmFileReaderTest
+Running org.yamcs.commanding.CommandingManagerTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.488 sec - in org.yamcs.commanding.CommandingManagerTest
+Running org.yamcs.RestClientTest
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:43:30.001 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:43:30.034 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+Nov 07 21:43:30.216 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221020: Started Acceptor at 0.0.0.0:5445 for protocols [CORE]
+Nov 07 21:43:30.216 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:43:30.216 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=39051bd2-a533-11e6-a20a-96c2c50dd127] 
+Nov 07 21:43:36.236 [27] org.yamcs.web.HttpRequestHandler sendUnauthorized WARNING:GET /api/instances 401 [realm="YamlRealm"]
+Nov 07 21:43:46.468 [1] org.yamcs.YamcsServer[IntegrationTest] stop SEVERE:Service org.yamcs.archive.IndexServer did not stop in 10 seconds
+Nov 07 21:43:46.500 [417] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:46.754 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [39051bd2-a533-11e6-a20a-96c2c50dd127] stopped, uptime 16.783 seconds
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.885 sec - in org.yamcs.RestClientTest
+Running org.yamcs.AlarmTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.934 sec - in org.yamcs.AlarmTest
+Running org.yamcs.YamcsServerTest
+Nov 07 21:43:49.563 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=data/journal,bindingsDirectory=data/bindings,largeMessagesDirectory=data/largemessages,pagingDirectory=data/paging)
+Nov 07 21:43:49.618 [1] org.apache.activemq.artemis.core.server <init> INFO:AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+log4j:WARN No appenders could be found for logger (org.apache.commons.beanutils.converters.BooleanConverter).
+log4j:WARN Please initialize the log4j system properly.
+Nov 07 21:43:49.824 [1] org.apache.activemq.artemis.core.server run INFO:AMQ221007: Server is now live
+Nov 07 21:43:49.825 [1] org.apache.activemq.artemis.core.server start INFO:AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.3.0 [localhost, nodeID=44adba1f-a533-11e6-85f9-96c2c50dd127] 
+Nov 07 21:43:50.294 [1] org.yamcs.StreamConfig <init> WARNING:No streamConfig defined for instance instance1
+Nov 07 21:43:50.391 [39] org.yamcs.security.Privilege <clinit> WARNING:Privileges disabled, all connections are allowed and have full permissions
+Nov 07 21:43:50.901 [39] org.apache.activemq.artemis.core.client fail WARNING:AMQ212037: Connection failure has been detected: AMQ119015: The connection was disconnected because of server shutdown [code=DISCONNECTED]
+Nov 07 21:43:51.015 [1] org.apache.activemq.artemis.core.server stop INFO:AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.3.0 [44adba1f-a533-11e6-85f9-96c2c50dd127] stopped, uptime 1.494 seconds
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.202 sec - in org.yamcs.YamcsServerTest
+
+Results :
+
+Tests run: 290, Failures: 0, Errors: 0, Skipped: 10
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Yamcs Simulation 0.30.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ yamcs-simulation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ yamcs-simulation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ yamcs-simulation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ yamcs-simulation ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.yamcs.simulation.SimulationPpProviderTest
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ppSimulation>
+    <parameterSequence>
+        <parameter spaceSystem="APM" paraName="SOLAR_toto" generationStep="2" aquisitionStep="1"/>
+    </parameterSequence>
+</ppSimulation>
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.08 sec - in org.yamcs.simulation.SimulationPpProviderTest
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Yamcs .............................................. SUCCESS [  0.067 s]
+[INFO] Yamcs API .......................................... SUCCESS [  2.943 s]
+[INFO] Yamcs XTCE ......................................... SUCCESS [  0.699 s]
+[INFO] Yamcs Core ......................................... SUCCESS [05:12 min]
+[INFO] Yamcs Simulation ................................... SUCCESS [  5.120 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:21 min
+[INFO] Finished at: 2016-11-07T21:43:56+00:00
+[INFO] Final Memory: 12M/301M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:0001c840:start=1478554713489826662,finish=1478555037138931817,duration=323649105155[0K
+[32;1mThe command "mvn -Dsurefire.useFile=false test" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:15cc7740[0K
+travis_time:end:15cc7740:start=1478555037144592348,finish=1478555037148293764,duration=3701416[0Ktravis_time:start:1c65f540[0K[32;1mchange detected (content changed, file is created, or file is deleted):
+/home/travis/.m2/repository/org/yamcs/yamcs/0.30.0/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/yamcs-api-0.30.0.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-api/0.30.0/yamcs-api-0.30.0-sources.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-api/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/yamcs-core-0.30.0.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-core/0.30.0/yamcs-core-0.30.0-sources.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-core/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs/maven-metadata-local.xml
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/_remote.repositories
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/yamcs-simulation-0.30.0.jar
+/home/travis/.m2/repository/org/yamcs/yamcs-simulation/0.30.0/y
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+[32;1muploading archive[0m
+
+travis_time:end:1c65f540:start=1478555037152518598,finish=1478555042879253941,duration=5726735343[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

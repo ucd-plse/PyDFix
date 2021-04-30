@@ -1,0 +1,1415 @@
+Using worker: worker-linux-docker-59f09976.prod.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0236d9c3[0K$ git clone --depth=50 --branch=jw/websocket-call git://github.com/square/okhttp.git square/okhttp
+Cloning into 'square/okhttp'...
+remote: Counting objects: 3183, done.[K
+remote: Compressing objects:   0% (1/1367)   [Kremote: Compressing objects:   1% (14/1367)   [Kremote: Compressing objects:   2% (28/1367)   [Kremote: Compressing objects:   3% (42/1367)   [Kremote: Compressing objects:   4% (55/1367)   [Kremote: Compressing objects:   5% (69/1367)   [Kremote: Compressing objects:   6% (83/1367)   [Kremote: Compressing objects:   7% (96/1367)   [Kremote: Compressing objects:   8% (110/1367)   [Kremote: Compressing objects:   9% (124/1367)   [Kremote: Compressing objects:  10% (137/1367)   [Kremote: Compressing objects:  11% (151/1367)   [Kremote: Compressing objects:  12% (165/1367)   [Kremote: Compressing objects:  13% (178/1367)   [Kremote: Compressing objects:  14% (192/1367)   [Kremote: Compressing objects:  15% (206/1367)   [Kremote: Compressing objects:  16% (219/1367)   [Kremote: Compressing objects:  17% (233/1367)   [Kremote: Compressing objects:  18% (247/1367)   [Kremote: Compressing objects:  19% (260/1367)   [Kremote: Compressing objects:  20% (274/1367)   [Kremote: Compressing objects:  21% (288/1367)   [Kremote: Compressing objects:  22% (301/1367)   [Kremote: Compressing objects:  23% (315/1367)   [Kremote: Compressing objects:  24% (329/1367)   [Kremote: Compressing objects:  25% (342/1367)   [Kremote: Compressing objects:  26% (356/1367)   [Kremote: Compressing objects:  27% (370/1367)   [Kremote: Compressing objects:  28% (383/1367)   [Kremote: Compressing objects:  29% (397/1367)   [Kremote: Compressing objects:  30% (411/1367)   [Kremote: Compressing objects:  31% (424/1367)   [Kremote: Compressing objects:  32% (438/1367)   [Kremote: Compressing objects:  33% (452/1367)   [Kremote: Compressing objects:  34% (465/1367)   [Kremote: Compressing objects:  35% (479/1367)   [Kremote: Compressing objects:  36% (493/1367)   [Kremote: Compressing objects:  37% (506/1367)   [Kremote: Compressing objects:  38% (520/1367)   [Kremote: Compressing objects:  39% (534/1367)   [Kremote: Compressing objects:  40% (547/1367)   [Kremote: Compressing objects:  41% (561/1367)   [Kremote: Compressing objects:  42% (575/1367)   [Kremote: Compressing objects:  43% (588/1367)   [Kremote: Compressing objects:  44% (602/1367)   [Kremote: Compressing objects:  45% (616/1367)   [Kremote: Compressing objects:  46% (629/1367)   [Kremote: Compressing objects:  47% (643/1367)   [Kremote: Compressing objects:  48% (657/1367)   [Kremote: Compressing objects:  49% (670/1367)   [Kremote: Compressing objects:  50% (684/1367)   [Kremote: Compressing objects:  51% (698/1367)   [Kremote: Compressing objects:  52% (711/1367)   [Kremote: Compressing objects:  53% (725/1367)   [Kremote: Compressing objects:  54% (739/1367)   [Kremote: Compressing objects:  55% (752/1367)   [Kremote: Compressing objects:  56% (766/1367)   [Kremote: Compressing objects:  57% (780/1367)   [Kremote: Compressing objects:  58% (793/1367)   [Kremote: Compressing objects:  59% (807/1367)   [Kremote: Compressing objects:  60% (821/1367)   [Kremote: Compressing objects:  61% (834/1367)   [Kremote: Compressing objects:  62% (848/1367)   [Kremote: Compressing objects:  63% (862/1367)   [Kremote: Compressing objects:  64% (875/1367)   [Kremote: Compressing objects:  65% (889/1367)   [Kremote: Compressing objects:  66% (903/1367)   [Kremote: Compressing objects:  67% (916/1367)   [Kremote: Compressing objects:  68% (930/1367)   [Kremote: Compressing objects:  69% (944/1367)   [Kremote: Compressing objects:  70% (957/1367)   [Kremote: Compressing objects:  71% (971/1367)   [Kremote: Compressing objects:  72% (985/1367)   [Kremote: Compressing objects:  73% (998/1367)   [Kremote: Compressing objects:  74% (1012/1367)   [Kremote: Compressing objects:  75% (1026/1367)   [Kremote: Compressing objects:  76% (1039/1367)   [Kremote: Compressing objects:  77% (1053/1367)   [Kremote: Compressing objects:  78% (1067/1367)   [Kremote: Compressing objects:  79% (1080/1367)   [Kremote: Compressing objects:  80% (1094/1367)   [Kremote: Compressing objects:  81% (1108/1367)   [Kremote: Compressing objects:  82% (1121/1367)   [Kremote: Compressing objects:  83% (1135/1367)   [Kremote: Compressing objects:  84% (1149/1367)   [Kremote: Compressing objects:  85% (1162/1367)   [Kremote: Compressing objects:  86% (1176/1367)   [Kremote: Compressing objects:  87% (1190/1367)   [Kremote: Compressing objects:  88% (1203/1367)   [Kremote: Compressing objects:  89% (1217/1367)   [Kremote: Compressing objects:  90% (1231/1367)   [Kremote: Compressing objects:  91% (1244/1367)   [Kremote: Compressing objects:  92% (1258/1367)   [Kremote: Compressing objects:  93% (1272/1367)   [Kremote: Compressing objects:  94% (1285/1367)   [Kremote: Compressing objects:  95% (1299/1367)   [Kremote: Compressing objects:  96% (1313/1367)   [Kremote: Compressing objects:  97% (1326/1367)   [Kremote: Compressing objects:  98% (1340/1367)   [Kremote: Compressing objects:  99% (1354/1367)   [Kremote: Compressing objects: 100% (1367/1367)   [Kremote: Compressing objects: 100% (1367/1367), done.[K
+Receiving objects:   0% (1/3183)   Receiving objects:   1% (32/3183)   Receiving objects:   2% (64/3183)   Receiving objects:   3% (96/3183)   Receiving objects:   4% (128/3183)   Receiving objects:   5% (160/3183)   Receiving objects:   6% (191/3183)   Receiving objects:   7% (223/3183)   Receiving objects:   8% (255/3183)   Receiving objects:   9% (287/3183)   Receiving objects:  10% (319/3183)   Receiving objects:  11% (351/3183)   Receiving objects:  12% (382/3183)   Receiving objects:  13% (414/3183)   Receiving objects:  14% (446/3183)   Receiving objects:  15% (478/3183)   Receiving objects:  16% (510/3183)   Receiving objects:  17% (542/3183)   Receiving objects:  18% (573/3183)   Receiving objects:  19% (605/3183)   Receiving objects:  20% (637/3183)   Receiving objects:  21% (669/3183)   Receiving objects:  22% (701/3183)   Receiving objects:  23% (733/3183)   Receiving objects:  24% (764/3183)   Receiving objects:  25% (796/3183)   Receiving objects:  26% (828/3183)   Receiving objects:  27% (860/3183)   Receiving objects:  28% (892/3183)   Receiving objects:  29% (924/3183)   Receiving objects:  30% (955/3183)   Receiving objects:  31% (987/3183)   Receiving objects:  32% (1019/3183)   Receiving objects:  33% (1051/3183)   Receiving objects:  34% (1083/3183)   Receiving objects:  35% (1115/3183)   Receiving objects:  36% (1146/3183)   Receiving objects:  37% (1178/3183)   Receiving objects:  38% (1210/3183)   Receiving objects:  39% (1242/3183)   Receiving objects:  40% (1274/3183)   Receiving objects:  41% (1306/3183)   Receiving objects:  42% (1337/3183)   Receiving objects:  43% (1369/3183)   Receiving objects:  44% (1401/3183)   Receiving objects:  45% (1433/3183)   Receiving objects:  46% (1465/3183)   Receiving objects:  47% (1497/3183)   Receiving objects:  48% (1528/3183)   Receiving objects:  49% (1560/3183)   Receiving objects:  50% (1592/3183)   Receiving objects:  51% (1624/3183)   Receiving objects:  52% (1656/3183)   Receiving objects:  53% (1687/3183)   Receiving objects:  54% (1719/3183)   Receiving objects:  55% (1751/3183)   Receiving objects:  56% (1783/3183)   Receiving objects:  57% (1815/3183)   Receiving objects:  58% (1847/3183)   Receiving objects:  59% (1878/3183)   Receiving objects:  60% (1910/3183)   Receiving objects:  61% (1942/3183)   Receiving objects:  62% (1974/3183)   Receiving objects:  63% (2006/3183)   Receiving objects:  64% (2038/3183)   Receiving objects:  65% (2069/3183)   Receiving objects:  66% (2101/3183)   Receiving objects:  67% (2133/3183)   Receiving objects:  68% (2165/3183)   Receiving objects:  69% (2197/3183)   Receiving objects:  70% (2229/3183)   Receiving objects:  71% (2260/3183)   Receiving objects:  72% (2292/3183)   Receiving objects:  73% (2324/3183)   Receiving objects:  74% (2356/3183)   Receiving objects:  75% (2388/3183)   Receiving objects:  76% (2420/3183)   Receiving objects:  77% (2451/3183)   Receiving objects:  78% (2483/3183)   Receiving objects:  79% (2515/3183)   Receiving objects:  80% (2547/3183)   Receiving objects:  81% (2579/3183)   Receiving objects:  82% (2611/3183)   Receiving objects:  83% (2642/3183)   Receiving objects:  84% (2674/3183)   Receiving objects:  85% (2706/3183)   Receiving objects:  86% (2738/3183)   Receiving objects:  87% (2770/3183)   Receiving objects:  88% (2802/3183)   Receiving objects:  89% (2833/3183)   remote: Total 3183 (delta 1076), reused 2672 (delta 692)[K
+Receiving objects:  90% (2865/3183)   Receiving objects:  91% (2897/3183)   Receiving objects:  92% (2929/3183)   Receiving objects:  93% (2961/3183)   Receiving objects:  94% (2993/3183)   Receiving objects:  95% (3024/3183)   Receiving objects:  96% (3056/3183)   Receiving objects:  97% (3088/3183)   Receiving objects:  98% (3120/3183)   Receiving objects:  99% (3152/3183)   Receiving objects: 100% (3183/3183)   Receiving objects: 100% (3183/3183), 915.21 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1076)   Resolving deltas:   5% (58/1076)   Resolving deltas:   6% (65/1076)   Resolving deltas:   9% (101/1076)   Resolving deltas:  10% (108/1076)   Resolving deltas:  12% (130/1076)   Resolving deltas:  13% (145/1076)   Resolving deltas:  14% (152/1076)   Resolving deltas:  17% (193/1076)   Resolving deltas:  18% (196/1076)   Resolving deltas:  19% (206/1076)   Resolving deltas:  21% (228/1076)   Resolving deltas:  22% (244/1076)   Resolving deltas:  23% (249/1076)   Resolving deltas:  24% (262/1076)   Resolving deltas:  25% (270/1076)   Resolving deltas:  26% (280/1076)   Resolving deltas:  27% (294/1076)   Resolving deltas:  28% (308/1076)   Resolving deltas:  29% (319/1076)   Resolving deltas:  32% (350/1076)   Resolving deltas:  33% (357/1076)   Resolving deltas:  34% (372/1076)   Resolving deltas:  35% (382/1076)   Resolving deltas:  36% (392/1076)   Resolving deltas:  37% (405/1076)   Resolving deltas:  38% (414/1076)   Resolving deltas:  45% (488/1076)   Resolving deltas:  46% (497/1076)   Resolving deltas:  47% (510/1076)   Resolving deltas:  48% (522/1076)   Resolving deltas:  49% (532/1076)   Resolving deltas:  50% (538/1076)   Resolving deltas:  51% (551/1076)   Resolving deltas:  55% (601/1076)   Resolving deltas:  57% (614/1076)   Resolving deltas:  58% (625/1076)   Resolving deltas:  59% (643/1076)   Resolving deltas:  60% (651/1076)   Resolving deltas:  61% (664/1076)   Resolving deltas:  62% (668/1076)   Resolving deltas:  63% (687/1076)   Resolving deltas:  64% (691/1076)   Resolving deltas:  66% (720/1076)   Resolving deltas:  67% (723/1076)   Resolving deltas:  68% (735/1076)   Resolving deltas:  69% (746/1076)   Resolving deltas:  70% (758/1076)   Resolving deltas:  71% (771/1076)   Resolving deltas:  72% (778/1076)   Resolving deltas:  73% (787/1076)   Resolving deltas:  74% (798/1076)   Resolving deltas:  75% (812/1076)   Resolving deltas:  76% (819/1076)   Resolving deltas:  77% (833/1076)   Resolving deltas:  78% (841/1076)   Resolving deltas:  79% (855/1076)   Resolving deltas:  81% (877/1076)   Resolving deltas:  82% (883/1076)   Resolving deltas:  83% (896/1076)   Resolving deltas:  84% (909/1076)   Resolving deltas:  88% (952/1076)   Resolving deltas:  89% (961/1076)   Resolving deltas:  90% (969/1076)   Resolving deltas:  91% (982/1076)   Resolving deltas:  92% (992/1076)   Resolving deltas:  93% (1004/1076)   Resolving deltas:  95% (1023/1076)   Resolving deltas:  96% (1034/1076)   Resolving deltas:  97% (1049/1076)   Resolving deltas:  98% (1059/1076)   Resolving deltas:  99% (1066/1076)   Resolving deltas: 100% (1076/1076)   Resolving deltas: 100% (1076/1076), done.
+Checking connectivity... done.
+travis_time:end:0236d9c3:start=1420092224047997835,finish=1420092224481135599,duration=433137764[0K$ cd square/okhttp
+$ git checkout -qf 91256cebf6090bfafa9c3657e43b915bae133c86
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:0d51fbba[0K$ git submodule init
+Submodule 'okhttp-hpacktests/src/test/resources/hpack-test-case' (git://github.com/http2jp/hpack-test-case.git) registered for path 'okhttp-hpacktests/src/test/resources/hpack-test-case'
+travis_time:end:0d51fbba:start=1420092224504713096,finish=1420092224537427870,duration=32714774[0Ktravis_time:start:154ccf80[0K$ git submodule update
+Cloning into 'okhttp-hpacktests/src/test/resources/hpack-test-case'...
+remote: Counting objects: 4084, done.[K
+Receiving objects:   0% (1/4084)   Receiving objects:   1% (41/4084)   Receiving objects:   2% (82/4084)   Receiving objects:   3% (123/4084)   Receiving objects:   4% (164/4084)   Receiving objects:   5% (205/4084)   Receiving objects:   6% (246/4084)   Receiving objects:   7% (286/4084)   Receiving objects:   8% (327/4084)   Receiving objects:   9% (368/4084)   Receiving objects:  10% (409/4084)   Receiving objects:  11% (450/4084)   Receiving objects:  12% (491/4084)   Receiving objects:  13% (531/4084)   Receiving objects:  14% (572/4084)   Receiving objects:  15% (613/4084)   Receiving objects:  16% (654/4084)   Receiving objects:  17% (695/4084)   Receiving objects:  18% (736/4084)   Receiving objects:  19% (776/4084)   Receiving objects:  20% (817/4084)   Receiving objects:  21% (858/4084)   Receiving objects:  22% (899/4084)   Receiving objects:  23% (940/4084)   Receiving objects:  24% (981/4084)   Receiving objects:  25% (1021/4084)   Receiving objects:  26% (1062/4084)   Receiving objects:  27% (1103/4084)   Receiving objects:  28% (1144/4084)   Receiving objects:  29% (1185/4084)   Receiving objects:  30% (1226/4084)   Receiving objects:  31% (1267/4084)   Receiving objects:  32% (1307/4084)   Receiving objects:  33% (1348/4084)   Receiving objects:  34% (1389/4084)   Receiving objects:  35% (1430/4084)   Receiving objects:  36% (1471/4084)   Receiving objects:  37% (1512/4084)   Receiving objects:  38% (1552/4084)   Receiving objects:  39% (1593/4084)   Receiving objects:  40% (1634/4084)   Receiving objects:  41% (1675/4084)   Receiving objects:  42% (1716/4084)   Receiving objects:  43% (1757/4084)   Receiving objects:  44% (1797/4084)   Receiving objects:  45% (1838/4084)   Receiving objects:  46% (1879/4084)   Receiving objects:  47% (1920/4084)   Receiving objects:  48% (1961/4084)   Receiving objects:  49% (2002/4084)   Receiving objects:  50% (2042/4084)   Receiving objects:  51% (2083/4084)   Receiving objects:  52% (2124/4084)   Receiving objects:  53% (2165/4084)   Receiving objects:  54% (2206/4084)   Receiving objects:  55% (2247/4084)   Receiving objects:  56% (2288/4084)   Receiving objects:  57% (2328/4084)   Receiving objects:  58% (2369/4084)   Receiving objects:  59% (2410/4084)   Receiving objects:  60% (2451/4084)   Receiving objects:  61% (2492/4084)   Receiving objects:  62% (2533/4084)   Receiving objects:  63% (2573/4084)   Receiving objects:  64% (2614/4084)   Receiving objects:  65% (2655/4084)   Receiving objects:  66% (2696/4084)   Receiving objects:  67% (2737/4084)   Receiving objects:  68% (2778/4084)   Receiving objects:  69% (2818/4084)   Receiving objects:  70% (2859/4084)   Receiving objects:  71% (2900/4084)   Receiving objects:  72% (2941/4084)   Receiving objects:  73% (2982/4084)   Receiving objects:  74% (3023/4084)   Receiving objects:  75% (3063/4084)   Receiving objects:  76% (3104/4084)   Receiving objects:  77% (3145/4084)   Receiving objects:  78% (3186/4084)   Receiving objects:  79% (3227/4084)   Receiving objects:  80% (3268/4084)   Receiving objects:  81% (3309/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  82% (3349/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  83% (3390/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  84% (3431/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  85% (3472/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  86% (3513/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  87% (3554/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  88% (3594/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  89% (3635/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  90% (3676/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  91% (3717/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  92% (3758/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  93% (3799/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  94% (3839/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  95% (3880/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  96% (3921/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  97% (3962/4084), 20.50 MiB | 40.90 MiB/s   remote: Total 4084 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  98% (4003/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects:  99% (4044/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects: 100% (4084/4084), 20.50 MiB | 40.90 MiB/s   Receiving objects: 100% (4084/4084), 23.39 MiB | 40.90 MiB/s, done.
+Resolving deltas:   0% (0/3682)   Resolving deltas:  36% (1362/3682)   Resolving deltas:  37% (1382/3682)   Resolving deltas:  38% (1429/3682)   Resolving deltas:  41% (1534/3682)   Resolving deltas:  45% (1692/3682)   Resolving deltas:  47% (1756/3682)   Resolving deltas:  49% (1829/3682)   Resolving deltas:  52% (1938/3682)   Resolving deltas:  58% (2148/3682)   Resolving deltas:  59% (2193/3682)   Resolving deltas:  61% (2251/3682)   Resolving deltas:  63% (2325/3682)   Resolving deltas:  66% (2461/3682)   Resolving deltas:  67% (2471/3682)   Resolving deltas:  70% (2610/3682)   Resolving deltas:  71% (2615/3682)   Resolving deltas:  72% (2669/3682)   Resolving deltas:  74% (2732/3682)   Resolving deltas:  86% (3172/3682)   Resolving deltas:  87% (3210/3682)   Resolving deltas:  88% (3252/3682)   Resolving deltas:  89% (3277/3682)   Resolving deltas:  90% (3337/3682)   Resolving deltas:  91% (3359/3682)   Resolving deltas:  92% (3393/3682)   Resolving deltas:  95% (3523/3682)   Resolving deltas:  96% (3562/3682)   Resolving deltas:  97% (3572/3682)   Resolving deltas:  98% (3609/3682)   Resolving deltas: 100% (3682/3682)   Resolving deltas: 100% (3682/3682), done.
+Checking connectivity... done.
+Submodule path 'okhttp-hpacktests/src/test/resources/hpack-test-case': checked out 'a5652bc2bc3d2a992f39446369fb004a72e881d4'
+travis_time:end:154ccf80:start=1420092224541261840,finish=1420092226877130826,duration=2335868986[0Ktravis_fold:end:git.submodule[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:1050e816[0K$ Installing caching utilities
+travis_time:end:1050e816:start=1420092229090264962,finish=1420092229190533767,duration=100268805[0Ktravis_time:start:1013ff55[0Kattempting to download cache archive
+found cache
+travis_time:end:1013ff55:start=1420092229194695799,finish=1420092230224069272,duration=1029373473[0Ktravis_time:start:006776be[0Kadding /home/travis/.m2 to cache
+travis_time:end:006776be:start=1420092230227427680,finish=1420092234855495441,duration=4628067761[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:00fe259d[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:okhttp-tests:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.okhttp:okhttp-tests:[unknown-version], /home/travis/build/square/okhttp/okhttp-tests/pom.xml, line 47, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:benchmarks:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ com.squareup.okhttp:benchmarks:[unknown-version], /home/travis/build/square/okhttp/benchmarks/pom.xml, line 74, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] OkHttp (Parent)
+[INFO] OkHttp
+[INFO] MockWebServer
+[INFO] OkHttp Apache HttpClient
+[INFO] OkHttp URLConnection
+[INFO] OkHttp Tests
+[INFO] OkCurl
+[INFO] Samples (Parent)
+[INFO] Sample: Guide
+[INFO] Sample: Crawler
+[INFO] Sample: Simple Client
+[INFO] Sample: Static Server
+[INFO] Benchmarks
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/parent/2.3.0-SNAPSHOT/parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp ---
+[INFO] 
+[INFO] --- templating-maven-plugin:1.0-alpha-3:filter-sources (default) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Source directory: /home/travis/build/square/okhttp/okhttp/target/generated-sources/java-templates added.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 81 source files to /home/travis/build/square/okhttp/okhttp/target/classes
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MockWebServer 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ mockwebserver ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ mockwebserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /home/travis/build/square/okhttp/mockwebserver/target/classes
+[WARNING] /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java: /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ mockwebserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/okhttp/mockwebserver/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ mockwebserver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ mockwebserver ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mockwebserver ---
+[INFO] Building jar: /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ mockwebserver ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ mockwebserver ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ mockwebserver ---
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Apache HttpClient 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-apache ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-apache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/okhttp/okhttp-apache/target/classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java: /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-apache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okhttp-apache/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-apache ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-apache ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-apache ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp-apache/target/okhttp-apache-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-apache ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-apache ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/target/okhttp-apache-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp URLConnection 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-urlconnection ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-urlconnection ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/travis/build/square/okhttp/okhttp-urlconnection/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-urlconnection ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/okhttp/okhttp-urlconnection/target/test-classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-urlconnection ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-urlconnection ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-urlconnection ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp-urlconnection/target/okhttp-urlconnection-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-urlconnection ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-urlconnection ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/target/okhttp-urlconnection-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Tests 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to /home/travis/build/square/okhttp/okhttp-tests/target/test-classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-tests/src/test/java/com/squareup/okhttp/ConnectionPoolTest.java: Some input files use or override a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/okhttp-tests/src/test/java/com/squareup/okhttp/ConnectionPoolTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-tests ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-tests ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp-tests/target/okhttp-tests-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-tests ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/target/okhttp-tests-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkCurl 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okcurl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okcurl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okcurl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okcurl ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okcurl ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ okcurl ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] 
+[INFO] --- really-executable-jar-maven-plugin:1.1.0:really-executable-jar (default) @ okcurl ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okcurl ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okcurl ---
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ sample-parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ sample-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ sample-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sample-parent ---
+[INFO] Installing /home/travis/build/square/okhttp/samples/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/sample/sample-parent/2.3.0-SNAPSHOT/sample-parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample: Guide 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ guide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guide ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/samples/guide/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ guide ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /home/travis/build/square/okhttp/samples/guide/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] OkHttp (Parent) .................................... SUCCESS [  2.427 s]
+[INFO] OkHttp ............................................. SUCCESS [  8.342 s]
+[INFO] MockWebServer ...................................... SUCCESS [  5.324 s]
+[INFO] OkHttp Apache HttpClient ........................... SUCCESS [  0.727 s]
+[INFO] OkHttp URLConnection ............................... SUCCESS [  1.740 s]
+[INFO] OkHttp Tests ....................................... SUCCESS [  1.454 s]
+[INFO] OkCurl ............................................. SUCCESS [  3.423 s]
+[INFO] Samples (Parent) ................................... SUCCESS [  0.168 s]
+[INFO] Sample: Guide ...................................... FAILURE [  0.050 s]
+[INFO] Sample: Crawler .................................... SKIPPED
+[INFO] Sample: Simple Client .............................. SKIPPED
+[INFO] Sample: Static Server .............................. SKIPPED
+[INFO] Benchmarks ......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 24.061 s
+[INFO] Finished at: 2015-01-01T06:04:20+00:00
+[INFO] Final Memory: 32M/447M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.0:compile (default-compile) on project guide: Compilation failure: Compilation failure:
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :guide
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 2 of 3.[0m
+
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:okhttp-tests:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.okhttp:okhttp-tests:[unknown-version], /home/travis/build/square/okhttp/okhttp-tests/pom.xml, line 47, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:benchmarks:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ com.squareup.okhttp:benchmarks:[unknown-version], /home/travis/build/square/okhttp/benchmarks/pom.xml, line 74, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] OkHttp (Parent)
+[INFO] OkHttp
+[INFO] MockWebServer
+[INFO] OkHttp Apache HttpClient
+[INFO] OkHttp URLConnection
+[INFO] OkHttp Tests
+[INFO] OkCurl
+[INFO] Samples (Parent)
+[INFO] Sample: Guide
+[INFO] Sample: Crawler
+[INFO] Sample: Simple Client
+[INFO] Sample: Static Server
+[INFO] Benchmarks
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/parent/2.3.0-SNAPSHOT/parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp ---
+[INFO] 
+[INFO] --- templating-maven-plugin:1.0-alpha-3:filter-sources (default) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Source directory: /home/travis/build/square/okhttp/okhttp/target/generated-sources/java-templates added.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 81 source files to /home/travis/build/square/okhttp/okhttp/target/classes
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MockWebServer 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ mockwebserver ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ mockwebserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /home/travis/build/square/okhttp/mockwebserver/target/classes
+[WARNING] /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java: /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/mockwebserver/src/main/java/com/squareup/okhttp/internal/SslContextBuilder.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ mockwebserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/okhttp/mockwebserver/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ mockwebserver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ mockwebserver ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mockwebserver ---
+[INFO] Building jar: /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ mockwebserver ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ mockwebserver ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ mockwebserver ---
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Apache HttpClient 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-apache ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-apache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/okhttp/okhttp-apache/target/classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java: /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/okhttp-apache/src/main/java/com/squareup/okhttp/apache/OkApacheClient.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-apache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okhttp-apache/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-apache ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-apache ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-apache ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp-apache/target/okhttp-apache-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-apache ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-apache ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/target/okhttp-apache-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp URLConnection 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-urlconnection ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-urlconnection ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/travis/build/square/okhttp/okhttp-urlconnection/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-urlconnection ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/okhttp/okhttp-urlconnection/target/test-classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-urlconnection ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-urlconnection ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-urlconnection ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp-urlconnection/target/okhttp-urlconnection-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-urlconnection ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-urlconnection ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/target/okhttp-urlconnection-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Tests 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to /home/travis/build/square/okhttp/okhttp-tests/target/test-classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-tests/src/test/java/com/squareup/okhttp/ConnectionPoolTest.java: Some input files use or override a deprecated API.
+[WARNING] /home/travis/build/square/okhttp/okhttp-tests/src/test/java/com/squareup/okhttp/ConnectionPoolTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-tests ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-tests ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-tests ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/target/okhttp-tests-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkCurl 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okcurl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okcurl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okcurl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okcurl ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okcurl ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ okcurl ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] 
+[INFO] --- really-executable-jar-maven-plugin:1.1.0:really-executable-jar (default) @ okcurl ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okcurl ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okcurl ---
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ sample-parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ sample-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ sample-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sample-parent ---
+[INFO] Installing /home/travis/build/square/okhttp/samples/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/sample/sample-parent/2.3.0-SNAPSHOT/sample-parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample: Guide 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ guide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guide ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/samples/guide/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ guide ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /home/travis/build/square/okhttp/samples/guide/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] OkHttp (Parent) .................................... SUCCESS [  2.446 s]
+[INFO] OkHttp ............................................. SUCCESS [  6.567 s]
+[INFO] MockWebServer ...................................... SUCCESS [  4.997 s]
+[INFO] OkHttp Apache HttpClient ........................... SUCCESS [  1.153 s]
+[INFO] OkHttp URLConnection ............................... SUCCESS [  1.522 s]
+[INFO] OkHttp Tests ....................................... SUCCESS [  1.651 s]
+[INFO] OkCurl ............................................. SUCCESS [  3.178 s]
+[INFO] Samples (Parent) ................................... SUCCESS [  0.322 s]
+[INFO] Sample: Guide ...................................... FAILURE [  0.076 s]
+[INFO] Sample: Crawler .................................... SKIPPED
+[INFO] Sample: Simple Client .............................. SKIPPED
+[INFO] Sample: Static Server .............................. SKIPPED
+[INFO] Benchmarks ......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 22.367 s
+[INFO] Finished at: 2015-01-01T06:04:46+00:00
+[INFO] Final Memory: 34M/445M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.0:compile (default-compile) on project guide: Compilation failure: Compilation failure:
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :guide
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 3 of 3.[0m
+
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:okhttp-tests:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.okhttp:okhttp-tests:[unknown-version], /home/travis/build/square/okhttp/okhttp-tests/pom.xml, line 47, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.okhttp:benchmarks:jar:2.3.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:exec-maven-plugin is missing. @ com.squareup.okhttp:benchmarks:[unknown-version], /home/travis/build/square/okhttp/benchmarks/pom.xml, line 74, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] OkHttp (Parent)
+[INFO] OkHttp
+[INFO] MockWebServer
+[INFO] OkHttp Apache HttpClient
+[INFO] OkHttp URLConnection
+[INFO] OkHttp Tests
+[INFO] OkCurl
+[INFO] Samples (Parent)
+[INFO] Sample: Guide
+[INFO] Sample: Crawler
+[INFO] Sample: Simple Client
+[INFO] Sample: Static Server
+[INFO] Benchmarks
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/parent/2.3.0-SNAPSHOT/parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp ---
+[INFO] 
+[INFO] --- templating-maven-plugin:1.0-alpha-3:filter-sources (default) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Source directory: /home/travis/build/square/okhttp/okhttp/target/generated-sources/java-templates added.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 81 source files to /home/travis/build/square/okhttp/okhttp/target/classes
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp/src/main/java/com/squareup/okhttp/internal/Util.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/target/okhttp-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp/2.3.0-SNAPSHOT/okhttp-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MockWebServer 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ mockwebserver ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ mockwebserver ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mockwebserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/mockwebserver/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ mockwebserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/okhttp/mockwebserver/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ mockwebserver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ mockwebserver ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mockwebserver ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ mockwebserver ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] org/ already added, skipping
+[INFO] LICENSE.txt already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ mockwebserver ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ mockwebserver ---
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/mockwebserver/target/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/mockwebserver/2.3.0-SNAPSHOT/mockwebserver-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Apache HttpClient 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-apache ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-apache ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-apache ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-apache/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-apache ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okhttp-apache/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-apache ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-apache ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-apache ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-apache ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-apache ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/target/okhttp-apache-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-apache/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-apache/2.3.0-SNAPSHOT/okhttp-apache-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp URLConnection 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-urlconnection ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-urlconnection ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-urlconnection ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-urlconnection ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/okhttp/okhttp-urlconnection/target/test-classes
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/okhttp/okhttp-urlconnection/src/test/java/com/squareup/okhttp/internal/huc/JavaApiConverterTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-urlconnection ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-urlconnection ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-urlconnection ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-urlconnection ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-urlconnection ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/target/okhttp-urlconnection-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-urlconnection/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-urlconnection/2.3.0-SNAPSHOT/okhttp-urlconnection-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkHttp Tests 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okhttp-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okhttp-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okhttp-tests/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okhttp-tests ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okhttp-tests ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okhttp-tests ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okhttp-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okhttp-tests ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okhttp-tests ---
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/target/okhttp-tests-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okhttp-tests/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okhttp-tests/2.3.0-SNAPSHOT/okhttp-tests-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OkCurl 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ okcurl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ okcurl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/okcurl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ okcurl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/okhttp/okcurl/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ okcurl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ okcurl ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ okcurl ---
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ okcurl ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] com/ already added, skipping
+[INFO] 
+[INFO] --- really-executable-jar-maven-plugin:1.1.0:really-executable-jar (default) @ okcurl ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ okcurl ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ okcurl ---
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/okhttp/okcurl/target/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/okhttp/okcurl/2.3.0-SNAPSHOT/okcurl-2.3.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples (Parent) 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ sample-parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.11:check (default) @ sample-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ sample-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sample-parent ---
+[INFO] Installing /home/travis/build/square/okhttp/samples/pom.xml to /home/travis/.m2/repository/com/squareup/okhttp/sample/sample-parent/2.3.0-SNAPSHOT/sample-parent-2.3.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Sample: Guide 2.3.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ guide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ guide ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/okhttp/samples/guide/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ guide ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /home/travis/build/square/okhttp/samples/guide/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] OkHttp (Parent) .................................... SUCCESS [  2.441 s]
+[INFO] OkHttp ............................................. SUCCESS [  6.580 s]
+[INFO] MockWebServer ...................................... SUCCESS [  4.943 s]
+[INFO] OkHttp Apache HttpClient ........................... SUCCESS [  0.922 s]
+[INFO] OkHttp URLConnection ............................... SUCCESS [  1.722 s]
+[INFO] OkHttp Tests ....................................... SUCCESS [  0.214 s]
+[INFO] OkCurl ............................................. SUCCESS [  3.138 s]
+[INFO] Samples (Parent) ................................... SUCCESS [  0.186 s]
+[INFO] Sample: Guide ...................................... FAILURE [  0.099 s]
+[INFO] Sample: Crawler .................................... SKIPPED
+[INFO] Sample: Simple Client .............................. SKIPPED
+[INFO] Sample: Static Server .............................. SKIPPED
+[INFO] Benchmarks ......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.643 s
+[INFO] Finished at: 2015-01-01T06:05:10+00:00
+[INFO] Final Memory: 30M/450M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.0:compile (default-compile) on project guide: Compilation failure: Compilation failure:
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[20,14] com.squareup.okhttp.recipes.WebSocketEcho is not abstract and does not override abstract method onOpen(com.squareup.okhttp.internal.ws.WebSocket,com.squareup.okhttp.Request,com.squareup.okhttp.Response) in com.squareup.okhttp.internal.ws.WebSocketListener
+[ERROR] /home/travis/build/square/okhttp/samples/guide/src/main/java/com/squareup/okhttp/recipes/WebSocketEcho.java:[33,3] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :guide
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed 3 times.[0m
+
+travis_time:end:00fe259d:start=1420092235180188073,finish=1420092311669103154,duration=76488915081[0K
+[31;1mThe command "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed and exited with 1 during .[0m
+
+Your build has been stopped.

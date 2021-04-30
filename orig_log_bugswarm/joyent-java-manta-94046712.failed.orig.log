@@ -1,0 +1,388 @@
+Using worker: worker-linux-docker-86d0407f.prod.travis-ci.org:travis-linux-4
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0d54c020[0K$ git clone --depth=50 --branch=jobs https://github.com/joyent/java-manta.git joyent/java-manta
+Cloning into 'joyent/java-manta'...
+remote: Counting objects: 2065, done.[K
+remote: Compressing objects:   0% (1/776)   [Kremote: Compressing objects:   1% (8/776)   [Kremote: Compressing objects:   2% (16/776)   [Kremote: Compressing objects:   3% (24/776)   [Kremote: Compressing objects:   4% (32/776)   [Kremote: Compressing objects:   5% (39/776)   [Kremote: Compressing objects:   6% (47/776)   [Kremote: Compressing objects:   7% (55/776)   [Kremote: Compressing objects:   8% (63/776)   [Kremote: Compressing objects:   9% (70/776)   [Kremote: Compressing objects:  10% (78/776)   [Kremote: Compressing objects:  11% (86/776)   [Kremote: Compressing objects:  12% (94/776)   [Kremote: Compressing objects:  13% (101/776)   [Kremote: Compressing objects:  14% (109/776)   [Kremote: Compressing objects:  15% (117/776)   [Kremote: Compressing objects:  16% (125/776)   [Kremote: Compressing objects:  17% (132/776)   [Kremote: Compressing objects:  18% (140/776)   [Kremote: Compressing objects:  19% (148/776)   [Kremote: Compressing objects:  20% (156/776)   [Kremote: Compressing objects:  21% (163/776)   [Kremote: Compressing objects:  22% (171/776)   [Kremote: Compressing objects:  23% (179/776)   [Kremote: Compressing objects:  24% (187/776)   [Kremote: Compressing objects:  25% (194/776)   [Kremote: Compressing objects:  26% (202/776)   [Kremote: Compressing objects:  27% (210/776)   [Kremote: Compressing objects:  28% (218/776)   [Kremote: Compressing objects:  29% (226/776)   [Kremote: Compressing objects:  30% (233/776)   [Kremote: Compressing objects:  31% (241/776)   [Kremote: Compressing objects:  32% (249/776)   [Kremote: Compressing objects:  33% (257/776)   [Kremote: Compressing objects:  34% (264/776)   [Kremote: Compressing objects:  35% (272/776)   [Kremote: Compressing objects:  36% (280/776)   [Kremote: Compressing objects:  37% (288/776)   [Kremote: Compressing objects:  38% (295/776)   [Kremote: Compressing objects:  39% (303/776)   [Kremote: Compressing objects:  40% (311/776)   [Kremote: Compressing objects:  41% (319/776)   [Kremote: Compressing objects:  42% (326/776)   [Kremote: Compressing objects:  43% (334/776)   [Kremote: Compressing objects:  44% (342/776)   [Kremote: Compressing objects:  45% (350/776)   [Kremote: Compressing objects:  46% (357/776)   [Kremote: Compressing objects:  47% (365/776)   [Kremote: Compressing objects:  48% (373/776)   [Kremote: Compressing objects:  49% (381/776)   [Kremote: Compressing objects:  50% (388/776)   [Kremote: Compressing objects:  51% (396/776)   [Kremote: Compressing objects:  52% (404/776)   [Kremote: Compressing objects:  53% (412/776)   [Kremote: Compressing objects:  54% (420/776)   [Kremote: Compressing objects:  55% (427/776)   [Kremote: Compressing objects:  56% (435/776)   [Kremote: Compressing objects:  57% (443/776)   [Kremote: Compressing objects:  58% (451/776)   [Kremote: Compressing objects:  59% (458/776)   [Kremote: Compressing objects:  60% (466/776)   [Kremote: Compressing objects:  61% (474/776)   [Kremote: Compressing objects:  62% (482/776)   [Kremote: Compressing objects:  63% (489/776)   [Kremote: Compressing objects:  64% (497/776)   [Kremote: Compressing objects:  65% (505/776)   [Kremote: Compressing objects:  66% (513/776)   [Kremote: Compressing objects:  67% (520/776)   [Kremote: Compressing objects:  68% (528/776)   [Kremote: Compressing objects:  69% (536/776)   [Kremote: Compressing objects:  70% (544/776)   [Kremote: Compressing objects:  71% (551/776)   [Kremote: Compressing objects:  72% (559/776)   [Kremote: Compressing objects:  73% (567/776)   [Kremote: Compressing objects:  74% (575/776)   [Kremote: Compressing objects:  75% (582/776)   [Kremote: Compressing objects:  76% (590/776)   [Kremote: Compressing objects:  77% (598/776)   [Kremote: Compressing objects:  78% (606/776)   [Kremote: Compressing objects:  79% (614/776)   [Kremote: Compressing objects:  80% (621/776)   [Kremote: Compressing objects:  81% (629/776)   [Kremote: Compressing objects:  82% (637/776)   [Kremote: Compressing objects:  83% (645/776)   [Kremote: Compressing objects:  84% (652/776)   [Kremote: Compressing objects:  85% (660/776)   [Kremote: Compressing objects:  86% (668/776)   [Kremote: Compressing objects:  87% (676/776)   [Kremote: Compressing objects:  88% (683/776)   [Kremote: Compressing objects:  89% (691/776)   [Kremote: Compressing objects:  90% (699/776)   [Kremote: Compressing objects:  91% (707/776)   [Kremote: Compressing objects:  92% (714/776)   [Kremote: Compressing objects:  93% (722/776)   [Kremote: Compressing objects:  94% (730/776)   [Kremote: Compressing objects:  95% (738/776)   [Kremote: Compressing objects:  96% (745/776)   [Kremote: Compressing objects:  97% (753/776)   [Kremote: Compressing objects:  98% (761/776)   [Kremote: Compressing objects:  99% (769/776)   [Kremote: Compressing objects: 100% (776/776)   [Kremote: Compressing objects: 100% (776/776), done.[K
+Receiving objects:   0% (1/2065)   Receiving objects:   1% (21/2065)   Receiving objects:   2% (42/2065)   Receiving objects:   3% (62/2065)   Receiving objects:   4% (83/2065)   Receiving objects:   5% (104/2065)   Receiving objects:   6% (124/2065)   Receiving objects:   7% (145/2065)   Receiving objects:   8% (166/2065)   Receiving objects:   9% (186/2065)   Receiving objects:  10% (207/2065)   Receiving objects:  11% (228/2065)   Receiving objects:  12% (248/2065)   Receiving objects:  13% (269/2065)   Receiving objects:  14% (290/2065)   Receiving objects:  15% (310/2065)   Receiving objects:  16% (331/2065)   Receiving objects:  17% (352/2065)   Receiving objects:  18% (372/2065)   Receiving objects:  19% (393/2065)   Receiving objects:  20% (413/2065)   Receiving objects:  21% (434/2065)   Receiving objects:  22% (455/2065)   Receiving objects:  23% (475/2065)   Receiving objects:  24% (496/2065)   Receiving objects:  25% (517/2065)   Receiving objects:  26% (537/2065)   Receiving objects:  27% (558/2065)   Receiving objects:  28% (579/2065)   Receiving objects:  29% (599/2065)   Receiving objects:  30% (620/2065)   Receiving objects:  31% (641/2065)   Receiving objects:  32% (661/2065)   Receiving objects:  33% (682/2065)   Receiving objects:  34% (703/2065)   Receiving objects:  35% (723/2065)   Receiving objects:  36% (744/2065)   Receiving objects:  37% (765/2065)   Receiving objects:  38% (785/2065)   Receiving objects:  39% (806/2065)   Receiving objects:  40% (826/2065)   Receiving objects:  41% (847/2065)   Receiving objects:  42% (868/2065)   Receiving objects:  43% (888/2065)   Receiving objects:  44% (909/2065)   Receiving objects:  45% (930/2065)   Receiving objects:  46% (950/2065)   Receiving objects:  47% (971/2065)   Receiving objects:  48% (992/2065)   Receiving objects:  49% (1012/2065)   Receiving objects:  50% (1033/2065)   Receiving objects:  51% (1054/2065)   Receiving objects:  52% (1074/2065)   Receiving objects:  53% (1095/2065)   Receiving objects:  54% (1116/2065)   Receiving objects:  55% (1136/2065)   Receiving objects:  56% (1157/2065)   Receiving objects:  57% (1178/2065)   Receiving objects:  58% (1198/2065)   Receiving objects:  59% (1219/2065)   Receiving objects:  60% (1239/2065)   Receiving objects:  61% (1260/2065)   Receiving objects:  62% (1281/2065)   Receiving objects:  63% (1301/2065)   Receiving objects:  64% (1322/2065)   Receiving objects:  65% (1343/2065)   Receiving objects:  66% (1363/2065)   Receiving objects:  67% (1384/2065)   Receiving objects:  68% (1405/2065)   Receiving objects:  69% (1425/2065)   Receiving objects:  70% (1446/2065)   Receiving objects:  71% (1467/2065)   Receiving objects:  72% (1487/2065)   Receiving objects:  73% (1508/2065)   Receiving objects:  74% (1529/2065)   Receiving objects:  75% (1549/2065)   Receiving objects:  76% (1570/2065)   Receiving objects:  77% (1591/2065)   Receiving objects:  78% (1611/2065)   Receiving objects:  79% (1632/2065)   Receiving objects:  80% (1652/2065)   Receiving objects:  81% (1673/2065)   Receiving objects:  82% (1694/2065)   Receiving objects:  83% (1714/2065)   Receiving objects:  84% (1735/2065)   Receiving objects:  85% (1756/2065)   Receiving objects:  86% (1776/2065)   Receiving objects:  87% (1797/2065)   Receiving objects:  88% (1818/2065)   Receiving objects:  89% (1838/2065)   Receiving objects:  90% (1859/2065)   Receiving objects:  91% (1880/2065)   Receiving objects:  92% (1900/2065)   Receiving objects:  93% (1921/2065)   Receiving objects:  94% (1942/2065)   Receiving objects:  95% (1962/2065)   Receiving objects:  96% (1983/2065)   Receiving objects:  97% (2004/2065)   remote: Total 2065 (delta 769), reused 1967 (delta 677), pack-reused 0[K
+Receiving objects:  98% (2024/2065)   Receiving objects:  99% (2045/2065)   Receiving objects: 100% (2065/2065)   Receiving objects: 100% (2065/2065), 1.17 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/769)   Resolving deltas:   3% (25/769)   Resolving deltas:   6% (47/769)   Resolving deltas:   8% (69/769)   Resolving deltas:  10% (81/769)   Resolving deltas:  12% (93/769)   Resolving deltas:  13% (101/769)   Resolving deltas:  15% (119/769)   Resolving deltas:  23% (179/769)   Resolving deltas:  24% (192/769)   Resolving deltas:  27% (210/769)   Resolving deltas:  28% (218/769)   Resolving deltas:  36% (283/769)   Resolving deltas:  37% (286/769)   Resolving deltas:  38% (296/769)   Resolving deltas:  39% (301/769)   Resolving deltas:  40% (310/769)   Resolving deltas:  43% (333/769)   Resolving deltas:  44% (344/769)   Resolving deltas:  46% (356/769)   Resolving deltas:  50% (386/769)   Resolving deltas:  55% (424/769)   Resolving deltas:  62% (479/769)   Resolving deltas:  63% (486/769)   Resolving deltas:  64% (494/769)   Resolving deltas:  65% (506/769)   Resolving deltas:  66% (508/769)   Resolving deltas:  68% (524/769)   Resolving deltas:  70% (544/769)   Resolving deltas:  71% (553/769)   Resolving deltas:  72% (554/769)   Resolving deltas:  73% (565/769)   Resolving deltas:  74% (576/769)   Resolving deltas:  75% (578/769)   Resolving deltas:  76% (590/769)   Resolving deltas:  77% (597/769)   Resolving deltas:  78% (600/769)   Resolving deltas:  79% (612/769)   Resolving deltas:  80% (616/769)   Resolving deltas:  81% (623/769)   Resolving deltas:  82% (632/769)   Resolving deltas:  83% (641/769)   Resolving deltas:  84% (650/769)   Resolving deltas:  89% (686/769)   Resolving deltas:  91% (700/769)   Resolving deltas:  92% (712/769)   Resolving deltas:  94% (726/769)   Resolving deltas:  95% (738/769)   Resolving deltas:  96% (740/769)   Resolving deltas:  98% (758/769)   Resolving deltas: 100% (769/769)   Resolving deltas: 100% (769/769), done.
+Checking connectivity... done.
+travis_time:end:0d54c020:start=1448923073928633863,finish=1448923074416310180,duration=487676317[0K$ cd joyent/java-manta
+$ git checkout -qf 9f22c9e09ddfd0b58e2a08afa778625a0f53a90d
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export DESC="oraclejdk8 unit tests"
+$ export CMD="mvn clean test -Dcheckstyle.skip=true"
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:before_install[0Ktravis_time:start:30c1a043[0K$ echo 'MAVEN_OPTS="-Dorg.slf4j.simpleLogger.defaultLogLevel=warn"' >~/.mavenrc
+travis_time:end:30c1a043:start=1448923076587655762,finish=1448923076590551975,duration=2896213[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install[0Ktravis_time:start:210e7eae[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[17,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[22,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[23,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[25,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,26] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,39] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[36,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,25] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[46,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,25] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[56,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,27] (misc) FinalParameters: Parameter assets should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[64,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,25] (misc) FinalParameters: Parameter init should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,26] (misc) FinalParameters: Parameter count should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[80,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,27] (misc) FinalParameters: Parameter memory should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[88,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,25] (misc) FinalParameters: Parameter disk should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[97,27] (misc) FinalParameters: Parameter o should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[98] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[99] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[101,52] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[102,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[103,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[104,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[105,51] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[106,53] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[117,33] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[118,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[119,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[120,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[121,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[122,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[123,38] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[124,34] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[4,8] (imports) UnusedImports: Unused import - com.fasterxml.jackson.core.type.TypeReference.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[5] (imports) AvoidStarImport: Using the '.*' form of import should be avoided - com.fasterxml.jackson.databind.*.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,32] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,48] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[35,32] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,33] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,49] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[45,33] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,32] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,47] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,33] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,48] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[24,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[32,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[59,25] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,34] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,32] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[119] (javadoc) JavadocType: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,34] (misc) FinalParameters: Parameter cause should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[124,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (checkstyle) on project java-manta-client: You have 77 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :java-manta-client
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 2 of 3.[0m
+
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[17,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[22,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[23,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[25,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,26] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,39] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[36,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,25] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[46,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,25] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[56,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,27] (misc) FinalParameters: Parameter assets should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[64,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,25] (misc) FinalParameters: Parameter init should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,26] (misc) FinalParameters: Parameter count should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[80,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,27] (misc) FinalParameters: Parameter memory should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[88,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,25] (misc) FinalParameters: Parameter disk should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[97,27] (misc) FinalParameters: Parameter o should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[98] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[99] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[101,52] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[102,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[103,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[104,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[105,51] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[106,53] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[117,33] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[118,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[119,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[120,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[121,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[122,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[123,38] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[124,34] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[4,8] (imports) UnusedImports: Unused import - com.fasterxml.jackson.core.type.TypeReference.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[5] (imports) AvoidStarImport: Using the '.*' form of import should be avoided - com.fasterxml.jackson.databind.*.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,32] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,48] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[35,32] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,33] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,49] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[45,33] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,32] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,47] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,33] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,48] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[24,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[32,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[59,25] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,34] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,32] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[119] (javadoc) JavadocType: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,34] (misc) FinalParameters: Parameter cause should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[124,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (checkstyle) on project java-manta-client: You have 77 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :java-manta-client
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 3 of 3.[0m
+
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[17,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[22,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[23,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[25,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,26] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[30,39] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[36,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[41,25] (misc) FinalParameters: Parameter exec should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[46,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[51,25] (misc) FinalParameters: Parameter type should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[56,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[60,27] (misc) FinalParameters: Parameter assets should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[64,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[68,25] (misc) FinalParameters: Parameter init should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[76,26] (misc) FinalParameters: Parameter count should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[80,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[84,27] (misc) FinalParameters: Parameter memory should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[88,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[92,25] (misc) FinalParameters: Parameter disk should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[97,27] (misc) FinalParameters: Parameter o should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[98] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[99] (blocks) NeedBraces: 'if' construct must use '{}'s.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[101,52] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[102,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[103,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[104,49] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[105,51] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[106,53] (whitespace) OperatorWrap: '&&' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[117,33] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[118,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[119,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[120,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[121,42] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[122,36] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[123,38] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaJobPhase.java:[124,34] (whitespace) OperatorWrap: '+' should be on a new line.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[4,8] (imports) UnusedImports: Unused import - com.fasterxml.jackson.core.type.TypeReference.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[5] (imports) AvoidStarImport: Using the '.*' form of import should be avoided - com.fasterxml.jackson.databind.*.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,32] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[34,48] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[35,32] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,33] (misc) FinalParameters: Parameter in should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[44,49] (misc) FinalParameters: Parameter charset should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[45,33] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,32] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[59,47] (misc) FinalParameters: Parameter dataClass should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,33] (misc) FinalParameters: Parameter reader should be final.
+[ERROR] src/main/java/com/joyent/manta/client/MantaObjectParser.java:[69,48] (misc) FinalParameters: Parameter dataType should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[18,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[19,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[20,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[21,5] (javadoc) JavadocVariable: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[24,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[32,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[59,25] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[72,34] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,5] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[92,32] (misc) FinalParameters: Parameter out should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[119] (javadoc) JavadocType: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[120,34] (misc) FinalParameters: Parameter cause should be final.
+[ERROR] src/main/java/com/joyent/manta/client/StringIteratorHttpContent.java:[124,9] (javadoc) JavadocMethod: Missing a Javadoc comment.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (checkstyle) on project java-manta-client: You have 77 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :java-manta-client
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed 3 times.[0m
+
+travis_time:end:210e7eae:start=1448923076594207751,finish=1448923139083368664,duration=62489160913[0K
+[31;1mThe command "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed and exited with 1 during .[0m
+
+Your build has been stopped.

@@ -1,0 +1,979 @@
+Using worker: worker-linux-docker-ec470305.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:02c6fb38[0K$ git clone --depth=50 --branch=migrate-statement https://github.com/SonarCommunity/sonar-php.git SonarCommunity/sonar-php
+Cloning into 'SonarCommunity/sonar-php'...
+remote: Counting objects: 5336, done.[K
+remote: Compressing objects:   0% (1/2732)   [Kremote: Compressing objects:   1% (28/2732)   [Kremote: Compressing objects:   2% (55/2732)   [Kremote: Compressing objects:   3% (82/2732)   [Kremote: Compressing objects:   4% (110/2732)   [Kremote: Compressing objects:   5% (137/2732)   [Kremote: Compressing objects:   6% (164/2732)   [Kremote: Compressing objects:   7% (192/2732)   [Kremote: Compressing objects:   8% (219/2732)   [Kremote: Compressing objects:   9% (246/2732)   [Kremote: Compressing objects:  10% (274/2732)   [Kremote: Compressing objects:  11% (301/2732)   [Kremote: Compressing objects:  12% (328/2732)   [Kremote: Compressing objects:  13% (356/2732)   [Kremote: Compressing objects:  14% (383/2732)   [Kremote: Compressing objects:  15% (410/2732)   [Kremote: Compressing objects:  16% (438/2732)   [Kremote: Compressing objects:  17% (465/2732)   [Kremote: Compressing objects:  18% (492/2732)   [Kremote: Compressing objects:  19% (520/2732)   [Kremote: Compressing objects:  20% (547/2732)   [Kremote: Compressing objects:  21% (574/2732)   [Kremote: Compressing objects:  22% (602/2732)   [Kremote: Compressing objects:  23% (629/2732)   [Kremote: Compressing objects:  24% (656/2732)   [Kremote: Compressing objects:  25% (683/2732)   [Kremote: Compressing objects:  26% (711/2732)   [Kremote: Compressing objects:  27% (738/2732)   [Kremote: Compressing objects:  28% (765/2732)   [Kremote: Compressing objects:  29% (793/2732)   [Kremote: Compressing objects:  30% (820/2732)   [Kremote: Compressing objects:  31% (847/2732)   [Kremote: Compressing objects:  32% (875/2732)   [Kremote: Compressing objects:  33% (902/2732)   [Kremote: Compressing objects:  34% (929/2732)   [Kremote: Compressing objects:  35% (957/2732)   [Kremote: Compressing objects:  36% (984/2732)   [Kremote: Compressing objects:  37% (1011/2732)   [Kremote: Compressing objects:  38% (1039/2732)   [Kremote: Compressing objects:  39% (1066/2732)   [Kremote: Compressing objects:  40% (1093/2732)   [Kremote: Compressing objects:  41% (1121/2732)   [Kremote: Compressing objects:  42% (1148/2732)   [Kremote: Compressing objects:  43% (1175/2732)   [Kremote: Compressing objects:  44% (1203/2732)   [Kremote: Compressing objects:  45% (1230/2732)   [Kremote: Compressing objects:  46% (1257/2732)   [Kremote: Compressing objects:  47% (1285/2732)   [Kremote: Compressing objects:  48% (1312/2732)   [Kremote: Compressing objects:  49% (1339/2732)   [Kremote: Compressing objects:  50% (1366/2732)   [Kremote: Compressing objects:  51% (1394/2732)   [Kremote: Compressing objects:  52% (1421/2732)   [Kremote: Compressing objects:  53% (1448/2732)   [Kremote: Compressing objects:  54% (1476/2732)   [Kremote: Compressing objects:  55% (1503/2732)   [Kremote: Compressing objects:  56% (1530/2732)   [Kremote: Compressing objects:  57% (1558/2732)   [Kremote: Compressing objects:  58% (1585/2732)   [Kremote: Compressing objects:  59% (1612/2732)   [Kremote: Compressing objects:  60% (1640/2732)   [Kremote: Compressing objects:  61% (1667/2732)   [Kremote: Compressing objects:  62% (1694/2732)   [Kremote: Compressing objects:  63% (1722/2732)   [Kremote: Compressing objects:  64% (1749/2732)   [Kremote: Compressing objects:  65% (1776/2732)   [Kremote: Compressing objects:  66% (1804/2732)   [Kremote: Compressing objects:  67% (1831/2732)   [Kremote: Compressing objects:  68% (1858/2732)   [Kremote: Compressing objects:  69% (1886/2732)   [Kremote: Compressing objects:  70% (1913/2732)   [Kremote: Compressing objects:  71% (1940/2732)   [Kremote: Compressing objects:  72% (1968/2732)   [Kremote: Compressing objects:  73% (1995/2732)   [Kremote: Compressing objects:  74% (2022/2732)   [Kremote: Compressing objects:  75% (2049/2732)   [Kremote: Compressing objects:  76% (2077/2732)   [Kremote: Compressing objects:  77% (2104/2732)   [Kremote: Compressing objects:  78% (2131/2732)   [Kremote: Compressing objects:  79% (2159/2732)   [Kremote: Compressing objects:  80% (2186/2732)   [Kremote: Compressing objects:  81% (2213/2732)   [Kremote: Compressing objects:  82% (2241/2732)   [Kremote: Compressing objects:  83% (2268/2732)   [Kremote: Compressing objects:  84% (2295/2732)   [Kremote: Compressing objects:  85% (2323/2732)   [Kremote: Compressing objects:  86% (2350/2732)   [Kremote: Compressing objects:  87% (2377/2732)   [Kremote: Compressing objects:  88% (2405/2732)   [Kremote: Compressing objects:  89% (2432/2732)   [Kremote: Compressing objects:  90% (2459/2732)   [Kremote: Compressing objects:  91% (2487/2732)   [Kremote: Compressing objects:  92% (2514/2732)   [Kremote: Compressing objects:  93% (2541/2732)   [Kremote: Compressing objects:  94% (2569/2732)   [Kremote: Compressing objects:  95% (2596/2732)   [Kremote: Compressing objects:  96% (2623/2732)   [Kremote: Compressing objects:  97% (2651/2732)   [Kremote: Compressing objects:  98% (2678/2732)   [Kremote: Compressing objects:  99% (2705/2732)   [Kremote: Compressing objects: 100% (2732/2732)   [Kremote: Compressing objects: 100% (2732/2732), done.[K
+Receiving objects:   0% (1/5336)   Receiving objects:   1% (54/5336)   Receiving objects:   2% (107/5336)   Receiving objects:   3% (161/5336)   Receiving objects:   4% (214/5336)   Receiving objects:   5% (267/5336)   Receiving objects:   6% (321/5336)   Receiving objects:   7% (374/5336)   Receiving objects:   8% (427/5336)   Receiving objects:   9% (481/5336)   Receiving objects:  10% (534/5336)   Receiving objects:  11% (587/5336)   Receiving objects:  12% (641/5336)   Receiving objects:  13% (694/5336)   Receiving objects:  14% (748/5336)   Receiving objects:  15% (801/5336)   Receiving objects:  16% (854/5336)   Receiving objects:  17% (908/5336)   Receiving objects:  18% (961/5336)   Receiving objects:  19% (1014/5336)   Receiving objects:  20% (1068/5336)   Receiving objects:  21% (1121/5336)   Receiving objects:  22% (1174/5336)   Receiving objects:  23% (1228/5336)   Receiving objects:  24% (1281/5336)   Receiving objects:  25% (1334/5336)   Receiving objects:  26% (1388/5336)   Receiving objects:  27% (1441/5336)   Receiving objects:  28% (1495/5336)   Receiving objects:  29% (1548/5336)   Receiving objects:  30% (1601/5336)   Receiving objects:  31% (1655/5336)   Receiving objects:  32% (1708/5336)   Receiving objects:  33% (1761/5336)   Receiving objects:  34% (1815/5336)   Receiving objects:  35% (1868/5336)   Receiving objects:  36% (1921/5336)   Receiving objects:  37% (1975/5336)   Receiving objects:  38% (2028/5336)   Receiving objects:  39% (2082/5336)   Receiving objects:  40% (2135/5336)   Receiving objects:  41% (2188/5336)   Receiving objects:  42% (2242/5336)   Receiving objects:  43% (2295/5336)   Receiving objects:  44% (2348/5336)   Receiving objects:  45% (2402/5336)   Receiving objects:  46% (2455/5336)   Receiving objects:  47% (2508/5336)   Receiving objects:  48% (2562/5336)   Receiving objects:  49% (2615/5336)   Receiving objects:  50% (2668/5336)   Receiving objects:  51% (2722/5336)   Receiving objects:  52% (2775/5336)   Receiving objects:  53% (2829/5336)   Receiving objects:  54% (2882/5336)   Receiving objects:  55% (2935/5336)   Receiving objects:  56% (2989/5336)   Receiving objects:  57% (3042/5336)   Receiving objects:  58% (3095/5336)   Receiving objects:  59% (3149/5336)   Receiving objects:  60% (3202/5336)   Receiving objects:  61% (3255/5336)   Receiving objects:  62% (3309/5336)   Receiving objects:  63% (3362/5336)   Receiving objects:  64% (3416/5336)   Receiving objects:  65% (3469/5336)   Receiving objects:  66% (3522/5336)   Receiving objects:  67% (3576/5336)   Receiving objects:  68% (3629/5336)   Receiving objects:  69% (3682/5336)   Receiving objects:  70% (3736/5336)   Receiving objects:  71% (3789/5336)   Receiving objects:  72% (3842/5336)   Receiving objects:  73% (3896/5336)   Receiving objects:  74% (3949/5336)   Receiving objects:  75% (4002/5336)   Receiving objects:  76% (4056/5336)   Receiving objects:  77% (4109/5336)   Receiving objects:  78% (4163/5336)   Receiving objects:  79% (4216/5336)   Receiving objects:  80% (4269/5336)   Receiving objects:  81% (4323/5336)   Receiving objects:  82% (4376/5336)   Receiving objects:  83% (4429/5336)   Receiving objects:  84% (4483/5336)   Receiving objects:  85% (4536/5336)   Receiving objects:  86% (4589/5336)   Receiving objects:  87% (4643/5336)   Receiving objects:  88% (4696/5336)   Receiving objects:  89% (4750/5336)   Receiving objects:  90% (4803/5336)   Receiving objects:  91% (4856/5336)   remote: Total 5336 (delta 2322), reused 4877 (delta 2043), pack-reused 0[K
+Receiving objects:  92% (4910/5336)   Receiving objects:  93% (4963/5336)   Receiving objects:  94% (5016/5336)   Receiving objects:  95% (5070/5336)   Receiving objects:  96% (5123/5336)   Receiving objects:  97% (5176/5336)   Receiving objects:  98% (5230/5336)   Receiving objects:  99% (5283/5336)   Receiving objects: 100% (5336/5336)   Receiving objects: 100% (5336/5336), 2.61 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/2322)   Resolving deltas:   2% (50/2322)   Resolving deltas:   3% (75/2322)   Resolving deltas:   4% (100/2322)   Resolving deltas:   5% (117/2322)   Resolving deltas:   7% (176/2322)   Resolving deltas:   8% (187/2322)   Resolving deltas:   9% (212/2322)   Resolving deltas:  10% (233/2322)   Resolving deltas:  11% (262/2322)   Resolving deltas:  12% (289/2322)   Resolving deltas:  13% (303/2322)   Resolving deltas:  14% (331/2322)   Resolving deltas:  15% (349/2322)   Resolving deltas:  16% (378/2322)   Resolving deltas:  17% (399/2322)   Resolving deltas:  20% (481/2322)   Resolving deltas:  27% (632/2322)   Resolving deltas:  28% (653/2322)   Resolving deltas:  29% (686/2322)   Resolving deltas:  30% (708/2322)   Resolving deltas:  31% (724/2322)   Resolving deltas:  32% (744/2322)   Resolving deltas:  33% (780/2322)   Resolving deltas:  34% (792/2322)   Resolving deltas:  36% (853/2322)   Resolving deltas:  37% (869/2322)   Resolving deltas:  38% (883/2322)   Resolving deltas:  47% (1103/2322)   Resolving deltas:  48% (1137/2322)   Resolving deltas:  49% (1141/2322)   Resolving deltas:  50% (1161/2322)   Resolving deltas:  51% (1189/2322)   Resolving deltas:  52% (1208/2322)   Resolving deltas:  53% (1231/2322)   Resolving deltas:  54% (1256/2322)   Resolving deltas:  55% (1278/2322)   Resolving deltas:  56% (1323/2322)   Resolving deltas:  57% (1324/2322)   Resolving deltas:  58% (1347/2322)   Resolving deltas:  59% (1376/2322)   Resolving deltas:  60% (1395/2322)   Resolving deltas:  61% (1418/2322)   Resolving deltas:  62% (1441/2322)   Resolving deltas:  63% (1464/2322)   Resolving deltas:  64% (1498/2322)   Resolving deltas:  65% (1511/2322)   Resolving deltas:  66% (1542/2322)   Resolving deltas:  67% (1559/2322)   Resolving deltas:  68% (1581/2322)   Resolving deltas:  69% (1603/2322)   Resolving deltas:  70% (1627/2322)   Resolving deltas:  71% (1650/2322)   Resolving deltas:  72% (1673/2322)   Resolving deltas:  73% (1696/2322)   Resolving deltas:  74% (1720/2322)   Resolving deltas:  75% (1743/2322)   Resolving deltas:  76% (1770/2322)   Resolving deltas:  77% (1798/2322)   Resolving deltas:  78% (1814/2322)   Resolving deltas:  79% (1835/2322)   Resolving deltas:  80% (1859/2322)   Resolving deltas:  81% (1881/2322)   Resolving deltas:  82% (1909/2322)   Resolving deltas:  83% (1928/2322)   Resolving deltas:  84% (1954/2322)   Resolving deltas:  85% (1986/2322)   Resolving deltas:  86% (2005/2322)   Resolving deltas:  87% (2022/2322)   Resolving deltas:  88% (2047/2322)   Resolving deltas:  89% (2074/2322)   Resolving deltas:  91% (2115/2322)   Resolving deltas:  92% (2138/2322)   Resolving deltas:  93% (2161/2322)   Resolving deltas:  94% (2193/2322)   Resolving deltas:  95% (2207/2322)   Resolving deltas:  96% (2231/2322)   Resolving deltas:  97% (2253/2322)   Resolving deltas:  98% (2276/2322)   Resolving deltas:  99% (2307/2322)   Resolving deltas: 100% (2322/2322)   Resolving deltas: 100% (2322/2322), done.
+Checking connectivity... done.
+travis_time:end:02c6fb38:start=1442483233262917936,finish=1442483234275982718,duration=1013064782[0K$ cd SonarCommunity/sonar-php
+$ git checkout -qf 9cf43a30da6f4e7d5aa5430d24bfec8032d4cd13
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:2bfc2040[0K$ git submodule init
+Submodule 'its/sources' (https://github.com/SonarCommunity/php-test-sources.git) registered for path 'its/sources'
+travis_time:end:2bfc2040:start=1442483234323902221,finish=1442483234547570834,duration=223668613[0Ktravis_time:start:073f41d0[0K$ git submodule update
+Cloning into 'its/sources'...
+remote: Counting objects: 4341, done.[K
+Receiving objects:   0% (1/4341)   Receiving objects:   1% (44/4341)   Receiving objects:   2% (87/4341)   Receiving objects:   3% (131/4341)   Receiving objects:   4% (174/4341)   Receiving objects:   5% (218/4341)   Receiving objects:   6% (261/4341)   Receiving objects:   7% (304/4341)   Receiving objects:   8% (348/4341)   Receiving objects:   9% (391/4341)   Receiving objects:  10% (435/4341)   Receiving objects:  11% (478/4341)   Receiving objects:  12% (521/4341)   Receiving objects:  13% (565/4341)   Receiving objects:  14% (608/4341)   Receiving objects:  15% (652/4341)   Receiving objects:  16% (695/4341)   Receiving objects:  17% (738/4341)   Receiving objects:  18% (782/4341)   Receiving objects:  19% (825/4341)   Receiving objects:  20% (869/4341)   Receiving objects:  21% (912/4341)   Receiving objects:  22% (956/4341)   Receiving objects:  23% (999/4341)   Receiving objects:  24% (1042/4341)   Receiving objects:  25% (1086/4341)   Receiving objects:  26% (1129/4341)   Receiving objects:  27% (1173/4341)   Receiving objects:  28% (1216/4341)   Receiving objects:  29% (1259/4341)   Receiving objects:  30% (1303/4341)   Receiving objects:  31% (1346/4341)   Receiving objects:  32% (1390/4341)   Receiving objects:  33% (1433/4341)   Receiving objects:  34% (1476/4341)   Receiving objects:  35% (1520/4341)   Receiving objects:  36% (1563/4341)   Receiving objects:  37% (1607/4341)   Receiving objects:  38% (1650/4341)   Receiving objects:  39% (1693/4341)   Receiving objects:  40% (1737/4341)   Receiving objects:  41% (1780/4341)   Receiving objects:  42% (1824/4341)   Receiving objects:  43% (1867/4341)   Receiving objects:  44% (1911/4341)   Receiving objects:  45% (1954/4341)   Receiving objects:  46% (1997/4341)   Receiving objects:  47% (2041/4341)   Receiving objects:  48% (2084/4341)   Receiving objects:  49% (2128/4341)   Receiving objects:  50% (2171/4341)   Receiving objects:  51% (2214/4341)   Receiving objects:  52% (2258/4341)   Receiving objects:  53% (2301/4341)   Receiving objects:  54% (2345/4341)   Receiving objects:  55% (2388/4341)   Receiving objects:  56% (2431/4341)   Receiving objects:  57% (2475/4341)   Receiving objects:  58% (2518/4341)   Receiving objects:  59% (2562/4341)   Receiving objects:  60% (2605/4341)   Receiving objects:  61% (2649/4341)   Receiving objects:  62% (2692/4341)   Receiving objects:  63% (2735/4341)   Receiving objects:  64% (2779/4341)   Receiving objects:  65% (2822/4341)   Receiving objects:  66% (2866/4341)   Receiving objects:  67% (2909/4341)   Receiving objects:  68% (2952/4341)   Receiving objects:  69% (2996/4341)   Receiving objects:  70% (3039/4341)   Receiving objects:  71% (3083/4341)   Receiving objects:  72% (3126/4341)   Receiving objects:  73% (3169/4341)   Receiving objects:  74% (3213/4341)   Receiving objects:  75% (3256/4341)   Receiving objects:  76% (3300/4341)   Receiving objects:  77% (3343/4341)   Receiving objects:  78% (3386/4341)   Receiving objects:  79% (3430/4341)   Receiving objects:  80% (3473/4341)   Receiving objects:  81% (3517/4341)   Receiving objects:  82% (3560/4341)   Receiving objects:  83% (3604/4341)   Receiving objects:  84% (3647/4341)   Receiving objects:  85% (3690/4341)   Receiving objects:  86% (3734/4341)   Receiving objects:  87% (3777/4341)   Receiving objects:  88% (3821/4341)   Receiving objects:  89% (3864/4341)   Receiving objects:  90% (3907/4341)   Receiving objects:  91% (3951/4341)   Receiving objects:  92% (3994/4341)   Receiving objects:  93% (4038/4341)   Receiving objects:  94% (4081/4341)   Receiving objects:  95% (4124/4341)   Receiving objects:  96% (4168/4341)   Receiving objects:  97% (4211/4341)   remote: Total 4341 (delta 0), reused 0 (delta 0), pack-reused 4341[K
+Receiving objects:  98% (4255/4341)   Receiving objects:  99% (4298/4341)   Receiving objects: 100% (4341/4341)   Receiving objects: 100% (4341/4341), 3.26 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1589)   Resolving deltas:   1% (16/1589)   Resolving deltas:   2% (33/1589)   Resolving deltas:   3% (48/1589)   Resolving deltas:   4% (64/1589)   Resolving deltas:   8% (140/1589)   Resolving deltas:   9% (144/1589)   Resolving deltas:  10% (169/1589)   Resolving deltas:  11% (176/1589)   Resolving deltas:  12% (205/1589)   Resolving deltas:  13% (210/1589)   Resolving deltas:  14% (228/1589)   Resolving deltas:  15% (247/1589)   Resolving deltas:  19% (306/1589)   Resolving deltas:  21% (343/1589)   Resolving deltas:  23% (370/1589)   Resolving deltas:  24% (384/1589)   Resolving deltas:  26% (426/1589)   Resolving deltas:  27% (432/1589)   Resolving deltas:  28% (446/1589)   Resolving deltas:  29% (461/1589)   Resolving deltas:  30% (477/1589)   Resolving deltas:  31% (495/1589)   Resolving deltas:  32% (509/1589)   Resolving deltas:  33% (526/1589)   Resolving deltas:  34% (543/1589)   Resolving deltas:  35% (567/1589)   Resolving deltas:  36% (577/1589)   Resolving deltas:  37% (591/1589)   Resolving deltas:  38% (608/1589)   Resolving deltas:  39% (620/1589)   Resolving deltas:  40% (640/1589)   Resolving deltas:  41% (654/1589)   Resolving deltas:  42% (676/1589)   Resolving deltas:  43% (684/1589)   Resolving deltas:  44% (702/1589)   Resolving deltas:  45% (717/1589)   Resolving deltas:  46% (734/1589)   Resolving deltas:  47% (749/1589)   Resolving deltas:  49% (781/1589)   Resolving deltas:  50% (797/1589)   Resolving deltas:  51% (812/1589)   Resolving deltas:  52% (828/1589)   Resolving deltas:  53% (849/1589)   Resolving deltas:  54% (860/1589)   Resolving deltas:  55% (875/1589)   Resolving deltas:  56% (894/1589)   Resolving deltas:  57% (908/1589)   Resolving deltas:  58% (926/1589)   Resolving deltas:  60% (959/1589)   Resolving deltas:  61% (970/1589)   Resolving deltas:  62% (986/1589)   Resolving deltas:  63% (1003/1589)   Resolving deltas:  64% (1017/1589)   Resolving deltas:  65% (1038/1589)   Resolving deltas:  66% (1050/1589)   Resolving deltas:  67% (1065/1589)   Resolving deltas:  68% (1082/1589)   Resolving deltas:  69% (1097/1589)   Resolving deltas:  70% (1115/1589)   Resolving deltas:  71% (1129/1589)   Resolving deltas:  72% (1145/1589)   Resolving deltas:  73% (1161/1589)   Resolving deltas:  74% (1176/1589)   Resolving deltas:  75% (1193/1589)   Resolving deltas:  76% (1208/1589)   Resolving deltas:  77% (1224/1589)   Resolving deltas:  78% (1240/1589)   Resolving deltas:  79% (1256/1589)   Resolving deltas:  80% (1272/1589)   Resolving deltas:  81% (1288/1589)   Resolving deltas:  82% (1304/1589)   Resolving deltas:  83% (1320/1589)   Resolving deltas:  84% (1337/1589)   Resolving deltas:  85% (1351/1589)   Resolving deltas:  86% (1367/1589)   Resolving deltas:  87% (1384/1589)   Resolving deltas:  88% (1399/1589)   Resolving deltas:  89% (1415/1589)   Resolving deltas:  90% (1431/1589)   Resolving deltas:  91% (1446/1589)   Resolving deltas:  92% (1465/1589)   Resolving deltas:  93% (1479/1589)   Resolving deltas:  94% (1500/1589)   Resolving deltas:  95% (1510/1589)   Resolving deltas:  96% (1526/1589)   Resolving deltas:  97% (1542/1589)   Resolving deltas:  98% (1566/1589)   Resolving deltas:  99% (1577/1589)   Resolving deltas: 100% (1589/1589)   Resolving deltas: 100% (1589/1589), done.
+Checking connectivity... done.
+Submodule path 'its/sources': checked out '4f1f094d3505e8ea70e70fa565e56ef45e2acfda'
+travis_time:end:073f41d0:start=1442483234551182123,finish=1442483235456082601,duration=904900478[0Ktravis_fold:end:git.submodule[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TEST=ci
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0278f380[0K$ Installing caching utilities
+travis_time:end:0278f380:start=1442483237211331944,finish=1442483237258882562,duration=47550618[0Ktravis_time:start:108bbb60[0Kattempting to download cache archive
+fetching migrate-statement/cache--jdk-oraclejdk7.tgz
+found cache
+travis_time:end:108bbb60:start=1442483237263331338,finish=1442483243113055901,duration=5849724563[0Ktravis_time:start:040c31e0[0Kadding /home/travis/.m2/repository to cache
+travis_time:end:040c31e0:start=1442483243116865866,finish=1442483248354250185,duration=5237384319[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:0359527e[0K$ true
+travis_time:end:0359527e:start=1442483248720970683,finish=1442483248723899116,duration=2928433[0Ktravis_fold:end:install[0Ktravis_time:start:10fb8443[0K$ ./travis.sh
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] PHP
+[INFO] PHP :: Frontend
+[INFO] PHP :: Checks
+[INFO] PHP :: Sonar Plugin
+[INFO] SonarQube PHP :: SSLR Toolkit
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PHP 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ php ---
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarCommunity/sonar-php && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarCommunity/sonar-php
+[INFO] Storing buildNumber: 9cf43a30da6f4e7d5aa5430d24bfec8032d4cd13 at timestamp: 1442483253173
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd /home/travis/build/SonarCommunity/sonar-php && git rev-parse --verify HEAD
+[INFO] Working directory: /home/travis/build/SonarCommunity/sonar-php
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ php ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ php ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ php ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ php ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PHP :: Frontend 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ php-frontend ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ php-frontend ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ php-frontend ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ php-frontend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ php-frontend ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 112 source files to /home/travis/build/SonarCommunity/sonar-php/php-frontend/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/main/java/org/sonar/php/PHPAstScanner.java: /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/main/java/org/sonar/php/PHPAstScanner.java uses unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/main/java/org/sonar/php/PHPAstScanner.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ php-frontend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ php-frontend ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 133 source files to /home/travis/build/SonarCommunity/sonar-php/php-frontend/target/test-classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/test/java/org/sonar/php/metrics/FileLinesVisitorTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-frontend/src/test/java/org/sonar/php/metrics/FileLinesVisitorTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ php-frontend ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-php/php-frontend/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.php.parser.expression.BitewiseOrExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 sec - in org.sonar.php.parser.expression.BitewiseOrExpressionTest
+Running org.sonar.php.parser.declaration.InterfaceDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in org.sonar.php.parser.declaration.InterfaceDeclarationTest
+Running org.sonar.php.parser.expression.SemiComplexEncapsVariableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.237 sec - in org.sonar.php.parser.expression.SemiComplexEncapsVariableTest
+Running org.sonar.php.parser.expression.AdditiveExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.sonar.php.parser.expression.AdditiveExpressionTest
+Running org.sonar.php.parser.expression.ComplexEncapsVariableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec - in org.sonar.php.parser.expression.ComplexEncapsVariableTest
+Running org.sonar.php.parser.expression.AssignmentExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec - in org.sonar.php.parser.expression.AssignmentExprTest
+Running org.sonar.php.parser.statement.DeclareStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.DeclareStatementTest
+Running org.sonar.php.parser.expression.ArrayPairTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.parser.expression.ArrayPairTest
+Running org.sonar.php.parser.statement.NewIfStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.parser.statement.NewIfStatementTest
+Running org.sonar.php.parser.lexical.HeredocTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.lexical.HeredocTest
+Running org.sonar.php.parser.statement.GotoStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 sec - in org.sonar.php.parser.statement.GotoStatementTest
+Running org.sonar.php.metrics.FileLinesVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.22 sec - in org.sonar.php.metrics.FileLinesVisitorTest
+Running org.sonar.php.parser.statement.ClassStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.ClassStatementTest
+Running org.sonar.php.parser.statement.FullyQualifiedClassNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.parser.statement.FullyQualifiedClassNameTest
+Running org.sonar.php.parser.statement.ThrowStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.sonar.php.parser.statement.ThrowStatementTest
+Running org.sonar.php.parser.expression.ShiftExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.parser.expression.ShiftExpressionTest
+Running org.sonar.php.parser.statement.HaltCompilerStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.HaltCompilerStatementTest
+Running org.sonar.php.parser.statement.ForStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.parser.statement.ForStatementTest
+Running org.sonar.php.parser.declaration.ClassVariableDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.declaration.ClassVariableDeclarationTest
+Running org.sonar.php.parser.statement.TraitUseStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.TraitUseStatementTest
+Running org.sonar.php.parser.expression.MultiplicativeExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.expression.MultiplicativeExpressionTest
+Running org.sonar.php.parser.lexical.NumericLiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.parser.lexical.NumericLiteralTest
+Running org.sonar.php.parser.expression.CommonScalarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.sonar.php.parser.expression.CommonScalarTest
+Running org.sonar.php.parser.statement.UseStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.UseStatementTest
+Running org.sonar.php.parser.expression.LexicalVarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.LexicalVarTest
+Running org.sonar.php.parser.expression.PostfixExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.PostfixExprTest
+Running org.sonar.php.parser.declaration.ImplementsListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.ImplementsListTest
+Running org.sonar.php.parser.declaration.UseDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.parser.declaration.UseDeclarationTest
+Running org.sonar.php.parser.statement.LabelTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.parser.statement.LabelTest
+Running org.sonar.php.parser.expression.VariableTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in org.sonar.php.parser.expression.VariableTest
+Running org.sonar.php.parser.CompilationUnitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.sonar.php.parser.CompilationUnitTest
+Running org.sonar.php.parser.expression.PrimaryExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.PrimaryExpressionTest
+Running org.sonar.php.parser.declaration.UseFunctionDeclarationStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.declaration.UseFunctionDeclarationStatementTest
+Running org.sonar.php.parser.declaration.ClassConstDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.declaration.ClassConstDeclarationTest
+Running org.sonar.php.parser.statement.GlobalVarListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.parser.statement.GlobalVarListTest
+Running org.sonar.php.parser.statement.CaseClauseTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.sonar.php.parser.statement.CaseClauseTest
+Running org.sonar.php.parser.expression.EqualityExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.php.parser.expression.EqualityExpressionTest
+Running org.sonar.php.parser.expression.VariableNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.VariableNameTest
+Running org.sonar.php.parser.statement.ForeachStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.parser.statement.ForeachStatementTest
+Running org.sonar.php.parser.expression.FunctionCallParameterListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.expression.FunctionCallParameterListTest
+Running org.sonar.php.parser.lexical.StringLiteralTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.parser.lexical.StringLiteralTest
+Running org.sonar.php.parser.declaration.VariableDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.declaration.VariableDeclarationTest
+Running org.sonar.php.parser.statement.TraitMethodReferenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.parser.statement.TraitMethodReferenceTest
+Running org.sonar.php.parser.lexical.EncapsStringLiteralTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.sonar.php.parser.lexical.EncapsStringLiteralTest
+Running org.sonar.php.parser.expression.ConditionalExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.parser.expression.ConditionalExpressionTest
+Running org.sonar.php.parser.declaration.UseFunctionDeclarationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.declaration.UseFunctionDeclarationsTest
+Running org.sonar.php.parser.statement.GlobalStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.GlobalStatementTest
+Running org.sonar.php.parser.expression.RelationalExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.sonar.php.parser.expression.RelationalExpressionTest
+Running org.sonar.php.parser.statement.FullyQualifiedNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.statement.FullyQualifiedNameTest
+Running org.sonar.php.parser.statement.UnsetVariableStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.statement.UnsetVariableStatementTest
+Running org.sonar.php.parser.statement.IfStatementTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.sonar.php.parser.statement.IfStatementTest
+Running org.sonar.php.parser.expression.InternalFunctionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.sonar.php.parser.expression.InternalFunctionTest
+Running org.sonar.php.parser.expression.ConcatenationExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.sonar.php.parser.expression.ConcatenationExpressionTest
+Running org.sonar.php.parser.statement.GlobalVarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.GlobalVarTest
+Running org.sonar.php.parser.expression.NewExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.NewExprTest
+Running org.sonar.php.parser.expression.ObjectDimListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.parser.expression.ObjectDimListTest
+Running org.sonar.php.parser.statement.BreakStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.statement.BreakStatementTest
+Running org.sonar.php.parser.lexical.InlineHtmlTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.lexical.InlineHtmlTest
+Running org.sonar.php.tree.impl.expression.VariableIdentifierTreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.tree.impl.expression.VariableIdentifierTreeTest
+Running org.sonar.php.parser.statement.DoWhileStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.DoWhileStatementTest
+Running org.sonar.php.parser.expression.SimpleEncapsVariableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.parser.expression.SimpleEncapsVariableTest
+Running org.sonar.php.parser.expression.CombinedScalarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.sonar.php.parser.expression.CombinedScalarTest
+Running org.sonar.php.parser.statement.TraitAdaptationStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.TraitAdaptationStatementTest
+Running org.sonar.php.parser.lexical.FileOpeningTagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.lexical.FileOpeningTagTest
+Running org.sonar.php.parser.expression.ObjectMemberAccessTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.expression.ObjectMemberAccessTest
+Running org.sonar.php.tree.impl.statement.BlockTreeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.tree.impl.statement.BlockTreeTest
+Running org.sonar.php.parser.expression.YieldExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.YieldExpressionTest
+Running org.sonar.php.parser.lexical.VarIdentifierTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.lexical.VarIdentifierTest
+Running org.sonar.php.parser.declaration.ParameterListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.ParameterListTest
+Running org.sonar.php.parser.expression.FunctionExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.FunctionExpressionTest
+Running org.sonar.php.parser.statement.ForExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.ForExprTest
+Running org.sonar.php.parser.lexical.IdentifierTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.lexical.IdentifierTest
+Running org.sonar.php.parser.expression.SimpleIndirectReferenceVariableTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.expression.SimpleIndirectReferenceVariableTest
+Running org.sonar.php.parser.expression.staticExpr.StaticScalarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.staticExpr.StaticScalarTest
+Running org.sonar.php.parser.statement.NamespaceNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.NamespaceNameTest
+Running org.sonar.php.parser.statement.StaticStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.StaticStatementTest
+Running org.sonar.php.tree.impl.statement.ExpressionStatementTreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.tree.impl.statement.ExpressionStatementTreeTest
+Running org.sonar.php.parser.expression.DimensionalOffsetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.DimensionalOffsetTest
+Running org.sonar.php.parser.expression.ReferenceVariableTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.ReferenceVariableTest
+Running org.sonar.php.parser.statement.TryStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.TryStatementTest
+Running org.sonar.php.parser.statement.YieldStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.YieldStatementTest
+Running org.sonar.php.parser.statement.EOSTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.EOSTest
+Running org.sonar.php.parser.statement.UnqualifiedNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.UnqualifiedNameTest
+Running org.sonar.php.parser.statement.EchoStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.EchoStatementTest
+Running org.sonar.php.parser.expression.CompoundVariableTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.expression.CompoundVariableTest
+Running org.sonar.php.parser.expression.BitewiseAndExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.expression.BitewiseAndExpressionTest
+Running org.sonar.php.parser.declaration.VariableModifiersTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.declaration.VariableModifiersTest
+Running org.sonar.php.parser.expression.EncapsListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.EncapsListTest
+Running org.sonar.php.parser.statement.QualifiedNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.sonar.php.parser.statement.QualifiedNameTest
+Running org.sonar.php.parser.KeywordTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.parser.KeywordTest
+Running org.sonar.php.parser.declaration.UseDeclarationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.UseDeclarationsTest
+Running org.sonar.php.parser.expression.BitewiseXorExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.expression.BitewiseXorExpressionTest
+Running org.sonar.php.parser.expression.AssignmentByReferenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.parser.expression.AssignmentByReferenceTest
+Running org.sonar.php.parser.declaration.MethodDeclarationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.MethodDeclarationTest
+Running org.sonar.php.parser.declaration.MemberModifierTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.MemberModifierTest
+Running org.sonar.php.parser.statement.BlockTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.BlockTest
+Running org.sonar.php.parser.declaration.ParameterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.declaration.ParameterTest
+Running org.sonar.php.parser.statement.TraitMethodReferenceFullyQualifiedTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.TraitMethodReferenceFullyQualifiedTest
+Running org.sonar.php.parser.statement.ContinueStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.ContinueStatementTest
+Running org.sonar.php.parser.declaration.FunctionDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.declaration.FunctionDeclarationTest
+Running org.sonar.php.parser.declaration.ClassDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.parser.declaration.ClassDeclarationTest
+Running org.sonar.php.parser.statement.TraitAliasTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.statement.TraitAliasTest
+Running org.sonar.php.parser.expression.VariableWithoutObjectsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.VariableWithoutObjectsTest
+Running org.sonar.php.parser.expression.BooleanLiteralTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.BooleanLiteralTest
+Running org.sonar.php.parser.statement.NamespaceStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.NamespaceStatementTest
+Running org.sonar.php.parser.statement.StaticVarListTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.StaticVarListTest
+Running org.sonar.php.parser.declaration.UseFunctionDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.UseFunctionDeclarationTest
+Running org.sonar.php.parser.declaration.ConstantDeclarationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.declaration.ConstantDeclarationTest
+Running org.sonar.php.PHPAstScannerTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec - in org.sonar.php.PHPAstScannerTest
+Running org.sonar.php.parser.statement.TraitAdaptationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.TraitAdaptationsTest
+Running org.sonar.php.parser.declaration.UseConstDeclarationStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.declaration.UseConstDeclarationStatementTest
+Running org.sonar.php.parser.statement.TraitPrecedenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.statement.TraitPrecedenceTest
+Running org.sonar.php.parser.expression.ExitExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.ExitExprTest
+Running org.sonar.php.parser.expression.UnaryExprTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.parser.expression.UnaryExprTest
+Running org.sonar.php.parser.statement.StatementTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.parser.statement.StatementTest
+Running org.sonar.php.parser.expression.StaticMemberAccessTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.StaticMemberAccessTest
+Running org.sonar.php.parser.expression.ClassNameTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.ClassNameTest
+Running org.sonar.php.parser.expression.EncapsDImensionalOffsetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.EncapsDImensionalOffsetTest
+Running org.sonar.php.parser.statement.DefaultClauseTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.statement.DefaultClauseTest
+Running org.sonar.php.parser.expression.LogicalAndExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.LogicalAndExpressionTest
+Running org.sonar.php.parser.expression.CombinedScalarOffsetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.CombinedScalarOffsetTest
+Running org.sonar.php.parser.expression.LogicalXorExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.parser.expression.LogicalXorExpressionTest
+Running org.sonar.php.parser.expression.LogicalOrExpressionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.LogicalOrExpressionTest
+Running org.sonar.php.parser.expression.LexicalVarsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.php.parser.expression.LexicalVarsTest
+Running org.sonar.php.tree.impl.statement.LabelTreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.tree.impl.statement.LabelTreeTest
+Running org.sonar.php.parser.expression.EncapsVarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.expression.EncapsVarTest
+Running org.sonar.php.tree.impl.statement.GotoStatementTreeTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.php.tree.impl.statement.GotoStatementTreeTest
+Running org.sonar.php.parser.statement.WhileStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.WhileStatementTest
+Running org.sonar.php.parser.statement.SwitchStatementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.parser.statement.SwitchStatementTest
+
+Results :
+
+
+
+
+Tests run: 149, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ php-frontend ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/php-frontend/target/php-frontend-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ php-frontend ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ php-frontend ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/php-frontend/target/php-frontend-2.7-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PHP :: Checks 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ php-checks ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ php-checks ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ php-checks ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ php-checks ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 109 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ php-checks ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 125 source files to /home/travis/build/SonarCommunity/sonar-php/php-checks/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-checks/src/main/java/org/sonar/php/checks/TabCharacterCheck.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-checks/src/main/java/org/sonar/php/checks/TabCharacterCheck.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ php-checks ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 138 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ php-checks ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 118 source files to /home/travis/build/SonarCommunity/sonar-php/php-checks/target/test-classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-checks/src/test/java/org/sonar/php/checks/TrailingWhitespaceCheckTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/php-checks/src/test/java/org/sonar/php/checks/TrailingWhitespaceCheckTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ php-checks ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-php/php-checks/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.php.checks.LocalVariableShadowsClassFieldCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.651 sec - in org.sonar.php.checks.LocalVariableShadowsClassFieldCheckTest
+Running org.sonar.php.checks.MissingMethodVisibilityCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec - in org.sonar.php.checks.MissingMethodVisibilityCheckTest
+Running org.sonar.php.checks.KeywordsAndConstantsNotLowerCaseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec - in org.sonar.php.checks.KeywordsAndConstantsNotLowerCaseCheckTest
+Running org.sonar.php.checks.OverridingMethodSimplyCallParentCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.sonar.php.checks.OverridingMethodSimplyCallParentCheckTest
+Running org.sonar.php.checks.ModifiersOrderCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.sonar.php.checks.ModifiersOrderCheckTest
+Running org.sonar.php.checks.VariableVariablesCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.sonar.php.checks.VariableVariablesCheckTest
+Running org.sonar.php.checks.LineLengthCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in org.sonar.php.checks.LineLengthCheckTest
+Running org.sonar.php.checks.IdenticalOperandsInBinaryExpressionCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec - in org.sonar.php.checks.IdenticalOperandsInBinaryExpressionCheckTest
+Running org.sonar.php.checks.ConstantNameCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.sonar.php.checks.ConstantNameCheckTest
+Running org.sonar.php.checks.VarKeywordUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.sonar.php.checks.VarKeywordUsageCheckTest
+Running org.sonar.php.checks.formatting.PunctuatorSpacingCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec - in org.sonar.php.checks.formatting.PunctuatorSpacingCheckTest
+Running org.sonar.php.checks.ThisVariableUsageInStaticContextCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.ThisVariableUsageInStaticContextCheckTest
+Running org.sonar.php.checks.DeprecatedPredefinedVariablesUseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.DeprecatedPredefinedVariablesUseCheckTest
+Running org.sonar.php.checks.GotoUseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.GotoUseCheckTest
+Running org.sonar.php.checks.FunctionComplexityCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec - in org.sonar.php.checks.FunctionComplexityCheckTest
+Running org.sonar.php.checks.ExpressionComplexityCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec - in org.sonar.php.checks.ExpressionComplexityCheckTest
+Running org.sonar.php.checks.CheckListTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in org.sonar.php.checks.CheckListTest
+Running org.sonar.php.checks.MoreThanOneClassInFileCheckTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec - in org.sonar.php.checks.MoreThanOneClassInFileCheckTest
+Running org.sonar.php.checks.BooleanEqualityComparisonCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.BooleanEqualityComparisonCheckTest
+Running org.sonar.php.checks.LeftCurlyBraceStartsLineCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.LeftCurlyBraceStartsLineCheckTest
+Running org.sonar.php.checks.ClosingTagInFullPHPFileCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec - in org.sonar.php.checks.ClosingTagInFullPHPFileCheckTest
+Running org.sonar.php.checks.TrailingWhitespaceCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.TrailingWhitespaceCheckTest
+Running org.sonar.php.checks.UnusedPrivateFieldCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.sonar.php.checks.UnusedPrivateFieldCheckTest
+Running org.sonar.php.checks.SleepFunctionUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.SleepFunctionUsageCheckTest
+Running org.sonar.php.checks.ClassNameCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.sonar.php.checks.ClassNameCheckTest
+Running org.sonar.php.checks.NestedControlFlowDepthCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.sonar.php.checks.NestedControlFlowDepthCheckTest
+Running org.sonar.php.checks.FileNameCheckTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.sonar.php.checks.FileNameCheckTest
+Running org.sonar.php.checks.SwitchWithoutDefaultCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.SwitchWithoutDefaultCheckTest
+Running org.sonar.php.checks.DuplicateBranchImplementationCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.DuplicateBranchImplementationCheckTest
+Running org.sonar.php.checks.UselessObjectCreationCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.UselessObjectCreationCheckTest
+Running org.sonar.php.checks.UnusedPrivateMethodCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.php.checks.UnusedPrivateMethodCheckTest
+Running org.sonar.php.checks.RequireInsteadOfRequireOnceCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.php.checks.RequireInsteadOfRequireOnceCheckTest
+Running org.sonar.php.checks.NonLFCharAsEOLCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.sonar.php.checks.NonLFCharAsEOLCheckTest
+Running org.sonar.php.checks.CallParentConstructorCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.CallParentConstructorCheckTest
+Running org.sonar.php.checks.EmptyStatementCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.EmptyStatementCheckTest
+Running org.sonar.php.checks.UnusedFunctionParametersCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.UnusedFunctionParametersCheckTest
+Running org.sonar.php.checks.ImmediatelyReturnedVariableCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.sonar.php.checks.ImmediatelyReturnedVariableCheckTest
+Running org.sonar.php.checks.LeftCurlyBraceEndsLineCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.LeftCurlyBraceEndsLineCheckTest
+Running org.sonar.php.checks.InterfaceNameCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.InterfaceNameCheckTest
+Running org.sonar.php.checks.AtLeastThreeCasesInSwitchCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.AtLeastThreeCasesInSwitchCheckTest
+Running org.sonar.php.checks.ForLoopCounterChangedCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.sonar.php.checks.ForLoopCounterChangedCheckTest
+Running org.sonar.php.checks.FunctionDefineOutsideClassCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.FunctionDefineOutsideClassCheckTest
+Running org.sonar.php.checks.InlineHTMLInFileCheckTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.InlineHTMLInFileCheckTest
+Running org.sonar.php.checks.ReturnOfBooleanExpressionCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.sonar.php.checks.ReturnOfBooleanExpressionCheckTest
+Running org.sonar.php.checks.SelfKeywordUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.sonar.php.checks.SelfKeywordUsageCheckTest
+Running org.sonar.php.checks.PhpSapiNameFunctionUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.sonar.php.checks.PhpSapiNameFunctionUsageCheckTest
+Running org.sonar.php.checks.TooManyReturnCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.TooManyReturnCheckTest
+Running org.sonar.php.checks.TooManyFieldsInClassCheckTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.sonar.php.checks.TooManyFieldsInClassCheckTest
+Running org.sonar.php.checks.formatting.ControlStructureSpacingTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in org.sonar.php.checks.formatting.ControlStructureSpacingTest
+Running org.sonar.php.checks.SelfAssignmentCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.SelfAssignmentCheckTest
+Running org.sonar.php.checks.ExitOrDieUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.ExitOrDieUsageCheckTest
+Running org.sonar.php.checks.EvalUseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.EvalUseCheckTest
+Running org.sonar.php.checks.OnePropertyDeclarationPerStatementCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.checks.OnePropertyDeclarationPerStatementCheckTest
+Running org.sonar.php.checks.CollapsibleIfStatementCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.CollapsibleIfStatementCheckTest
+Running org.sonar.php.checks.SwitchCaseTooBigCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.sonar.php.checks.SwitchCaseTooBigCheckTest
+Running org.sonar.php.checks.formatting.CurlyBraceCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.formatting.CurlyBraceCheckTest
+Running org.sonar.php.checks.DuplicateConditionCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.DuplicateConditionCheckTest
+Running org.sonar.php.checks.GenericExceptionCheckTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.sonar.php.checks.GenericExceptionCheckTest
+Running org.sonar.php.checks.TooManyFunctionParametersCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.TooManyFunctionParametersCheckTest
+Running org.sonar.php.checks.ConstructorDeclarationCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.ConstructorDeclarationCheckTest
+Running org.sonar.php.checks.MethodNameReturningBooleanCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.MethodNameReturningBooleanCheckTest
+Running org.sonar.php.checks.HardCodedCredentialsCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.HardCodedCredentialsCheckTest
+Running org.sonar.php.checks.FixmeTagPresenceCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.FixmeTagPresenceCheckTest
+Running org.sonar.php.checks.MissingNewLineAtEOFCheckTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.MissingNewLineAtEOFCheckTest
+Running org.sonar.php.checks.EchoWithParenthesisCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.EchoWithParenthesisCheckTest
+Running org.sonar.php.checks.SilencedErrorsCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.SilencedErrorsCheckTest
+Running org.sonar.php.checks.LowerCaseColorCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.LowerCaseColorCheckTest
+Running org.sonar.php.checks.formatting.NamespaceAndUseStatementCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.sonar.php.checks.formatting.NamespaceAndUseStatementCheckTest
+Running org.sonar.php.checks.FileWithSymbolsAndSideEffectsCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.FileWithSymbolsAndSideEffectsCheckTest
+Running org.sonar.php.checks.TodoTagPresenceCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.TodoTagPresenceCheckTest
+Running org.sonar.php.checks.TooManyLinesInClassCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.TooManyLinesInClassCheckTest
+Running org.sonar.php.checks.DirectlyAccessingSuperGlobalCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.DirectlyAccessingSuperGlobalCheckTest
+Running org.sonar.php.checks.formatting.FunctionSpacingCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.formatting.FunctionSpacingCheckTest
+Running org.sonar.php.checks.CallToIniSetCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.CallToIniSetCheckTest
+Running org.sonar.php.checks.PerlStyleCommentsUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.PerlStyleCommentsUsageCheckTest
+Running org.sonar.php.checks.TooManyCasesInSwitchCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.TooManyCasesInSwitchCheckTest
+Running org.sonar.php.checks.ConcatenatedStringLiteralCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.ConcatenatedStringLiteralCheckTest
+Running org.sonar.php.checks.formatting.ExtendsImplementsLineCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.formatting.ExtendsImplementsLineCheckTest
+Running org.sonar.php.checks.TooManyLinesInFileCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.TooManyLinesInFileCheckTest
+Running org.sonar.php.checks.ElseIfWithoutElseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.ElseIfWithoutElseCheckTest
+Running org.sonar.php.checks.ForHidingWhileCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.ForHidingWhileCheckTest
+Running org.sonar.php.checks.ElseIfSequenceKeywordUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.ElseIfSequenceKeywordUsageCheckTest
+Running org.sonar.php.checks.LogicalWordOperatorUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.LogicalWordOperatorUsageCheckTest
+Running org.sonar.php.checks.CommentedOutCodeCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.CommentedOutCodeCheckTest
+Running org.sonar.php.checks.TabCharacterCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.TabCharacterCheckTest
+Running org.sonar.php.checks.UnusedLocalVariableCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.sonar.php.checks.UnusedLocalVariableCheckTest
+Running org.sonar.php.checks.DuplicatedFunctionArgumentCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.DuplicatedFunctionArgumentCheckTest
+Running org.sonar.php.checks.ArgumentWithDefaultValueNotLastCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.ArgumentWithDefaultValueNotLastCheckTest
+Running org.sonar.php.checks.OpeningPHPTagCheckTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.sonar.php.checks.OpeningPHPTagCheckTest
+Running org.sonar.php.checks.IncrementDecrementInSubExpressionCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.IncrementDecrementInSubExpressionCheckTest
+Running org.sonar.php.checks.NonEmptyCaseWithoutBreakCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.NonEmptyCaseWithoutBreakCheckTest
+Running org.sonar.php.checks.TrailingCommentCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.TrailingCommentCheckTest
+Running org.sonar.php.checks.AlwaysUseCurlyBracesCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.AlwaysUseCurlyBracesCheckTest
+Running org.sonar.php.checks.GlobalKeywordAndArrayUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.sonar.php.checks.GlobalKeywordAndArrayUsageCheckTest
+Running org.sonar.php.checks.EmptyNestedBlockCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.EmptyNestedBlockCheckTest
+Running org.sonar.php.checks.ConstructorDependencyInversionCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.ConstructorDependencyInversionCheckTest
+Running org.sonar.php.checks.IfConditionAlwaysTrueOrFalseCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.php.checks.IfConditionAlwaysTrueOrFalseCheckTest
+Running org.sonar.php.checks.StringLiteralDuplicatedCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.StringLiteralDuplicatedCheckTest
+Running org.sonar.php.checks.FieldNameCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.FieldNameCheckTest
+Running org.sonar.php.checks.TooManyLinesInFunctionCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.TooManyLinesInFunctionCheckTest
+Running org.sonar.php.checks.OneStatementPerLineCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.OneStatementPerLineCheckTest
+Running org.sonar.php.checks.FileHeaderCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.sonar.php.checks.FileHeaderCheckTest
+Running org.sonar.php.checks.CharacterBeforeOpeningPHPTagCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.CharacterBeforeOpeningPHPTagCheckTest
+Running org.sonar.php.checks.CodeFollowingJumpStatementCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.php.checks.CodeFollowingJumpStatementCheckTest
+Running org.sonar.php.checks.TooManyMethodsInClassCheckTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.TooManyMethodsInClassCheckTest
+Running org.sonar.php.checks.formatting.IndentationCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.formatting.IndentationCheckTest
+Running org.sonar.php.checks.RightCurlyBraceStartsLineCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.RightCurlyBraceStartsLineCheckTest
+Running org.sonar.php.checks.ReferenceInFunctionCallCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.sonar.php.checks.ReferenceInFunctionCallCheckTest
+Running org.sonar.php.checks.ClassCouplingCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.sonar.php.checks.ClassCouplingCheckTest
+Running org.sonar.php.checks.PHP5DeprecatedFunctionUsageCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.sonar.php.checks.PHP5DeprecatedFunctionUsageCheckTest
+Running org.sonar.php.checks.LocalVariableAndParameterNameCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.LocalVariableAndParameterNameCheckTest
+Running org.sonar.php.checks.RedundantFinalCheckTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.php.checks.RedundantFinalCheckTest
+Running org.sonar.php.checks.NestedFunctionDepthCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.sonar.php.checks.NestedFunctionDepthCheckTest
+Running org.sonar.php.checks.ClassComplexityCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.php.checks.ClassComplexityCheckTest
+Running org.sonar.php.checks.FunctionNameCheckTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.sonar.php.checks.FunctionNameCheckTest
+
+Results :
+
+
+
+
+Tests run: 170, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ php-checks ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/php-checks/target/php-checks-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ php-checks ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ php-checks ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/php-checks/target/php-checks-2.7-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PHP :: Sonar Plugin 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ sonar-php-plugin ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ sonar-php-plugin ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ sonar-php-plugin ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- sonar-packaging-maven-plugin:1.12.1:check-dependencies (default-check-dependencies) @ sonar-php-plugin ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ sonar-php-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ sonar-php-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 35 source files to /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/target/classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/main/java/org/sonar/plugins/php/core/NoSonarAndCommentedOutLocSensor.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/main/java/org/sonar/plugins/php/core/NoSonarAndCommentedOutLocSensor.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/main/java/org/sonar/plugins/php/phpunit/PhpUnitCoverageResultParser.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/main/java/org/sonar/plugins/php/phpunit/PhpUnitCoverageResultParser.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ sonar-php-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 17 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ sonar-php-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/target/test-classes
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/test/java/org/sonar/plugins/php/phpunit/PhpUnitCoverageResultParserTest.java: Some input files use or override a deprecated API.
+[INFO] /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/src/test/java/org/sonar/plugins/php/phpunit/PhpUnitCoverageResultParserTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ sonar-php-plugin ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.plugins.php.PHPProfileTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.407 sec - in org.sonar.plugins.php.PHPProfileTest
+Running org.sonar.plugins.php.core.NoSonarAndCommentedOutLocSensorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.449 sec - in org.sonar.plugins.php.core.NoSonarAndCommentedOutLocSensorTest
+Running org.sonar.plugins.php.duplications.PHPCPDMappingTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.sonar.plugins.php.duplications.PHPCPDMappingTest
+Running org.sonar.plugins.php.phpunit.PhpUnitTestReportTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.plugins.php.phpunit.PhpUnitTestReportTest
+Running org.sonar.plugins.php.DrupalProfileTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 sec - in org.sonar.plugins.php.DrupalProfileTest
+Running org.sonar.plugins.php.core.PhpSourceCodeColorizerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.sonar.plugins.php.core.PhpSourceCodeColorizerTest
+Running org.sonar.plugins.php.core.PhpCommonRulesDecoratorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec - in org.sonar.plugins.php.core.PhpCommonRulesDecoratorTest
+Running org.sonar.plugins.php.phpunit.PhpUnitCoverageResultParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 sec - in org.sonar.plugins.php.phpunit.PhpUnitCoverageResultParserTest
+Running org.sonar.plugins.php.PHPSensorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 sec - in org.sonar.plugins.php.PHPSensorTest
+Running org.sonar.plugins.php.phpunit.PhpUnitSensorTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec - in org.sonar.plugins.php.phpunit.PhpUnitSensorTest
+Running org.sonar.plugins.php.api.PhpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.sonar.plugins.php.api.PhpTest
+Running org.sonar.plugins.php.phpunit.xml.TestSuitesTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.sonar.plugins.php.phpunit.xml.TestSuitesTest
+Running org.sonar.plugins.php.phpunit.PhpUnitItCoverageResultParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.plugins.php.phpunit.PhpUnitItCoverageResultParserTest
+Running org.sonar.plugins.php.phpunit.PhpUnitResultParserTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec - in org.sonar.plugins.php.phpunit.PhpUnitResultParserTest
+Running org.sonar.plugins.php.phpunit.PHPRulesDefinitionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 sec - in org.sonar.plugins.php.phpunit.PHPRulesDefinitionTest
+Running org.sonar.plugins.php.core.PhpCommonRulesEngineTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.sonar.plugins.php.core.PhpCommonRulesEngineTest
+Running org.sonar.plugins.php.PSR2ProfileTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.sonar.plugins.php.PSR2ProfileTest
+Running org.sonar.plugins.php.phpunit.PhpUnitOverallCoverageResultParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.sonar.plugins.php.phpunit.PhpUnitOverallCoverageResultParserTest
+Running org.sonar.plugins.php.duplications.PHPTokenProducerTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec - in org.sonar.plugins.php.duplications.PHPTokenProducerTest
+Running org.sonar.plugins.php.PhpPluginTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.sonar.plugins.php.PhpPluginTest
+
+Results :
+
+
+
+
+Tests run: 69, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- sonar-packaging-maven-plugin:1.12.1:sonar-plugin (default-sonar-plugin) @ sonar-php-plugin ---
+[INFO] -------------------------------------------------------
+[INFO] Plugin definition in update center
+[INFO]     Key: php
+[INFO]     Name: PHP
+[INFO]     Description: Enables analysis of PHP projects.
+[INFO]     Version: 2.7-SNAPSHOT
+[INFO]     Main class: org.sonar.plugins.php.PhpPlugin
+[INFO]     Homepage: http://redirect.sonarsource.com/plugins/php.html
+[INFO]     Sonar version: 4.5.2
+[INFO]     License: GNU LGPL v3
+[INFO]     Organization: SonarSource and Akram Ben Aissi
+[INFO]     Organization URL: http://www.sonarsource.com/
+[INFO]     Terms & Conditions URL: 
+[INFO]     Issue Tracker URL: http://jira.codehaus.org/browse/SONARPHP
+[INFO]     Build date: 2015-09-17T09:47:57+0000
+[INFO]     Sources URL: https://github.com/SonarCommunity/sonar-php
+[INFO]     Developers: Linda Martin,Fabrice Bellingard,Sebastian Marek,Gennadiy Litvinyuk,Akram Ben Aissi,Gabriele Santini,Julien Henry
+[INFO] -------------------------------------------------------
+[WARNING] org.codehaus.sonar:sonar-deprecated:jar:4.5.2:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] com.google.code.findbugs:jsr305:jar:1.3.9:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.slf4j:slf4j-api:jar:1.6.2:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.slf4j:jcl-over-slf4j:jar:1.7.5:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] org.picocontainer:picocontainer:jar:2.14.1:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] com.google.guava:guava:jar:10.0.1:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] jfree:jcommon:jar:1.0.12:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[WARNING] jfree:jfreechart:jar:1.0.9:compile is provided by SonarQube plugin API and will not be packaged in your plugin
+[INFO] Following dependencies are packaged in the plugin:
+
+	ch.qos.logback:logback-classic:jar
+	xpp3:xpp3_min:jar
+	jaxen:jaxen:jar
+	org.codehaus.sonar.sslr:sslr-core:jar
+	org.sonarsource.php:php-checks:jar
+	ch.qos.logback:logback-core:jar
+	com.thoughtworks.xstream:xstream:jar
+	org.codehaus.sonar.sslr-squid-bridge:sslr-squid-bridge:jar
+	org.mockito:mockito-all:jar
+	org.codehaus.sonar.sslr:sslr-xpath:jar
+	org.sonarsource.php:php-frontend:jar
+	org.sonarsource.sslr:sslr-core:jar
+	cglib:cglib-nodep:jar
+
+[INFO] See following page for more details about plugin dependencies:
+
+	http://docs.codehaus.org/display/SONAR/Coding+a+plugin
+
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/target/sonar-php-plugin.jar
+[INFO]  already added, skipping
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-plugin-size) @ sonar-php-plugin ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ sonar-php-plugin ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ sonar-php-plugin ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/sonar-php-plugin/target/sonar-php-plugin-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SonarQube PHP :: SSLR Toolkit 2.7-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ sslr-php-toolkit ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce) @ sslr-php-toolkit ---
+[INFO] 
+[INFO] --- maven-license-plugin:1.10.b1:check (enforce-license-headers) @ sslr-php-toolkit ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ sslr-php-toolkit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ sslr-php-toolkit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ sslr-php-toolkit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ sslr-php-toolkit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18:test (default-test) @ sslr-php-toolkit ---
+[INFO] Surefire report directory: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sonar.php.toolkit.PhpConfigurationModelTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec - in org.sonar.php.toolkit.PhpConfigurationModelTest
+
+Results :
+
+
+
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ sslr-php-toolkit ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/sslr-php-toolkit-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- jarjar-maven-plugin:1.9:jarjar (default) @ sslr-php-toolkit ---
+[INFO] Processing: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/sslr-php-toolkit-2.7-SNAPSHOT.jar
+[INFO] Building zip: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/jarjar/uber-sslr-php-toolkit-2.7-SNAPSHOT.jar
+[INFO] JarJar'ing to: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/sslr-php-toolkit-2.7-SNAPSHOT.jar
+[INFO] Original: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/original-sslr-php-toolkit-2.7-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-size) @ sslr-php-toolkit ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.13:check (enforce-java-api-compatibility) @ sslr-php-toolkit ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-source-plugin:2.4:jar-no-fork (attach-sources) @ sslr-php-toolkit ---
+[INFO] Building jar: /home/travis/build/SonarCommunity/sonar-php/sslr-php-toolkit/target/sslr-php-toolkit-2.7-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] PHP ................................................ SUCCESS [  3.798 s]
+[INFO] PHP :: Frontend .................................... SUCCESS [  9.136 s]
+[INFO] PHP :: Checks ...................................... SUCCESS [  7.724 s]
+[INFO] PHP :: Sonar Plugin ................................ SUCCESS [  6.900 s]
+[INFO] SonarQube PHP :: SSLR Toolkit ...................... SUCCESS [  7.545 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 36.600 s
+[INFO] Finished at: 2015-09-17T09:48:07+00:00
+[INFO] Final Memory: 47M/447M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:10fb8443:start=1442483248727634395,finish=1442483288776294491,duration=40048660096[0K
+[32;1mThe command "./travis.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0794e840[0Knothing changed, not updating cache
+travis_time:end:0794e840:start=1442483288780627485,finish=1442483289984519455,duration=1203891970[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

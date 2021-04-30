@@ -1,0 +1,528 @@
+Using worker: worker-linux-docker-0f5d3620.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:12d4352f[0K$ git clone --depth=50 --branch=core-async git://github.com/puniverse/quasar.git puniverse/quasar
+Cloning into 'puniverse/quasar'...
+remote: Counting objects: 1551, done.[K
+remote: Compressing objects:   0% (1/953)   [Kremote: Compressing objects:   1% (10/953)   [Kremote: Compressing objects:   2% (20/953)   [Kremote: Compressing objects:   3% (29/953)   [Kremote: Compressing objects:   4% (39/953)   [Kremote: Compressing objects:   5% (48/953)   [Kremote: Compressing objects:   6% (58/953)   [Kremote: Compressing objects:   7% (67/953)   [Kremote: Compressing objects:   8% (77/953)   [Kremote: Compressing objects:   9% (86/953)   [Kremote: Compressing objects:  10% (96/953)   [Kremote: Compressing objects:  11% (105/953)   [Kremote: Compressing objects:  12% (115/953)   [Kremote: Compressing objects:  13% (124/953)   [Kremote: Compressing objects:  14% (134/953)   [Kremote: Compressing objects:  15% (143/953)   [Kremote: Compressing objects:  16% (153/953)   [Kremote: Compressing objects:  17% (163/953)   [Kremote: Compressing objects:  18% (172/953)   [Kremote: Compressing objects:  19% (182/953)   [Kremote: Compressing objects:  20% (191/953)   [Kremote: Compressing objects:  21% (201/953)   [Kremote: Compressing objects:  22% (210/953)   [Kremote: Compressing objects:  23% (220/953)   [Kremote: Compressing objects:  24% (229/953)   [Kremote: Compressing objects:  25% (239/953)   [Kremote: Compressing objects:  26% (248/953)   [Kremote: Compressing objects:  27% (258/953)   [Kremote: Compressing objects:  28% (267/953)   [Kremote: Compressing objects:  29% (277/953)   [Kremote: Compressing objects:  30% (286/953)   [Kremote: Compressing objects:  31% (296/953)   [Kremote: Compressing objects:  32% (305/953)   [Kremote: Compressing objects:  33% (315/953)   [Kremote: Compressing objects:  34% (325/953)   [Kremote: Compressing objects:  35% (334/953)   [Kremote: Compressing objects:  36% (344/953)   [Kremote: Compressing objects:  37% (353/953)   [Kremote: Compressing objects:  38% (363/953)   [Kremote: Compressing objects:  39% (372/953)   [Kremote: Compressing objects:  40% (382/953)   [Kremote: Compressing objects:  41% (391/953)   [Kremote: Compressing objects:  42% (401/953)   [Kremote: Compressing objects:  43% (410/953)   [Kremote: Compressing objects:  44% (420/953)   [Kremote: Compressing objects:  45% (429/953)   [Kremote: Compressing objects:  46% (439/953)   [Kremote: Compressing objects:  47% (448/953)   [Kremote: Compressing objects:  48% (458/953)   [Kremote: Compressing objects:  49% (467/953)   [Kremote: Compressing objects:  50% (477/953)   [Kremote: Compressing objects:  51% (487/953)   [Kremote: Compressing objects:  52% (496/953)   [Kremote: Compressing objects:  53% (506/953)   [Kremote: Compressing objects:  54% (515/953)   [Kremote: Compressing objects:  55% (525/953)   [Kremote: Compressing objects:  56% (534/953)   [Kremote: Compressing objects:  57% (544/953)   [Kremote: Compressing objects:  58% (553/953)   [Kremote: Compressing objects:  59% (563/953)   [Kremote: Compressing objects:  60% (572/953)   [Kremote: Compressing objects:  61% (582/953)   [Kremote: Compressing objects:  62% (591/953)   [Kremote: Compressing objects:  63% (601/953)   [Kremote: Compressing objects:  64% (610/953)   [Kremote: Compressing objects:  65% (620/953)   [Kremote: Compressing objects:  66% (629/953)   [Kremote: Compressing objects:  67% (639/953)   [Kremote: Compressing objects:  68% (649/953)   [Kremote: Compressing objects:  69% (658/953)   [Kremote: Compressing objects:  70% (668/953)   [Kremote: Compressing objects:  71% (677/953)   [Kremote: Compressing objects:  72% (687/953)   [Kremote: Compressing objects:  73% (696/953)   [Kremote: Compressing objects:  74% (706/953)   [Kremote: Compressing objects:  75% (715/953)   [Kremote: Compressing objects:  76% (725/953)   [Kremote: Compressing objects:  77% (734/953)   [Kremote: Compressing objects:  78% (744/953)   [Kremote: Compressing objects:  79% (753/953)   [Kremote: Compressing objects:  80% (763/953)   [Kremote: Compressing objects:  81% (772/953)   [Kremote: Compressing objects:  82% (782/953)   [Kremote: Compressing objects:  83% (791/953)   [Kremote: Compressing objects:  84% (801/953)   [Kremote: Compressing objects:  85% (811/953)   [Kremote: Compressing objects:  86% (820/953)   [Kremote: Compressing objects:  87% (830/953)   [Kremote: Compressing objects:  88% (839/953)   [Kremote: Compressing objects:  89% (849/953)   [Kremote: Compressing objects:  90% (858/953)   [Kremote: Compressing objects:  91% (868/953)   [Kremote: Compressing objects:  92% (877/953)   [Kremote: Compressing objects:  93% (887/953)   [Kremote: Compressing objects:  94% (896/953)   [Kremote: Compressing objects:  95% (906/953)   [Kremote: Compressing objects:  96% (915/953)   [Kremote: Compressing objects:  97% (925/953)   [Kremote: Compressing objects:  98% (934/953)   [Kremote: Compressing objects:  99% (944/953)   [Kremote: Compressing objects: 100% (953/953)   [Kremote: Compressing objects: 100% (953/953), done.[K
+Receiving objects:   0% (1/1551)   Receiving objects:   1% (16/1551)   Receiving objects:   2% (32/1551)   Receiving objects:   3% (47/1551)   Receiving objects:   4% (63/1551)   Receiving objects:   5% (78/1551)   Receiving objects:   6% (94/1551)   Receiving objects:   7% (109/1551)   Receiving objects:   8% (125/1551)   Receiving objects:   9% (140/1551)   Receiving objects:  10% (156/1551)   Receiving objects:  11% (171/1551)   Receiving objects:  12% (187/1551)   Receiving objects:  13% (202/1551)   Receiving objects:  14% (218/1551)   Receiving objects:  15% (233/1551)   Receiving objects:  16% (249/1551)   Receiving objects:  17% (264/1551)   Receiving objects:  18% (280/1551)   Receiving objects:  19% (295/1551)   Receiving objects:  20% (311/1551)   Receiving objects:  21% (326/1551)   Receiving objects:  22% (342/1551)   Receiving objects:  23% (357/1551)   Receiving objects:  24% (373/1551)   Receiving objects:  25% (388/1551)   Receiving objects:  26% (404/1551)   Receiving objects:  27% (419/1551)   Receiving objects:  28% (435/1551)   Receiving objects:  29% (450/1551)   Receiving objects:  30% (466/1551)   Receiving objects:  31% (481/1551)   Receiving objects:  32% (497/1551)   Receiving objects:  33% (512/1551)   Receiving objects:  34% (528/1551)   Receiving objects:  35% (543/1551)   Receiving objects:  36% (559/1551)   Receiving objects:  37% (574/1551)   Receiving objects:  38% (590/1551)   Receiving objects:  39% (605/1551)   Receiving objects:  40% (621/1551)   Receiving objects:  41% (636/1551)   Receiving objects:  42% (652/1551)   Receiving objects:  43% (667/1551)   Receiving objects:  44% (683/1551)   Receiving objects:  45% (698/1551)   Receiving objects:  46% (714/1551)   Receiving objects:  47% (729/1551)   Receiving objects:  48% (745/1551)   Receiving objects:  49% (760/1551)   Receiving objects:  50% (776/1551)   Receiving objects:  51% (792/1551)   Receiving objects:  52% (807/1551)   Receiving objects:  53% (823/1551)   Receiving objects:  54% (838/1551)   Receiving objects:  55% (854/1551)   Receiving objects:  56% (869/1551)   Receiving objects:  57% (885/1551)   Receiving objects:  58% (900/1551)   Receiving objects:  59% (916/1551)   Receiving objects:  60% (931/1551)   Receiving objects:  61% (947/1551)   Receiving objects:  62% (962/1551)   Receiving objects:  63% (978/1551)   Receiving objects:  64% (993/1551)   Receiving objects:  65% (1009/1551)   Receiving objects:  66% (1024/1551)   Receiving objects:  67% (1040/1551)   Receiving objects:  68% (1055/1551)   Receiving objects:  69% (1071/1551)   Receiving objects:  70% (1086/1551)   Receiving objects:  71% (1102/1551)   Receiving objects:  72% (1117/1551)   Receiving objects:  73% (1133/1551)   Receiving objects:  74% (1148/1551)   Receiving objects:  75% (1164/1551)   Receiving objects:  76% (1179/1551)   Receiving objects:  77% (1195/1551)   Receiving objects:  78% (1210/1551)   Receiving objects:  79% (1226/1551)   Receiving objects:  80% (1241/1551)   Receiving objects:  81% (1257/1551)   Receiving objects:  82% (1272/1551)   Receiving objects:  83% (1288/1551)   Receiving objects:  84% (1303/1551)   Receiving objects:  85% (1319/1551)   remote: Total 1551 (delta 625), reused 969 (delta 319)[K
+Receiving objects:  86% (1334/1551)   Receiving objects:  87% (1350/1551)   Receiving objects:  88% (1365/1551)   Receiving objects:  89% (1381/1551)   Receiving objects:  90% (1396/1551)   Receiving objects:  91% (1412/1551)   Receiving objects:  92% (1427/1551)   Receiving objects:  93% (1443/1551)   Receiving objects:  94% (1458/1551)   Receiving objects:  95% (1474/1551)   Receiving objects:  96% (1489/1551)   Receiving objects:  97% (1505/1551)   Receiving objects:  98% (1520/1551)   Receiving objects:  99% (1536/1551)   Receiving objects: 100% (1551/1551)   Receiving objects: 100% (1551/1551), 2.28 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/625)   Resolving deltas:  11% (70/625)   Resolving deltas:  18% (113/625)   Resolving deltas:  19% (119/625)   Resolving deltas:  20% (127/625)   Resolving deltas:  26% (164/625)   Resolving deltas:  29% (186/625)   Resolving deltas:  30% (192/625)   Resolving deltas:  31% (196/625)   Resolving deltas:  35% (219/625)   Resolving deltas:  36% (225/625)   Resolving deltas:  37% (232/625)   Resolving deltas:  38% (239/625)   Resolving deltas:  39% (245/625)   Resolving deltas:  41% (257/625)   Resolving deltas:  42% (263/625)   Resolving deltas:  43% (270/625)   Resolving deltas:  45% (283/625)   Resolving deltas:  46% (289/625)   Resolving deltas:  47% (296/625)   Resolving deltas:  48% (305/625)   Resolving deltas:  49% (309/625)   Resolving deltas:  50% (314/625)   Resolving deltas:  52% (326/625)   Resolving deltas:  53% (334/625)   Resolving deltas:  54% (338/625)   Resolving deltas:  55% (347/625)   Resolving deltas:  56% (350/625)   Resolving deltas:  57% (357/625)   Resolving deltas:  58% (365/625)   Resolving deltas:  59% (369/625)   Resolving deltas:  61% (382/625)   Resolving deltas:  63% (399/625)   Resolving deltas:  64% (400/625)   Resolving deltas:  67% (423/625)   Resolving deltas:  68% (431/625)   Resolving deltas:  69% (435/625)   Resolving deltas:  70% (442/625)   Resolving deltas:  71% (445/625)   Resolving deltas:  72% (451/625)   Resolving deltas:  73% (460/625)   Resolving deltas:  74% (463/625)   Resolving deltas:  75% (469/625)   Resolving deltas:  76% (475/625)   Resolving deltas:  77% (482/625)   Resolving deltas:  78% (489/625)   Resolving deltas:  79% (495/625)   Resolving deltas:  81% (512/625)   Resolving deltas:  82% (518/625)   Resolving deltas:  84% (528/625)   Resolving deltas:  86% (543/625)   Resolving deltas:  87% (544/625)   Resolving deltas:  88% (551/625)   Resolving deltas:  89% (559/625)   Resolving deltas:  90% (565/625)   Resolving deltas:  91% (569/625)   Resolving deltas:  92% (575/625)   Resolving deltas:  93% (582/625)   Resolving deltas:  94% (589/625)   Resolving deltas:  95% (594/625)   Resolving deltas:  96% (603/625)   Resolving deltas:  97% (607/625)   Resolving deltas:  98% (616/625)   Resolving deltas:  99% (621/625)   Resolving deltas: 100% (625/625)   Resolving deltas: 100% (625/625), done.
+Checking connectivity... done.
+travis_time:end:12d4352f:start=1421082557671519011,finish=1421082558153277844,duration=481758833[0K$ cd puniverse/quasar
+$ git checkout -qf 7a5304fae5ee6de236ff85962701e1c3162aaf46
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export GH_OAUTH_TOKEN=[secure]
+$ export DOCS_BRANCH="0.6.2"
+$ export GEN_APIDOCS="gradle javadoc"
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.8.0_25"
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+$ javac -version
+javac 1.8.0_25
+travis_fold:start:install[0Ktravis_time:start:2431dae4[0K$ gradle -q assemble
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/ProcessUtil.java:19: warning: VMManagement is internal proprietary API and may be removed in a future release
+import sun.management.VMManagement;
+                     ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/forkjoin/ParkableForkJoinTask.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListSet.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/OwnedSynchronizer2.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ThreadAccess.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/RunnableFiberTask.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/AbstractFuture.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:34: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:35: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:33: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:34: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/OwnedSynchronizer.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/channels/Selector.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/CircularBuffer.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedLongSynchronizer.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedSynchronizer.java:45: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/ArrayQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/BoxQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerArrayQueue.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedArrayQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+warning: Supported source version 'RELEASE_6' from annotation processor 'org.kohsuke.metainf_services.AnnotationProcessorImpl' less than -source '1.7'
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/ProcessUtil.java:19: warning: VMManagement is internal proprietary API and may be removed in a future release
+import sun.management.VMManagement;
+                     ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/forkjoin/ParkableForkJoinTask.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListSet.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/OwnedSynchronizer2.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ThreadAccess.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/RunnableFiberTask.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/AbstractFuture.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:34: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:35: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:33: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:34: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/OwnedSynchronizer.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/channels/Selector.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/CircularBuffer.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedLongSynchronizer.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedSynchronizer.java:45: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/ArrayQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/BoxQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerArrayQueue.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedArrayQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/ProcessUtil.java:19: warning: VMManagement is internal proprietary API and may be removed in a future release
+import sun.management.VMManagement;
+                     ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:16: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/forkjoin/ParkableForkJoinTask.java:26: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListSet.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/OwnedSynchronizer2.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ThreadAccess.java:25: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/RunnableFiberTask.java:27: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/AbstractFuture.java:24: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:34: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:35: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:33: warning: Resource is internal proprietary API and may be removed in a future release
+import sun.misc.Resource;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:34: warning: URLClassPath is internal proprietary API and may be removed in a future release
+import sun.misc.URLClassPath;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/OwnedSynchronizer.java:18: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/channels/Selector.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/CircularBuffer.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedLongSynchronizer.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/concurrent/AbstractQueuedSynchronizer.java:45: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/ArrayQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/BoxQueue.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerArrayQueue.java:21: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedArrayQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/queues/SingleConsumerLinkedQueue.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/ProcessUtil.java:27: warning: VMManagement is internal proprietary API and may be removed in a future release
+            VMManagement vmManagement = (VMManagement) jvmField.get(runtimeMXBean);
+            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/ProcessUtil.java:27: warning: VMManagement is internal proprietary API and may be removed in a future release
+            VMManagement vmManagement = (VMManagement) jvmField.get(runtimeMXBean);
+                                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:30: warning: Unsafe is internal proprietary API and may be removed in a future release
+    public static Unsafe getUnsafe1() {
+                  ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return Unsafe.getUnsafe();
+                   ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:35: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field f = Unsafe.class.getDeclaredField("theUnsafe");
+                      ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:37: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return (Unsafe) f.get(UtilUnsafe.class);
+                    ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+    public static Unsafe getUnsafe() {
+                  ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:45: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return Unsafe.getUnsafe();
+                   ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:48: warning: Unsafe is internal proprietary API and may be removed in a future release
+                return java.security.AccessController.doPrivileged(new java.security.PrivilegedExceptionAction<Unsafe>() {
+                                                                                                               ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:50: warning: Unsafe is internal proprietary API and may be removed in a future release
+                    public Unsafe run() throws Exception {
+                           ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:51: warning: Unsafe is internal proprietary API and may be removed in a future release
+                        final Class<sun.misc.Unsafe> k = sun.misc.Unsafe.class;
+                                            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/common/util/UtilUnsafe.java:51: warning: Unsafe is internal proprietary API and may be removed in a future release
+                        final Class<sun.misc.Unsafe> k = sun.misc.Unsafe.class;
+                                                                 ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/forkjoin/ParkableForkJoinTask.java:342: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListPriorityQueue.java:422: warning: Unsafe is internal proprietary API and may be removed in a future release
+        private static final sun.misc.Unsafe UNSAFE;
+                                     ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListPriorityQueue.java:503: warning: Unsafe is internal proprietary API and may be removed in a future release
+        private static final sun.misc.Unsafe UNSAFE;
+                                     ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ConcurrentSkipListPriorityQueue.java:1566: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final sun.misc.Unsafe UNSAFE;
+                                 ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/OwnedSynchronizer2.java:102: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/concurrent/util/ThreadAccess.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/Fiber.java:1698: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final sun.misc.Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                                 ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/RunnableFiberTask.java:320: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/strands/AbstractFuture.java:147: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final Unsafe UNSAFE = UtilUnsafe.getUnsafe();
+                         ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:87: warning: Resource is internal proprietary API and may be removed in a future release
+                            Resource res = ucp().getResource(path, false);
+                            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:124: warning: Resource is internal proprietary API and may be removed in a future release
+    private Resource instrument(final String className, final Resource res) {
+            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:124: warning: Resource is internal proprietary API and may be removed in a future release
+    private Resource instrument(final String className, final Resource res) {
+                                                              ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:125: warning: Resource is internal proprietary API and may be removed in a future release
+        return new Resource() {
+                   ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:208: warning: Resource is internal proprietary API and may be removed in a future release
+            defineClassMethod = URLClassLoader.class.getDeclaredMethod("defineClass", String.class, Resource.class);
+                                                                                                    ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:217: warning: Resource is internal proprietary API and may be removed in a future release
+    private Class defineClass(String name, Resource res) throws IOException {
+                                           ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:229: warning: URLClassPath is internal proprietary API and may be removed in a future release
+    private URLClassPath ucp() {
+            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoader.java:231: warning: URLClassPath is internal proprietary API and may be removed in a future release
+            return (URLClassPath) ucpField.get(this);
+                    ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:79: warning: Resource is internal proprietary API and may be removed in a future release
+                            Resource res = ucp().getResource(path, false);
+                            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:114: warning: Resource is internal proprietary API and may be removed in a future release
+    private Resource instrument(final String className, final Resource res) {
+            ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:114: warning: Resource is internal proprietary API and may be removed in a future release
+    private Resource instrument(final String className, final Resource res) {
+                                                              ^
+/home/travis/build/puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarURLClassLoaderHelper.java:115: warning: Resource is internal proprietary API and may be removed in a future release
+        return new Resource() {
+                   ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 warnings
+[ant:instrumentation] ERROR: Unable to instrument class co/paralleluniverse/strands/channels/Channels$1
+co.paralleluniverse.fibers.instrument.UnableToInstrumentException: Unable to instrument co/paralleluniverse/strands/channels/Channels$1#run()Ljava/lang/Void; because of catch for SuspendExecution
+	at co.paralleluniverse.fibers.instrument.InstrumentMethod.accept(InstrumentMethod.java:253)
+	at co.paralleluniverse.fibers.instrument.InstrumentClass.visitEnd(InstrumentClass.java:241)
+	at org.objectweb.asm.ClassReader.accept(Unknown Source)
+	at org.objectweb.asm.ClassReader.accept(Unknown Source)
+	at co.paralleluniverse.fibers.instrument.QuasarInstrumentor.instrumentClass(QuasarInstrumentor.java:107)
+	at co.paralleluniverse.fibers.instrument.QuasarInstrumentor.instrumentClass(QuasarInstrumentor.java:88)
+	at co.paralleluniverse.fibers.instrument.InstrumentationTask.instrumentClass(InstrumentationTask.java:190)
+	at co.paralleluniverse.fibers.instrument.InstrumentationTask.execute(InstrumentationTask.java:177)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	at groovy.util.AntBuilder.performTask(AntBuilder.java:319)
+	at groovy.util.AntBuilder.nodeCompleted(AntBuilder.java:264)
+	at org.gradle.api.internal.project.ant.BasicAntBuilder.nodeCompleted(BasicAntBuilder.java:77)
+	at groovy.util.BuilderSupport.doInvokeMethod(BuilderSupport.java:147)
+	at groovy.util.AntBuilder.doInvokeMethod(AntBuilder.java:203)
+	at org.gradle.api.internal.project.ant.BasicAntBuilder.doInvokeMethod(BasicAntBuilder.java:92)
+	at groovy.util.BuilderSupport.invokeMethod(BuilderSupport.java:64)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:45)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+	at build_4wf6g8lseb7u1ndxx4h5245o5$_run_closure1_closure13_closure34.doCall(/home/travis/build/puniverse/quasar/build.gradle:125)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:278)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at groovy.lang.Closure.call(Closure.java:439)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:548)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:529)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:80)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.PostExecutionAnalysisTaskExecuter.execute(PostExecutionAnalysisTaskExecuter.java:35)
+	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:64)
+	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:58)
+	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:42)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:52)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:53)
+	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
+	at org.gradle.api.internal.AbstractTask.executeWithoutThrowingTaskFailure(AbstractTask.java:305)
+	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.executeTask(AbstractTaskPlanExecutor.java:79)
+	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.processTask(AbstractTaskPlanExecutor.java:63)
+	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.run(AbstractTaskPlanExecutor.java:51)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor.process(DefaultTaskPlanExecutor.java:23)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter.execute(DefaultTaskGraphExecuter.java:88)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:29)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+	at org.gradle.execution.DefaultBuildExecuter.access$200(DefaultBuildExecuter.java:23)
+	at org.gradle.execution.DefaultBuildExecuter$2.proceed(DefaultBuildExecuter.java:68)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:32)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:55)
+	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:149)
+	at org.gradle.initialization.DefaultGradleLauncher.doBuild(DefaultGradleLauncher.java:106)
+	at org.gradle.initialization.DefaultGradleLauncher.run(DefaultGradleLauncher.java:86)
+	at org.gradle.launcher.exec.InProcessBuildActionExecuter$DefaultBuildController.run(InProcessBuildActionExecuter.java:80)
+	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:33)
+	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:24)
+	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:36)
+	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:26)
+	at org.gradle.launcher.cli.RunBuildAction.run(RunBuildAction.java:51)
+	at org.gradle.internal.Actions$RunnableActionAdapter.execute(Actions.java:171)
+	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:237)
+	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:210)
+	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:35)
+	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:24)
+	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:206)
+	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:169)
+	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:33)
+	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:22)
+	at org.gradle.launcher.Main.doAction(Main.java:33)
+	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:54)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:35)
+	at org.gradle.launcher.GradleMain.main(GradleMain.java:23)
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/puniverse/quasar/build.gradle' line: 125
+
+* What went wrong:
+Execution failed for task ':quasar-core:compileJava'.
+> Unable to instrument co/paralleluniverse/strands/channels/Channels$1#run()Ljava/lang/Void; because of catch for SuspendExecution
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+travis_time:end:2431dae4:start=1421082562689831131,finish=1421082630686328500,duration=67996497369[0K
+[31;1mThe command "gradle -q assemble" failed and exited with 1 during .[0m
+
+Your build has been stopped.

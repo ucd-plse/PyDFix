@@ -1,0 +1,851 @@
+Using worker: worker-linux-docker-11b0d93e.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0e80ee0e[0K$ git clone --depth=50 --branch=zundel/move-options-to-container git://github.com/square/wire.git square/wire
+Cloning into 'square/wire'...
+remote: Counting objects: 1235, done.[K
+remote: Compressing objects:   0% (1/608)   [Kremote: Compressing objects:   1% (7/608)   [Kremote: Compressing objects:   2% (13/608)   [Kremote: Compressing objects:   3% (19/608)   [Kremote: Compressing objects:   4% (25/608)   [Kremote: Compressing objects:   5% (31/608)   [Kremote: Compressing objects:   6% (37/608)   [Kremote: Compressing objects:   7% (43/608)   [Kremote: Compressing objects:   8% (49/608)   [Kremote: Compressing objects:   9% (55/608)   [Kremote: Compressing objects:  10% (61/608)   [Kremote: Compressing objects:  11% (67/608)   [Kremote: Compressing objects:  12% (73/608)   [Kremote: Compressing objects:  13% (80/608)   [Kremote: Compressing objects:  14% (86/608)   [Kremote: Compressing objects:  15% (92/608)   [Kremote: Compressing objects:  16% (98/608)   [Kremote: Compressing objects:  17% (104/608)   [Kremote: Compressing objects:  18% (110/608)   [Kremote: Compressing objects:  19% (116/608)   [Kremote: Compressing objects:  20% (122/608)   [Kremote: Compressing objects:  21% (128/608)   [Kremote: Compressing objects:  22% (134/608)   [Kremote: Compressing objects:  23% (140/608)   [Kremote: Compressing objects:  24% (146/608)   [Kremote: Compressing objects:  25% (152/608)   [Kremote: Compressing objects:  26% (159/608)   [Kremote: Compressing objects:  27% (165/608)   [Kremote: Compressing objects:  28% (171/608)   [Kremote: Compressing objects:  29% (177/608)   [Kremote: Compressing objects:  30% (183/608)   [Kremote: Compressing objects:  31% (189/608)   [Kremote: Compressing objects:  32% (195/608)   [Kremote: Compressing objects:  33% (201/608)   [Kremote: Compressing objects:  34% (207/608)   [Kremote: Compressing objects:  35% (213/608)   [Kremote: Compressing objects:  36% (219/608)   [Kremote: Compressing objects:  37% (225/608)   [Kremote: Compressing objects:  38% (232/608)   [Kremote: Compressing objects:  39% (238/608)   [Kremote: Compressing objects:  40% (244/608)   [Kremote: Compressing objects:  41% (250/608)   [Kremote: Compressing objects:  42% (256/608)   [Kremote: Compressing objects:  43% (262/608)   [Kremote: Compressing objects:  44% (268/608)   [Kremote: Compressing objects:  45% (274/608)   [Kremote: Compressing objects:  46% (280/608)   [Kremote: Compressing objects:  47% (286/608)   [Kremote: Compressing objects:  48% (292/608)   [Kremote: Compressing objects:  49% (298/608)   [Kremote: Compressing objects:  50% (304/608)   [Kremote: Compressing objects:  51% (311/608)   [Kremote: Compressing objects:  52% (317/608)   [Kremote: Compressing objects:  53% (323/608)   [Kremote: Compressing objects:  54% (329/608)   [Kremote: Compressing objects:  55% (335/608)   [Kremote: Compressing objects:  56% (341/608)   [Kremote: Compressing objects:  57% (347/608)   [Kremote: Compressing objects:  58% (353/608)   [Kremote: Compressing objects:  59% (359/608)   [Kremote: Compressing objects:  60% (365/608)   [Kremote: Compressing objects:  61% (371/608)   [Kremote: Compressing objects:  62% (377/608)   [Kremote: Compressing objects:  63% (384/608)   [Kremote: Compressing objects:  64% (390/608)   [Kremote: Compressing objects:  65% (396/608)   [Kremote: Compressing objects:  66% (402/608)   [Kremote: Compressing objects:  67% (408/608)   [Kremote: Compressing objects:  68% (414/608)   [Kremote: Compressing objects:  69% (420/608)   [Kremote: Compressing objects:  70% (426/608)   [Kremote: Compressing objects:  71% (432/608)   [Kremote: Compressing objects:  72% (438/608)   [Kremote: Compressing objects:  73% (444/608)   [Kremote: Compressing objects:  74% (450/608)   [Kremote: Compressing objects:  75% (456/608)   [Kremote: Compressing objects:  76% (463/608)   [Kremote: Compressing objects:  77% (469/608)   [Kremote: Compressing objects:  78% (475/608)   [Kremote: Compressing objects:  79% (481/608)   [Kremote: Compressing objects:  80% (487/608)   [Kremote: Compressing objects:  81% (493/608)   [Kremote: Compressing objects:  82% (499/608)   [Kremote: Compressing objects:  83% (505/608)   [Kremote: Compressing objects:  84% (511/608)   [Kremote: Compressing objects:  85% (517/608)   [Kremote: Compressing objects:  86% (523/608)   [Kremote: Compressing objects:  87% (529/608)   [Kremote: Compressing objects:  88% (536/608)   [Kremote: Compressing objects:  89% (542/608)   [Kremote: Compressing objects:  90% (548/608)   [Kremote: Compressing objects:  91% (554/608)   [Kremote: Compressing objects:  92% (560/608)   [Kremote: Compressing objects:  93% (566/608)   [Kremote: Compressing objects:  94% (572/608)   [Kremote: Compressing objects:  95% (578/608)   [Kremote: Compressing objects:  96% (584/608)   [Kremote: Compressing objects:  97% (590/608)   [Kremote: Compressing objects:  98% (596/608)   [Kremote: Compressing objects:  99% (602/608)   [Kremote: Compressing objects: 100% (608/608)   [Kremote: Compressing objects: 100% (608/608), done.[K
+Receiving objects:   0% (1/1235)   Receiving objects:   1% (13/1235)   Receiving objects:   2% (25/1235)   Receiving objects:   3% (38/1235)   Receiving objects:   4% (50/1235)   Receiving objects:   5% (62/1235)   Receiving objects:   6% (75/1235)   Receiving objects:   7% (87/1235)   Receiving objects:   8% (99/1235)   Receiving objects:   9% (112/1235)   Receiving objects:  10% (124/1235)   Receiving objects:  11% (136/1235)   Receiving objects:  12% (149/1235)   Receiving objects:  13% (161/1235)   Receiving objects:  14% (173/1235)   Receiving objects:  15% (186/1235)   Receiving objects:  16% (198/1235)   Receiving objects:  17% (210/1235)   Receiving objects:  18% (223/1235)   Receiving objects:  19% (235/1235)   Receiving objects:  20% (247/1235)   Receiving objects:  21% (260/1235)   Receiving objects:  22% (272/1235)   Receiving objects:  23% (285/1235)   Receiving objects:  24% (297/1235)   Receiving objects:  25% (309/1235)   Receiving objects:  26% (322/1235)   Receiving objects:  27% (334/1235)   Receiving objects:  28% (346/1235)   Receiving objects:  29% (359/1235)   Receiving objects:  30% (371/1235)   Receiving objects:  31% (383/1235)   Receiving objects:  32% (396/1235)   Receiving objects:  33% (408/1235)   Receiving objects:  34% (420/1235)   Receiving objects:  35% (433/1235)   Receiving objects:  36% (445/1235)   Receiving objects:  37% (457/1235)   Receiving objects:  38% (470/1235)   Receiving objects:  39% (482/1235)   Receiving objects:  40% (494/1235)   Receiving objects:  41% (507/1235)   Receiving objects:  42% (519/1235)   Receiving objects:  43% (532/1235)   Receiving objects:  44% (544/1235)   Receiving objects:  45% (556/1235)   Receiving objects:  46% (569/1235)   Receiving objects:  47% (581/1235)   Receiving objects:  48% (593/1235)   Receiving objects:  49% (606/1235)   Receiving objects:  50% (618/1235)   remote: Total 1235 (delta 476), reused 1064 (delta 345)[K
+Receiving objects:  51% (630/1235)   Receiving objects:  52% (643/1235)   Receiving objects:  53% (655/1235)   Receiving objects:  54% (667/1235)   Receiving objects:  55% (680/1235)   Receiving objects:  56% (692/1235)   Receiving objects:  57% (704/1235)   Receiving objects:  58% (717/1235)   Receiving objects:  59% (729/1235)   Receiving objects:  60% (741/1235)   Receiving objects:  61% (754/1235)   Receiving objects:  62% (766/1235)   Receiving objects:  63% (779/1235)   Receiving objects:  64% (791/1235)   Receiving objects:  65% (803/1235)   Receiving objects:  66% (816/1235)   Receiving objects:  67% (828/1235)   Receiving objects:  68% (840/1235)   Receiving objects:  69% (853/1235)   Receiving objects:  70% (865/1235)   Receiving objects:  71% (877/1235)   Receiving objects:  72% (890/1235)   Receiving objects:  73% (902/1235)   Receiving objects:  74% (914/1235)   Receiving objects:  75% (927/1235)   Receiving objects:  76% (939/1235)   Receiving objects:  77% (951/1235)   Receiving objects:  78% (964/1235)   Receiving objects:  79% (976/1235)   Receiving objects:  80% (988/1235)   Receiving objects:  81% (1001/1235)   Receiving objects:  82% (1013/1235)   Receiving objects:  83% (1026/1235)   Receiving objects:  84% (1038/1235)   Receiving objects:  85% (1050/1235)   Receiving objects:  86% (1063/1235)   Receiving objects:  87% (1075/1235)   Receiving objects:  88% (1087/1235)   Receiving objects:  89% (1100/1235)   Receiving objects:  90% (1112/1235)   Receiving objects:  91% (1124/1235)   Receiving objects:  92% (1137/1235)   Receiving objects:  93% (1149/1235)   Receiving objects:  94% (1161/1235)   Receiving objects:  95% (1174/1235)   Receiving objects:  96% (1186/1235)   Receiving objects:  97% (1198/1235)   Receiving objects:  98% (1211/1235)   Receiving objects:  99% (1223/1235)   Receiving objects: 100% (1235/1235)   Receiving objects: 100% (1235/1235), 283.44 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/476)   Resolving deltas:   1% (5/476)   Resolving deltas:   2% (10/476)   Resolving deltas:   3% (16/476)   Resolving deltas:   4% (23/476)   Resolving deltas:   5% (25/476)   Resolving deltas:   9% (47/476)   Resolving deltas:  20% (96/476)   Resolving deltas:  23% (113/476)   Resolving deltas:  24% (118/476)   Resolving deltas:  25% (119/476)   Resolving deltas:  26% (126/476)   Resolving deltas:  29% (139/476)   Resolving deltas:  30% (145/476)   Resolving deltas:  32% (153/476)   Resolving deltas:  33% (158/476)   Resolving deltas:  34% (166/476)   Resolving deltas:  35% (169/476)   Resolving deltas:  36% (172/476)   Resolving deltas:  37% (177/476)   Resolving deltas:  38% (184/476)   Resolving deltas:  40% (194/476)   Resolving deltas:  41% (196/476)   Resolving deltas:  42% (200/476)   Resolving deltas:  43% (206/476)   Resolving deltas:  44% (211/476)   Resolving deltas:  45% (218/476)   Resolving deltas:  46% (219/476)   Resolving deltas:  57% (274/476)   Resolving deltas:  58% (278/476)   Resolving deltas:  59% (281/476)   Resolving deltas:  65% (314/476)   Resolving deltas:  67% (319/476)   Resolving deltas:  68% (327/476)   Resolving deltas:  69% (331/476)   Resolving deltas:  71% (340/476)   Resolving deltas:  72% (343/476)   Resolving deltas:  74% (353/476)   Resolving deltas:  75% (359/476)   Resolving deltas:  76% (363/476)   Resolving deltas:  77% (367/476)   Resolving deltas:  82% (393/476)   Resolving deltas:  83% (396/476)   Resolving deltas:  85% (405/476)   Resolving deltas:  87% (416/476)   Resolving deltas:  88% (420/476)   Resolving deltas:  90% (432/476)   Resolving deltas:  95% (456/476)   Resolving deltas:  96% (458/476)   Resolving deltas:  97% (464/476)   Resolving deltas:  98% (469/476)   Resolving deltas:  99% (472/476)   Resolving deltas: 100% (476/476)   Resolving deltas: 100% (476/476), done.
+Checking connectivity... done.
+travis_time:end:0e80ee0e:start=1420471798044383325,finish=1420471799294246857,duration=1249863532[0K$ cd square/wire
+$ git checkout -qf fe9d3d8132363d0d7e155fdd3502f13866ef69b5
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:08178a60[0K$ Installing caching utilities
+travis_time:end:08178a60:start=1420471803242175520,finish=1420471803327212536,duration=85037016[0Ktravis_time:start:13251576[0Kattempting to download cache archive
+found cache
+travis_time:end:13251576:start=1420471803331890906,finish=1420471805286616307,duration=1954725401[0Ktravis_time:start:15c44fa8[0Kadding /home/travis/.m2 to cache
+travis_time:end:15c44fa8:start=1420471805290914959,finish=1420471807531544301,duration=2240629342[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:1ebdfba3[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Wire Protocol Buffers
+[INFO] Wire Protocol Buffer Runtime
+[INFO] Wire Protocol Buffer Compiler
+[INFO] Wire Protocol Buffer Gson Support
+[INFO] Wire Protocol Buffer Maven Plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffers 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire ---
+[INFO] Installing /home/travis/build/square/wire/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire/1.6.1-SNAPSHOT/wire-1.6.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Runtime 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-runtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /home/travis/build/square/wire/wire-runtime/target/classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/MessageAdapter.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/MessageAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 75 source files to /home/travis/build/square/wire/wire-runtime/target/test-classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java: /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-runtime ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-runtime ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.6.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-runtime ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-runtime ---
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.6.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.6.1-SNAPSHOT/wire-runtime-1.6.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.6.1-SNAPSHOT/wire-runtime-1.6.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Compiler 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /home/travis/build/square/wire/wire-compiler/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /home/travis/build/square/wire/wire-compiler/target/test-classes
+[WARNING] /home/travis/build/square/wire/wire-compiler/src/test/java/com/squareup/wire/WireCompilerErrorTest.java: /home/travis/build/square/wire/wire-compiler/src/test/java/com/squareup/wire/WireCompilerErrorTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-compiler/src/test/java/com/squareup/wire/WireCompilerErrorTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-compiler ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-compiler ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.6.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ wire-compiler ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.6.1-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-compiler ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-compiler ---
+[INFO] Installing /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.6.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-compiler/1.6.1-SNAPSHOT/wire-compiler-1.6.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-compiler/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-compiler/1.6.1-SNAPSHOT/wire-compiler-1.6.1-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.6.1-SNAPSHOT-jar-with-dependencies.jar to /home/travis/.m2/repository/com/squareup/wire/wire-compiler/1.6.1-SNAPSHOT/wire-compiler-1.6.1-SNAPSHOT-jar-with-dependencies.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Gson Support 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-gson-support ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-gson-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-gson-support/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-gson-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/wire/wire-gson-support/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-gson-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-gson-support/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-gson-support ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/wire/wire-gson-support/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-gson-support ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-gson-support ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-gson-support/target/wire-gson-support-1.6.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-gson-support ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-gson-support ---
+[INFO] Installing /home/travis/build/square/wire/wire-gson-support/target/wire-gson-support-1.6.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-gson-support/1.6.1-SNAPSHOT/wire-gson-support-1.6.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-gson-support/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-gson-support/1.6.1-SNAPSHOT/wire-gson-support-1.6.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Maven Plugin 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-maven-plugin ---
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:helpmojo (help-goal) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-maven-plugin/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/wire/wire-maven-plugin/target/classes
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:descriptor (default-descriptor) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 2 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:descriptor (mojo-descriptor) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 2 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-maven-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-maven-plugin ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-maven-plugin ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-maven-plugin/target/wire-maven-plugin-1.6.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:addPluginArtifactMetadata (default-addPluginArtifactMetadata) @ wire-maven-plugin ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-maven-plugin ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-maven-plugin ---
+[INFO] Installing /home/travis/build/square/wire/wire-maven-plugin/target/wire-maven-plugin-1.6.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-maven-plugin/1.6.1-SNAPSHOT/wire-maven-plugin-1.6.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-maven-plugin/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-maven-plugin/1.6.1-SNAPSHOT/wire-maven-plugin-1.6.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Wire Protocol Buffers .............................. SUCCESS [  2.147 s]
+[INFO] Wire Protocol Buffer Runtime ....................... SUCCESS [  9.478 s]
+[INFO] Wire Protocol Buffer Compiler ...................... SUCCESS [  3.711 s]
+[INFO] Wire Protocol Buffer Gson Support .................. SUCCESS [  1.003 s]
+[INFO] Wire Protocol Buffer Maven Plugin .................. SUCCESS [  4.229 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.881 s
+[INFO] Finished at: 2015-01-05T15:30:32+00:00
+[INFO] Final Memory: 33M/416M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:1ebdfba3:start=1420471808374661732,finish=1420471832622612859,duration=24247951127[0Ktravis_fold:end:install[0Ktravis_time:start:13638b96[0K$ mvn test -B
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Wire Protocol Buffers
+[INFO] Wire Protocol Buffer Runtime
+[INFO] Wire Protocol Buffer Compiler
+[INFO] Wire Protocol Buffer Gson Support
+[INFO] Wire Protocol Buffer Maven Plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffers 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Runtime 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-runtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /home/travis/build/square/wire/wire-runtime/target/classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/MessageAdapter.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/MessageAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-runtime ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-runtime ---
+[INFO] Surefire report directory: /home/travis/build/square/wire/wire-runtime/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.squareup.wire.RedactedTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
+Running com.squareup.wire.ByteStringTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running com.squareup.wire.TagMapTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.squareup.wire.protobuf.TestAllTypes
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.374 sec
+Running com.squareup.wire.UnknownFieldsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.squareup.wire.CustomOptionsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.squareup.wire.WireTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.squareup.wire.ParseTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+
+Results :
+
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Compiler 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-compiler ---
+[INFO] Surefire report directory: /home/travis/build/square/wire/wire-compiler/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.squareup.wire.WireCompilerTest
+cwd = /home/travis/build/square/wire/wire-compiler/.
+cwd = /home/travis/build/square/wire/wire-compiler/.
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/rxjava_service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RxJavaService.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/rxjava_service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RxJavaService.java
+Compiling proto source file ../wire-runtime/src/test/proto/rxjava_service2.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/HeresAllTheDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/HeresAllTheDataResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/LetsDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/LetsDataResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RxJavaService2.java
+Comparing against expected output SendDataRequest.java
+Comparing against expected output SendDataResponse.java
+Comparing against expected output HeresAllTheDataRequest.java
+Comparing against expected output HeresAllTheDataResponse.java
+Comparing against expected output LetsDataRequest.java
+Comparing against expected output LetsDataResponse.java
+Comparing against expected output RxJavaService.java
+Comparing against expected output RxJavaService2.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/rxjava_service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RxJavaService.java
+Compiling proto source file ../wire-runtime/src/test/proto/rxjava_service2.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/LetsDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/LetsDataResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RxJavaService2.java
+Comparing against expected output RxJavaServiceSomeEndpoints.java
+Comparing against expected output RxJavaService2SomeEndpoints.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/ExampleService.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/simple_message.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/Ext_simple_message.java
+wrote extension class com.squareup.wire.protos.simple.Ext_simple_message
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/SimpleMessage.java
+Compiling proto source file ../wire-runtime/src/test/proto/external_message.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/ExternalMessage.java
+Compiling proto source file ../wire-runtime/src/test/proto/foreign.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/Ext_foreign.java
+wrote extension class com.squareup.wire.protos.foreign.Ext_foreign
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/ForeignEnum.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/ForeignMessage.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/ProtoRegistry.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/person.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/person
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/person/Person.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/person/EmptyRegistry.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/single_level.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Foo.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Foos.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/single_level.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Foo.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Foos.java
+Compiling proto source file ../wire-runtime/src/test/proto/samebasename/single_level.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Bar.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/single_level/Bars.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/child_pkg.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/ChildPackage.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/all_types.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/alltypes
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/alltypes/Ext_all_types.java
+wrote extension class com.squareup.wire.protos.alltypes.Ext_all_types
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/alltypes/AllTypes.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/edge_cases.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/edgecases
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/edgecases/NoFields.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/edgecases/OneField.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/edgecases/OneBytesField.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/edgecases/Recursive.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/unknown_fields.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/unknownfields
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/unknownfields/VersionOne.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/unknownfields/VersionTwo.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/custom_options.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/Ext_custom_options.java
+wrote extension class com.squareup.wire.protos.custom_options.Ext_custom_options
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/FooBar.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/MessageWithOptions.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/custom_options.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/Ext_custom_options.java
+wrote extension class com.squareup.wire.protos.custom_options.Ext_custom_options
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/FooBar.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/custom_options/MessageWithOptions.java
+Comparing against expected output FooBar.java.noOptions
+Comparing against expected output Ext_custom_options.java.noOptions
+Comparing against expected output MessageWithOptions.java.noOptions
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/redacted_test.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/Ext_redacted_test.java
+wrote extension class com.squareup.wire.protos.redacted.Ext_redacted_test
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/NotRedacted.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/Redacted.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/RedactedChild.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/RedactedCycleA.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/RedactedCycleB.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/RedactedRepeated.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/redacted/RedactedRequired.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/A.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/B.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/C.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/D.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/E.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/G.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/H.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/A.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/B.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/C.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/D.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/B.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/C.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/E.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/G.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/E.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/G.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/H.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/roots.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/Ext_roots.java
+wrote extension class com.squareup.wire.protos.roots.Ext_roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/I.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/J.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/K.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/service_root.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/UnnecessaryResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheService.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/UnnecessaryService.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Analyzing dependencies of root types.
+Compiling proto source file ../wire-runtime/src/test/proto/service_root.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheResponse.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/roots/TheService.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/person.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/person
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/person/Person.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/simple_message.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/Ext_simple_message.java
+wrote extension class com.squareup.wire.protos.simple.Ext_simple_message
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/SimpleMessage.java
+Compiling proto source file ../wire-runtime/src/test/proto/external_message.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/simple/ExternalMessage.java
+Compiling proto source file ../wire-runtime/src/test/proto/foreign.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/Ext_foreign.java
+wrote extension class com.squareup.wire.protos.foreign.Ext_foreign
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/ForeignEnum.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/wire/protos/foreign/ForeignMessage.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/ExampleService.java
+cwd = /home/travis/build/square/wire/wire-compiler/.
+Compiling proto source file ../wire-runtime/src/test/proto/request_response.proto
+Created output directory /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataRequest.java
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/anotherpackage/SendDataResponse.java
+Compiling proto source file ../wire-runtime/src/test/proto/retrofit_service.proto
+Writing generated code to /home/travis/build/square/wire/wire-compiler/WireCompilerTest/com/squareup/services/RetrofitService.java
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.924 sec
+Running com.squareup.wire.CommandLineOptionsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.squareup.wire.WireCompilerErrorTest
+Compiling proto source file ./test.proto
+Compiling proto source file ./test.proto
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+
+Results :
+
+Tests run: 45, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Gson Support 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-gson-support ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-gson-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-gson-support/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-gson-support ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-gson-support ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-gson-support/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-gson-support ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-gson-support ---
+[INFO] Surefire report directory: /home/travis/build/square/wire/wire-gson-support/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.squareup.wire.GsonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Maven Plugin 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-maven-plugin ---
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:helpmojo (help-goal) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 2 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-maven-plugin/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/wire/wire-maven-plugin/target/classes
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:descriptor (default-descriptor) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 2 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:descriptor (mojo-descriptor) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 2 mojo descriptors.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-maven-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-maven-plugin ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Wire Protocol Buffers .............................. SUCCESS [  0.553 s]
+[INFO] Wire Protocol Buffer Runtime ....................... SUCCESS [  4.232 s]
+[INFO] Wire Protocol Buffer Compiler ...................... SUCCESS [  1.280 s]
+[INFO] Wire Protocol Buffer Gson Support .................. SUCCESS [  0.542 s]
+[INFO] Wire Protocol Buffer Maven Plugin .................. SUCCESS [  3.272 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.155 s
+[INFO] Finished at: 2015-01-05T15:30:44+00:00
+[INFO] Final Memory: 20M/459M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:13638b96:start=1420471832628252787,finish=1420471844886538754,duration=12258285967[0K
+[32;1mThe command "mvn test -B" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:081881f0[0Kchange detected: /home/travis/.m2/repository/com/squareup/wire/wire/1.6.1-SNAPSHOT/_remote.repositories
+changes detected, packing new archive
+uploading archive
+travis_time:end:081881f0:start=1420471844890612733,finish=1420471850183119336,duration=5292506603[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:037a11bf[0K$ .buildscript/deploy_snapshot.sh
+Skipping snapshot deployment: wrong JDK. Expected 'oraclejdk8' but was 'oraclejdk7'.
+travis_time:end:037a11bf:start=1420471850187148735,finish=1420471850191916476,duration=4767741[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

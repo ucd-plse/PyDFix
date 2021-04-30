@@ -1,0 +1,631 @@
+Using worker: worker-linux-docker-4c597263.prod.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0a65a784[0K$ git clone --depth=50 --branch=master git://github.com/web2py/web2py.git web2py/web2py
+Cloning into 'web2py/web2py'...
+remote: Counting objects: 3490, done.[K
+remote: Compressing objects:   0% (1/2370)   [Kremote: Compressing objects:   1% (24/2370)   [Kremote: Compressing objects:   2% (48/2370)   [Kremote: Compressing objects:   3% (72/2370)   [Kremote: Compressing objects:   4% (95/2370)   [Kremote: Compressing objects:   5% (119/2370)   [Kremote: Compressing objects:   6% (143/2370)   [Kremote: Compressing objects:   7% (166/2370)   [Kremote: Compressing objects:   8% (190/2370)   [Kremote: Compressing objects:   9% (214/2370)   [Kremote: Compressing objects:  10% (237/2370)   [Kremote: Compressing objects:  11% (261/2370)   [Kremote: Compressing objects:  12% (285/2370)   [Kremote: Compressing objects:  13% (309/2370)   [Kremote: Compressing objects:  14% (332/2370)   [Kremote: Compressing objects:  15% (356/2370)   [Kremote: Compressing objects:  16% (380/2370)   [Kremote: Compressing objects:  17% (403/2370)   [Kremote: Compressing objects:  18% (427/2370)   [Kremote: Compressing objects:  19% (451/2370)   [Kremote: Compressing objects:  20% (474/2370)   [Kremote: Compressing objects:  21% (498/2370)   [Kremote: Compressing objects:  22% (522/2370)   [Kremote: Compressing objects:  23% (546/2370)   [Kremote: Compressing objects:  24% (569/2370)   [Kremote: Compressing objects:  25% (593/2370)   [Kremote: Compressing objects:  26% (617/2370)   [Kremote: Compressing objects:  27% (640/2370)   [Kremote: Compressing objects:  28% (664/2370)   [Kremote: Compressing objects:  29% (688/2370)   [Kremote: Compressing objects:  30% (711/2370)   [Kremote: Compressing objects:  31% (735/2370)   [Kremote: Compressing objects:  32% (759/2370)   [Kremote: Compressing objects:  33% (783/2370)   [Kremote: Compressing objects:  34% (806/2370)   [Kremote: Compressing objects:  35% (830/2370)   [Kremote: Compressing objects:  36% (854/2370)   [Kremote: Compressing objects:  37% (877/2370)   [Kremote: Compressing objects:  38% (901/2370)   [Kremote: Compressing objects:  39% (925/2370)   [Kremote: Compressing objects:  40% (948/2370)   [Kremote: Compressing objects:  41% (972/2370)   [Kremote: Compressing objects:  42% (996/2370)   [Kremote: Compressing objects:  43% (1020/2370)   [Kremote: Compressing objects:  44% (1043/2370)   [Kremote: Compressing objects:  45% (1067/2370)   [Kremote: Compressing objects:  46% (1091/2370)   [Kremote: Compressing objects:  47% (1114/2370)   [Kremote: Compressing objects:  48% (1138/2370)   [Kremote: Compressing objects:  49% (1162/2370)   [Kremote: Compressing objects:  50% (1185/2370)   [Kremote: Compressing objects:  51% (1209/2370)   [Kremote: Compressing objects:  52% (1233/2370)   [Kremote: Compressing objects:  53% (1257/2370)   [Kremote: Compressing objects:  54% (1280/2370)   [Kremote: Compressing objects:  55% (1304/2370)   [Kremote: Compressing objects:  56% (1328/2370)   [Kremote: Compressing objects:  57% (1351/2370)   [Kremote: Compressing objects:  58% (1375/2370)   [Kremote: Compressing objects:  59% (1399/2370)   [Kremote: Compressing objects:  60% (1422/2370)   [Kremote: Compressing objects:  61% (1446/2370)   [Kremote: Compressing objects:  62% (1470/2370)   [Kremote: Compressing objects:  63% (1494/2370)   [Kremote: Compressing objects:  64% (1517/2370)   [Kremote: Compressing objects:  65% (1541/2370)   [Kremote: Compressing objects:  66% (1565/2370)   [Kremote: Compressing objects:  67% (1588/2370)   [Kremote: Compressing objects:  68% (1612/2370)   [Kremote: Compressing objects:  69% (1636/2370)   [Kremote: Compressing objects:  70% (1659/2370)   [Kremote: Compressing objects:  71% (1683/2370)   [Kremote: Compressing objects:  72% (1707/2370)   [Kremote: Compressing objects:  73% (1731/2370)   [Kremote: Compressing objects:  74% (1754/2370)   [Kremote: Compressing objects:  75% (1778/2370)   [Kremote: Compressing objects:  76% (1802/2370)   [Kremote: Compressing objects:  77% (1825/2370)   [Kremote: Compressing objects:  78% (1849/2370)   [Kremote: Compressing objects:  79% (1873/2370)   [Kremote: Compressing objects:  80% (1896/2370)   [Kremote: Compressing objects:  81% (1920/2370)   [Kremote: Compressing objects:  82% (1944/2370)   [Kremote: Compressing objects:  83% (1968/2370)   [Kremote: Compressing objects:  84% (1991/2370)   [Kremote: Compressing objects:  85% (2015/2370)   [Kremote: Compressing objects:  86% (2039/2370)   [Kremote: Compressing objects:  87% (2062/2370)   [Kremote: Compressing objects:  88% (2086/2370)   [Kremote: Compressing objects:  89% (2110/2370)   [Kremote: Compressing objects:  90% (2133/2370)   [Kremote: Compressing objects:  91% (2157/2370)   [Kremote: Compressing objects:  92% (2181/2370)   [Kremote: Compressing objects:  93% (2205/2370)   [Kremote: Compressing objects:  94% (2228/2370)   [Kremote: Compressing objects:  95% (2252/2370)   [Kremote: Compressing objects:  96% (2276/2370)   [Kremote: Compressing objects:  97% (2299/2370)   [Kremote: Compressing objects:  98% (2323/2370)   [Kremote: Compressing objects:  99% (2347/2370)   [Kremote: Compressing objects: 100% (2370/2370)   [Kremote: Compressing objects: 100% (2370/2370), done.[K
+Receiving objects:   0% (1/3490)   Receiving objects:   1% (35/3490)   Receiving objects:   2% (70/3490)   Receiving objects:   3% (105/3490)   Receiving objects:   4% (140/3490)   Receiving objects:   5% (175/3490)   Receiving objects:   6% (210/3490)   Receiving objects:   7% (245/3490)   Receiving objects:   8% (280/3490)   Receiving objects:   9% (315/3490)   Receiving objects:  10% (349/3490)   Receiving objects:  11% (384/3490)   Receiving objects:  12% (419/3490)   Receiving objects:  13% (454/3490)   Receiving objects:  14% (489/3490)   Receiving objects:  15% (524/3490)   Receiving objects:  16% (559/3490)   Receiving objects:  17% (594/3490)   Receiving objects:  18% (629/3490)   Receiving objects:  19% (664/3490)   Receiving objects:  20% (698/3490)   Receiving objects:  21% (733/3490)   Receiving objects:  22% (768/3490)   Receiving objects:  23% (803/3490)   Receiving objects:  24% (838/3490)   Receiving objects:  25% (873/3490)   Receiving objects:  26% (908/3490)   Receiving objects:  27% (943/3490)   Receiving objects:  28% (978/3490)   Receiving objects:  29% (1013/3490)   Receiving objects:  30% (1047/3490)   Receiving objects:  31% (1082/3490)   Receiving objects:  32% (1117/3490)   Receiving objects:  33% (1152/3490)   Receiving objects:  34% (1187/3490)   Receiving objects:  35% (1222/3490)   Receiving objects:  36% (1257/3490)   Receiving objects:  37% (1292/3490)   Receiving objects:  38% (1327/3490)   Receiving objects:  39% (1362/3490)   Receiving objects:  40% (1396/3490)   Receiving objects:  41% (1431/3490)   Receiving objects:  42% (1466/3490)   Receiving objects:  43% (1501/3490)   Receiving objects:  44% (1536/3490)   Receiving objects:  45% (1571/3490)   Receiving objects:  46% (1606/3490)   Receiving objects:  47% (1641/3490)   Receiving objects:  48% (1676/3490)   Receiving objects:  49% (1711/3490)   Receiving objects:  50% (1745/3490)   Receiving objects:  51% (1780/3490)   Receiving objects:  52% (1815/3490)   Receiving objects:  53% (1850/3490)   Receiving objects:  54% (1885/3490)   Receiving objects:  55% (1920/3490)   Receiving objects:  56% (1955/3490)   Receiving objects:  57% (1990/3490)   Receiving objects:  58% (2025/3490)   Receiving objects:  59% (2060/3490)   Receiving objects:  60% (2094/3490)   Receiving objects:  61% (2129/3490)   Receiving objects:  62% (2164/3490)   Receiving objects:  63% (2199/3490)   Receiving objects:  64% (2234/3490)   Receiving objects:  65% (2269/3490)   Receiving objects:  66% (2304/3490)   Receiving objects:  67% (2339/3490)   Receiving objects:  68% (2374/3490)   Receiving objects:  69% (2409/3490)   Receiving objects:  70% (2443/3490)   Receiving objects:  71% (2478/3490)   Receiving objects:  72% (2513/3490)   Receiving objects:  73% (2548/3490)   Receiving objects:  74% (2583/3490)   Receiving objects:  75% (2618/3490)   Receiving objects:  76% (2653/3490)   Receiving objects:  77% (2688/3490)   Receiving objects:  78% (2723/3490)   Receiving objects:  79% (2758/3490)   Receiving objects:  80% (2792/3490)   Receiving objects:  81% (2827/3490)   Receiving objects:  82% (2862/3490)   Receiving objects:  83% (2897/3490)   Receiving objects:  84% (2932/3490)   Receiving objects:  85% (2967/3490)   Receiving objects:  86% (3002/3490)   Receiving objects:  87% (3037/3490)   Receiving objects:  88% (3072/3490)   Receiving objects:  89% (3107/3490)   Receiving objects:  90% (3141/3490)   Receiving objects:  91% (3176/3490)   Receiving objects:  92% (3211/3490)   Receiving objects:  93% (3246/3490)   Receiving objects:  94% (3281/3490)   Receiving objects:  95% (3316/3490)   Receiving objects:  96% (3351/3490)   Receiving objects:  97% (3386/3490)   Receiving objects:  98% (3421/3490)   remote: Total 3490 (delta 1773), reused 2337 (delta 1044), pack-reused 0[K
+Receiving objects:  99% (3456/3490)   Receiving objects: 100% (3490/3490)   Receiving objects: 100% (3490/3490), 7.84 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1773)   Resolving deltas:   2% (38/1773)   Resolving deltas:   3% (65/1773)   Resolving deltas:   7% (131/1773)   Resolving deltas:   9% (160/1773)   Resolving deltas:  10% (184/1773)   Resolving deltas:  12% (229/1773)   Resolving deltas:  13% (241/1773)   Resolving deltas:  15% (280/1773)   Resolving deltas:  17% (313/1773)   Resolving deltas:  18% (325/1773)   Resolving deltas:  19% (340/1773)   Resolving deltas:  20% (358/1773)   Resolving deltas:  22% (396/1773)   Resolving deltas:  23% (409/1773)   Resolving deltas:  25% (448/1773)   Resolving deltas:  26% (462/1773)   Resolving deltas:  27% (482/1773)   Resolving deltas:  28% (497/1773)   Resolving deltas:  29% (520/1773)   Resolving deltas:  30% (534/1773)   Resolving deltas:  32% (569/1773)   Resolving deltas:  34% (605/1773)   Resolving deltas:  41% (733/1773)   Resolving deltas:  44% (787/1773)   Resolving deltas:  45% (807/1773)   Resolving deltas:  46% (820/1773)   Resolving deltas:  47% (834/1773)   Resolving deltas:  52% (931/1773)   Resolving deltas:  53% (946/1773)   Resolving deltas:  54% (960/1773)   Resolving deltas:  55% (976/1773)   Resolving deltas:  56% (993/1773)   Resolving deltas:  57% (1013/1773)   Resolving deltas:  58% (1029/1773)   Resolving deltas:  59% (1050/1773)   Resolving deltas:  60% (1067/1773)   Resolving deltas:  61% (1083/1773)   Resolving deltas:  62% (1103/1773)   Resolving deltas:  63% (1117/1773)   Resolving deltas:  64% (1135/1773)   Resolving deltas:  65% (1154/1773)   Resolving deltas:  66% (1172/1773)   Resolving deltas:  67% (1188/1773)   Resolving deltas:  68% (1212/1773)   Resolving deltas:  69% (1224/1773)   Resolving deltas:  70% (1245/1773)   Resolving deltas:  71% (1259/1773)   Resolving deltas:  72% (1277/1773)   Resolving deltas:  73% (1299/1773)   Resolving deltas:  74% (1314/1773)   Resolving deltas:  75% (1330/1773)   Resolving deltas:  76% (1355/1773)   Resolving deltas:  77% (1368/1773)   Resolving deltas:  78% (1385/1773)   Resolving deltas:  79% (1401/1773)   Resolving deltas:  80% (1420/1773)   Resolving deltas:  81% (1442/1773)   Resolving deltas:  82% (1456/1773)   Resolving deltas:  83% (1472/1773)   Resolving deltas:  84% (1492/1773)   Resolving deltas:  85% (1509/1773)   Resolving deltas:  86% (1527/1773)   Resolving deltas:  87% (1545/1773)   Resolving deltas:  88% (1561/1773)   Resolving deltas:  89% (1578/1773)   Resolving deltas:  90% (1613/1773)   Resolving deltas:  91% (1614/1773)   Resolving deltas:  92% (1636/1773)   Resolving deltas:  93% (1651/1773)   Resolving deltas:  94% (1670/1773)   Resolving deltas:  95% (1685/1773)   Resolving deltas:  96% (1706/1773)   Resolving deltas:  97% (1723/1773)   Resolving deltas:  98% (1738/1773)   Resolving deltas:  99% (1759/1773)   Resolving deltas: 100% (1773/1773)   Resolving deltas: 100% (1773/1773), done.
+Checking connectivity... done.
+travis_time:end:0a65a784:start=1429388214085905362,finish=1429388215349457503,duration=1263552141[0K$ cd web2py/web2py
+$ git checkout -qf b4f3784136c1db9aeab624ecd381eb2168bcb59f
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:148c7314[0K$ git submodule init
+Submodule 'gluon/packages/dal' (https://github.com/web2py/pydal.git) registered for path 'gluon/packages/dal'
+travis_time:end:148c7314:start=1429388215456137771,finish=1429388215498297901,duration=42160130[0Ktravis_time:start:01f5c390[0K$ git submodule update
+Cloning into 'gluon/packages/dal'...
+remote: Counting objects: 30202, done.[K
+Receiving objects:   0% (1/30202)   Receiving objects:   1% (303/30202)   Receiving objects:   2% (605/30202)   Receiving objects:   3% (907/30202)   Receiving objects:   4% (1209/30202)   Receiving objects:   5% (1511/30202)   Receiving objects:   6% (1813/30202)   Receiving objects:   7% (2115/30202)   Receiving objects:   8% (2417/30202)   Receiving objects:   9% (2719/30202)   Receiving objects:  10% (3021/30202)   Receiving objects:  11% (3323/30202)   Receiving objects:  12% (3625/30202)   Receiving objects:  13% (3927/30202)   Receiving objects:  14% (4229/30202)   Receiving objects:  15% (4531/30202)   Receiving objects:  16% (4833/30202)   Receiving objects:  17% (5135/30202)   Receiving objects:  18% (5437/30202)   Receiving objects:  19% (5739/30202)   Receiving objects:  20% (6041/30202)   Receiving objects:  21% (6343/30202)   Receiving objects:  22% (6645/30202)   Receiving objects:  23% (6947/30202)   Receiving objects:  24% (7249/30202)   Receiving objects:  25% (7551/30202)   Receiving objects:  26% (7853/30202)   Receiving objects:  27% (8155/30202)   Receiving objects:  28% (8457/30202)   Receiving objects:  29% (8759/30202)   Receiving objects:  30% (9061/30202)   Receiving objects:  31% (9363/30202)   Receiving objects:  32% (9665/30202)   Receiving objects:  33% (9967/30202)   Receiving objects:  34% (10269/30202)   Receiving objects:  35% (10571/30202)   Receiving objects:  36% (10873/30202)   Receiving objects:  37% (11175/30202)   Receiving objects:  38% (11477/30202)   Receiving objects:  39% (11779/30202)   Receiving objects:  40% (12081/30202)   Receiving objects:  41% (12383/30202)   Receiving objects:  42% (12685/30202)   Receiving objects:  43% (12987/30202)   Receiving objects:  44% (13289/30202)   Receiving objects:  45% (13591/30202)   Receiving objects:  46% (13893/30202)   Receiving objects:  47% (14195/30202)   Receiving objects:  48% (14497/30202)   Receiving objects:  49% (14799/30202)   Receiving objects:  50% (15101/30202)   Receiving objects:  51% (15404/30202)   Receiving objects:  52% (15706/30202)   Receiving objects:  53% (16008/30202)   Receiving objects:  54% (16310/30202)   Receiving objects:  55% (16612/30202)   Receiving objects:  56% (16914/30202)   Receiving objects:  57% (17216/30202)   Receiving objects:  58% (17518/30202)   Receiving objects:  59% (17820/30202)   Receiving objects:  60% (18122/30202)   Receiving objects:  61% (18424/30202)   Receiving objects:  62% (18726/30202)   Receiving objects:  63% (19028/30202)   Receiving objects:  64% (19330/30202)   Receiving objects:  65% (19632/30202)   Receiving objects:  66% (19934/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  67% (20236/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  68% (20538/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  69% (20840/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  70% (21142/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  71% (21444/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  72% (21746/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  73% (22048/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  74% (22350/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  75% (22652/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  76% (22954/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  77% (23256/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  78% (23558/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  79% (23860/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  80% (24162/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  81% (24464/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  82% (24766/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  83% (25068/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  84% (25370/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  85% (25672/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  86% (25974/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  87% (26276/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  88% (26578/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  89% (26880/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  90% (27182/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  91% (27484/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  92% (27786/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  93% (28088/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  94% (28390/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  95% (28692/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  96% (28994/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  97% (29296/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  98% (29598/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects:  99% (29900/30202), 17.54 MiB | 35.01 MiB/s   remote: Total 30202 (delta 0), reused 0 (delta 0), pack-reused 30202[K
+Receiving objects: 100% (30202/30202), 17.54 MiB | 35.01 MiB/s   Receiving objects: 100% (30202/30202), 30.21 MiB | 35.01 MiB/s, done.
+Resolving deltas:   0% (0/18166)   Resolving deltas:   1% (199/18166)   Resolving deltas:   2% (367/18166)   Resolving deltas:   3% (574/18166)   Resolving deltas:   4% (727/18166)   Resolving deltas:   5% (915/18166)   Resolving deltas:   6% (1092/18166)   Resolving deltas:   7% (1275/18166)   Resolving deltas:   8% (1468/18166)   Resolving deltas:   9% (1641/18166)   Resolving deltas:  10% (1827/18166)   Resolving deltas:  11% (1999/18166)   Resolving deltas:  12% (2191/18166)   Resolving deltas:  13% (2369/18166)   Resolving deltas:  14% (2548/18166)   Resolving deltas:  15% (2729/18166)   Resolving deltas:  16% (2918/18166)   Resolving deltas:  17% (3089/18166)   Resolving deltas:  18% (3320/18166)   Resolving deltas:  19% (3498/18166)   Resolving deltas:  20% (3634/18166)   Resolving deltas:  21% (3816/18166)   Resolving deltas:  22% (3999/18166)   Resolving deltas:  23% (4179/18166)   Resolving deltas:  24% (4380/18166)   Resolving deltas:  25% (4550/18166)   Resolving deltas:  26% (4809/18166)   Resolving deltas:  27% (4908/18166)   Resolving deltas:  28% (5151/18166)   Resolving deltas:  29% (5273/18166)   Resolving deltas:  30% (5451/18166)   Resolving deltas:  32% (5842/18166)   Resolving deltas:  33% (6006/18166)   Resolving deltas:  34% (6238/18166)   Resolving deltas:  35% (6445/18166)   Resolving deltas:  36% (6571/18166)   Resolving deltas:  37% (6725/18166)   Resolving deltas:  39% (7103/18166)   Resolving deltas:  40% (7414/18166)   Resolving deltas:  41% (7471/18166)   Resolving deltas:  42% (7700/18166)   Resolving deltas:  43% (7938/18166)   Resolving deltas:  44% (8009/18166)   Resolving deltas:  45% (8225/18166)   Resolving deltas:  46% (8361/18166)   Resolving deltas:  47% (8591/18166)   Resolving deltas:  48% (8811/18166)   Resolving deltas:  50% (9094/18166)   Resolving deltas:  51% (9265/18166)   Resolving deltas:  53% (9629/18166)   Resolving deltas:  54% (9810/18166)   Resolving deltas:  55% (10148/18166)   Resolving deltas:  56% (10178/18166)   Resolving deltas:  58% (10708/18166)   Resolving deltas:  61% (11245/18166)   Resolving deltas:  62% (11279/18166)   Resolving deltas:  64% (11734/18166)   Resolving deltas:  65% (11809/18166)   Resolving deltas:  66% (11992/18166)   Resolving deltas:  67% (12227/18166)   Resolving deltas:  68% (12354/18166)   Resolving deltas:  69% (12537/18166)   Resolving deltas:  74% (13597/18166)   Resolving deltas:  75% (13693/18166)   Resolving deltas:  77% (14010/18166)   Resolving deltas:  78% (14277/18166)   Resolving deltas:  79% (14352/18166)   Resolving deltas:  79% (14368/18166)   Resolving deltas:  81% (14743/18166)   Resolving deltas:  82% (14991/18166)   Resolving deltas:  83% (15096/18166)   Resolving deltas:  84% (15260/18166)   Resolving deltas:  85% (15492/18166)   Resolving deltas:  86% (15623/18166)   Resolving deltas:  88% (16029/18166)   Resolving deltas:  90% (16461/18166)   Resolving deltas:  91% (16536/18166)   Resolving deltas:  93% (17044/18166)   Resolving deltas:  94% (17078/18166)   Resolving deltas:  95% (17405/18166)   Resolving deltas:  96% (17442/18166)   Resolving deltas:  97% (17794/18166)   Resolving deltas:  98% (17805/18166)   Resolving deltas:  99% (17990/18166)   Resolving deltas: 100% (18166/18166)   Resolving deltas: 100% (18166/18166), done.
+Checking connectivity... done.
+Submodule path 'gluon/packages/dal': checked out '5d5357476164782936b202a50deef86387164fe7'
+travis_time:end:01f5c390:start=1429388215501781967,finish=1429388217945903879,duration=2444121912[0Ktravis_fold:end:git.submodule[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:02fc88bc[0K$ Installing caching utilities
+travis_time:end:02fc88bc:start=1429388222430823833,finish=1429388222563422966,duration=132599133[0Ktravis_time:start:0c7bccc9[0Kattempting to download cache archive
+fetching master/cache--python-2.7.tbz
+found cache
+travis_time:end:0c7bccc9:start=1429388222567861474,finish=1429388222958259690,duration=390398216[0Ktravis_time:start:03ab2e3b[0Kadding /home/travis/.pip-cache to cache
+travis_time:end:03ab2e3b:start=1429388222962011769,finish=1429388223217076945,duration=255065176[0Ktravis_fold:end:cache.1[0Ktravis_time:start:09d1e5f8[0K$ source ~/virtualenv/python2.7/bin/activate
+travis_time:end:09d1e5f8:start=1429388223220942209,finish=1429388223224721519,duration=3779310[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install[0Ktravis_time:start:13d15049[0K$ pip install -e .
+[33mYou are using pip version 6.0.7, however version 6.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Obtaining file:///home/travis/build/web2py/web2py
+    /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/setuptools/dist.py:292: UserWarning: The version specified ('2.10.3-stable+timestamp.2015.04.02.16.28.49') is an invalid version, this may not work as expected with newer versions of setuptools, pip, and PyPI. Please see PEP 440 for more details.
+      "details." % self.metadata.version
+Installing collected packages: web2py
+  Running setup.py develop for web2py
+    /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/setuptools/dist.py:292: UserWarning: The version specified ('2.10.3-stable+timestamp.2015.04.02.16.28.49') is an invalid version, this may not work as expected with newer versions of setuptools, pip, and PyPI. Please see PEP 440 for more details.
+      "details." % self.metadata.version
+    /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/pkg_resources/__init__.py:2510: PEP440Warning: 'web2py (2.10.3-stable-timestamp.2015.04.02.16.28.49)' is being parsed as a legacy, non PEP 440, version. You may find odd behavior and sort order. In particular it will be sorted as less than 0.0. It is recommend to migrate to PEP 440 compatible versions.
+      PEP440Warning,
+    Creating /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages/web2py.egg-link (link to .)
+    Adding web2py 2.10.3-stable-timestamp.2015.04.02.16.28.49 to easy-install.pth file
+    Installed /home/travis/build/web2py/web2py
+Successfully installed web2py
+travis_time:end:13d15049:start=1429388223865563849,finish=1429388225129978536,duration=1264414687[0Ktravis_fold:end:install[0Ktravis_fold:start:before_script.1[0Ktravis_time:start:04b54ec0[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install --download-cache $HOME/.pip-cache unittest2; fi
+travis_time:end:04b54ec0:start=1429388225134004162,finish=1429388225137061463,duration=3057301[0Ktravis_fold:end:before_script.1[0Ktravis_fold:start:before_script.2[0Ktravis_time:start:0978ede0[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then pip install --download-cache $HOME/.pip-cache coverage; fi;
+[33mYou are using pip version 6.0.7, however version 6.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+[33mDEPRECATION: --download-cache has been deprecated and will be removed in the future. Pip now automatically uses and configures its cache.[0m
+Collecting coverage
+  Downloading coverage-3.7.1.tar.gz (284kB)
+[?25l[K    1% |                                | 4.1kB 30.4MB/s eta 0:00:01[K    2% |                                | 8.2kB 25.9MB/s eta 0:00:01[K    4% |#                               | 12kB 2.2MB/s eta 0:00:01[K    5% |#                               | 16kB 2.8MB/s eta 0:00:01[K    7% |##                              | 20kB 3.4MB/s eta 0:00:01[K    8% |##                              | 24kB 4.0MB/s eta 0:00:01[K    10% |###                             | 28kB 4.6MB/s eta 0:00:01[K    11% |###                             | 32kB 2.8MB/s eta 0:00:01[K    12% |####                            | 36kB 3.0MB/s eta 0:00:01[K    14% |####                            | 40kB 3.3MB/s eta 0:00:01[K    15% |#####                           | 45kB 3.3MB/s eta 0:00:01[K    17% |#####                           | 49kB 3.4MB/s eta 0:00:01[K    18% |#####                           | 53kB 5.9MB/s eta 0:00:01[K    20% |######                          | 57kB 5.9MB/s eta 0:00:01[K    21% |######                          | 61kB 5.9MB/s eta 0:00:01[K    23% |#######                         | 65kB 5.9MB/s eta 0:00:01[K    24% |#######                         | 69kB 5.9MB/s eta 0:00:01[K    25% |########                        | 73kB 27.1MB/s eta 0:00:01[K    27% |########                        | 77kB 6.7MB/s eta 0:00:01[K    28% |#########                       | 81kB 6.6MB/s eta 0:00:01[K    30% |#########                       | 86kB 6.6MB/s eta 0:00:01[K    31% |##########                      | 90kB 6.6MB/s eta 0:00:01[K    33% |##########                      | 94kB 6.6MB/s eta 0:00:01[K    34% |###########                     | 98kB 6.6MB/s eta 0:00:01[K    35% |###########                     | 102kB 6.6MB/s eta 0:00:01[K    37% |###########                     | 106kB 6.5MB/s eta 0:00:01[K    38% |############                    | 110kB 6.5MB/s eta 0:00:01[K    40% |############                    | 114kB 6.5MB/s eta 0:00:01[K    41% |#############                   | 118kB 26.6MB/s eta 0:00:01[K    43% |#############                   | 122kB 28.0MB/s eta 0:00:01[K    44% |##############                  | 126kB 28.6MB/s eta 0:00:01[K    46% |##############                  | 131kB 29.2MB/s eta 0:00:01[K    47% |###############                 | 135kB 28.8MB/s eta 0:00:01[K    48% |###############                 | 139kB 29.3MB/s eta 0:00:01[K    50% |################                | 143kB 28.8MB/s eta 0:00:01[K    51% |################                | 147kB 30.2MB/s eta 0:00:01[K    53% |#################               | 151kB 30.0MB/s eta 0:00:01[K    54% |#################               | 155kB 30.7MB/s eta 0:00:01[K    56% |#################               | 159kB 7.9MB/s eta 0:00:01[K    57% |##################              | 163kB 7.9MB/s eta 0:00:01[K    58% |##################              | 167kB 7.8MB/s eta 0:00:01[K    60% |###################             | 172kB 7.8MB/s eta 0:00:01[K    61% |###################             | 176kB 7.7MB/s eta 0:00:01[K    63% |####################            | 180kB 7.7MB/s eta 0:00:01[K    64% |####################            | 184kB 7.6MB/s eta 0:00:01[K    66% |#####################           | 188kB 7.6MB/s eta 0:00:01[K    67% |#####################           | 192kB 7.7MB/s eta 0:00:01[K    69% |######################          | 196kB 7.7MB/s eta 0:00:01[K    70% |######################          | 200kB 27.3MB/s eta 0:00:01[K    71% |#######################         | 204kB 27.3MB/s eta 0:00:01[K    73% |#######################         | 208kB 28.7MB/s eta 0:00:01[K    74% |#######################         | 212kB 28.8MB/s eta 0:00:01[K    76% |########################        | 217kB 30.8MB/s eta 0:00:01[K    77% |########################        | 221kB 30.9MB/s eta 0:00:01[K    79% |#########################       | 225kB 31.3MB/s eta 0:00:01[K    80% |#########################       | 229kB 31.5MB/s eta 0:00:01[K    81% |##########################      | 233kB 28.5MB/s eta 0:00:01[K    83% |##########################      | 237kB 28.4MB/s eta 0:00:01[K    84% |###########################     | 241kB 28.4MB/s eta 0:00:01[K    86% |###########################     | 245kB 28.4MB/s eta 0:00:01[K    87% |############################    | 249kB 28.5MB/s eta 0:00:01[K    89% |############################    | 253kB 28.5MB/s eta 0:00:01[K    90% |#############################   | 258kB 28.5MB/s eta 0:00:01[K    92% |#############################   | 262kB 28.5MB/s eta 0:00:01[K    93% |#############################   | 266kB 28.1MB/s eta 0:00:01[K    94% |##############################  | 270kB 28.0MB/s eta 0:00:01[K    96% |##############################  | 274kB 30.9MB/s eta 0:00:01[K    97% |############################### | 278kB 31.0MB/s eta 0:00:01[K    99% |############################### | 282kB 31.0MB/s eta 0:00:01[K    100% |################################| 286kB 1.8MB/s 
+[?25hInstalling collected packages: coverage
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+Successfully installed coverage-3.7.1
+travis_time:end:0978ede0:start=1429388225140981398,finish=1429388226318328792,duration=1177347394[0Ktravis_fold:end:before_script.2[0Ktravis_fold:start:before_script.3[0Ktravis_time:start:053c4ed9[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then pip install --download-cache $HOME/.pip-cache python-coveralls; fi
+[33mYou are using pip version 6.0.7, however version 6.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+[33mDEPRECATION: --download-cache has been deprecated and will be removed in the future. Pip now automatically uses and configures its cache.[0m
+Collecting python-coveralls
+  Downloading python_coveralls-2.5.0-py2.py3-none-any.whl
+Collecting sh (from python-coveralls)
+  Downloading sh-1.11.tar.gz
+Collecting six (from python-coveralls)
+  Downloading six-1.9.0-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): coverage==3.7.1 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from python-coveralls)
+Collecting PyYAML (from python-coveralls)
+  Downloading PyYAML-3.11.tar.gz (248kB)
+[?25l[K    1% |                                | 4.1kB 29.3MB/s eta 0:00:01[K    3% |#                               | 8.2kB 24.8MB/s eta 0:00:01[K    4% |#                               | 12kB 25.4MB/s eta 0:00:01[K    6% |##                              | 16kB 26.1MB/s eta 0:00:01[K    8% |##                              | 20kB 26.5MB/s eta 0:00:01[K    9% |###                             | 24kB 4.4MB/s eta 0:00:01[K    11% |###                             | 28kB 5.0MB/s eta 0:00:01[K    13% |####                            | 32kB 5.5MB/s eta 0:00:01[K    14% |####                            | 36kB 6.1MB/s eta 0:00:01[K    16% |#####                           | 40kB 6.6MB/s eta 0:00:01[K    18% |#####                           | 45kB 6.6MB/s eta 0:00:01[K    19% |######                          | 49kB 6.7MB/s eta 0:00:01[K    21% |######                          | 53kB 6.7MB/s eta 0:00:01[K    23% |#######                         | 57kB 6.7MB/s eta 0:00:01[K    24% |#######                         | 61kB 6.7MB/s eta 0:00:01[K    26% |########                        | 65kB 6.3MB/s eta 0:00:01[K    28% |########                        | 69kB 6.3MB/s eta 0:00:01[K    29% |#########                       | 73kB 6.3MB/s eta 0:00:01[K    31% |##########                      | 77kB 6.3MB/s eta 0:00:01[K    32% |##########                      | 81kB 6.3MB/s eta 0:00:01[K    34% |###########                     | 86kB 6.3MB/s eta 0:00:01[K    36% |###########                     | 90kB 6.3MB/s eta 0:00:01[K    37% |############                    | 94kB 6.3MB/s eta 0:00:01[K    39% |############                    | 98kB 6.3MB/s eta 0:00:01[K    41% |#############                   | 102kB 6.3MB/s eta 0:00:01[K    42% |#############                   | 106kB 6.2MB/s eta 0:00:01[K    44% |##############                  | 110kB 6.2MB/s eta 0:00:01[K    46% |##############                  | 114kB 6.1MB/s eta 0:00:01[K    47% |###############                 | 118kB 6.1MB/s eta 0:00:01[K    49% |###############                 | 122kB 6.1MB/s eta 0:00:01[K    51% |################                | 126kB 6.1MB/s eta 0:00:01[K    52% |################                | 131kB 6.1MB/s eta 0:00:01[K    54% |#################               | 135kB 6.1MB/s eta 0:00:01[K    56% |#################               | 139kB 6.1MB/s eta 0:00:01[K    57% |##################              | 143kB 6.1MB/s eta 0:00:01[K    59% |##################              | 147kB 28.6MB/s eta 0:00:01[K    60% |###################             | 151kB 29.5MB/s eta 0:00:01[K    62% |####################            | 155kB 30.8MB/s eta 0:00:01[K    64% |####################            | 159kB 30.8MB/s eta 0:00:01[K    65% |#####################           | 163kB 31.5MB/s eta 0:00:01[K    67% |#####################           | 167kB 7.1MB/s eta 0:00:01[K    69% |######################          | 172kB 7.1MB/s eta 0:00:01[K    70% |######################          | 176kB 7.1MB/s eta 0:00:01[K    72% |#######################         | 180kB 7.1MB/s eta 0:00:01[K    74% |#######################         | 184kB 6.9MB/s eta 0:00:01[K    75% |########################        | 188kB 6.9MB/s eta 0:00:01[K    77% |########################        | 192kB 6.9MB/s eta 0:00:01[K    79% |#########################       | 196kB 6.9MB/s eta 0:00:01[K    80% |#########################       | 200kB 6.9MB/s eta 0:00:01[K    82% |##########################      | 204kB 6.9MB/s eta 0:00:01[K    84% |##########################      | 208kB 28.2MB/s eta 0:00:01[K    85% |###########################     | 212kB 28.3MB/s eta 0:00:01[K    87% |###########################     | 217kB 28.4MB/s eta 0:00:01[K    88% |############################    | 221kB 28.3MB/s eta 0:00:01[K    90% |############################    | 225kB 31.3MB/s eta 0:00:01[K    92% |#############################   | 229kB 31.6MB/s eta 0:00:01[K    93% |##############################  | 233kB 31.6MB/s eta 0:00:01[K    95% |##############################  | 237kB 31.5MB/s eta 0:00:01[K    97% |############################### | 241kB 31.6MB/s eta 0:00:01[K    98% |############################### | 245kB 31.6MB/s eta 0:00:01[K    100% |################################| 249kB 2.0MB/s 
+[?25hCollecting requests (from python-coveralls)
+  Downloading requests-2.6.0-py2.py3-none-any.whl (469kB)
+[?25l[K    0% |                                | 4.1kB 28.6MB/s eta 0:00:01[K    1% |                                | 8.2kB 25.6MB/s eta 0:00:01[K    2% |                                | 12kB 25.9MB/s eta 0:00:01[K    3% |#                               | 16kB 26.9MB/s eta 0:00:01[K    4% |#                               | 20kB 27.3MB/s eta 0:00:01[K    5% |#                               | 24kB 27.9MB/s eta 0:00:01[K    6% |#                               | 28kB 28.1MB/s eta 0:00:01[K    6% |##                              | 32kB 28.5MB/s eta 0:00:01[K    7% |##                              | 36kB 28.6MB/s eta 0:00:01[K    8% |##                              | 40kB 28.9MB/s eta 0:00:01[K    9% |###                             | 45kB 29.0MB/s eta 0:00:01[K    10% |###                             | 49kB 30.1MB/s eta 0:00:01[K    11% |###                             | 53kB 30.5MB/s eta 0:00:01[K    12% |###                             | 57kB 30.7MB/s eta 0:00:01[K    13% |####                            | 61kB 30.8MB/s eta 0:00:01[K    13% |####                            | 65kB 30.9MB/s eta 0:00:01[K    14% |####                            | 69kB 30.8MB/s eta 0:00:01[K    15% |#####                           | 73kB 30.7MB/s eta 0:00:01[K    16% |#####                           | 77kB 30.9MB/s eta 0:00:01[K    17% |#####                           | 81kB 9.9MB/s eta 0:00:01[K    18% |#####                           | 86kB 9.6MB/s eta 0:00:01[K    19% |######                          | 90kB 9.3MB/s eta 0:00:01[K    20% |######                          | 94kB 9.3MB/s eta 0:00:01[K    20% |######                          | 98kB 9.3MB/s eta 0:00:01[K    21% |######                          | 102kB 9.3MB/s eta 0:00:01[K    22% |#######                         | 106kB 9.3MB/s eta 0:00:01[K    23% |#######                         | 110kB 9.3MB/s eta 0:00:01[K    24% |#######                         | 114kB 9.3MB/s eta 0:00:01[K    25% |########                        | 118kB 9.3MB/s eta 0:00:01[K    26% |########                        | 122kB 26.2MB/s eta 0:00:01[K    27% |########                        | 126kB 28.1MB/s eta 0:00:01[K    27% |########                        | 131kB 30.7MB/s eta 0:00:01[K    28% |#########                       | 135kB 30.5MB/s eta 0:00:01[K    29% |#########                       | 139kB 31.1MB/s eta 0:00:01[K    30% |#########                       | 143kB 29.9MB/s eta 0:00:01[K    31% |##########                      | 147kB 30.4MB/s eta 0:00:01[K    32% |##########                      | 151kB 30.0MB/s eta 0:00:01[K    33% |##########                      | 155kB 30.4MB/s eta 0:00:01[K    34% |##########                      | 159kB 30.0MB/s eta 0:00:01[K    34% |###########                     | 163kB 30.6MB/s eta 0:00:01[K    35% |###########                     | 167kB 30.1MB/s eta 0:00:01[K    36% |###########                     | 172kB 30.7MB/s eta 0:00:01[K    37% |###########                     | 176kB 30.6MB/s eta 0:00:01[K    38% |############                    | 180kB 30.7MB/s eta 0:00:01[K    39% |############                    | 184kB 31.5MB/s eta 0:00:01[K    40% |############                    | 188kB 31.6MB/s eta 0:00:01[K    40% |#############                   | 192kB 31.6MB/s eta 0:00:01[K    41% |#############                   | 196kB 31.7MB/s eta 0:00:01[K    42% |#############                   | 200kB 31.7MB/s eta 0:00:01[K    43% |#############                   | 204kB 31.7MB/s eta 0:00:01[K    44% |##############                  | 208kB 31.5MB/s eta 0:00:01[K    45% |##############                  | 212kB 31.6MB/s eta 0:00:01[K    46% |##############                  | 217kB 12.3MB/s eta 0:00:01[K    47% |###############                 | 221kB 12.3MB/s eta 0:00:01[K    47% |###############                 | 225kB 12.2MB/s eta 0:00:01[K    48% |###############                 | 229kB 12.2MB/s eta 0:00:01[K    49% |###############                 | 233kB 11.9MB/s eta 0:00:01[K    50% |################                | 237kB 11.8MB/s eta 0:00:01[K    51% |################                | 241kB 11.8MB/s eta 0:00:01[K    52% |################                | 245kB 11.8MB/s eta 0:00:01[K    53% |#################               | 249kB 11.8MB/s eta 0:00:01[K    54% |#################               | 253kB 11.8MB/s eta 0:00:01[K    54% |#################               | 258kB 28.1MB/s eta 0:00:01[K    55% |#################               | 262kB 28.2MB/s eta 0:00:01[K    56% |##################              | 266kB 28.7MB/s eta 0:00:01[K    57% |##################              | 270kB 28.8MB/s eta 0:00:01[K    58% |##################              | 274kB 30.8MB/s eta 0:00:01[K    59% |##################              | 278kB 30.9MB/s eta 0:00:01[K    60% |###################             | 282kB 31.5MB/s eta 0:00:01[K    61% |###################             | 286kB 31.6MB/s eta 0:00:01[K    61% |###################             | 290kB 31.6MB/s eta 0:00:01[K    62% |####################            | 294kB 31.6MB/s eta 0:00:01[K    63% |####################            | 299kB 31.7MB/s eta 0:00:01[K    64% |####################            | 303kB 31.2MB/s eta 0:00:01[K    65% |####################            | 307kB 31.6MB/s eta 0:00:01[K    66% |#####################           | 311kB 31.3MB/s eta 0:00:01[K    67% |#####################           | 315kB 31.6MB/s eta 0:00:01[K    68% |#####################           | 319kB 31.1MB/s eta 0:00:01[K    68% |######################          | 323kB 30.8MB/s eta 0:00:01[K    69% |######################          | 327kB 30.3MB/s eta 0:00:01[K    70% |######################          | 331kB 30.6MB/s eta 0:00:01[K    71% |######################          | 335kB 30.2MB/s eta 0:00:01[K    72% |#######################         | 339kB 30.3MB/s eta 0:00:01[K    73% |#######################         | 344kB 30.2MB/s eta 0:00:01[K    74% |#######################         | 348kB 30.3MB/s eta 0:00:01[K    74% |#######################         | 352kB 30.2MB/s eta 0:00:01[K    75% |########################        | 356kB 30.3MB/s eta 0:00:01[K    76% |########################        | 360kB 30.3MB/s eta 0:00:01[K    77% |########################        | 364kB 31.0MB/s eta 0:00:01[K    78% |#########################       | 368kB 31.1MB/s eta 0:00:01[K    79% |#########################       | 372kB 31.2MB/s eta 0:00:01[K    80% |#########################       | 376kB 31.2MB/s eta 0:00:01[K    81% |#########################       | 380kB 31.4MB/s eta 0:00:01[K    81% |##########################      | 385kB 31.4MB/s eta 0:00:01[K    82% |##########################      | 389kB 31.5MB/s eta 0:00:01[K    83% |##########################      | 393kB 31.4MB/s eta 0:00:01[K    84% |###########################     | 397kB 31.4MB/s eta 0:00:01[K    85% |###########################     | 401kB 31.3MB/s eta 0:00:01[K    86% |###########################     | 405kB 31.4MB/s eta 0:00:01[K    87% |###########################     | 409kB 31.3MB/s eta 0:00:01[K    88% |############################    | 413kB 31.3MB/s eta 0:00:01[K    88% |############################    | 417kB 31.2MB/s eta 0:00:01[K    89% |############################    | 421kB 30.6MB/s eta 0:00:01[K    90% |#############################   | 425kB 30.5MB/s eta 0:00:01[K    91% |#############################   | 430kB 30.5MB/s eta 0:00:01[K    92% |#############################   | 434kB 30.4MB/s eta 0:00:01[K    93% |#############################   | 438kB 30.5MB/s eta 0:00:01[K    94% |##############################  | 442kB 30.5MB/s eta 0:00:01[K    95% |##############################  | 446kB 29.8MB/s eta 0:00:01[K    95% |##############################  | 450kB 29.7MB/s eta 0:00:01[K    96% |##############################  | 454kB 29.7MB/s eta 0:00:01[K    97% |############################### | 458kB 29.7MB/s eta 0:00:01[K    98% |############################### | 462kB 30.2MB/s eta 0:00:01[K    99% |############################### | 466kB 30.2MB/s eta 0:00:01[K    100% |################################| 471kB 1.2MB/s 
+[?25hInstalling collected packages: requests, PyYAML, six, sh, python-coveralls
+
+  Running setup.py install for PyYAML
+    checking if libyaml is compilable
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c build/temp.linux-x86_64-2.7/check_libyaml.c -o build/temp.linux-x86_64-2.7/check_libyaml.o
+    checking if libyaml is linkable
+    gcc -pthread build/temp.linux-x86_64-2.7/check_libyaml.o -L/opt/python/2.7.9/lib -lyaml -o build/temp.linux-x86_64-2.7/check_libyaml
+    building '_yaml' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c ext/_yaml.c -o build/temp.linux-x86_64-2.7/ext/_yaml.o
+    In file included from ext/_yaml.c:343:0:
+    ext/_yaml.h:6:0: warning: "PyUnicode_FromString" redefined [enabled by default]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:281:0: note: this is the location of the previous definition
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_get_version_string’:
+    ext/_yaml.c:1346:17: warning: assignment discards ‘const’ qualifier from pointer target type [enabled by default]
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_7CParser___init__’:
+    ext/_yaml.c:2471:5: warning: passing argument 2 of ‘yaml_parser_set_input’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1367:1: note: expected ‘int (*)(void *, unsigned char *, size_t,  size_t *)’ but argument is of type ‘int (*)(void *, char *, int,  int *)’
+    ext/_yaml.c:2664:5: warning: pointer targets in passing argument 2 of ‘yaml_parser_set_input_string’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:1341:1: note: expected ‘const unsigned char *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__token_to_object’:
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4183:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4195:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4741:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4792:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4843:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4855:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:4938:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__event_to_object’:
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6435:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6447:9: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6616:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6687:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6722:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:6737:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7031:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7066:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7253:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:7288:7: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_node’:
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8704:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8924:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:8962:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9000:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_scalar_node’:
+    ext/_yaml.c:9532:3: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:9688:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_sequence_node’:
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10128:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_7CParser__compose_mapping_node’:
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘strlen’ differ in signedness [-Wpointer-sign]
+    /usr/include/string.h:399:15: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c:10654:5: warning: pointer targets in passing argument 1 of ‘PyUnicodeUCS4_DecodeUTF8’ differ in signedness [-Wpointer-sign]
+    /opt/python/2.7.9/include/python2.7/unicodeobject.h:750:23: note: expected ‘const char *’ but argument is of type ‘yaml_char_t *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter___init__’:
+    ext/_yaml.c:11721:3: warning: passing argument 2 of ‘yaml_emitter_set_output’ from incompatible pointer type [enabled by default]
+    /usr/include/yaml.h:1829:1: note: expected ‘int (*)(void *, unsigned char *, size_t)’ but argument is of type ‘int (*)(void *, char *, int)’
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__object_to_event’:
+    ext/_yaml.c:12898:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:12991:44: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:13248:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:13824:5: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14166:5: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:14508:5: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c: In function ‘__pyx_pf_5_yaml_8CEmitter_12serialize’:
+    ext/_yaml.c:15784:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c:15877:42: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+    ext/_yaml.c: In function ‘__pyx_f_5_yaml_8CEmitter__serialize_node’:
+    ext/_yaml.c:16616:5: warning: pointer targets in passing argument 2 of ‘yaml_alias_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:553:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 2 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 3 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17195:7: warning: pointer targets in passing argument 4 of ‘yaml_scalar_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:578:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 2 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17473:7: warning: pointer targets in passing argument 3 of ‘yaml_sequence_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:601:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 2 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    ext/_yaml.c:17874:7: warning: pointer targets in passing argument 3 of ‘yaml_mapping_start_event_initialize’ differ in signedness [-Wpointer-sign]
+    /usr/include/yaml.h:633:1: note: expected ‘yaml_char_t *’ but argument is of type ‘char *’
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/ext/_yaml.o -L/opt/python/2.7.9/lib -lyaml -lpython2.7 -o build/lib.linux-x86_64-2.7/_yaml.so
+
+  Running setup.py install for sh
+
+Successfully installed PyYAML-3.11 python-coveralls-2.5.0 requests-2.6.0 sh-1.11 six-1.9.0
+travis_time:end:053c4ed9:start=1429388226322346334,finish=1429388231950452717,duration=5628106383[0Ktravis_fold:end:before_script.3[0Ktravis_time:start:2c583200[0K$ export COVERAGE_PROCESS_START=gluon/tests/coverage.ini; ./web2py.py --run_system_tests --with_coverage
+Python 2.7
+testA (gluon.tests.test_html.TestBareHelpers) ... ok
+testB (gluon.tests.test_html.TestBareHelpers) ... ok
+testBODY (gluon.tests.test_html.TestBareHelpers) ... ok
+testBR (gluon.tests.test_html.TestBareHelpers) ... ok
+testCENTER (gluon.tests.test_html.TestBareHelpers) ... ok
+testDIV (gluon.tests.test_html.TestBareHelpers) ... ok
+testEM (gluon.tests.test_html.TestBareHelpers) ... ok
+testEMBED (gluon.tests.test_html.TestBareHelpers) ... ok
+testFIELDSET (gluon.tests.test_html.TestBareHelpers) ... ok
+testFORM (gluon.tests.test_html.TestBareHelpers) ... ok
+testH1 (gluon.tests.test_html.TestBareHelpers) ... ok
+testH2 (gluon.tests.test_html.TestBareHelpers) ... ok
+testH3 (gluon.tests.test_html.TestBareHelpers) ... ok
+testH4 (gluon.tests.test_html.TestBareHelpers) ... ok
+testH5 (gluon.tests.test_html.TestBareHelpers) ... ok
+testH6 (gluon.tests.test_html.TestBareHelpers) ... ok
+testHEAD (gluon.tests.test_html.TestBareHelpers) ... ok
+testHR (gluon.tests.test_html.TestBareHelpers) ... ok
+testHTML (gluon.tests.test_html.TestBareHelpers) ... ok
+testIFRAME (gluon.tests.test_html.TestBareHelpers) ... ok
+testIMG (gluon.tests.test_html.TestBareHelpers) ... ok
+testINPUT (gluon.tests.test_html.TestBareHelpers) ... ok
+testLABEL (gluon.tests.test_html.TestBareHelpers) ... ok
+testLI (gluon.tests.test_html.TestBareHelpers) ... ok
+testLINK (gluon.tests.test_html.TestBareHelpers) ... ok
+testMETA (gluon.tests.test_html.TestBareHelpers) ... ok
+testOBJECT (gluon.tests.test_html.TestBareHelpers) ... ok
+testOL (gluon.tests.test_html.TestBareHelpers) ... ok
+testOPTION (gluon.tests.test_html.TestBareHelpers) ... ok
+testP (gluon.tests.test_html.TestBareHelpers) ... ok
+testPRE (gluon.tests.test_html.TestBareHelpers) ... ok
+testSCRIPT (gluon.tests.test_html.TestBareHelpers) ... ok
+testSELECT (gluon.tests.test_html.TestBareHelpers) ... ok
+testSPAN (gluon.tests.test_html.TestBareHelpers) ... ok
+testSTYLE (gluon.tests.test_html.TestBareHelpers) ... ok
+testStaticURL (gluon.tests.test_html.TestBareHelpers) ... ok
+testTABLE (gluon.tests.test_html.TestBareHelpers) ... ok
+testTAG (gluon.tests.test_html.TestBareHelpers) ... ok
+testTBODY (gluon.tests.test_html.TestBareHelpers) ... ok
+testTD (gluon.tests.test_html.TestBareHelpers) ... ok
+testTEXTAREA (gluon.tests.test_html.TestBareHelpers) ... ok
+testTFOOT (gluon.tests.test_html.TestBareHelpers) ... ok
+testTH (gluon.tests.test_html.TestBareHelpers) ... ok
+testTHEAD (gluon.tests.test_html.TestBareHelpers) ... ok
+testTITLE (gluon.tests.test_html.TestBareHelpers) ... ok
+testTR (gluon.tests.test_html.TestBareHelpers) ... ok
+testTT (gluon.tests.test_html.TestBareHelpers) ... ok
+testUL (gluon.tests.test_html.TestBareHelpers) ... ok
+testURL (gluon.tests.test_html.TestBareHelpers) ... ok
+testXML (gluon.tests.test_html.TestBareHelpers) ... ok
+testverifyURL (gluon.tests.test_html.TestBareHelpers) ... ok
+testCacheInRam (gluon.tests.test_cache.TestCache) ... ok
+testCacheOnDisk (gluon.tests.test_cache.TestCache) ... ok
+testCacheWithPrefix (gluon.tests.test_cache.TestCache) ... ok
+testRegex (gluon.tests.test_cache.TestCache) ... ok
+testTypeRecognition (gluon.tests.test_contenttype.TestContentType) ... ok
+test_appconfig (gluon.tests.test_contribs.TestContribs) ... ok
+test_fpdf (gluon.tests.test_contribs.TestContribs)
+Basic PDF test and sanity checks ... ok
+testRun (gluon.tests.test_dal.TestDALSubclass) ... ERROR
+testSerialization (gluon.tests.test_dal.TestDALSubclass) ... ERROR
+testAdata (gluon.tests.test_html.TestData) ... ok
+testParseVersion (gluon.tests.test_fileutils.TestFileUtils) ... ok
+test_status_message (gluon.tests.test_http.TestHTTP)
+Tests http status code message ... ok
+testInvalidUrls (gluon.tests.test_is_url.TestIsGenericUrl) ... ok
+testPrepending (gluon.tests.test_is_url.TestIsGenericUrl) ... ok
+testValidUrls (gluon.tests.test_is_url.TestIsGenericUrl) ... ok
+testInvalidUrls (gluon.tests.test_is_url.TestIsHttpUrl) ... ok
+testPrepending (gluon.tests.test_is_url.TestIsHttpUrl) ... ok
+testValidUrls (gluon.tests.test_is_url.TestIsHttpUrl) ... ok
+testExceptionalUse (gluon.tests.test_is_url.TestIsUrl) ... ok
+testModeGeneric (gluon.tests.test_is_url.TestIsUrl) ... ok
+testModeHttp (gluon.tests.test_is_url.TestIsUrl) ... ok
+test_reads_and_writes (gluon.tests.test_languages.TestLanguagesParallel) ... ok
+test_reads_and_writes_no_mp (gluon.tests.test_languages.TestLanguagesParallel) ... skipped 'multiprocessing tests available'
+test_listcall (gluon.tests.test_storage.TestList) ... ok
+test_compile (gluon.tests.test_utils.TestPack) ... ok
+test_request_collide (gluon.tests.test_router.TestRouter) ... ok
+test_request_uri (gluon.tests.test_router.TestRouter) ... ok
+test_router_absolute (gluon.tests.test_router.TestRouter) ... ok
+test_router_app (gluon.tests.test_router.TestRouter)
+Tests the doctest router app resolution ... ok
+test_router_args (gluon.tests.test_router.TestRouter) ... ok
+test_router_defapp (gluon.tests.test_router.TestRouter)
+Test the default-application function ... ok
+test_router_domains (gluon.tests.test_router.TestRouter) ... ok
+test_router_domains_ed (gluon.tests.test_router.TestRouter) ... ok
+test_router_domains_fs (gluon.tests.test_router.TestRouter) ... ok
+test_router_error (gluon.tests.test_router.TestRouter) ... ok
+test_router_functions (gluon.tests.test_router.TestRouter) ... ok
+test_router_functions2 (gluon.tests.test_router.TestRouter) ... ok
+test_router_get_effective (gluon.tests.test_router.TestRouter) ... ok
+test_router_hyphen (gluon.tests.test_router.TestRouter) ... ok
+test_router_lang (gluon.tests.test_router.TestRouter) ... ok
+test_router_nodef (gluon.tests.test_router.TestRouter)
+Test no-default functions ... ok
+test_router_null (gluon.tests.test_router.TestRouter)
+Tests the null router ... ok
+test_router_out (gluon.tests.test_router.TestRouter) ... ok
+test_router_prefix (gluon.tests.test_router.TestRouter) ... ok
+test_router_raise (gluon.tests.test_router.TestRouter) ... ok
+test_router_specific (gluon.tests.test_router.TestRouter) ... ok
+test_router_static_path (gluon.tests.test_router.TestRouter) ... ok
+test_router_syntax (gluon.tests.test_router.TestRouter)
+Test router syntax error ... ok
+test_routes_anchor (gluon.tests.test_router.TestRouter) ... ok
+test_request_uri (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_absolute (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_anchor (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_args (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_defapp (gluon.tests.test_routes.TestRoutes)
+Test the default-application function ... ok
+test_routes_error (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_null (gluon.tests.test_routes.TestRoutes)
+Tests a null routes table ... ok
+test_routes_query (gluon.tests.test_routes.TestRoutes)
+Test query appending ... ok
+test_routes_raise (gluon.tests.test_routes.TestRoutes) ... ok
+test_routes_specific (gluon.tests.test_routes.TestRoutes) ... ok
+testJSON (gluon.tests.test_serializers.TestSerializers) ... ok
+test_IS_URL (gluon.tests.test_is_url.TestSimple) ... ok
+test_attribute (gluon.tests.test_storage.TestStorage)
+Tests Storage attribute handling ... ok
+test_getfirst (gluon.tests.test_storage.TestStorage) ... ok
+test_getlast (gluon.tests.test_storage.TestStorage) ... ok
+test_getlist (gluon.tests.test_storage.TestStorage) ... ok
+test_item (gluon.tests.test_storage.TestStorage)
+Tests Storage item handling ... ok
+test_pickling (gluon.tests.test_storage.TestStorage)
+Test storage pickling ... ok
+test_store_none (gluon.tests.test_storage.TestStorage)
+Test Storage store-None handling ... ok
+test_attribute (gluon.tests.test_storage.TestStorageList) ... ok
+test_plain (gluon.tests.test_languages.TestTranslations) ... ok
+testInvalidUrls (gluon.tests.test_is_url.TestUnicode) ... ok
+testUnicodeToAsciiUrl (gluon.tests.test_is_url.TestUnicode) ... ok
+testValidUrls (gluon.tests.test_is_url.TestUnicode) ... ok
+test_compare (gluon.tests.test_utils.TestUtils)
+Tests the compare funciton ... ok
+test_md5_hash (gluon.tests.test_utils.TestUtils)
+Tests the md5_hash function ... ok
+test_simple_hash (gluon.tests.test_utils.TestUtils)
+Tests the simple_hash function ... ok
+test_ANY_OF (gluon.tests.test_validators.TestValidators) ... ok
+test_CLEANUP (gluon.tests.test_validators.TestValidators) ... ok
+test_CRYPT (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_ALPHANUMERIC (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_DATE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_DATETIME (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_DATETIME_IN_RANGE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_DATE_IN_RANGE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_DECIMAL_IN_RANGE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_EMAIL (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_EMPTY_OR (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_EQUAL_TO (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_EXPR (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_FLOAT_IN_RANGE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_INT_IN_RANGE (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_IN_SET (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_IPADDRESS (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_IPV4 (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_IPV6 (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_JSON (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_LENGTH (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_LIST_OF (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_LIST_OF_EMAILS (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_LOWER (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_MATCH (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_NOT_EMPTY (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_SLUG (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_STRONG (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_TIME (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_UPLOAD_FILENAME (gluon.tests.test_validators.TestValidators) ... ok
+test_IS_UPPER (gluon.tests.test_validators.TestValidators) ... ok
+testEqualWrite (gluon.tests.test_template.TestVirtualFields)
+test generation of response.write from = ... ok
+testRun (gluon.tests.test_template.TestVirtualFields) ... ok
+Sleeping before web2py starts...
+web2py Web Framework
+Created by Massimo Di Pierro, Copyright 2007-2015
+Version 2.10.3-stable+timestamp.2015.04.02.16.28.49
+Database drivers available: sqlite3, imaplib, pyodbc, pymysql, pg8000
+
+please visit:
+	http://127.0.0.1:8000/
+use "kill -SIGTERM 2406" to shutdown the web2py server
+
+
+1 ...
+2 ...
+3 ...
+4 ...
+5 ...
+6 ...
+7 ...
+8 ...
+9 ...
+10 ...
+
+testRegisterAndLogin (gluon.tests.test_web.TestWeb) ... ERROR
+testSoap (gluon.tests.test_web.TestWeb) ... ERROR:gluon.contrib.pysimplesoap.server:Traceback (most recent call last):
+  File "/home/travis/build/web2py/web2py/gluon/contrib/pysimplesoap/server.py", line 184, in dispatch
+    ret = function(**args)
+  File "/home/travis/build/web2py/web2py/applications/examples/controllers/soap_examples.py", line 26, in division
+    return a / b
+ZeroDivisionError: float division by zero
+
+ERROR:gluon.contrib.pysimplesoap.server:Traceback (most recent call last):
+  File "/home/travis/build/web2py/web2py/gluon/contrib/pysimplesoap/server.py", line 184, in dispatch
+    ret = function(**args)
+  File "/home/travis/build/web2py/web2py/applications/examples/controllers/soap_examples.py", line 26, in division
+    return a / b
+ZeroDivisionError: float division by zero
+
+ok
+testStaticCache (gluon.tests.test_web.TestWeb) ... ok
+Killing webserver
+testRun (gluon.tests.test_tools.testAuth) ... ERROR
+BEAUTIFY (html)
+Doctest: html.BEAUTIFY ... ok
+DIV (html)
+Doctest: html.DIV ... ok
+append (html.DIV)
+Doctest: html.DIV.append ... ok
+elements (html.DIV)
+Doctest: html.DIV.elements ... ok
+flatten (html.DIV)
+Doctest: html.DIV.flatten ... ok
+insert (html.DIV)
+Doctest: html.DIV.insert ... ok
+FORM (html)
+Doctest: html.FORM ... ok
+INPUT (html)
+Doctest: html.INPUT ... ok
+SELECT (html)
+Doctest: html.SELECT ... ok
+URL (html)
+Doctest: html.URL ... ok
+XML (html)
+Doctest: html.XML ... ok
+__TAG__ (html)
+Doctest: html.__TAG__ ... ok
+test (html)
+Doctest: html.test ... ok
+verifyURL (html)
+Doctest: html.verifyURL ... ok
+web2pyHTMLParser (html)
+Doctest: html.web2pyHTMLParser ... ok
+__repr__ (utf8.Utf8)
+Doctest: utf8.Utf8.__repr__ ... ok
+render (contrib.markmin.markmin2html)
+Doctest: contrib.markmin.markmin2html.render ... ok
+
+======================================================================
+ERROR: testRun (gluon.tests.test_dal.TestDALSubclass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "gluon/tests/test_dal.py", line 20, in testRun
+    db = DAL(check_reserved=['all'])
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 171, in __call__
+    obj = super(MetaDAL, cls).__call__(*args, **kwargs)
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 475, in __init__
+    for k, v in self.serializers.items():
+AttributeError: 'module' object has no attribute 'items'
+
+======================================================================
+ERROR: testSerialization (gluon.tests.test_dal.TestDALSubclass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "gluon/tests/test_dal.py", line 27, in testSerialization
+    db = DAL(check_reserved=['all'])
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 171, in __call__
+    obj = super(MetaDAL, cls).__call__(*args, **kwargs)
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 475, in __init__
+    for k, v in self.serializers.items():
+AttributeError: 'module' object has no attribute 'items'
+
+======================================================================
+ERROR: testRegisterAndLogin (gluon.tests.test_web.TestWeb)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "gluon/tests/test_web.py", line 87, in testRegisterAndLogin
+    client.get('index')
+  File "/home/travis/build/web2py/web2py/gluon/contrib/webclient.py", line 53, in get
+    headers=headers, method='GET')
+  File "/home/travis/build/web2py/web2py/gluon/contrib/webclient.py", line 145, in post
+    raise RuntimeError(self.headers['web2py_error'])
+RuntimeError: ticket welcome/127.0.0.1.2015-04-18.20-17-28.ba1c9e51-33df-4048-9b64-46a9f0e3fd21
+
+======================================================================
+ERROR: testRun (gluon.tests.test_tools.testAuth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "gluon/tests/test_tools.py", line 50, in testRun
+    db = DAL(DEFAULT_URI, check_reserved=['all'])
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 171, in __call__
+    obj = super(MetaDAL, cls).__call__(*args, **kwargs)
+  File "/home/travis/build/web2py/web2py/gluon/packages/dal/pydal/base.py", line 475, in __init__
+    for k, v in self.serializers.items():
+AttributeError: 'module' object has no attribute 'items'
+
+----------------------------------------------------------------------
+Ran 181 tests in 15.574s
+
+FAILED (errors=4, skipped=1)
+travis_time:end:2c583200:start=1429388231954372992,finish=1429388248660628710,duration=16706255718[0K
+[31;1mThe command "export COVERAGE_PROCESS_START=gluon/tests/coverage.ini; ./web2py.py --run_system_tests --with_coverage" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:01b7f29a[0Knothing changed, not updating cache
+travis_time:end:01b7f29a:start=1429388248664877123,finish=1429388248907902205,duration=243025082[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

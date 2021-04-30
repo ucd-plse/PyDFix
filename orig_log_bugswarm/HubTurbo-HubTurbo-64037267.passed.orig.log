@@ -1,0 +1,512 @@
+Using worker: worker-linux-docker-ac459245.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:290a4b7a[0K$ git clone --depth=50 --branch=testfx git://github.com/HubTurbo/HubTurbo.git HubTurbo/HubTurbo
+Cloning into 'HubTurbo/HubTurbo'...
+remote: Counting objects: 3093, done.[K
+remote: Compressing objects:   0% (1/1224)   [Kremote: Compressing objects:   1% (13/1224)   [Kremote: Compressing objects:   2% (25/1224)   [Kremote: Compressing objects:   3% (37/1224)   [Kremote: Compressing objects:   4% (49/1224)   [Kremote: Compressing objects:   5% (62/1224)   [Kremote: Compressing objects:   6% (74/1224)   [Kremote: Compressing objects:   7% (86/1224)   [Kremote: Compressing objects:   8% (98/1224)   [Kremote: Compressing objects:   9% (111/1224)   [Kremote: Compressing objects:  10% (123/1224)   [Kremote: Compressing objects:  11% (135/1224)   [Kremote: Compressing objects:  12% (147/1224)   [Kremote: Compressing objects:  13% (160/1224)   [Kremote: Compressing objects:  14% (172/1224)   [Kremote: Compressing objects:  15% (184/1224)   [Kremote: Compressing objects:  16% (196/1224)   [Kremote: Compressing objects:  17% (209/1224)   [Kremote: Compressing objects:  18% (221/1224)   [Kremote: Compressing objects:  19% (233/1224)   [Kremote: Compressing objects:  20% (245/1224)   [Kremote: Compressing objects:  21% (258/1224)   [Kremote: Compressing objects:  22% (270/1224)   [Kremote: Compressing objects:  23% (282/1224)   [Kremote: Compressing objects:  24% (294/1224)   [Kremote: Compressing objects:  25% (306/1224)   [Kremote: Compressing objects:  26% (319/1224)   [Kremote: Compressing objects:  27% (331/1224)   [Kremote: Compressing objects:  28% (343/1224)   [Kremote: Compressing objects:  29% (355/1224)   [Kremote: Compressing objects:  30% (368/1224)   [Kremote: Compressing objects:  31% (380/1224)   [Kremote: Compressing objects:  32% (392/1224)   [Kremote: Compressing objects:  33% (404/1224)   [Kremote: Compressing objects:  34% (417/1224)   [Kremote: Compressing objects:  35% (429/1224)   [Kremote: Compressing objects:  36% (441/1224)   [Kremote: Compressing objects:  37% (453/1224)   [Kremote: Compressing objects:  38% (466/1224)   [Kremote: Compressing objects:  39% (478/1224)   [Kremote: Compressing objects:  40% (490/1224)   [Kremote: Compressing objects:  41% (502/1224)   [Kremote: Compressing objects:  42% (515/1224)   [Kremote: Compressing objects:  43% (527/1224)   [Kremote: Compressing objects:  44% (539/1224)   [Kremote: Compressing objects:  45% (551/1224)   [Kremote: Compressing objects:  46% (564/1224)   [Kremote: Compressing objects:  47% (576/1224)   [Kremote: Compressing objects:  48% (588/1224)   [Kremote: Compressing objects:  49% (600/1224)   [Kremote: Compressing objects:  50% (612/1224)   [Kremote: Compressing objects:  51% (625/1224)   [Kremote: Compressing objects:  52% (637/1224)   [Kremote: Compressing objects:  53% (649/1224)   [Kremote: Compressing objects:  54% (661/1224)   [Kremote: Compressing objects:  55% (674/1224)   [Kremote: Compressing objects:  56% (686/1224)   [Kremote: Compressing objects:  57% (698/1224)   [Kremote: Compressing objects:  58% (710/1224)   [Kremote: Compressing objects:  59% (723/1224)   [Kremote: Compressing objects:  60% (735/1224)   [Kremote: Compressing objects:  61% (747/1224)   [Kremote: Compressing objects:  62% (759/1224)   [Kremote: Compressing objects:  63% (772/1224)   [Kremote: Compressing objects:  64% (784/1224)   [Kremote: Compressing objects:  65% (796/1224)   [Kremote: Compressing objects:  66% (808/1224)   [Kremote: Compressing objects:  67% (821/1224)   [Kremote: Compressing objects:  68% (833/1224)   [Kremote: Compressing objects:  69% (845/1224)   [Kremote: Compressing objects:  70% (857/1224)   [Kremote: Compressing objects:  71% (870/1224)   [Kremote: Compressing objects:  72% (882/1224)   [Kremote: Compressing objects:  73% (894/1224)   [Kremote: Compressing objects:  74% (906/1224)   [Kremote: Compressing objects:  75% (918/1224)   [Kremote: Compressing objects:  76% (931/1224)   [Kremote: Compressing objects:  77% (943/1224)   [Kremote: Compressing objects:  78% (955/1224)   [Kremote: Compressing objects:  79% (967/1224)   [Kremote: Compressing objects:  80% (980/1224)   [Kremote: Compressing objects:  81% (992/1224)   [Kremote: Compressing objects:  82% (1004/1224)   [Kremote: Compressing objects:  83% (1016/1224)   [Kremote: Compressing objects:  84% (1029/1224)   [Kremote: Compressing objects:  85% (1041/1224)   [Kremote: Compressing objects:  86% (1053/1224)   [Kremote: Compressing objects:  87% (1065/1224)   [Kremote: Compressing objects:  88% (1078/1224)   [Kremote: Compressing objects:  89% (1090/1224)   [Kremote: Compressing objects:  90% (1102/1224)   [Kremote: Compressing objects:  91% (1114/1224)   [Kremote: Compressing objects:  92% (1127/1224)   [Kremote: Compressing objects:  93% (1139/1224)   [Kremote: Compressing objects:  94% (1151/1224)   [Kremote: Compressing objects:  95% (1163/1224)   [Kremote: Compressing objects:  96% (1176/1224)   [Kremote: Compressing objects:  97% (1188/1224)   [Kremote: Compressing objects:  98% (1200/1224)   [Kremote: Compressing objects:  99% (1212/1224)   [Kremote: Compressing objects: 100% (1224/1224)   [Kremote: Compressing objects: 100% (1224/1224), done.[K
+Receiving objects:   0% (1/3093)   Receiving objects:   1% (31/3093)   Receiving objects:   2% (62/3093)   Receiving objects:   3% (93/3093)   Receiving objects:   4% (124/3093)   Receiving objects:   5% (155/3093)   Receiving objects:   6% (186/3093)   Receiving objects:   7% (217/3093)   Receiving objects:   8% (248/3093)   Receiving objects:   9% (279/3093)   Receiving objects:  10% (310/3093)   Receiving objects:  11% (341/3093)   Receiving objects:  12% (372/3093)   Receiving objects:  13% (403/3093)   Receiving objects:  14% (434/3093)   Receiving objects:  15% (464/3093)   Receiving objects:  16% (495/3093)   Receiving objects:  17% (526/3093)   Receiving objects:  18% (557/3093)   Receiving objects:  19% (588/3093)   Receiving objects:  20% (619/3093)   Receiving objects:  21% (650/3093)   Receiving objects:  22% (681/3093)   Receiving objects:  23% (712/3093)   Receiving objects:  24% (743/3093)   Receiving objects:  25% (774/3093)   Receiving objects:  26% (805/3093)   Receiving objects:  27% (836/3093)   Receiving objects:  28% (867/3093)   Receiving objects:  29% (897/3093)   Receiving objects:  30% (928/3093)   Receiving objects:  31% (959/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  32% (990/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  33% (1021/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  34% (1052/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  35% (1083/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  36% (1114/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  37% (1145/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  38% (1176/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  39% (1207/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  40% (1238/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  41% (1269/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  42% (1300/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  43% (1330/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  44% (1361/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  45% (1392/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  46% (1423/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  47% (1454/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  48% (1485/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  49% (1516/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  50% (1547/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  51% (1578/3093), 28.24 MiB | 56.36 MiB/s   Receiving objects:  51% (1595/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  52% (1609/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  53% (1640/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  54% (1671/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  55% (1702/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  56% (1733/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  57% (1764/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  58% (1794/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  59% (1825/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  60% (1856/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  61% (1887/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  62% (1918/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  63% (1949/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  64% (1980/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  65% (2011/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  66% (2042/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  67% (2073/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  68% (2104/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  69% (2135/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  70% (2166/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  71% (2197/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  72% (2227/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  73% (2258/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  74% (2289/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  75% (2320/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  76% (2351/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  77% (2382/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  78% (2413/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  79% (2444/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  80% (2475/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  81% (2506/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  82% (2537/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  83% (2568/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  84% (2599/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  85% (2630/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  86% (2660/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  87% (2691/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  88% (2722/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  89% (2753/3093), 51.52 MiB | 51.42 MiB/s   remote: Total 3093 (delta 2113), reused 2752 (delta 1838), pack-reused 0[K
+Receiving objects:  90% (2784/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  91% (2815/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  92% (2846/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  93% (2877/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  94% (2908/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  95% (2939/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  96% (2970/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  97% (3001/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  98% (3032/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects:  99% (3063/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects: 100% (3093/3093), 51.52 MiB | 51.42 MiB/s   Receiving objects: 100% (3093/3093), 61.17 MiB | 51.42 MiB/s, done.
+Resolving deltas:   0% (0/2113)   Resolving deltas:   4% (103/2113)   Resolving deltas:   5% (106/2113)   Resolving deltas:   6% (132/2113)   Resolving deltas:   7% (149/2113)   Resolving deltas:   8% (170/2113)   Resolving deltas:   9% (191/2113)   Resolving deltas:  10% (212/2113)   Resolving deltas:  11% (239/2113)   Resolving deltas:  12% (263/2113)   Resolving deltas:  13% (291/2113)   Resolving deltas:  14% (301/2113)   Resolving deltas:  15% (318/2113)   Resolving deltas:  16% (347/2113)   Resolving deltas:  17% (361/2113)   Resolving deltas:  18% (383/2113)   Resolving deltas:  20% (424/2113)   Resolving deltas:  21% (444/2113)   Resolving deltas:  22% (474/2113)   Resolving deltas:  24% (512/2113)   Resolving deltas:  25% (540/2113)   Resolving deltas:  26% (559/2113)   Resolving deltas:  27% (584/2113)   Resolving deltas:  30% (644/2113)   Resolving deltas:  34% (723/2113)   Resolving deltas:  35% (748/2113)   Resolving deltas:  42% (891/2113)   Resolving deltas:  46% (981/2113)   Resolving deltas:  48% (1022/2113)   Resolving deltas:  49% (1038/2113)   Resolving deltas:  53% (1127/2113)   Resolving deltas:  54% (1150/2113)   Resolving deltas:  55% (1175/2113)   Resolving deltas:  56% (1186/2113)   Resolving deltas:  57% (1207/2113)   Resolving deltas:  58% (1236/2113)   Resolving deltas:  62% (1312/2113)   Resolving deltas:  63% (1335/2113)   Resolving deltas:  64% (1353/2113)   Resolving deltas:  65% (1374/2113)   Resolving deltas:  66% (1406/2113)   Resolving deltas:  67% (1422/2113)   Resolving deltas:  68% (1441/2113)   Resolving deltas:  69% (1458/2113)   Resolving deltas:  71% (1517/2113)   Resolving deltas:  72% (1522/2113)   Resolving deltas:  73% (1543/2113)   Resolving deltas:  74% (1584/2113)   Resolving deltas:  75% (1592/2113)   Resolving deltas:  76% (1608/2113)   Resolving deltas:  77% (1628/2113)   Resolving deltas:  81% (1727/2113)   Resolving deltas:  82% (1742/2113)   Resolving deltas:  83% (1754/2113)   Resolving deltas:  84% (1788/2113)   Resolving deltas:  85% (1805/2113)   Resolving deltas:  86% (1819/2113)   Resolving deltas:  87% (1841/2113)   Resolving deltas:  88% (1872/2113)   Resolving deltas:  89% (1882/2113)   Resolving deltas:  90% (1905/2113)   Resolving deltas:  91% (1924/2113)   Resolving deltas:  92% (1947/2113)   Resolving deltas:  93% (1970/2113)   Resolving deltas:  94% (1988/2113)   Resolving deltas:  95% (2008/2113)   Resolving deltas:  96% (2031/2113)   Resolving deltas:  98% (2072/2113)   Resolving deltas:  99% (2105/2113)   Resolving deltas: 100% (2113/2113)   Resolving deltas: 100% (2113/2113), done.
+Checking connectivity... done.
+travis_time:end:290a4b7a:start=1432634770071797466,finish=1432634772488280220,duration=2416482754[0K$ cd HubTurbo/HubTurbo
+$ git checkout -qf 6b585feb515bdf0f47eb6a52257460cfda7126aa
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TERM=dumb
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:before_install.1[0Ktravis_time:start:03a63b00[0K$ export DISPLAY=:99.0
+travis_time:end:03a63b00:start=1432634775334713344,finish=1432634775338764350,duration=4051006[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0e2db2a4[0K$ sh -e /etc/init.d/xvfb start
+Starting virtual X frame buffer: Xvfb.
+travis_time:end:0e2db2a4:start=1432634775343984492,finish=1432634775355471806,duration=11487314[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:install[0Ktravis_time:start:0013da00[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-2.3-all.zip
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.3-all/w01pvxy5gty3tegjrai84pm3/gradle-2.3-all.zip to /home/travis/.gradle/wrapper/dists/gradle-2.3-all/w01pvxy5gty3tegjrai84pm3
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.3-all/w01pvxy5gty3tegjrai84pm3/gradle-2.3/bin/gradle
+Download http://plugins.gradle.org/m2/org/kt3k/gradle/plugin/coveralls-gradle-plugin/2.3.1/coveralls-gradle-plugin-2.3.1.pom
+Download http://plugins.gradle.org/m2/com/github/jengelman/gradle/plugins/shadow/1.2.1/shadow-1.2.1.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpmime/4.3/httpmime-4.3.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpcomponents-client/4.3/httpcomponents-client-4.3.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/project/7/project-7.pom
+Download http://plugins.gradle.org/m2/org/apache/apache/13/apache-13.pom
+Download http://plugins.gradle.org/m2/org/eclipse/jgit/org.eclipse.jgit/3.6.0.201412230720-r/org.eclipse.jgit-3.6.0.201412230720-r.pom
+Download http://plugins.gradle.org/m2/org/eclipse/jgit/org.eclipse.jgit-parent/3.6.0.201412230720-r/org.eclipse.jgit-parent-3.6.0.201412230720-r.pom
+Download http://plugins.gradle.org/m2/org/codehaus/groovy/modules/http-builder/http-builder/0.7.1/http-builder-0.7.1.pom
+Download http://plugins.gradle.org/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.pom
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm/5.0.3/asm-5.0.3.pom
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download http://plugins.gradle.org/m2/org/ow2/ow2/1.3/ow2-1.3.pom
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.pom
+Download http://plugins.gradle.org/m2/commons-io/commons-io/2.4/commons-io-2.4.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/25/commons-parent-25.pom
+Download http://plugins.gradle.org/m2/org/apache/apache/9/apache-9.pom
+Download http://plugins.gradle.org/m2/org/apache/ant/ant/1.9.4/ant-1.9.4.pom
+Download http://plugins.gradle.org/m2/org/apache/ant/ant-parent/1.9.4/ant-parent-1.9.4.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpclient/4.3/httpclient-4.3.pom
+Download http://plugins.gradle.org/m2/com/jcraft/jsch/0.1.50/jsch-0.1.50.pom
+Download http://plugins.gradle.org/m2/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download http://plugins.gradle.org/m2/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.pom
+Download http://plugins.gradle.org/m2/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download http://plugins.gradle.org/m2/net/sf/json-lib/json-lib/2.3/json-lib-2.3.pom
+Download http://plugins.gradle.org/m2/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.pom
+Download http://plugins.gradle.org/m2/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.pom
+Download http://plugins.gradle.org/m2/org/apache/apache/3/apache-3.pom
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.pom
+Download http://plugins.gradle.org/m2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
+Download http://plugins.gradle.org/m2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download http://plugins.gradle.org/m2/org/apache/apache/4/apache-4.pom
+Download http://plugins.gradle.org/m2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download http://plugins.gradle.org/m2/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Download http://plugins.gradle.org/m2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download http://plugins.gradle.org/m2/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.pom
+Download http://plugins.gradle.org/m2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpcore/4.3/httpcore-4.3.pom
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpcomponents-core/4.3/httpcomponents-core-4.3.pom
+Download http://plugins.gradle.org/m2/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download http://plugins.gradle.org/m2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.pom
+Download http://plugins.gradle.org/m2/org/apache/commons/commons-parent/28/commons-parent-28.pom
+Download http://plugins.gradle.org/m2/org/kt3k/gradle/plugin/coveralls-gradle-plugin/2.3.1/coveralls-gradle-plugin-2.3.1.jar
+Download http://plugins.gradle.org/m2/com/github/jengelman/gradle/plugins/shadow/1.2.1/shadow-1.2.1.jar
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpmime/4.3/httpmime-4.3.jar
+Download http://plugins.gradle.org/m2/org/eclipse/jgit/org.eclipse.jgit/3.6.0.201412230720-r/org.eclipse.jgit-3.6.0.201412230720-r.jar
+Download http://plugins.gradle.org/m2/org/codehaus/groovy/modules/http-builder/http-builder/0.7.1/http-builder-0.7.1.jar
+Download http://plugins.gradle.org/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar
+Download http://plugins.gradle.org/m2/commons-io/commons-io/2.4/commons-io-2.4.jar
+Download http://plugins.gradle.org/m2/org/apache/ant/ant/1.9.4/ant-1.9.4.jar
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpclient/4.3/httpclient-4.3.jar
+Download http://plugins.gradle.org/m2/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar
+Download http://plugins.gradle.org/m2/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.jar
+Download http://plugins.gradle.org/m2/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar
+Download http://plugins.gradle.org/m2/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar
+Download http://plugins.gradle.org/m2/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar
+Download http://plugins.gradle.org/m2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar
+Download http://plugins.gradle.org/m2/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+Download http://plugins.gradle.org/m2/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+Download http://plugins.gradle.org/m2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download http://plugins.gradle.org/m2/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+Download http://plugins.gradle.org/m2/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar
+Download http://plugins.gradle.org/m2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Download http://plugins.gradle.org/m2/org/apache/httpcomponents/httpcore/4.3/httpcore-4.3.jar
+Download http://plugins.gradle.org/m2/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+Download http://plugins.gradle.org/m2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar
+Download https://jcenter.bintray.com/org/apache/logging/log4j/log4j-api/2.2/log4j-api-2.2.pom
+Download https://jcenter.bintray.com/org/apache/logging/log4j/log4j/2.2/log4j-2.2.pom
+Download https://jcenter.bintray.com/org/apache/logging/log4j/log4j-core/2.2/log4j-core-2.2.pom
+Download https://jcenter.bintray.com/org/controlsfx/controlsfx/8.20.8/controlsfx-8.20.8.pom
+Download https://jcenter.bintray.com/com/google/code/gson/gson/2.3.1/gson-2.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/18.0/guava-parent-18.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/4.1.0/jna-4.1.0.pom
+Download https://jcenter.bintray.com/org/commonjava/googlecode/markdown4j/markdown4j/2.2-cj-1.0/markdown4j-2.2-cj-1.0.pom
+Download https://jcenter.bintray.com/org/commonjava/commonjava/2/commonjava-2.pom
+Download https://jcenter.bintray.com/org/controlsfx/openjfx-dialogs/1.0.2/openjfx-dialogs-1.0.2.pom
+Download https://jcenter.bintray.com/org/apache/servicemix/bundles/org.apache.servicemix.bundles.egit.github.core/2.1.5_1/org.apache.servicemix.bundles.egit.github.core-2.1.5_1.pom
+Download https://jcenter.bintray.com/org/apache/servicemix/bundles/bundles-pom/11/bundles-pom-11.pom
+Download https://jcenter.bintray.com/org/apache/servicemix/servicemix-pom/5/servicemix-pom-5.pom
+Download https://jcenter.bintray.com/org/apache/apache/7/apache-7.pom
+Download https://jcenter.bintray.com/org/ocpsoft/prettytime/prettytime/3.2.7.Final/prettytime-3.2.7.Final.pom
+Download https://jcenter.bintray.com/org/ocpsoft/prettytime/prettytime-parent/3.2.7.Final/prettytime-parent-3.2.7.Final.pom
+Download https://jcenter.bintray.com/org/ocpsoft/ocpsoft-parent/10/ocpsoft-parent-10.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-java/2.45.0/selenium-java-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-parent/2.45.0/selenium-parent-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-server/2.45.0/selenium-server-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-chrome-driver/2.45.0/selenium-chrome-driver-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-htmlunit-driver/2.45.0/selenium-htmlunit-driver-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-firefox-driver/2.45.0/selenium-firefox-driver-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-ie-driver/2.45.0/selenium-ie-driver-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-safari-driver/2.45.0/selenium-safari-driver-2.45.0.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-support/2.45.0/selenium-support-2.45.0.pom
+Download https://jcenter.bintray.com/org/webbitserver/webbit/0.4.14/webbit-0.4.14.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-leg-rc/2.45.0/selenium-leg-rc-2.45.0.pom
+Download https://jcenter.bintray.com/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.pom
+Download https://jcenter.bintray.com/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.pom
+Download https://jcenter.bintray.com/mx4j/mx4j-tools/3.0.1/mx4j-tools-3.0.1.pom
+Download https://jcenter.bintray.com/org/mortbay/jetty/servlet-api-2.5/6.1.9/servlet-api-2.5-6.1.9.pom
+Download https://jcenter.bintray.com/org/mortbay/jetty/project/6.1.9/project-6.1.9.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/jetty-repacked/7.6.1/jetty-repacked-7.6.1.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/jetty-rc-repacked/5/jetty-rc-repacked-5.pom
+Download https://jcenter.bintray.com/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.pom
+Download https://jcenter.bintray.com/org/yaml/snakeyaml/1.8/snakeyaml-1.8.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.9/commons-codec-1.9.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/32/commons-parent-32.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-remote-driver/2.45.0/selenium-remote-driver-2.45.0.pom
+Download https://jcenter.bintray.com/net/sourceforge/htmlunit/htmlunit/2.15/htmlunit-2.15.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.3.6/httpcomponents-client-4.3.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-exec/1.1/commons-exec-1.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/17/commons-parent-17.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.pom
+Download https://jcenter.bintray.com/io/netty/netty/3.5.2.Final/netty-3.5.2.Final.pom
+Download https://jcenter.bintray.com/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.pom
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-api/2.45.0/selenium-api-2.45.0.pom
+Download https://jcenter.bintray.com/xalan/xalan/2.7.1/xalan-2.7.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/33/commons-parent-33.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpmime/4.3.3/httpmime-4.3.3.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.3.3/httpcomponents-client-4.3.3.pom
+Download https://jcenter.bintray.com/net/sourceforge/htmlunit/htmlunit-core-js/2.15/htmlunit-core-js-2.15.pom
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.21/nekohtml-1.9.21.pom
+Download https://jcenter.bintray.com/net/sourceforge/cssparser/cssparser/0.9.14/cssparser-0.9.14.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-websocket/8.1.15.v20140411/jetty-websocket-8.1.15.v20140411.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-project/8.1.15.v20140411/jetty-project-8.1.15.v20140411.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-parent/20/jetty-parent-20.pom
+Download https://jcenter.bintray.com/xalan/serializer/2.7.1/serializer-2.7.1.pom
+Download https://jcenter.bintray.com/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.pom
+Download https://jcenter.bintray.com/org/w3c/css/sac/1.3/sac-1.3.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-util/8.1.15.v20140411/jetty-util-8.1.15.v20140411.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-io/8.1.15.v20140411/jetty-io-8.1.15.v20140411.pom
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-http/8.1.15.v20140411/jetty-http-8.1.15.v20140411.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.3.3/httpcomponents-core-4.3.3.pom
+Download https://jcenter.bintray.com/org/apache/logging/log4j/log4j-api/2.2/log4j-api-2.2.jar
+Download https://jcenter.bintray.com/org/apache/logging/log4j/log4j-core/2.2/log4j-core-2.2.jar
+Download https://jcenter.bintray.com/org/controlsfx/controlsfx/8.20.8/controlsfx-8.20.8.jar
+Download https://jcenter.bintray.com/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar
+Download https://jcenter.bintray.com/org/commonjava/googlecode/markdown4j/markdown4j/2.2-cj-1.0/markdown4j-2.2-cj-1.0.jar
+Download https://jcenter.bintray.com/org/controlsfx/openjfx-dialogs/1.0.2/openjfx-dialogs-1.0.2.jar
+Download https://jcenter.bintray.com/org/apache/servicemix/bundles/org.apache.servicemix.bundles.egit.github.core/2.1.5_1/org.apache.servicemix.bundles.egit.github.core-2.1.5_1.jar
+Download https://jcenter.bintray.com/org/ocpsoft/prettytime/prettytime/3.2.7.Final/prettytime-3.2.7.Final.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-java/2.45.0/selenium-java-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-server/2.45.0/selenium-server-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-chrome-driver/2.45.0/selenium-chrome-driver-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-htmlunit-driver/2.45.0/selenium-htmlunit-driver-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-firefox-driver/2.45.0/selenium-firefox-driver-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-ie-driver/2.45.0/selenium-ie-driver-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-safari-driver/2.45.0/selenium-safari-driver-2.45.0.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-support/2.45.0/selenium-support-2.45.0.jar
+Download https://jcenter.bintray.com/org/webbitserver/webbit/0.4.14/webbit-0.4.14.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-leg-rc/2.45.0/selenium-leg-rc-2.45.0.jar
+Download https://jcenter.bintray.com/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar
+Download https://jcenter.bintray.com/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar
+Download https://jcenter.bintray.com/mx4j/mx4j-tools/3.0.1/mx4j-tools-3.0.1.jar
+Download https://jcenter.bintray.com/org/mortbay/jetty/servlet-api-2.5/6.1.9/servlet-api-2.5-6.1.9.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/jetty-repacked/7.6.1/jetty-repacked-7.6.1.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/jetty-rc-repacked/5/jetty-rc-repacked-5.jar
+Download https://jcenter.bintray.com/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+Download https://jcenter.bintray.com/org/yaml/snakeyaml/1.8/snakeyaml-1.8.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-remote-driver/2.45.0/selenium-remote-driver-2.45.0.jar
+Download https://jcenter.bintray.com/net/sourceforge/htmlunit/htmlunit/2.15/htmlunit-2.15.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar
+Download https://jcenter.bintray.com/io/netty/netty/3.5.2.Final/netty-3.5.2.Final.jar
+Download https://jcenter.bintray.com/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar
+Download https://jcenter.bintray.com/org/seleniumhq/selenium/selenium-api/2.45.0/selenium-api-2.45.0.jar
+Download https://jcenter.bintray.com/xalan/xalan/2.7.1/xalan-2.7.1.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpmime/4.3.3/httpmime-4.3.3.jar
+Download https://jcenter.bintray.com/net/sourceforge/htmlunit/htmlunit-core-js/2.15/htmlunit-core-js-2.15.jar
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.21/nekohtml-1.9.21.jar
+Download https://jcenter.bintray.com/net/sourceforge/cssparser/cssparser/0.9.14/cssparser-0.9.14.jar
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-websocket/8.1.15.v20140411/jetty-websocket-8.1.15.v20140411.jar
+Download https://jcenter.bintray.com/xalan/serializer/2.7.1/serializer-2.7.1.jar
+Download https://jcenter.bintray.com/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar
+Download https://jcenter.bintray.com/org/w3c/css/sac/1.3/sac-1.3.jar
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-util/8.1.15.v20140411/jetty-util-8.1.15.v20140411.jar
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-io/8.1.15.v20140411/jetty-io-8.1.15.v20140411.jar
+Download https://jcenter.bintray.com/org/eclipse/jetty/jetty-http/8.1.15.v20140411/jetty-http-8.1.15.v20140411.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.jar
+:compileJavaNote: /home/travis/build/HubTurbo/HubTurbo/src/main/java/util/DialogMessage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/HubTurbo/HubTurbo/src/main/java/github/GitHubClientExtended.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:processResources
+:classes
+:jar
+:shadowJar
+:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 29.749 secs
+travis_time:end:0013da00:start=1432634775360809252,finish=1432634866279178706,duration=90918369454[0Ktravis_fold:end:install[0Ktravis_time:start:12ae90d8[0K$ ./gradlew clean check -i
+Connected to daemon DaemonInfo{pid=1938, address=[cca8893a-f87d-4834-ac85-bcd8b8afea69 port:56202, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]], idle=true, context=DefaultDaemonContext[uid=d21cab07-7894-4094-bce3-cb499238471a,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/travis/.gradle/daemon,pid=1938,idleTimeout=10800000,daemonOpts=-XX:MaxPermSize=512m,-XX:+CMSClassUnloadingEnabled,-XX:+CMSPermGenSweepingEnabled,-XX:+HeapDumpOnOutOfMemoryError,-Xmx1024m,-Dfile.encoding=utf-8,-Duser.country=US,-Duser.language=en,-Duser.variant]}. Dispatching request Build{id=ca376a85-4daf-42ca-bde9-2b4ea7126986.1, currentDir=/home/travis/build/HubTurbo/HubTurbo}.
+The client will now receive all logging from the daemon (pid: 1938). The daemon log file: /home/travis/.gradle/daemon/2.3/daemon-1938.out.log
+Starting 2nd build in daemon [uptime: 1 mins 9.304 secs, performance: 98%, memory: 57% of 954.7 MB]
+Executing build with daemon context: DefaultDaemonContext[uid=d21cab07-7894-4094-bce3-cb499238471a,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/travis/.gradle/daemon,pid=1938,idleTimeout=10800000,daemonOpts=-XX:MaxPermSize=512m,-XX:+CMSClassUnloadingEnabled,-XX:+CMSPermGenSweepingEnabled,-XX:+HeapDumpOnOutOfMemoryError,-Xmx1024m,-Dfile.encoding=utf-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Starting Build
+Settings evaluated using settings file '/home/travis/build/HubTurbo/HubTurbo/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/HubTurbo/HubTurbo/build.gradle'.
+Included projects: [root project 'HubTurbo']
+Evaluating root project 'HubTurbo' using build file '/home/travis/build/HubTurbo/HubTurbo/build.gradle'.
+All projects evaluated.
+Selected primary task 'clean' from project :
+Selected primary task 'check' from project :
+Tasks to be executed: [task ':clean', task ':compileJava', task ':processResources', task ':classes', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':guiTests', task ':test', task ':check']
+:clean (Thread[Daemon worker,5,main]) started.
+:clean
+In-memory cache of /home/travis/build/HubTurbo/HubTurbo/.gradle/2.3/taskArtifacts/fileHashes.bin: Size{407}, CacheStats{hitCount=0, missCount=0, loadSuccessCount=0, loadExceptionCount=0, totalLoadTime=0, evictionCount=0}
+In-memory cache of /home/travis/build/HubTurbo/HubTurbo/.gradle/2.3/taskArtifacts/outputFileStates.bin: Size{5}, CacheStats{hitCount=0, missCount=0, loadSuccessCount=0, loadExceptionCount=0, totalLoadTime=0, evictionCount=0}
+In-memory cache of /home/travis/build/HubTurbo/HubTurbo/.gradle/2.3/taskArtifacts/fileSnapshots.bin: Size{8}, CacheStats{hitCount=0, missCount=0, loadSuccessCount=0, loadExceptionCount=0, totalLoadTime=0, evictionCount=0}
+In-memory cache of /home/travis/build/HubTurbo/HubTurbo/.gradle/2.3/taskArtifacts/taskArtifacts.bin: Size{4}, CacheStats{hitCount=0, missCount=0, loadSuccessCount=0, loadExceptionCount=0, totalLoadTime=0, evictionCount=0}
+Executing task ':clean' (up-to-date check took 0.001 secs) due to:
+  Task has not declared any outputs.
+:clean (Thread[Daemon worker,5,main]) completed. Took 0.03 secs.
+:compileJava (Thread[Daemon worker,5,main]) started.
+:compileJava
+Executing task ':compileJava' (up-to-date check took 0.203 secs) due to:
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/classes/main has changed.
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/dependency-cache has changed.
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/classes/main/util/IOUtilities.class has been removed.
+All input files are considered out-of-date for incremental task ':compileJava'.
+Compiling with JDK Java compiler API.
+Note: /home/travis/build/HubTurbo/HubTurbo/src/main/java/util/DialogMessage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/HubTurbo/HubTurbo/src/main/java/github/GitHubClientExtended.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+:compileJava (Thread[Daemon worker,5,main]) completed. Took 5.265 secs.
+:processResources (Thread[Daemon worker,5,main]) started.
+:processResources
+Executing task ':processResources' (up-to-date check took 0.005 secs) due to:
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/resources/main has changed.
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/resources/main/ui/octicons/octicons.svg has been removed.
+  Output file /home/travis/build/HubTurbo/HubTurbo/build/resources/main/ui/octicons/octicons.css has been removed.
+:processResources (Thread[Daemon worker,5,main]) completed. Took 0.239 secs.
+:classes (Thread[Daemon worker,5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+:compileTestJava (Thread[Daemon worker,5,main]) started.
+:compileTestJava
+Download https://jcenter.bintray.com/junit/junit/4.12/junit-4.12.pom
+Download https://jcenter.bintray.com/org/loadui/testFx/3.1.0/testFx-3.1.0.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.pom
+Download https://jcenter.bintray.com/junit/junit/4.12/junit-4.12.jar
+Download https://jcenter.bintray.com/org/loadui/testFx/3.1.0/testFx-3.1.0.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar
+Executing task ':compileTestJava' (up-to-date check took 1.415 secs) due to:
+  No history is available.
+All input files are considered out-of-date for incremental task ':compileTestJava'.
+Compiling with JDK Java compiler API.
+:compileTestJava (Thread[Daemon worker,5,main]) completed. Took 1.858 secs.
+:processTestResources (Thread[Daemon worker,5,main]) started.
+:processTestResources
+Executing task ':processTestResources' (up-to-date check took 0.005 secs) due to:
+  No history is available.
+:processTestResources (Thread[Daemon worker,5,main]) completed. Took 0.04 secs.
+:testClasses (Thread[Daemon worker,5,main]) started.
+:testClasses
+Skipping task ':testClasses' as it has no actions.
+:testClasses (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+:guiTests (Thread[Daemon worker,5,main]) started.
+:guiTests
+Executing task ':guiTests' (up-to-date check took 0.055 secs) due to:
+  No history is available.
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.agent/0.7.4.201502262128/org.jacoco.agent-0.7.4.201502262128.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.build/0.7.4.201502262128/org.jacoco.build-0.7.4.201502262128.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.agent/0.7.4.201502262128/org.jacoco.agent-0.7.4.201502262128.jar
+[ant:null] Building jar: /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar
+Starting process 'Gradle Test Executor 1'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/guiTests.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 1'
+Successfully started process 'Gradle Test Executor 1'
+Gradle Test Executor 1 started executing tests.
+Xlib:  extension "RANDR" missing on display ":99.0".
+
+guitests.TestGuiTest > testBadLogin STANDARD_OUT
+    2015-05-26 10:08:02,808 INFO Log4j appears to be running in a Servlet environment, but there's no log4j-web module available. If you want better web container support, please add the log4j-web JAR to your web archive or server lib directory.
+    6519 26 May 2015 10:08:03 INFO UI [JavaFX Application Thread] - Registered event handler RepoOpenedEventHandler
+    6892 26 May 2015 10:08:03 INFO UI [JavaFX Application Thread] - Registered event handler UpdateProgressEventHandler
+    7030 26 May 2015 10:08:04 INFO TickingTimer [JavaFX Application Thread] - Started TickingTimer Browser Request Delay Timer
+    7032 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler IssueSelectedEventHandler
+    7036 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler IssueCreatedEventHandler
+    7040 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler LoginEventHandler
+    7042 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler LabelCreatedEventHandler
+    7062 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler MilestoneCreatedEventHandler
+    7075 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler ModelUpdatedEventHandler
+    7077 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler IssueSelectedEventHandler
+    7078 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler ColumnClickedEventHandler
+    7183 26 May 2015 10:08:04 INFO UI [JavaFX Application Thread] - Registered event handler BoardSavedEventHandler
+    9107 26 May 2015 10:08:06 INFO UI [JavaFX Application Thread] - About to trigger event ModelUpdatedEvent
+    9115 26 May 2015 10:08:06 INFO UI [JavaFX Application Thread] - Triggered event ModelUpdatedEvent
+Gradle Test Executor 1 finished executing tests.
+Starting process 'Gradle Test Executor 2'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/guiTests.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+Gradle Test Executor 2 started executing tests.
+Xlib:  extension "RANDR" missing on display ":99.0".
+
+guitests.TestGuiTest2 > testBadLoginAgain STANDARD_OUT
+    2015-05-26 10:08:20,218 INFO Log4j appears to be running in a Servlet environment, but there's no log4j-web module available. If you want better web container support, please add the log4j-web JAR to your web archive or server lib directory.
+    5642 26 May 2015 10:08:20 INFO UI [JavaFX Application Thread] - Registered event handler RepoOpenedEventHandler
+    5987 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler UpdateProgressEventHandler
+    6125 26 May 2015 10:08:21 INFO TickingTimer [JavaFX Application Thread] - Started TickingTimer Browser Request Delay Timer
+    6128 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler IssueSelectedEventHandler
+    6130 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler IssueCreatedEventHandler
+    6131 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler LoginEventHandler
+    6133 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler LabelCreatedEventHandler
+    6140 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler MilestoneCreatedEventHandler
+    6142 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler ModelUpdatedEventHandler
+    6169 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler IssueSelectedEventHandler
+    6171 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler ColumnClickedEventHandler
+    6208 26 May 2015 10:08:21 INFO UI [JavaFX Application Thread] - Registered event handler BoardSavedEventHandler
+    8589 26 May 2015 10:08:23 INFO UI [JavaFX Application Thread] - About to trigger event ModelUpdatedEvent
+    8595 26 May 2015 10:08:23 INFO UI [JavaFX Application Thread] - Triggered event ModelUpdatedEvent
+Gradle Test Executor 2 finished executing tests.
+Starting process 'Gradle Test Executor 3'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/guiTests.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 3'
+Successfully started process 'Gradle Test Executor 3'
+Gradle Test Executor 3 started executing tests.
+Gradle Test Executor 3 finished executing tests.
+Starting process 'Gradle Test Executor 4'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/guiTests.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 4'
+Successfully started process 'Gradle Test Executor 4'
+Gradle Test Executor 4 started executing tests.
+Gradle Test Executor 4 finished executing tests.
+Starting process 'Gradle Test Executor 5'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/guiTests.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 5'
+Successfully started process 'Gradle Test Executor 5'
+Gradle Test Executor 5 started executing tests.
+Gradle Test Executor 5 finished executing tests.
+Finished generating test XML results (0.005 secs) into: /home/travis/build/HubTurbo/HubTurbo/build/test-results
+Generating HTML test report...
+Finished generating test html results (0.027 secs) into: /home/travis/build/HubTurbo/HubTurbo/build/reports/tests
+:guiTests (Thread[Daemon worker,5,main]) completed. Took 45.632 secs.
+:test (Thread[Daemon worker,5,main]) started.
+:test
+Executing task ':test' (up-to-date check took 0.025 secs) due to:
+  No history is available.
+Starting process 'Gradle Test Executor 6'. Working directory: /home/travis/build/HubTurbo/HubTurbo Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.4.201502262128.jar_dnibj84r518qfgg9zfvgoi1cd/jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.3/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 6'
+Successfully started process 'Gradle Test Executor 6'
+Gradle Test Executor 6 started executing tests.
+
+tests.TickingTimerTests > doublePauseTest STANDARD_OUT
+    2015-05-26 10:08:47,199 INFO Log4j appears to be running in a Servlet environment, but there's no log4j-web module available. If you want better web container support, please add the log4j-web JAR to your web archive or server lib directory.
+    6022 26 May 2015 10:08:47 INFO TickingTimer [Test worker] - Started TickingTimer test
+
+tests.TickingTimerTests > threadingTest STANDARD_OUT
+    6043 26 May 2015 10:08:47 INFO TickingTimer [Test worker] - Started TickingTimer test
+Gradle Test Executor 6 finished executing tests.
+Finished generating test XML results (0.001 secs) into: /home/travis/build/HubTurbo/HubTurbo/build/test-results
+Generating HTML test report...
+Finished generating test html results (0.005 secs) into: /home/travis/build/HubTurbo/HubTurbo/build/reports/tests
+:test (Thread[Daemon worker,5,main]) completed. Took 7.286 secs.
+:check (Thread[Daemon worker,5,main]) started.
+:check
+Skipping task ':check' as it has no actions.
+:check (Thread[Daemon worker,5,main]) completed. Took 0.001 secs.
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 2.205 secs
+Stopped 0 compiler daemon(s).
+Received result DaemonCommandResult[type=Success, value=null] from daemon DaemonInfo{pid=1938, address=[cca8893a-f87d-4834-ac85-bcd8b8afea69 port:56202, addresses:[/0:0:0:0:0:0:0:1%lo, /127.0.0.1]], idle=true, context=DefaultDaemonContext[uid=d21cab07-7894-4094-bce3-cb499238471a,javaHome=/usr/lib/jvm/java-8-oracle,daemonRegistryDir=/home/travis/.gradle/daemon,pid=1938,idleTimeout=10800000,daemonOpts=-XX:MaxPermSize=512m,-XX:+CMSClassUnloadingEnabled,-XX:+CMSPermGenSweepingEnabled,-XX:+HeapDumpOnOutOfMemoryError,-Xmx1024m,-Dfile.encoding=utf-8,-Duser.country=US,-Duser.language=en,-Duser.variant]}.
+travis_time:end:12ae90d8:start=1432634866282752163,finish=1432634928892455254,duration=62609703091[0K
+[32;1mThe command "./gradlew clean check -i" exited with 0.[0m
+travis_fold:start:after_success[0Ktravis_time:start:2ed3de13[0K$ ./gradlew jacocoRootReport coveralls
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:compileTestJava UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:guiTestsXlib:  extension "RANDR" missing on display ":99.0".
+Xlib:  extension "RANDR" missing on display ":99.0".
+
+:test
+:jacocoRootReport
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.4.201502262128/org.jacoco.ant-0.7.4.201502262128.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.4.201502262128/org.jacoco.report-0.7.4.201502262128.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-parent/5.0.1/asm-parent-5.0.1.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.4.201502262128/org.jacoco.ant-0.7.4.201502262128.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.4.201502262128/org.jacoco.report-0.7.4.201502262128.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar
+:coveralls
+service name: travis-ci
+service job id: 64067557
+repo token: null
+[message:Job #198.1, url:https://coveralls.io/jobs/6211546]
+BUILD SUCCESSFUL
+
+Total time: 1 mins 12.268 secs
+travis_time:end:2ed3de13:start=1432634928896386508,finish=1432635003199113359,duration=74302726851[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

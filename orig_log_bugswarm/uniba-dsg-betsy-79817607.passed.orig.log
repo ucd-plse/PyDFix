@@ -1,0 +1,799 @@
+Using worker: worker-linux-docker-65afd08c.prod.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:1895890c[0K$ git clone --depth=50 https://github.com/uniba-dsg/betsy.git uniba-dsg/betsy
+Cloning into 'uniba-dsg/betsy'...
+remote: Counting objects: 3280, done.[K
+remote: Compressing objects:   0% (1/1801)   [Kremote: Compressing objects:   1% (19/1801)   [Kremote: Compressing objects:   2% (37/1801)   [Kremote: Compressing objects:   3% (55/1801)   [Kremote: Compressing objects:   4% (73/1801)   [Kremote: Compressing objects:   5% (91/1801)   [Kremote: Compressing objects:   6% (109/1801)   [Kremote: Compressing objects:   7% (127/1801)   [Kremote: Compressing objects:   8% (145/1801)   [Kremote: Compressing objects:   9% (163/1801)   [Kremote: Compressing objects:  10% (181/1801)   [Kremote: Compressing objects:  11% (199/1801)   [Kremote: Compressing objects:  12% (217/1801)   [Kremote: Compressing objects:  13% (235/1801)   [Kremote: Compressing objects:  14% (253/1801)   [Kremote: Compressing objects:  15% (271/1801)   [Kremote: Compressing objects:  16% (289/1801)   [Kremote: Compressing objects:  17% (307/1801)   [Kremote: Compressing objects:  18% (325/1801)   [Kremote: Compressing objects:  19% (343/1801)   [Kremote: Compressing objects:  20% (361/1801)   [Kremote: Compressing objects:  21% (379/1801)   [Kremote: Compressing objects:  22% (397/1801)   [Kremote: Compressing objects:  23% (415/1801)   [Kremote: Compressing objects:  24% (433/1801)   [Kremote: Compressing objects:  25% (451/1801)   [Kremote: Compressing objects:  26% (469/1801)   [Kremote: Compressing objects:  27% (487/1801)   [Kremote: Compressing objects:  28% (505/1801)   [Kremote: Compressing objects:  29% (523/1801)   [Kremote: Compressing objects:  30% (541/1801)   [Kremote: Compressing objects:  31% (559/1801)   [Kremote: Compressing objects:  32% (577/1801)   [Kremote: Compressing objects:  33% (595/1801)   [Kremote: Compressing objects:  34% (613/1801)   [Kremote: Compressing objects:  35% (631/1801)   [Kremote: Compressing objects:  36% (649/1801)   [Kremote: Compressing objects:  37% (667/1801)   [Kremote: Compressing objects:  38% (685/1801)   [Kremote: Compressing objects:  39% (703/1801)   [Kremote: Compressing objects:  40% (721/1801)   [Kremote: Compressing objects:  41% (739/1801)   [Kremote: Compressing objects:  42% (757/1801)   [Kremote: Compressing objects:  43% (775/1801)   [Kremote: Compressing objects:  44% (793/1801)   [Kremote: Compressing objects:  45% (811/1801)   [Kremote: Compressing objects:  46% (829/1801)   [Kremote: Compressing objects:  47% (847/1801)   [Kremote: Compressing objects:  48% (865/1801)   [Kremote: Compressing objects:  49% (883/1801)   [Kremote: Compressing objects:  50% (901/1801)   [Kremote: Compressing objects:  51% (919/1801)   [Kremote: Compressing objects:  52% (937/1801)   [Kremote: Compressing objects:  53% (955/1801)   [Kremote: Compressing objects:  54% (973/1801)   [Kremote: Compressing objects:  55% (991/1801)   [Kremote: Compressing objects:  56% (1009/1801)   [Kremote: Compressing objects:  57% (1027/1801)   [Kremote: Compressing objects:  58% (1045/1801)   [Kremote: Compressing objects:  59% (1063/1801)   [Kremote: Compressing objects:  60% (1081/1801)   [Kremote: Compressing objects:  61% (1099/1801)   [Kremote: Compressing objects:  62% (1117/1801)   [Kremote: Compressing objects:  63% (1135/1801)   [Kremote: Compressing objects:  64% (1153/1801)   [Kremote: Compressing objects:  65% (1171/1801)   [Kremote: Compressing objects:  66% (1189/1801)   [Kremote: Compressing objects:  67% (1207/1801)   [Kremote: Compressing objects:  68% (1225/1801)   [Kremote: Compressing objects:  69% (1243/1801)   [Kremote: Compressing objects:  70% (1261/1801)   [Kremote: Compressing objects:  71% (1279/1801)   [Kremote: Compressing objects:  72% (1297/1801)   [Kremote: Compressing objects:  73% (1315/1801)   [Kremote: Compressing objects:  74% (1333/1801)   [Kremote: Compressing objects:  75% (1351/1801)   [Kremote: Compressing objects:  76% (1369/1801)   [Kremote: Compressing objects:  77% (1387/1801)   [Kremote: Compressing objects:  78% (1405/1801)   [Kremote: Compressing objects:  79% (1423/1801)   [Kremote: Compressing objects:  80% (1441/1801)   [Kremote: Compressing objects:  81% (1459/1801)   [Kremote: Compressing objects:  82% (1477/1801)   [Kremote: Compressing objects:  83% (1495/1801)   [Kremote: Compressing objects:  84% (1513/1801)   [Kremote: Compressing objects:  85% (1531/1801)   [Kremote: Compressing objects:  86% (1549/1801)   [Kremote: Compressing objects:  87% (1567/1801)   [Kremote: Compressing objects:  88% (1585/1801)   [Kremote: Compressing objects:  89% (1603/1801)   [Kremote: Compressing objects:  90% (1621/1801)   [Kremote: Compressing objects:  91% (1639/1801)   [Kremote: Compressing objects:  92% (1657/1801)   [Kremote: Compressing objects:  93% (1675/1801)   [Kremote: Compressing objects:  94% (1693/1801)   [Kremote: Compressing objects:  95% (1711/1801)   [Kremote: Compressing objects:  96% (1729/1801)   [Kremote: Compressing objects:  97% (1747/1801)   [Kremote: Compressing objects:  98% (1765/1801)   [Kremote: Compressing objects:  99% (1783/1801)   [Kremote: Compressing objects: 100% (1801/1801)   [Kremote: Compressing objects: 100% (1801/1801), done.[K
+Receiving objects:   0% (1/3280)   Receiving objects:   1% (33/3280)   Receiving objects:   2% (66/3280)   Receiving objects:   3% (99/3280)   Receiving objects:   4% (132/3280)   Receiving objects:   5% (164/3280)   Receiving objects:   6% (197/3280)   Receiving objects:   7% (230/3280)   Receiving objects:   8% (263/3280)   Receiving objects:   9% (296/3280)   Receiving objects:  10% (328/3280)   Receiving objects:  11% (361/3280)   Receiving objects:  12% (394/3280)   Receiving objects:  13% (427/3280)   Receiving objects:  14% (460/3280)   Receiving objects:  15% (492/3280)   Receiving objects:  16% (525/3280)   Receiving objects:  17% (558/3280)   Receiving objects:  18% (591/3280)   Receiving objects:  19% (624/3280)   Receiving objects:  20% (656/3280)   Receiving objects:  21% (689/3280)   Receiving objects:  22% (722/3280)   Receiving objects:  23% (755/3280)   Receiving objects:  24% (788/3280)   Receiving objects:  25% (820/3280)   Receiving objects:  26% (853/3280)   Receiving objects:  27% (886/3280)   Receiving objects:  28% (919/3280)   Receiving objects:  29% (952/3280)   Receiving objects:  30% (984/3280)   Receiving objects:  31% (1017/3280)   Receiving objects:  32% (1050/3280)   Receiving objects:  33% (1083/3280)   Receiving objects:  34% (1116/3280)   Receiving objects:  35% (1148/3280)   Receiving objects:  36% (1181/3280)   Receiving objects:  37% (1214/3280)   Receiving objects:  38% (1247/3280)   Receiving objects:  39% (1280/3280)   Receiving objects:  40% (1312/3280)   Receiving objects:  41% (1345/3280)   Receiving objects:  42% (1378/3280)   Receiving objects:  43% (1411/3280)   Receiving objects:  44% (1444/3280)   Receiving objects:  45% (1476/3280)   Receiving objects:  46% (1509/3280)   Receiving objects:  47% (1542/3280)   Receiving objects:  48% (1575/3280)   Receiving objects:  49% (1608/3280)   Receiving objects:  50% (1640/3280)   Receiving objects:  51% (1673/3280)   Receiving objects:  52% (1706/3280)   Receiving objects:  53% (1739/3280)   Receiving objects:  54% (1772/3280)   Receiving objects:  55% (1804/3280)   Receiving objects:  56% (1837/3280)   Receiving objects:  57% (1870/3280)   Receiving objects:  58% (1903/3280)   Receiving objects:  59% (1936/3280)   Receiving objects:  60% (1968/3280)   Receiving objects:  61% (2001/3280)   Receiving objects:  62% (2034/3280)   Receiving objects:  63% (2067/3280)   Receiving objects:  64% (2100/3280)   Receiving objects:  65% (2132/3280)   Receiving objects:  66% (2165/3280)   Receiving objects:  67% (2198/3280)   Receiving objects:  68% (2231/3280)   Receiving objects:  69% (2264/3280)   Receiving objects:  70% (2296/3280)   Receiving objects:  71% (2329/3280)   Receiving objects:  72% (2362/3280)   Receiving objects:  73% (2395/3280)   Receiving objects:  74% (2428/3280)   Receiving objects:  75% (2460/3280)   Receiving objects:  76% (2493/3280)   Receiving objects:  77% (2526/3280)   Receiving objects:  78% (2559/3280)   Receiving objects:  79% (2592/3280)   Receiving objects:  80% (2624/3280)   Receiving objects:  81% (2657/3280)   Receiving objects:  82% (2690/3280)   Receiving objects:  83% (2723/3280)   Receiving objects:  84% (2756/3280)   Receiving objects:  85% (2788/3280)   remote: Total 3280 (delta 1661), reused 2832 (delta 1410), pack-reused 0[K
+Receiving objects:  86% (2821/3280)   Receiving objects:  87% (2854/3280)   Receiving objects:  88% (2887/3280)   Receiving objects:  89% (2920/3280)   Receiving objects:  90% (2952/3280)   Receiving objects:  91% (2985/3280)   Receiving objects:  92% (3018/3280)   Receiving objects:  93% (3051/3280)   Receiving objects:  94% (3084/3280)   Receiving objects:  95% (3116/3280)   Receiving objects:  96% (3149/3280)   Receiving objects:  97% (3182/3280)   Receiving objects:  98% (3215/3280)   Receiving objects:  99% (3248/3280)   Receiving objects: 100% (3280/3280)   Receiving objects: 100% (3280/3280), 815.98 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1661)   Resolving deltas:   3% (62/1661)   Resolving deltas:   4% (68/1661)   Resolving deltas:   5% (86/1661)   Resolving deltas:   6% (101/1661)   Resolving deltas:   7% (126/1661)   Resolving deltas:   8% (136/1661)   Resolving deltas:   9% (151/1661)   Resolving deltas:  10% (168/1661)   Resolving deltas:  11% (183/1661)   Resolving deltas:  12% (200/1661)   Resolving deltas:  13% (217/1661)   Resolving deltas:  14% (233/1661)   Resolving deltas:  15% (250/1661)   Resolving deltas:  16% (266/1661)   Resolving deltas:  17% (283/1661)   Resolving deltas:  18% (300/1661)   Resolving deltas:  21% (363/1661)   Resolving deltas:  43% (730/1661)   Resolving deltas:  46% (775/1661)   Resolving deltas:  52% (875/1661)   Resolving deltas:  64% (1068/1661)   Resolving deltas:  66% (1111/1661)   Resolving deltas:  72% (1211/1661)   Resolving deltas:  73% (1229/1661)   Resolving deltas:  74% (1232/1661)   Resolving deltas:  75% (1260/1661)   Resolving deltas:  76% (1263/1661)   Resolving deltas:  79% (1321/1661)   Resolving deltas:  80% (1329/1661)   Resolving deltas:  86% (1431/1661)   Resolving deltas:  92% (1530/1661)   Resolving deltas:  93% (1545/1661)   Resolving deltas:  94% (1563/1661)   Resolving deltas:  95% (1581/1661)   Resolving deltas:  96% (1603/1661)   Resolving deltas: 100% (1661/1661)   Resolving deltas: 100% (1661/1661), done.
+Checking connectivity... done.
+travis_time:end:1895890c:start=1441972126451304513,finish=1441972127309461160,duration=858156647[0K$ cd uniba-dsg/betsy
+travis_time:start:0186dc30[0K$ git fetch origin +refs/pull/34/merge:
+remote: Counting objects: 299, done.[K
+remote: Compressing objects:   0% (1/140)   [Kremote: Compressing objects:   1% (2/140)   [Kremote: Compressing objects:   2% (3/140)   [Kremote: Compressing objects:   3% (5/140)   [Kremote: Compressing objects:   4% (6/140)   [Kremote: Compressing objects:   5% (7/140)   [Kremote: Compressing objects:   6% (9/140)   [Kremote: Compressing objects:   7% (10/140)   [Kremote: Compressing objects:   8% (12/140)   [Kremote: Compressing objects:   9% (13/140)   [Kremote: Compressing objects:  10% (14/140)   [Kremote: Compressing objects:  11% (16/140)   [Kremote: Compressing objects:  12% (17/140)   [Kremote: Compressing objects:  13% (19/140)   [Kremote: Compressing objects:  14% (20/140)   [Kremote: Compressing objects:  15% (21/140)   [Kremote: Compressing objects:  16% (23/140)   [Kremote: Compressing objects:  17% (24/140)   [Kremote: Compressing objects:  18% (26/140)   [Kremote: Compressing objects:  19% (27/140)   [Kremote: Compressing objects:  20% (28/140)   [Kremote: Compressing objects:  21% (30/140)   [Kremote: Compressing objects:  22% (31/140)   [Kremote: Compressing objects:  23% (33/140)   [Kremote: Compressing objects:  24% (34/140)   [Kremote: Compressing objects:  25% (35/140)   [Kremote: Compressing objects:  26% (37/140)   [Kremote: Compressing objects:  27% (38/140)   [Kremote: Compressing objects:  28% (40/140)   [Kremote: Compressing objects:  29% (41/140)   [Kremote: Compressing objects:  30% (42/140)   [Kremote: Compressing objects:  31% (44/140)   [Kremote: Compressing objects:  32% (45/140)   [Kremote: Compressing objects:  33% (47/140)   [Kremote: Compressing objects:  34% (48/140)   [Kremote: Compressing objects:  35% (49/140)   [Kremote: Compressing objects:  36% (51/140)   [Kremote: Compressing objects:  37% (52/140)   [Kremote: Compressing objects:  38% (54/140)   [Kremote: Compressing objects:  39% (55/140)   [Kremote: Compressing objects:  40% (56/140)   [Kremote: Compressing objects:  41% (58/140)   [Kremote: Compressing objects:  42% (59/140)   [Kremote: Compressing objects:  43% (61/140)   [Kremote: Compressing objects:  44% (62/140)   [Kremote: Compressing objects:  45% (63/140)   [Kremote: Compressing objects:  46% (65/140)   [Kremote: Compressing objects:  47% (66/140)   [Kremote: Compressing objects:  48% (68/140)   [Kremote: Compressing objects:  49% (69/140)   [Kremote: Compressing objects:  50% (70/140)   [Kremote: Compressing objects:  51% (72/140)   [Kremote: Compressing objects:  52% (73/140)   [Kremote: Compressing objects:  53% (75/140)   [Kremote: Compressing objects:  54% (76/140)   [Kremote: Compressing objects:  55% (77/140)   [Kremote: Compressing objects:  56% (79/140)   [Kremote: Compressing objects:  57% (80/140)   [Kremote: Compressing objects:  58% (82/140)   [Kremote: Compressing objects:  59% (83/140)   [Kremote: Compressing objects:  60% (84/140)   [Kremote: Compressing objects:  61% (86/140)   [Kremote: Compressing objects:  62% (87/140)   [Kremote: Compressing objects:  63% (89/140)   [Kremote: Compressing objects:  64% (90/140)   [Kremote: Compressing objects:  65% (91/140)   [Kremote: Compressing objects:  66% (93/140)   [Kremote: Compressing objects:  67% (94/140)   [Kremote: Compressing objects:  68% (96/140)   [Kremote: Compressing objects:  69% (97/140)   [Kremote: Compressing objects:  70% (98/140)   [Kremote: Compressing objects:  71% (100/140)   [Kremote: Compressing objects:  72% (101/140)   [Kremote: Compressing objects:  73% (103/140)   [Kremote: Compressing objects:  74% (104/140)   [Kremote: Compressing objects:  75% (105/140)   [Kremote: Compressing objects:  76% (107/140)   [Kremote: Compressing objects:  77% (108/140)   [Kremote: Compressing objects:  78% (110/140)   [Kremote: Compressing objects:  79% (111/140)   [Kremote: Compressing objects:  80% (112/140)   [Kremote: Compressing objects:  81% (114/140)   [Kremote: Compressing objects:  82% (115/140)   [Kremote: Compressing objects:  83% (117/140)   [Kremote: Compressing objects:  84% (118/140)   [Kremote: Compressing objects:  85% (119/140)   [Kremote: Compressing objects:  86% (121/140)   [Kremote: Compressing objects:  87% (122/140)   [Kremote: Compressing objects:  88% (124/140)   [Kremote: Compressing objects:  89% (125/140)   [Kremote: Compressing objects:  90% (126/140)   [Kremote: Compressing objects:  91% (128/140)   [Kremote: Compressing objects:  92% (129/140)   [Kremote: Compressing objects:  93% (131/140)   [Kremote: Compressing objects:  94% (132/140)   [Kremote: Compressing objects:  95% (133/140)   [Kremote: Compressing objects:  96% (135/140)   [Kremote: Compressing objects:  97% (136/140)   [Kremote: Compressing objects:  98% (138/140)   [Kremote: Compressing objects:  99% (139/140)   [Kremote: Compressing objects: 100% (140/140)   [Kremote: Compressing objects: 100% (140/140), done.[K
+remote: Total 299 (delta 192), reused 254 (delta 150), pack-reused 0[K
+Receiving objects:   0% (1/299)   Receiving objects:   1% (3/299)   Receiving objects:   2% (6/299)   Receiving objects:   3% (9/299)   Receiving objects:   4% (12/299)   Receiving objects:   5% (15/299)   Receiving objects:   6% (18/299)   Receiving objects:   7% (21/299)   Receiving objects:   8% (24/299)   Receiving objects:   9% (27/299)   Receiving objects:  10% (30/299)   Receiving objects:  11% (33/299)   Receiving objects:  12% (36/299)   Receiving objects:  13% (39/299)   Receiving objects:  14% (42/299)   Receiving objects:  15% (45/299)   Receiving objects:  16% (48/299)   Receiving objects:  17% (51/299)   Receiving objects:  18% (54/299)   Receiving objects:  19% (57/299)   Receiving objects:  20% (60/299)   Receiving objects:  21% (63/299)   Receiving objects:  22% (66/299)   Receiving objects:  23% (69/299)   Receiving objects:  24% (72/299)   Receiving objects:  25% (75/299)   Receiving objects:  26% (78/299)   Receiving objects:  27% (81/299)   Receiving objects:  28% (84/299)   Receiving objects:  29% (87/299)   Receiving objects:  30% (90/299)   Receiving objects:  31% (93/299)   Receiving objects:  32% (96/299)   Receiving objects:  33% (99/299)   Receiving objects:  34% (102/299)   Receiving objects:  35% (105/299)   Receiving objects:  36% (108/299)   Receiving objects:  37% (111/299)   Receiving objects:  38% (114/299)   Receiving objects:  39% (117/299)   Receiving objects:  40% (120/299)   Receiving objects:  41% (123/299)   Receiving objects:  42% (126/299)   Receiving objects:  43% (129/299)   Receiving objects:  44% (132/299)   Receiving objects:  45% (135/299)   Receiving objects:  46% (138/299)   Receiving objects:  47% (141/299)   Receiving objects:  48% (144/299)   Receiving objects:  49% (147/299)   Receiving objects:  50% (150/299)   Receiving objects:  51% (153/299)   Receiving objects:  52% (156/299)   Receiving objects:  53% (159/299)   Receiving objects:  54% (162/299)   Receiving objects:  55% (165/299)   Receiving objects:  56% (168/299)   Receiving objects:  57% (171/299)   Receiving objects:  58% (174/299)   Receiving objects:  59% (177/299)   Receiving objects:  60% (180/299)   Receiving objects:  61% (183/299)   Receiving objects:  62% (186/299)   Receiving objects:  63% (189/299)   Receiving objects:  64% (192/299)   Receiving objects:  65% (195/299)   Receiving objects:  66% (198/299)   Receiving objects:  67% (201/299)   Receiving objects:  68% (204/299)   Receiving objects:  69% (207/299)   Receiving objects:  70% (210/299)   Receiving objects:  71% (213/299)   Receiving objects:  72% (216/299)   Receiving objects:  73% (219/299)   Receiving objects:  74% (222/299)   Receiving objects:  75% (225/299)   Receiving objects:  76% (228/299)   Receiving objects:  77% (231/299)   Receiving objects:  78% (234/299)   Receiving objects:  79% (237/299)   Receiving objects:  80% (240/299)   Receiving objects:  81% (243/299)   Receiving objects:  82% (246/299)   Receiving objects:  83% (249/299)   Receiving objects:  84% (252/299)   Receiving objects:  85% (255/299)   Receiving objects:  86% (258/299)   Receiving objects:  87% (261/299)   Receiving objects:  88% (264/299)   Receiving objects:  89% (267/299)   Receiving objects:  90% (270/299)   Receiving objects:  91% (273/299)   Receiving objects:  92% (276/299)   Receiving objects:  93% (279/299)   Receiving objects:  94% (282/299)   Receiving objects:  95% (285/299)   Receiving objects:  96% (288/299)   Receiving objects:  97% (291/299)   Receiving objects:  98% (294/299)   Receiving objects:  99% (297/299)   Receiving objects: 100% (299/299)   Receiving objects: 100% (299/299), 23.47 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/192)   Resolving deltas:   8% (16/192)   Resolving deltas:  26% (51/192)   Resolving deltas:  28% (55/192)   Resolving deltas:  29% (56/192)   Resolving deltas:  40% (78/192)   Resolving deltas:  41% (79/192)   Resolving deltas:  50% (97/192)   Resolving deltas:  59% (115/192)   Resolving deltas:  60% (117/192)   Resolving deltas:  61% (119/192)   Resolving deltas:  65% (125/192)   Resolving deltas:  68% (131/192)   Resolving deltas:  69% (133/192)   Resolving deltas:  73% (142/192)   Resolving deltas:  74% (143/192)   Resolving deltas:  75% (144/192)   Resolving deltas:  78% (151/192)   Resolving deltas:  79% (153/192)   Resolving deltas:  80% (155/192)   Resolving deltas:  81% (157/192)   Resolving deltas:  82% (159/192)   Resolving deltas:  83% (160/192)   Resolving deltas:  85% (164/192)   Resolving deltas:  86% (166/192)   Resolving deltas:  87% (168/192)   Resolving deltas:  88% (169/192)   Resolving deltas:  92% (178/192)   Resolving deltas:  97% (187/192)   Resolving deltas: 100% (192/192)   Resolving deltas: 100% (192/192), completed with 33 local objects.
+From https://github.com/uniba-dsg/betsy
+ * branch            refs/pull/34/merge -> FETCH_HEAD
+travis_time:end:0186dc30:start=1441972127313284568,finish=1441972127611636092,duration=298351524[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:0d07ef0c[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+travis_time:end:0d07ef0c:start=1441972127778356643,finish=1441972134334064197,duration=6555707554[0Ktravis_time:start:17f7887c[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install openjdk-7-jre
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  openjdk-7-jdk openjdk-7-jre-headless
+Suggested packages:
+  openjdk-7-demo openjdk-7-source visualvm icedtea-7-jre-jamvm libnss-mdns
+  sun-java6-fonts fonts-ipafont-gothic fonts-ipafont-mincho ttf-wqy-microhei
+  ttf-wqy-zenhei ttf-indic-fonts-core ttf-telugu-fonts ttf-oriya-fonts
+  ttf-kannada-fonts ttf-bengali-fonts
+The following packages will be upgraded:
+  openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless
+3 upgraded, 0 newly installed, 0 to remove and 209 not upgraded.
+Need to get 58.4 MB of archives.
+After this operation, 43.0 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jdk amd64 7u79-2.5.6-0ubuntu1.12.04.1 [16.5 MB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jre amd64 7u79-2.5.6-0ubuntu1.12.04.1 [212 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jre-headless amd64 7u79-2.5.6-0ubuntu1.12.04.1 [41.7 MB]
+Fetched 58.4 MB in 22s (2,555 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace openjdk-7-jdk 7u75-2.5.4-1~precise1 (using .../openjdk-7-jdk_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jdk ...
+Preparing to replace openjdk-7-jre 7u75-2.5.4-1~precise1 (using .../openjdk-7-jre_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jre ...
+Preparing to replace openjdk-7-jre-headless 7u75-2.5.4-1~precise1 (using .../openjdk-7-jre-headless_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jre-headless ...
+Processing triggers for hicolor-icon-theme ...
+Setting up openjdk-7-jre-headless (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Installing new version of config file /etc/java-7-openjdk/security/java.security ...
+Setting up openjdk-7-jre (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Setting up openjdk-7-jdk (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_time:end:17f7887c:start=1441972134338400087,finish=1441972165741399612,duration=31402999525[0Ktravis_fold:end:apt[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export JAVA7_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:13f5b9ac[0K$ Installing caching utilities
+travis_time:end:13f5b9ac:start=1441972167400155915,finish=1441972167477737722,duration=77581807[0Ktravis_time:start:20afbade[0Kattempting to download cache archive
+fetching PR.34/cache--jdk-oraclejdk8.tgz
+found cache
+travis_time:end:20afbade:start=1441972167482460198,finish=1441972197162168525,duration=29679708327[0Ktravis_time:start:161ceec0[0Kadding /home/travis/build/uniba-dsg/betsy/downloads to cache
+adding /home/travis/.gradle/caches to cache
+adding /home/travis/.gradle/wrapper to cache
+travis_time:end:161ceec0:start=1441972197165823390,finish=1441972209132051640,duration=11966228250[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:04395330[0K$ TERM=dumb travis_retry ./gradlew assemble --info
+Starting Build
+Settings evaluated using settings file '/master/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+Included projects: [root project 'betsy']
+Evaluating root project 'betsy' using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+All projects evaluated.
+Selected primary task 'assemble' from project :
+Tasks to be executed: [task ':compileJava', task ':downloadSoapUI', task ':downloadAnt', task ':installAnt', task ':downloadMaven', task ':installMaven', task ':installSoapUI', task ':compileGroovy', task ':processResources', task ':classes', task ':jar', task ':startScripts', task ':distTar', task ':distZip', task ':assemble']
+:compileJava (Thread[main,5,main]) started.
+:compileJava
+Resource missing. [HTTP GET: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.jar]
+Resource missing. [HTTP GET: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.jar]
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin', not found
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib', not found
+Executing task ':compileJava' (up-to-date check took 5.114 secs) due to:
+  No history is available.
+All input files are considered out-of-date for incremental task ':compileJava'.
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin', not found
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib', not found
+Compiling with JDK Java compiler API.
+:compileJava (Thread[main,5,main]) completed. Took 7.909 secs.
+:downloadSoapUI (Thread[main,5,main]) started.
+:downloadSoapUI
+Executing task ':downloadSoapUI' (up-to-date check took 0.863 secs) due to:
+  No history is available.
+[ant:get] Destination already exists (skipping): /home/travis/build/uniba-dsg/betsy/downloads/SoapUI-4.6.4-windows-bin.zip
+:downloadSoapUI (Thread[main,5,main]) completed. Took 1.681 secs.
+:downloadAnt (Thread[main,5,main]) started.
+:downloadAnt
+Executing task ':downloadAnt' (up-to-date check took 0.043 secs) due to:
+  No history is available.
+[ant:get] Getting: https://lspi.wiai.uni-bamberg.de/svn/betsy/apache-ant-1.9.2-bin.zip
+[ant:get] To: /home/travis/build/uniba-dsg/betsy/downloads/apache-ant-1.9.2-bin.zip
+:downloadAnt (Thread[main,5,main]) completed. Took 2.948 secs.
+:installAnt (Thread[main,5,main]) started.
+:installAnt
+Executing task ':installAnt' (up-to-date check took 0.002 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/ant
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/apache-ant-1.9.2-bin.zip into /home/travis/build/uniba-dsg/betsy/ant
+:installAnt (Thread[main,5,main]) completed. Took 4.052 secs.
+:downloadMaven (Thread[main,5,main]) started.
+:downloadMaven
+Executing task ':downloadMaven' (up-to-date check took 0.061 secs) due to:
+  No history is available.
+[ant:get] Destination already exists (skipping): /home/travis/build/uniba-dsg/betsy/downloads/apache-maven-3.2.1.zip
+:downloadMaven (Thread[main,5,main]) completed. Took 0.094 secs.
+:installMaven (Thread[main,5,main]) started.
+:installMaven
+Executing task ':installMaven' (up-to-date check took 0.009 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/maven/apache-maven-3.2.1
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/apache-maven-3.2.1.zip into /home/travis/build/uniba-dsg/betsy/maven
+:installMaven (Thread[main,5,main]) completed. Took 0.448 secs.
+:installSoapUI (Thread[main,5,main]) started.
+:installSoapUI
+Executing task ':installSoapUI' (up-to-date check took 0.001 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/SoapUI-4.6.4-windows-bin.zip into /home/travis/build/uniba-dsg/betsy/soapui
+:installSoapUI (Thread[main,5,main]) completed. Took 3.555 secs.
+:compileGroovy (Thread[main,5,main]) started.
+:compileGroovy
+Executing task ':compileGroovy' (up-to-date check took 0.913 secs) due to:
+  No history is available.
+Starting process 'Gradle Compiler Daemon 1'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Compiler Daemon 1'
+Successfully started process 'Gradle Compiler Daemon 1'
+Started Gradle compiler daemon (2.239 secs) with fork options DaemonForkOptions{minHeapSize=null, maxHeapSize=null, jvmArgs=[], classpath=[/home/travis/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.4.4/b22748b6cf9a38c9777792175507a679043cdd64/groovy-all-2.4.4.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-1.9.3.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-launcher-1.9.3.jar]}.
+Executing org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@639bd0ba in compiler daemon.
+Compiling with JDK Java compiler API.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Successfully executed org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@639bd0ba in compiler daemon.
+:compileGroovy (Thread[main,5,main]) completed. Took 24.883 secs.
+:processResources (Thread[main,5,main]) started.
+:processResources
+Executing task ':processResources' (up-to-date check took 3.282 secs) due to:
+  No history is available.
+:processResources (Thread[main,5,main]) completed. Took 6.27 secs.
+:classes (Thread[main,5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes (Thread[main,5,main]) completed. Took 0.001 secs.
+:jar (Thread[main,5,main]) started.
+:jar
+Executing task ':jar' (up-to-date check took 0.488 secs) due to:
+  No history is available.
+:jar (Thread[main,5,main]) completed. Took 2.197 secs.
+:startScripts (Thread[main,5,main]) started.
+:startScripts
+Executing task ':startScripts' (up-to-date check took 0.063 secs) due to:
+  No history is available.
+:startScripts (Thread[main,5,main]) completed. Took 1.137 secs.
+:distTar (Thread[main,5,main]) started.
+:distTar
+Executing task ':distTar' (up-to-date check took 0.094 secs) due to:
+  No history is available.
+:distTar (Thread[main,5,main]) completed. Took 1.22 secs.
+:distZip (Thread[main,5,main]) started.
+:distZip
+Executing task ':distZip' (up-to-date check took 0.02 secs) due to:
+  No history is available.
+:distZip (Thread[main,5,main]) completed. Took 4.375 secs.
+:assemble (Thread[main,5,main]) started.
+:assemble
+Skipping task ':assemble' as it has no actions.
+:assemble (Thread[main,5,main]) completed. Took 0.0 secs.
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 21.047 secs
+Stopped 1 compiler daemon(s).
+travis_time:end:04395330:start=1441972211846691001,finish=1441972293539281532,duration=81692590531[0Ktravis_fold:end:install[0Ktravis_time:start:08e36416[0K$ TERM=dumb ./gradlew test --tests *SystemTest*.test_B5_BpelOpenesb301StandaloneSequence --info
+Starting Build
+Settings evaluated using settings file '/master/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+Included projects: [root project 'betsy']
+Evaluating root project 'betsy' using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+All projects evaluated.
+Selected primary task 'test' from project :
+Tasks to be executed: [task ':compileJava', task ':downloadSoapUI', task ':downloadAnt', task ':installAnt', task ':downloadMaven', task ':installMaven', task ':installSoapUI', task ':compileGroovy', task ':processResources', task ':classes', task ':compileTestJava', task ':compileTestGroovy', task ':processTestResources', task ':testClasses', task ':test']
+:compileJava (Thread[main,5,main]) started.
+:compileJava
+Resource missing. [HTTP GET: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.jar]
+Resource missing. [HTTP GET: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.jar]
+Executing task ':compileJava' (up-to-date check took 4.767 secs) due to:
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/xmlunit-1.2.jar has been added.
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/hermes-1.14.jar has been added.
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/maven-plugin-api-2.0.jar has been added.
+Compiling with JDK Java compiler API.
+:compileJava (Thread[main,5,main]) completed. Took 7.702 secs.
+:downloadSoapUI (Thread[main,5,main]) started.
+:downloadSoapUI
+Skipping task ':downloadSoapUI' as it is up-to-date (took 0.004 secs).
+:downloadSoapUI UP-TO-DATE
+:downloadSoapUI (Thread[main,5,main]) completed. Took 0.005 secs.
+:downloadAnt (Thread[main,5,main]) started.
+:downloadAnt
+Skipping task ':downloadAnt' as it is up-to-date (took 0.003 secs).
+:downloadAnt UP-TO-DATE
+:downloadAnt (Thread[main,5,main]) completed. Took 0.004 secs.
+:installAnt (Thread[main,5,main]) started.
+:installAnt
+Skipping task ':installAnt' as it is up-to-date (took 0.404 secs).
+:installAnt UP-TO-DATE
+:installAnt (Thread[main,5,main]) completed. Took 0.422 secs.
+:downloadMaven (Thread[main,5,main]) started.
+:downloadMaven
+Skipping task ':downloadMaven' as it is up-to-date (took 0.002 secs).
+:downloadMaven UP-TO-DATE
+:downloadMaven (Thread[main,5,main]) completed. Took 0.004 secs.
+:installMaven (Thread[main,5,main]) started.
+:installMaven
+Skipping task ':installMaven' as it is up-to-date (took 0.004 secs).
+:installMaven UP-TO-DATE
+:installMaven (Thread[main,5,main]) completed. Took 0.028 secs.
+:installSoapUI (Thread[main,5,main]) started.
+:installSoapUI
+Skipping task ':installSoapUI' as it is up-to-date (took 0.061 secs).
+:installSoapUI UP-TO-DATE
+:installSoapUI (Thread[main,5,main]) completed. Took 0.072 secs.
+:compileGroovy (Thread[main,5,main]) started.
+:compileGroovy
+Skipping task ':compileGroovy' as it is up-to-date (took 0.299 secs).
+:compileGroovy UP-TO-DATE
+:compileGroovy (Thread[main,5,main]) completed. Took 0.315 secs.
+:processResources (Thread[main,5,main]) started.
+:processResources
+Skipping task ':processResources' as it is up-to-date (took 6.202 secs).
+:processResources UP-TO-DATE
+:processResources (Thread[main,5,main]) completed. Took 6.66 secs.
+:classes (Thread[main,5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes (Thread[main,5,main]) completed. Took 0.011 secs.
+:compileTestJava (Thread[main,5,main]) started.
+:compileTestJava
+file or directory '/home/travis/build/uniba-dsg/betsy/src/test/java', not found
+Skipping task ':compileTestJava' as it has no source files.
+:compileTestJava UP-TO-DATE
+:compileTestJava (Thread[main,5,main]) completed. Took 0.009 secs.
+:compileTestGroovy (Thread[main,5,main]) started.
+:compileTestGroovy
+Executing task ':compileTestGroovy' (up-to-date check took 1.604 secs) due to:
+  No history is available.
+Starting process 'Gradle Compiler Daemon 1'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Compiler Daemon 1'
+Successfully started process 'Gradle Compiler Daemon 1'
+Started Gradle compiler daemon (2.466 secs) with fork options DaemonForkOptions{minHeapSize=null, maxHeapSize=null, jvmArgs=[], classpath=[/home/travis/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.4.4/b22748b6cf9a38c9777792175507a679043cdd64/groovy-all-2.4.4.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-1.9.3.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-launcher-1.9.3.jar]}.
+Executing org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@5475822f in compiler daemon.
+Compiling with JDK Java compiler API.
+Successfully executed org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@5475822f in compiler daemon.
+:compileTestGroovy (Thread[main,5,main]) completed. Took 8.317 secs.
+:processTestResources (Thread[main,5,main]) started.
+:processTestResources
+file or directory '/home/travis/build/uniba-dsg/betsy/src/test/resources', not found
+Skipping task ':processTestResources' as it has no source files.
+:processTestResources UP-TO-DATE
+:processTestResources (Thread[main,5,main]) completed. Took 0.001 secs.
+:testClasses (Thread[main,5,main]) started.
+:testClasses
+Skipping task ':testClasses' as it has no actions.
+:testClasses (Thread[main,5,main]) completed. Took 0.002 secs.
+:test (Thread[main,5,main]) started.
+:test
+Executing task ':test' (up-to-date check took 0.229 secs) due to:
+  No history is available.
+Starting process 'Gradle Test Executor 2'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_4oo2qgb84bu19pqprc168emt5/jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+Gradle Test Executor 2 started executing tests.
+
+betsy.SystemTest > test_B5_BpelOpenesb301StandaloneSequence STANDARD_OUT
+    [ option: f use-custom-test-folder  [ARG] :: Use custom test folder :: class java.lang.String ]
+    [] [] Engines (1): [openesb301standalone]
+    [] [] Processes (1): [Sequence]
+    [] [] Started TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Started TestPartnerService at http://localhost:2000/bpel-testpartner
+    [] [] Stopping TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Stopped TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Stopping TestPartnerService at http://localhost:2000/bpel-testpartner
+    [] [] Stopped TestPartnerService at http://localhost:2000/bpel-testpartner
+    [0/1] [] Deleting directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone
+    [0/1] [] Directory is already deleted!
+    [0/1] [] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone
+    [0/1] [test-openesb301standalone] Creating directory /home/travis/build/uniba-dsg/betsy
+    [0/1] [test-openesb301standalone] Directory already there - skipping creation
+    [0/1] [test-openesb301standalone] Start ...
+    [0/1] [test-openesb301standalone] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [0/1] [test-openesb301standalone] java.net.ConnectException: Connection refused
+    [0/1] [test-openesb301standalone] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone
+    [0/1] [test-openesb301standalone/openesb301standalone] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone
+    [0/1] [test-openesb301standalone/openesb301standalone] Directory already there - skipping creation
+    [0/1] [test-openesb301standalone/openesb301standalone] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying BPEL, WSDL and additional files to target directory
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/src/main/tests/files/bpel/structured/Sequence.bpel into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/Sequence.bpel {../=""}
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/src/main/tests/files/bpel/TestInterface.wsdl into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF/catalog.xml with <?xml version='1.0' encoding='UTF-8' standalone='no'?>@LINE_BREAK@<catalog xmlns='urn:oasis:names:tc:entity:xmlns:xml:catalog' prefer='system'>@LINE_BREAK@</catalog>
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF/MANIFEST.MF with Manifest-Version: 1.0
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Processing test-openesb301standalone/openesb301standalone/structured__Sequence/process/Sequence.bpel to test-openesb301standalone/openesb301standalone/structured__Sequence/process/META-INF/jbi.xml
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/openesb/create_jbi_from_bpel.xsl
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl {TestInterfaceService="SequenceTestInterfaceService"}
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Setting WSDL endpoint to http://localhost:18181/SequenceTestInterface
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl {ENDPOINT_URL="http://localhost:18181/SequenceTestInterface"}
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Setting Partner Address to localhost:2000
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process {PARTNER_IP_AND_PORT="localhost:2000"}
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating zip archive test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/Sequence.zip using the contents of test-openesb301standalone/openesb301standalone/structured__Sequence/process
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.zip] Building zip: /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/Sequence.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Moving file test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/Sequence.zip to test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/Sequence.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Processing test-openesb301standalone/openesb301standalone/structured__Sequence/process/Sequence.bpel to test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF/jbi.xml
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/openesb/create_binding_jbi_from_bpel.xsl
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF/catalog.xml with <?xml version='1.0' encoding='UTF-8' standalone='no'?><catalog xmlns='urn:oasis:names:tc:entity:xmlns:xml:catalog' prefer='system'></catalog>
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/META-INF/MANIFEST.MF with Manifest-Version: 1.0
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding/Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating zip archive test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/sun-http-binding.jar using the contents of test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/binding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.zip] Building zip: /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/sun-http-binding.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite/META-INF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Processing test-openesb301standalone/openesb301standalone/structured__Sequence/process/Sequence.bpel to test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite/META-INF/jbi.xml
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/openesb/create_composite_jbi_from_bpel.xsl
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Processing test-openesb301standalone/openesb301standalone/structured__Sequence/process/Sequence.bpel to test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite/META-INF/MANIFEST.MF
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/openesb/create_composite_manifest_from_bpel.xsl
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/Sequence.jar into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/sun-http-binding.jar into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] Creating zip archive test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/SequenceApplication.zip using the contents of test-openesb301standalone/openesb301standalone/structured__Sequence/tmp/composite
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] [ant.zip] Building zip: /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/SequenceApplication.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_package] ... finished in 1s | (1517ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Creating SoapUI TestSuite
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/soapui
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/reports
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Missing folder [/home/travis/build/uniba-dsg/betsy/./ext] for external libraries
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Creating new settings at [/home/travis/soapui-settings.xml]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Loading schema types from [file:/home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Getting schema file:/home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Finding importer for {http://dsg.wiai.uniba.de/betsy/activities/wsdl/testinterface}TestInterfacePortTypeBinding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Importing binding {http://dsg.wiai.uniba.de/betsy/activities/wsdl/testinterface}TestInterfacePortTypeBinding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] importing endpoint http://localhost:18181/SequenceTestInterface
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] importing operation startProcessAsync
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] importing operation startProcessSync
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] importing operation startProcessSyncString
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Convert string 'file:/home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/process/TestInterface.wsdl' to class 'java.lang.String'
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Failed to delete temporary project file; /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/soapui/project-temp-9030638148695566491.xml
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] Saved project [soapui] to [/home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/soapui/test_openesb301standalone_structured_Sequence_soapui.xml - 8943 bytes
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build_test] ... finished in 5s | (5877ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/build] ... finished in 7s | (7402ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Deleting directory /home/travis/build/uniba-dsg/betsy/server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Directory is already deleted!
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/downloads
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] [ant.get] Destination already exists (skipping): /home/travis/build/uniba-dsg/betsy/downloads/OpenESB-Quickstart-Standalone-v301-server-only.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Unzipping downloads/OpenESB-Quickstart-Standalone-v301-server-only.zip to server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] [ant.unzip] Expanding: downloads/OpenESB-Quickstart-Standalone-v301-server-only.zip into server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/start-openesb.bat with cd "/home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin" && start openesb.bat
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/start-openesb.sh with cd "/home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin" && ./openesb.sh >/dev/null 2>&1 &
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Executing on unix /home/travis/build/uniba-dsg/betsy/. $ chmod +x server/openesb301standalone/start-openesb.sh
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] Executing on unix /home/travis/build/uniba-dsg/betsy/. $ chmod +x server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin/openesb.sh
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_install] ... finished in 2s | (2057ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Executing on windows /home/travis/build/uniba-dsg/betsy/server/openesb301standalone $ start-openesb.bat 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Executing on unix /home/travis/build/uniba-dsg/betsy/server/openesb301standalone $ /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/start-openesb.sh 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking whether the url http://localhost:4848/webui returns HTTP 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Got response code 200
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 4888/1441972360593ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 7497/1441972365706ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] installing component encoderlib.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Copying file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Components/encoderlib.jar into folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/encoderlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 3486/1441972368213ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] installing component wsdlextlib.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Copying file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Components/wsdlextlib.jar into folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/wsdlextlib.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 3994/1441972374731ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] installing component httpbc-full.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Copying file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Components/httpbc-full.jar into folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/httpbc-full.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 3492/1441972380759ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] installing component bpelse.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Copying file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Components/bpelse.jar into folder /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] wait for at most 10000ms or until condition is met.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/server/jbi/autoinstall/bpelse.jar_installed
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] Condition of wait task was met in 3492/1441972387272ms -> proceeding
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_startup] ... finished in 33s | (33344ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Deploying Sequence from test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/SequenceApplication.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Creating directory /home/travis/build/uniba-dsg/betsy/server/openesb301standalone
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Creating file /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/password.txt with OE_ADMIN_PASSWORD=admin
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Executing on windows /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/lib $ java -jar openesb-oeadmin-1.0.1.jar deploy-jbi-service-assembly --user admin --passwordfile /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/password.txt /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/SequenceApplication.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Executing on unix /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/lib $ java -jar openesb-oeadmin-1.0.1.jar deploy-jbi-service-assembly --user admin --passwordfile /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/password.txt /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/pkg/SequenceApplication.zip
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec] Deployed service assembly {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   "component" : "SequenceApplication",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   "frameworkTask" : {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     "result" : {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskId" : "deploy",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskResult" : "SUCCESS",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "messageType" : "INFO",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskStatusMsg" : [ "JBIMA0495 : Deployment of service assembly SequenceApplication succeeded." ],
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "errorMsg" : [ ]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     }
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   },
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   "componentsTask" : [ {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     "component" : "sun-bpel-engine",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     "result" : {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskId" : "BPJBI-4000: Deploy",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskResult" : "SUCCESS",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "messageType" : "INFO",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskStatusMsg" : [ ],
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "errorMsg" : [ ]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     }
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   }, {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     "component" : "sun-http-binding",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     "result" : {
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskId" : "deploy",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskResult" : "SUCCESS",
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "messageType" : null,
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "taskStatusMsg" : [ ],
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]       "errorMsg" : [ ]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]     }
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec]   } ]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec] }.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Executing on windows /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/lib $ java -jar openesb-oeadmin-1.0.1.jar start-jbi-service-assembly --user admin --passwordfile /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/password.txt SequenceApplication
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] Executing on unix /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/lib $ java -jar openesb-oeadmin-1.0.1.jar start-jbi-service-assembly --user admin --passwordfile /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/password.txt SequenceApplication
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] [ant.exec] Started service assembly SequenceApplication.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/deploy] ... finished in 13s | (13006ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Started TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Started TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Loaded project from [file:/home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/soapui/test_openesb301standalone_structured_Sequence_soapui.xml]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Running SoapUI tests in project [soapui]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Running Project [soapui], runType = SEQUENTIAL
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Running SoapUI testcase [Good-Case-1-1]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] running step [Test Availability of WSDL]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] running step [Sending TestInterfacePortTypeBinding.startProcessSync Step #1]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Assertion [SOAP Response] has status VALID
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Assertion [XPath Match] has status VALID
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Assertion [Not SOAP Fault] has status VALID
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Finished running SoapUI testcase [Good-Case-1-1], time taken: 4466ms, status: FINISHED
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] Project [soapui] finished with status [FINISHED] in 4735ms
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test_soapui] ... finished in 5s | (5113ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Sleep for 500 ms NOW
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Stopping TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Stopped TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Stopping TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] Stopped TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/test] ... finished in 5s | (5989ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence/logs
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] Finding all files in dir [server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/logs]
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/collect] ... finished in 0s | (3ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/openesb301standalone/structured__Sequence
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] Start ...
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] Executing on windows /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin $ openesb.bat stop
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] Executing on unix /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin $ /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/bin/openesb.sh stop
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] =========================================================================
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec]   OpenESB Standalone Runtime Bootstrap Environment
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec]   OPENESB_HOME: /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec]   JAVA: /usr/lib/jvm/java-8-oracle/bin/java
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec]   JAVA_OPTS:  -Djava.net.preferIPv4Stack=true
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec]   CLASSPATH: /home/travis/build/uniba-dsg/betsy/server/openesb301standalone/OpenESB-SE-3.0.1/OE-Instance/lib/openesb-standalone-bootstrap-3.0.1.jar
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] =========================================================================
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] [ant.exec] 2015-09-11T11:53:26.103+0000 INFO [net.openesb.standalone.startup.Bootstrap] (main) OpenESB Standalone Container has has been stopped.
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence/engine_shutdown] ... finished in 3s | (3529ms)
+    [1/1] [test-openesb301standalone/openesb301standalone/structured__Sequence] ... finished in 65s | (65368ms)
+    [1/1] [test-openesb301standalone/openesb301standalone] ... finished in 65s | (65371ms)
+    [1/1] [test-openesb301standalone/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone
+    [1/1] [test-openesb301standalone/reports] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/reports] Start ...
+    [1/1] [test-openesb301standalone/reports] Finding first file in dir [test-openesb301standalone/openesb301standalone/structured__Sequence/reports] with pattern [*.xml]
+    [1/1] [test-openesb301standalone/reports] creating reporting ant scripts
+    [1/1] [test-openesb301standalone/reports] Copying contents of file /home/travis/build/uniba-dsg/betsy/build/resources/main/build.xml.template to file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/build.xml
+    [1/1] [test-openesb301standalone/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone
+    [1/1] [test-openesb301standalone/reports] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/reports] Copying contents of file /home/travis/build/uniba-dsg/betsy/build/resources/main/build.xml.template to file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/build.xml successful
+    [1/1] [test-openesb301standalone/reports] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/build.xml {PROJECT_NAME="test-openesb301standalone"}
+    [1/1] [test-openesb301standalone/reports] executing reporting ant scripts
+    [1/1] [test-openesb301standalone/reports] Executing on unix /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin $ chmod +x /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant
+    [1/1] [test-openesb301standalone/reports] Executing on windows /home/travis/build/uniba-dsg/betsy/test-openesb301standalone $ /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant 
+    [1/1] [test-openesb301standalone/reports] Executing on unix /home/travis/build/uniba-dsg/betsy/test-openesb301standalone $ /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant 
+    [1/1] [test-openesb301standalone/reports] [ant.exec] Buildfile: /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/build.xml
+    [1/1] [test-openesb301standalone/reports] [ant.exec] 
+    [1/1] [test-openesb301standalone/reports] [ant.exec] reports:
+    [1/1] [test-openesb301standalone/reports] [ant.exec]     [mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/reports
+    [1/1] [test-openesb301standalone/reports] [ant.exec] [junitreport] Processing /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/reports/TESTS-TestSuites.xml to /tmp/null603636506
+    [1/1] [test-openesb301standalone/reports] [ant.exec] [junitreport] Loading stylesheet jar:file:/home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+    [1/1] [test-openesb301standalone/reports] [ant.exec] [junitreport] Transform time: 752ms
+    [1/1] [test-openesb301standalone/reports] [ant.exec] [junitreport] Deleting: /tmp/null603636506
+    [1/1] [test-openesb301standalone/reports] [ant.exec] 
+    [1/1] [test-openesb301standalone/reports] [ant.exec] BUILD SUCCESSFUL
+    [1/1] [test-openesb301standalone/reports] [ant.exec] Total time: 1 second
+    [1/1] [test-openesb301standalone/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/reports
+    [1/1] [test-openesb301standalone/reports] Directory already there - skipping creation
+    [1/1] [test-openesb301standalone/reports] Creating file /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/reports/results.html with 44 lines
+    [1/1] [test-openesb301standalone/reports] Copying file /home/travis/build/uniba-dsg/betsy/build/resources/main/betsy/common/analytics/html/bootstrap.min.css into folder /home/travis/build/uniba-dsg/betsy/test-openesb301standalone/reports
+    [1/1] [test-openesb301standalone/reports] ... finished in 3s | (3143ms)
+    [1/1] [test-openesb301standalone] ... finished in 68s | (68543ms)
+Gradle Test Executor 2 finished executing tests.
+Finished generating test XML results (0.067 secs) into: /home/travis/build/uniba-dsg/betsy/build/test-results
+Generating HTML test report...
+Finished generating test html results (0.038 secs) into: /home/travis/build/uniba-dsg/betsy/build/reports/tests
+:test (Thread[main,5,main]) completed. Took 1 mins 21.288 secs.
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 56.387 secs
+Stopped 1 compiler daemon(s).
+travis_time:end:08e36416:start=1441972293544606179,finish=1441972410377190350,duration=116832584171[0K
+[32;1mThe command "TERM=dumb ./gradlew test --tests *SystemTest*.test_B5_BpelOpenesb301StandaloneSequence --info" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:16e1e074[0Kchange detected:
+/home/travis/.gradle/caches/2.6/plugin-resolution/cache.properties.lock
+/home/travis/.gradle/caches/2.6/plugin-resolution/cache.properties.lock
+/home/travis/.gradle/caches/modules-2/metadata-2.15/module-metadata.bin
+/home/travis/.gradle/caches/modules-2/metadata-2.15/module-metadata.bin
+/home/travis/.gradle/caches/modules-2/modules-2.lock
+/home/travis/.gradle/caches/modules-2/modules-2.lock
+
+changes detected, packing new archive
+.
+.
+.
+.
+.
+.
+.
+.
+.
+uploading archive
+travis_time:end:16e1e074:start=1441972410382696828,finish=1441972501300627376,duration=90917930548[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:1f6da870[0K$ ./gradlew jacocoTestReport coveralls
+:compileJava UP-TO-DATE
+:downloadSoapUI UP-TO-DATE
+:downloadAnt UP-TO-DATE
+:installAnt UP-TO-DATE
+:downloadMaven UP-TO-DATE
+:installMaven UP-TO-DATE
+:installSoapUI UP-TO-DATE
+:compileGroovy UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:jacocoTestReport
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.1.201405082137/org.jacoco.ant-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.1.201405082137/org.jacoco.core-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.1.201405082137/org.jacoco.report-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-parent/5.0.1/asm-parent-5.0.1.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.1.201405082137/org.jacoco.ant-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.1.201405082137/org.jacoco.core-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.1.201405082137/org.jacoco.report-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar
+:coveralls
+service name: travis-ci
+service job id: 79831994
+repo token: null
+[message:Job #346.1, url:https://coveralls.io/jobs/8231904]
+BUILD SUCCESSFUL
+
+Total time: 38.767 secs
+travis_time:end:1f6da870:start=1441972501306357455,finish=1441972541548990391,duration=40242632936[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

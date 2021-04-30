@@ -1,0 +1,48 @@
+""" list of error messages encountered till now from manual evaluation of build logs"""
+inexact_pattern_list = [
+    r'requirements.txt needs',
+    r'The command "pip install',
+    r'The command "pip3 install',
+    r'Command "python setup.py egg_info" failed',
+    r'Command "python3 setup.py egg_info" failed',
+    r'The command "pip install',
+    r'The command "pip3 install',
+    r'The command "python ',
+    r'The command "python3 ',
+    r'virtualenv.py: error',
+    r'requires Python',
+    r'requires a different Python',
+    r'ERROR: this script requires Python',
+    r'from requirements.txt needs',
+    r'ImportError',
+    r'TypeError',
+    r'The command "(.*)flake8',
+    r'ModuleNotFoundError: No module named',
+    r'No module named',
+    r'Cannot cythonize without Cython installed',
+    r'(.*): command not found'
+
+]
+error_pattern_list = [
+    r'requirements.txt needs (.*) python',
+    r'The command "pip install (.*) failed and exited with (.*) during',
+    r'The command "pip3 install (.*) failed and exited with (.*) during',
+    r'Command "python setup.py egg_info" failed',
+    r'Command "python3 setup.py egg_info" failed',
+    r'The command "pip install (.*) failed (.*) times',
+    r'The command "pip3 install (.*) failed (.*) times',
+    r'The command "python (.*) failed and exited (.*)',
+    r'The command "python3 (.*) failed and exited (.*)',
+    r'virtualenv.py: error',
+    r'(.*) requires Python (.*)',
+    r'(.*) requires a different Python(.*)',
+    r'ERROR: this script requires Python (.*)',
+    r'from requirements.txt needs',
+    r'ImportError',
+    r'TypeError',
+    r'The command "(.*)flake8(.*) exited with 1',
+    r'ModuleNotFoundError: No module named (.*)',
+    r'No module named (.*)',
+    r'Cannot cythonize without Cython installed',
+    r'(.*): command not found'
+]

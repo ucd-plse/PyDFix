@@ -1,0 +1,947 @@
+Using worker: worker-linux-docker-6ee39041.prod.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:1f562040[0K$ git clone --depth=50 --branch=master git://github.com/puniverse/capsule.git puniverse/capsule
+Cloning into 'puniverse/capsule'...
+remote: Counting objects: 460, done.[K
+remote: Compressing objects:   0% (1/270)   [Kremote: Compressing objects:   1% (3/270)   [Kremote: Compressing objects:   2% (6/270)   [Kremote: Compressing objects:   3% (9/270)   [Kremote: Compressing objects:   4% (11/270)   [Kremote: Compressing objects:   5% (14/270)   [Kremote: Compressing objects:   6% (17/270)   [Kremote: Compressing objects:   7% (19/270)   [Kremote: Compressing objects:   8% (22/270)   [Kremote: Compressing objects:   9% (25/270)   [Kremote: Compressing objects:  10% (27/270)   [Kremote: Compressing objects:  11% (30/270)   [Kremote: Compressing objects:  12% (33/270)   [Kremote: Compressing objects:  13% (36/270)   [Kremote: Compressing objects:  14% (38/270)   [Kremote: Compressing objects:  15% (41/270)   [Kremote: Compressing objects:  16% (44/270)   [Kremote: Compressing objects:  17% (46/270)   [Kremote: Compressing objects:  18% (49/270)   [Kremote: Compressing objects:  19% (52/270)   [Kremote: Compressing objects:  20% (54/270)   [Kremote: Compressing objects:  21% (57/270)   [Kremote: Compressing objects:  22% (60/270)   [Kremote: Compressing objects:  23% (63/270)   [Kremote: Compressing objects:  24% (65/270)   [Kremote: Compressing objects:  25% (68/270)   [Kremote: Compressing objects:  26% (71/270)   [Kremote: Compressing objects:  27% (73/270)   [Kremote: Compressing objects:  28% (76/270)   [Kremote: Compressing objects:  29% (79/270)   [Kremote: Compressing objects:  30% (81/270)   [Kremote: Compressing objects:  31% (84/270)   [Kremote: Compressing objects:  32% (87/270)   [Kremote: Compressing objects:  33% (90/270)   [Kremote: Compressing objects:  34% (92/270)   [Kremote: Compressing objects:  35% (95/270)   [Kremote: Compressing objects:  36% (98/270)   [Kremote: Compressing objects:  37% (100/270)   [Kremote: Compressing objects:  38% (103/270)   [Kremote: Compressing objects:  39% (106/270)   [Kremote: Compressing objects:  40% (108/270)   [Kremote: Compressing objects:  41% (111/270)   [Kremote: Compressing objects:  42% (114/270)   [Kremote: Compressing objects:  43% (117/270)   [Kremote: Compressing objects:  44% (119/270)   [Kremote: Compressing objects:  45% (122/270)   [Kremote: Compressing objects:  46% (125/270)   [Kremote: Compressing objects:  47% (127/270)   [Kremote: Compressing objects:  48% (130/270)   [Kremote: Compressing objects:  49% (133/270)   [Kremote: Compressing objects:  50% (135/270)   [Kremote: Compressing objects:  51% (138/270)   [Kremote: Compressing objects:  52% (141/270)   [Kremote: Compressing objects:  53% (144/270)   [Kremote: Compressing objects:  54% (146/270)   [Kremote: Compressing objects:  55% (149/270)   [Kremote: Compressing objects:  56% (152/270)   [Kremote: Compressing objects:  57% (154/270)   [Kremote: Compressing objects:  58% (157/270)   [Kremote: Compressing objects:  59% (160/270)   [Kremote: Compressing objects:  60% (162/270)   [Kremote: Compressing objects:  61% (165/270)   [Kremote: Compressing objects:  62% (168/270)   [Kremote: Compressing objects:  63% (171/270)   [Kremote: Compressing objects:  64% (173/270)   [Kremote: Compressing objects:  65% (176/270)   [Kremote: Compressing objects:  66% (179/270)   [Kremote: Compressing objects:  67% (181/270)   [Kremote: Compressing objects:  68% (184/270)   [Kremote: Compressing objects:  69% (187/270)   [Kremote: Compressing objects:  70% (189/270)   [Kremote: Compressing objects:  71% (192/270)   [Kremote: Compressing objects:  72% (195/270)   [Kremote: Compressing objects:  73% (198/270)   [Kremote: Compressing objects:  74% (200/270)   [Kremote: Compressing objects:  75% (203/270)   [Kremote: Compressing objects:  76% (206/270)   [Kremote: Compressing objects:  77% (208/270)   [Kremote: Compressing objects:  78% (211/270)   [Kremote: Compressing objects:  79% (214/270)   [Kremote: Compressing objects:  80% (216/270)   [Kremote: Compressing objects:  81% (219/270)   [Kremote: Compressing objects:  82% (222/270)   [Kremote: Compressing objects:  83% (225/270)   [Kremote: Compressing objects:  84% (227/270)   [Kremote: Compressing objects:  85% (230/270)   [Kremote: Compressing objects:  86% (233/270)   [Kremote: Compressing objects:  87% (235/270)   [Kremote: Compressing objects:  88% (238/270)   [Kremote: Compressing objects:  89% (241/270)   [Kremote: Compressing objects:  90% (243/270)   [Kremote: Compressing objects:  91% (246/270)   [Kremote: Compressing objects:  92% (249/270)   [Kremote: Compressing objects:  93% (252/270)   [Kremote: Compressing objects:  94% (254/270)   [Kremote: Compressing objects:  95% (257/270)   [Kremote: Compressing objects:  96% (260/270)   [Kremote: Compressing objects:  97% (262/270)   [Kremote: Compressing objects:  98% (265/270)   [Kremote: Compressing objects:  99% (268/270)   [Kremote: Compressing objects: 100% (270/270)   [Kremote: Compressing objects: 100% (270/270), done.[K
+Receiving objects:   0% (1/460)   Receiving objects:   1% (5/460)   Receiving objects:   2% (10/460)   Receiving objects:   3% (14/460)   Receiving objects:   4% (19/460)   Receiving objects:   5% (23/460)   Receiving objects:   6% (28/460)   Receiving objects:   7% (33/460)   Receiving objects:   8% (37/460)   Receiving objects:   9% (42/460)   Receiving objects:  10% (46/460)   Receiving objects:  11% (51/460)   Receiving objects:  12% (56/460)   Receiving objects:  13% (60/460)   Receiving objects:  14% (65/460)   Receiving objects:  15% (69/460)   Receiving objects:  16% (74/460)   Receiving objects:  17% (79/460)   Receiving objects:  18% (83/460)   Receiving objects:  19% (88/460)   Receiving objects:  20% (92/460)   Receiving objects:  21% (97/460)   Receiving objects:  22% (102/460)   Receiving objects:  23% (106/460)   Receiving objects:  24% (111/460)   Receiving objects:  25% (115/460)   Receiving objects:  26% (120/460)   Receiving objects:  27% (125/460)   Receiving objects:  28% (129/460)   Receiving objects:  29% (134/460)   Receiving objects:  30% (138/460)   Receiving objects:  31% (143/460)   Receiving objects:  32% (148/460)   Receiving objects:  33% (152/460)   Receiving objects:  34% (157/460)   Receiving objects:  35% (161/460)   Receiving objects:  36% (166/460)   Receiving objects:  37% (171/460)   Receiving objects:  38% (175/460)   Receiving objects:  39% (180/460)   Receiving objects:  40% (184/460)   Receiving objects:  41% (189/460)   Receiving objects:  42% (194/460)   Receiving objects:  43% (198/460)   Receiving objects:  44% (203/460)   Receiving objects:  45% (207/460)   Receiving objects:  46% (212/460)   Receiving objects:  47% (217/460)   Receiving objects:  48% (221/460)   Receiving objects:  49% (226/460)   Receiving objects:  50% (230/460)   Receiving objects:  51% (235/460)   Receiving objects:  52% (240/460)   Receiving objects:  53% (244/460)   Receiving objects:  54% (249/460)   Receiving objects:  55% (253/460)   Receiving objects:  56% (258/460)   Receiving objects:  57% (263/460)   Receiving objects:  58% (267/460)   Receiving objects:  59% (272/460)   Receiving objects:  60% (276/460)   Receiving objects:  61% (281/460)   Receiving objects:  62% (286/460)   Receiving objects:  63% (290/460)   Receiving objects:  64% (295/460)   Receiving objects:  65% (299/460)   Receiving objects:  66% (304/460)   Receiving objects:  67% (309/460)   Receiving objects:  68% (313/460)   Receiving objects:  69% (318/460)   Receiving objects:  70% (322/460)   Receiving objects:  71% (327/460)   remote: Total 460 (delta 130), reused 380 (delta 80)[K
+Receiving objects:  72% (332/460)   Receiving objects:  73% (336/460)   Receiving objects:  74% (341/460)   Receiving objects:  75% (345/460)   Receiving objects:  76% (350/460)   Receiving objects:  77% (355/460)   Receiving objects:  78% (359/460)   Receiving objects:  79% (364/460)   Receiving objects:  80% (368/460)   Receiving objects:  81% (373/460)   Receiving objects:  82% (378/460)   Receiving objects:  83% (382/460)   Receiving objects:  84% (387/460)   Receiving objects:  85% (391/460)   Receiving objects:  86% (396/460)   Receiving objects:  87% (401/460)   Receiving objects:  88% (405/460)   Receiving objects:  89% (410/460)   Receiving objects:  90% (414/460)   Receiving objects:  91% (419/460)   Receiving objects:  92% (424/460)   Receiving objects:  93% (428/460)   Receiving objects:  94% (433/460)   Receiving objects:  95% (437/460)   Receiving objects:  96% (442/460)   Receiving objects:  97% (447/460)   Receiving objects:  98% (451/460)   Receiving objects:  99% (456/460)   Receiving objects: 100% (460/460)   Receiving objects: 100% (460/460), 205.11 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/130)   Resolving deltas:  15% (20/130)   Resolving deltas:  39% (51/130)   Resolving deltas:  40% (52/130)   Resolving deltas:  42% (55/130)   Resolving deltas:  50% (66/130)   Resolving deltas:  52% (68/130)   Resolving deltas:  55% (72/130)   Resolving deltas:  56% (73/130)   Resolving deltas:  58% (76/130)   Resolving deltas:  60% (78/130)   Resolving deltas:  61% (80/130)   Resolving deltas:  62% (81/130)   Resolving deltas:  63% (82/130)   Resolving deltas:  65% (85/130)   Resolving deltas:  71% (93/130)   Resolving deltas:  73% (95/130)   Resolving deltas:  74% (97/130)   Resolving deltas:  76% (99/130)   Resolving deltas:  79% (103/130)   Resolving deltas: 100% (130/130)   Resolving deltas: 100% (130/130), done.
+Checking connectivity... done.
+travis_time:end:1f562040:start=1422563791674984444,finish=1422563791876130364,duration=201145920[0K$ cd puniverse/capsule
+$ git checkout -qf dfd83f2f3f3e5354e07d43ac7a45ef61ddc420d8
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TERM=dumb
+$ export GH_OAUTH_TOKEN=[secure]
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.8.0_25"
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+$ javac -version
+javac 1.8.0_25
+travis_fold:start:install[0Ktravis_time:start:06f9fbc7[0K$ gradle -q assemble
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+/home/travis/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-connector-basic/1.0.2.v20150114/d55c03b16efc16f25e1fd9fe0f37878fddbeed68/aether-connector-basic-1.0.2.v20150114.jar(org/eclipse/aether/connector/basic/BasicRepositoryConnectorFactory.class): warning: Cannot find annotation method 'value()' in type 'Named': class file for javax.inject.Named not found
+/home/travis/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-http/1.0.2.v20150114/262b7fb2e9872f470c059bc4053a3f2f7449932d/aether-transport-http-1.0.2.v20150114.jar(org/eclipse/aether/transport/http/HttpTransporterFactory.class): warning: Cannot find annotation method 'value()' in type 'Named'
+/home/travis/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-file/1.0.2.v20150114/79ffcce2aa9c525ad5a1d0fc3f9669133c3f9572/aether-transport-file-1.0.2.v20150114.jar(org/eclipse/aether/transport/file/FileTransporterFactory.class): warning: Cannot find annotation method 'value()' in type 'Named'
+Note: /home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 warnings
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:433: warning: no @param for optionName
+    protected static final String OPTION(String optionName, String defaultValue, String methodName, String description) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:433: warning: no @param for defaultValue
+    protected static final String OPTION(String optionName, String defaultValue, String methodName, String description) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:433: warning: no @param for methodName
+    protected static final String OPTION(String optionName, String defaultValue, String methodName, String description) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:433: warning: no @param for description
+    protected static final String OPTION(String optionName, String defaultValue, String methodName, String description) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:433: warning: no @return
+    protected static final String OPTION(String optionName, String defaultValue, String methodName, String description) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:777: warning: no @param for name
+    protected final boolean hasCaplet(String name) {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:777: warning: no @return
+    protected final boolean hasCaplet(String name) {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:845: warning: no @return
+    protected final boolean isWrapperCapsule() {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:852: warning: no @return
+    protected final String getMode() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:859: warning: no @return
+    protected final Path getJarFile() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:866: warning: no @return
+    protected final String getAppId() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:873: warning: no @return
+    protected final String getAppName() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:880: warning: no @return
+    protected final String getAppVersion() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:887: warning: no @return
+    protected final int getLogLevel() {
+                        ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1233: warning: no @return
+    protected String chooseMode() {
+                     ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1295: warning: no @return
+    protected List<String> buildArgs(List<String> args) {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1342: warning: no @return
+    protected Map<String, String> buildEnvironmentVariables(Map<String, String> env) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1529: warning: no @return
+    protected final Path getAppCache() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1539: warning: no @return
+    protected final Path getWritableAppCache() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1557: warning: no @return
+    protected Path buildAppCacheDir() {
+                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1631: warning: no @param for dir
+    protected void extractCapsule(Path dir) throws IOException {
+                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1631: warning: no @throws for java.io.IOException
+    protected void extractCapsule(Path dir) throws IOException {
+                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1762: warning: no @return
+    protected Path getJavaExecutable() {
+                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1777: warning: no @param for javaHome
+    protected static final Path getJavaExecutable(Path javaHome) {
+                                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1777: warning: no @return
+    protected static final Path getJavaExecutable(Path javaHome) {
+                                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1808: warning: no @return
+    protected List<Path> buildClassPath() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1871: warning: no @return
+    protected List<String> getDependencies() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1898: warning: no @return
+    protected List<Path> buildBootClassPath() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1909: warning: no @return
+    protected List<Path> buildBootClassPathP() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1920: warning: no @return
+    protected List<Path> buildBootClassPathA() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1947: warning: no @return
+    protected Map<String, String> buildSystemProperties() {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1999: warning: no @return
+    protected List<Path> buildNativeLibraryPath() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2019: warning: no @return
+    protected List<Path> getPlatformNativeLibraryPath() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2109: warning: no @return
+    protected List<String> buildJVMArgs() {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2211: warning: no @return
+    protected final Path getJavaHome() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2383: warning: no @param for localRepo
+    protected Object createDependencyManager(Path localRepo, boolean reset, int logLevel) {
+                     ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2383: warning: no @param for reset
+    protected Object createDependencyManager(Path localRepo, boolean reset, int logLevel) {
+                     ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2383: warning: no @param for logLevel
+    protected Object createDependencyManager(Path localRepo, boolean reset, int logLevel) {
+                     ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2383: warning: no @return
+    protected Object createDependencyManager(Path localRepo, boolean reset, int logLevel) {
+                     ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2401: warning: no @return
+    protected final Path getLocalRepo() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2541: warning: no @return
+    protected final Set<String> getModes() {
+                                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2553: warning: no @param for mode
+    protected final String getModeDescription(String mode) {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2553: warning: no @return
+    protected final String getModeDescription(String mode) {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2631: warning: no @return
+    protected final boolean hasAttribute(String attr) {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2645: warning: no @return
+    protected final String getAttribute(String attr) {
+                           ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2670: warning: no @return
+    protected final List<String> getListAttribute(String attr) {
+                                 ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2691: warning: no @return
+    protected final Map<String, String> getMapAttribute(String attr, String defaultValue) {
+                                        ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2706: warning: no @return
+    protected static final List<String> parse(String value) {
+                                        ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2717: warning: no @return
+    protected static final Map<String, String> parse(String value, String defaultValue) {
+                                               ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2724: warning: no @param for list
+    protected static final String toStringValue(Collection<?> list) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2724: warning: no @return
+    protected static final String toStringValue(Collection<?> list) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2731: warning: no @param for map
+    protected static final String toStringValue(Map<?, ?> map) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2731: warning: no @return
+    protected static final String toStringValue(Map<?, ?> map) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3083: warning: no @return
+    protected static final boolean isWindows() {
+                                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3090: warning: no @return
+    protected static final boolean isMac() {
+                                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3097: warning: no @return
+    protected static final boolean isUnix() {
+                                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3117: warning: no @return
+    protected static final String getNativeLibExtension() {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3255: warning: no @param for path
+    protected static void delete(Path path) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3255: warning: no @throws for java.io.IOException
+    protected static void delete(Path path) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3268: warning: no @param for source
+    protected static void copy(Path source, Path target) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3268: warning: no @param for target
+    protected static void copy(Path source, Path target) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3268: warning: no @throws for java.io.IOException
+    protected static void copy(Path source, Path target) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3298: warning: no @param for is
+    protected static void copy(InputStream is, OutputStream out) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3298: warning: no @param for out
+    protected static void copy(InputStream is, OutputStream out) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3298: warning: no @throws for java.io.IOException
+    protected static void copy(InputStream is, OutputStream out) throws IOException {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3347: warning: no @return
+    protected static final List<Path> listDir(Path dir, String glob, boolean regular) {
+                                      ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3973: warning: no @param for propName
+    protected static final String getProperty(String propName) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3973: warning: no @return
+    protected static final String getProperty(String propName) {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3986: warning: no @param for propName
+    protected static final void setProperty(String propName, String value) {
+                                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3986: warning: no @param for value
+    protected static final void setProperty(String propName, String value) {
+                                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4047: warning: no @throws for java.io.IOException
+    protected static List<String> exec(String... cmd) throws IOException {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4060: warning: no @throws for java.io.IOException
+    protected static List<String> exec(int numLines, String... cmd) throws IOException {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4072: warning: no @throws for java.io.IOException
+    protected static List<String> exec(ProcessBuilder pb) throws IOException {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4085: warning: no @throws for java.io.IOException
+    protected static List<String> exec(int numLines, ProcessBuilder pb) throws IOException {
+                                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4115: warning: no @return
+    protected int chooseLogLevel() {
+                  ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4147: warning: no @param for level
+    protected final boolean isLogging(int level) {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4147: warning: no @return
+    protected final boolean isLogging(int level) {
+                            ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4154: warning: no @param for level
+    protected final void log(int level, String str) {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4154: warning: no @param for str
+    protected final void log(int level, String str) {
+                         ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4200: warning: no @param for t
+    protected void onError(Throwable t) {
+                   ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4321: warning: no @param for jarFile
+    protected Capsule loadTargetCapsule(ClassLoader parent, Path jarFile) {
+                      ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:4321: warning: no @return
+    protected Capsule loadTargetCapsule(ClassLoader parent, Path jarFile) {
+                      ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1886: warning: no @param for cmdLine
+    private List<Path> buildBootClassPath(List<String> cmdLine) {
+                       ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:1886: warning: no @return
+    private List<Path> buildBootClassPath(List<String> cmdLine) {
+                       ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2792: warning: no @param for p
+    private List<Path> getPath(String p) {
+                       ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:2792: warning: no @return
+    private List<Path> getPath(String p) {
+                       ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3193: warning: no @param for dir
+    static Path createPathingJar(Path dir, List<Path> cp) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3193: warning: no @param for cp
+    static Path createPathingJar(Path dir, List<Path> cp) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3193: warning: no @return
+    static Path createPathingJar(Path dir, List<Path> cp) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3948: warning: no @param for parent
+    ClassLoader newClassLoader(ClassLoader parent, List<Path> ps) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3948: warning: no @param for ps
+    ClassLoader newClassLoader(ClassLoader parent, List<Path> ps) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3948: warning: no @return
+    ClassLoader newClassLoader(ClassLoader parent, List<Path> ps) {
+                ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3993: warning: no @param for envName
+    private static String getenv(String envName) {
+                          ^
+/home/travis/build/puniverse/capsule/capsule/src/main/java/Capsule.java:3993: warning: no @return
+    private static String getenv(String envName) {
+                          ^
+94 warnings
+Download https://repo1.maven.org/maven2/org/codehaus/javancss/javancss/33.54/javancss-33.54.pom
+Download https://repo1.maven.org/maven2/javancss/ccl/29.50/ccl-29.50.pom
+Download https://repo1.maven.org/maven2/javancss/jhbasic/29.50/jhbasic-29.50.pom
+Download https://repo1.maven.org/maven2/org/codehaus/javancss/javancss/33.54/javancss-33.54.jar
+Download https://repo1.maven.org/maven2/javancss/ccl/29.50/ccl-29.50.jar
+Download https://repo1.maven.org/maven2/javancss/jhbasic/29.50/jhbasic-29.50.jar
+[ant:javancss] Generating report
+[ant:javancss] Nr.   Classes Functions      NCSS  Javadocs Package
+[ant:javancss]   1         1       338      2590        86 .
+[ant:javancss]   2         7        98       682         4 capsule
+[ant:javancss]     --------- --------- --------- ---------
+[ant:javancss]             8       436      3272        90 Total
+[ant:javancss] 
+[ant:javancss]  Packages   Classes Functions      NCSS  Javadocs | per
+[ant:javancss] -------------------------------------------------------------
+[ant:javancss]      2.00      8.00    436.00   3272.00     90.00 | Project
+[ant:javancss]                4.00    218.00   1636.00     45.00 | Package
+[ant:javancss]                         54.50    409.00     11.25 | Class
+[ant:javancss]                                    7.50      0.21 | Function
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+1 warning
+/home/travis/build/puniverse/capsule/capsule-build/src/main/java/co/paralleluniverse/capsule/build/Dependencies.java:30: warning: no @return
+    public static String toCapsuleRepositoryString(RemoteRepository rr) {
+                         ^
+/home/travis/build/puniverse/capsule/capsule-build/src/main/java/co/paralleluniverse/capsule/build/Dependencies.java:40: warning: no @return
+    public static String toCapsuleDependencyString(Dependency d) {
+                         ^
+2 warnings
+[ant:javancss] Generating report
+[ant:javancss] Nr.   Classes Functions      NCSS  Javadocs Package
+[ant:javancss]   1         1         4        32         3 co.paralleluniverse.capsule.build
+[ant:javancss]     --------- --------- --------- ---------
+[ant:javancss]             1         4        32         3 Total
+[ant:javancss] 
+[ant:javancss]  Packages   Classes Functions      NCSS  Javadocs | per
+[ant:javancss] -------------------------------------------------------------
+[ant:javancss]      1.00      1.00      4.00     32.00      3.00 | Project
+[ant:javancss]                1.00      4.00     32.00      3.00 | Package
+[ant:javancss]                          4.00     32.00      3.00 | Class
+[ant:javancss]                                    8.00      0.75 | Function
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/common/FlexibleClassLoader.java:79: warning: CompoundEnumeration is internal proprietary API and may be removed in a future release
+        return new sun.misc.CompoundEnumeration<URL>(tmp);
+                           ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+1 warning
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:23: warning: no @return
+    String getVersion();
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:29: warning: no @return
+    Properties getProperties();
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:34: warning: no @return
+    String getAppId();
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:39: warning: no @return
+    String getAppName();
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:44: warning: no @return
+    String getAppVersion();
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:49: warning: no @return
+    Set<String> getModes();
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:54: warning: no @param for attr
+    boolean hasAttribute(String attr);
+            ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:54: warning: no @return
+    boolean hasAttribute(String attr);
+            ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:60: warning: no @param for attr
+    String getAttribute(String attr);
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:60: warning: no @return
+    String getAttribute(String attr);
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:65: warning: no @param for attr
+    List<String> getListAttribute(String attr);
+                 ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:65: warning: no @return
+    List<String> getListAttribute(String attr);
+                 ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Capsule.java:73: warning: no @return
+    Map<String, String> getMapAttribute(String attr, String defaultValue);
+                        ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/CapsuleLauncher.java:98: warning: no @return
+    public Capsule newCapsule() {
+                   ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/CapsuleLauncher.java:270: warning: no @return
+    public static Path getDefaultCacheDir() {
+                       ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/CapsuleUtils.java:38: warning: no @return
+    public static String getAppId() {
+                         ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/CapsuleUtils.java:49: warning: no @return
+    public static Path getCapsuleJar() {
+                       ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:121: warning: no @return
+    public Manifest getManifest() {
+                    ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:222: warning: no @return
+    public String getAttribute(String name) {
+                  ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:232: warning: no @return
+    public String getAttribute(String section, String name) {
+                  ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:244: warning: no @return
+    public List<String> getListAttribute(String name) {
+                        ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:256: warning: no @return
+    public List<String> getListAttribute(String section, String name) {
+                        ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:267: warning: no @param for defaultValue
+    public Map<String, String> getMapAttribute(String name, String defaultValue) {
+                               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:267: warning: no @return
+    public Map<String, String> getMapAttribute(String name, String defaultValue) {
+                               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:279: warning: no @param for defaultValue
+    public Map<String, String> getMapAttribute(String section, String name, String defaultValue) {
+                               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:279: warning: no @return
+    public Map<String, String> getMapAttribute(String section, String name, String defaultValue) {
+                               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:290: warning: no @throws for java.io.IOException
+    public Jar addEntry(String path, InputStream is) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:303: warning: no @throws for java.io.IOException
+    public Jar addEntry(String path, byte[] content) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:316: warning: no @throws for java.io.IOException
+    public Jar addEntry(Path path, InputStream is) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:327: warning: no @throws for java.io.IOException
+    public Jar addEntry(Path path, Path file) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:338: warning: no @throws for java.io.IOException
+    public Jar addEntry(Path path, String file) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:349: warning: no @throws for java.io.IOException
+    public Jar addEntry(String path, File file) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:362: warning: no @throws for java.io.IOException
+    public Jar addEntry(String path, String file) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:374: warning: no @throws for java.io.IOException
+    public Jar addClass(Class<?> clazz) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:386: warning: no @throws for java.io.IOException
+    public Jar addEntries(Path path, Path dirOrZip) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:405: warning: no @throws for java.io.IOException
+    public Jar addEntries(String path, Path dirOrZip) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:416: warning: no @throws for java.io.IOException
+    public Jar addEntries(Path path, ZipInputStream zip) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:435: warning: no @throws for java.io.IOException
+    public Jar addPackageOf(Class<?> clazz) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:481: warning: no description for @param
+     * @param packer
+       ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:492: warning: no description for @param
+     * @param value
+       ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:557: warning: no @throws for java.io.IOException
+    public Jar setOutput(Path out) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:569: warning: no @throws for java.io.IOException
+    public Jar setOutput(File out) throws IOException {
+               ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:615: warning: no @param for <T>
+    public <T extends OutputStream> T write(T os) throws IOException {
+                                      ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:615: warning: no @param for os
+    public <T extends OutputStream> T write(T os) throws IOException {
+                                      ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:615: warning: no @return
+    public <T extends OutputStream> T write(T os) throws IOException {
+                                      ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:615: warning: no @throws for java.io.IOException
+    public <T extends OutputStream> T write(T os) throws IOException {
+                                      ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:639: warning: no @param for file
+    public File write(File file) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:639: warning: no @return
+    public File write(File file) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:639: warning: no @throws for java.io.IOException
+    public File write(File file) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:649: warning: no @param for path
+    public Path write(Path path) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:649: warning: no @return
+    public Path write(Path path) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:649: warning: no @throws for java.io.IOException
+    public Path write(Path path) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:657: warning: no @param for file
+    public void write(String file) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:657: warning: no @throws for java.io.IOException
+    public void write(String file) throws IOException {
+                ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:664: warning: no @return
+    public byte[] toByteArray() {
+                  ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:96: warning: no @param for jar
+    public Jar(File jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:96: warning: no @throws for java.io.IOException
+    public Jar(File jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:76: warning: no @param for jar
+    public Jar(InputStream jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:76: warning: no @throws for java.io.IOException
+    public Jar(InputStream jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:111: warning: no @param for jar
+    public Jar(Jar jar) {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:86: warning: no @param for jar
+    public Jar(Path jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:86: warning: no @throws for java.io.IOException
+    public Jar(Path jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:104: warning: no @param for jar
+    public Jar(String jar) throws IOException {
+           ^
+/home/travis/build/puniverse/capsule/capsule-util/src/main/java/co/paralleluniverse/capsule/Jar.java:104: warning: no @throws for java.io.IOException
+    public Jar(String jar) throws IOException {
+           ^
+64 warnings
+/home/travis/build/puniverse/capsule/capsule-container/src/main/java/co/paralleluniverse/capsule/container/CapsuleContainer.java:117: warning: no @throws for java.io.IOException
+    public String launchCapsule(Path capsulePath, String mode, List<String> jvmArgs, List<String> args) throws IOException {
+                  ^
+/home/travis/build/puniverse/capsule/capsule-container/src/main/java/co/paralleluniverse/capsule/container/CapsuleContainer.java:162: warning: no @throws for java.io.IOException
+    protected ProcessBuilder configureCapsuleProcess(ProcessBuilder pb) throws IOException {
+                             ^
+2 warnings
+[ant:javancss] Generating report
+[ant:javancss] Nr.   Classes Functions      NCSS  Javadocs Package
+[ant:javancss]   1         5        44       324        18 co.paralleluniverse.capsule.container
+[ant:javancss]     --------- --------- --------- ---------
+[ant:javancss]             5        44       324        18 Total
+[ant:javancss] 
+[ant:javancss]  Packages   Classes Functions      NCSS  Javadocs | per
+[ant:javancss] -------------------------------------------------------------
+[ant:javancss]      1.00      5.00     44.00    324.00     18.00 | Project
+[ant:javancss]                5.00     44.00    324.00     18.00 | Package
+[ant:javancss]                          8.80     64.80      3.60 | Class
+[ant:javancss]                                    7.36      0.41 | Function
+[ant:javancss] Generating report
+[ant:javancss] Nr.   Classes Functions      NCSS  Javadocs Package
+[ant:javancss]   1         4       108       587        73 co.paralleluniverse.capsule
+[ant:javancss]   2         7        50       391         8 co.paralleluniverse.common
+[ant:javancss]   3         2         9        50         0 co.paralleluniverse.filesystem
+[ant:javancss]   4         1         0         3         0 co.paralleluniverse.filesystem.jimfs
+[ant:javancss]     --------- --------- --------- ---------
+[ant:javancss]            14       167      1031        81 Total
+[ant:javancss] 
+[ant:javancss]  Packages   Classes Functions      NCSS  Javadocs | per
+[ant:javancss] -------------------------------------------------------------
+[ant:javancss]      4.00     14.00    167.00   1031.00     81.00 | Project
+[ant:javancss]                3.50     41.75    257.75     20.25 | Package
+[ant:javancss]                         11.93     73.64      5.79 | Class
+[ant:javancss]                                    6.17      0.49 | Function
+travis_time:end:06f9fbc7:start=1422563794939048054,finish=1422563863181487102,duration=68242439048[0Ktravis_fold:end:install[0Ktravis_time:start:36048b6c[0K$ gradle -i check
+Starting Build
+Settings evaluated using settings file '/home/travis/build/puniverse/capsule/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/puniverse/capsule/build.gradle'.
+Included projects: [root project 'capsule', project ':capsule', project ':capsule-build', project ':capsule-container', project ':capsule-util']
+Evaluating root project 'capsule' using build file '/home/travis/build/puniverse/capsule/build.gradle'.
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+sonatype username or password not set
+Evaluating project ':capsule' using empty build file.
+Using PIT: 1.1.0
+Evaluating project ':capsule-build' using empty build file.
+Using PIT: 1.1.0
+Evaluating project ':capsule-container' using empty build file.
+Using PIT: 1.1.0
+Evaluating project ':capsule-util' using empty build file.
+Using PIT: 1.1.0
+All projects evaluated.
+Selected primary task 'check' from project :
+Tasks to be executed: [task ':capsule:compileJava', task ':capsule:processResources', task ':capsule:classes', task ':capsule:jar', task ':capsule-util:compileJava', task ':capsule-util:processResources', task ':capsule-util:classes', task ':capsule-util:jar', task ':capsule:compileTestJava', task ':capsule:processTestResources', task ':capsule:testClasses', task ':capsule:test', task ':capsule:check', task ':capsule-build:compileJava', task ':capsule-build:processResources', task ':capsule-build:classes', task ':capsule-build:compileTestJava', task ':capsule-build:processTestResources', task ':capsule-build:testClasses', task ':capsule-build:test', task ':capsule-build:check', task ':capsule-container:compileJava', task ':capsule-container:processResources', task ':capsule-container:classes', task ':capsule-container:compileTestJava', task ':capsule-container:processTestResources', task ':capsule-container:testClasses', task ':capsule-container:test', task ':capsule-container:check', task ':capsule-util:compileTestJava', task ':capsule-util:processTestResources', task ':capsule-util:testClasses', task ':capsule-util:test', task ':capsule-util:check']
+:capsule:compileJava (Thread[main,5,main]) started.
+:capsule:compileJava
+Skipping task ':capsule:compileJava' as it is up-to-date (took 0.603 secs).
+:capsule:compileJava UP-TO-DATE
+:capsule:compileJava (Thread[main,5,main]) completed. Took 0.688 secs.
+:capsule:processResources (Thread[main,5,main]) started.
+:capsule:processResources
+Skipping task ':capsule:processResources' as it is up-to-date (took 0.011 secs).
+:capsule:processResources UP-TO-DATE
+:capsule:processResources (Thread[main,5,main]) completed. Took 0.022 secs.
+:capsule:classes (Thread[main,5,main]) started.
+:capsule:classes
+Skipping task ':capsule:classes' as it has no actions.
+:capsule:classes UP-TO-DATE
+:capsule:classes (Thread[main,5,main]) completed. Took 0.009 secs.
+:capsule:jar (Thread[main,5,main]) started.
+:capsule:jar
+Executing task ':capsule:jar' (up-to-date check took 0.042 secs) due to:
+  Output file /home/travis/build/puniverse/capsule/capsule/build/libs/capsule-1.0-rc1-SNAPSHOT.jar has changed.
+:capsule:jar (Thread[main,5,main]) completed. Took 0.26 secs.
+:capsule-util:compileJava (Thread[main,5,main]) started.
+:capsule-util:compileJava
+Skipping task ':capsule-util:compileJava' as it is up-to-date (took 0.099 secs).
+:capsule-util:compileJava UP-TO-DATE
+:capsule-util:compileJava (Thread[main,5,main]) completed. Took 0.124 secs.
+:capsule-util:processResources (Thread[main,5,main]) started.
+:capsule-util:processResources
+Skipping task ':capsule-util:processResources' as it has no source files.
+:capsule-util:processResources UP-TO-DATE
+:capsule-util:processResources (Thread[main,5,main]) completed. Took 0.01 secs.
+:capsule-util:classes (Thread[main,5,main]) started.
+:capsule-util:classes
+Skipping task ':capsule-util:classes' as it has no actions.
+:capsule-util:classes UP-TO-DATE
+:capsule-util:classes (Thread[main,5,main]) completed. Took 0.001 secs.
+:capsule-util:jar (Thread[main,5,main]) started.
+:capsule-util:jar
+Skipping task ':capsule-util:jar' as it is up-to-date (took 0.031 secs).
+:capsule-util:jar UP-TO-DATE
+:capsule-util:jar (Thread[main,5,main]) completed. Took 0.045 secs.
+:capsule:compileTestJava (Thread[main,5,main]) started.
+:capsule:compileTestJava
+Download https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.pom
+Download https://repo1.maven.org/maven2/org/truth0/truth/0.23/truth-0.23.pom
+Download https://repo1.maven.org/maven2/org/truth0/truth-parent/0.23/truth-parent-0.23.pom
+org.truth0#truth-parent;0.23 is relocated to com.google.truth#truth-parent;0.23. Please update your dependencies.
+org.truth0#truth-parent;0.23 is relocated to com.google.truth#truth-parent;0.23. Please update your dependencies.
+org.truth0#truth;0.23 is relocated to com.google.truth#truth;0.23. Please update your dependencies.
+Download https://repo1.maven.org/maven2/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.pom
+Download https://repo1.maven.org/maven2/com/google/jimfs/jimfs/1.0/jimfs-1.0.pom
+Download https://repo1.maven.org/maven2/com/google/jimfs/jimfs-parent/1.0/jimfs-parent-1.0.pom
+Download https://repo1.maven.org/maven2/org/jooq/joor/0.9.4/joor-0.9.4.pom
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+Download https://repo1.maven.org/maven2/com/google/truth/truth/0.23/truth-0.23.pom
+Download https://repo1.maven.org/maven2/com/google/truth/truth-parent/0.23/truth-parent-0.23.pom
+Download https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar
+Download https://repo1.maven.org/maven2/org/truth0/truth/0.23/truth-0.23.jar
+Download https://repo1.maven.org/maven2/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar
+Download https://repo1.maven.org/maven2/com/google/jimfs/jimfs/1.0/jimfs-1.0.jar
+Download https://repo1.maven.org/maven2/org/jooq/joor/0.9.4/joor-0.9.4.jar
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+Download https://repo1.maven.org/maven2/com/google/truth/truth/0.23/truth-0.23.jar
+Executing task ':capsule:compileTestJava' (up-to-date check took 6.102 secs) due to:
+  No history is available.
+All input files are considered out-of-date for incremental task ':capsule:compileTestJava'.
+Compiling with JDK Java compiler API.
+warning: [options] bootstrap class path not set in conjunction with -source 1.7
+Note: /home/travis/build/puniverse/capsule/capsule/src/test/java/TestCapsule.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 warning
+:capsule:compileTestJava (Thread[main,5,main]) completed. Took 9.941 secs.
+:capsule:processTestResources (Thread[main,5,main]) started.
+:capsule:processTestResources
+Skipping task ':capsule:processTestResources' as it has no source files.
+:capsule:processTestResources UP-TO-DATE
+:capsule:processTestResources (Thread[main,5,main]) completed. Took 0.007 secs.
+:capsule:testClasses (Thread[main,5,main]) started.
+:capsule:testClasses
+Skipping task ':capsule:testClasses' as it has no actions.
+:capsule:testClasses (Thread[main,5,main]) completed. Took 0.008 secs.
+:capsule:test (Thread[main,5,main]) started.
+:capsule:test
+Executing task ':capsule:test' (up-to-date check took 0.269 secs) due to:
+  No history is available.
+Download https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.7.1.201405082137/org.jacoco.agent-0.7.1.201405082137.pom
+Download https://repo1.maven.org/maven2/org/jacoco/org.jacoco.build/0.7.1.201405082137/org.jacoco.build-0.7.1.201405082137.pom
+Download https://repo1.maven.org/maven2/org/jacoco/org.jacoco.agent/0.7.1.201405082137/org.jacoco.agent-0.7.1.201405082137.jar
+[ant:null] Building jar: /home/travis/.gradle/caches/2.2.1/workerMain/gradle-worker.jar
+Starting process 'Gradle Test Executor 1'. Working directory: /home/travis/build/puniverse/capsule/capsule Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.protocol.handler.pkgs=co.paralleluniverse.filesystem -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_4oo2qgb84bu19pqprc168emt5/jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.2.1/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 1'
+Successfully started process 'Gradle Test Executor 1'
+Gradle Test Executor 1 started executing tests.
+Running test: test testCapsuleJavaHome(CapsuleTest)
+Running test: test testWrapperCapsuleNoMain(CapsuleTest)
+Running test: test testLogLevel(CapsuleTest)
+Running test: test testSimpleExtract(CapsuleTest)
+Running test: test testNatives1(CapsuleTest)
+Running test: test testNatives2(CapsuleTest)
+Running test: test testBootClassPathWithEmbeddedDeps(CapsuleTest)
+Running test: test testMode2(CapsuleTest)
+Running test: test testGlob(CapsuleTest)
+Running test: test testMode(CapsuleTest)
+Running test: test testExpandVars1(CapsuleTest)
+Running test: test testExpandVars2(CapsuleTest)
+Running test: test testEmbeddedArtifact(CapsuleTest)
+Running test: test testSystemProperties(CapsuleTest)
+Running test: test testBootClassPath1(CapsuleTest)
+Running test: test testBootClassPath2(CapsuleTest)
+Running test: test testNativesWithDeps(CapsuleTest)
+Running test: test testCustomCapsule(CapsuleTest)
+Running test: test testCompareVersions(CapsuleTest)
+Running test: test testCapsuleJavaCmd(CapsuleTest)
+Running test: test testPlatformSepcific(CapsuleTest)
+Running test: test testListDir(CapsuleTest)
+Running test: test testExpandArgs(CapsuleTest)
+Running test: test testNoExtract(CapsuleTest)
+Running test: test testShortJavaVersion(CapsuleTest)
+Running test: test testBootClassPathWithDeps(CapsuleTest)
+Running test: test testCapsuleInClassPath(CapsuleTest)
+Running test: test testJDKClassPath(CapsuleTest)
+Failed test testJDKClassPath [CapsuleTest] with exception: java.lang.NullPointerException
+java.lang.NullPointerException
+	at Capsule.getJavaHomes(Capsule.java:3435)
+	at Capsule.findJavaHome(Capsule.java:2257)
+	at Capsule.chooseJavaHome0(Capsule.java:2238)
+	at Capsule.chooseJavaHome(Capsule.java:2226)
+	at Capsule.getJavaHome(Capsule.java:2213)
+	at Capsule.getJavaExecutable0(Capsule.java:1771)
+	at Capsule.getJavaExecutable(Capsule.java:1763)
+	at Capsule.buildJavaProcess(Capsule.java:1716)
+	at Capsule.buildProcess0(Capsule.java:1286)
+	at Capsule.buildProcess(Capsule.java:1277)
+	at Capsule.prelaunch0(Capsule.java:1255)
+	at Capsule.prelaunch(Capsule.java:1251)
+	at Capsule.prepareForLaunch(Capsule.java:1161)
+	at CapsuleTest.testJDKClassPath(CapsuleTest.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:86)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:49)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:69)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
+	at org.gradle.internal.concurrent.DefaultExecutorFactory$StoppableExecutorImpl$1.run(DefaultExecutorFactory.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+CapsuleTest > testJDKClassPath FAILED
+    java.lang.NullPointerException
+        at Capsule.getJavaHomes(Capsule.java:3435)
+        at Capsule.findJavaHome(Capsule.java:2257)
+        at Capsule.chooseJavaHome0(Capsule.java:2238)
+        at Capsule.chooseJavaHome(Capsule.java:2226)
+        at Capsule.getJavaHome(Capsule.java:2213)
+        at Capsule.getJavaExecutable0(Capsule.java:1771)
+        at Capsule.getJavaExecutable(Capsule.java:1763)
+        at Capsule.buildJavaProcess(Capsule.java:1716)
+        at Capsule.buildProcess0(Capsule.java:1286)
+        at Capsule.buildProcess(Capsule.java:1277)
+        at Capsule.prelaunch0(Capsule.java:1255)
+        at Capsule.prelaunch(Capsule.java:1251)
+        at Capsule.prepareForLaunch(Capsule.java:1161)
+        at CapsuleTest.testJDKClassPath(CapsuleTest.java:177)
+Running test: test whenNoNameAndPomTakeIdFromPom(CapsuleTest)
+Running test: test testParseJavaVersion(CapsuleTest)
+Running test: test testReallyExecutableCapsule(CapsuleTest)
+Running test: test testDependencies1(CapsuleTest)
+Running test: test splitTest(CapsuleTest)
+Running test: test testWrapperCapsule(CapsuleTest)
+Running test: test testClassPath(CapsuleTest)
+Running test: test testPathingJar(CapsuleTest)
+Running test: test testWrapperCapsuleNonCapsuleApp(CapsuleTest)
+Running test: test testAgents(CapsuleTest)
+Running test: test testDelete(CapsuleTest)
+Running test: test testPomDependencies1(CapsuleTest)
+Running test: test testScript(CapsuleTest)
+Running test: test testJVMArgs(CapsuleTest)
+Running test: test isJavaDir(CapsuleTest)
+Running test: test testApplicationArtifact(CapsuleTest)
+Running test: test testParseDependency(capsule.DependencyManagerTest)
+Running test: test testParseRepo(capsule.DependencyManagerTest)
+Gradle Test Executor 1 finished executing tests.
+
+46 tests completed, 1 failed
+Finished generating test XML results (0.004 secs) into: /home/travis/build/puniverse/capsule/capsule/build/test-results
+Generating HTML test report...
+Finished generating test html results (0.062 secs) into: /home/travis/build/puniverse/capsule/capsule/build/reports/tests
+:capsule:test FAILED
+:capsule:test (Thread[main,5,main]) completed. Took 10.719 secs.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':capsule:test'.
+> There were failing tests. See the report at: file:///home/travis/build/puniverse/capsule/capsule/build/reports/tests/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 31.284 secs
+Stopped 0 compiler daemon(s).
+travis_time:end:36048b6c:start=1422563863185012807,finish=1422563897028337682,duration=33843324875[0K
+[31;1mThe command "gradle -i check" exited with 1.[0m
+
+Done. Your build exited with 1.

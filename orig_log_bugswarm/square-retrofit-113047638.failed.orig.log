@@ -1,0 +1,2037 @@
+Using worker: worker-linux-docker-1c359598.prod.travis-ci.org:travis-linux-10
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 36729 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 225 not upgraded.
+Need to get 8,844 kB of archives.
+After this operation, 9,216 B disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.13 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.13 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.13 [1,179 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.13 [4,637 kB]
+Fetched 8,844 kB in 0s (25.3 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.13) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.13_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.13) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.13) ...
+Setting up libc6-dev (2.15-0ubuntu10.13) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:06bd9552[0K$ git clone --depth=50 --branch=jw/pass-null-to-converters https://github.com/square/retrofit.git square/retrofit
+Cloning into 'square/retrofit'...
+remote: Counting objects: 1862, done.[K
+remote: Compressing objects:   0% (1/854)   [Kremote: Compressing objects:   1% (9/854)   [Kremote: Compressing objects:   2% (18/854)   [Kremote: Compressing objects:   3% (26/854)   [Kremote: Compressing objects:   4% (35/854)   [Kremote: Compressing objects:   5% (43/854)   [Kremote: Compressing objects:   6% (52/854)   [Kremote: Compressing objects:   7% (60/854)   [Kremote: Compressing objects:   8% (69/854)   [Kremote: Compressing objects:   9% (77/854)   [Kremote: Compressing objects:  10% (86/854)   [Kremote: Compressing objects:  11% (94/854)   [Kremote: Compressing objects:  12% (103/854)   [Kremote: Compressing objects:  13% (112/854)   [Kremote: Compressing objects:  14% (120/854)   [Kremote: Compressing objects:  15% (129/854)   [Kremote: Compressing objects:  16% (137/854)   [Kremote: Compressing objects:  17% (146/854)   [Kremote: Compressing objects:  18% (154/854)   [Kremote: Compressing objects:  19% (163/854)   [Kremote: Compressing objects:  20% (171/854)   [Kremote: Compressing objects:  21% (180/854)   [Kremote: Compressing objects:  22% (188/854)   [Kremote: Compressing objects:  23% (197/854)   [Kremote: Compressing objects:  24% (205/854)   [Kremote: Compressing objects:  25% (214/854)   [Kremote: Compressing objects:  26% (223/854)   [Kremote: Compressing objects:  27% (231/854)   [Kremote: Compressing objects:  28% (240/854)   [Kremote: Compressing objects:  29% (248/854)   [Kremote: Compressing objects:  30% (257/854)   [Kremote: Compressing objects:  31% (265/854)   [Kremote: Compressing objects:  32% (274/854)   [Kremote: Compressing objects:  33% (282/854)   [Kremote: Compressing objects:  34% (291/854)   [Kremote: Compressing objects:  35% (299/854)   [Kremote: Compressing objects:  36% (308/854)   [Kremote: Compressing objects:  37% (316/854)   [Kremote: Compressing objects:  38% (325/854)   [Kremote: Compressing objects:  39% (334/854)   [Kremote: Compressing objects:  40% (342/854)   [Kremote: Compressing objects:  41% (351/854)   [Kremote: Compressing objects:  42% (359/854)   [Kremote: Compressing objects:  43% (368/854)   [Kremote: Compressing objects:  44% (376/854)   [Kremote: Compressing objects:  45% (385/854)   [Kremote: Compressing objects:  46% (393/854)   [Kremote: Compressing objects:  47% (402/854)   [Kremote: Compressing objects:  48% (410/854)   [Kremote: Compressing objects:  49% (419/854)   [Kremote: Compressing objects:  50% (427/854)   [Kremote: Compressing objects:  51% (436/854)   [Kremote: Compressing objects:  52% (445/854)   [Kremote: Compressing objects:  53% (453/854)   [Kremote: Compressing objects:  54% (462/854)   [Kremote: Compressing objects:  55% (470/854)   [Kremote: Compressing objects:  56% (479/854)   [Kremote: Compressing objects:  57% (487/854)   [Kremote: Compressing objects:  58% (496/854)   [Kremote: Compressing objects:  59% (504/854)   [Kremote: Compressing objects:  60% (513/854)   [Kremote: Compressing objects:  61% (521/854)   [Kremote: Compressing objects:  62% (530/854)   [Kremote: Compressing objects:  63% (539/854)   [Kremote: Compressing objects:  64% (547/854)   [Kremote: Compressing objects:  65% (556/854)   [Kremote: Compressing objects:  66% (564/854)   [Kremote: Compressing objects:  67% (573/854)   [Kremote: Compressing objects:  68% (581/854)   [Kremote: Compressing objects:  69% (590/854)   [Kremote: Compressing objects:  70% (598/854)   [Kremote: Compressing objects:  71% (607/854)   [Kremote: Compressing objects:  72% (615/854)   [Kremote: Compressing objects:  73% (624/854)   [Kremote: Compressing objects:  74% (632/854)   [Kremote: Compressing objects:  75% (641/854)   [Kremote: Compressing objects:  76% (650/854)   [Kremote: Compressing objects:  77% (658/854)   [Kremote: Compressing objects:  78% (667/854)   [Kremote: Compressing objects:  79% (675/854)   [Kremote: Compressing objects:  80% (684/854)   [Kremote: Compressing objects:  81% (692/854)   [Kremote: Compressing objects:  82% (701/854)   [Kremote: Compressing objects:  83% (709/854)   [Kremote: Compressing objects:  84% (718/854)   [Kremote: Compressing objects:  85% (726/854)   [Kremote: Compressing objects:  86% (735/854)   [Kremote: Compressing objects:  87% (743/854)   [Kremote: Compressing objects:  88% (752/854)   [Kremote: Compressing objects:  89% (761/854)   [Kremote: Compressing objects:  90% (769/854)   [Kremote: Compressing objects:  91% (778/854)   [Kremote: Compressing objects:  92% (786/854)   [Kremote: Compressing objects:  93% (795/854)   [Kremote: Compressing objects:  94% (803/854)   [Kremote: Compressing objects:  95% (812/854)   [Kremote: Compressing objects:  96% (820/854)   [Kremote: Compressing objects:  97% (829/854)   [Kremote: Compressing objects:  98% (837/854)   [Kremote: Compressing objects:  99% (846/854)   [Kremote: Compressing objects: 100% (854/854)   [Kremote: Compressing objects: 100% (854/854), done.[K
+Receiving objects:   0% (1/1862)   Receiving objects:   1% (19/1862)   Receiving objects:   2% (38/1862)   Receiving objects:   3% (56/1862)   Receiving objects:   4% (75/1862)   Receiving objects:   5% (94/1862)   Receiving objects:   6% (112/1862)   Receiving objects:   7% (131/1862)   Receiving objects:   8% (149/1862)   Receiving objects:   9% (168/1862)   Receiving objects:  10% (187/1862)   Receiving objects:  11% (205/1862)   Receiving objects:  12% (224/1862)   Receiving objects:  13% (243/1862)   Receiving objects:  14% (261/1862)   Receiving objects:  15% (280/1862)   Receiving objects:  16% (298/1862)   Receiving objects:  17% (317/1862)   Receiving objects:  18% (336/1862)   Receiving objects:  19% (354/1862)   Receiving objects:  20% (373/1862)   Receiving objects:  21% (392/1862)   Receiving objects:  22% (410/1862)   Receiving objects:  23% (429/1862)   Receiving objects:  24% (447/1862)   Receiving objects:  25% (466/1862)   Receiving objects:  26% (485/1862)   Receiving objects:  27% (503/1862)   Receiving objects:  28% (522/1862)   Receiving objects:  29% (540/1862)   Receiving objects:  30% (559/1862)   Receiving objects:  31% (578/1862)   Receiving objects:  32% (596/1862)   Receiving objects:  33% (615/1862)   Receiving objects:  34% (634/1862)   Receiving objects:  35% (652/1862)   Receiving objects:  36% (671/1862)   Receiving objects:  37% (689/1862)   Receiving objects:  38% (708/1862)   Receiving objects:  39% (727/1862)   Receiving objects:  40% (745/1862)   Receiving objects:  41% (764/1862)   Receiving objects:  42% (783/1862)   Receiving objects:  43% (801/1862)   Receiving objects:  44% (820/1862)   Receiving objects:  45% (838/1862)   Receiving objects:  46% (857/1862)   Receiving objects:  47% (876/1862)   Receiving objects:  48% (894/1862)   Receiving objects:  49% (913/1862)   Receiving objects:  50% (931/1862)   Receiving objects:  51% (950/1862)   Receiving objects:  52% (969/1862)   Receiving objects:  53% (987/1862)   Receiving objects:  54% (1006/1862)   Receiving objects:  55% (1025/1862)   Receiving objects:  56% (1043/1862)   Receiving objects:  57% (1062/1862)   Receiving objects:  58% (1080/1862)   Receiving objects:  59% (1099/1862)   Receiving objects:  60% (1118/1862)   Receiving objects:  61% (1136/1862)   Receiving objects:  62% (1155/1862)   Receiving objects:  63% (1174/1862)   Receiving objects:  64% (1192/1862)   Receiving objects:  65% (1211/1862)   remote: Total 1862 (delta 687), reused 1587 (delta 464), pack-reused 0[K
+Receiving objects:  66% (1229/1862)   Receiving objects:  67% (1248/1862)   Receiving objects:  68% (1267/1862)   Receiving objects:  69% (1285/1862)   Receiving objects:  70% (1304/1862)   Receiving objects:  71% (1323/1862)   Receiving objects:  72% (1341/1862)   Receiving objects:  73% (1360/1862)   Receiving objects:  74% (1378/1862)   Receiving objects:  75% (1397/1862)   Receiving objects:  76% (1416/1862)   Receiving objects:  77% (1434/1862)   Receiving objects:  78% (1453/1862)   Receiving objects:  79% (1471/1862)   Receiving objects:  80% (1490/1862)   Receiving objects:  81% (1509/1862)   Receiving objects:  82% (1527/1862)   Receiving objects:  83% (1546/1862)   Receiving objects:  84% (1565/1862)   Receiving objects:  85% (1583/1862)   Receiving objects:  86% (1602/1862)   Receiving objects:  87% (1620/1862)   Receiving objects:  88% (1639/1862)   Receiving objects:  89% (1658/1862)   Receiving objects:  90% (1676/1862)   Receiving objects:  91% (1695/1862)   Receiving objects:  92% (1714/1862)   Receiving objects:  93% (1732/1862)   Receiving objects:  94% (1751/1862)   Receiving objects:  95% (1769/1862)   Receiving objects:  96% (1788/1862)   Receiving objects:  97% (1807/1862)   Receiving objects:  98% (1825/1862)   Receiving objects:  99% (1844/1862)   Receiving objects: 100% (1862/1862)   Receiving objects: 100% (1862/1862), 387.79 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/687)   Resolving deltas:   1% (10/687)   Resolving deltas:   4% (29/687)   Resolving deltas:   5% (37/687)   Resolving deltas:   6% (42/687)   Resolving deltas:   9% (64/687)   Resolving deltas:  16% (112/687)   Resolving deltas:  20% (140/687)   Resolving deltas:  22% (156/687)   Resolving deltas:  23% (160/687)   Resolving deltas:  24% (168/687)   Resolving deltas:  25% (172/687)   Resolving deltas:  26% (184/687)   Resolving deltas:  33% (233/687)   Resolving deltas:  34% (236/687)   Resolving deltas:  35% (243/687)   Resolving deltas:  36% (250/687)   Resolving deltas:  37% (258/687)   Resolving deltas:  38% (265/687)   Resolving deltas:  39% (268/687)   Resolving deltas:  42% (291/687)   Resolving deltas:  43% (297/687)   Resolving deltas:  44% (303/687)   Resolving deltas:  45% (311/687)   Resolving deltas:  46% (319/687)   Resolving deltas:  47% (323/687)   Resolving deltas:  48% (331/687)   Resolving deltas:  50% (348/687)   Resolving deltas:  51% (354/687)   Resolving deltas:  52% (360/687)   Resolving deltas:  53% (366/687)   Resolving deltas:  54% (373/687)   Resolving deltas:  55% (380/687)   Resolving deltas:  56% (388/687)   Resolving deltas:  57% (398/687)   Resolving deltas:  58% (402/687)   Resolving deltas:  59% (411/687)   Resolving deltas:  60% (416/687)   Resolving deltas:  61% (424/687)   Resolving deltas:  62% (427/687)   Resolving deltas:  63% (436/687)   Resolving deltas:  64% (442/687)   Resolving deltas:  65% (447/687)   Resolving deltas:  67% (464/687)   Resolving deltas:  68% (471/687)   Resolving deltas:  69% (479/687)   Resolving deltas:  71% (492/687)   Resolving deltas:  72% (495/687)   Resolving deltas:  73% (504/687)   Resolving deltas:  74% (509/687)   Resolving deltas:  75% (519/687)   Resolving deltas:  76% (523/687)   Resolving deltas:  77% (530/687)   Resolving deltas:  78% (540/687)   Resolving deltas:  79% (546/687)   Resolving deltas:  80% (554/687)   Resolving deltas:  81% (557/687)   Resolving deltas:  83% (572/687)   Resolving deltas:  85% (588/687)   Resolving deltas:  86% (592/687)   Resolving deltas:  87% (598/687)   Resolving deltas:  88% (605/687)   Resolving deltas:  89% (612/687)   Resolving deltas:  90% (620/687)   Resolving deltas:  91% (628/687)   Resolving deltas:  92% (634/687)   Resolving deltas:  95% (655/687)   Resolving deltas:  96% (660/687)   Resolving deltas:  97% (672/687)   Resolving deltas:  98% (675/687)   Resolving deltas:  99% (683/687)   Resolving deltas: 100% (687/687)   Resolving deltas: 100% (687/687), done.
+Checking connectivity... done.
+
+travis_time:end:06bd9552:start=1456899286012032535,finish=1456899286611226617,duration=599194082[0K$ cd square/retrofit
+$ git checkout -qf 323ffc8f00b19dba98873e77a77c25ec7f89f56c
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:08bac400[0K$ Installing caching utilities
+
+travis_time:end:08bac400:start=1456899288469852200,finish=1456899288526353692,duration=56501492[0Ktravis_time:start:16eb42e0[0K
+travis_time:end:16eb42e0:start=1456899288532818482,finish=1456899288537094399,duration=4275917[0Ktravis_time:start:03d7f135[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching jwpass-null-to-converters/cache--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:03d7f135:start=1456899288542291406,finish=1456899291665174719,duration=3122883313[0Ktravis_time:start:13a13e60[0K
+travis_time:end:13a13e60:start=1456899291670485324,finish=1456899291674746454,duration=4261130[0Ktravis_time:start:082cb7c8[0K[32;1madding /home/travis/.m2 to cache[0m
+
+travis_time:end:082cb7c8:start=1456899291680043676,finish=1456899293290171352,duration=1610127676[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:0683bc90[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit2:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit2:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 50, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Adapters
+[INFO] Adapter: Guava
+[INFO] Adapter: Java 8
+[INFO] Adapter: RxJava
+[INFO] Converters
+[INFO] Converter: Gson
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: Java Scalars
+[INFO] Converter: Moshi
+[INFO] Retrofit Mock Adapter
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ parent ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/parent/2.0.0-SNAPSHOT/parent-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 43 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit2/Retrofit.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit2/Retrofit.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java: /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ retrofit ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ retrofit ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-adapters ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit-adapters ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ retrofit-adapters ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit-adapters ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-adapters ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit-adapters/2.0.0-SNAPSHOT/retrofit-adapters-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: Guava 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-guava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/guava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/guava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/guava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-adapters/guava/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-guava ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-guava ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ adapter-guava ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-adapters/guava/target/adapter-guava-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ adapter-guava ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ adapter-guava ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ adapter-guava ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/guava/target/adapter-guava-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/2.0.0-SNAPSHOT/adapter-guava-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/guava/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/2.0.0-SNAPSHOT/adapter-guava-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: Java 8 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-java8 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-java8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/java8/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-java8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/java8/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-java8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/java8/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-java8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-adapters/java8/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-java8 ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-java8 ---
+[INFO] Checking unresolved references to org.kaazing.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ adapter-java8 ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-adapters/java8/target/adapter-java8-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ adapter-java8 ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ adapter-java8 ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ adapter-java8 ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/java8/target/adapter-java8-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/2.0.0-SNAPSHOT/adapter-java8-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/java8/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/2.0.0-SNAPSHOT/adapter-java8-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: RxJava 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-rxjava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-rxjava ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-rxjava ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ adapter-rxjava ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/adapter-rxjava-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ adapter-rxjava ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ adapter-rxjava ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ adapter-rxjava ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/adapter-rxjava-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-rxjava/2.0.0-SNAPSHOT/adapter-rxjava-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/rxjava/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/adapter-rxjava/2.0.0-SNAPSHOT/adapter-rxjava-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-converters ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit-converters ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ retrofit-converters ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit-converters ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-converters ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit-converters/2.0.0-SNAPSHOT/retrofit-converters-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Gson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-gson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/gson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/gson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-gson ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-gson ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-gson ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/gson/target/converter-gson-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-gson ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-gson ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-gson ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/gson/target/converter-gson-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-gson/2.0.0-SNAPSHOT/converter-gson-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/gson/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-gson/2.0.0-SNAPSHOT/converter-gson-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-protobuf ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-protobuf ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-protobuf ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-protobuf ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-protobuf ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-protobuf ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-protobuf ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Jackson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-jackson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/java/retrofit2/converter/jackson/JacksonConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/java/retrofit2/converter/jackson/JacksonConverterFactory.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/java/retrofit2/converter/jackson/JacksonConverterFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/test-classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/java/retrofit2/converter/jackson/JacksonConverterFactoryTest.java: /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/java/retrofit2/converter/jackson/JacksonConverterFactoryTest.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/java/retrofit2/converter/jackson/JacksonConverterFactoryTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-jackson ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-jackson ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-jackson ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-jackson ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-jackson ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-jackson ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Wire Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-wire ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit2/converter/wire/WireConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit2/converter/wire/WireConverterFactory.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit2/converter/wire/WireConverterFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-wire ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-wire ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-wire ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-wire ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-wire ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-wire ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: SimpleXML 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-simplexml ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-simplexml ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-simplexml ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-simplexml ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-simplexml ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-simplexml ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-simplexml ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Java Scalars 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-scalars ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-scalars ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/scalars/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-scalars ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/scalars/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-scalars ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/scalars/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-scalars ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/scalars/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-scalars ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-scalars ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-scalars ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/scalars/target/converter-scalars-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-scalars ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-scalars ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-scalars ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/scalars/target/converter-scalars-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-scalars/2.0.0-SNAPSHOT/converter-scalars-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/scalars/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-scalars/2.0.0-SNAPSHOT/converter-scalars-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Moshi 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-moshi ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-moshi ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/moshi/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-moshi ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/moshi/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-moshi ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/moshi/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-moshi ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/moshi/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-moshi ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-moshi ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-moshi ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/moshi/target/converter-moshi-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ converter-moshi ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-moshi ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-moshi ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/moshi/target/converter-moshi-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/converter-moshi/2.0.0-SNAPSHOT/converter-moshi-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/moshi/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/converter-moshi/2.0.0-SNAPSHOT/converter-moshi-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit Mock Adapter 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-mock ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/square/retrofit/retrofit-mock/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-mock/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit-mock ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit-mock ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ retrofit-mock ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-mock/target/retrofit-mock-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ retrofit-mock ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit-mock ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-mock ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-mock/target/retrofit-mock-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit-mock/2.0.0-SNAPSHOT/retrofit-mock-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-mock/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/retrofit-mock/2.0.0-SNAPSHOT/retrofit-mock-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ samples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ samples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/retrofit/samples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ samples ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ samples ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ samples ---
+[INFO] Building jar: /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.3:jar (attach-javadocs) @ samples ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ samples ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ samples ---
+[INFO] Installing /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit2/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/samples/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit2/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  8.090 s]
+[INFO] Retrofit ........................................... SUCCESS [ 22.117 s]
+[INFO] Adapters ........................................... SUCCESS [  0.508 s]
+[INFO] Adapter: Guava ..................................... SUCCESS [  3.760 s]
+[INFO] Adapter: Java 8 .................................... SUCCESS [  1.674 s]
+[INFO] Adapter: RxJava .................................... SUCCESS [  1.619 s]
+[INFO] Converters ......................................... SUCCESS [  0.159 s]
+[INFO] Converter: Gson .................................... SUCCESS [  0.848 s]
+[INFO] Converter: Protocol Buffers ........................ SUCCESS [  1.530 s]
+[INFO] Converter: Jackson ................................. SUCCESS [  1.275 s]
+[INFO] Converter: Wire Protocol Buffers ................... SUCCESS [  1.257 s]
+[INFO] Converter: SimpleXML ............................... SUCCESS [  1.642 s]
+[INFO] Converter: Java Scalars ............................ SUCCESS [  1.656 s]
+[INFO] Converter: Moshi ................................... SUCCESS [  0.637 s]
+[INFO] Retrofit Mock Adapter .............................. SUCCESS [  1.171 s]
+[INFO] Samples ............................................ SUCCESS [  2.131 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 50.591 s
+[INFO] Finished at: 2016-03-02T06:15:47+00:00
+[INFO] Final Memory: 45M/442M
+[INFO] ------------------------------------------------------------------------
+
+travis_time:end:0683bc90:start=1456899293789320888,finish=1456899348884982264,duration=55095661376[0Ktravis_fold:end:install[0Ktravis_time:start:2131cfdd[0K$ mvn test -B
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit2:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit2:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 50, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Adapters
+[INFO] Adapter: Guava
+[INFO] Adapter: Java 8
+[INFO] Adapter: RxJava
+[INFO] Converters
+[INFO] Converter: Gson
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: Java Scalars
+[INFO] Converter: Moshi
+[INFO] Retrofit Mock Adapter
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 43 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit2/Retrofit.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit2/Retrofit.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java: /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/test/java/retrofit2/RetrofitTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.CallTest
+Mar 02, 2016 6:16:07 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[51004] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[51004] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60109] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[60109] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60109] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[34714] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[34714] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[34714] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60171] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60171] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[60171] received request: POST /Hello HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39635] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39635] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[38557] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[38557] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[37798] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[37798] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[37798] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[50112] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[50112] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[50112] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[53042] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[53042] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[38200] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[38200] received request: POST /Hello HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[38200] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40718] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[40718] received request: POST /Hello HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40718] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55021] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55021] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[34826] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[34826] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[34826] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46643] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[46643] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46643] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[53874] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[53874] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[53874] received request: GET / HTTP/1.1 and responded: HTTP/1.1 204 Nothin
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[49996] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[49996] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[50189] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[50189] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[50189] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[52880] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[52880] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[52880] received request: POST /Hello HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55230] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[55230] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55230] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36311] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36311] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[36311] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36333] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36333] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[44362] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[44362] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36209] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36209] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56545] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[56545] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56545] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[52162] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[52162] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[52162] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36288] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36288] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[36288] received request: GET / HTTP/1.1 and responded: HTTP/1.1 205 Nothin
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[57745] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[57745] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[57745] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[57745] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46707] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46707] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[46707] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[45960] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[45960] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40871] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40871] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55756] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55756] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55435] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55435] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[55435] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60654] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60654] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[60654] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[42722] starting to accept connections
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[42722] done accepting connections: Socket closed
+Mar 02, 2016 6:16:08 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[42722] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.671 sec
+Running retrofit2.RequestBuilderTest
+Tests run: 117, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.375 sec
+Running retrofit2.ExecutorCallAdapterFactoryTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 sec
+Running retrofit2.RequestFactoryParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running retrofit2.RetrofitTest
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35125] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35125] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59114] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59114] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56670] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56670] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60806] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60806] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39682] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39682] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[48134] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[48134] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[48134] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56458] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56458] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[49832] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[49832] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[51734] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[51734] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41687] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41687] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[37828] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[37828] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[45825] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[45825] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35938] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35938] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[42659] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[42659] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54353] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54353] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47400] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47400] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[47400] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55633] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55633] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41924] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41924] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[45167] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[45167] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[45167] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[52722] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[52722] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46539] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46539] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[46539] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59818] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59818] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[49404] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[49404] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54133] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54133] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40145] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40145] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43980] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43980] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[34343] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[34343] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[44471] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[44471] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39414] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[39414] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39414] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[57234] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[57234] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46268] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46268] done accepting connections: Socket closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[37657] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[37657] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[49552] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[49552] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[48098] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[48098] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55641] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55641] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54627] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54627] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47014] starting to accept connections
+Mar 02, 2016 6:16:09 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47014] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59181] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59181] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[53103] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[53103] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55556] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55556] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35132] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35132] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35752] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35752] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56956] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56956] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43771] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43771] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41573] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41573] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47510] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47510] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58496] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58496] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59626] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59626] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41210] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41210] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41061] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41061] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56268] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56268] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35448] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35448] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54276] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54276] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35702] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35702] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36258] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36258] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43957] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43957] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41883] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41883] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56130] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56130] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35318] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35318] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46685] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46685] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43095] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43095] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39823] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39823] done accepting connections: Socket closed
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39359] starting to accept connections
+Mar 02, 2016 6:16:10 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39359] done accepting connections: Socket closed
+Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.685 sec
+Running retrofit2.RequestBuilderAndroidTest
+WARNING: No manifest file found at ./AndroidManifest.xml.Falling back to the Android OS resources only.
+To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+WARNING: No manifest file found at ./AndroidManifest.xml.Falling back to the Android OS resources only.
+To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.928 sec
+Running retrofit2.ResponseTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+
+Results :
+
+Tests run: 238, Failures: 0, Errors: 0, Skipped: 2
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-adapters ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit-adapters ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: Guava 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-guava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/guava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/guava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/guava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-adapters/guava/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-guava ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-adapters/guava/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.adapter.guava.ListenableFutureTest
+Mar 02, 2016 6:16:22 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58281] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[58281] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58281] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43099] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[43099] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43099] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46843] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[46843] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46843] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[57388] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[57388] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[57388] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[38877] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[38877] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[38877] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[45557] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[45557] done accepting connections: Socket closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[45557] connection from /127.0.0.1 didn't make a request
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.989 sec
+Running retrofit2.adapter.guava.GuavaCallAdapterFactoryTest
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60075] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60075] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58449] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58449] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[51233] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[51233] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43681] starting to accept connections
+Mar 02, 2016 6:16:23 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43681] done accepting connections: Socket is closed
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-guava ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: Java 8 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-java8 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-java8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/java8/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-java8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/java8/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-java8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/java8/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-java8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-adapters/java8/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-java8 ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-adapters/java8/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.adapter.java8.Java8CallAdapterFactoryTest
+Mar 02, 2016 6:16:25 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[51537] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[51537] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59514] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59514] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59982] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59982] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[34502] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[34502] done accepting connections: Socket is closed
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.72 sec
+Running retrofit2.adapter.java8.CompletableFutureTest
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40392] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[40392] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40392] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58009] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58009] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[58009] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56573] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[56573] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[56573] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54329] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[54329] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54329] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40782] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40782] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[40782] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40887] starting to accept connections
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40887] done accepting connections: Socket closed
+Mar 02, 2016 6:16:26 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[40887] connection from /127.0.0.1 didn't make a request
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 sec
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-java8 ---
+[INFO] Checking unresolved references to org.kaazing.mojo.signature:java18:1.0
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: RxJava 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-rxjava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-rxjava ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.adapter.rxjava.ObservableSchedulerTest
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[33309] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[33309] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[33309] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[42346] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[42346] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[42346] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[57741] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[57741] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[57741] done accepting connections: Socket closed
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.811 sec
+Running retrofit2.adapter.rxjava.ObservableTest
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41014] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[41014] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41014] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39957] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[39957] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39957] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[54184] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[54184] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[54184] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40775] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40775] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[40775] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[50194] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[50194] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[50194] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39221] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39221] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[39221] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[33179] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[33179] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[33179] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58637] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58637] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[58637] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47903] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47903] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[47903] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 sec
+Running retrofit2.adapter.rxjava.RxJavaCallAdapterFactoryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec
+Running retrofit2.adapter.rxjava.SingleSchedulerTest
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[60382] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[60382] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[60382] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[45551] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[45551] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[45551] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[52487] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[52487] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[52487] done accepting connections: Socket closed
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Running retrofit2.adapter.rxjava.CompletableTest
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[38349] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[38349] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[38349] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[32868] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[32868] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[32868] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47119] starting to accept connections
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47119] done accepting connections: Socket closed
+Mar 02, 2016 6:16:28 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[47119] connection from /127.0.0.1 didn't make a request
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running retrofit2.adapter.rxjava.CompletableSchedulerTest
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[57603] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[57603] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[57603] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running retrofit2.adapter.rxjava.SingleTest
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[37548] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[37548] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[37548] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[49523] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[49523] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[49523] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[48086] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[48086] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[48086] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[34500] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[34500] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[34500] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58515] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58515] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[58515] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[40891] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[40891] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[40891] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[53380] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[53380] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processConnection
+WARNING: MockWebServer[53380] connection from /127.0.0.1 didn't make a request
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[51216] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[51216] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[51216] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59878] starting to accept connections
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59878] done accepting connections: Socket closed
+Mar 02, 2016 6:16:29 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[59878] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 Client Error
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec
+Running retrofit2.adapter.rxjava.ResultTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+
+Results :
+
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ adapter-rxjava ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-converters ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ retrofit-converters ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Gson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-gson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/gson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/gson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-gson ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/gson/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.converter.gson.GsonConverterFactoryTest
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[43825] starting to accept connections
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[43825] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[43825] done accepting connections: Socket closed
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[41287] starting to accept connections
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[41287] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[41287] done accepting connections: Socket closed
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[55609] starting to accept connections
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[55609] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[55609] done accepting connections: Socket closed
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[46609] starting to accept connections
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[46609] done accepting connections: Socket closed
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[46609] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36999] starting to accept connections
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[36999] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:30 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36999] done accepting connections: Socket closed
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.633 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (default) @ converter-gson ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-protobuf ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit2/converter/protobuf/ProtoConverterFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-protobuf ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit2.converter.protobuf.ProtoConverterFactoryTest
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[36037] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[36037] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[36037] done accepting connections: Socket closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[35156] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[35156] done accepting connections: Socket closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58418] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58418] done accepting connections: Socket closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[58418] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[58256] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[58256] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[47513] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[47513] done accepting connections: Socket is closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39958] starting to accept connections
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[39958] done accepting connections: Socket closed
+Mar 02, 2016 6:16:32 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[39958] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.87 sec <<< FAILURE!
+serializeNullThrows(retrofit2.converter.protobuf.ProtoConverterFactoryTest)  Time elapsed: 0.014 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.fail(Assert.java:95)
+	at retrofit2.converter.protobuf.ProtoConverterFactoryTest.serializeNullThrows(ProtoConverterFactoryTest.java:138)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at okhttp3.mockwebserver.MockWebServer$2.evaluate(MockWebServer.java:154)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+
+Results :
+
+Failed tests:   serializeNullThrows(retrofit2.converter.protobuf.ProtoConverterFactoryTest)
+
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  2.564 s]
+[INFO] Retrofit ........................................... SUCCESS [ 27.437 s]
+[INFO] Adapters ........................................... SUCCESS [  0.357 s]
+[INFO] Adapter: Guava ..................................... SUCCESS [  2.250 s]
+[INFO] Adapter: Java 8 .................................... SUCCESS [  2.624 s]
+[INFO] Adapter: RxJava .................................... SUCCESS [  2.813 s]
+[INFO] Converters ......................................... SUCCESS [  0.219 s]
+[INFO] Converter: Gson .................................... SUCCESS [  1.403 s]
+[INFO] Converter: Protocol Buffers ........................ FAILURE [  1.519 s]
+[INFO] Converter: Jackson ................................. SKIPPED
+[INFO] Converter: Wire Protocol Buffers ................... SKIPPED
+[INFO] Converter: SimpleXML ............................... SKIPPED
+[INFO] Converter: Java Scalars ............................ SKIPPED
+[INFO] Converter: Moshi ................................... SKIPPED
+[INFO] Retrofit Mock Adapter .............................. SKIPPED
+[INFO] Samples ............................................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 41.794 s
+[INFO] Finished at: 2016-03-02T06:16:32+00:00
+[INFO] Final Memory: 27M/311M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project converter-protobuf: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :converter-protobuf
+
+travis_time:end:2131cfdd:start=1456899348889508843,finish=1456899394342147645,duration=45452638802[0K
+[31;1mThe command "mvn test -B" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:17f52f00[0K
+travis_time:end:17f52f00:start=1456899394347428363,finish=1456899394351363507,duration=3935144[0Ktravis_time:start:04b73e60[0K[32;1mchange detected:
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/2.0.0-SNAPSHOT/adapter-guava-2.0.0-SNAPSHOT.jar
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/2.0.0-SNAPSHOT/maven-metadata-local.xml
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/2.0.0-SNAPSHOT/_remote.repositories
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-guava/maven-metadata-local.xml
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/2.0.0-SNAPSHOT/adapter-java8-2.0.0-SNAPSHOT.jar
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/2.0.0-SNAPSHOT/maven-metadata-local.xml
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/2.0.0-SNAPSHOT/_remote.repositories
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-java8/maven-metadata-local.xml
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-rxjava/2.0.0-SNAPSHOT/adapter-rxjava-2.0.0-SNAPSHOT.jar
+/home/travis/.m2/repository/com/squareup/retrofit2/adapter-rxjava/2.
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+.
+[32;1muploading archive[0m
+
+travis_time:end:04b73e60:start=1456899394356101038,finish=1456899406440605630,duration=12084504592[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

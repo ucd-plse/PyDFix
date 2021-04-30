@@ -1,0 +1,575 @@
+Using worker: worker-linux-docker-1b4afef2.prod.travis-ci.org:travis-linux-5
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0c081a40[0K$ git clone --depth=50 --branch=jwilson_0630_trim git://github.com/square/wire.git square/wire
+Cloning into 'square/wire'...
+remote: Counting objects: 1224, done.[K
+remote: Compressing objects:   0% (1/603)   [Kremote: Compressing objects:   1% (7/603)   [Kremote: Compressing objects:   2% (13/603)   [Kremote: Compressing objects:   3% (19/603)   [Kremote: Compressing objects:   4% (25/603)   [Kremote: Compressing objects:   5% (31/603)   [Kremote: Compressing objects:   6% (37/603)   [Kremote: Compressing objects:   7% (43/603)   [Kremote: Compressing objects:   8% (49/603)   [Kremote: Compressing objects:   9% (55/603)   [Kremote: Compressing objects:  10% (61/603)   [Kremote: Compressing objects:  11% (67/603)   [Kremote: Compressing objects:  12% (73/603)   [Kremote: Compressing objects:  13% (79/603)   [Kremote: Compressing objects:  14% (85/603)   [Kremote: Compressing objects:  15% (91/603)   [Kremote: Compressing objects:  16% (97/603)   [Kremote: Compressing objects:  17% (103/603)   [Kremote: Compressing objects:  18% (109/603)   [Kremote: Compressing objects:  19% (115/603)   [Kremote: Compressing objects:  20% (121/603)   [Kremote: Compressing objects:  21% (127/603)   [Kremote: Compressing objects:  22% (133/603)   [Kremote: Compressing objects:  23% (139/603)   [Kremote: Compressing objects:  24% (145/603)   [Kremote: Compressing objects:  25% (151/603)   [Kremote: Compressing objects:  26% (157/603)   [Kremote: Compressing objects:  27% (163/603)   [Kremote: Compressing objects:  28% (169/603)   [Kremote: Compressing objects:  29% (175/603)   [Kremote: Compressing objects:  30% (181/603)   [Kremote: Compressing objects:  31% (187/603)   [Kremote: Compressing objects:  32% (193/603)   [Kremote: Compressing objects:  33% (199/603)   [Kremote: Compressing objects:  34% (206/603)   [Kremote: Compressing objects:  35% (212/603)   [Kremote: Compressing objects:  36% (218/603)   [Kremote: Compressing objects:  37% (224/603)   [Kremote: Compressing objects:  38% (230/603)   [Kremote: Compressing objects:  39% (236/603)   [Kremote: Compressing objects:  40% (242/603)   [Kremote: Compressing objects:  41% (248/603)   [Kremote: Compressing objects:  42% (254/603)   [Kremote: Compressing objects:  43% (260/603)   [Kremote: Compressing objects:  44% (266/603)   [Kremote: Compressing objects:  45% (272/603)   [Kremote: Compressing objects:  46% (278/603)   [Kremote: Compressing objects:  47% (284/603)   [Kremote: Compressing objects:  48% (290/603)   [Kremote: Compressing objects:  49% (296/603)   [Kremote: Compressing objects:  50% (302/603)   [Kremote: Compressing objects:  51% (308/603)   [Kremote: Compressing objects:  52% (314/603)   [Kremote: Compressing objects:  53% (320/603)   [Kremote: Compressing objects:  54% (326/603)   [Kremote: Compressing objects:  55% (332/603)   [Kremote: Compressing objects:  56% (338/603)   [Kremote: Compressing objects:  57% (344/603)   [Kremote: Compressing objects:  58% (350/603)   [Kremote: Compressing objects:  59% (356/603)   [Kremote: Compressing objects:  60% (362/603)   [Kremote: Compressing objects:  61% (368/603)   [Kremote: Compressing objects:  62% (374/603)   [Kremote: Compressing objects:  63% (380/603)   [Kremote: Compressing objects:  64% (386/603)   [Kremote: Compressing objects:  65% (392/603)   [Kremote: Compressing objects:  66% (398/603)   [Kremote: Compressing objects:  67% (405/603)   [Kremote: Compressing objects:  68% (411/603)   [Kremote: Compressing objects:  69% (417/603)   [Kremote: Compressing objects:  70% (423/603)   [Kremote: Compressing objects:  71% (429/603)   [Kremote: Compressing objects:  72% (435/603)   [Kremote: Compressing objects:  73% (441/603)   [Kremote: Compressing objects:  74% (447/603)   [Kremote: Compressing objects:  75% (453/603)   [Kremote: Compressing objects:  76% (459/603)   [Kremote: Compressing objects:  77% (465/603)   [Kremote: Compressing objects:  78% (471/603)   [Kremote: Compressing objects:  79% (477/603)   [Kremote: Compressing objects:  80% (483/603)   [Kremote: Compressing objects:  81% (489/603)   [Kremote: Compressing objects:  82% (495/603)   [Kremote: Compressing objects:  83% (501/603)   [Kremote: Compressing objects:  84% (507/603)   [Kremote: Compressing objects:  85% (513/603)   [Kremote: Compressing objects:  86% (519/603)   [Kremote: Compressing objects:  87% (525/603)   [Kremote: Compressing objects:  88% (531/603)   [Kremote: Compressing objects:  89% (537/603)   [Kremote: Compressing objects:  90% (543/603)   [Kremote: Compressing objects:  91% (549/603)   [Kremote: Compressing objects:  92% (555/603)   [Kremote: Compressing objects:  93% (561/603)   [Kremote: Compressing objects:  94% (567/603)   [Kremote: Compressing objects:  95% (573/603)   [Kremote: Compressing objects:  96% (579/603)   [Kremote: Compressing objects:  97% (585/603)   [Kremote: Compressing objects:  98% (591/603)   [Kremote: Compressing objects:  99% (597/603)   [Kremote: Compressing objects: 100% (603/603)   [Kremote: Compressing objects: 100% (603/603), done.[K
+Receiving objects:   0% (1/1224)   Receiving objects:   1% (13/1224)   Receiving objects:   2% (25/1224)   Receiving objects:   3% (37/1224)   Receiving objects:   4% (49/1224)   Receiving objects:   5% (62/1224)   Receiving objects:   6% (74/1224)   Receiving objects:   7% (86/1224)   Receiving objects:   8% (98/1224)   Receiving objects:   9% (111/1224)   Receiving objects:  10% (123/1224)   Receiving objects:  11% (135/1224)   Receiving objects:  12% (147/1224)   Receiving objects:  13% (160/1224)   Receiving objects:  14% (172/1224)   Receiving objects:  15% (184/1224)   Receiving objects:  16% (196/1224)   Receiving objects:  17% (209/1224)   Receiving objects:  18% (221/1224)   Receiving objects:  19% (233/1224)   Receiving objects:  20% (245/1224)   Receiving objects:  21% (258/1224)   Receiving objects:  22% (270/1224)   Receiving objects:  23% (282/1224)   Receiving objects:  24% (294/1224)   Receiving objects:  25% (306/1224)   Receiving objects:  26% (319/1224)   Receiving objects:  27% (331/1224)   Receiving objects:  28% (343/1224)   Receiving objects:  29% (355/1224)   Receiving objects:  30% (368/1224)   Receiving objects:  31% (380/1224)   Receiving objects:  32% (392/1224)   Receiving objects:  33% (404/1224)   Receiving objects:  34% (417/1224)   Receiving objects:  35% (429/1224)   Receiving objects:  36% (441/1224)   Receiving objects:  37% (453/1224)   Receiving objects:  38% (466/1224)   Receiving objects:  39% (478/1224)   Receiving objects:  40% (490/1224)   Receiving objects:  41% (502/1224)   Receiving objects:  42% (515/1224)   Receiving objects:  43% (527/1224)   Receiving objects:  44% (539/1224)   Receiving objects:  45% (551/1224)   Receiving objects:  46% (564/1224)   Receiving objects:  47% (576/1224)   Receiving objects:  48% (588/1224)   Receiving objects:  49% (600/1224)   Receiving objects:  50% (612/1224)   Receiving objects:  51% (625/1224)   Receiving objects:  52% (637/1224)   Receiving objects:  53% (649/1224)   Receiving objects:  54% (661/1224)   Receiving objects:  55% (674/1224)   Receiving objects:  56% (686/1224)   Receiving objects:  57% (698/1224)   Receiving objects:  58% (710/1224)   Receiving objects:  59% (723/1224)   Receiving objects:  60% (735/1224)   Receiving objects:  61% (747/1224)   Receiving objects:  62% (759/1224)   Receiving objects:  63% (772/1224)   Receiving objects:  64% (784/1224)   Receiving objects:  65% (796/1224)   Receiving objects:  66% (808/1224)   Receiving objects:  67% (821/1224)   Receiving objects:  68% (833/1224)   Receiving objects:  69% (845/1224)   Receiving objects:  70% (857/1224)   Receiving objects:  71% (870/1224)   Receiving objects:  72% (882/1224)   Receiving objects:  73% (894/1224)   Receiving objects:  74% (906/1224)   Receiving objects:  75% (918/1224)   Receiving objects:  76% (931/1224)   remote: Total 1224 (delta 484), reused 1029 (delta 350), pack-reused 0[K
+Receiving objects:  77% (943/1224)   Receiving objects:  78% (955/1224)   Receiving objects:  79% (967/1224)   Receiving objects:  80% (980/1224)   Receiving objects:  81% (992/1224)   Receiving objects:  82% (1004/1224)   Receiving objects:  83% (1016/1224)   Receiving objects:  84% (1029/1224)   Receiving objects:  85% (1041/1224)   Receiving objects:  86% (1053/1224)   Receiving objects:  87% (1065/1224)   Receiving objects:  88% (1078/1224)   Receiving objects:  89% (1090/1224)   Receiving objects:  90% (1102/1224)   Receiving objects:  91% (1114/1224)   Receiving objects:  92% (1127/1224)   Receiving objects:  93% (1139/1224)   Receiving objects:  94% (1151/1224)   Receiving objects:  95% (1163/1224)   Receiving objects:  96% (1176/1224)   Receiving objects:  97% (1188/1224)   Receiving objects:  98% (1200/1224)   Receiving objects:  99% (1212/1224)   Receiving objects: 100% (1224/1224)   Receiving objects: 100% (1224/1224), 318.92 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/484)   Resolving deltas:   1% (5/484)   Resolving deltas:   3% (15/484)   Resolving deltas:   4% (22/484)   Resolving deltas:   5% (25/484)   Resolving deltas:   7% (37/484)   Resolving deltas:  19% (94/484)   Resolving deltas:  21% (105/484)   Resolving deltas:  29% (142/484)   Resolving deltas:  30% (148/484)   Resolving deltas:  31% (151/484)   Resolving deltas:  32% (155/484)   Resolving deltas:  33% (161/484)   Resolving deltas:  35% (172/484)   Resolving deltas:  36% (178/484)   Resolving deltas:  37% (180/484)   Resolving deltas:  38% (185/484)   Resolving deltas:  39% (193/484)   Resolving deltas:  40% (195/484)   Resolving deltas:  41% (200/484)   Resolving deltas:  42% (205/484)   Resolving deltas:  44% (216/484)   Resolving deltas:  45% (221/484)   Resolving deltas:  47% (228/484)   Resolving deltas:  48% (233/484)   Resolving deltas:  49% (241/484)   Resolving deltas:  50% (244/484)   Resolving deltas:  52% (253/484)   Resolving deltas:  53% (258/484)   Resolving deltas:  54% (262/484)   Resolving deltas:  55% (271/484)   Resolving deltas:  58% (282/484)   Resolving deltas:  59% (290/484)   Resolving deltas:  60% (294/484)   Resolving deltas:  62% (302/484)   Resolving deltas:  63% (306/484)   Resolving deltas:  64% (311/484)   Resolving deltas:  65% (317/484)   Resolving deltas:  66% (322/484)   Resolving deltas:  67% (326/484)   Resolving deltas:  68% (333/484)   Resolving deltas:  70% (341/484)   Resolving deltas:  72% (349/484)   Resolving deltas:  73% (358/484)   Resolving deltas:  74% (360/484)   Resolving deltas:  75% (367/484)   Resolving deltas:  76% (368/484)   Resolving deltas:  77% (373/484)   Resolving deltas:  78% (379/484)   Resolving deltas:  79% (383/484)   Resolving deltas:  80% (391/484)   Resolving deltas:  81% (396/484)   Resolving deltas:  82% (400/484)   Resolving deltas:  83% (404/484)   Resolving deltas:  84% (411/484)   Resolving deltas:  85% (416/484)   Resolving deltas:  86% (417/484)   Resolving deltas:  89% (431/484)   Resolving deltas:  91% (443/484)   Resolving deltas:  92% (450/484)   Resolving deltas:  93% (453/484)   Resolving deltas:  94% (455/484)   Resolving deltas:  95% (460/484)   Resolving deltas:  96% (466/484)   Resolving deltas:  97% (470/484)   Resolving deltas:  98% (477/484)   Resolving deltas: 100% (484/484)   Resolving deltas: 100% (484/484), done.
+Checking connectivity... done.
+travis_time:end:0c081a40:start=1435638162832864890,finish=1435638163046042083,duration=213177193[0K$ cd square/wire
+$ git checkout -qf 0d91832fedc77491827fd2f31059f6c614147d91
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:04d00a98[0K$ Installing caching utilities
+travis_time:end:04d00a98:start=1435638164783656014,finish=1435638164814528915,duration=30872901[0Ktravis_time:start:1d4d44a8[0Kattempting to download cache archive
+fetching jwilson_0630_trim/cache--jdk-oraclejdk7.tbz
+found cache
+travis_time:end:1d4d44a8:start=1435638164819088287,finish=1435638165494690270,duration=675601983[0Ktravis_time:start:12797418[0Kadding /home/travis/.m2 to cache
+travis_time:end:12797418:start=1435638165498505579,finish=1435638167673322066,duration=2174816487[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:1548dc2a[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Wire Protocol Buffers
+[INFO] Wire Protocol Buffer Runtime
+[INFO] Wire Protocol Buffer Compiler
+[INFO] Wire Protocol Buffer Gson Support
+[INFO] Wire Protocol Buffer Maven Plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffers 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire ---
+[INFO] Installing /home/travis/build/square/wire/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire/1.8.1-SNAPSHOT/wire-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Runtime 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-runtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /home/travis/build/square/wire/wire-runtime/target/classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 86 source files to /home/travis/build/square/wire/wire-runtime/target/test-classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java: /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java uses or overrides a deprecated API.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/test/java/com/squareup/wire/WireTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-runtime ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-runtime ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-runtime ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-runtime ---
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Compiler 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 34 source files to /home/travis/build/square/wire/wire-compiler/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /home/travis/build/square/wire/wire-compiler/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-compiler ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-compiler ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.8.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ wire-compiler ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.8.1-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-compiler ---
+[INFO] Starting audit...
+/home/travis/build/square/wire/wire-compiler/src/main/java/com/squareup/wire/model/RootSet.java:87:61: ';' is followed by whitespace.
+Audit done.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Wire Protocol Buffers .............................. SUCCESS [  1.483 s]
+[INFO] Wire Protocol Buffer Runtime ....................... SUCCESS [  5.939 s]
+[INFO] Wire Protocol Buffer Compiler ...................... FAILURE [  2.540 s]
+[INFO] Wire Protocol Buffer Gson Support .................. SKIPPED
+[INFO] Wire Protocol Buffer Maven Plugin .................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.164 s
+[INFO] Finished at: 2015-06-30T04:22:59+00:00
+[INFO] Final Memory: 25M/448M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.10:checkstyle (default) on project wire-compiler: An error has occurred in Checkstyle report generation. Failed during checkstyle execution: There are 1 checkstyle errors. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :wire-compiler
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 2 of 3.[0m
+
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Wire Protocol Buffers
+[INFO] Wire Protocol Buffer Runtime
+[INFO] Wire Protocol Buffer Compiler
+[INFO] Wire Protocol Buffer Gson Support
+[INFO] Wire Protocol Buffer Maven Plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffers 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire ---
+[INFO] Installing /home/travis/build/square/wire/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire/1.8.1-SNAPSHOT/wire-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Runtime 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-runtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /home/travis/build/square/wire/wire-runtime/target/classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-runtime ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-runtime ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-runtime ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-runtime ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-runtime ---
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Compiler 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-compiler ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ wire-compiler ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.8.1-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-compiler ---
+[INFO] Starting audit...
+/home/travis/build/square/wire/wire-compiler/src/main/java/com/squareup/wire/model/RootSet.java:87:61: ';' is followed by whitespace.
+Audit done.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Wire Protocol Buffers .............................. SUCCESS [  1.389 s]
+[INFO] Wire Protocol Buffer Runtime ....................... SUCCESS [  3.251 s]
+[INFO] Wire Protocol Buffer Compiler ...................... FAILURE [  1.586 s]
+[INFO] Wire Protocol Buffer Gson Support .................. SKIPPED
+[INFO] Wire Protocol Buffer Maven Plugin .................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.416 s
+[INFO] Finished at: 2015-06-30T04:23:09+00:00
+[INFO] Final Memory: 26M/465M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.10:checkstyle (default) on project wire-compiler: An error has occurred in Checkstyle report generation. Failed during checkstyle execution: There are 1 checkstyle errors. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :wire-compiler
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed. Retrying, 3 of 3.[0m
+
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Wire Protocol Buffers
+[INFO] Wire Protocol Buffer Runtime
+[INFO] Wire Protocol Buffer Compiler
+[INFO] Wire Protocol Buffer Gson Support
+[INFO] Wire Protocol Buffer Maven Plugin
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffers 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire ---
+[INFO] Installing /home/travis/build/square/wire/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire/1.8.1-SNAPSHOT/wire-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Runtime 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-runtime ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /home/travis/build/square/wire/wire-runtime/target/classes
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/wire/wire-runtime/src/main/java/com/squareup/wire/Wire.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-runtime ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-runtime/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-runtime ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-runtime ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-runtime ---
+[INFO] Building jar: /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-runtime ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ wire-runtime ---
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/target/wire-runtime-1.8.1-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/wire/wire-runtime/pom.xml to /home/travis/.m2/repository/com/squareup/wire/wire-runtime/1.8.1-SNAPSHOT/wire-runtime-1.8.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wire Protocol Buffer Compiler 1.8.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ wire-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/wire/wire-compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ wire-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ wire-compiler ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ wire-compiler ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default) @ wire-compiler ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] Building jar: /home/travis/build/square/wire/wire-compiler/target/wire-compiler-1.8.1-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] com/ already added, skipping
+[INFO] com/squareup/ already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/maven/com.squareup/ already added, skipping
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.10:checkstyle (default) @ wire-compiler ---
+[INFO] Starting audit...
+/home/travis/build/square/wire/wire-compiler/src/main/java/com/squareup/wire/model/RootSet.java:87:61: ';' is followed by whitespace.
+Audit done.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Wire Protocol Buffers .............................. SUCCESS [  1.557 s]
+[INFO] Wire Protocol Buffer Runtime ....................... SUCCESS [  3.121 s]
+[INFO] Wire Protocol Buffer Compiler ...................... FAILURE [  1.560 s]
+[INFO] Wire Protocol Buffer Gson Support .................. SKIPPED
+[INFO] Wire Protocol Buffer Maven Plugin .................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.437 s
+[INFO] Finished at: 2015-06-30T04:23:18+00:00
+[INFO] Final Memory: 26M/465M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.10:checkstyle (default) on project wire-compiler: An error has occurred in Checkstyle report generation. Failed during checkstyle execution: There are 1 checkstyle errors. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :wire-compiler
+
+[31;1mThe command "eval mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed 3 times.[0m
+
+travis_time:end:1548dc2a:start=1435638167990341489,finish=1435638199714126880,duration=31723785391[0K
+[31;1mThe command "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" failed and exited with 1 during .[0m
+
+Your build has been stopped.

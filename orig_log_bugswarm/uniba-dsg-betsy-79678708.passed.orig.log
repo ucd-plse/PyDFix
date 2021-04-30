@@ -1,0 +1,848 @@
+Using worker: worker-linux-docker-d6cbb53f.prod.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0b3dbfe1[0K$ git clone --depth=50 --branch=travis-container https://github.com/uniba-dsg/betsy.git uniba-dsg/betsy
+Cloning into 'uniba-dsg/betsy'...
+remote: Counting objects: 3148, done.[K
+remote: Compressing objects:   0% (1/1760)   [Kremote: Compressing objects:   1% (18/1760)   [Kremote: Compressing objects:   2% (36/1760)   [Kremote: Compressing objects:   3% (53/1760)   [Kremote: Compressing objects:   4% (71/1760)   [Kremote: Compressing objects:   5% (88/1760)   [Kremote: Compressing objects:   6% (106/1760)   [Kremote: Compressing objects:   7% (124/1760)   [Kremote: Compressing objects:   8% (141/1760)   [Kremote: Compressing objects:   9% (159/1760)   [Kremote: Compressing objects:  10% (176/1760)   [Kremote: Compressing objects:  11% (194/1760)   [Kremote: Compressing objects:  12% (212/1760)   [Kremote: Compressing objects:  13% (229/1760)   [Kremote: Compressing objects:  14% (247/1760)   [Kremote: Compressing objects:  15% (264/1760)   [Kremote: Compressing objects:  16% (282/1760)   [Kremote: Compressing objects:  17% (300/1760)   [Kremote: Compressing objects:  18% (317/1760)   [Kremote: Compressing objects:  19% (335/1760)   [Kremote: Compressing objects:  20% (352/1760)   [Kremote: Compressing objects:  21% (370/1760)   [Kremote: Compressing objects:  22% (388/1760)   [Kremote: Compressing objects:  23% (405/1760)   [Kremote: Compressing objects:  24% (423/1760)   [Kremote: Compressing objects:  25% (440/1760)   [Kremote: Compressing objects:  26% (458/1760)   [Kremote: Compressing objects:  27% (476/1760)   [Kremote: Compressing objects:  28% (493/1760)   [Kremote: Compressing objects:  29% (511/1760)   [Kremote: Compressing objects:  30% (528/1760)   [Kremote: Compressing objects:  31% (546/1760)   [Kremote: Compressing objects:  32% (564/1760)   [Kremote: Compressing objects:  33% (581/1760)   [Kremote: Compressing objects:  34% (599/1760)   [Kremote: Compressing objects:  35% (616/1760)   [Kremote: Compressing objects:  36% (634/1760)   [Kremote: Compressing objects:  37% (652/1760)   [Kremote: Compressing objects:  38% (669/1760)   [Kremote: Compressing objects:  39% (687/1760)   [Kremote: Compressing objects:  40% (704/1760)   [Kremote: Compressing objects:  41% (722/1760)   [Kremote: Compressing objects:  42% (740/1760)   [Kremote: Compressing objects:  43% (757/1760)   [Kremote: Compressing objects:  44% (775/1760)   [Kremote: Compressing objects:  45% (792/1760)   [Kremote: Compressing objects:  46% (810/1760)   [Kremote: Compressing objects:  47% (828/1760)   [Kremote: Compressing objects:  48% (845/1760)   [Kremote: Compressing objects:  49% (863/1760)   [Kremote: Compressing objects:  50% (880/1760)   [Kremote: Compressing objects:  51% (898/1760)   [Kremote: Compressing objects:  52% (916/1760)   [Kremote: Compressing objects:  53% (933/1760)   [Kremote: Compressing objects:  54% (951/1760)   [Kremote: Compressing objects:  55% (968/1760)   [Kremote: Compressing objects:  56% (986/1760)   [Kremote: Compressing objects:  57% (1004/1760)   [Kremote: Compressing objects:  58% (1021/1760)   [Kremote: Compressing objects:  59% (1039/1760)   [Kremote: Compressing objects:  60% (1056/1760)   [Kremote: Compressing objects:  61% (1074/1760)   [Kremote: Compressing objects:  62% (1092/1760)   [Kremote: Compressing objects:  63% (1109/1760)   [Kremote: Compressing objects:  64% (1127/1760)   [Kremote: Compressing objects:  65% (1144/1760)   [Kremote: Compressing objects:  66% (1162/1760)   [Kremote: Compressing objects:  67% (1180/1760)   [Kremote: Compressing objects:  68% (1197/1760)   [Kremote: Compressing objects:  69% (1215/1760)   [Kremote: Compressing objects:  70% (1232/1760)   [Kremote: Compressing objects:  71% (1250/1760)   [Kremote: Compressing objects:  72% (1268/1760)   [Kremote: Compressing objects:  73% (1285/1760)   [Kremote: Compressing objects:  74% (1303/1760)   [Kremote: Compressing objects:  75% (1320/1760)   [Kremote: Compressing objects:  76% (1338/1760)   [Kremote: Compressing objects:  77% (1356/1760)   [Kremote: Compressing objects:  78% (1373/1760)   [Kremote: Compressing objects:  79% (1391/1760)   [Kremote: Compressing objects:  80% (1408/1760)   [Kremote: Compressing objects:  81% (1426/1760)   [Kremote: Compressing objects:  82% (1444/1760)   [Kremote: Compressing objects:  83% (1461/1760)   [Kremote: Compressing objects:  84% (1479/1760)   [Kremote: Compressing objects:  85% (1496/1760)   [Kremote: Compressing objects:  86% (1514/1760)   [Kremote: Compressing objects:  87% (1532/1760)   [Kremote: Compressing objects:  88% (1549/1760)   [Kremote: Compressing objects:  89% (1567/1760)   [Kremote: Compressing objects:  90% (1584/1760)   [Kremote: Compressing objects:  91% (1602/1760)   [Kremote: Compressing objects:  92% (1620/1760)   [Kremote: Compressing objects:  93% (1637/1760)   [Kremote: Compressing objects:  94% (1655/1760)   [Kremote: Compressing objects:  95% (1672/1760)   [Kremote: Compressing objects:  96% (1690/1760)   [Kremote: Compressing objects:  97% (1708/1760)   [Kremote: Compressing objects:  98% (1725/1760)   [Kremote: Compressing objects:  99% (1743/1760)   [Kremote: Compressing objects: 100% (1760/1760)   [Kremote: Compressing objects: 100% (1760/1760), done.[K
+Receiving objects:   0% (1/3148)   Receiving objects:   1% (32/3148)   Receiving objects:   2% (63/3148)   Receiving objects:   3% (95/3148)   Receiving objects:   4% (126/3148)   Receiving objects:   5% (158/3148)   Receiving objects:   6% (189/3148)   Receiving objects:   7% (221/3148)   Receiving objects:   8% (252/3148)   Receiving objects:   9% (284/3148)   Receiving objects:  10% (315/3148)   Receiving objects:  11% (347/3148)   Receiving objects:  12% (378/3148)   Receiving objects:  13% (410/3148)   Receiving objects:  14% (441/3148)   Receiving objects:  15% (473/3148)   Receiving objects:  16% (504/3148)   Receiving objects:  17% (536/3148)   Receiving objects:  18% (567/3148)   Receiving objects:  19% (599/3148)   Receiving objects:  20% (630/3148)   Receiving objects:  21% (662/3148)   Receiving objects:  22% (693/3148)   Receiving objects:  23% (725/3148)   Receiving objects:  24% (756/3148)   Receiving objects:  25% (787/3148)   Receiving objects:  26% (819/3148)   Receiving objects:  27% (850/3148)   Receiving objects:  28% (882/3148)   Receiving objects:  29% (913/3148)   Receiving objects:  30% (945/3148)   Receiving objects:  31% (976/3148)   Receiving objects:  32% (1008/3148)   Receiving objects:  33% (1039/3148)   Receiving objects:  34% (1071/3148)   Receiving objects:  35% (1102/3148)   Receiving objects:  36% (1134/3148)   Receiving objects:  37% (1165/3148)   Receiving objects:  38% (1197/3148)   Receiving objects:  39% (1228/3148)   Receiving objects:  40% (1260/3148)   Receiving objects:  41% (1291/3148)   Receiving objects:  42% (1323/3148)   Receiving objects:  43% (1354/3148)   Receiving objects:  44% (1386/3148)   Receiving objects:  45% (1417/3148)   Receiving objects:  46% (1449/3148)   Receiving objects:  47% (1480/3148)   Receiving objects:  48% (1512/3148)   Receiving objects:  49% (1543/3148)   Receiving objects:  50% (1574/3148)   Receiving objects:  51% (1606/3148)   Receiving objects:  52% (1637/3148)   Receiving objects:  53% (1669/3148)   Receiving objects:  54% (1700/3148)   Receiving objects:  55% (1732/3148)   Receiving objects:  56% (1763/3148)   Receiving objects:  57% (1795/3148)   Receiving objects:  58% (1826/3148)   Receiving objects:  59% (1858/3148)   Receiving objects:  60% (1889/3148)   Receiving objects:  61% (1921/3148)   Receiving objects:  62% (1952/3148)   Receiving objects:  63% (1984/3148)   Receiving objects:  64% (2015/3148)   Receiving objects:  65% (2047/3148)   Receiving objects:  66% (2078/3148)   Receiving objects:  67% (2110/3148)   Receiving objects:  68% (2141/3148)   Receiving objects:  69% (2173/3148)   Receiving objects:  70% (2204/3148)   Receiving objects:  71% (2236/3148)   Receiving objects:  72% (2267/3148)   Receiving objects:  73% (2299/3148)   Receiving objects:  74% (2330/3148)   Receiving objects:  75% (2361/3148)   Receiving objects:  76% (2393/3148)   Receiving objects:  77% (2424/3148)   Receiving objects:  78% (2456/3148)   Receiving objects:  79% (2487/3148)   Receiving objects:  80% (2519/3148)   Receiving objects:  81% (2550/3148)   Receiving objects:  82% (2582/3148)   Receiving objects:  83% (2613/3148)   Receiving objects:  84% (2645/3148)   Receiving objects:  85% (2676/3148)   Receiving objects:  86% (2708/3148)   Receiving objects:  87% (2739/3148)   Receiving objects:  88% (2771/3148)   Receiving objects:  89% (2802/3148)   Receiving objects:  90% (2834/3148)   Receiving objects:  91% (2865/3148)   Receiving objects:  92% (2897/3148)   Receiving objects:  93% (2928/3148)   Receiving objects:  94% (2960/3148)   remote: Total 3148 (delta 1585), reused 2689 (delta 1323), pack-reused 0[K
+Receiving objects:  95% (2991/3148)   Receiving objects:  96% (3023/3148)   Receiving objects:  97% (3054/3148)   Receiving objects:  98% (3086/3148)   Receiving objects:  99% (3117/3148)   Receiving objects: 100% (3148/3148)   Receiving objects: 100% (3148/3148), 799.85 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1585)   Resolving deltas:   3% (49/1585)   Resolving deltas:   4% (64/1585)   Resolving deltas:   5% (89/1585)   Resolving deltas:   6% (102/1585)   Resolving deltas:   7% (111/1585)   Resolving deltas:   8% (127/1585)   Resolving deltas:   9% (143/1585)   Resolving deltas:  10% (159/1585)   Resolving deltas:  11% (177/1585)   Resolving deltas:  12% (195/1585)   Resolving deltas:  13% (208/1585)   Resolving deltas:  14% (224/1585)   Resolving deltas:  15% (244/1585)   Resolving deltas:  16% (254/1585)   Resolving deltas:  17% (271/1585)   Resolving deltas:  18% (286/1585)   Resolving deltas:  21% (341/1585)   Resolving deltas:  44% (708/1585)   Resolving deltas:  51% (817/1585)   Resolving deltas:  60% (954/1585)   Resolving deltas:  64% (1015/1585)   Resolving deltas:  79% (1256/1585)   Resolving deltas:  82% (1308/1585)   Resolving deltas:  83% (1329/1585)   Resolving deltas:  84% (1333/1585)   Resolving deltas:  85% (1348/1585)   Resolving deltas:  87% (1381/1585)   Resolving deltas:  88% (1395/1585)   Resolving deltas:  89% (1416/1585)   Resolving deltas:  91% (1449/1585)   Resolving deltas:  96% (1532/1585)   Resolving deltas:  98% (1558/1585)   Resolving deltas:  99% (1572/1585)   Resolving deltas: 100% (1585/1585)   Resolving deltas: 100% (1585/1585), done.
+Checking connectivity... done.
+travis_time:end:0b3dbfe1:start=1441899892831775002,finish=1441899893598334185,duration=766559183[0K$ cd uniba-dsg/betsy
+$ git checkout -qf 3a101138d7b5d92f6f8f89844e46448ae4841f7d
+travis_fold:end:git.checkout[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:24f059ee[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+travis_time:end:24f059ee:start=1441899893753654078,finish=1441899899783825565,duration=6030171487[0Ktravis_time:start:136553c0[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install openjdk-7-jre
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  openjdk-7-jdk openjdk-7-jre-headless
+Suggested packages:
+  openjdk-7-demo openjdk-7-source visualvm icedtea-7-jre-jamvm libnss-mdns
+  sun-java6-fonts fonts-ipafont-gothic fonts-ipafont-mincho ttf-wqy-microhei
+  ttf-wqy-zenhei ttf-indic-fonts-core ttf-telugu-fonts ttf-oriya-fonts
+  ttf-kannada-fonts ttf-bengali-fonts
+The following packages will be upgraded:
+  openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless
+3 upgraded, 0 newly installed, 0 to remove and 209 not upgraded.
+Need to get 58.4 MB of archives.
+After this operation, 43.0 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jdk amd64 7u79-2.5.6-0ubuntu1.12.04.1 [16.5 MB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jre amd64 7u79-2.5.6-0ubuntu1.12.04.1 [212 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/universe openjdk-7-jre-headless amd64 7u79-2.5.6-0ubuntu1.12.04.1 [41.7 MB]
+Fetched 58.4 MB in 1s (41.2 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace openjdk-7-jdk 7u75-2.5.4-1~precise1 (using .../openjdk-7-jdk_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jdk ...
+Preparing to replace openjdk-7-jre 7u75-2.5.4-1~precise1 (using .../openjdk-7-jre_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jre ...
+Preparing to replace openjdk-7-jre-headless 7u75-2.5.4-1~precise1 (using .../openjdk-7-jre-headless_7u79-2.5.6-0ubuntu1.12.04.1_amd64.deb) ...
+Unpacking replacement openjdk-7-jre-headless ...
+Processing triggers for hicolor-icon-theme ...
+Setting up openjdk-7-jre-headless (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Installing new version of config file /etc/java-7-openjdk/security/java.security ...
+Setting up openjdk-7-jre (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Setting up openjdk-7-jdk (7u79-2.5.6-0ubuntu1.12.04.1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_time:end:136553c0:start=1441899899787326879,finish=1441899909433406476,duration=9646079597[0Ktravis_fold:end:apt[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export JAVA7_HOME=/usr/lib/jvm/java7-openjdk-amd64/jre
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:046840a0[0K$ Installing caching utilities
+travis_time:end:046840a0:start=1441899910875680839,finish=1441899910929803372,duration=54122533[0Ktravis_time:start:0c4cb920[0Kattempting to download cache archive
+fetching travis-container/cache--jdk-oraclejdk8.tgz
+found cache
+travis_time:end:0c4cb920:start=1441899910934434490,finish=1441899921280948932,duration=10346514442[0Ktravis_time:start:0069a7f7[0Kadding /home/travis/build/uniba-dsg/betsy/downloads to cache
+adding /home/travis/.gradle/caches to cache
+adding /home/travis/.gradle/wrapper to cache
+travis_time:end:0069a7f7:start=1441899921284841335,finish=1441899926754392183,duration=5469550848[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:install[0Ktravis_time:start:2ac81344[0K$ TERM=dumb travis_retry ./gradlew assemble --info
+Starting Build
+Settings evaluated using settings file '/master/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+Included projects: [root project 'betsy']
+Evaluating root project 'betsy' using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+Compiling build file '/home/travis/build/uniba-dsg/betsy/build.gradle' using SubsetScriptTransformer.
+Compiling build file '/home/travis/build/uniba-dsg/betsy/build.gradle' using BuildScriptTransformer.
+All projects evaluated.
+Selected primary task 'assemble' from project :
+Tasks to be executed: [task ':compileJava', task ':downloadSoapUI', task ':downloadAnt', task ':installAnt', task ':downloadMaven', task ':installMaven', task ':installSoapUI', task ':compileGroovy', task ':processResources', task ':classes', task ':jar', task ':startScripts', task ':distTar', task ':distZip', task ':assemble']
+:compileJava (Thread[main,5,main]) started.
+:compileJava
+Resource missing. [HTTP GET: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.jar]
+Resource missing. [HTTP GET: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.jar]
+Download https://jcenter.bintray.com/net/sf/saxon/Saxon-HE/9.6.0-7/Saxon-HE-9.6.0-7.pom
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin', not found
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib', not found
+Download https://jcenter.bintray.com/net/sf/saxon/Saxon-HE/9.6.0-7/Saxon-HE-9.6.0-7.jar
+Executing task ':compileJava' (up-to-date check took 8.537 secs) due to:
+  No history is available.
+All input files are considered out-of-date for incremental task ':compileJava'.
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin', not found
+file or directory '/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib', not found
+Compiling with JDK Java compiler API.
+:compileJava (Thread[main,5,main]) completed. Took 10.304 secs.
+:downloadSoapUI (Thread[main,5,main]) started.
+:downloadSoapUI
+Executing task ':downloadSoapUI' (up-to-date check took 0.332 secs) due to:
+  No history is available.
+[ant:get] Getting: https://lspi.wiai.uni-bamberg.de/svn/betsy/SoapUI-4.6.4-windows-bin.zip
+[ant:get] To: /home/travis/build/uniba-dsg/betsy/downloads/SoapUI-4.6.4-windows-bin.zip
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ....................................................
+[ant:get] ................................................
+:downloadSoapUI (Thread[main,5,main]) completed. Took 8.889 secs.
+:downloadAnt (Thread[main,5,main]) started.
+:downloadAnt
+Executing task ':downloadAnt' (up-to-date check took 0.035 secs) due to:
+  No history is available.
+[ant:get] Getting: https://lspi.wiai.uni-bamberg.de/svn/betsy/apache-ant-1.9.2-bin.zip
+[ant:get] To: /home/travis/build/uniba-dsg/betsy/downloads/apache-ant-1.9.2-bin.zip
+:downloadAnt (Thread[main,5,main]) completed. Took 1.596 secs.
+:installAnt (Thread[main,5,main]) started.
+:installAnt
+Executing task ':installAnt' (up-to-date check took 0.001 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/ant
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/apache-ant-1.9.2-bin.zip into /home/travis/build/uniba-dsg/betsy/ant
+:installAnt (Thread[main,5,main]) completed. Took 1.363 secs.
+:downloadMaven (Thread[main,5,main]) started.
+:downloadMaven
+Executing task ':downloadMaven' (up-to-date check took 0.028 secs) due to:
+  No history is available.
+[ant:get] Getting: https://lspi.wiai.uni-bamberg.de/svn/betsy/apache-maven-3.2.1.zip
+[ant:get] To: /home/travis/build/uniba-dsg/betsy/downloads/apache-maven-3.2.1.zip
+:downloadMaven (Thread[main,5,main]) completed. Took 1.774 secs.
+:installMaven (Thread[main,5,main]) started.
+:installMaven
+Executing task ':installMaven' (up-to-date check took 0.001 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/maven/apache-maven-3.2.1
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/apache-maven-3.2.1.zip into /home/travis/build/uniba-dsg/betsy/maven
+:installMaven (Thread[main,5,main]) completed. Took 0.138 secs.
+:installSoapUI (Thread[main,5,main]) started.
+:installSoapUI
+Executing task ':installSoapUI' (up-to-date check took 0.0 secs) due to:
+  No history is available.
+[ant:mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4
+[ant:unzip] Expanding: /home/travis/build/uniba-dsg/betsy/downloads/SoapUI-4.6.4-windows-bin.zip into /home/travis/build/uniba-dsg/betsy/soapui
+:installSoapUI (Thread[main,5,main]) completed. Took 1.243 secs.
+:compileGroovy (Thread[main,5,main]) started.
+:compileGroovy
+Executing task ':compileGroovy' (up-to-date check took 0.209 secs) due to:
+  No history is available.
+Starting process 'Gradle Compiler Daemon 1'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Compiler Daemon 1'
+Successfully started process 'Gradle Compiler Daemon 1'
+Started Gradle compiler daemon (0.619 secs) with fork options DaemonForkOptions{minHeapSize=null, maxHeapSize=null, jvmArgs=[], classpath=[/home/travis/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.4.4/b22748b6cf9a38c9777792175507a679043cdd64/groovy-all-2.4.4.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-1.9.3.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-launcher-1.9.3.jar]}.
+Executing org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@6659f4fb in compiler daemon.
+Compiling with JDK Java compiler API.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Successfully executed org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@6659f4fb in compiler daemon.
+:compileGroovy (Thread[main,5,main]) completed. Took 22.156 secs.
+:processResources (Thread[main,5,main]) started.
+:processResources
+Executing task ':processResources' (up-to-date check took 4.755 secs) due to:
+  No history is available.
+:processResources (Thread[main,5,main]) completed. Took 9.698 secs.
+:classes (Thread[main,5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes (Thread[main,5,main]) completed. Took 0.001 secs.
+:jar (Thread[main,5,main]) started.
+:jar
+Executing task ':jar' (up-to-date check took 0.911 secs) due to:
+  No history is available.
+:jar (Thread[main,5,main]) completed. Took 4.057 secs.
+:startScripts (Thread[main,5,main]) started.
+:startScripts
+Executing task ':startScripts' (up-to-date check took 0.196 secs) due to:
+  No history is available.
+:startScripts (Thread[main,5,main]) completed. Took 0.883 secs.
+:distTar (Thread[main,5,main]) started.
+:distTar
+Executing task ':distTar' (up-to-date check took 0.046 secs) due to:
+  No history is available.
+:distTar (Thread[main,5,main]) completed. Took 2.609 secs.
+:distZip (Thread[main,5,main]) started.
+:distZip
+Executing task ':distZip' (up-to-date check took 0.066 secs) due to:
+  No history is available.
+:distZip (Thread[main,5,main]) completed. Took 5.059 secs.
+:assemble (Thread[main,5,main]) started.
+:assemble
+Skipping task ':assemble' as it has no actions.
+:assemble (Thread[main,5,main]) completed. Took 0.0 secs.
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 26.542 secs
+Stopped 1 compiler daemon(s).
+travis_time:end:2ac81344:start=1441899927179174940,finish=1441900014177430889,duration=86998255949[0Ktravis_fold:end:install[0Ktravis_time:start:0653159a[0K$ TERM=dumb ./gradlew test --tests *SystemTest.*Bpelg* --info
+Starting Build
+Settings evaluated using settings file '/master/settings.gradle'.
+Projects loaded. Root project using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+Included projects: [root project 'betsy']
+Evaluating root project 'betsy' using build file '/home/travis/build/uniba-dsg/betsy/build.gradle'.
+All projects evaluated.
+Selected primary task 'test' from project :
+Tasks to be executed: [task ':compileJava', task ':downloadSoapUI', task ':downloadAnt', task ':installAnt', task ':downloadMaven', task ':installMaven', task ':installSoapUI', task ':compileGroovy', task ':processResources', task ':classes', task ':compileTestJava', task ':compileTestGroovy', task ':processTestResources', task ':testClasses', task ':test']
+:compileJava (Thread[main,5,main]) started.
+:compileJava
+Resource missing. [HTTP GET: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: https://jcenter.bintray.com/org/json/json/5.0.5/json-5.0.5.jar]
+Resource missing. [HTTP GET: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.pom]
+Resource missing. [HTTP HEAD: http://repository.jboss.org/nexus/content/groups/public/org/json/json/5.0.5/json-5.0.5.jar]
+Executing task ':compileJava' (up-to-date check took 4.136 secs) due to:
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/xmlunit-1.2.jar has been added.
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/hermes-1.14.jar has been added.
+  Input file /home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/lib/maven-plugin-api-2.0.jar has been added.
+Compiling with JDK Java compiler API.
+:compileJava (Thread[main,5,main]) completed. Took 6.489 secs.
+:downloadSoapUI (Thread[main,5,main]) started.
+:downloadSoapUI
+Skipping task ':downloadSoapUI' as it is up-to-date (took 0.003 secs).
+:downloadSoapUI UP-TO-DATE
+:downloadSoapUI (Thread[main,5,main]) completed. Took 0.004 secs.
+:downloadAnt (Thread[main,5,main]) started.
+:downloadAnt
+Skipping task ':downloadAnt' as it is up-to-date (took 0.001 secs).
+:downloadAnt UP-TO-DATE
+:downloadAnt (Thread[main,5,main]) completed. Took 0.025 secs.
+:installAnt (Thread[main,5,main]) started.
+:installAnt
+Skipping task ':installAnt' as it is up-to-date (took 0.772 secs).
+:installAnt UP-TO-DATE
+:installAnt (Thread[main,5,main]) completed. Took 0.774 secs.
+:downloadMaven (Thread[main,5,main]) started.
+:downloadMaven
+Skipping task ':downloadMaven' as it is up-to-date (took 0.001 secs).
+:downloadMaven UP-TO-DATE
+:downloadMaven (Thread[main,5,main]) completed. Took 0.002 secs.
+:installMaven (Thread[main,5,main]) started.
+:installMaven
+Skipping task ':installMaven' as it is up-to-date (took 0.019 secs).
+:installMaven UP-TO-DATE
+:installMaven (Thread[main,5,main]) completed. Took 0.021 secs.
+:installSoapUI (Thread[main,5,main]) started.
+:installSoapUI
+Skipping task ':installSoapUI' as it is up-to-date (took 0.03 secs).
+:installSoapUI UP-TO-DATE
+:installSoapUI (Thread[main,5,main]) completed. Took 0.046 secs.
+:compileGroovy (Thread[main,5,main]) started.
+:compileGroovy
+Skipping task ':compileGroovy' as it is up-to-date (took 0.289 secs).
+:compileGroovy UP-TO-DATE
+:compileGroovy (Thread[main,5,main]) completed. Took 0.3 secs.
+:processResources (Thread[main,5,main]) started.
+:processResources
+Skipping task ':processResources' as it is up-to-date (took 4.772 secs).
+:processResources UP-TO-DATE
+:processResources (Thread[main,5,main]) completed. Took 5.417 secs.
+:classes (Thread[main,5,main]) started.
+:classes
+Skipping task ':classes' as it has no actions.
+:classes (Thread[main,5,main]) completed. Took 0.009 secs.
+:compileTestJava (Thread[main,5,main]) started.
+:compileTestJava
+file or directory '/home/travis/build/uniba-dsg/betsy/src/test/java', not found
+Skipping task ':compileTestJava' as it has no source files.
+:compileTestJava UP-TO-DATE
+:compileTestJava (Thread[main,5,main]) completed. Took 0.002 secs.
+:compileTestGroovy (Thread[main,5,main]) started.
+:compileTestGroovy
+Executing task ':compileTestGroovy' (up-to-date check took 0.849 secs) due to:
+  No history is available.
+Starting process 'Gradle Compiler Daemon 1'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Compiler Daemon 1'
+Successfully started process 'Gradle Compiler Daemon 1'
+Started Gradle compiler daemon (1.73 secs) with fork options DaemonForkOptions{minHeapSize=null, maxHeapSize=null, jvmArgs=[], classpath=[/home/travis/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.4.4/b22748b6cf9a38c9777792175507a679043cdd64/groovy-all-2.4.4.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-1.9.3.jar, /home/travis/.gradle/wrapper/dists/gradle-2.6-bin/7og9jkn1p1nxjafu1htp0hhvc/gradle-2.6/lib/ant-launcher-1.9.3.jar]}.
+Executing org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@34ae2f99 in compiler daemon.
+Compiling with JDK Java compiler API.
+Successfully executed org.gradle.api.internal.tasks.compile.ApiGroovyCompiler@34ae2f99 in compiler daemon.
+:compileTestGroovy (Thread[main,5,main]) completed. Took 7.417 secs.
+:processTestResources (Thread[main,5,main]) started.
+:processTestResources
+file or directory '/home/travis/build/uniba-dsg/betsy/src/test/resources', not found
+Skipping task ':processTestResources' as it has no source files.
+:processTestResources UP-TO-DATE
+:processTestResources (Thread[main,5,main]) completed. Took 0.008 secs.
+:testClasses (Thread[main,5,main]) started.
+:testClasses
+Skipping task ':testClasses' as it has no actions.
+:testClasses (Thread[main,5,main]) completed. Took 0.001 secs.
+:test (Thread[main,5,main]) started.
+:test
+Executing task ':test' (up-to-date check took 0.502 secs) due to:
+  No history is available.
+Starting process 'Gradle Test Executor 2'. Working directory: /home/travis/build/uniba-dsg/betsy Command: /usr/lib/jvm/java-8-oracle/bin/java -Djava.security.manager=jarjar.org.gradle.process.internal.child.BootstrapSecurityManager -javaagent:build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_4oo2qgb84bu19pqprc168emt5/jacocoagent.jar=destfile=build/jacoco/test.exec,append=true,dumponexit=true,output=file,jmx=false -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -cp /home/travis/.gradle/caches/2.6/workerMain/gradle-worker.jar jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+Gradle Test Executor 2 started executing tests.
+
+betsy.SystemTest > test_B3_BpelBpelgSequence STANDARD_OUT
+    [ option: f use-custom-test-folder  [ARG] :: Use custom test folder :: class java.lang.String ]
+    [] [] Engines (1): [bpelg]
+    [] [] Processes (1): [Sequence]
+    [] [] Started TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Started TestPartnerService at http://localhost:2000/bpel-testpartner
+    [] [] Stopping TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Stopped TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [] [] Stopping TestPartnerService at http://localhost:2000/bpel-testpartner
+    [] [] Stopped TestPartnerService at http://localhost:2000/bpel-testpartner
+    [0/1] [] Deleting directory /home/travis/build/uniba-dsg/betsy/test-bpelg
+    [0/1] [] Directory is already deleted!
+    [0/1] [] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg
+    [0/1] [test-bpelg] Creating directory /home/travis/build/uniba-dsg/betsy
+    [0/1] [test-bpelg] Directory already there - skipping creation
+    [0/1] [test-bpelg] Start ...
+    [0/1] [test-bpelg] Checking whether the url http://localhost:8080 returns HTTP 200
+    [0/1] [test-bpelg] java.net.ConnectException: Connection refused
+    [0/1] [test-bpelg] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg
+    [0/1] [test-bpelg/bpelg] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg
+    [0/1] [test-bpelg/bpelg] Directory already there - skipping creation
+    [0/1] [test-bpelg/bpelg] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying BPEL, WSDL and additional files to target directory
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/src/main/tests/files/bpel/structured/Sequence.bpel into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/Sequence.bpel {../=""}
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/src/main/tests/files/bpel/TestInterface.wsdl into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Processing src/main/tests/files/bpel/structured/Sequence.bpel to test-bpelg/bpelg/structured__Sequence/process/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/bpelg/bpelg_bpel_to_deploy_xml.xsl
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/TR/2001/REC-xml-c14n-20010315, org.apache.xml.security.c14n.implementations.Canonicalizer20010315OmitComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments, org.apache.xml.security.c14n.implementations.Canonicalizer20010315WithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/2001/10/xml-exc-c14n#, org.apache.xml.security.c14n.implementations.Canonicalizer20010315ExclOmitComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/2001/10/xml-exc-c14n#WithComments, org.apache.xml.security.c14n.implementations.Canonicalizer20010315ExclWithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/2006/12/xml-c14n11, org.apache.xml.security.c14n.implementations.Canonicalizer11_OmitComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Canonicalizer.register(http://www.w3.org/2006/12/xml-c14n11#WithComments, org.apache.xml.security.c14n.implementations.Canonicalizer11_WithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2000/09/xmldsig#base64, org.apache.xml.security.transforms.implementations.TransformBase64Decode)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/TR/2001/REC-xml-c14n-20010315, org.apache.xml.security.transforms.implementations.TransformC14N)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments, org.apache.xml.security.transforms.implementations.TransformC14NWithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2006/12/xml-c14n11, org.apache.xml.security.transforms.implementations.TransformC14N11)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2006/12/xml-c14n11#WithComments, org.apache.xml.security.transforms.implementations.TransformC14N11_WithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2001/10/xml-exc-c14n#, org.apache.xml.security.transforms.implementations.TransformC14NExclusive)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2001/10/xml-exc-c14n#WithComments, org.apache.xml.security.transforms.implementations.TransformC14NExclusiveWithComments)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/TR/1999/REC-xpath-19991116, org.apache.xml.security.transforms.implementations.TransformXPath)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2000/09/xmldsig#enveloped-signature, org.apache.xml.security.transforms.implementations.TransformEnvelopedSignature)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/TR/1999/REC-xslt-19991116, org.apache.xml.security.transforms.implementations.TransformXSLT)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2002/04/xmldsig-filter2, org.apache.xml.security.transforms.implementations.TransformXPath2Filter)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Transform.register(http://www.w3.org/2002/06/xmldsig-filter2, org.apache.xml.security.transforms.implementations.TransformXPath2Filter)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Init() called
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2000/09/xmldsig#dsa-sha1, org.apache.xml.security.algorithms.implementations.SignatureDSA)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2000/09/xmldsig#dsa-sha1 org.apache.xml.security.algorithms.implementations.SignatureDSA
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2000/09/xmldsig#rsa-sha1, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2000/09/xmldsig#rsa-sha1 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2000/09/xmldsig#hmac-sha1, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2000/09/xmldsig#hmac-sha1 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#rsa-md5, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#rsa-md5 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSAMD5
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSARIPEMD160
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#rsa-sha256, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA256
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#rsa-sha384, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA384
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#rsa-sha512, org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA512
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1, org.apache.xml.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1 org.apache.xml.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA1
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#hmac-md5, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#hmac-md5 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#hmac-ripemd160, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#hmac-ripemd160 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#hmac-sha256, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#hmac-sha256 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#hmac-sha384, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#hmac-sha384 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] SignatureAlgorithm.register(http://www.w3.org/2001/04/xmldsig-more#hmac-sha512, org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Try to register http://www.w3.org/2001/04/xmldsig-more#hmac-sha512 org.apache.xml.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.utils.resolver.implementations.ResolverDirectHTTP: A simple resolver for requests to HTTP space
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.utils.resolver.implementations.ResolverLocalFilesystem: A simple resolver for requests to the local file system
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.utils.resolver.implementations.ResolverFragment: A simple resolver for requests of same-document URIs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.utils.resolver.implementations.ResolverXPointer: A simple resolver for requests of XPointer fragents
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.RSAKeyValueResolver: Can extract RSA public keys
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.DSAKeyValueResolver: Can extract DSA public keys
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.X509CertificateResolver: Can extract public keys from X509 certificates
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.X509SKIResolver: Uses an X509v3 SubjectKeyIdentifier extension to retrieve a certificate from the storages
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.RetrievalMethodResolver: Resolves keys and certificates using ResourceResolvers
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.X509SubjectNameResolver: Uses an X509 SubjectName to retrieve a certificate from the storages
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Register Resolver: org.apache.xml.security.keys.keyresolver.implementations.X509IssuerSerialResolver: Uses an X509 IssuerName and IssuerSerial to retrieve a certificate from the storages
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind prefixes:
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind ds to http://www.w3.org/2000/09/xmldsig#
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind xenc to http://www.w3.org/2001/04/xmlenc#
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind experimental to http://www.xmlsecurity.org/experimental#
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind dsig-xpath-old to http://www.w3.org/2002/04/xmldsig-filter2
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind dsig-xpath to http://www.w3.org/2002/06/xmldsig-filter2
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind ec to http://www.w3.org/2001/10/xml-exc-c14n#
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Now I try to bind xx to http://www.nue.et-inf.uni-siegen.de/~geuer-pollmann/#xpathFilter
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] XX_init                             139 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_prng                           0 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_parsing                        20 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_i18n                 2 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_c14n             27 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_jcemapper        3 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_keyInfo          4 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_keyResolver      10 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_prefixes         6 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_resourceresolver 9 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_sigalgos         43 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package]   XX_configure_reg_transforms       13 ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying contents of file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl to file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessAsync
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying contents of file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl to file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessAsync successful
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Processing test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessAsync to test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.after_removing_startProcessAsync
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/bpelg/bpelg_prepare_wsdl.xsl
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.after_removing_startProcessAsync into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying contents of file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl to file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessSyncString
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying contents of file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl to file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessSyncString successful
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Processing test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.before_removing_startProcessSyncString to test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.after_removing_startProcessSyncString
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.xslt] Loading stylesheet /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/bpelg/bpelg_prepare_wsdl.xsl
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Copying file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/tmp/TestInterface.wsdl.after_removing_startProcessSyncString into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl {TestInterfaceService="SequenceTestInterfaceService"}
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/deploy.xml {TestInterfaceService="SequenceTestInterfaceService"}
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Setting WSDL endpoint to http://localhost:8080/bpel-g/services/SequenceTestInterfaceService
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl {ENDPOINT_URL="http://localhost:8080/bpel-g/services/SequenceTestInterfaceService"}
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Setting Partner Address to localhost:2000
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process {PARTNER_IP_AND_PORT="localhost:2000"}
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/pkg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] Creating zip archive test-bpelg/bpelg/structured__Sequence/pkg/Sequence.zip using the contents of test-bpelg/bpelg/structured__Sequence/process
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] [ant.zip] Building zip: /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/pkg/Sequence.zip
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_package] ... finished in 1s | (1271ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Creating SoapUI TestSuite
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/soapui
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/reports
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Missing folder [/home/travis/build/uniba-dsg/betsy/./ext] for external libraries
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Creating new settings at [/home/travis/soapui-settings.xml]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Added default schema from file:/home/travis/build/uniba-dsg/betsy/soapui/SoapUI-4.6.4/bin/soapui-4.6.4.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Loading schema types from [file:/home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Getting schema file:/home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Finding importer for {http://dsg.wiai.uniba.de/betsy/activities/wsdl/testinterface}TestInterfacePortTypeBinding
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Importing binding {http://dsg.wiai.uniba.de/betsy/activities/wsdl/testinterface}TestInterfacePortTypeBinding
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] importing endpoint http://localhost:8080/bpel-g/services/SequenceTestInterfaceService
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] importing operation startProcessAsync
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] importing operation startProcessSync
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] importing operation startProcessSyncString
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Convert string 'file:/home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/process/TestInterface.wsdl' to class 'java.lang.String'
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Failed to delete temporary project file; /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/soapui/project-temp-8858172114822652892.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] Saved project [soapui] to [/home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/soapui/test_bpelg_structured_Sequence_soapui.xml - 8926 bytes
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build_test] ... finished in 3s | (3921ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/build] ... finished in 5s | (5206ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/downloads
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] [ant.get] Destination already exists (skipping): /home/travis/build/uniba-dsg/betsy/downloads/apache-tomcat-7.0.53-windows-x64.zip
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Deleting directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Unzipping downloads/apache-tomcat-7.0.53-windows-x64.zip to server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] [ant.unzip] Expanding: downloads/apache-tomcat-7.0.53-windows-x64.zip into server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_startup.bat with SET CATALINA_OPTS=-Xmx3048M -XX:MaxPermSize=2048m -Djavax.xml.soap.MessageFactory=org.apache.axis.soap.MessageFactoryImpl@LINE_BREAK@cd /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bin && call startup.bat
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_shutdown.bat with cd /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bin && call shutdown.bat
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_startup.sh with CATALINA_OPTS="-Xmx3048M -XX:MaxPermSize=2048m"-Djavax.xml.soap.MessageFactory=org.apache.axis.soap.MessageFactoryImpl@LINE_BREAK@cd /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bin && ./startup.sh
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating file /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_shutdown.sh with cd /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bin && ./shutdown.sh
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Executing on unix /home/travis/build/uniba-dsg/betsy/. $ chmod --recursive 777 /home/travis/build/uniba-dsg/betsy/server/bpelg
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Creating directory /home/travis/build/uniba-dsg/betsy/downloads
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] [ant.get] Destination already exists (skipping): /home/travis/build/uniba-dsg/betsy/downloads/bpel-g-5.3.war
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Unzipping downloads/bpel-g-5.3.war to server/bpelg/apache-tomcat-7.0.53/webapps/bpel-g
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] [ant.unzip] Expanding: downloads/bpel-g-5.3.war into server/bpelg/apache-tomcat-7.0.53/webapps/bpel-g
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] Copying file /home/travis/build/uniba-dsg/betsy/build/resources/main/bpel/bpelg/log4j.properties into folder /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/webapps/bpel-g/WEB-INF
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_install] ... finished in 1s | (1003ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Executing on windows /home/travis/build/uniba-dsg/betsy/server/bpelg $ tomcat_startup.bat 
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Executing on unix /home/travis/build/uniba-dsg/betsy/. $ /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_startup.sh 
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] [ant.exec] Tomcat started.
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] wait for at most 30000ms or until condition is met.
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Checking whether the url http://localhost:8080 returns HTTP 200
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Checking whether the url http://localhost:8080 returns HTTP 200
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] java.net.ConnectException: Connection refused
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Checking whether the url http://localhost:8080 returns HTTP 200
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Got response code 200
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] Condition of wait task was met -> proceeding
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_startup] ... finished in 17s | (17152ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Copying file /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/pkg/Sequence.zip into folder /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] wait for at most 100000ms or until condition is met.
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Searching for substring Deployment successful in file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Searching for substring Deployment failed in file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Searching for substring Deployment successful in file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Searching for substring Deployment failed in file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Checking for the existence of file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/bpr/work/ae_temp_Sequence_zip/deploy.xml
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Searching for substring Deployment successful in file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] Condition of wait task was met -> proceeding
+    [1/1] [test-bpelg/bpelg/structured__Sequence/deploy] ... finished in 10s | (10015ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Started TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Started TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Loaded project from [file:/home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/soapui/test_bpelg_structured_Sequence_soapui.xml]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Running SoapUI tests in project [soapui]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Running Project [soapui], runType = SEQUENTIAL
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Running SoapUI testcase [Good-Case-1-1]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] running step [Test Availability of WSDL]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] running step [Sending TestInterfacePortTypeBinding.startProcessSync Step #1]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Assertion [SOAP Response] has status VALID
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Assertion [XPath Match] has status VALID
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Assertion [Not SOAP Fault] has status VALID
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Finished running SoapUI testcase [Good-Case-1-1], time taken: 2026ms, status: FINISHED
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] Project [soapui] finished with status [FINISHED] in 2097ms
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test_soapui] ... finished in 2s | (2143ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Sleep for 500 ms NOW
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Stopping TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Stopped TestPartnerService at http://localhost:2000/bpel-assigned-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Stopping TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] Stopped TestPartnerService at http://localhost:2000/bpel-testpartner
+    [1/1] [test-bpelg/bpelg/structured__Sequence/test] ... finished in 2s | (2730ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Finding all files in dir [server/bpelg/apache-tomcat-7.0.53/logs]
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/catalina.out into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/catalina.2015-09-10.log into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/localhost.2015-09-10.log into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/manager.2015-09-10.log into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/host-manager.2015-09-10.log into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/localhost_access_log.2015-09-10.txt into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] Copying file /home/travis/build/uniba-dsg/betsy/server/bpelg/apache-tomcat-7.0.53/logs/bpelg.log into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence/logs
+    [1/1] [test-bpelg/bpelg/structured__Sequence/collect] ... finished in 0s | (2ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/bpelg/structured__Sequence
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] Directory already there - skipping creation
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] Start ...
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] Executing on windows /home/travis/build/uniba-dsg/betsy/. $ taskkill /FI WINDOWTITLE eq Tomcat
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] Executing on unix /home/travis/build/uniba-dsg/betsy/. $ /home/travis/build/uniba-dsg/betsy/server/bpelg/tomcat_shutdown.sh 
+    [1/1] [test-bpelg/bpelg/structured__Sequence/engine_shutdown] ... finished in 0s | (399ms)
+    [1/1] [test-bpelg/bpelg/structured__Sequence] ... finished in 36s | (36516ms)
+    [1/1] [test-bpelg/bpelg] ... finished in 36s | (36532ms)
+    [1/1] [test-bpelg/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg
+    [1/1] [test-bpelg/reports] Directory already there - skipping creation
+    [1/1] [test-bpelg/reports] Start ...
+    [1/1] [test-bpelg/reports] Finding first file in dir [test-bpelg/bpelg/structured__Sequence/reports] with pattern [*.xml]
+    [1/1] [test-bpelg/reports] creating reporting ant scripts
+    [1/1] [test-bpelg/reports] Copying contents of file /home/travis/build/uniba-dsg/betsy/build/resources/main/build.xml.template to file /home/travis/build/uniba-dsg/betsy/test-bpelg/build.xml
+    [1/1] [test-bpelg/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg
+    [1/1] [test-bpelg/reports] Directory already there - skipping creation
+    [1/1] [test-bpelg/reports] Copying contents of file /home/travis/build/uniba-dsg/betsy/build/resources/main/build.xml.template to file /home/travis/build/uniba-dsg/betsy/test-bpelg/build.xml successful
+    [1/1] [test-bpelg/reports] Replacing tokens in /home/travis/build/uniba-dsg/betsy/test-bpelg/build.xml {PROJECT_NAME="test-bpelg"}
+    [1/1] [test-bpelg/reports] executing reporting ant scripts
+    [1/1] [test-bpelg/reports] Executing on unix /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin $ chmod +x /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant
+    [1/1] [test-bpelg/reports] Executing on windows /home/travis/build/uniba-dsg/betsy/test-bpelg $ /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant 
+    [1/1] [test-bpelg/reports] Executing on unix /home/travis/build/uniba-dsg/betsy/test-bpelg $ /home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/bin/ant 
+    [1/1] [test-bpelg/reports] [ant.exec] Buildfile: /home/travis/build/uniba-dsg/betsy/test-bpelg/build.xml
+    [1/1] [test-bpelg/reports] [ant.exec] 
+    [1/1] [test-bpelg/reports] [ant.exec] reports:
+    [1/1] [test-bpelg/reports] [ant.exec]     [mkdir] Created dir: /home/travis/build/uniba-dsg/betsy/test-bpelg/reports
+    [1/1] [test-bpelg/reports] [ant.exec] [junitreport] Processing /home/travis/build/uniba-dsg/betsy/test-bpelg/reports/TESTS-TestSuites.xml to /tmp/null74535036
+    [1/1] [test-bpelg/reports] [ant.exec] [junitreport] Loading stylesheet jar:file:/home/travis/build/uniba-dsg/betsy/ant/apache-ant-1.9.2/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+    [1/1] [test-bpelg/reports] [ant.exec] [junitreport] Transform time: 563ms
+    [1/1] [test-bpelg/reports] [ant.exec] [junitreport] Deleting: /tmp/null74535036
+    [1/1] [test-bpelg/reports] [ant.exec] 
+    [1/1] [test-bpelg/reports] [ant.exec] BUILD SUCCESSFUL
+    [1/1] [test-bpelg/reports] [ant.exec] Total time: 0 seconds
+    [1/1] [test-bpelg/reports] Creating directory /home/travis/build/uniba-dsg/betsy/test-bpelg/reports
+    [1/1] [test-bpelg/reports] Directory already there - skipping creation
+    [1/1] [test-bpelg/reports] Creating file /home/travis/build/uniba-dsg/betsy/test-bpelg/reports/results.html with 44 lines
+    [1/1] [test-bpelg/reports] Copying file /home/travis/build/uniba-dsg/betsy/build/resources/main/betsy/common/analytics/html/bootstrap.min.css into folder /home/travis/build/uniba-dsg/betsy/test-bpelg/reports
+    [1/1] [test-bpelg/reports] ... finished in 2s | (2145ms)
+    [1/1] [test-bpelg] ... finished in 38s | (38717ms)
+Gradle Test Executor 2 finished executing tests.
+Finished generating test XML results (0.032 secs) into: /home/travis/build/uniba-dsg/betsy/build/test-results
+Generating HTML test report...
+Finished generating test html results (0.04 secs) into: /home/travis/build/uniba-dsg/betsy/build/reports/tests
+:test (Thread[main,5,main]) completed. Took 50.153 secs.
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 24.594 secs
+Stopped 1 compiler daemon(s).
+travis_time:end:0653159a:start=1441900014182433425,finish=1441900099221592470,duration=85039159045[0K
+[32;1mThe command "TERM=dumb ./gradlew test --tests *SystemTest.*Bpelg* --info" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:176b5c3f[0Kchange detected:
+/home/travis/.gradle/caches/2.6/plugin-resolution/cache.properties.lock
+/home/travis/.gradle/caches/2.6/plugin-resolution/cache.properties.lock
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/cp_proj/cache.properties
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/cp_proj/cache.properties
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/cp_proj/cache.properties.lock
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/cp_proj/cache.properties.lock
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/proj/cache.properties
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/proj/cache.properties
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/proj/cache.properties.lock
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/proj/cache.properties.lock
+/home/travis/.gradle/caches/2.6/scripts/build_4tpl0ha2kj8qiqxwjv3w9l72q/p
+...
+changes detected, packing new archive
+.
+.
+.
+.
+uploading archive
+travis_time:end:176b5c3f:start=1441900099225835601,finish=1441900138976357845,duration=39750522244[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:19361da0[0K$ ./gradlew jacocoTestReport coveralls
+:compileJava UP-TO-DATE
+:downloadSoapUI UP-TO-DATE
+:downloadAnt UP-TO-DATE
+:installAnt UP-TO-DATE
+:downloadMaven UP-TO-DATE
+:installMaven UP-TO-DATE
+:installSoapUI UP-TO-DATE
+:compileGroovy UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:jacocoTestReport
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.1.201405082137/org.jacoco.ant-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.1.201405082137/org.jacoco.core-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.1.201405082137/org.jacoco.report-0.7.1.201405082137.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-parent/5.0.1/asm-parent-5.0.1.pom
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.ant/0.7.1.201405082137/org.jacoco.ant-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.core/0.7.1.201405082137/org.jacoco.core-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/jacoco/org.jacoco.report/0.7.1.201405082137/org.jacoco.report-0.7.1.201405082137.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar
+:coveralls
+service name: travis-ci
+service job id: 79684429
+repo token: null
+[message:Job #296.1, url:https://coveralls.io/jobs/8210293]
+BUILD SUCCESSFUL
+
+Total time: 37.184 secs
+travis_time:end:19361da0:start=1441900138980470686,finish=1441900177646889373,duration=38666418687[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

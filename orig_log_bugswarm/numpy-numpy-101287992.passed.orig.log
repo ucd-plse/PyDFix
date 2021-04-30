@@ -1,0 +1,740 @@
+Using worker: worker-linux-docker-f17f0308.prod.travis-ci.org:travis-linux-5
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0ff31d30[0K$ git clone --depth=50 https://github.com/numpy/numpy.git numpy/numpy
+Cloning into 'numpy/numpy'...
+remote: Counting objects: 4841, done.[K
+remote: Compressing objects:   0% (1/2676)   [Kremote: Compressing objects:   1% (27/2676)   [Kremote: Compressing objects:   2% (54/2676)   [Kremote: Compressing objects:   3% (81/2676)   [Kremote: Compressing objects:   4% (108/2676)   [Kremote: Compressing objects:   5% (134/2676)   [Kremote: Compressing objects:   6% (161/2676)   [Kremote: Compressing objects:   7% (188/2676)   [Kremote: Compressing objects:   8% (215/2676)   [Kremote: Compressing objects:   9% (241/2676)   [Kremote: Compressing objects:  10% (268/2676)   [Kremote: Compressing objects:  11% (295/2676)   [Kremote: Compressing objects:  12% (322/2676)   [Kremote: Compressing objects:  13% (348/2676)   [Kremote: Compressing objects:  14% (375/2676)   [Kremote: Compressing objects:  15% (402/2676)   [Kremote: Compressing objects:  16% (429/2676)   [Kremote: Compressing objects:  17% (455/2676)   [Kremote: Compressing objects:  18% (482/2676)   [Kremote: Compressing objects:  19% (509/2676)   [Kremote: Compressing objects:  20% (536/2676)   [Kremote: Compressing objects:  21% (562/2676)   [Kremote: Compressing objects:  22% (589/2676)   [Kremote: Compressing objects:  23% (616/2676)   [Kremote: Compressing objects:  24% (643/2676)   [Kremote: Compressing objects:  25% (669/2676)   [Kremote: Compressing objects:  26% (696/2676)   [Kremote: Compressing objects:  27% (723/2676)   [Kremote: Compressing objects:  28% (750/2676)   [Kremote: Compressing objects:  29% (777/2676)   [Kremote: Compressing objects:  30% (803/2676)   [Kremote: Compressing objects:  31% (830/2676)   [Kremote: Compressing objects:  32% (857/2676)   [Kremote: Compressing objects:  33% (884/2676)   [Kremote: Compressing objects:  34% (910/2676)   [Kremote: Compressing objects:  35% (937/2676)   [Kremote: Compressing objects:  36% (964/2676)   [Kremote: Compressing objects:  37% (991/2676)   [Kremote: Compressing objects:  38% (1017/2676)   [Kremote: Compressing objects:  39% (1044/2676)   [Kremote: Compressing objects:  40% (1071/2676)   [Kremote: Compressing objects:  41% (1098/2676)   [Kremote: Compressing objects:  42% (1124/2676)   [Kremote: Compressing objects:  43% (1151/2676)   [Kremote: Compressing objects:  44% (1178/2676)   [Kremote: Compressing objects:  45% (1205/2676)   [Kremote: Compressing objects:  46% (1231/2676)   [Kremote: Compressing objects:  47% (1258/2676)   [Kremote: Compressing objects:  48% (1285/2676)   [Kremote: Compressing objects:  49% (1312/2676)   [Kremote: Compressing objects:  50% (1338/2676)   [Kremote: Compressing objects:  51% (1365/2676)   [Kremote: Compressing objects:  52% (1392/2676)   [Kremote: Compressing objects:  53% (1419/2676)   [Kremote: Compressing objects:  54% (1446/2676)   [Kremote: Compressing objects:  55% (1472/2676)   [Kremote: Compressing objects:  56% (1499/2676)   [Kremote: Compressing objects:  57% (1526/2676)   [Kremote: Compressing objects:  58% (1553/2676)   [Kremote: Compressing objects:  59% (1579/2676)   [Kremote: Compressing objects:  60% (1606/2676)   [Kremote: Compressing objects:  61% (1633/2676)   [Kremote: Compressing objects:  62% (1660/2676)   [Kremote: Compressing objects:  63% (1686/2676)   [Kremote: Compressing objects:  64% (1713/2676)   [Kremote: Compressing objects:  65% (1740/2676)   [Kremote: Compressing objects:  66% (1767/2676)   [Kremote: Compressing objects:  67% (1793/2676)   [Kremote: Compressing objects:  68% (1820/2676)   [Kremote: Compressing objects:  69% (1847/2676)   [Kremote: Compressing objects:  70% (1874/2676)   [Kremote: Compressing objects:  71% (1900/2676)   [Kremote: Compressing objects:  72% (1927/2676)   [Kremote: Compressing objects:  73% (1954/2676)   [Kremote: Compressing objects:  74% (1981/2676)   [Kremote: Compressing objects:  75% (2007/2676)   [Kremote: Compressing objects:  76% (2034/2676)   [Kremote: Compressing objects:  77% (2061/2676)   [Kremote: Compressing objects:  78% (2088/2676)   [Kremote: Compressing objects:  79% (2115/2676)   [Kremote: Compressing objects:  80% (2141/2676)   [Kremote: Compressing objects:  81% (2168/2676)   [Kremote: Compressing objects:  82% (2195/2676)   [Kremote: Compressing objects:  83% (2222/2676)   [Kremote: Compressing objects:  84% (2248/2676)   [Kremote: Compressing objects:  85% (2275/2676)   [Kremote: Compressing objects:  86% (2302/2676)   [Kremote: Compressing objects:  87% (2329/2676)   [Kremote: Compressing objects:  88% (2355/2676)   [Kremote: Compressing objects:  89% (2382/2676)   [Kremote: Compressing objects:  90% (2409/2676)   [Kremote: Compressing objects:  91% (2436/2676)   [Kremote: Compressing objects:  92% (2462/2676)   [Kremote: Compressing objects:  93% (2489/2676)   [Kremote: Compressing objects:  94% (2516/2676)   [Kremote: Compressing objects:  95% (2543/2676)   [Kremote: Compressing objects:  96% (2569/2676)   [Kremote: Compressing objects:  97% (2596/2676)   [Kremote: Compressing objects:  98% (2623/2676)   [Kremote: Compressing objects:  99% (2650/2676)   [Kremote: Compressing objects: 100% (2676/2676)   [Kremote: Compressing objects: 100% (2676/2676), done.[K
+Receiving objects:   0% (1/4841)   Receiving objects:   1% (49/4841)   Receiving objects:   2% (97/4841)   Receiving objects:   3% (146/4841)   Receiving objects:   4% (194/4841)   Receiving objects:   5% (243/4841)   Receiving objects:   6% (291/4841)   Receiving objects:   7% (339/4841)   Receiving objects:   8% (388/4841)   Receiving objects:   9% (436/4841)   Receiving objects:  10% (485/4841)   Receiving objects:  11% (533/4841)   Receiving objects:  12% (581/4841)   Receiving objects:  13% (630/4841)   Receiving objects:  14% (678/4841)   Receiving objects:  15% (727/4841)   Receiving objects:  16% (775/4841)   Receiving objects:  17% (823/4841)   Receiving objects:  18% (872/4841)   Receiving objects:  19% (920/4841)   Receiving objects:  20% (969/4841)   Receiving objects:  21% (1017/4841)   Receiving objects:  22% (1066/4841)   Receiving objects:  23% (1114/4841)   Receiving objects:  24% (1162/4841)   Receiving objects:  25% (1211/4841)   Receiving objects:  26% (1259/4841)   Receiving objects:  27% (1308/4841)   Receiving objects:  28% (1356/4841)   Receiving objects:  29% (1404/4841)   Receiving objects:  30% (1453/4841)   Receiving objects:  31% (1501/4841)   Receiving objects:  32% (1550/4841)   Receiving objects:  33% (1598/4841)   Receiving objects:  34% (1646/4841)   Receiving objects:  35% (1695/4841)   Receiving objects:  36% (1743/4841)   Receiving objects:  37% (1792/4841)   Receiving objects:  38% (1840/4841)   Receiving objects:  39% (1888/4841)   Receiving objects:  40% (1937/4841)   Receiving objects:  41% (1985/4841)   Receiving objects:  42% (2034/4841)   Receiving objects:  43% (2082/4841)   Receiving objects:  44% (2131/4841)   Receiving objects:  45% (2179/4841)   Receiving objects:  46% (2227/4841)   Receiving objects:  47% (2276/4841)   Receiving objects:  48% (2324/4841)   Receiving objects:  49% (2373/4841)   Receiving objects:  50% (2421/4841)   Receiving objects:  51% (2469/4841)   Receiving objects:  52% (2518/4841)   Receiving objects:  53% (2566/4841)   Receiving objects:  54% (2615/4841)   Receiving objects:  55% (2663/4841)   Receiving objects:  56% (2711/4841)   Receiving objects:  57% (2760/4841)   Receiving objects:  58% (2808/4841)   Receiving objects:  59% (2857/4841)   Receiving objects:  60% (2905/4841)   Receiving objects:  61% (2954/4841)   Receiving objects:  62% (3002/4841)   Receiving objects:  63% (3050/4841)   Receiving objects:  64% (3099/4841)   Receiving objects:  65% (3147/4841)   Receiving objects:  66% (3196/4841)   Receiving objects:  67% (3244/4841)   Receiving objects:  68% (3292/4841)   Receiving objects:  69% (3341/4841)   Receiving objects:  70% (3389/4841)   Receiving objects:  71% (3438/4841)   Receiving objects:  72% (3486/4841)   Receiving objects:  73% (3534/4841)   Receiving objects:  74% (3583/4841)   Receiving objects:  75% (3631/4841)   Receiving objects:  76% (3680/4841)   Receiving objects:  77% (3728/4841)   Receiving objects:  78% (3776/4841)   Receiving objects:  79% (3825/4841)   Receiving objects:  80% (3873/4841)   Receiving objects:  81% (3922/4841)   Receiving objects:  82% (3970/4841)   Receiving objects:  83% (4019/4841)   Receiving objects:  84% (4067/4841)   Receiving objects:  85% (4115/4841)   Receiving objects:  86% (4164/4841)   Receiving objects:  87% (4212/4841)   Receiving objects:  88% (4261/4841)   Receiving objects:  89% (4309/4841)   Receiving objects:  90% (4357/4841)   Receiving objects:  91% (4406/4841)   Receiving objects:  92% (4454/4841)   Receiving objects:  93% (4503/4841)   Receiving objects:  94% (4551/4841)   Receiving objects:  95% (4599/4841)   Receiving objects:  96% (4648/4841)   Receiving objects:  97% (4696/4841)   Receiving objects:  98% (4745/4841)   Receiving objects:  99% (4793/4841)   remote: Total 4841 (delta 3088), reused 3286 (delta 2111), pack-reused 0[K
+Receiving objects: 100% (4841/4841)   Receiving objects: 100% (4841/4841), 5.20 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/3088)   Resolving deltas:   1% (35/3088)   Resolving deltas:   5% (180/3088)   Resolving deltas:   6% (187/3088)   Resolving deltas:   9% (278/3088)   Resolving deltas:  10% (319/3088)   Resolving deltas:  11% (340/3088)   Resolving deltas:  12% (371/3088)   Resolving deltas:  13% (421/3088)   Resolving deltas:  14% (459/3088)   Resolving deltas:  15% (465/3088)   Resolving deltas:  17% (549/3088)   Resolving deltas:  18% (556/3088)   Resolving deltas:  19% (610/3088)   Resolving deltas:  20% (622/3088)   Resolving deltas:  22% (696/3088)   Resolving deltas:  23% (714/3088)   Resolving deltas:  24% (743/3088)   Resolving deltas:  25% (796/3088)   Resolving deltas:  26% (803/3088)   Resolving deltas:  27% (838/3088)   Resolving deltas:  28% (868/3088)   Resolving deltas:  29% (897/3088)   Resolving deltas:  30% (927/3088)   Resolving deltas:  31% (958/3088)   Resolving deltas:  32% (989/3088)   Resolving deltas:  33% (1021/3088)   Resolving deltas:  34% (1052/3088)   Resolving deltas:  36% (1138/3088)   Resolving deltas:  37% (1148/3088)   Resolving deltas:  38% (1175/3088)   Resolving deltas:  39% (1207/3088)   Resolving deltas:  40% (1236/3088)   Resolving deltas:  41% (1267/3088)   Resolving deltas:  42% (1301/3088)   Resolving deltas:  43% (1337/3088)   Resolving deltas:  44% (1359/3088)   Resolving deltas:  45% (1391/3088)   Resolving deltas:  46% (1422/3088)   Resolving deltas:  47% (1452/3088)   Resolving deltas:  48% (1484/3088)   Resolving deltas:  49% (1516/3088)   Resolving deltas:  50% (1562/3088)   Resolving deltas:  51% (1575/3088)   Resolving deltas:  53% (1647/3088)   Resolving deltas:  54% (1669/3088)   Resolving deltas:  55% (1699/3088)   Resolving deltas:  56% (1747/3088)   Resolving deltas:  57% (1767/3088)   Resolving deltas:  58% (1795/3088)   Resolving deltas:  59% (1834/3088)   Resolving deltas:  60% (1856/3088)   Resolving deltas:  61% (1884/3088)   Resolving deltas:  62% (1923/3088)   Resolving deltas:  63% (1958/3088)   Resolving deltas:  64% (1981/3088)   Resolving deltas:  65% (2011/3088)   Resolving deltas:  66% (2041/3088)   Resolving deltas:  67% (2084/3088)   Resolving deltas:  68% (2112/3088)   Resolving deltas:  69% (2142/3088)   Resolving deltas:  70% (2174/3088)   Resolving deltas:  71% (2201/3088)   Resolving deltas:  72% (2229/3088)   Resolving deltas:  73% (2258/3088)   Resolving deltas:  74% (2298/3088)   Resolving deltas:  79% (2442/3088)   Resolving deltas:  81% (2512/3088)   Resolving deltas:  83% (2566/3088)   Resolving deltas:  86% (2666/3088)   Resolving deltas:  90% (2797/3088)   Resolving deltas:  91% (2811/3088)   Resolving deltas:  92% (2841/3088)   Resolving deltas:  93% (2874/3088)   Resolving deltas:  94% (2903/3088)   Resolving deltas:  95% (2934/3088)   Resolving deltas:  96% (2968/3088)   Resolving deltas:  97% (3016/3088)   Resolving deltas:  98% (3027/3088)   Resolving deltas:  99% (3062/3088)   Resolving deltas: 100% (3088/3088)   Resolving deltas: 100% (3088/3088), done.
+Checking connectivity... done.
+travis_time:end:0ff31d30:start=1452365570111802689,finish=1452365572382749796,duration=2270947107[0K$ cd numpy/numpy
+travis_time:start:1da55e46[0K$ git fetch origin +refs/pull/6938/merge:
+remote: Counting objects: 11, done.[K
+remote: Compressing objects:  33% (1/3)   [Kremote: Compressing objects:  66% (2/3)   [Kremote: Compressing objects: 100% (3/3)   [Kremote: Compressing objects: 100% (3/3), done.[K
+remote: Total 11 (delta 8), reused 10 (delta 8), pack-reused 0[K
+Unpacking objects:   9% (1/11)   Unpacking objects:  18% (2/11)   Unpacking objects:  27% (3/11)   Unpacking objects:  36% (4/11)   Unpacking objects:  45% (5/11)   Unpacking objects:  54% (6/11)   Unpacking objects:  63% (7/11)   Unpacking objects:  72% (8/11)   Unpacking objects:  81% (9/11)   Unpacking objects:  90% (10/11)   Unpacking objects: 100% (11/11)   Unpacking objects: 100% (11/11), done.
+From https://github.com/numpy/numpy
+ * branch            refs/pull/6938/merge -> FETCH_HEAD
+travis_time:end:1da55e46:start=1452365572386393991,finish=1452365572754105893,duration=367711902[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:2c4b1900[0K$ git submodule init
+Submodule 'doc/scipy-sphinx-theme' (https://github.com/scipy/scipy-sphinx-theme.git) registered for path 'doc/scipy-sphinx-theme'
+Submodule 'doc/sphinxext' (https://github.com/numpy/numpydoc.git) registered for path 'doc/sphinxext'
+travis_time:end:2c4b1900:start=1452365572951319472,finish=1452365572993108870,duration=41789398[0Ktravis_time:start:305dee4e[0K$ git submodule update
+Cloning into 'doc/scipy-sphinx-theme'...
+remote: Counting objects: 572, done.[K
+Receiving objects:   0% (1/572)   Receiving objects:   1% (6/572)   Receiving objects:   2% (12/572)   Receiving objects:   3% (18/572)   Receiving objects:   4% (23/572)   Receiving objects:   5% (29/572)   Receiving objects:   6% (35/572)   Receiving objects:   7% (41/572)   Receiving objects:   8% (46/572)   Receiving objects:   9% (52/572)   Receiving objects:  10% (58/572)   Receiving objects:  11% (63/572)   Receiving objects:  12% (69/572)   Receiving objects:  13% (75/572)   Receiving objects:  14% (81/572)   Receiving objects:  15% (86/572)   Receiving objects:  16% (92/572)   Receiving objects:  17% (98/572)   Receiving objects:  18% (103/572)   Receiving objects:  19% (109/572)   Receiving objects:  20% (115/572)   Receiving objects:  21% (121/572)   Receiving objects:  22% (126/572)   Receiving objects:  23% (132/572)   Receiving objects:  24% (138/572)   Receiving objects:  25% (143/572)   Receiving objects:  26% (149/572)   Receiving objects:  27% (155/572)   Receiving objects:  28% (161/572)   Receiving objects:  29% (166/572)   Receiving objects:  30% (172/572)   Receiving objects:  31% (178/572)   Receiving objects:  32% (184/572)   Receiving objects:  33% (189/572)   Receiving objects:  34% (195/572)   Receiving objects:  35% (201/572)   Receiving objects:  36% (206/572)   Receiving objects:  37% (212/572)   Receiving objects:  38% (218/572)   Receiving objects:  39% (224/572)   Receiving objects:  40% (229/572)   Receiving objects:  41% (235/572)   Receiving objects:  42% (241/572)   Receiving objects:  43% (246/572)   Receiving objects:  44% (252/572)   Receiving objects:  45% (258/572)   Receiving objects:  46% (264/572)   Receiving objects:  47% (269/572)   Receiving objects:  48% (275/572)   Receiving objects:  49% (281/572)   Receiving objects:  50% (286/572)   Receiving objects:  51% (292/572)   Receiving objects:  52% (298/572)   Receiving objects:  53% (304/572)   Receiving objects:  54% (309/572)   Receiving objects:  55% (315/572)   Receiving objects:  56% (321/572)   Receiving objects:  57% (327/572)   Receiving objects:  58% (332/572)   Receiving objects:  59% (338/572)   Receiving objects:  60% (344/572)   Receiving objects:  61% (349/572)   Receiving objects:  62% (355/572)   Receiving objects:  63% (361/572)   Receiving objects:  64% (367/572)   Receiving objects:  65% (372/572)   Receiving objects:  66% (378/572)   Receiving objects:  67% (384/572)   Receiving objects:  68% (389/572)   Receiving objects:  69% (395/572)   Receiving objects:  70% (401/572)   Receiving objects:  71% (407/572)   Receiving objects:  72% (412/572)   Receiving objects:  73% (418/572)   Receiving objects:  74% (424/572)   Receiving objects:  75% (429/572)   Receiving objects:  76% (435/572)   Receiving objects:  77% (441/572)   Receiving objects:  78% (447/572)   Receiving objects:  79% (452/572)   Receiving objects:  80% (458/572)   Receiving objects:  81% (464/572)   remote: Total 572 (delta 0), reused 0 (delta 0), pack-reused 572[K
+Receiving objects:  82% (470/572)   Receiving objects:  83% (475/572)   Receiving objects:  84% (481/572)   Receiving objects:  85% (487/572)   Receiving objects:  86% (492/572)   Receiving objects:  87% (498/572)   Receiving objects:  88% (504/572)   Receiving objects:  89% (510/572)   Receiving objects:  90% (515/572)   Receiving objects:  91% (521/572)   Receiving objects:  92% (527/572)   Receiving objects:  93% (532/572)   Receiving objects:  94% (538/572)   Receiving objects:  95% (544/572)   Receiving objects:  96% (550/572)   Receiving objects:  97% (555/572)   Receiving objects:  98% (561/572)   Receiving objects:  99% (567/572)   Receiving objects: 100% (572/572)   Receiving objects: 100% (572/572), 705.37 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/204)   Resolving deltas:   2% (5/204)   Resolving deltas:   3% (8/204)   Resolving deltas:   6% (13/204)   Resolving deltas:   7% (15/204)   Resolving deltas:   9% (20/204)   Resolving deltas:  12% (25/204)   Resolving deltas:  13% (28/204)   Resolving deltas:  31% (65/204)   Resolving deltas:  32% (66/204)   Resolving deltas:  33% (68/204)   Resolving deltas:  38% (78/204)   Resolving deltas:  39% (80/204)   Resolving deltas:  40% (83/204)   Resolving deltas:  41% (85/204)   Resolving deltas:  42% (86/204)   Resolving deltas:  43% (89/204)   Resolving deltas:  44% (91/204)   Resolving deltas:  45% (93/204)   Resolving deltas:  46% (94/204)   Resolving deltas:  47% (96/204)   Resolving deltas:  50% (102/204)   Resolving deltas:  51% (105/204)   Resolving deltas:  54% (111/204)   Resolving deltas:  55% (113/204)   Resolving deltas:  57% (117/204)   Resolving deltas:  58% (119/204)   Resolving deltas:  59% (121/204)   Resolving deltas:  61% (125/204)   Resolving deltas:  62% (127/204)   Resolving deltas:  63% (129/204)   Resolving deltas:  64% (131/204)   Resolving deltas:  65% (133/204)   Resolving deltas:  69% (141/204)   Resolving deltas:  70% (144/204)   Resolving deltas:  71% (145/204)   Resolving deltas:  72% (148/204)   Resolving deltas:  73% (149/204)   Resolving deltas:  74% (151/204)   Resolving deltas:  75% (153/204)   Resolving deltas:  76% (156/204)   Resolving deltas:  77% (158/204)   Resolving deltas:  78% (160/204)   Resolving deltas:  79% (162/204)   Resolving deltas:  80% (164/204)   Resolving deltas:  81% (166/204)   Resolving deltas:  82% (168/204)   Resolving deltas:  83% (170/204)   Resolving deltas:  84% (172/204)   Resolving deltas:  86% (176/204)   Resolving deltas:  87% (178/204)   Resolving deltas:  91% (186/204)   Resolving deltas:  95% (195/204)   Resolving deltas:  96% (197/204)   Resolving deltas:  97% (199/204)   Resolving deltas:  99% (203/204)   Resolving deltas: 100% (204/204)   Resolving deltas: 100% (204/204), done.
+Checking connectivity... done.
+Submodule path 'doc/scipy-sphinx-theme': checked out 'c466764e2231ba132c09826b5b138fffa1cfcec3'
+Cloning into 'doc/sphinxext'...
+remote: Counting objects: 590, done.[K
+Receiving objects:   0% (1/590)   Receiving objects:   1% (6/590)   Receiving objects:   2% (12/590)   Receiving objects:   3% (18/590)   Receiving objects:   4% (24/590)   Receiving objects:   5% (30/590)   Receiving objects:   6% (36/590)   Receiving objects:   7% (42/590)   Receiving objects:   8% (48/590)   Receiving objects:   9% (54/590)   Receiving objects:  10% (59/590)   Receiving objects:  11% (65/590)   Receiving objects:  12% (71/590)   Receiving objects:  13% (77/590)   Receiving objects:  14% (83/590)   Receiving objects:  15% (89/590)   Receiving objects:  16% (95/590)   Receiving objects:  17% (101/590)   Receiving objects:  18% (107/590)   Receiving objects:  19% (113/590)   Receiving objects:  20% (118/590)   Receiving objects:  21% (124/590)   Receiving objects:  22% (130/590)   Receiving objects:  23% (136/590)   Receiving objects:  24% (142/590)   Receiving objects:  25% (148/590)   Receiving objects:  26% (154/590)   Receiving objects:  27% (160/590)   Receiving objects:  28% (166/590)   Receiving objects:  29% (172/590)   Receiving objects:  30% (177/590)   Receiving objects:  31% (183/590)   Receiving objects:  32% (189/590)   Receiving objects:  33% (195/590)   Receiving objects:  34% (201/590)   Receiving objects:  35% (207/590)   Receiving objects:  36% (213/590)   Receiving objects:  37% (219/590)   Receiving objects:  38% (225/590)   Receiving objects:  39% (231/590)   Receiving objects:  40% (236/590)   Receiving objects:  41% (242/590)   Receiving objects:  42% (248/590)   Receiving objects:  43% (254/590)   Receiving objects:  44% (260/590)   Receiving objects:  45% (266/590)   Receiving objects:  46% (272/590)   Receiving objects:  47% (278/590)   Receiving objects:  48% (284/590)   Receiving objects:  49% (290/590)   Receiving objects:  50% (295/590)   Receiving objects:  51% (301/590)   Receiving objects:  52% (307/590)   Receiving objects:  53% (313/590)   Receiving objects:  54% (319/590)   Receiving objects:  55% (325/590)   Receiving objects:  56% (331/590)   Receiving objects:  57% (337/590)   Receiving objects:  58% (343/590)   Receiving objects:  59% (349/590)   Receiving objects:  60% (354/590)   Receiving objects:  61% (360/590)   Receiving objects:  62% (366/590)   Receiving objects:  63% (372/590)   Receiving objects:  64% (378/590)   Receiving objects:  65% (384/590)   Receiving objects:  66% (390/590)   Receiving objects:  67% (396/590)   Receiving objects:  68% (402/590)   Receiving objects:  69% (408/590)   Receiving objects:  70% (413/590)   Receiving objects:  71% (419/590)   Receiving objects:  72% (425/590)   Receiving objects:  73% (431/590)   Receiving objects:  74% (437/590)   Receiving objects:  75% (443/590)   Receiving objects:  76% (449/590)   Receiving objects:  77% (455/590)   Receiving objects:  78% (461/590)   Receiving objects:  79% (467/590)   Receiving objects:  80% (472/590)   Receiving objects:  81% (478/590)   Receiving objects:  82% (484/590)   Receiving objects:  83% (490/590)   Receiving objects:  84% (496/590)   Receiving objects:  85% (502/590)   Receiving objects:  86% (508/590)   Receiving objects:  87% (514/590)   Receiving objects:  88% (520/590)   Receiving objects:  89% (526/590)   Receiving objects:  90% (531/590)   Receiving objects:  91% (537/590)   Receiving objects:  92% (543/590)   remote: Total 590 (delta 0), reused 0 (delta 0), pack-reused 590[K
+Receiving objects:  93% (549/590)   Receiving objects:  94% (555/590)   Receiving objects:  95% (561/590)   Receiving objects:  96% (567/590)   Receiving objects:  97% (573/590)   Receiving objects:  98% (579/590)   Receiving objects:  99% (585/590)   Receiving objects: 100% (590/590)   Receiving objects: 100% (590/590), 121.86 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/401)   Resolving deltas:   1% (5/401)   Resolving deltas:   2% (9/401)   Resolving deltas:   4% (20/401)   Resolving deltas:   8% (36/401)   Resolving deltas:  11% (45/401)   Resolving deltas:  14% (59/401)   Resolving deltas:  21% (88/401)   Resolving deltas:  26% (108/401)   Resolving deltas:  28% (116/401)   Resolving deltas:  30% (124/401)   Resolving deltas:  31% (127/401)   Resolving deltas:  35% (144/401)   Resolving deltas:  39% (157/401)   Resolving deltas:  48% (193/401)   Resolving deltas:  49% (200/401)   Resolving deltas:  58% (234/401)   Resolving deltas:  61% (248/401)   Resolving deltas:  64% (260/401)   Resolving deltas:  65% (261/401)   Resolving deltas:  72% (290/401)   Resolving deltas:  73% (295/401)   Resolving deltas:  74% (299/401)   Resolving deltas:  75% (301/401)   Resolving deltas:  76% (308/401)   Resolving deltas:  80% (322/401)   Resolving deltas:  82% (329/401)   Resolving deltas:  86% (347/401)   Resolving deltas:  89% (357/401)   Resolving deltas:  90% (362/401)   Resolving deltas:  97% (390/401)   Resolving deltas: 100% (401/401)   Resolving deltas: 100% (401/401), done.
+Checking connectivity... done.
+Submodule path 'doc/sphinxext': checked out '84cc897d266e0afc28fc5296edf01afb08005472'
+travis_time:end:305dee4e:start=1452365572996454228,finish=1452365573779891713,duration=783437485[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:0d990dd2[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+travis_time:end:0d990dd2:start=1452365573784560679,finish=1452365578603985377,duration=4819424698[0Ktravis_time:start:0026470e[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install gfortran libatlas-dev libatlas-base-dev eatmydata
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  gfortran-4.6 libatlas3gf-base libblas-dev
+Suggested packages:
+  gfortran-multilib gfortran-doc gfortran-4.6-multilib gfortran-4.6-doc
+  libgfortran3-dbg libblas-doc liblapack-doc liblapack-dev
+The following NEW packages will be installed:
+  eatmydata gfortran gfortran-4.6 libatlas-base-dev libatlas-dev
+  libatlas3gf-base libblas-dev
+0 upgraded, 7 newly installed, 0 to remove and 209 not upgraded.
+Need to get 19.6 MB of archives.
+After this operation, 68.4 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/universe eatmydata amd64 26-2 [8,034 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran-4.6 amd64 4.6.3-1ubuntu5 [5,579 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main gfortran amd64 4:4.6.3-1ubuntu5 [1,206 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas3gf-base amd64 3.8.4-3build1 [6,191 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main libblas-dev amd64 1.2.20110419-2ubuntu1 [302 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-dev all 3.8.4-3build1 [13.6 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise/universe libatlas-base-dev amd64 3.8.4-3build1 [7,461 kB]
+Fetched 19.6 MB in 0s (20.4 MB/s)
+Selecting previously unselected package eatmydata.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72431 files and directories currently installed.)
+Unpacking eatmydata (from .../eatmydata_26-2_amd64.deb) ...
+Selecting previously unselected package gfortran-4.6.
+Unpacking gfortran-4.6 (from .../gfortran-4.6_4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package gfortran.
+Unpacking gfortran (from .../gfortran_4%3a4.6.3-1ubuntu5_amd64.deb) ...
+Selecting previously unselected package libatlas3gf-base.
+Unpacking libatlas3gf-base (from .../libatlas3gf-base_3.8.4-3build1_amd64.deb) ...
+Selecting previously unselected package libblas-dev.
+Unpacking libblas-dev (from .../libblas-dev_1.2.20110419-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libatlas-dev.
+Unpacking libatlas-dev (from .../libatlas-dev_3.8.4-3build1_all.deb) ...
+Selecting previously unselected package libatlas-base-dev.
+Unpacking libatlas-base-dev (from .../libatlas-base-dev_3.8.4-3build1_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ccache ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up eatmydata (26-2) ...
+Setting up gfortran-4.6 (4.6.3-1ubuntu5) ...
+Setting up gfortran (4:4.6.3-1ubuntu5) ...
+update-alternatives: using /usr/bin/gfortran to provide /usr/bin/f95 (f95) in auto mode.
+Setting up libatlas3gf-base (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so.3gf to provide /usr/lib/libblas.so.3gf (libblas.so.3gf) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so.3gf to provide /usr/lib/liblapack.so.3gf (liblapack.so.3gf) in auto mode.
+Setting up libblas-dev (1.2.20110419-2ubuntu1) ...
+update-alternatives: using /usr/lib/libblas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+Setting up libatlas-dev (3.8.4-3build1) ...
+Setting up libatlas-base-dev (3.8.4-3build1) ...
+update-alternatives: using /usr/lib/atlas-base/atlas/libblas.so to provide /usr/lib/libblas.so (libblas.so) in auto mode.
+update-alternatives: using /usr/lib/atlas-base/atlas/liblapack.so to provide /usr/lib/liblapack.so (liblapack.so) in auto mode.
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_time:end:0026470e:start=1452365578607391072,finish=1452365588678822730,duration=10071431658[0Ktravis_fold:end:apt[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export PYTHONOPTIMIZE=2
+$ export USE_ASV=1
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:00a9e6bd[0K$ Installing caching utilities
+travis_time:end:00a9e6bd:start=1452365590862121766,finish=1452365590916346951,duration=54225185[0Ktravis_time:start:20226fa0[0Ktravis_time:end:20226fa0:start=1452365590920968963,finish=1452365590924308028,duration=3339065[0Ktravis_time:start:07ed44a4[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching PR.6938/cache--python-2.7.tgz[0m
+[32;1mfound cache[0m
+travis_time:end:07ed44a4:start=1452365590928100500,finish=1452365592046137688,duration=1118037188[0Ktravis_time:start:0f63dff8[0Ktravis_time:end:0f63dff8:start=1452365592049903762,finish=1452365592052992196,duration=3088434[0Ktravis_time:start:15f58b6f[0K[32;1madding /home/travis/.cache/pip to cache[0m
+travis_time:end:15f58b6f:start=1452365592056523974,finish=1452365593376368537,duration=1319844563[0Ktravis_fold:end:cache.1[0Ktravis_time:start:0d8b0f43[0K$ source ~/virtualenv/python2.7/bin/activate
+travis_time:end:0d8b0f43:start=1452365593380256603,finish=1452365593384054109,duration=3797506[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:before_install.1[0Ktravis_time:start:02c334f0[0K$ uname -a
+Linux testing-worker-linux-docker-f17f0308-3186-linux-5 3.13.0-40-generic #69-Ubuntu SMP Thu Nov 13 17:53:56 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+travis_time:end:02c334f0:start=1452365594000049454,finish=1452365594003715991,duration=3666537[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:05d4e048[0K$ free -m
+             total       used       free     shared    buffers     cached
+Mem:         30147       7995      22151          0         42       3609
+-/+ buffers/cache:       4343      25803
+Swap:            0          0          0
+travis_time:end:05d4e048:start=1452365594007562615,finish=1452365594011792508,duration=4229893[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:01592c34[0K$ df -h
+Filesystem                                                                                          Size  Used Avail Use% Mounted on
+rootfs                                                                                               16G  5.6G  9.8G  37% /
+/dev/mapper/docker-202:16-6840323-b28d4df9994e9054111688ab967a43071b0e9777a1a3aec63701a240944413c0   16G  5.6G  9.8G  37% /
+shm                                                                                                  64M     0   64M   0% /dev/shm
+/dev/xvdb                                                                                           151G   74M  143G   1% /etc/resolv.conf
+/dev/xvdb                                                                                           151G   74M  143G   1% /etc/hostname
+/dev/xvdb                                                                                           151G   74M  143G   1% /etc/hosts
+/dev/xvdb                                                                                           151G   74M  143G   1% /.dockerinit
+/dev/xvdb                                                                                           151G   74M  143G   1% /.dockerenv
+travis_time:end:01592c34:start=1452365594015612031,finish=1452365594019756192,duration=4144161[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:0918d3ec[0K$ ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 241002
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 64000
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 524288
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+travis_time:end:0918d3ec:start=1452365594023618241,finish=1452365594026639337,duration=3021096[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:1b8df2c7[0K$ mkdir builds
+travis_time:end:1b8df2c7:start=1452365594030403565,finish=1452365594034217467,duration=3813902[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:0475a094[0K$ pushd builds
+~/build/numpy/numpy/builds ~/build/numpy/numpy
+travis_time:end:0475a094:start=1452365594038054249,finish=1452365594041037298,duration=2983049[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:10cf9fd4[0K$ virtualenv --python=python venv
+Running virtualenv with interpreter /home/travis/virtualenv/python2.7.9/bin/python
+Using real prefix '/opt/python/2.7.9'
+New python executable in venv/bin/python
+Installing setuptools, pip...done.
+travis_time:end:10cf9fd4:start=1452365594044843005,finish=1452365595747754771,duration=1702911766[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:08ef4d8e[0K$ source venv/bin/activate
+travis_time:end:08ef4d8e:start=1452365595751591264,finish=1452365595755218770,duration=3627506[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:0520446e[0K$ python -V
+Python 2.7.9
+travis_time:end:0520446e:start=1452365595759149679,finish=1452365595763228252,duration=4078573[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:247e6814[0K$ pip install --upgrade pip setuptools
+[33mYou are using pip version 6.0.7, however version 7.1.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+Collecting pip from https://pypi.python.org/packages/py2.py3/p/pip/pip-7.1.2-py2.py3-none-any.whl#md5=5ff9fec0be479e4e36df467556deed4d
+  Using cached pip-7.1.2-py2.py3-none-any.whl
+Collecting setuptools from https://pypi.python.org/packages/3.5/s/setuptools/setuptools-19.2-py2.py3-none-any.whl#md5=7bdac510b6bc1675a2a149eb3f81af77
+  Using cached setuptools-19.2-py2.py3-none-any.whl
+Installing collected packages: setuptools, pip
+  Found existing installation: setuptools 12.0.5
+    Uninstalling setuptools-12.0.5:
+      Successfully uninstalled setuptools-12.0.5
+
+  Found existing installation: pip 6.0.7
+    Uninstalling pip-6.0.7:
+      Successfully uninstalled pip-6.0.7
+
+Successfully installed pip-7.1.2 setuptools-19.2
+travis_time:end:247e6814:start=1452365595767092560,finish=1452365597420739473,duration=1653646913[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:0740b150[0K$ pip install nose
+Collecting nose
+  Using cached nose-1.3.7-py2-none-any.whl
+Installing collected packages: nose
+Successfully installed nose-1.3.7
+travis_time:end:0740b150:start=1452365597424720219,finish=1452365597806107405,duration=381387186[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:0c3c9200[0K$ pip install --install-option="--no-cython-compile" Cython
+/home/travis/build/numpy/numpy/builds/venv/lib/python2.7/site-packages/pip/commands/install.py:199: UserWarning: Disabling all use of wheels due to the use of --build-options / --global-options / --install-options.
+  cmdoptions.check_install_build_global(options)
+Collecting Cython
+  Using cached Cython-0.23.4.tar.gz
+Installing collected packages: Cython
+  Running setup.py install for Cython
+Successfully installed Cython-0.23.4
+travis_time:end:0c3c9200:start=1452365597810069092,finish=1452365599971479201,duration=2161410109[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:0b6bec03[0K$ if [ -n "$USE_ASV" ]; then pip install asv; fi
+Collecting asv
+  Using cached asv-0.1.1.tar.gz
+Collecting six>=1.4 (from asv)
+  Using cached six-1.10.0-py2.py3-none-any.whl
+Installing collected packages: six, asv
+  Running setup.py install for asv
+Successfully installed asv-0.1.1 six-1.10.0
+travis_time:end:0b6bec03:start=1452365599975503160,finish=1452365600831718124,duration=856214964[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:02dccc1d[0K$ popd
+~/build/numpy/numpy
+travis_time:end:02dccc1d:start=1452365600835628825,finish=1452365600838634404,duration=3005579[0Ktravis_fold:end:before_install.14[0KCould not locate requirements.txt. Override the install: key in your .travis.yml to install dependencies.
+travis_time:start:1184d262[0K$ ./tools/travis-test.sh
++export NPY_NUM_BUILD_JOBS=2
++NPY_NUM_BUILD_JOBS=2
++'[' -r /usr/lib/libeatmydata/libeatmydata.so ']'
++export LD_PRELOAD=/usr/lib/libeatmydata/libeatmydata.so
++LD_PRELOAD=/usr/lib/libeatmydata/libeatmydata.so
++PYTHON=python
++PIP=pip
++'[' -n '' ']'
++'[' -n '' ']'
++werrors='-Werror=declaration-after-statement -Werror=vla '
++werrors+='-Werror=nonnull -Werror=pointer-arith'
++export PYTHON
++export PIP
++'[' -n '' ']'
++'[' -n '' ']'
++setup_base
++'[' -z '' ']'
++'[' -z '' ']'
++pip install .
+Processing /home/travis/build/numpy/numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy
+Successfully installed numpy-1.11.0.dev0+b6848de
++run_test
++'[' -n '' ']'
++mkdir -p empty
++cd empty
+++python -c 'import os; import numpy; print(os.path.dirname(numpy.__file__))'
++INSTALLDIR=/home/travis/build/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
++export PYTHONWARNINGS=default
++PYTHONWARNINGS=default
++python ../tools/test-installed-numpy.py
+Running unit tests for numpy
+NumPy version 1.11.0.dev0+b6848de
+NumPy relaxed strides checking option: True
+NumPy is installed in /home/travis/build/numpy/numpy/builds/venv/lib/python2.7/site-packages/numpy
+Python version 2.7.9 (default, Feb  5 2015, 15:48:42) [GCC 4.6.3]
+nose version 1.3.7
+..............................S.................................................................................................................................................................................................................................................................................................................................................S..SS...SSS.KKK.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.........................................................................................................................................................................S............................................................................................................................................................................................................................................................................................K....................................................................................................................................................................................................................................................................................................SSS.....................................................................S.............................................................................................................................S..........................................................................................................................................................................................................................................................................................................................................................K......................K..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................S.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 6099 tests in 83.558s
+
+OK (KNOWNFAIL=6, SKIP=16)
++'[' -n 1 ']'
++pushd ../benchmarks
+~/build/numpy/numpy/benchmarks ~/build/numpy/numpy/empty
+++which asv
++python /home/travis/build/numpy/numpy/builds/venv/bin/asv machine --machine travis
+· [0;31mNo information stored about machine 'testing-worker-linux-docker-f17f0308-3186-linux-5'. I know about nothing.[0m
+            
+
++tee asv-output.log
+++which asv
++python /home/travis/build/numpy/numpy/builds/venv/bin/asv dev
+· Discovering benchmarks
+· Running 101 total benchmarks (1 commits * 1 environments * 101 benchmarks)
+[  0.00%] ·· Building for /home/travis/build/numpy/numpy/builds/venv/bin/python
+[  0.00%] ·· Benchmarking /home/travis/build/numpy/numpy/builds/venv/bin/python
+[  0.99%] ··· Running bench_app.LaplaceInplace.time_it                        ok
+[  0.99%] ···· 
+               ========= ==========
+                 update            
+               --------- ----------
+                inplace   318.77ms 
+                 normal   447.19ms 
+               ========= ==========
+
+[  1.98%] ··· Running bench_app.MaxesOfDots.time_it                       9.77ms
+[  2.97%] ··· Running bench_core.Core.time_arange_100                   921.94ns
+[  3.96%] ··· Running bench_core.Core.time_array_1                      446.86ns
+[  4.95%] ··· Running bench_core.Core.time_array_empty                  963.20ns
+[  5.94%] ··· Running bench_core.Core.time_array_l                        2.82μs
+[  6.93%] ··· Running bench_core.Core.time_array_l1                       1.34μs
+[  7.92%] ··· Running bench_core.Core.time_array_l100                     5.83μs
+[  8.91%] ··· Running bench_core.Core.time_diag_l100                     15.05μs
+[  9.90%] ··· Running bench_core.Core.time_diagflat_l100                 28.19μs
+[ 10.89%] ··· Running bench_core.Core.time_diagflat_l50_l50              29.04μs
+[ 11.88%] ··· Running bench_core.Core.time_dstack_l                       9.35μs
+[ 12.87%] ··· Running bench_core.Core.time_empty_100                    813.57ns
+[ 13.86%] ··· Running bench_core.Core.time_eye_100                        7.48μs
+[ 14.85%] ··· Running bench_core.Core.time_eye_3000                      11.42ms
+[ 15.84%] ··· Running bench_core.Core.time_hstack_l                       6.98μs
+[ 16.83%] ··· Running bench_core.Core.time_identity_100                  10.48μs
+[ 17.82%] ··· Running bench_core.Core.time_identity_3000                 11.14ms
+[ 18.81%] ··· Running bench_core.Core.time_ones_100                       2.95μs
+[ 19.80%] ··· Running bench_core.Core.time_tril_l10x10                   20.82μs
+[ 20.79%] ··· Running bench_core.Core.time_triu_l10x10                   21.05μs
+[ 21.78%] ··· Running bench_core.Core.time_vstack_l                       8.72μs
+[ 22.77%] ··· Running bench_core.Core.time_zeros_100                    820.45ns
+[ 23.76%] ··· Running bench_core.MA.time_masked_array                    30.14μs
+[ 24.75%] ··· Running bench_core.MA.time_masked_array_l100              786.98μs
+[ 25.74%] ··· Running bench_core.MA.time_masked_array_l100_t100          45.26μs
+[ 26.73%] ··· Running bench_function_base.Bincount.time_bincount        175.59μs
+[ 27.72%] ··· Running bench_function_base.Bincount.time_weights         201.68μs
+[ 28.71%] ··· Running bench_function_base.Median.time_even               73.23μs
+[ 29.70%] ··· Running bench_function_base.Median.time_even_inplace       64.70μs
+[ 30.69%] ··· Running bench_function_base.Median.time_even_small         46.95μs
+[ 31.68%] ··· Running bench_function_base.Median.time_odd                67.38μs
+[ 32.67%] ··· Running bench_function_base.Median.time_odd_inplace        59.90μs
+[ 33.66%] ··· Running bench_function_base.Median.time_odd_small          46.01μs
+[ 34.65%] ··· Running bench_function_base.Percentile.time_percentile    122.52μs
+[ 35.64%] ··· Running bench_function_base.Percentile.time_quartile      109.05μs
+[ 36.63%] ··· Running bench_function_base.Select.time_select            101.19μs
+[ 37.62%] ··· Running bench_function_base.Select.time_select_larger     540.82μs
+[ 38.61%] ··· Running bench_function_base.Sort.time_argsort              99.71μs
+[ 39.60%] ··· Running bench_function_base.Sort.time_sort                 95.56μs
+[ 40.59%] ··· Running bench_function_base.Sort.time_sort_inplace         91.43μs
+[ 41.58%] ··· Running bench_function_base.Where.time_1                   16.76μs
+[ 42.57%] ··· Running bench_function_base.Where.time_2                   24.40μs
+[ 43.56%] ··· Running bench_function_base.Where.time_2_broadcast         24.60μs
+[ 44.55%] ··· Running bench_indexing.Indexing.time_op                         ok
+[ 44.55%] ···· 
+               =============== ============== ========== ==========
+               --                                       op         
+               ------------------------------ ---------------------
+                   indexes          sel           ''         =1    
+               =============== ============== ========== ==========
+                   indexes_          I         122.55μs   138.54μs 
+                   indexes_         :,I        183.21μs   259.37μs 
+                   indexes_     np.ix_(I, I)   994.95μs   824.28μs 
+                indexes_rand_        I         122.32μs   138.01μs 
+                indexes_rand_       :,I        210.91μs   301.83μs 
+                indexes_rand_   np.ix_(I, I)   765.87μs   904.15μs 
+               =============== ============== ========== ==========
+
+[ 45.54%] ··· Running ...ng.IndexingSeparate.time_mmap_fancy_indexing     4.98ms
+[ 46.53%] ··· Running ..._indexing.IndexingSeparate.time_mmap_slicing     2.07ms
+[ 47.52%] ··· Running ...indexing.IndexingStructured0D.time_array_all   760.72ns
+[ 48.51%] ··· Running ...dexing.IndexingStructured0D.time_array_slice   879.81ns
+[ 49.50%] ··· Running ...ndexing.IndexingStructured0D.time_scalar_all     1.89μs
+[ 50.50%] ··· Running ...exing.IndexingStructured0D.time_scalar_slice     2.26μs
+[ 51.49%] ··· Running bench_io.Copy.time_cont_assign                          ok
+[ 51.49%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       2.10μs 
+                  int16       2.92μs 
+                 float32      4.68μs 
+                 float64      8.46μs 
+                complex64     9.64μs 
+                complex128   27.34μs 
+               ============ =========
+
+[ 52.48%] ··· Running bench_io.Copy.time_memcpy                               ok
+[ 52.48%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       2.19μs 
+                  int16       3.32μs 
+                 float32      6.22μs 
+                 float64     12.25μs 
+                complex64    11.40μs 
+                complex128   26.75μs 
+               ============ =========
+
+[ 53.47%] ··· Running bench_io.Copy.time_strided_assign                       ok
+[ 53.47%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8       6.70μs 
+                  int16       6.87μs 
+                 float32      6.49μs 
+                 float64      8.42μs 
+                complex64    11.74μs 
+                complex128   21.51μs 
+               ============ =========
+
+[ 54.46%] ··· Running bench_io.Copy.time_strided_copy                         ok
+[ 54.46%] ···· 
+               ============ =========
+                   type              
+               ------------ ---------
+                   int8      14.73μs 
+                  int16      12.78μs 
+                 float32     15.59μs 
+                 float64     22.29μs 
+                complex64    22.18μs 
+                complex128   40.04μs 
+               ============ =========
+
+[ 55.45%] ··· Running bench_io.CopyTo.time_copyto                        28.20μs
+[ 56.44%] ··· Running bench_io.CopyTo.time_copyto_8_dense               117.24μs
+[ 57.43%] ··· Running bench_io.CopyTo.time_copyto_8_sparse              102.64μs
+[ 58.42%] ··· Running bench_io.CopyTo.time_copyto_dense                   9.78μs
+[ 59.41%] ··· Running bench_io.CopyTo.time_copyto_sparse                 59.24μs
+[ 60.40%] ··· Running bench_io.Savez.time_vb_savez_squares              345.98ms
+[ 61.39%] ··· Running bench_linalg.Eindot.time_dot_a_b                   24.95ms
+[ 62.38%] ··· Running bench_linalg.Eindot.time_dot_d_dot_b_c            158.56μs
+[ 63.37%] ··· Running bench_linalg.Eindot.time_dot_trans_a_at             2.95ms
+[ 64.36%] ··· Running bench_linalg.Eindot.time_dot_trans_a_atc            3.81ms
+[ 65.35%] ··· Running bench_linalg.Eindot.time_dot_trans_at_a             5.52ms
+[ 66.34%] ··· Running bench_linalg.Eindot.time_dot_trans_atc_a            8.97ms
+[ 67.33%] ··· Running bench_linalg.Eindot.time_einsum_i_ij_j            758.88μs
+[ 68.32%] ··· Running bench_linalg.Eindot.time_einsum_ij_jk_a_b          20.86ms
+[ 69.31%] ··· Running bench_linalg.Eindot.time_einsum_ijk_jil_kl         39.52ms
+[ 70.30%] ··· Running bench_linalg.Eindot.time_inner_trans_a_a            3.17ms
+[ 71.29%] ··· Running bench_linalg.Eindot.time_inner_trans_a_ac           5.16ms
+[ 72.28%] ··· Running ...inalg.Eindot.time_tensordot_a_b_axes_1_0_0_1    14.30ms
+[ 73.27%] ··· Running bench_linalg.Linalg.time_op                             ok
+[ 73.27%] ···· 
+               ====== ============ ==========
+                 op       type               
+               ------ ------------ ----------
+                svd      int16       6.51ms  
+                svd     float16       n/a    
+                svd      int32       6.77ms  
+                svd     float32      6.38ms  
+                svd      int64       6.62ms  
+                svd     float64      6.45ms  
+                svd    complex64    12.01ms  
+                svd    longfloat      n/a    
+                svd    complex128   11.52ms  
+                svd    complex256     n/a    
+                pinv     int16       7.85ms  
+                pinv    float16       n/a    
+                pinv     int32       6.75ms  
+                pinv    float32      6.98ms  
+                pinv     int64       6.27ms  
+                pinv    float64      6.48ms  
+                pinv   complex64    15.13ms  
+                pinv   longfloat      n/a    
+                pinv   complex128   13.35ms  
+                pinv   complex256     n/a    
+                det      int16      259.05μs 
+                det     float16       n/a    
+                det      int32      259.42μs 
+                det     float32     262.19μs 
+                det      int64      281.42μs 
+                det     float64     248.48μs 
+                det    complex64    806.34μs 
+                det    longfloat      n/a    
+                det    complex128   789.33μs 
+                det    complex256     n/a    
+                norm     int16      22.28μs  
+                norm    float16     131.35μs 
+                norm     int32      23.63μs  
+                norm    float32     43.31μs  
+                norm     int64      48.89μs  
+                norm    float64     28.01μs  
+                norm   complex64    41.75μs  
+                norm   longfloat    42.90μs  
+                norm   complex128   77.86μs  
+                norm   complex256   97.36μs  
+               ====== ============ ==========
+
+[ 74.26%] ··· Running ...g.Lstsq.time_numpy_linalg_lstsq_a__b_float64     3.70ms
+[ 75.25%] ··· Running bench_random.Random.time_rng                            ok
+[ 75.25%] ···· 
+               ================= ==========
+                     param1                
+               ----------------- ----------
+                     normal       17.70μs  
+                    uniform        6.07μs  
+                   weibull 1      678.35μs 
+                binomial 10 0.5   607.93μs 
+                   poisson 10      2.18ms  
+               ================= ==========
+
+[ 76.24%] ··· Running bench_random.Shuffle.time_100000                   16.48ms
+[ 77.23%] ··· Running bench_reduce.AddReduce.time_axis_0                 35.53ms
+[ 78.22%] ··· Running bench_reduce.AddReduce.time_axis_1                 20.97ms
+[ 79.21%] ··· Running bench_reduce.AddReduceSeparate.time_reduce              ok
+[ 79.21%] ···· 
+               ====== ============ ==========
+                axis      type               
+               ------ ------------ ----------
+                 0       int16       1.58ms  
+                 0      float16     22.52ms  
+                 0       int32       1.15ms  
+                 0      float32     417.14μs 
+                 0       int64      780.42μs 
+                 0      float64     557.68μs 
+                 0     complex64     1.22ms  
+                 0     longfloat     3.91ms  
+                 0     complex128    1.65ms  
+                 0     complex256    7.32ms  
+                 1       int16      915.32μs 
+                 1      float16      5.88ms  
+                 1       int32      898.50μs 
+                 1      float32     438.27μs 
+                 1       int64      784.28μs 
+                 1      float64     586.49μs 
+                 1     complex64    855.54μs 
+                 1     longfloat     1.36ms  
+                 1     complex128   929.41μs 
+                 1     complex256    3.02ms  
+               ====== ============ ==========
+
+[ 80.20%] ··· Running bench_reduce.AnyAll.time_all_fast                   4.77μs
+[ 81.19%] ··· Running bench_reduce.AnyAll.time_all_slow                  10.04μs
+[ 82.18%] ··· Running bench_reduce.AnyAll.time_any_fast                   4.95μs
+[ 83.17%] ··· Running bench_reduce.AnyAll.time_any_slow                   9.34μs
+[ 84.16%] ··· Running bench_reduce.MinMax.time_max                            ok
+[ 84.16%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>   18.32μs 
+                <type 'numpy.float64'>   12.66μs 
+                 <type 'numpy.int64'>    26.04μs 
+               ======================== =========
+
+[ 85.15%] ··· Running bench_reduce.MinMax.time_min                            ok
+[ 85.15%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.89μs 
+                <type 'numpy.float64'>   12.73μs 
+                 <type 'numpy.int64'>    26.61μs 
+               ======================== =========
+
+[ 86.14%] ··· Running bench_reduce.SmallReduction.time_small              4.98μs
+[ 87.13%] ··· Running bench_ufunc.Broadcast.time_broadcast               13.93ms
+[ 88.12%] ··· Running bench_ufunc.Custom.time_and_bool                    2.37μs
+[ 89.11%] ··· Running bench_ufunc.Custom.time_count_nonzero               1.51μs
+[ 90.10%] ··· Running bench_ufunc.Custom.time_nonzero                    20.13μs
+[ 91.09%] ··· Running bench_ufunc.Custom.time_not_bool                    2.07μs
+[ 92.08%] ··· Running bench_ufunc.Custom.time_or_bool                     2.31μs
+[ 93.07%] ··· Running bench_ufunc.CustomScalar.time_add_scalar2               ok
+[ 93.07%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    7.66μs 
+                <type 'numpy.float64'>   16.21μs 
+               ======================== =========
+
+[ 94.06%] ··· Running bench_ufunc.CustomScalar.time_divide_scalar2            ok
+[ 94.06%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>   15.54μs 
+                <type 'numpy.float64'>   32.32μs 
+               ======================== =========
+
+[ 95.05%] ··· Running ...unc.CustomScalar.time_divide_scalar2_inplace         ok
+[ 95.05%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>   15.44μs 
+                <type 'numpy.float64'>   31.37μs 
+               ======================== =========
+
+[ 96.04%] ··· Running bench_ufunc.CustomScalar.time_less_than_scalar2         ok
+[ 96.04%] ···· 
+               ======================== =========
+                        dtype                    
+               ------------------------ ---------
+                <type 'numpy.float32'>    6.69μs 
+                <type 'numpy.float64'>   11.39μs 
+               ======================== =========
+
+[ 97.03%] ··· Running bench_ufunc.Scalar.time_add_scalar                937.69ns
+[ 98.02%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv             2.00μs
+[ 99.01%] ··· Running bench_ufunc.Scalar.time_add_scalar_conv_complex     1.64μs
+[100.00%] ··· Running bench_ufunc.UFunc.time_ufunc_types                      ok
+[100.00%] ···· 
+               =============== ==========
+                    ufunc                
+               --------------- ----------
+                     abs         1.16ms  
+                   absolute      1.16ms  
+                     add        524.01μs 
+                    arccos       7.55ms  
+                   arccosh       8.83ms  
+                    arcsin       6.53ms  
+                   arcsinh       8.41ms  
+                    arctan       4.70ms  
+                   arctan2       2.24ms  
+                   arctanh       3.67ms  
+                 bitwise_and    51.96μs  
+                 bitwise_not    34.93μs  
+                  bitwise_or    50.69μs  
+                 bitwise_xor    49.89μs  
+                     cbrt        2.17ms  
+                     ceil       597.68μs 
+                     conj       236.64μs 
+                  conjugate     238.44μs 
+                   copysign     383.77μs 
+                     cos         7.17ms  
+                     cosh        7.35ms  
+                   deg2rad      362.17μs 
+                   degrees      364.58μs 
+                    divide       1.23ms  
+                    equal       422.02μs 
+                     exp         5.14ms  
+                     exp2        7.14ms  
+                    expm1        5.76ms  
+                     fabs       369.50μs 
+                    floor       598.76μs 
+                 floor_divide    1.57ms  
+                     fmax       601.12μs 
+                     fmin       541.45μs 
+                     fmod       839.67μs 
+                    frexp       714.97μs 
+                   greater      724.32μs 
+                greater_equal   474.51μs 
+                    hypot        1.47ms  
+                    invert      35.63μs  
+                   isfinite     305.02μs 
+                    isinf       324.31μs 
+                    isnan       250.97μs 
+                    ldexp       346.93μs 
+                  left_shift    63.19μs  
+                     less       470.43μs 
+                  less_equal    464.66μs 
+                     log         5.38ms  
+                    log10        5.99ms  
+                    log1p        4.47ms  
+                     log2        4.96ms  
+                  logaddexp     526.03μs 
+                  logaddexp2    530.86μs 
+                 logical_and    461.04μs 
+                 logical_not    278.84μs 
+                  logical_or    384.81μs 
+                 logical_xor    463.56μs 
+                   maximum      551.11μs 
+                   minimum      541.98μs 
+                     mod        967.37μs 
+                     modf       728.76μs 
+                   multiply     552.29μs 
+                   negative     302.19μs 
+                  nextafter     750.86μs 
+                  not_equal     461.46μs 
+                    power       13.98ms  
+                   rad2deg      364.76μs 
+                   radians      363.96μs 
+                  reciprocal    926.24μs 
+                  remainder     965.64μs 
+                 right_shift    63.07μs  
+                     rint       903.06μs 
+                     sign       327.67μs 
+                   signbit      171.23μs 
+                     sin         6.65ms  
+                     sinh        7.44ms  
+                   spacing      702.23μs 
+                     sqrt        2.15ms  
+                    square      404.87μs 
+                   subtract     544.58μs 
+                     tan         7.50ms  
+                     tanh        4.92ms  
+                 true_divide     1.24ms  
+                    trunc       627.61μs 
+               =============== ==========
+
++grep -q Traceback asv-output.log
++popd
+~/build/numpy/numpy/empty
+travis_time:end:1184d262:start=1452365600842633571,finish=1452365907245691431,duration=306403057860[0K
+[32;1mThe command "./tools/travis-test.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:1d775e09[0Ktravis_time:end:1d775e09:start=1452365907250107565,finish=1452365907253641737,duration=3534172[0Ktravis_time:start:357b916d[0K[32;1mchange detected:
+/home/travis/.cache/pip/http/5/6/3/5/b/5635bcf52e1d840c820d5c4e8c0f4050c6009f12b4e3978141766811
+/home/travis/.cache/pip/http/b/9/2/d/5/b92d5efeb2406de109c0263ebfbbe56d85532219b7d0aae49a57069a
+/home/travis/.cache/pip/log/debug.log
+
+[0m
+[32;1mchanges detected, packing new archive[0m
+[32;1muploading archive[0m
+travis_time:end:357b916d:start=1452365907257586928,finish=1452365910045554805,duration=2787967877[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:3d478274[0K$ ./tools/travis-upload-wheel.sh
++export CLOUD_CONTAINER_NAME=travis-dev-wheels
++CLOUD_CONTAINER_NAME=travis-dev-wheels
++[[ '' == 1 ]]
+travis_time:end:3d478274:start=1452365910049719207,finish=1452365910054327689,duration=4608482[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

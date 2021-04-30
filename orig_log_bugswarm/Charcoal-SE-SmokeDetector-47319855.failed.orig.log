@@ -1,0 +1,884 @@
+Using worker: worker-linux-docker-08583327.prod.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+[34m[1mBuild image provisioning date and time[0m
+Sat Dec 13 00:10:36 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:04d4eb35[0K$ git clone --depth=50 --branch=master git://github.com/Charcoal-SE/SmokeDetector.git Charcoal-SE/SmokeDetector
+Cloning into 'Charcoal-SE/SmokeDetector'...
+remote: Counting objects: 382, done.[K
+remote: Compressing objects:   0% (1/270)   [Kremote: Compressing objects:   1% (3/270)   [Kremote: Compressing objects:   2% (6/270)   [Kremote: Compressing objects:   3% (9/270)   [Kremote: Compressing objects:   4% (11/270)   [Kremote: Compressing objects:   5% (14/270)   [Kremote: Compressing objects:   6% (17/270)   [Kremote: Compressing objects:   7% (19/270)   [Kremote: Compressing objects:   8% (22/270)   [Kremote: Compressing objects:   9% (25/270)   [Kremote: Compressing objects:  10% (27/270)   [Kremote: Compressing objects:  11% (30/270)   [Kremote: Compressing objects:  12% (33/270)   [Kremote: Compressing objects:  13% (36/270)   [Kremote: Compressing objects:  14% (38/270)   [Kremote: Compressing objects:  15% (41/270)   [Kremote: Compressing objects:  16% (44/270)   [Kremote: Compressing objects:  17% (46/270)   [Kremote: Compressing objects:  18% (49/270)   [Kremote: Compressing objects:  19% (52/270)   [Kremote: Compressing objects:  20% (54/270)   [Kremote: Compressing objects:  21% (57/270)   [Kremote: Compressing objects:  22% (60/270)   [Kremote: Compressing objects:  23% (63/270)   [Kremote: Compressing objects:  24% (65/270)   [Kremote: Compressing objects:  25% (68/270)   [Kremote: Compressing objects:  26% (71/270)   [Kremote: Compressing objects:  27% (73/270)   [Kremote: Compressing objects:  28% (76/270)   [Kremote: Compressing objects:  29% (79/270)   [Kremote: Compressing objects:  30% (81/270)   [Kremote: Compressing objects:  31% (84/270)   [Kremote: Compressing objects:  32% (87/270)   [Kremote: Compressing objects:  33% (90/270)   [Kremote: Compressing objects:  34% (92/270)   [Kremote: Compressing objects:  35% (95/270)   [Kremote: Compressing objects:  36% (98/270)   [Kremote: Compressing objects:  37% (100/270)   [Kremote: Compressing objects:  38% (103/270)   [Kremote: Compressing objects:  39% (106/270)   [Kremote: Compressing objects:  40% (108/270)   [Kremote: Compressing objects:  41% (111/270)   [Kremote: Compressing objects:  42% (114/270)   [Kremote: Compressing objects:  43% (117/270)   [Kremote: Compressing objects:  44% (119/270)   [Kremote: Compressing objects:  45% (122/270)   [Kremote: Compressing objects:  46% (125/270)   [Kremote: Compressing objects:  47% (127/270)   [Kremote: Compressing objects:  48% (130/270)   [Kremote: Compressing objects:  49% (133/270)   [Kremote: Compressing objects:  50% (135/270)   [Kremote: Compressing objects:  51% (138/270)   [Kremote: Compressing objects:  52% (141/270)   [Kremote: Compressing objects:  53% (144/270)   [Kremote: Compressing objects:  54% (146/270)   [Kremote: Compressing objects:  55% (149/270)   [Kremote: Compressing objects:  56% (152/270)   [Kremote: Compressing objects:  57% (154/270)   [Kremote: Compressing objects:  58% (157/270)   [Kremote: Compressing objects:  59% (160/270)   [Kremote: Compressing objects:  60% (162/270)   [Kremote: Compressing objects:  61% (165/270)   [Kremote: Compressing objects:  62% (168/270)   [Kremote: Compressing objects:  63% (171/270)   [Kremote: Compressing objects:  64% (173/270)   [Kremote: Compressing objects:  65% (176/270)   [Kremote: Compressing objects:  66% (179/270)   [Kremote: Compressing objects:  67% (181/270)   [Kremote: Compressing objects:  68% (184/270)   [Kremote: Compressing objects:  69% (187/270)   [Kremote: Compressing objects:  70% (189/270)   [Kremote: Compressing objects:  71% (192/270)   [Kremote: Compressing objects:  72% (195/270)   [Kremote: Compressing objects:  73% (198/270)   [Kremote: Compressing objects:  74% (200/270)   [Kremote: Compressing objects:  75% (203/270)   [Kremote: Compressing objects:  76% (206/270)   [Kremote: Compressing objects:  77% (208/270)   [Kremote: Compressing objects:  78% (211/270)   [Kremote: Compressing objects:  79% (214/270)   [Kremote: Compressing objects:  80% (216/270)   [Kremote: Compressing objects:  81% (219/270)   [Kremote: Compressing objects:  82% (222/270)   [Kremote: Compressing objects:  83% (225/270)   [Kremote: Compressing objects:  84% (227/270)   [Kremote: Compressing objects:  85% (230/270)   [Kremote: Compressing objects:  86% (233/270)   [Kremote: Compressing objects:  87% (235/270)   [Kremote: Compressing objects:  88% (238/270)   [Kremote: Compressing objects:  89% (241/270)   [Kremote: Compressing objects:  90% (243/270)   [Kremote: Compressing objects:  91% (246/270)   [Kremote: Compressing objects:  92% (249/270)   [Kremote: Compressing objects:  93% (252/270)   [Kremote: Compressing objects:  94% (254/270)   [Kremote: Compressing objects:  95% (257/270)   [Kremote: Compressing objects:  96% (260/270)   [Kremote: Compressing objects:  97% (262/270)   [Kremote: Compressing objects:  98% (265/270)   [Kremote: Compressing objects:  99% (268/270)   [Kremote: Compressing objects: 100% (270/270)   [Kremote: Compressing objects: 100% (270/270), done.[K
+Receiving objects:   0% (1/382)   Receiving objects:   1% (4/382)   Receiving objects:   2% (8/382)   Receiving objects:   3% (12/382)   Receiving objects:   4% (16/382)   Receiving objects:   5% (20/382)   Receiving objects:   6% (23/382)   Receiving objects:   7% (27/382)   Receiving objects:   8% (31/382)   Receiving objects:   9% (35/382)   Receiving objects:  10% (39/382)   Receiving objects:  11% (43/382)   Receiving objects:  12% (46/382)   Receiving objects:  13% (50/382)   Receiving objects:  14% (54/382)   Receiving objects:  15% (58/382)   Receiving objects:  16% (62/382)   Receiving objects:  17% (65/382)   Receiving objects:  18% (69/382)   Receiving objects:  19% (73/382)   Receiving objects:  20% (77/382)   Receiving objects:  21% (81/382)   Receiving objects:  22% (85/382)   Receiving objects:  23% (88/382)   Receiving objects:  24% (92/382)   Receiving objects:  25% (96/382)   Receiving objects:  26% (100/382)   Receiving objects:  27% (104/382)   Receiving objects:  28% (107/382)   Receiving objects:  29% (111/382)   Receiving objects:  30% (115/382)   Receiving objects:  31% (119/382)   Receiving objects:  32% (123/382)   Receiving objects:  33% (127/382), 7.68 MiB | 14.61 MiB/s   remote: Total 382 (delta 222), reused 260 (delta 111)[K
+Receiving objects:  34% (130/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  35% (134/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  36% (138/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  37% (142/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  38% (146/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  39% (149/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  40% (153/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  41% (157/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  42% (161/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  43% (165/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  44% (169/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  45% (172/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  46% (176/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  47% (180/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  48% (184/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  49% (188/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  50% (191/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  51% (195/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  52% (199/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  53% (203/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  54% (207/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  55% (211/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  56% (214/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  57% (218/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  58% (222/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  59% (226/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  60% (230/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  61% (234/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  62% (237/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  63% (241/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  64% (245/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  65% (249/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  66% (253/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  67% (256/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  68% (260/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  69% (264/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  70% (268/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  71% (272/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  72% (276/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  73% (279/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  74% (283/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  75% (287/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  76% (291/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  77% (295/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  78% (298/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  79% (302/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  80% (306/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  81% (310/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  82% (314/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  83% (318/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  84% (321/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  85% (325/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  86% (329/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  87% (333/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  88% (337/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  89% (340/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  90% (344/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  91% (348/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  92% (352/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  93% (356/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  94% (360/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  95% (363/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  96% (367/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  97% (371/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  98% (375/382), 7.68 MiB | 14.61 MiB/s   Receiving objects:  99% (379/382), 7.68 MiB | 14.61 MiB/s   Receiving objects: 100% (382/382), 7.68 MiB | 14.61 MiB/s   Receiving objects: 100% (382/382), 9.16 MiB | 14.61 MiB/s, done.
+Resolving deltas:   0% (0/222)   Resolving deltas:  41% (92/222)   Resolving deltas:  42% (95/222)   Resolving deltas:  43% (96/222)   Resolving deltas:  44% (98/222)   Resolving deltas:  51% (115/222)   Resolving deltas:  54% (120/222)   Resolving deltas:  56% (125/222)   Resolving deltas:  64% (143/222)   Resolving deltas:  65% (145/222)   Resolving deltas:  77% (173/222)   Resolving deltas:  78% (174/222)   Resolving deltas:  79% (177/222)   Resolving deltas:  86% (191/222)   Resolving deltas:  87% (195/222)   Resolving deltas:  89% (198/222)   Resolving deltas:  90% (201/222)   Resolving deltas:  93% (207/222)   Resolving deltas:  97% (216/222)   Resolving deltas:  99% (221/222)   Resolving deltas: 100% (222/222)   Resolving deltas: 100% (222/222), done.
+Checking connectivity... done.
+travis_time:end:04d4eb35:start=1421460619506061755,finish=1421460620696699527,duration=1190637772[0K$ cd Charcoal-SE/SmokeDetector
+$ git checkout -qf f1afeb13538ca5dc1fb77690f124a4d76241b456
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:1de0660b[0K$ git submodule init
+Submodule 'ChatExchange' (https://github.com/Manishearth/ChatExchange.git) registered for path 'ChatExchange'
+travis_time:end:1de0660b:start=1421460620801687107,finish=1421460620832008074,duration=30320967[0Ktravis_time:start:08013044[0K$ git submodule update
+Cloning into 'ChatExchange'...
+remote: Counting objects: 1066, done.[K
+Receiving objects:   0% (1/1066)   Receiving objects:   1% (11/1066)   Receiving objects:   2% (22/1066)   Receiving objects:   3% (32/1066)   Receiving objects:   4% (43/1066)   Receiving objects:   5% (54/1066)   Receiving objects:   6% (64/1066)   Receiving objects:   7% (75/1066)   Receiving objects:   8% (86/1066)   Receiving objects:   9% (96/1066)   Receiving objects:  10% (107/1066)   Receiving objects:  11% (118/1066)   Receiving objects:  12% (128/1066)   Receiving objects:  13% (139/1066)   Receiving objects:  14% (150/1066)   Receiving objects:  15% (160/1066)   Receiving objects:  16% (171/1066)   Receiving objects:  17% (182/1066)   Receiving objects:  18% (192/1066)   Receiving objects:  19% (203/1066)   Receiving objects:  20% (214/1066)   Receiving objects:  21% (224/1066)   Receiving objects:  22% (235/1066)   Receiving objects:  23% (246/1066)   Receiving objects:  24% (256/1066)   Receiving objects:  25% (267/1066)   Receiving objects:  26% (278/1066)   Receiving objects:  27% (288/1066)   Receiving objects:  28% (299/1066)   Receiving objects:  29% (310/1066)   Receiving objects:  30% (320/1066)   Receiving objects:  31% (331/1066)   Receiving objects:  32% (342/1066)   Receiving objects:  33% (352/1066)   Receiving objects:  34% (363/1066)   Receiving objects:  35% (374/1066)   Receiving objects:  36% (384/1066)   Receiving objects:  37% (395/1066)   Receiving objects:  38% (406/1066)   Receiving objects:  39% (416/1066)   Receiving objects:  40% (427/1066)   Receiving objects:  41% (438/1066)   Receiving objects:  42% (448/1066)   Receiving objects:  43% (459/1066)   Receiving objects:  44% (470/1066)   Receiving objects:  45% (480/1066)   Receiving objects:  46% (491/1066)   Receiving objects:  47% (502/1066)   Receiving objects:  48% (512/1066)   Receiving objects:  49% (523/1066)   Receiving objects:  50% (533/1066)   Receiving objects:  51% (544/1066)   Receiving objects:  52% (555/1066)   Receiving objects:  53% (565/1066)   Receiving objects:  54% (576/1066)   Receiving objects:  55% (587/1066)   Receiving objects:  56% (597/1066)   Receiving objects:  57% (608/1066)   Receiving objects:  58% (619/1066)   Receiving objects:  59% (629/1066)   Receiving objects:  60% (640/1066)   Receiving objects:  61% (651/1066)   Receiving objects:  62% (661/1066)   Receiving objects:  63% (672/1066)   remote: Total 1066 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  64% (683/1066)   Receiving objects:  65% (693/1066)   Receiving objects:  66% (704/1066)   Receiving objects:  67% (715/1066)   Receiving objects:  68% (725/1066)   Receiving objects:  69% (736/1066)   Receiving objects:  70% (747/1066)   Receiving objects:  71% (757/1066)   Receiving objects:  72% (768/1066)   Receiving objects:  73% (779/1066)   Receiving objects:  74% (789/1066)   Receiving objects:  75% (800/1066)   Receiving objects:  76% (811/1066)   Receiving objects:  77% (821/1066)   Receiving objects:  78% (832/1066)   Receiving objects:  79% (843/1066)   Receiving objects:  80% (853/1066)   Receiving objects:  81% (864/1066)   Receiving objects:  82% (875/1066)   Receiving objects:  83% (885/1066)   Receiving objects:  84% (896/1066)   Receiving objects:  85% (907/1066)   Receiving objects:  86% (917/1066)   Receiving objects:  87% (928/1066)   Receiving objects:  88% (939/1066)   Receiving objects:  89% (949/1066)   Receiving objects:  90% (960/1066)   Receiving objects:  91% (971/1066)   Receiving objects:  92% (981/1066)   Receiving objects:  93% (992/1066)   Receiving objects:  94% (1003/1066)   Receiving objects:  95% (1013/1066)   Receiving objects:  96% (1024/1066)   Receiving objects:  97% (1035/1066)   Receiving objects:  98% (1045/1066)   Receiving objects:  99% (1056/1066)   Receiving objects: 100% (1066/1066)   Receiving objects: 100% (1066/1066), 197.42 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/685)   Resolving deltas:   1% (7/685)   Resolving deltas:   2% (15/685)   Resolving deltas:   4% (33/685)   Resolving deltas:   5% (40/685)   Resolving deltas:   7% (50/685)   Resolving deltas:   8% (59/685)   Resolving deltas:  11% (81/685)   Resolving deltas:  13% (94/685)   Resolving deltas:  14% (100/685)   Resolving deltas:  15% (103/685)   Resolving deltas:  16% (113/685)   Resolving deltas:  17% (117/685)   Resolving deltas:  18% (130/685)   Resolving deltas:  21% (146/685)   Resolving deltas:  23% (159/685)   Resolving deltas:  24% (167/685)   Resolving deltas:  25% (173/685)   Resolving deltas:  26% (181/685)   Resolving deltas:  27% (189/685)   Resolving deltas:  30% (211/685)   Resolving deltas:  31% (215/685)   Resolving deltas:  32% (222/685)   Resolving deltas:  33% (231/685)   Resolving deltas:  34% (235/685)   Resolving deltas:  39% (269/685)   Resolving deltas:  54% (374/685)   Resolving deltas:  55% (379/685)   Resolving deltas:  57% (393/685)   Resolving deltas:  58% (399/685)   Resolving deltas:  60% (414/685)   Resolving deltas:  65% (451/685)   Resolving deltas:  66% (453/685)   Resolving deltas:  67% (461/685)   Resolving deltas:  71% (489/685)   Resolving deltas:  73% (505/685)   Resolving deltas:  74% (513/685)   Resolving deltas:  75% (517/685)   Resolving deltas:  79% (545/685)   Resolving deltas:  83% (569/685)   Resolving deltas:  84% (579/685)   Resolving deltas:  87% (600/685)   Resolving deltas:  88% (607/685)   Resolving deltas:  89% (610/685)   Resolving deltas:  90% (621/685)   Resolving deltas:  91% (624/685)   Resolving deltas:  92% (633/685)   Resolving deltas:  94% (650/685)   Resolving deltas:  97% (669/685)   Resolving deltas: 100% (685/685)   Resolving deltas: 100% (685/685), done.
+Checking connectivity... done.
+Submodule path 'ChatExchange': checked out '2cbd9f4c47efda49b614712ee5632f1616d33204'
+travis_time:end:08013044:start=1421460620835399207,finish=1421460621180196234,duration=344797027[0Ktravis_fold:end:git.submodule[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_time:start:034da420[0K$ source ~/virtualenv/python2.7/bin/activate
+travis_time:end:034da420:start=1421460624220699053,finish=1421460624227515398,duration=6816345[0K$ python --version
+Python 2.7.9
+$ pip --version
+pip 1.5.6 from /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (python 2.7)
+travis_fold:start:install[0Ktravis_time:start:15578121[0K$ pip install beautifulsoup4 requests websocket-client coverage pytest phonenumbers
+Downloading/unpacking beautifulsoup4
+  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):   Downloading beautifulsoup4-4.3.2.tar.gz (143kB):   2%  4.1kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):   5%  8.2kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):   8%  12kB   Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  11%  16kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  14%  20kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  17%  24kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  20%  28kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  22%  32kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  25%  36kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  28%  40kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  31%  45kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  34%  49kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  37%  53kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  40%  57kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  42%  61kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  45%  65kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  48%  69kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  51%  73kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  54%  77kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  57%  81kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  60%  86kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  62%  90kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  65%  94kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  68%  98kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  71%  102kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  74%  106kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  77%  110kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  80%  114kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  82%  118kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  85%  122kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  88%  126kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  91%  131kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  94%  135kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):  97%  139kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB): 100%  143kB  Downloading beautifulsoup4-4.3.2.tar.gz (143kB):              Downloading beautifulsoup4-4.3.2.tar.gz (143kB): 143kB downloaded
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/beautifulsoup4/setup.py) egg_info for package beautifulsoup4
+    
+Downloading/unpacking requests
+  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   0%  4.1kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   1%  8.2kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   2%  12kB   Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   3%  16kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   4%  20kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   5%  24kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   6%  28kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   7%  32kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   7%  36kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   8%  40kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):   9%  45kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  10%  49kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  11%  53kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  12%  57kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  13%  61kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  14%  65kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  14%  69kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  15%  73kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  16%  77kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  17%  81kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  18%  86kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  19%  90kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  20%  94kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  21%  98kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  22%  102kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  22%  106kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  23%  110kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  24%  114kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  25%  118kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  26%  122kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  27%  126kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  28%  131kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  29%  135kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  29%  139kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  30%  143kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  31%  147kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  32%  151kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  33%  155kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  34%  159kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  35%  163kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  36%  167kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  37%  172kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  37%  176kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  38%  180kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  39%  184kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  40%  188kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  41%  192kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  42%  196kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  43%  200kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  44%  204kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  44%  208kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  45%  212kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  46%  217kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  47%  221kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  48%  225kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  49%  229kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  50%  233kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  51%  237kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  52%  241kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  52%  245kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  53%  249kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  54%  253kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  55%  258kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  56%  262kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  57%  266kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  58%  270kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  59%  274kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  59%  278kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  60%  282kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  61%  286kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  62%  290kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  63%  294kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  64%  299kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  65%  303kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  66%  307kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  67%  311kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  67%  315kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  68%  319kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  69%  323kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  70%  327kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  71%  331kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  72%  335kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  73%  339kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  74%  344kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  74%  348kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  75%  352kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  76%  356kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  77%  360kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  78%  364kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  79%  368kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  80%  372kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  81%  376kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  82%  380kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  82%  385kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  83%  389kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  84%  393kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  85%  397kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  86%  401kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  87%  405kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  88%  409kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  89%  413kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  89%  417kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  90%  421kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  91%  425kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  92%  430kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  93%  434kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  94%  438kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  95%  442kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  96%  446kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  97%  450kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  97%  454kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  98%  458kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):  99%  462kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB): 100%  464kB  Downloading requests-2.5.1-py2.py3-none-any.whl (464kB):              Downloading requests-2.5.1-py2.py3-none-any.whl (464kB): 464kB downloaded
+Downloading/unpacking websocket-client
+  Downloading websocket-client-0.23.0.tar.gz (195kB):   Downloading websocket-client-0.23.0.tar.gz (195kB):   2%  4.1kB  Downloading websocket-client-0.23.0.tar.gz (195kB):   4%  8.2kB  Downloading websocket-client-0.23.0.tar.gz (195kB):   6%  12kB   Downloading websocket-client-0.23.0.tar.gz (195kB):   8%  16kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  10%  20kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  12%  24kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  14%  28kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  16%  32kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  18%  36kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  20%  40kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  23%  45kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  25%  49kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  27%  53kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  29%  57kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  31%  61kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  33%  65kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  35%  69kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  37%  73kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  39%  77kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  41%  81kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  44%  86kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  46%  90kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  48%  94kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  50%  98kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  52%  102kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  54%  106kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  56%  110kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  58%  114kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  60%  118kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  62%  122kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  65%  126kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  67%  131kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  69%  135kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  71%  139kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  73%  143kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  75%  147kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  77%  151kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  79%  155kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  81%  159kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  83%  163kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  86%  167kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  88%  172kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  90%  176kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  92%  180kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  94%  184kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  96%  188kB  Downloading websocket-client-0.23.0.tar.gz (195kB):  98%  192kB  Downloading websocket-client-0.23.0.tar.gz (195kB): 100%  195kB  Downloading websocket-client-0.23.0.tar.gz (195kB):              Downloading websocket-client-0.23.0.tar.gz (195kB): 195kB downloaded
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/websocket-client/setup.py) egg_info for package websocket-client
+    
+Downloading/unpacking coverage
+  Downloading coverage-3.7.1.tar.gz (284kB):   Downloading coverage-3.7.1.tar.gz (284kB):   1%  4.1kB  Downloading coverage-3.7.1.tar.gz (284kB):   2%  8.2kB  Downloading coverage-3.7.1.tar.gz (284kB):   4%  12kB   Downloading coverage-3.7.1.tar.gz (284kB):   5%  16kB  Downloading coverage-3.7.1.tar.gz (284kB):   7%  20kB  Downloading coverage-3.7.1.tar.gz (284kB):   8%  24kB  Downloading coverage-3.7.1.tar.gz (284kB):  10%  28kB  Downloading coverage-3.7.1.tar.gz (284kB):  11%  32kB  Downloading coverage-3.7.1.tar.gz (284kB):  12%  36kB  Downloading coverage-3.7.1.tar.gz (284kB):  14%  40kB  Downloading coverage-3.7.1.tar.gz (284kB):  15%  45kB  Downloading coverage-3.7.1.tar.gz (284kB):  17%  49kB  Downloading coverage-3.7.1.tar.gz (284kB):  18%  53kB  Downloading coverage-3.7.1.tar.gz (284kB):  20%  57kB  Downloading coverage-3.7.1.tar.gz (284kB):  21%  61kB  Downloading coverage-3.7.1.tar.gz (284kB):  23%  65kB  Downloading coverage-3.7.1.tar.gz (284kB):  24%  69kB  Downloading coverage-3.7.1.tar.gz (284kB):  25%  73kB  Downloading coverage-3.7.1.tar.gz (284kB):  27%  77kB  Downloading coverage-3.7.1.tar.gz (284kB):  28%  81kB  Downloading coverage-3.7.1.tar.gz (284kB):  30%  86kB  Downloading coverage-3.7.1.tar.gz (284kB):  31%  90kB  Downloading coverage-3.7.1.tar.gz (284kB):  33%  94kB  Downloading coverage-3.7.1.tar.gz (284kB):  34%  98kB  Downloading coverage-3.7.1.tar.gz (284kB):  35%  102kB  Downloading coverage-3.7.1.tar.gz (284kB):  37%  106kB  Downloading coverage-3.7.1.tar.gz (284kB):  38%  110kB  Downloading coverage-3.7.1.tar.gz (284kB):  40%  114kB  Downloading coverage-3.7.1.tar.gz (284kB):  41%  118kB  Downloading coverage-3.7.1.tar.gz (284kB):  43%  122kB  Downloading coverage-3.7.1.tar.gz (284kB):  44%  126kB  Downloading coverage-3.7.1.tar.gz (284kB):  46%  131kB  Downloading coverage-3.7.1.tar.gz (284kB):  47%  135kB  Downloading coverage-3.7.1.tar.gz (284kB):  48%  139kB  Downloading coverage-3.7.1.tar.gz (284kB):  50%  143kB  Downloading coverage-3.7.1.tar.gz (284kB):  51%  147kB  Downloading coverage-3.7.1.tar.gz (284kB):  53%  151kB  Downloading coverage-3.7.1.tar.gz (284kB):  54%  155kB  Downloading coverage-3.7.1.tar.gz (284kB):  56%  159kB  Downloading coverage-3.7.1.tar.gz (284kB):  57%  163kB  Downloading coverage-3.7.1.tar.gz (284kB):  58%  167kB  Downloading coverage-3.7.1.tar.gz (284kB):  60%  172kB  Downloading coverage-3.7.1.tar.gz (284kB):  61%  176kB  Downloading coverage-3.7.1.tar.gz (284kB):  63%  180kB  Downloading coverage-3.7.1.tar.gz (284kB):  64%  184kB  Downloading coverage-3.7.1.tar.gz (284kB):  66%  188kB  Downloading coverage-3.7.1.tar.gz (284kB):  67%  192kB  Downloading coverage-3.7.1.tar.gz (284kB):  69%  196kB  Downloading coverage-3.7.1.tar.gz (284kB):  70%  200kB  Downloading coverage-3.7.1.tar.gz (284kB):  71%  204kB  Downloading coverage-3.7.1.tar.gz (284kB):  73%  208kB  Downloading coverage-3.7.1.tar.gz (284kB):  74%  212kB  Downloading coverage-3.7.1.tar.gz (284kB):  76%  217kB  Downloading coverage-3.7.1.tar.gz (284kB):  77%  221kB  Downloading coverage-3.7.1.tar.gz (284kB):  79%  225kB  Downloading coverage-3.7.1.tar.gz (284kB):  80%  229kB  Downloading coverage-3.7.1.tar.gz (284kB):  81%  233kB  Downloading coverage-3.7.1.tar.gz (284kB):  83%  237kB  Downloading coverage-3.7.1.tar.gz (284kB):  84%  241kB  Downloading coverage-3.7.1.tar.gz (284kB):  86%  245kB  Downloading coverage-3.7.1.tar.gz (284kB):  87%  249kB  Downloading coverage-3.7.1.tar.gz (284kB):  89%  253kB  Downloading coverage-3.7.1.tar.gz (284kB):  90%  258kB  Downloading coverage-3.7.1.tar.gz (284kB):  92%  262kB  Downloading coverage-3.7.1.tar.gz (284kB):  93%  266kB  Downloading coverage-3.7.1.tar.gz (284kB):  94%  270kB  Downloading coverage-3.7.1.tar.gz (284kB):  96%  274kB  Downloading coverage-3.7.1.tar.gz (284kB):  97%  278kB  Downloading coverage-3.7.1.tar.gz (284kB):  99%  282kB  Downloading coverage-3.7.1.tar.gz (284kB): 100%  284kB  Downloading coverage-3.7.1.tar.gz (284kB):              Downloading coverage-3.7.1.tar.gz (284kB): 284kB downloaded
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/coverage/setup.py) egg_info for package coverage
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+Requirement already satisfied (use --upgrade to upgrade): pytest in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages
+Downloading/unpacking phonenumbers
+  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   0%  4.1kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   0%  8.2kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   0%  12kB   Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   0%  16kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   0%  20kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   1%  24kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   1%  28kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   1%  32kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   1%  36kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   1%  40kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   2%  45kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   2%  49kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   2%  53kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   2%  57kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   2%  61kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   3%  65kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   3%  69kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   3%  73kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   3%  77kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   3%  81kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   4%  86kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   4%  90kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   4%  94kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   4%  98kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   4%  102kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   5%  106kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   5%  110kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   5%  114kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   5%  118kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   5%  122kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   6%  126kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   6%  131kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   6%  135kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   6%  139kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   6%  143kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   7%  147kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   7%  151kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   7%  155kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   7%  159kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   7%  163kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   8%  167kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   8%  172kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   8%  176kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   8%  180kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   8%  184kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   9%  188kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   9%  192kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   9%  196kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   9%  200kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):   9%  204kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  10%  208kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  10%  212kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  10%  217kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  10%  221kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  10%  225kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  11%  229kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  11%  233kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  11%  237kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  11%  241kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  11%  245kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  12%  249kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  12%  253kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  12%  258kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  12%  262kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  12%  266kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  13%  270kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  13%  274kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  13%  278kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  13%  282kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  13%  286kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  14%  290kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  14%  294kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  14%  299kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  14%  303kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  14%  307kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  15%  311kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  15%  315kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  15%  319kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  15%  323kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  15%  327kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  16%  331kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  16%  335kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  16%  339kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  16%  344kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  16%  348kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  17%  352kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  17%  356kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  17%  360kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  17%  364kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  17%  368kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  18%  372kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  18%  376kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  18%  380kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  18%  385kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  18%  389kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  19%  393kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  19%  397kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  19%  401kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  19%  405kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  19%  409kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  20%  413kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  20%  417kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  20%  421kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  20%  425kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  20%  430kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  21%  434kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  21%  438kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  21%  442kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  21%  446kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  21%  450kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  22%  454kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  22%  458kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  22%  462kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  22%  466kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  22%  471kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  23%  475kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  23%  479kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  23%  483kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  23%  487kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  23%  491kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  24%  495kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  24%  499kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  24%  503kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  24%  507kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  24%  512kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  25%  516kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  25%  520kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  25%  524kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  25%  528kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  25%  532kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  26%  536kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  26%  540kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  26%  544kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  26%  548kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  26%  552kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  27%  557kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  27%  561kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  27%  565kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  27%  569kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  27%  573kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  28%  577kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  28%  581kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  28%  585kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  28%  589kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  28%  593kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  598kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  602kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  606kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  610kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  614kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  29%  618kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  30%  622kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  30%  626kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  30%  630kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  30%  634kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  30%  638kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  31%  643kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  31%  647kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  31%  651kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  31%  655kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  31%  659kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  32%  663kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  32%  667kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  32%  671kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  32%  675kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  32%  679kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  33%  684kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  33%  688kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  33%  692kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  33%  696kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  33%  700kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  34%  704kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  34%  708kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  34%  712kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  34%  716kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  34%  720kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  35%  724kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  35%  729kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  35%  733kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  35%  737kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  35%  741kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  36%  745kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  36%  749kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  36%  753kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  36%  757kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  36%  761kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  37%  765kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  37%  770kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  37%  774kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  37%  778kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  37%  782kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  38%  786kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  38%  790kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  38%  794kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  38%  798kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  38%  802kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  39%  806kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  39%  811kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  39%  815kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  39%  819kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  39%  823kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  40%  827kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  40%  831kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  40%  835kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  40%  839kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  40%  843kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  41%  847kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  41%  851kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  41%  856kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  41%  860kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  41%  864kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  42%  868kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  42%  872kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  42%  876kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  42%  880kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  42%  884kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  43%  888kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  43%  892kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  43%  897kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  43%  901kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  43%  905kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  44%  909kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  44%  913kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  44%  917kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  44%  921kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  44%  925kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  45%  929kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  45%  933kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  45%  937kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  45%  942kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  45%  946kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  46%  950kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  46%  954kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  46%  958kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  46%  962kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  46%  966kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  47%  970kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  47%  974kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  47%  978kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  47%  983kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  47%  987kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  48%  991kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  48%  995kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  48%  999kB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  48%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  48%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  49%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  49%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  49%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  49%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  49%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  50%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  50%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  50%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  50%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  50%  1.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  51%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  51%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  51%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  51%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  51%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  52%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  52%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  52%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  52%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  52%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  53%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  53%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  53%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  53%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  53%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  54%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  54%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  54%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  54%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  54%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  55%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  55%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  55%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  55%  1.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  55%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  56%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  56%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  56%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  56%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  56%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  57%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  57%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  57%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  57%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  57%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  58%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  59%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  59%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  59%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  59%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  59%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  60%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  60%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  60%  1.2MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  60%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  60%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  61%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  61%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  61%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  61%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  61%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  62%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  62%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  62%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  62%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  62%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  63%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  63%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  63%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  63%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  63%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  64%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  64%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  64%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  64%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  64%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  65%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  65%  1.3MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  65%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  65%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  65%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  66%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  66%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  66%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  66%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  66%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  67%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  67%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  67%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  67%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  67%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  68%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  68%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  68%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  68%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  68%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  69%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  69%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  69%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  69%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  69%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  70%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  70%  1.4MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  70%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  70%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  70%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  71%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  71%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  71%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  71%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  71%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  72%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  72%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  72%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  72%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  72%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  73%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  73%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  73%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  73%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  73%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  74%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  74%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  74%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  74%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  74%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  75%  1.5MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  75%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  75%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  75%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  75%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  76%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  76%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  76%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  76%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  76%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  77%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  77%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  77%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  77%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  77%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  78%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  78%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  78%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  78%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  78%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  79%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  79%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  79%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  79%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  79%  1.6MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  80%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  80%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  80%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  80%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  80%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  81%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  81%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  81%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  81%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  81%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  82%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  82%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  82%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  82%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  82%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  83%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  83%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  83%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  83%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  83%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  84%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  84%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  84%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  84%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  84%  1.7MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  85%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  85%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  85%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  85%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  85%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  86%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  86%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  86%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  86%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  86%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  87%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  88%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  88%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  88%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  88%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  88%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  89%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  89%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  89%  1.8MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  89%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  89%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  90%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  90%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  90%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  90%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  90%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  91%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  91%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  91%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  91%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  91%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  92%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  92%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  92%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  92%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  92%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  93%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  93%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  93%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  93%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  93%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  94%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  94%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  94%  1.9MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  94%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  94%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  95%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  95%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  95%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  95%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  95%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  96%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  96%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  96%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  96%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  96%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  97%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  97%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  97%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  97%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  97%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  98%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  98%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  98%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  98%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  98%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  99%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  99%  2.0MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  99%  2.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  99%  2.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):  99%  2.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB): 100%  2.1MB  Downloading phonenumbers-7.0.1.tar.gz (2.1MB):              Downloading phonenumbers-7.0.1.tar.gz (2.1MB): 2.1MB downloaded
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/phonenumbers/setup.py) egg_info for package phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+Downloading/unpacking six (from websocket-client)
+  Downloading six-1.9.0-py2.py3-none-any.whl
+Downloading/unpacking backports.ssl-match-hostname (from websocket-client)
+  Downloading backports.ssl_match_hostname-3.4.0.2.tar.gz
+  Running setup.py (path:/home/travis/virtualenv/python2.7.9/build/backports.ssl-match-hostname/setup.py) egg_info for package backports.ssl-match-hostname
+    
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.25 in /home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages (from pytest)
+Installing collected packages: beautifulsoup4, requests, websocket-client, coverage, phonenumbers, six, backports.ssl-match-hostname
+  Running setup.py install for beautifulsoup4
+    
+  Running setup.py install for websocket-client
+    changing mode of build/scripts-2.7/wsdump.py from 664 to 775
+    
+    changing mode of /home/travis/virtualenv/python2.7.9/bin/wsdump.py to 775
+  Running setup.py install for coverage
+    building 'coverage.tracer' extension
+    gcc -pthread -fno-strict-aliasing -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/opt/python/2.7.9/include/python2.7 -c coverage/tracer.c -o build/temp.linux-x86_64-2.7/coverage/tracer.o
+    gcc -pthread -shared -L/opt/python/2.7.9/lib -Wl,-rpath=/opt/python/2.7.9/lib build/temp.linux-x86_64-2.7/coverage/tracer.o -L/opt/python/2.7.9/lib -lpython2.7 -o build/lib.linux-x86_64-2.7/coverage/tracer.so
+    
+    warning: no previously-included files matching '*.pyc' found anywhere in distribution
+    Installing coverage2 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage-2.7 script to /home/travis/virtualenv/python2.7.9/bin
+    Installing coverage script to /home/travis/virtualenv/python2.7.9/bin
+  Running setup.py install for phonenumbers
+    
+    warning: no files found matching 'MANIFEST'
+    warning: no previously-included files found matching '.*ignore'
+  Running setup.py install for backports.ssl-match-hostname
+    
+Successfully installed beautifulsoup4 requests websocket-client coverage phonenumbers six backports.ssl-match-hostname
+Cleaning up...
+travis_time:end:15578121:start=1421460624619026358,finish=1421460633028139768,duration=8409113410[0Ktravis_fold:end:install[0Ktravis_time:start:0a5c0a00[0K$ python -W default::Warning -m pytest test
+[1m============================= test session starts ==============================[0m
+platform linux2 -- Python 2.7.9 -- py-1.4.26 -- pytest-2.6.4
+[1mcollecting 0 items[0m[1mcollecting 19 items[0m[1mcollecting 37 items[0m[1mcollecting 55 items[0m[1mcollected 55 items 
+[0m
+test/test_parsing.py ...................
+test/test_regexes.py ..................
+test/test_spamhanding.py FFFFFFFFFFFFFFFFFF
+
+=================================== FAILURES ===================================
+ test_check_if_spam[18669786819 gmail customer service number 1866978-6819 gmail support number----True] 
+
+title = '18669786819 gmail customer service number 1866978-6819 gmail support number'
+body = '', username = '', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['Bad keyword in title', 'Phone number detected'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Possible True, Valid True, Explain: Country Code: 91 National Number: 1866978681
+18669786819 gmail customer service number 1866978-6819 gmail support number
+ test_check_if_spam[Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?----True] 
+
+title = 'Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?'
+body = '', username = '', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['URL in title'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?
+_____________________ test_check_if_spam[--bagprada--True] _____________________
+
+title = '', body = '', username = 'bagprada', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['Bad keyword in username'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+
+__________ test_check_if_spam[HOW DO YOU SOLVE THIS PROBLEM?----True] __________
+
+title = 'HOW DO YOU SOLVE THIS PROBLEM?', body = '', username = '', site = ''
+match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['All-caps title'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+HOW DO YOU SOLVE THIS PROBLEM?
+ test_check_if_spam[12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging----True] 
+
+title = '12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging'
+body = '', username = '', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['URL in title'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging
+ test_check_if_spam[support for yahoo mail 18669786819 @call for helpline number----True] 
+
+title = 'support for yahoo mail 18669786819 @call for helpline number'
+body = '', username = '', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['Bad keyword in title', 'Phone number detected'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Possible True, Valid True, Explain: Country Code: 91 National Number: 1866978681
+support for yahoo mail 18669786819 @call for helpline number
+ test_check_if_spam[yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait----True] 
+
+title = 'yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait'
+body = '', username = '', site = '', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['Bad keyword in title', 'Phone number detected'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Possible True, Valid True, Explain: Country Code: 1 National Number: 8669786819
+yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait
+ test_check_if_spam[What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?----False] 
+
+title = 'What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?'
+body = '', username = '', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?
+ test_check_if_spam[Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?----False] 
+
+title = 'Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?'
+body = '', username = '', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?
+ test_check_if_spam[The Challenge of Controlling a Powerful AI--Serban Tanasa--False] 
+
+title = 'The Challenge of Controlling a Powerful AI', body = ''
+username = 'Serban Tanasa', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+The Challenge of Controlling a Powerful AI
+ test_check_if_spam[Reproducing image of a spiral using TikZ--Kristoffer Ryhl--False] 
+
+title = 'Reproducing image of a spiral using TikZ', body = ''
+username = 'Kristoffer Ryhl', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Reproducing image of a spiral using TikZ
+_ test_check_if_spam[What is the proper way to say "queryer"--jedwards--False] _
+
+title = 'What is the proper way to say "queryer"', body = ''
+username = 'jedwards', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+What is the proper way to say "queryer"
+ test_check_if_spam[What's a real-world example of "overfitting"?--user3851283--False] 
+
+title = 'What\'s a real-world example of "overfitting"?', body = ''
+username = 'user3851283', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+What's a real-world example of "overfitting"?
+ test_check_if_spam[How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?--bowlturner--False] 
+
+title = 'How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?'
+body = '', username = 'bowlturner', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?
+ test_check_if_spam[Is it unfair to regrade prior work after detecting cheating?--Village--False] 
+
+title = 'Is it unfair to regrade prior work after detecting cheating?'
+body = '', username = 'Village', site = '', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Is it unfair to regrade prior work after detecting cheating?
+ test_check_if_spam[Inner workings of muscles---fitness.stackexchange.com-False] 
+
+title = 'Inner workings of muscles', body = '', username = ''
+site = 'fitness.stackexchange.com', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Inner workings of muscles
+ test_check_if_spam[Cannot access http://stackoverflow.com/ with proxy enabled---superuser.com-False] 
+
+title = 'Cannot access http://stackoverflow.com/ with proxy enabled', body = ''
+username = '', site = 'superuser.com', match = False
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert False == (False, None)[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Cannot access http://stackoverflow.com/ with proxy enabled
+ test_check_if_spam[kkkkkkkkkkkkkkkkkkkkkkkkkkkk-<p>bbbbbbbbbbbbbbbbbbbbbb</p>--stackoverflow.com-True] 
+
+title = 'kkkkkkkkkkkkkkkkkkkkkkkkkkkk', body = '<p>bbbbbbbbbbbbbbbbbbbbbb</p>'
+username = '', site = 'stackoverflow.com', match = True
+
+[1m    @pytest.mark.parametrize("title, body, username, site, match", [[0m
+[1m         ('18669786819 gmail customer service number 1866978-6819 gmail support number', '', '', '', True),[0m
+[1m         ('Is there any http://www.hindawi.com/ template for Cloud-Oriented Data Center Networking?', '', '', '', True),[0m
+[1m         ('', '', 'bagprada', '', True),[0m
+[1m         ('HOW DO YOU SOLVE THIS PROBLEM?', '', '', '', True),[0m
+[1m         ('12 Month Loans quick @ http://www.quick12monthpaydayloans.co.uk/Elimination of collateral pledging', '', '', '', True),[0m
+[1m         ('support for yahoo mail 18669786819 @call for helpline number', '', '', '', True),[0m
+[1m         ('yahoo email tech support 1 866 978 6819 Yahoo Customer Phone Number ,Shortest Wait', '', '', '', True),[0m
+[1m         ('What is the value of MD5 checksums if the MD5 hash itself could potentially also have been manipulated?', '', '', '', False),[0m
+[1m         ('Probability: 6 Dice are rolled. Which is more likely, that you get exactly one 6, or that you get 6 different numbers?', '', '', '', False),[0m
+[1m         ('The Challenge of Controlling a Powerful AI', '', 'Serban Tanasa', '', False),[0m
+[1m         ('Reproducing image of a spiral using TikZ', '', 'Kristoffer Ryhl', '', False),[0m
+[1m         ('What is the proper way to say "queryer"', '', 'jedwards', '', False),[0m
+[1m         ('What\'s a real-world example of "overfitting"?', '', 'user3851283', '', False),[0m
+[1m         ('How to avoid objects when traveling at greater than .75 light speed. or How Not to Go SPLAT?', '', 'bowlturner', '', False),[0m
+[1m         ('Is it unfair to regrade prior work after detecting cheating?', '', 'Village', '', False),[0m
+[1m         ('Inner workings of muscles', '', '', 'fitness.stackexchange.com', False),[0m
+[1m         ('Cannot access http://stackoverflow.com/ with proxy enabled', '', '', 'superuser.com', False),[0m
+[1m         ('kkkkkkkkkkkkkkkkkkkkkkkkkkkk', '<p>bbbbbbbbbbbbbbbbbbbbbb</p>', '', 'stackoverflow.com', True)[0m
+[1m    ])[0m
+[1m    [0m
+[1m    def test_check_if_spam(title, body, username, site, match):[0m
+[1m        # We can't check blacklists/whitelists in tests, so these are set to their default values[0m
+[1m        user_url = ""[0m
+[1m        post_id = 0[0m
+[1m        # If we want to test answers separatly, this should be changed[0m
+[1m        is_answer = False[0m
+[1m        is_spam = check_if_spam(title, body, username, user_url, site, post_id, is_answer)[0m
+[1m        print title[0m
+[1m>       assert match == is_spam[0m
+[1m[31mE       assert True == (True, ['Repeating characters in title', 'Repeating characters in body'])[0m
+
+test/test_spamhanding.py:33: AssertionError
+----------------------------- Captured stdout call -----------------------------
+kkkkkkkkkkkkkkkkkkkkkkkkkkkk
+[1m[31m===================== 18 failed, 37 passed in 1.27 seconds =====================[0m
+travis_time:end:0a5c0a00:start=1421460633031654600,finish=1421460634500018482,duration=1468363882[0K
+[31;1mThe command "python -W default::Warning -m pytest test" exited with 1.[0m
+
+Done. Your build exited with 1.

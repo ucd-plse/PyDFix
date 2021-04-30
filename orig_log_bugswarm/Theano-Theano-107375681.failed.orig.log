@@ -1,0 +1,591 @@
+Using worker: worker-linux-docker-ab6b3e52.prod.travis-ci.org:travis-linux-8
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: python
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:00c5777c[0K$ git clone --depth=50 https://github.com/Theano/Theano.git Theano/Theano
+Cloning into 'Theano/Theano'...
+remote: Counting objects: 12906, done.[K
+remote: Compressing objects:   0% (1/4924)   [Kremote: Compressing objects:   1% (50/4924)   [Kremote: Compressing objects:   2% (99/4924)   [Kremote: Compressing objects:   3% (148/4924)   [Kremote: Compressing objects:   4% (197/4924)   [Kremote: Compressing objects:   5% (247/4924)   [Kremote: Compressing objects:   6% (296/4924)   [Kremote: Compressing objects:   7% (345/4924)   [Kremote: Compressing objects:   8% (394/4924)   [Kremote: Compressing objects:   9% (444/4924)   [Kremote: Compressing objects:  10% (493/4924)   [Kremote: Compressing objects:  11% (542/4924)   [Kremote: Compressing objects:  12% (591/4924)   [Kremote: Compressing objects:  13% (641/4924)   [Kremote: Compressing objects:  14% (690/4924)   [Kremote: Compressing objects:  15% (739/4924)   [Kremote: Compressing objects:  16% (788/4924)   [Kremote: Compressing objects:  17% (838/4924)   [Kremote: Compressing objects:  18% (887/4924)   [Kremote: Compressing objects:  19% (936/4924)   [Kremote: Compressing objects:  20% (985/4924)   [Kremote: Compressing objects:  21% (1035/4924)   [Kremote: Compressing objects:  22% (1084/4924)   [Kremote: Compressing objects:  23% (1133/4924)   [Kremote: Compressing objects:  24% (1182/4924)   [Kremote: Compressing objects:  25% (1231/4924)   [Kremote: Compressing objects:  26% (1281/4924)   [Kremote: Compressing objects:  27% (1330/4924)   [Kremote: Compressing objects:  28% (1379/4924)   [Kremote: Compressing objects:  29% (1428/4924)   [Kremote: Compressing objects:  30% (1478/4924)   [Kremote: Compressing objects:  31% (1527/4924)   [Kremote: Compressing objects:  32% (1576/4924)   [Kremote: Compressing objects:  33% (1625/4924)   [Kremote: Compressing objects:  34% (1675/4924)   [Kremote: Compressing objects:  35% (1724/4924)   [Kremote: Compressing objects:  36% (1773/4924)   [Kremote: Compressing objects:  37% (1822/4924)   [Kremote: Compressing objects:  37% (1860/4924)   [Kremote: Compressing objects:  38% (1872/4924)   [Kremote: Compressing objects:  39% (1921/4924)   [Kremote: Compressing objects:  40% (1970/4924)   [Kremote: Compressing objects:  41% (2019/4924)   [Kremote: Compressing objects:  42% (2069/4924)   [Kremote: Compressing objects:  43% (2118/4924)   [Kremote: Compressing objects:  44% (2167/4924)   [Kremote: Compressing objects:  45% (2216/4924)   [Kremote: Compressing objects:  46% (2266/4924)   [Kremote: Compressing objects:  47% (2315/4924)   [Kremote: Compressing objects:  48% (2364/4924)   [Kremote: Compressing objects:  49% (2413/4924)   [Kremote: Compressing objects:  50% (2462/4924)   [Kremote: Compressing objects:  51% (2512/4924)   [Kremote: Compressing objects:  52% (2561/4924)   [Kremote: Compressing objects:  53% (2610/4924)   [Kremote: Compressing objects:  54% (2659/4924)   [Kremote: Compressing objects:  55% (2709/4924)   [Kremote: Compressing objects:  56% (2758/4924)   [Kremote: Compressing objects:  57% (2807/4924)   [Kremote: Compressing objects:  58% (2856/4924)   [Kremote: Compressing objects:  59% (2906/4924)   [Kremote: Compressing objects:  60% (2955/4924)   [Kremote: Compressing objects:  61% (3004/4924)   [Kremote: Compressing objects:  62% (3053/4924)   [Kremote: Compressing objects:  63% (3103/4924)   [Kremote: Compressing objects:  64% (3152/4924)   [Kremote: Compressing objects:  65% (3201/4924)   [Kremote: Compressing objects:  66% (3250/4924)   [Kremote: Compressing objects:  67% (3300/4924)   [Kremote: Compressing objects:  68% (3349/4924)   [Kremote: Compressing objects:  69% (3398/4924)   [Kremote: Compressing objects:  70% (3447/4924)   [Kremote: Compressing objects:  71% (3497/4924)   [Kremote: Compressing objects:  72% (3546/4924)   [Kremote: Compressing objects:  73% (3595/4924)   [Kremote: Compressing objects:  74% (3644/4924)   [Kremote: Compressing objects:  75% (3693/4924)   [Kremote: Compressing objects:  76% (3743/4924)   [Kremote: Compressing objects:  77% (3792/4924)   [Kremote: Compressing objects:  78% (3841/4924)   [Kremote: Compressing objects:  79% (3890/4924)   [Kremote: Compressing objects:  80% (3940/4924)   [Kremote: Compressing objects:  81% (3989/4924)   [Kremote: Compressing objects:  82% (4038/4924)   [Kremote: Compressing objects:  83% (4087/4924)   [Kremote: Compressing objects:  84% (4137/4924)   [Kremote: Compressing objects:  85% (4186/4924)   [Kremote: Compressing objects:  86% (4235/4924)   [Kremote: Compressing objects:  87% (4284/4924)   [Kremote: Compressing objects:  88% (4334/4924)   [Kremote: Compressing objects:  89% (4383/4924)   [Kremote: Compressing objects:  90% (4432/4924)   [Kremote: Compressing objects:  91% (4481/4924)   [Kremote: Compressing objects:  92% (4531/4924)   [Kremote: Compressing objects:  93% (4580/4924)   [Kremote: Compressing objects:  94% (4629/4924)   [Kremote: Compressing objects:  95% (4678/4924)   [Kremote: Compressing objects:  96% (4728/4924)   [Kremote: Compressing objects:  97% (4777/4924)   [Kremote: Compressing objects:  98% (4826/4924)   [Kremote: Compressing objects:  99% (4875/4924)   [Kremote: Compressing objects: 100% (4924/4924)   [Kremote: Compressing objects: 100% (4924/4924), done.[K
+Receiving objects:   0% (1/12906)   Receiving objects:   1% (130/12906)   Receiving objects:   2% (259/12906)   Receiving objects:   3% (388/12906)   Receiving objects:   4% (517/12906)   Receiving objects:   5% (646/12906)   Receiving objects:   6% (775/12906)   Receiving objects:   7% (904/12906)   Receiving objects:   8% (1033/12906)   Receiving objects:   9% (1162/12906)   Receiving objects:  10% (1291/12906)   Receiving objects:  11% (1420/12906)   Receiving objects:  12% (1549/12906)   Receiving objects:  13% (1678/12906)   Receiving objects:  14% (1807/12906)   Receiving objects:  15% (1936/12906)   Receiving objects:  16% (2065/12906)   Receiving objects:  17% (2195/12906)   Receiving objects:  18% (2324/12906)   Receiving objects:  19% (2453/12906)   Receiving objects:  20% (2582/12906)   Receiving objects:  21% (2711/12906)   Receiving objects:  22% (2840/12906)   Receiving objects:  23% (2969/12906)   Receiving objects:  24% (3098/12906)   Receiving objects:  25% (3227/12906)   Receiving objects:  26% (3356/12906)   Receiving objects:  27% (3485/12906)   Receiving objects:  28% (3614/12906)   Receiving objects:  29% (3743/12906)   Receiving objects:  30% (3872/12906)   Receiving objects:  31% (4001/12906)   Receiving objects:  32% (4130/12906)   Receiving objects:  33% (4259/12906)   Receiving objects:  34% (4389/12906)   Receiving objects:  35% (4518/12906)   Receiving objects:  36% (4647/12906)   Receiving objects:  37% (4776/12906)   Receiving objects:  38% (4905/12906)   Receiving objects:  39% (5034/12906)   Receiving objects:  40% (5163/12906)   Receiving objects:  41% (5292/12906)   Receiving objects:  42% (5421/12906)   Receiving objects:  43% (5550/12906)   Receiving objects:  44% (5679/12906)   Receiving objects:  45% (5808/12906)   Receiving objects:  46% (5937/12906)   Receiving objects:  47% (6066/12906)   Receiving objects:  48% (6195/12906)   Receiving objects:  49% (6324/12906)   Receiving objects:  50% (6453/12906)   Receiving objects:  51% (6583/12906)   Receiving objects:  52% (6712/12906)   Receiving objects:  53% (6841/12906)   Receiving objects:  54% (6970/12906)   Receiving objects:  55% (7099/12906)   Receiving objects:  56% (7228/12906)   Receiving objects:  57% (7357/12906)   Receiving objects:  58% (7486/12906)   Receiving objects:  59% (7615/12906)   Receiving objects:  60% (7744/12906)   Receiving objects:  61% (7873/12906)   Receiving objects:  62% (8002/12906)   Receiving objects:  63% (8131/12906)   Receiving objects:  64% (8260/12906)   Receiving objects:  65% (8389/12906)   Receiving objects:  66% (8518/12906)   Receiving objects:  67% (8648/12906)   Receiving objects:  68% (8777/12906)   Receiving objects:  69% (8906/12906)   Receiving objects:  70% (9035/12906)   Receiving objects:  71% (9164/12906)   Receiving objects:  72% (9293/12906)   Receiving objects:  73% (9422/12906)   Receiving objects:  74% (9551/12906)   Receiving objects:  75% (9680/12906)   Receiving objects:  76% (9809/12906)   Receiving objects:  77% (9938/12906)   Receiving objects:  78% (10067/12906)   Receiving objects:  79% (10196/12906)   Receiving objects:  80% (10325/12906)   Receiving objects:  81% (10454/12906)   Receiving objects:  82% (10583/12906)   Receiving objects:  83% (10712/12906)   Receiving objects:  84% (10842/12906)   Receiving objects:  85% (10971/12906)   Receiving objects:  86% (11100/12906)   Receiving objects:  87% (11229/12906)   Receiving objects:  88% (11358/12906)   Receiving objects:  89% (11487/12906)   Receiving objects:  90% (11616/12906)   Receiving objects:  91% (11745/12906)   Receiving objects:  92% (11874/12906)   Receiving objects:  93% (12003/12906)   Receiving objects:  94% (12132/12906)   Receiving objects:  95% (12261/12906)   Receiving objects:  96% (12390/12906)   Receiving objects:  97% (12519/12906)   Receiving objects:  98% (12648/12906)   Receiving objects:  99% (12777/12906)   remote: Total 12906 (delta 10114), reused 10279 (delta 7939), pack-reused 0[K
+Receiving objects: 100% (12906/12906)   Receiving objects: 100% (12906/12906), 9.62 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/10114)   Resolving deltas:   1% (114/10114)   Resolving deltas:   5% (527/10114)   Resolving deltas:   6% (610/10114)   Resolving deltas:   7% (715/10114)   Resolving deltas:   8% (810/10114)   Resolving deltas:   9% (911/10114)   Resolving deltas:  10% (1012/10114)   Resolving deltas:  11% (1115/10114)   Resolving deltas:  12% (1221/10114)   Resolving deltas:  13% (1317/10114)   Resolving deltas:  14% (1433/10114)   Resolving deltas:  15% (1519/10114)   Resolving deltas:  16% (1626/10114)   Resolving deltas:  17% (1723/10114)   Resolving deltas:  18% (1830/10114)   Resolving deltas:  19% (1932/10114)   Resolving deltas:  20% (2027/10114)   Resolving deltas:  21% (2129/10114)   Resolving deltas:  22% (2242/10114)   Resolving deltas:  23% (2371/10114)   Resolving deltas:  24% (2432/10114)   Resolving deltas:  25% (2532/10114)   Resolving deltas:  26% (2678/10114)   Resolving deltas:  27% (2732/10114)   Resolving deltas:  28% (2838/10114)   Resolving deltas:  29% (2944/10114)   Resolving deltas:  30% (3048/10114)   Resolving deltas:  31% (3140/10114)   Resolving deltas:  32% (3239/10114)   Resolving deltas:  33% (3341/10114)   Resolving deltas:  34% (3446/10114)   Resolving deltas:  35% (3544/10114)   Resolving deltas:  36% (3666/10114)   Resolving deltas:  37% (3752/10114)   Resolving deltas:  38% (3866/10114)   Resolving deltas:  39% (3949/10114)   Resolving deltas:  40% (4058/10114)   Resolving deltas:  41% (4149/10114)   Resolving deltas:  42% (4309/10114)   Resolving deltas:  43% (4355/10114)   Resolving deltas:  44% (4536/10114)   Resolving deltas:  45% (4560/10114)   Resolving deltas:  46% (4692/10114)   Resolving deltas:  47% (4783/10114)   Resolving deltas:  49% (4988/10114)   Resolving deltas:  50% (5057/10114)   Resolving deltas:  52% (5307/10114)   Resolving deltas:  53% (5375/10114)   Resolving deltas:  54% (5541/10114)   Resolving deltas:  56% (5719/10114)   Resolving deltas:  63% (6423/10114)   Resolving deltas:  65% (6599/10114)   Resolving deltas:  69% (6988/10114)   Resolving deltas:  72% (7337/10114)   Resolving deltas:  73% (7397/10114)   Resolving deltas:  74% (7504/10114)   Resolving deltas:  75% (7626/10114)   Resolving deltas:  76% (7722/10114)   Resolving deltas:  77% (7798/10114)   Resolving deltas:  78% (7905/10114)   Resolving deltas:  79% (8019/10114)   Resolving deltas:  80% (8151/10114)   Resolving deltas:  81% (8225/10114)   Resolving deltas:  82% (8299/10114)   Resolving deltas:  83% (8406/10114)   Resolving deltas:  84% (8505/10114)   Resolving deltas:  85% (8630/10114)   Resolving deltas:  86% (8706/10114)   Resolving deltas:  87% (8824/10114)   Resolving deltas:  88% (8920/10114)   Resolving deltas:  89% (9048/10114)   Resolving deltas:  90% (9139/10114)   Resolving deltas:  91% (9276/10114)   Resolving deltas:  92% (9305/10114)   Resolving deltas:  93% (9415/10114)   Resolving deltas:  94% (9542/10114)   Resolving deltas:  95% (9614/10114)   Resolving deltas:  96% (9713/10114)   Resolving deltas:  97% (9816/10114)   Resolving deltas:  98% (9915/10114)   Resolving deltas:  99% (10036/10114)   Resolving deltas: 100% (10114/10114)   Resolving deltas: 100% (10114/10114), done.
+Checking connectivity... done.
+
+travis_time:end:00c5777c:start=1454738635456555992,finish=1454738639370921974,duration=3914365982[0K$ cd Theano/Theano
+travis_time:start:2447a348[0K$ git fetch origin +refs/pull/3924/merge:
+remote: Counting objects: 45, done.[K
+remote: Compressing objects:  10% (1/10)   [Kremote: Compressing objects:  20% (2/10)   [Kremote: Compressing objects:  30% (3/10)   [Kremote: Compressing objects:  40% (4/10)   [Kremote: Compressing objects:  50% (5/10)   [Kremote: Compressing objects:  60% (6/10)   [Kremote: Compressing objects:  70% (7/10)   [Kremote: Compressing objects:  80% (8/10)   [Kremote: Compressing objects:  90% (9/10)   [Kremote: Compressing objects: 100% (10/10)   [Kremote: Compressing objects: 100% (10/10), done.[K
+remote: Total 45 (delta 35), reused 44 (delta 35), pack-reused 0[K
+Unpacking objects:   2% (1/45)   Unpacking objects:   4% (2/45)   Unpacking objects:   6% (3/45)   Unpacking objects:   8% (4/45)   Unpacking objects:  11% (5/45)   Unpacking objects:  13% (6/45)   Unpacking objects:  15% (7/45)   Unpacking objects:  17% (8/45)   Unpacking objects:  20% (9/45)   Unpacking objects:  22% (10/45)   Unpacking objects:  24% (11/45)   Unpacking objects:  26% (12/45)   Unpacking objects:  28% (13/45)   Unpacking objects:  31% (14/45)   Unpacking objects:  33% (15/45)   Unpacking objects:  35% (16/45)   Unpacking objects:  37% (17/45)   Unpacking objects:  40% (18/45)   Unpacking objects:  42% (19/45)   Unpacking objects:  44% (20/45)   Unpacking objects:  46% (21/45)   Unpacking objects:  48% (22/45)   Unpacking objects:  51% (23/45)   Unpacking objects:  53% (24/45)   Unpacking objects:  55% (25/45)   Unpacking objects:  57% (26/45)   Unpacking objects:  60% (27/45)   Unpacking objects:  62% (28/45)   Unpacking objects:  64% (29/45)   Unpacking objects:  66% (30/45)   Unpacking objects:  68% (31/45)   Unpacking objects:  71% (32/45)   Unpacking objects:  73% (33/45)   Unpacking objects:  75% (34/45)   Unpacking objects:  77% (35/45)   Unpacking objects:  80% (36/45)   Unpacking objects:  82% (37/45)   Unpacking objects:  84% (38/45)   Unpacking objects:  86% (39/45)   Unpacking objects:  88% (40/45)   Unpacking objects:  91% (41/45)   Unpacking objects:  93% (42/45)   Unpacking objects:  95% (43/45)   Unpacking objects:  97% (44/45)   Unpacking objects: 100% (45/45)   Unpacking objects: 100% (45/45), done.
+From https://github.com/Theano/Theano
+ * branch            refs/pull/3924/merge -> FETCH_HEAD
+
+travis_time:end:2447a348:start=1454738639375264431,finish=1454738639737529090,duration=362264659[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:07c530e2[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+
+travis_time:end:07c530e2:start=1454738639931725539,finish=1454738646729699686,duration=6797974147[0Ktravis_time:start:0140b6e3[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended dvipng
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  ed libkpathsea5 luatex preview-latex-style tex-common texlive-base
+  texlive-binaries texlive-common texlive-doc-base texlive-latex-base
+  texlive-pictures
+Suggested packages:
+  perl-tk xpdf-reader pdf-viewer texpower dot2tex
+Recommended packages:
+  texlive-luatex doc-base lmodern texlive-fonts-recommended-doc tipa
+  texlive-latex-base-doc texlive-latex-extra-doc texlive-latex-recommended-doc
+  prosper latex-beamer latex-xcolor texlive-pictures-doc pgf
+The following NEW packages will be installed:
+  dvipng ed libkpathsea5 luatex preview-latex-style tex-common texlive-base
+  texlive-binaries texlive-common texlive-doc-base texlive-fonts-recommended
+  texlive-latex-base texlive-latex-extra texlive-latex-recommended
+  texlive-pictures
+0 upgraded, 15 newly installed, 0 to remove and 210 not upgraded.
+Need to get 48.6 MB of archives.
+After this operation, 129 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise/main ed amd64 1.5-3 [57.9 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise/main libkpathsea5 amd64 2009-11ubuntu2 [56.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise/main tex-common all 2.10 [709 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-common all 2009-15 [94.4 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-binaries amd64 2009-11ubuntu2 [8,054 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ precise/main dvipng amd64 1.14-1 [80.6 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu/ precise/main luatex amd64 0.70.1-1ubuntu1 [2,458 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu/ precise/main preview-latex-style all 11.86-2ubuntu1 [108 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-doc-base all 2009-2 [1,339 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-base all 2009-15 [14.7 MB]
+Get:11 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-fonts-recommended all 2009-15 [7,247 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-latex-base all 2009-15 [1,406 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-pictures all 2009-15 [856 kB]
+Get:14 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-latex-extra all 2009-10ubuntu1 [4,717 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu/ precise/main texlive-latex-recommended all 2009-15 [6,752 kB]
+Fetched 48.6 MB in 1s (47.1 MB/s)
+Preconfiguring packages ...
+Selecting previously unselected package ed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72431 files and directories currently installed.)
+Unpacking ed (from .../archives/ed_1.5-3_amd64.deb) ...
+Selecting previously unselected package libkpathsea5.
+Unpacking libkpathsea5 (from .../libkpathsea5_2009-11ubuntu2_amd64.deb) ...
+Selecting previously unselected package tex-common.
+Unpacking tex-common (from .../tex-common_2.10_all.deb) ...
+Selecting previously unselected package texlive-common.
+Unpacking texlive-common (from .../texlive-common_2009-15_all.deb) ...
+Selecting previously unselected package texlive-binaries.
+Unpacking texlive-binaries (from .../texlive-binaries_2009-11ubuntu2_amd64.deb) ...
+Selecting previously unselected package dvipng.
+Unpacking dvipng (from .../dvipng_1.14-1_amd64.deb) ...
+Selecting previously unselected package luatex.
+Unpacking luatex (from .../luatex_0.70.1-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package preview-latex-style.
+Unpacking preview-latex-style (from .../preview-latex-style_11.86-2ubuntu1_all.deb) ...
+Selecting previously unselected package texlive-doc-base.
+Unpacking texlive-doc-base (from .../texlive-doc-base_2009-2_all.deb) ...
+Selecting previously unselected package texlive-base.
+Unpacking texlive-base (from .../texlive-base_2009-15_all.deb) ...
+Selecting previously unselected package texlive-fonts-recommended.
+Unpacking texlive-fonts-recommended (from .../texlive-fonts-recommended_2009-15_all.deb) ...
+Selecting previously unselected package texlive-latex-base.
+Unpacking texlive-latex-base (from .../texlive-latex-base_2009-15_all.deb) ...
+Selecting previously unselected package texlive-pictures.
+Unpacking texlive-pictures (from .../texlive-pictures_2009-15_all.deb) ...
+Selecting previously unselected package texlive-latex-extra.
+Unpacking texlive-latex-extra (from .../texlive-latex-extra_2009-10ubuntu1_all.deb) ...
+Selecting previously unselected package texlive-latex-recommended.
+Unpacking texlive-latex-recommended (from .../texlive-latex-recommended_2009-15_all.deb) ...
+Processing triggers for man-db ...
+Setting up ed (1.5-3) ...
+Setting up libkpathsea5 (2009-11ubuntu2) ...
+Setting up tex-common (2.10) ...
+
+Creating config file /etc/texmf/texmf.d/05TeXMF.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/15Plain.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/45TeXinputs.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/55Fonts.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/65BibTeX.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/75DviPS.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/80DVIPDFMx.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/85Misc.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/90TeXDoc.cnf with new version
+
+Creating config file /etc/texmf/texmf.d/95NonPath.cnf with new version
+
+Creating config file /etc/texmf/updmap.d/00updmap.cfg with new version
+
+Creating config file /etc/texmf/texmf.cnf with new version
+Running mktexlsr. This may take some time... done.
+texlive-base is not ready, delaying updmap-sys call
+texlive-base is not ready, skipping fmtutil-sys --all call
+Setting up texlive-common (2009-15) ...
+Setting up texlive-binaries (2009-11ubuntu2) ...
+update-alternatives: using /usr/bin/xdvi-xaw to provide /usr/bin/xdvi.bin (xdvi.bin) in auto mode.
+update-alternatives: using /usr/bin/bibtex.original to provide /usr/bin/bibtex (bibtex) in auto mode.
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXMFMAIN... 
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXLIVE... 
+mktexlsr: Updating /var/lib/texmf/ls-R... 
+mktexlsr: Done.
+Building format(s) --refresh.
+	This may take some time... done.
+Setting up dvipng (1.14-1) ...
+Setting up luatex (0.70.1-1ubuntu1) ...
+texlive-base is not ready, cannot create formats
+Setting up preview-latex-style (11.86-2ubuntu1) ...
+mktexlsr: Updating /usr/local/share/texmf/ls-R... 
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXMFMAIN... 
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXLIVE... 
+mktexlsr: Updating /var/lib/texmf/ls-R... 
+mktexlsr: Done.
+Setting up texlive-doc-base (2009-2) ...
+Processing triggers for tex-common ...
+Running mktexlsr. This may take some time... done.
+Setting up texlive-base (2009-15) ...
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXLIVE... 
+mktexlsr: Updating /var/lib/texmf/ls-R-TEXMFMAIN... 
+mktexlsr: Updating /var/lib/texmf/ls-R... 
+mktexlsr: Done.
+
+Creating config file /etc/texmf/dvips/config/config.ps with new version
+
+Creating config file /etc/texmf/tex/generic/config/pdftexconfig.tex with new version
+
+Creating config file /etc/texmf/dvipdfmx/dvipdfmx.cfg with new version
+
+Creating config file /etc/texmf/xdvi/XDvi with new version
+Replacing config file /etc/texmf/dvips/config/config.ps with new version
+Replacing config file /etc/texmf/dvipdfmx/dvipdfmx.cfg with new version
+Replacing config file /etc/texmf/xdvi/XDvi with new version
+Replacing config file /etc/texmf/tex/generic/config/pdftexconfig.tex with new version
+pdftex paper size has changed, refreshing formats
+fmtutil: no format depends on engine `pdftex'.
+Running mktexlsr. This may take some time... done.
+Building format(s) --all --cnffile /etc/texmf/fmt.d/10texlive-base.cnf.
+	This may take some time... done.
+Processing triggers for tex-common ...
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Building e-tex based formats --byhyphen /var/lib/texmf/tex/generic/config/language.def.
+	This may take some time... done.
+Setting up texlive-pictures (2009-15) ...
+Setting up texlive-fonts-recommended (2009-15) ...
+Setting up texlive-latex-base (2009-15) ...
+Running mktexlsr. This may take some time... done.
+Building format(s) --all --cnffile /etc/texmf/fmt.d/10texlive-latex-base.cnf.
+	This may take some time... done.
+Processing triggers for tex-common ...
+Running mktexlsr. This may take some time... done.
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Setting up texlive-latex-extra (2009-10ubuntu1) ...
+Setting up texlive-latex-recommended (2009-15) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Processing triggers for tex-common ...
+Running mktexlsr. This may take some time... done.
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+
+travis_time:end:0140b6e3:start=1454738646733015079,finish=1454738668275828993,duration=21542813914[0Ktravis_fold:end:apt[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export PART="theano/tests/test_flake8.py"
+$ export DOC=1
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:3207c4bc[0K$ Installing caching utilities
+
+travis_time:end:3207c4bc:start=1454738670623579588,finish=1454738670677049343,duration=53469755[0Ktravis_time:start:2b65fe20[0K
+travis_time:end:2b65fe20:start=1454738670681856341,finish=1454738670685078190,duration=3221849[0Ktravis_time:start:0b73b5cc[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching PR.3924/cache--python-3.3.tgz[0m
+[32;1mfetching PR.3924/cache--python-3.3.tbz[0m
+[32;1mfetching master/cache--python-3.3.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:0b73b5cc:start=1454738670689060367,finish=1454738671314303480,duration=625243113[0Ktravis_time:start:053301e1[0K
+travis_time:end:053301e1:start=1454738671318309287,finish=1454738671321656464,duration=3347177[0Ktravis_time:start:002a4ad3[0K[32;1madding /home/travis/download to cache[0m
+[32;1madding /home/travis/.cache/pip to cache[0m
+
+travis_time:end:002a4ad3:start=1454738671325475528,finish=1454738672637214301,duration=1311738773[0Ktravis_fold:end:cache.1[0Ktravis_time:start:000e5cec[0K$ source ~/virtualenv/python3.3/bin/activate
+
+travis_time:end:000e5cec:start=1454738672641421459,finish=1454738672645911631,duration=4490172[0K$ python --version
+Python 3.3.5
+$ pip --version
+pip 6.0.7 from /home/travis/virtualenv/python3.3.5/lib/python3.3/site-packages (python 3.3)
+travis_fold:start:before_install.1[0Ktravis_time:start:1e368981[0K$ mkdir -p download
+
+travis_time:end:1e368981:start=1454738674402347241,finish=1454738674406511748,duration=4164507[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0fa12278[0K$ cd download
+
+travis_time:end:0fa12278:start=1454738674410846780,finish=1454738674414008125,duration=3161345[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:00716554[0K$ wget -c http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+--2016-02-06 06:04:34--  http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+Resolving repo.continuum.io (repo.continuum.io)... 107.21.238.156, 50.17.212.245
+Connecting to repo.continuum.io (repo.continuum.io)|107.21.238.156|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 25416725 (24M) [application/octet-stream]
+Saving to: `miniconda.sh'
+
+ 0% [                                       ] 0           --.-K/s              36% [=============>                         ] 9,203,488   43.1M/s              100%[======================================>] 25,416,725  65.3M/s   in 0.4s    
+
+2016-02-06 06:04:34 (65.3 MB/s) - `miniconda.sh' saved [25416725/25416725]
+
+
+travis_time:end:00716554:start=1454738674418329987,finish=1454738674826128708,duration=407798721[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:30d9f5e8[0K$ chmod +x miniconda.sh
+
+travis_time:end:30d9f5e8:start=1454738674830504387,finish=1454738674834677249,duration=4172862[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:21f267f1[0K$ ./miniconda.sh -b
+PREFIX=/home/travis/miniconda2
+installing: _cache-0.0-py27_x0 ...
+installing: python-2.7.11-0 ...
+installing: conda-env-2.4.5-py27_0 ...
+installing: openssl-1.0.2d-0 ...
+installing: pycosat-0.6.1-py27_0 ...
+installing: pyyaml-3.11-py27_1 ...
+installing: readline-6.2-2 ...
+installing: requests-2.9.0-py27_0 ...
+installing: sqlite-3.8.4.1-1 ...
+installing: tk-8.5.18-0 ...
+installing: yaml-0.1.6-0 ...
+installing: zlib-1.2.8-0 ...
+installing: conda-3.19.0-py27_0 ...
+installing: pycrypto-2.6.1-py27_0 ...
+installing: pip-7.1.2-py27_0 ...
+installing: wheel-0.26.0-py27_1 ...
+installing: setuptools-18.8.1-py27_0 ...
+Python 2.7.11 :: Continuum Analytics, Inc.
+creating default environment...
+installation finished.
+
+travis_time:end:21f267f1:start=1454738674839164114,finish=1454738679061510699,duration=4222346585[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:004fa0be[0K$ cd ..
+
+travis_time:end:004fa0be:start=1454738679065807213,finish=1454738679068877015,duration=3069802[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:0546e978[0K$ export PATH=/home/travis/miniconda2/bin:$PATH
+
+travis_time:end:0546e978:start=1454738679073080430,finish=1454738679076305176,duration=3224746[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:108fa050[0K$ conda update --yes conda
+Fetching package metadata: ....
+Solving package specifications: .................
+Package plan for installation in environment /home/travis/miniconda2:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    openssl-1.0.2f             |                0         3.2 MB
+    sqlite-3.9.2               |                0         3.9 MB
+    requests-2.9.1             |           py27_0         605 KB
+    setuptools-19.6.2          |           py27_0         365 KB
+    conda-3.19.1               |           py27_0         177 KB
+    pip-8.0.2                  |           py27_0         1.5 MB
+    ------------------------------------------------------------
+                                           Total:         9.7 MB
+
+The following packages will be UPDATED:
+
+    conda:      3.19.0-py27_0 --> 3.19.1-py27_0
+    openssl:    1.0.2d-0      --> 1.0.2f-0     
+    pip:        7.1.2-py27_0  --> 8.0.2-py27_0 
+    requests:   2.9.0-py27_0  --> 2.9.1-py27_0 
+    setuptools: 18.8.1-py27_0 --> 19.6.2-py27_0
+    sqlite:     3.8.4.1-1     --> 3.9.2-0      
+
+Fetching packages ...
+openssl-1.0.2f   0% |                               | ETA:  --:--:--   0.00  B/sopenssl-1.0.2f   1% |                                | ETA:  0:00:00  31.17 MB/sopenssl-1.0.2f   2% |                                | ETA:  0:00:00  33.38 MB/sopenssl-1.0.2f   4% |#                               | ETA:  0:00:00  29.81 MB/sopenssl-1.0.2f   5% |#                               | ETA:  0:00:00  29.91 MB/sopenssl-1.0.2f   7% |##                              | ETA:  0:00:00  31.30 MB/sopenssl-1.0.2f   8% |##                              | ETA:  0:00:00  32.36 MB/sopenssl-1.0.2f  10% |###                             | ETA:  0:00:00  32.30 MB/sopenssl-1.0.2f  11% |###                             | ETA:  0:00:00  33.33 MB/sopenssl-1.0.2f  13% |####                            | ETA:  0:00:00  33.51 MB/sopenssl-1.0.2f  14% |####                            | ETA:  0:00:00  34.09 MB/sopenssl-1.0.2f  16% |#####                           | ETA:  0:00:00  34.77 MB/sopenssl-1.0.2f  17% |#####                           | ETA:  0:00:00  35.20 MB/sopenssl-1.0.2f  19% |######                          | ETA:  0:00:00  35.84 MB/sopenssl-1.0.2f  20% |######                          | ETA:  0:00:00  36.48 MB/sopenssl-1.0.2f  22% |#######                         | ETA:  0:00:00  36.93 MB/sopenssl-1.0.2f  23% |#######                         | ETA:  0:00:00  37.49 MB/sopenssl-1.0.2f  25% |########                        | ETA:  0:00:00  38.01 MB/sopenssl-1.0.2f  26% |########                        | ETA:  0:00:00  38.39 MB/sopenssl-1.0.2f  28% |#########                       | ETA:  0:00:00  38.85 MB/sopenssl-1.0.2f  29% |#########                       | ETA:  0:00:00  39.25 MB/sopenssl-1.0.2f  31% |#########                       | ETA:  0:00:00  39.60 MB/sopenssl-1.0.2f  32% |##########                      | ETA:  0:00:00  39.89 MB/sopenssl-1.0.2f  34% |##########                      | ETA:  0:00:00  40.20 MB/sopenssl-1.0.2f  35% |###########                     | ETA:  0:00:00  40.52 MB/sopenssl-1.0.2f  37% |###########                     | ETA:  0:00:00  40.81 MB/sopenssl-1.0.2f  38% |############                    | ETA:  0:00:00  40.95 MB/sopenssl-1.0.2f  39% |############                    | ETA:  0:00:00  41.20 MB/sopenssl-1.0.2f  41% |#############                   | ETA:  0:00:00  41.39 MB/sopenssl-1.0.2f  42% |#############                   | ETA:  0:00:00  41.58 MB/sopenssl-1.0.2f  44% |##############                  | ETA:  0:00:00  41.72 MB/sopenssl-1.0.2f  45% |##############                  | ETA:  0:00:00  41.91 MB/sopenssl-1.0.2f  47% |###############                 | ETA:  0:00:00  42.07 MB/sopenssl-1.0.2f  48% |###############                 | ETA:  0:00:00  42.23 MB/sopenssl-1.0.2f  50% |################                | ETA:  0:00:00  42.33 MB/sopenssl-1.0.2f  51% |################                | ETA:  0:00:00  42.48 MB/sopenssl-1.0.2f  53% |#################               | ETA:  0:00:00  42.68 MB/sopenssl-1.0.2f  54% |#################               | ETA:  0:00:00  42.86 MB/sopenssl-1.0.2f  56% |##################              | ETA:  0:00:00  42.98 MB/sopenssl-1.0.2f  57% |##################              | ETA:  0:00:00  43.11 MB/sopenssl-1.0.2f  59% |##################              | ETA:  0:00:00  43.23 MB/sopenssl-1.0.2f  60% |###################             | ETA:  0:00:00  43.37 MB/sopenssl-1.0.2f  62% |###################             | ETA:  0:00:00  43.43 MB/sopenssl-1.0.2f  63% |####################            | ETA:  0:00:00  43.56 MB/sopenssl-1.0.2f  65% |####################            | ETA:  0:00:00  43.68 MB/sopenssl-1.0.2f  66% |#####################           | ETA:  0:00:00  43.77 MB/sopenssl-1.0.2f  68% |#####################           | ETA:  0:00:00  43.84 MB/sopenssl-1.0.2f  69% |######################          | ETA:  0:00:00  43.92 MB/sopenssl-1.0.2f  71% |######################          | ETA:  0:00:00  44.03 MB/sopenssl-1.0.2f  72% |#######################         | ETA:  0:00:00  44.14 MB/sopenssl-1.0.2f  74% |#######################         | ETA:  0:00:00  44.21 MB/sopenssl-1.0.2f  75% |########################        | ETA:  0:00:00  44.26 MB/sopenssl-1.0.2f  77% |########################        | ETA:  0:00:00  44.34 MB/sopenssl-1.0.2f  78% |#########################       | ETA:  0:00:00  44.41 MB/sopenssl-1.0.2f  79% |#########################       | ETA:  0:00:00  44.44 MB/sopenssl-1.0.2f  81% |##########################      | ETA:  0:00:00  44.50 MB/sopenssl-1.0.2f  82% |##########################      | ETA:  0:00:00  44.60 MB/sopenssl-1.0.2f  84% |###########################     | ETA:  0:00:00  44.69 MB/sopenssl-1.0.2f  85% |###########################     | ETA:  0:00:00  44.74 MB/sopenssl-1.0.2f  87% |###########################     | ETA:  0:00:00  44.82 MB/sopenssl-1.0.2f  88% |############################    | ETA:  0:00:00  44.94 MB/sopenssl-1.0.2f  90% |############################    | ETA:  0:00:00  45.04 MB/sopenssl-1.0.2f  91% |#############################   | ETA:  0:00:00  45.13 MB/sopenssl-1.0.2f  93% |#############################   | ETA:  0:00:00  45.23 MB/sopenssl-1.0.2f  94% |##############################  | ETA:  0:00:00  45.31 MB/sopenssl-1.0.2f  96% |##############################  | ETA:  0:00:00  45.39 MB/sopenssl-1.0.2f  97% |############################### | ETA:  0:00:00  45.47 MB/sopenssl-1.0.2f  99% |############################### | ETA:  0:00:00  45.57 MB/sopenssl-1.0.2f 100% |################################| Time: 0:00:00  45.33 MB/s
+sqlite-3.9.2-0   0% |                               | ETA:  --:--:--   0.00  B/ssqlite-3.9.2-0   0% |                                | Time: 0:00:00   3.00 MB/ssqlite-3.9.2-0   0% |                                | Time: 0:00:00   2.83 MB/ssqlite-3.9.2-0   1% |                                | Time: 0:00:00   4.09 MB/ssqlite-3.9.2-0   1% |                                | Time: 0:00:00   3.56 MB/ssqlite-3.9.2-0   2% |                                | Time: 0:00:00   4.21 MB/ssqlite-3.9.2-0   2% |                                | Time: 0:00:00   3.86 MB/ssqlite-3.9.2-0   2% |                                | Time: 0:00:00   4.27 MB/ssqlite-3.9.2-0   3% |#                               | Time: 0:00:00   4.15 MB/ssqlite-3.9.2-0   3% |#                               | Time: 0:00:00   4.49 MB/ssqlite-3.9.2-0   4% |#                               | Time: 0:00:00   4.37 MB/ssqlite-3.9.2-0   4% |#                               | Time: 0:00:00   4.66 MB/ssqlite-3.9.2-0   4% |#                               | Time: 0:00:00   4.64 MB/ssqlite-3.9.2-0   5% |#                               | Time: 0:00:00   4.91 MB/ssqlite-3.9.2-0   5% |#                               | Time: 0:00:00   5.18 MB/ssqlite-3.9.2-0   6% |#                               | Time: 0:00:00   5.09 MB/ssqlite-3.9.2-0   6% |##                              | Time: 0:00:00   5.30 MB/ssqlite-3.9.2-0   6% |##                              | Time: 0:00:00   5.18 MB/ssqlite-3.9.2-0   7% |##                              | Time: 0:00:00   5.40 MB/ssqlite-3.9.2-0   7% |##                              | Time: 0:00:00   5.41 MB/ssqlite-3.9.2-0   8% |##                              | Time: 0:00:00   5.51 MB/ssqlite-3.9.2-0   8% |##                              | Time: 0:00:00   5.66 MB/ssqlite-3.9.2-0   8% |##                              | Time: 0:00:00   5.62 MB/ssqlite-3.9.2-0   9% |##                              | Time: 0:00:00   5.76 MB/ssqlite-3.9.2-0   9% |###                             | Time: 0:00:00   5.90 MB/ssqlite-3.9.2-0  10% |###                             | Time: 0:00:00   5.88 MB/ssqlite-3.9.2-0  10% |###                             | Time: 0:00:00   5.96 MB/ssqlite-3.9.2-0  10% |###                             | Time: 0:00:00   6.12 MB/ssqlite-3.9.2-0  11% |###                             | Time: 0:00:00   6.06 MB/ssqlite-3.9.2-0  11% |###                             | Time: 0:00:00   6.20 MB/ssqlite-3.9.2-0  12% |###                             | Time: 0:00:00   6.32 MB/ssqlite-3.9.2-0  12% |###                             | Time: 0:00:00   6.35 MB/ssqlite-3.9.2-0  12% |####                            | Time: 0:00:00   6.37 MB/ssqlite-3.9.2-0  13% |####                            | Time: 0:00:00   6.48 MB/ssqlite-3.9.2-0  13% |####                            | Time: 0:00:00   6.60 MB/ssqlite-3.9.2-0  14% |####                            | Time: 0:00:00   6.55 MB/ssqlite-3.9.2-0  14% |####                            | Time: 0:00:00   6.65 MB/ssqlite-3.9.2-0  14% |####                            | Time: 0:00:00   6.78 MB/ssqlite-3.9.2-0  15% |####                            | Time: 0:00:00   6.71 MB/ssqlite-3.9.2-0  15% |#####                           | Time: 0:00:00   6.79 MB/ssqlite-3.9.2-0  16% |#####                           | Time: 0:00:00   6.91 MB/ssqlite-3.9.2-0  16% |#####                           | Time: 0:00:00   7.05 MB/ssqlite-3.9.2-0  16% |#####                           | Time: 0:00:00   6.96 MB/ssqlite-3.9.2-0  17% |#####                           | Time: 0:00:00   7.09 MB/ssqlite-3.9.2-0  17% |#####                           | Time: 0:00:00   7.19 MB/ssqlite-3.9.2-0  18% |#####                           | Time: 0:00:00   7.32 MB/ssqlite-3.9.2-0  18% |#####                           | Time: 0:00:00   7.22 MB/ssqlite-3.9.2-0  18% |######                          | Time: 0:00:00   7.30 MB/ssqlite-3.9.2-0  19% |######                          | Time: 0:00:00   7.42 MB/ssqlite-3.9.2-0  19% |######                          | Time: 0:00:00   7.54 MB/ssqlite-3.9.2-0  20% |######                          | Time: 0:00:00   7.46 MB/ssqlite-3.9.2-0  20% |######                          | Time: 0:00:00   7.51 MB/ssqlite-3.9.2-0  20% |######                          | Time: 0:00:00   7.62 MB/ssqlite-3.9.2-0  21% |######                          | Time: 0:00:00   7.73 MB/ssqlite-3.9.2-0  21% |######                          | Time: 0:00:00   7.79 MB/ssqlite-3.9.2-0  22% |#######                         | Time: 0:00:00   7.75 MB/ssqlite-3.9.2-0  22% |#######                         | Time: 0:00:00   7.83 MB/ssqlite-3.9.2-0  22% |#######                         | Time: 0:00:00   7.94 MB/ssqlite-3.9.2-0  23% |#######                         | Time: 0:00:00   8.05 MB/ssqlite-3.9.2-0  23% |#######                         | Time: 0:00:00   7.97 MB/ssqlite-3.9.2-0  24% |#######                         | Time: 0:00:00   8.03 MB/ssqlite-3.9.2-0  24% |#######                         | Time: 0:00:00   8.12 MB/ssqlite-3.9.2-0  24% |#######                         | Time: 0:00:00   8.22 MB/ssqlite-3.9.2-0  25% |########                        | Time: 0:00:00   8.25 MB/ssqlite-3.9.2-0  25% |########                        | Time: 0:00:00   8.22 MB/ssqlite-3.9.2-0  26% |########                        | Time: 0:00:00   8.30 MB/ssqlite-3.9.2-0  26% |########                        | Time: 0:00:00   8.40 MB/ssqlite-3.9.2-0  26% |########                        | Time: 0:00:00   8.50 MB/ssqlite-3.9.2-0  27% |########                        | Time: 0:00:00   8.50 MB/ssqlite-3.9.2-0  27% |########                        | Time: 0:00:00   8.50 MB/ssqlite-3.9.2-0  28% |########                        | Time: 0:00:00   8.59 MB/ssqlite-3.9.2-0  28% |#########                       | Time: 0:00:00   8.66 MB/ssqlite-3.9.2-0  28% |#########                       | Time: 0:00:00   8.75 MB/ssqlite-3.9.2-0  29% |#########                       | Time: 0:00:00   8.73 MB/ssqlite-3.9.2-0  29% |#########                       | Time: 0:00:00   8.77 MB/ssqlite-3.9.2-0  30% |#########                       | Time: 0:00:00   8.86 MB/ssqlite-3.9.2-0  30% |#########                       | Time: 0:00:00   8.94 MB/ssqlite-3.9.2-0  30% |#########                       | Time: 0:00:00   9.03 MB/ssqlite-3.9.2-0  31% |##########                      | Time: 0:00:00   9.11 MB/ssqlite-3.9.2-0  31% |##########                      | Time: 0:00:00   9.09 MB/ssqlite-3.9.2-0  32% |##########                      | Time: 0:00:00   9.17 MB/ssqlite-3.9.2-0  32% |##########                      | Time: 0:00:00   9.26 MB/ssqlite-3.9.2-0  32% |##########                      | Time: 0:00:00   9.35 MB/ssqlite-3.9.2-0  33% |##########                      | Time: 0:00:00   9.43 MB/ssqlite-3.9.2-0  33% |##########                      | Time: 0:00:00   9.51 MB/ssqlite-3.9.2-0  34% |##########                      | Time: 0:00:00   9.48 MB/ssqlite-3.9.2-0  34% |###########                     | Time: 0:00:00   9.56 MB/ssqlite-3.9.2-0  34% |###########                     | Time: 0:00:00   9.64 MB/ssqlite-3.9.2-0  35% |###########                     | Time: 0:00:00   9.72 MB/ssqlite-3.9.2-0  35% |###########                     | Time: 0:00:00   9.80 MB/ssqlite-3.9.2-0  36% |###########                     | Time: 0:00:00   9.88 MB/ssqlite-3.9.2-0  36% |###########                     | Time: 0:00:00   9.88 MB/ssqlite-3.9.2-0  36% |###########                     | Time: 0:00:00   9.94 MB/ssqlite-3.9.2-0  37% |###########                     | Time: 0:00:00  10.01 MB/ssqlite-3.9.2-0  37% |############                    | Time: 0:00:00  10.09 MB/ssqlite-3.9.2-0  38% |############                    | Time: 0:00:00  10.17 MB/ssqlite-3.9.2-0  38% |############                    | Time: 0:00:00  10.24 MB/ssqlite-3.9.2-0  38% |############                    | Time: 0:00:00  10.25 MB/ssqlite-3.9.2-0  39% |############                    | Time: 0:00:00  10.31 MB/ssqlite-3.9.2-0  39% |############                    | Time: 0:00:00  10.38 MB/ssqlite-3.9.2-0  40% |############                    | Time: 0:00:00  10.45 MB/ssqlite-3.9.2-0  40% |############                    | Time: 0:00:00  10.52 MB/ssqlite-3.9.2-0  40% |#############                   | Time: 0:00:00  10.60 MB/ssqlite-3.9.2-0  41% |#############                   | Time: 0:00:00  10.63 MB/ssqlite-3.9.2-0  41% |#############                   | Time: 0:00:00  10.69 MB/ssqlite-3.9.2-0  42% |#############                   | Time: 0:00:00  10.73 MB/ssqlite-3.9.2-0  42% |#############                   | Time: 0:00:00  10.80 MB/ssqlite-3.9.2-0  42% |#############                   | Time: 0:00:00  10.87 MB/ssqlite-3.9.2-0  43% |#############                   | Time: 0:00:00  10.94 MB/ssqlite-3.9.2-0  43% |#############                   | Time: 0:00:00  11.01 MB/ssqlite-3.9.2-0  44% |##############                  | Time: 0:00:00  11.05 MB/ssqlite-3.9.2-0  44% |##############                  | Time: 0:00:00  11.11 MB/ssqlite-3.9.2-0  44% |##############                  | Time: 0:00:00  11.15 MB/ssqlite-3.9.2-0  45% |##############                  | Time: 0:00:00  11.20 MB/ssqlite-3.9.2-0  45% |##############                  | Time: 0:00:00  11.26 MB/ssqlite-3.9.2-0  46% |##############                  | Time: 0:00:00  11.33 MB/ssqlite-3.9.2-0  46% |##############                  | Time: 0:00:00  11.40 MB/ssqlite-3.9.2-0  46% |###############                 | Time: 0:00:00  11.47 MB/ssqlite-3.9.2-0  47% |###############                 | Time: 0:00:00  11.52 MB/ssqlite-3.9.2-0  47% |###############                 | Time: 0:00:00  11.56 MB/ssqlite-3.9.2-0  48% |###############                 | Time: 0:00:00  11.61 MB/ssqlite-3.9.2-0  48% |###############                 | Time: 0:00:00  11.66 MB/ssqlite-3.9.2-0  48% |###############                 | Time: 0:00:00  11.73 MB/ssqlite-3.9.2-0  49% |###############                 | Time: 0:00:00  11.80 MB/ssqlite-3.9.2-0  49% |###############                 | Time: 0:00:00  11.86 MB/ssqlite-3.9.2-0  50% |################                | Time: 0:00:00  11.93 MB/ssqlite-3.9.2-0  50% |################                | Time: 0:00:00  11.97 MB/ssqlite-3.9.2-0  50% |################                | Time: 0:00:00  12.01 MB/ssqlite-3.9.2-0  51% |################                | Time: 0:00:00  12.08 MB/ssqlite-3.9.2-0  51% |################                | Time: 0:00:00  12.13 MB/ssqlite-3.9.2-0  52% |################                | Time: 0:00:00  12.19 MB/ssqlite-3.9.2-0  52% |################                | Time: 0:00:00  12.25 MB/ssqlite-3.9.2-0  52% |################                | Time: 0:00:00  12.31 MB/ssqlite-3.9.2-0  53% |#################               | Time: 0:00:00  12.37 MB/ssqlite-3.9.2-0  53% |#################               | Time: 0:00:00  12.43 MB/ssqlite-3.9.2-0  54% |#################               | Time: 0:00:00  12.44 MB/ssqlite-3.9.2-0  54% |#################               | Time: 0:00:00  12.50 MB/ssqlite-3.9.2-0  54% |#################               | Time: 0:00:00  12.56 MB/ssqlite-3.9.2-0  55% |#################               | Time: 0:00:00  12.62 MB/ssqlite-3.9.2-0  55% |#################               | Time: 0:00:00  12.68 MB/ssqlite-3.9.2-0  56% |#################               | Time: 0:00:00  12.74 MB/ssqlite-3.9.2-0  56% |##################              | Time: 0:00:00  12.80 MB/ssqlite-3.9.2-0  56% |##################              | Time: 0:00:00  12.86 MB/ssqlite-3.9.2-0  57% |##################              | Time: 0:00:00  12.91 MB/ssqlite-3.9.2-0  57% |##################              | Time: 0:00:00  12.93 MB/ssqlite-3.9.2-0  58% |##################              | Time: 0:00:00  12.98 MB/ssqlite-3.9.2-0  58% |##################              | Time: 0:00:00  13.04 MB/ssqlite-3.9.2-0  58% |##################              | Time: 0:00:00  13.10 MB/ssqlite-3.9.2-0  59% |##################              | Time: 0:00:00  13.15 MB/ssqlite-3.9.2-0  59% |###################             | Time: 0:00:00  13.21 MB/ssqlite-3.9.2-0  60% |###################             | Time: 0:00:00  13.27 MB/ssqlite-3.9.2-0  60% |###################             | Time: 0:00:00  13.33 MB/ssqlite-3.9.2-0  60% |###################             | Time: 0:00:00  13.38 MB/ssqlite-3.9.2-0  61% |###################             | Time: 0:00:00  13.40 MB/ssqlite-3.9.2-0  61% |###################             | Time: 0:00:00  13.45 MB/ssqlite-3.9.2-0  62% |###################             | Time: 0:00:00  13.50 MB/ssqlite-3.9.2-0  62% |####################            | Time: 0:00:00  13.56 MB/ssqlite-3.9.2-0  62% |####################            | Time: 0:00:00  13.62 MB/ssqlite-3.9.2-0  63% |####################            | Time: 0:00:00  13.67 MB/ssqlite-3.9.2-0  63% |####################            | Time: 0:00:00  13.73 MB/ssqlite-3.9.2-0  64% |####################            | Time: 0:00:00  13.78 MB/ssqlite-3.9.2-0  64% |####################            | Time: 0:00:00  13.84 MB/ssqlite-3.9.2-0  64% |####################            | Time: 0:00:00  13.87 MB/ssqlite-3.9.2-0  65% |####################            | Time: 0:00:00  13.91 MB/ssqlite-3.9.2-0  65% |#####################           | Time: 0:00:00  13.96 MB/ssqlite-3.9.2-0  66% |#####################           | Time: 0:00:00  14.01 MB/ssqlite-3.9.2-0  66% |#####################           | Time: 0:00:00  14.07 MB/ssqlite-3.9.2-0  66% |#####################           | Time: 0:00:00  14.12 MB/ssqlite-3.9.2-0  67% |#####################           | Time: 0:00:00  14.18 MB/ssqlite-3.9.2-0  67% |#####################           | Time: 0:00:00  14.21 MB/ssqlite-3.9.2-0  68% |#####################           | Time: 0:00:00  14.26 MB/ssqlite-3.9.2-0  68% |#####################           | Time: 0:00:00  14.31 MB/ssqlite-3.9.2-0  68% |######################          | Time: 0:00:00  14.36 MB/ssqlite-3.9.2-0  69% |######################          | Time: 0:00:00  14.41 MB/ssqlite-3.9.2-0  69% |######################          | Time: 0:00:00  14.46 MB/ssqlite-3.9.2-0  70% |######################          | Time: 0:00:00  14.51 MB/ssqlite-3.9.2-0  70% |######################          | Time: 0:00:00  14.56 MB/ssqlite-3.9.2-0  70% |######################          | Time: 0:00:00  14.61 MB/ssqlite-3.9.2-0  71% |######################          | Time: 0:00:00  14.67 MB/ssqlite-3.9.2-0  71% |######################          | Time: 0:00:00  14.72 MB/ssqlite-3.9.2-0  72% |#######################         | Time: 0:00:00  14.77 MB/ssqlite-3.9.2-0  72% |#######################         | Time: 0:00:00  14.81 MB/ssqlite-3.9.2-0  72% |#######################         | Time: 0:00:00  14.86 MB/ssqlite-3.9.2-0  73% |#######################         | Time: 0:00:00  14.91 MB/ssqlite-3.9.2-0  73% |#######################         | Time: 0:00:00  14.96 MB/ssqlite-3.9.2-0  74% |#######################         | Time: 0:00:00  15.01 MB/ssqlite-3.9.2-0  74% |#######################         | Time: 0:00:00  15.06 MB/ssqlite-3.9.2-0  74% |#######################         | Time: 0:00:00  15.10 MB/ssqlite-3.9.2-0  75% |########################        | Time: 0:00:00  15.15 MB/ssqlite-3.9.2-0  75% |########################        | Time: 0:00:00  15.20 MB/ssqlite-3.9.2-0  76% |########################        | Time: 0:00:00  15.24 MB/ssqlite-3.9.2-0  76% |########################        | Time: 0:00:00  15.29 MB/ssqlite-3.9.2-0  76% |########################        | Time: 0:00:00  15.33 MB/ssqlite-3.9.2-0  77% |########################        | Time: 0:00:00  15.38 MB/ssqlite-3.9.2-0  77% |########################        | Time: 0:00:00  15.43 MB/ssqlite-3.9.2-0  78% |#########################       | Time: 0:00:00  15.47 MB/ssqlite-3.9.2-0  78% |#########################       | Time: 0:00:00  15.52 MB/ssqlite-3.9.2-0  78% |#########################       | Time: 0:00:00  15.56 MB/ssqlite-3.9.2-0  79% |#########################       | Time: 0:00:00  15.61 MB/ssqlite-3.9.2-0  79% |#########################       | Time: 0:00:00  15.65 MB/ssqlite-3.9.2-0  80% |#########################       | Time: 0:00:00  15.70 MB/ssqlite-3.9.2-0  80% |#########################       | Time: 0:00:00  15.74 MB/ssqlite-3.9.2-0  80% |#########################       | Time: 0:00:00  15.79 MB/ssqlite-3.9.2-0  81% |##########################      | Time: 0:00:00  15.83 MB/ssqlite-3.9.2-0  81% |##########################      | Time: 0:00:00  15.88 MB/ssqlite-3.9.2-0  82% |##########################      | Time: 0:00:00  15.93 MB/ssqlite-3.9.2-0  82% |##########################      | Time: 0:00:00  15.97 MB/ssqlite-3.9.2-0  82% |##########################      | Time: 0:00:00  16.01 MB/ssqlite-3.9.2-0  83% |##########################      | Time: 0:00:00  16.06 MB/ssqlite-3.9.2-0  83% |##########################      | Time: 0:00:00  16.10 MB/ssqlite-3.9.2-0  84% |##########################      | Time: 0:00:00  16.14 MB/ssqlite-3.9.2-0  84% |###########################     | Time: 0:00:00  16.19 MB/ssqlite-3.9.2-0  84% |###########################     | Time: 0:00:00  16.23 MB/ssqlite-3.9.2-0  85% |###########################     | Time: 0:00:00  16.27 MB/ssqlite-3.9.2-0  85% |###########################     | Time: 0:00:00  16.32 MB/ssqlite-3.9.2-0  86% |###########################     | Time: 0:00:00  16.36 MB/ssqlite-3.9.2-0  86% |###########################     | Time: 0:00:00  16.40 MB/ssqlite-3.9.2-0  86% |###########################     | Time: 0:00:00  16.44 MB/ssqlite-3.9.2-0  87% |###########################     | Time: 0:00:00  16.49 MB/ssqlite-3.9.2-0  87% |############################    | Time: 0:00:00  16.53 MB/ssqlite-3.9.2-0  88% |############################    | Time: 0:00:00  16.57 MB/ssqlite-3.9.2-0  88% |############################    | Time: 0:00:00  16.61 MB/ssqlite-3.9.2-0  88% |############################    | Time: 0:00:00  16.65 MB/ssqlite-3.9.2-0  89% |############################    | Time: 0:00:00  16.70 MB/ssqlite-3.9.2-0  89% |############################    | Time: 0:00:00  16.74 MB/ssqlite-3.9.2-0  90% |############################    | Time: 0:00:00  16.78 MB/ssqlite-3.9.2-0  90% |############################    | Time: 0:00:00  16.82 MB/ssqlite-3.9.2-0  90% |#############################   | Time: 0:00:00  16.86 MB/ssqlite-3.9.2-0  91% |#############################   | Time: 0:00:00  16.90 MB/ssqlite-3.9.2-0  91% |#############################   | Time: 0:00:00  16.94 MB/ssqlite-3.9.2-0  92% |#############################   | Time: 0:00:00  16.98 MB/ssqlite-3.9.2-0  92% |#############################   | Time: 0:00:00  17.02 MB/ssqlite-3.9.2-0  92% |#############################   | Time: 0:00:00  17.06 MB/ssqlite-3.9.2-0  93% |#############################   | Time: 0:00:00  17.10 MB/ssqlite-3.9.2-0  93% |##############################  | Time: 0:00:00  17.14 MB/ssqlite-3.9.2-0  94% |##############################  | Time: 0:00:00  17.17 MB/ssqlite-3.9.2-0  94% |##############################  | Time: 0:00:00  17.21 MB/ssqlite-3.9.2-0  94% |##############################  | Time: 0:00:00  17.25 MB/ssqlite-3.9.2-0  95% |##############################  | Time: 0:00:00  17.29 MB/ssqlite-3.9.2-0  95% |##############################  | Time: 0:00:00  17.33 MB/ssqlite-3.9.2-0  96% |##############################  | Time: 0:00:00  17.37 MB/ssqlite-3.9.2-0  96% |##############################  | Time: 0:00:00  17.40 MB/ssqlite-3.9.2-0  96% |############################### | Time: 0:00:00  17.44 MB/ssqlite-3.9.2-0  97% |############################### | Time: 0:00:00  17.48 MB/ssqlite-3.9.2-0  97% |############################### | Time: 0:00:00  17.52 MB/ssqlite-3.9.2-0  98% |############################### | Time: 0:00:00  17.56 MB/ssqlite-3.9.2-0  98% |############################### | Time: 0:00:00  17.60 MB/ssqlite-3.9.2-0  98% |############################### | Time: 0:00:00  17.64 MB/ssqlite-3.9.2-0  99% |############################### | Time: 0:00:00  17.68 MB/ssqlite-3.9.2-0  99% |############################### | Time: 0:00:00  17.72 MB/ssqlite-3.9.2-0 100% |################################| Time: 0:00:00  17.73 MB/ssqlite-3.9.2-0 100% |################################| Time: 0:00:00  17.70 MB/ssqlite-3.9.2-0 100% |################################| Time: 0:00:00  17.68 MB/s
+requests-2.9.1   0% |                               | ETA:  --:--:--   0.00  B/srequests-2.9.1   2% |                                | Time: 0:00:00  25.72 MB/srequests-2.9.1   5% |#                               | Time: 0:00:00  30.48 MB/srequests-2.9.1   7% |##                              | Time: 0:00:00  30.23 MB/srequests-2.9.1  10% |###                             | Time: 0:00:00  31.49 MB/srequests-2.9.1  13% |####                            | Time: 0:00:00  28.65 MB/srequests-2.9.1  15% |#####                           | Time: 0:00:00  28.75 MB/srequests-2.9.1  18% |#####                           | Time: 0:00:00  27.68 MB/srequests-2.9.1  21% |######                          | Time: 0:00:00  28.41 MB/srequests-2.9.1  23% |#######                         | Time: 0:00:00  27.57 MB/srequests-2.9.1  26% |########                        | Time: 0:00:00  28.48 MB/srequests-2.9.1  29% |#########                       | Time: 0:00:00  28.79 MB/srequests-2.9.1  31% |##########                      | Time: 0:00:00  29.12 MB/srequests-2.9.1  34% |###########                     | Time: 0:00:00  29.39 MB/srequests-2.9.1  37% |###########                     | Time: 0:00:00  29.59 MB/srequests-2.9.1  39% |############                    | Time: 0:00:00  29.19 MB/srequests-2.9.1  42% |#############                   | Time: 0:00:00  29.57 MB/srequests-2.9.1  44% |##############                  | Time: 0:00:00  29.84 MB/srequests-2.9.1  47% |###############                 | Time: 0:00:00  30.17 MB/srequests-2.9.1  50% |################                | Time: 0:00:00  29.56 MB/srequests-2.9.1  52% |################                | Time: 0:00:00  29.81 MB/srequests-2.9.1  55% |#################               | Time: 0:00:00  30.19 MB/srequests-2.9.1  58% |##################              | Time: 0:00:00  30.47 MB/srequests-2.9.1  60% |###################             | Time: 0:00:00  30.68 MB/srequests-2.9.1  63% |####################            | Time: 0:00:00  30.93 MB/srequests-2.9.1  66% |#####################           | Time: 0:00:00  31.12 MB/srequests-2.9.1  68% |######################          | Time: 0:00:00  31.24 MB/srequests-2.9.1  71% |######################          | Time: 0:00:00  31.33 MB/srequests-2.9.1  74% |#######################         | Time: 0:00:00  31.39 MB/srequests-2.9.1  76% |########################        | Time: 0:00:00  31.54 MB/srequests-2.9.1  79% |#########################       | Time: 0:00:00  31.74 MB/srequests-2.9.1  82% |##########################      | Time: 0:00:00  31.94 MB/srequests-2.9.1  84% |###########################     | Time: 0:00:00  32.09 MB/srequests-2.9.1  87% |###########################     | Time: 0:00:00  32.18 MB/srequests-2.9.1  89% |############################    | Time: 0:00:00  32.32 MB/srequests-2.9.1  92% |#############################   | Time: 0:00:00  32.44 MB/srequests-2.9.1  95% |##############################  | Time: 0:00:00  32.55 MB/srequests-2.9.1  97% |############################### | Time: 0:00:00  32.67 MB/srequests-2.9.1 100% |################################| Time: 0:00:00  32.53 MB/srequests-2.9.1 100% |################################| Time: 0:00:00  32.06 MB/srequests-2.9.1 100% |################################| Time: 0:00:00  31.62 MB/s
+setuptools-19.   0% |                               | ETA:  --:--:--   0.00  B/ssetuptools-19.   4% |#                               | Time: 0:00:00  14.64 MB/ssetuptools-19.   8% |##                              | Time: 0:00:00  13.30 MB/ssetuptools-19.  13% |####                            | Time: 0:00:00  13.87 MB/ssetuptools-19.  17% |#####                           | Time: 0:00:00  14.70 MB/ssetuptools-19.  21% |#######                         | Time: 0:00:00  15.27 MB/ssetuptools-19.  26% |########                        | Time: 0:00:00  13.66 MB/ssetuptools-19.  30% |#########                       | Time: 0:00:00  15.10 MB/ssetuptools-19.  35% |###########                     | Time: 0:00:00  14.20 MB/ssetuptools-19.  39% |############                    | Time: 0:00:00  15.11 MB/ssetuptools-19.  43% |##############                  | Time: 0:00:00  14.35 MB/ssetuptools-19.  48% |###############                 | Time: 0:00:00  15.19 MB/ssetuptools-19.  52% |################                | Time: 0:00:00  14.96 MB/ssetuptools-19.  57% |##################              | Time: 0:00:00  15.31 MB/ssetuptools-19.  61% |###################             | Time: 0:00:00  15.06 MB/ssetuptools-19.  65% |#####################           | Time: 0:00:00  15.67 MB/ssetuptools-19.  70% |######################          | Time: 0:00:00  15.33 MB/ssetuptools-19.  74% |#######################         | Time: 0:00:00  15.55 MB/ssetuptools-19.  78% |#########################       | Time: 0:00:00  14.81 MB/ssetuptools-19.  83% |##########################      | Time: 0:00:00  15.12 MB/ssetuptools-19.  87% |############################    | Time: 0:00:00  15.43 MB/ssetuptools-19.  92% |#############################   | Time: 0:00:00  15.52 MB/ssetuptools-19.  96% |##############################  | Time: 0:00:00  15.63 MB/ssetuptools-19. 100% |################################| Time: 0:00:00  15.69 MB/ssetuptools-19. 100% |################################| Time: 0:00:00  15.51 MB/ssetuptools-19. 100% |################################| Time: 0:00:00  15.32 MB/s
+conda-3.19.1-p   0% |                               | ETA:  --:--:--   0.00  B/sconda-3.19.1-p   9% |##                              | Time: 0:00:00  21.50 MB/sconda-3.19.1-p  18% |#####                           | Time: 0:00:00  26.90 MB/sconda-3.19.1-p  27% |########                        | Time: 0:00:00  25.59 MB/sconda-3.19.1-p  36% |###########                     | Time: 0:00:00  27.62 MB/sconda-3.19.1-p  45% |##############                  | Time: 0:00:00  25.64 MB/sconda-3.19.1-p  54% |#################               | Time: 0:00:00  27.17 MB/sconda-3.19.1-p  63% |####################            | Time: 0:00:00  26.88 MB/sconda-3.19.1-p  72% |#######################         | Time: 0:00:00  27.95 MB/sconda-3.19.1-p  81% |##########################      | Time: 0:00:00  27.04 MB/sconda-3.19.1-p  90% |############################    | Time: 0:00:00  27.91 MB/sconda-3.19.1-p  99% |############################### | Time: 0:00:00  28.70 MB/sconda-3.19.1-p 100% |################################| Time: 0:00:00  27.18 MB/sconda-3.19.1-p 100% |################################| Time: 0:00:00  25.93 MB/sconda-3.19.1-p 100% |################################| Time: 0:00:00  24.93 MB/s
+pip-8.0.2-py27   0% |                               | ETA:  --:--:--   0.00  B/spip-8.0.2-py27   1% |                                | Time: 0:00:00   2.84 MB/spip-8.0.2-py27   2% |                                | Time: 0:00:00   5.26 MB/spip-8.0.2-py27   3% |                                | Time: 0:00:00   4.04 MB/spip-8.0.2-py27   4% |#                               | Time: 0:00:00   5.19 MB/spip-8.0.2-py27   5% |#                               | Time: 0:00:00   4.46 MB/spip-8.0.2-py27   6% |#                               | Time: 0:00:00   5.21 MB/spip-8.0.2-py27   7% |##                              | Time: 0:00:00   4.58 MB/spip-8.0.2-py27   8% |##                              | Time: 0:00:00   5.14 MB/spip-8.0.2-py27   9% |##                              | Time: 0:00:00   4.61 MB/spip-8.0.2-py27  10% |###                             | Time: 0:00:00   5.00 MB/spip-8.0.2-py27  11% |###                             | Time: 0:00:00   4.67 MB/spip-8.0.2-py27  12% |###                             | Time: 0:00:00   4.92 MB/spip-8.0.2-py27  13% |####                            | Time: 0:00:00   4.99 MB/spip-8.0.2-py27  14% |####                            | Time: 0:00:00   5.29 MB/spip-8.0.2-py27  15% |####                            | Time: 0:00:00   5.31 MB/spip-8.0.2-py27  16% |#####                           | Time: 0:00:00   5.59 MB/spip-8.0.2-py27  17% |#####                           | Time: 0:00:00   5.86 MB/spip-8.0.2-py27  18% |#####                           | Time: 0:00:00   5.88 MB/spip-8.0.2-py27  19% |######                          | Time: 0:00:00   6.14 MB/spip-8.0.2-py27  20% |######                          | Time: 0:00:00   6.16 MB/spip-8.0.2-py27  21% |######                          | Time: 0:00:00   6.38 MB/spip-8.0.2-py27  22% |#######                         | Time: 0:00:00   6.63 MB/spip-8.0.2-py27  23% |#######                         | Time: 0:00:00   6.65 MB/spip-8.0.2-py27  24% |#######                         | Time: 0:00:00   6.78 MB/spip-8.0.2-py27  25% |########                        | Time: 0:00:00   7.01 MB/spip-8.0.2-py27  26% |########                        | Time: 0:00:00   7.05 MB/spip-8.0.2-py27  27% |########                        | Time: 0:00:00   7.23 MB/spip-8.0.2-py27  28% |#########                       | Time: 0:00:00   7.29 MB/spip-8.0.2-py27  29% |#########                       | Time: 0:00:00   7.42 MB/spip-8.0.2-py27  31% |#########                       | Time: 0:00:00   7.62 MB/spip-8.0.2-py27  32% |##########                      | Time: 0:00:00   7.78 MB/spip-8.0.2-py27  33% |##########                      | Time: 0:00:00   7.75 MB/spip-8.0.2-py27  34% |##########                      | Time: 0:00:00   7.93 MB/spip-8.0.2-py27  35% |###########                     | Time: 0:00:00   8.12 MB/spip-8.0.2-py27  36% |###########                     | Time: 0:00:00   8.15 MB/spip-8.0.2-py27  37% |###########                     | Time: 0:00:00   8.24 MB/spip-8.0.2-py27  38% |############                    | Time: 0:00:00   8.40 MB/spip-8.0.2-py27  39% |############                    | Time: 0:00:00   8.48 MB/spip-8.0.2-py27  40% |############                    | Time: 0:00:00   8.54 MB/spip-8.0.2-py27  41% |#############                   | Time: 0:00:00   8.67 MB/spip-8.0.2-py27  42% |#############                   | Time: 0:00:00   8.83 MB/spip-8.0.2-py27  43% |#############                   | Time: 0:00:00   8.96 MB/spip-8.0.2-py27  44% |##############                  | Time: 0:00:00   8.94 MB/spip-8.0.2-py27  45% |##############                  | Time: 0:00:00   9.06 MB/spip-8.0.2-py27  46% |##############                  | Time: 0:00:00   9.21 MB/spip-8.0.2-py27  47% |###############                 | Time: 0:00:00   9.33 MB/spip-8.0.2-py27  48% |###############                 | Time: 0:00:00   9.29 MB/spip-8.0.2-py27  49% |###############                 | Time: 0:00:00   9.43 MB/spip-8.0.2-py27  50% |################                | Time: 0:00:00   9.58 MB/spip-8.0.2-py27  51% |################                | Time: 0:00:00   9.72 MB/spip-8.0.2-py27  52% |################                | Time: 0:00:00   9.70 MB/spip-8.0.2-py27  53% |#################               | Time: 0:00:00   9.76 MB/spip-8.0.2-py27  54% |#################               | Time: 0:00:00   9.90 MB/spip-8.0.2-py27  55% |#################               | Time: 0:00:00  10.04 MB/spip-8.0.2-py27  56% |##################              | Time: 0:00:00  10.06 MB/spip-8.0.2-py27  57% |##################              | Time: 0:00:00  10.16 MB/spip-8.0.2-py27  58% |##################              | Time: 0:00:00  10.21 MB/spip-8.0.2-py27  59% |###################             | Time: 0:00:00  10.33 MB/spip-8.0.2-py27  60% |###################             | Time: 0:00:00  10.46 MB/spip-8.0.2-py27  62% |###################             | Time: 0:00:00  10.52 MB/spip-8.0.2-py27  63% |####################            | Time: 0:00:00  10.63 MB/spip-8.0.2-py27  64% |####################            | Time: 0:00:00  10.64 MB/spip-8.0.2-py27  65% |####################            | Time: 0:00:00  10.75 MB/spip-8.0.2-py27  66% |#####################           | Time: 0:00:00  10.87 MB/spip-8.0.2-py27  67% |#####################           | Time: 0:00:00  10.95 MB/spip-8.0.2-py27  68% |#####################           | Time: 0:00:00  11.05 MB/spip-8.0.2-py27  69% |######################          | Time: 0:00:00  11.07 MB/spip-8.0.2-py27  70% |######################          | Time: 0:00:00  11.18 MB/spip-8.0.2-py27  71% |######################          | Time: 0:00:00  11.30 MB/spip-8.0.2-py27  72% |#######################         | Time: 0:00:00  11.36 MB/spip-8.0.2-py27  73% |#######################         | Time: 0:00:00  11.48 MB/spip-8.0.2-py27  74% |#######################         | Time: 0:00:00  11.51 MB/spip-8.0.2-py27  75% |########################        | Time: 0:00:00  11.60 MB/spip-8.0.2-py27  76% |########################        | Time: 0:00:00  11.71 MB/spip-8.0.2-py27  77% |########################        | Time: 0:00:00  11.81 MB/spip-8.0.2-py27  78% |#########################       | Time: 0:00:00  11.87 MB/spip-8.0.2-py27  79% |#########################       | Time: 0:00:00  11.92 MB/spip-8.0.2-py27  80% |#########################       | Time: 0:00:00  11.99 MB/spip-8.0.2-py27  81% |##########################      | Time: 0:00:00  12.09 MB/spip-8.0.2-py27  82% |##########################      | Time: 0:00:00  12.20 MB/spip-8.0.2-py27  83% |##########################      | Time: 0:00:00  12.29 MB/spip-8.0.2-py27  84% |###########################     | Time: 0:00:00  12.34 MB/spip-8.0.2-py27  85% |###########################     | Time: 0:00:00  12.37 MB/spip-8.0.2-py27  86% |###########################     | Time: 0:00:00  12.45 MB/spip-8.0.2-py27  87% |############################    | Time: 0:00:00  12.55 MB/spip-8.0.2-py27  88% |############################    | Time: 0:00:00  12.65 MB/spip-8.0.2-py27  89% |############################    | Time: 0:00:00  12.74 MB/spip-8.0.2-py27  90% |#############################   | Time: 0:00:00  12.84 MB/spip-8.0.2-py27  91% |#############################   | Time: 0:00:00  12.87 MB/spip-8.0.2-py27  93% |#############################   | Time: 0:00:00  12.96 MB/spip-8.0.2-py27  94% |##############################  | Time: 0:00:00  13.05 MB/spip-8.0.2-py27  95% |##############################  | Time: 0:00:00  13.14 MB/spip-8.0.2-py27  96% |##############################  | Time: 0:00:00  13.23 MB/spip-8.0.2-py27  97% |############################### | Time: 0:00:00  13.32 MB/spip-8.0.2-py27  98% |############################### | Time: 0:00:00  13.40 MB/spip-8.0.2-py27  99% |############################### | Time: 0:00:00  13.46 MB/spip-8.0.2-py27 100% |################################| Time: 0:00:00  13.51 MB/spip-8.0.2-py27 100% |################################| Time: 0:00:00  13.48 MB/spip-8.0.2-py27 100% |################################| Time: 0:00:00  13.44 MB/s
+Extracting packages ...
+[                    ]|                                                   |   0%[openssl             ]|                                                   |   0%[sqlite              ]|########                                           |  16%[requests            ]|#################                                  |  33%[setuptools          ]|#########################                          |  50%[conda               ]|##################################                 |  66%[pip                 ]|##########################################         |  83%[      COMPLETE      ]|###################################################| 100%
+Unlinking packages ...
+[      COMPLETE      ]|                                                   |   0%[conda               ]|                                                   |   0%[conda               ]|                                                   |   0%[openssl             ]|########                                           |  16%[pip                 ]|#################                                  |  33%[requests            ]|#########################                          |  50%[setuptools          ]|##################################                 |  66%[sqlite              ]|##########################################         |  83%[      COMPLETE      ]|###################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|                                                   |   0%[openssl             ]|                                                   |   0%[openssl             ]|                                                   |   0%[sqlite              ]|########                                           |  16%[requests            ]|#################                                  |  33%[setuptools          ]|#########################                          |  50%[conda               ]|##################################                 |  66%[pip                 ]|##########################################         |  83%[      COMPLETE      ]|###################################################| 100%
+
+travis_time:end:108fa050:start=1454738679080505228,finish=1454738685432904318,duration=6352399090[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:install.1[0Ktravis_time:start:1f9bc1e5[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then conda create --yes -q -n pyenv mkl python=2.6 numpy=1.7.1 scipy=0.11 nose=1.3.0 pyparsing=1.5 pip flake8=2.3 six=1.9.0 pep8=1.6.2 pyflakes=0.8.1 sphinx; fi
+
+travis_time:end:1f9bc1e5:start=1454738685436946153,finish=1454738685440066853,duration=3120700[0Ktravis_fold:end:install.1[0Ktravis_fold:start:install.2[0Ktravis_time:start:0568602c[0K$ if [[ $TRAVIS_PYTHON_VERSION == '3.3' ]]; then conda create --yes -q -n pyenv mkl python=3.3 numpy=1.9.1 scipy=0.14.0 nose=1.3.4 pyparsing=1.5 pip flake8=2.3 six=1.9.0 pep8=1.6.2 pyflakes=0.8.1 sphinx; fi
+Fetching package metadata: ....
+Solving package specifications: .............................
+Package plan for installation in environment /home/travis/miniconda2/envs/pyenv:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    mkl-11.3.1                 |                0       121.2 MB
+    mkl-rt-11.1                |               p0       100.1 MB
+    openssl-1.0.1k             |                1         2.6 MB
+    system-5.8                 |                2         170 KB
+    xz-5.0.5                   |                0         504 KB
+    python-3.3.5               |                4        19.7 MB
+    alabaster-0.7.3            |           py33_0          13 KB
+    docutils-0.12              |           py33_0         648 KB
+    markupsafe-0.23            |           py33_0          31 KB
+    mccabe-0.3                 |           py33_1           9 KB
+    nose-1.3.4                 |           py33_1         208 KB
+    numpy-1.9.1                |          py33_p0         5.4 MB
+    pep8-1.6.2                 |           py33_0          27 KB
+    pyflakes-0.8.1             |           py33_0          53 KB
+    pygments-2.0.2             |           py33_0         1.1 MB
+    pyparsing-1.5.6            |           py33_0          62 KB
+    pytz-2015.7                |           py33_0         177 KB
+    setuptools-19.6.2          |           py33_0         378 KB
+    six-1.9.0                  |           py33_0          17 KB
+    snowballstemmer-1.2.0      |           py33_0          76 KB
+    sphinx_rtd_theme-0.1.7     |           py33_0         209 KB
+    wheel-0.26.0               |           py33_1          77 KB
+    babel-2.0                  |           py33_0         2.3 MB
+    flake8-2.3.0               |           py33_0          26 KB
+    jinja2-2.8                 |           py33_0         304 KB
+    pip-8.0.2                  |           py33_0         1.5 MB
+    scipy-0.14.0               |      np19py33_p0        24.7 MB
+    sphinx-1.3.1               |           py33_0         1.1 MB
+    ------------------------------------------------------------
+                                           Total:       282.7 MB
+
+The following NEW packages will be INSTALLED:
+
+    alabaster:        0.7.3-py33_0      
+    babel:            2.0-py33_0        
+    docutils:         0.12-py33_0       
+    flake8:           2.3.0-py33_0      
+    jinja2:           2.8-py33_0        
+    markupsafe:       0.23-py33_0       
+    mccabe:           0.3-py33_1        
+    mkl:              11.3.1-0          
+    mkl-rt:           11.1-p0           
+    nose:             1.3.4-py33_1      
+    numpy:            1.9.1-py33_p0      [mkl]
+    openssl:          1.0.1k-1          
+    pep8:             1.6.2-py33_0      
+    pip:              8.0.2-py33_0      
+    pyflakes:         0.8.1-py33_0      
+    pygments:         2.0.2-py33_0      
+    pyparsing:        1.5.6-py33_0      
+    python:           3.3.5-4           
+    pytz:             2015.7-py33_0     
+    readline:         6.2-2             
+    scipy:            0.14.0-np19py33_p0 [mkl]
+    setuptools:       19.6.2-py33_0     
+    six:              1.9.0-py33_0      
+    snowballstemmer:  1.2.0-py33_0      
+    sphinx:           1.3.1-py33_0      
+    sphinx_rtd_theme: 0.1.7-py33_0      
+    sqlite:           3.9.2-0           
+    system:           5.8-2             
+    tk:               8.5.18-0          
+    wheel:            0.26.0-py33_1     
+    xz:               5.0.5-0           
+    zlib:             1.2.8-0           
+
+#
+# To activate this environment, use:
+# $ source activate pyenv
+#
+# To deactivate this environment, use:
+# $ source deactivate
+#
+
+travis_time:end:0568602c:start=1454738685444297937,finish=1454738734803957792,duration=49359659855[0Ktravis_fold:end:install.2[0Ktravis_fold:start:install.3[0Ktravis_time:start:08a5cbf3[0K$ source activate pyenv
+discarding /home/travis/miniconda2/bin from PATH
+prepending /home/travis/miniconda2/envs/pyenv/bin to PATH
+
+travis_time:end:08a5cbf3:start=1454738734807987857,finish=1454738735062359418,duration=254371561[0Ktravis_fold:end:install.3[0Ktravis_fold:start:install.4[0Ktravis_time:start:053a8923[0K$ if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then pip install pydot; fi
+
+travis_time:end:053a8923:start=1454738735066427648,finish=1454738735070211328,duration=3783680[0Ktravis_fold:end:install.4[0Ktravis_fold:start:install.5[0Ktravis_time:start:07cda553[0K$ pip install . --no-deps
+Processing /home/travis/build/Theano/Theano
+Installing collected packages: Theano
+  Running setup.py install for Theano ... [?25l- \ | / - \ | / - \ | / - \ | done
+[?25hSuccessfully installed Theano-0.8.0.dev0
+
+travis_time:end:07cda553:start=1454738735078284060,finish=1454738738559063778,duration=3480779718[0Ktravis_fold:end:install.5[0Ktravis_time:start:213caad6[0K$ export THEANO_FLAGS=$THEANO_FLAGS,warn.ignore_bug_before=all,on_opt_error=raise,on_shape_error=raise,gcc.cxxflags=-pipe
+
+travis_time:end:213caad6:start=1454738738563089539,finish=1454738738566331396,duration=3241857[0K
+[32;1mThe command "export THEANO_FLAGS=$THEANO_FLAGS,warn.ignore_bug_before=all,on_opt_error=raise,on_shape_error=raise,gcc.cxxflags=-pipe" exited with 0.[0m
+travis_time:start:0674f715[0K$ python --version
+Python 3.3.5 :: Continuum Analytics, Inc.
+
+travis_time:end:0674f715:start=1454738738570416626,finish=1454738738575149016,duration=4732390[0K
+[32;1mThe command "python --version" exited with 0.[0m
+travis_time:start:062f97cc[0K$ uname -a
+Linux testing-worker-linux-docker-ab6b3e52-3360-linux-8 3.13.0-40-generic #69-Ubuntu SMP Thu Nov 13 17:53:56 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+travis_time:end:062f97cc:start=1454738738579145698,finish=1454738738582936927,duration=3791229[0K
+[32;1mThe command "uname -a" exited with 0.[0m
+travis_time:start:182a3104[0K$ free -m
+             total       used       free     shared    buffers     cached
+Mem:         60386      26498      33888          0        118      17393
+-/+ buffers/cache:       8986      51400
+Swap:            0          0          0
+
+travis_time:end:182a3104:start=1454738738586882675,finish=1454738738591413484,duration=4530809[0K
+[32;1mThe command "free -m" exited with 0.[0m
+travis_time:start:173a0018[0K$ df -h
+Filesystem                                                                                           Size  Used Avail Use% Mounted on
+rootfs                                                                                                19G  7.3G   12G  39% /
+/dev/mapper/docker-202:16-14843907-43de23b45b5a1a890ac0aba34dd1bcbecc74dc0f743ebbdeb1f22ca6cbf0d8ba   19G  7.3G   12G  39% /
+shm                                                                                                   64M     0   64M   0% /dev/shm
+/dev/xvdb                                                                                            315G   81M  299G   1% /etc/resolv.conf
+/dev/xvdb                                                                                            315G   81M  299G   1% /etc/hostname
+/dev/xvdb                                                                                            315G   81M  299G   1% /etc/hosts
+/dev/xvdb                                                                                            315G   81M  299G   1% /.dockerinit
+/dev/xvdb                                                                                            315G   81M  299G   1% /.dockerenv
+
+travis_time:end:173a0018:start=1454738738595325584,finish=1454738738599517668,duration=4192084[0K
+[32;1mThe command "df -h" exited with 0.[0m
+travis_time:start:1c2e82cc[0K$ ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 482920
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 64000
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 524288
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+travis_time:end:1c2e82cc:start=1454738738603417185,finish=1454738738606497794,duration=3080609[0K
+[32;1mThe command "ulimit -a" exited with 0.[0m
+travis_time:start:0119597d[0K$ cd ..
+
+travis_time:end:0119597d:start=1454738738610394029,finish=1454738738613443876,duration=3049847[0K
+[32;1mThe command "cd .." exited with 0.[0m
+travis_time:start:10a9299b[0K$ cd $(python -c 'import theano; import os; print(os.path.split(theano.__file__)[0])')
+Vendor:  Continuum Analytics, Inc.
+Package: mkl
+Message: trial mode expires in 30 days
+
+travis_time:end:10a9299b:start=1454738738617328712,finish=1454738739589689495,duration=972360783[0K
+[32;1mThe command "cd $(python -c 'import theano; import os; print(os.path.split(theano.__file__)[0])')" exited with 0.[0m
+travis_time:start:085d4348[0K$ echo "$PART"
+theano/tests/test_flake8.py
+
+travis_time:end:085d4348:start=1454738739593721361,finish=1454738739596739954,duration=3018593[0K
+[32;1mThe command "echo "$PART"" exited with 0.[0m
+travis_time:start:2759a552[0K$ cd -; cd Theano
+/home/travis/build/Theano
+
+travis_time:end:2759a552:start=1454738739600644485,finish=1454738739603671760,duration=3027275[0K
+[32;1mThe command "cd -; cd Theano" exited with 0.[0m
+travis_time:start:04433229[0K$ theano-nose -v $PART
+Vendor:  Continuum Analytics, Inc.
+Package: mkl
+Message: trial mode expires in 30 days
+Test if flake8 is respected. ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 26.860s
+
+OK
+
+travis_time:end:04433229:start=1454738739607561077,finish=1454738767635580337,duration=28028019260[0K
+[32;1mThe command "theano-nose -v $PART" exited with 0.[0m
+travis_time:start:2410526a[0K$ if [[ $DOC == "1" ]]; then python doc/scripts/docgen.py --nopdf --check; fi
+[01mRunning Sphinx v1.3.1[39;49;00m
+[01mbuilding [mo]: [39;49;00mtargets for 0 po files that are out of date
+[01mbuilding [html][39;49;00m: targets for 172 source files that are out of date
+[01mupdating environment: [39;49;00m172 added, 0 changed, 0 removed
+[01mreading sources... [39;49;00m[  0%] [35mLICENSE[39;49;00m                                               [01mreading sources... [39;49;00m[  1%] [35mNEWS[39;49;00m                                                  [01mreading sources... [39;49;00m[  1%] [35macknowledgement[39;49;00m                                       [01mreading sources... [39;49;00m[  2%] [35mcifarSC2011/advanced_theano[39;49;00m                           [01mreading sources... [39;49;00m[  2%] [35mcifarSC2011/boot_camp_overview[39;49;00m                        [01mreading sources... [39;49;00m[  3%] [35mcifarSC2011/gpundarray[39;49;00m                                [01mreading sources... [39;49;00m[  4%] [35mcifarSC2011/index[39;49;00m                                     [01mreading sources... [39;49;00m[  4%] [35mcifarSC2011/introduction[39;49;00m                              [01mreading sources... [39;49;00m[  5%] [35mcifarSC2011/pyCUDA[39;49;00m                                    [01mreading sources... [39;49;00m[  5%] [35mcifarSC2011/theano[39;49;00m                                    [01mreading sources... [39;49;00m[  6%] [35mcitation[39;49;00m                                              [01mreading sources... [39;49;00m[  6%] [35mcore_development_guide[39;49;00m                                [01mreading sources... [39;49;00m[  7%] [35mcrei2013/advanced_theano[39;49;00m                              [01mreading sources... [39;49;00m[  8%] [35mcrei2013/gpundarray[39;49;00m                                   [01mreading sources... [39;49;00m[  8%] [35mcrei2013/index[39;49;00m                                        [01mreading sources... [39;49;00m[  9%] [35mcrei2013/introduction[39;49;00m                                 [01mreading sources... [39;49;00m[  9%] [35mcrei2013/theano[39;49;00m                                       [01mreading sources... [39;49;00m[ 10%] [35mdev_start_guide[39;49;00m                                       [01mreading sources... [39;49;00m[ 11%] [35mdeveloper/compat[39;49;00m                                      [01mreading sources... [39;49;00m[ 11%] [35mdeveloper/index[39;49;00m                                       [01mreading sources... [39;49;00m[ 12%] [35mdeveloper/scan[39;49;00m                                        [01mreading sources... [39;49;00m[ 12%] [35mdeveloper/tensor[39;49;00m                                      [01mreading sources... [39;49;00m[ 13%] [35mextending/cop[39;49;00m                                         [01mreading sources... [39;49;00m[ 13%] [35mextending/ctype[39;49;00m                                       [01mreading sources... [39;49;00m[ 14%] [35mextending/extending_faq[39;49;00m                               [01mreading sources... [39;49;00m[ 15%] [35mextending/extending_theano[39;49;00m                            Vendor:  Continuum Analytics, Inc.
+Package: mkl
+Message: trial mode expires in 30 days
+[01mreading sources... [39;49;00m[ 15%] [35mextending/extending_theano_c[39;49;00m                          [01mreading sources... [39;49;00m[ 16%] [35mextending/fibby[39;49;00m                                       [01mreading sources... [39;49;00m[ 16%] [35mextending/graphstructures[39;49;00m                             [01mreading sources... [39;49;00m[ 17%] [35mextending/index[39;49;00m                                       [01mreading sources... [39;49;00m[ 18%] [35mextending/inplace[39;49;00m                                     [01mreading sources... [39;49;00m[ 18%] [35mextending/op[39;49;00m                                          [01mreading sources... [39;49;00m[ 19%] [35mextending/optimization[39;49;00m                                [01mreading sources... [39;49;00m[ 19%] [35mextending/other_ops[39;49;00m                                   [01mreading sources... [39;49;00m[ 20%] [35mextending/pipeline[39;49;00m                                    [01mreading sources... [39;49;00m[ 20%] [35mextending/theano_vs_c[39;49;00m                                 [01mreading sources... [39;49;00m[ 21%] [35mextending/tips[39;49;00m                                        [01mreading sources... [39;49;00m[ 22%] [35mextending/type[39;49;00m                                        [01mreading sources... [39;49;00m[ 22%] [35mextending/unittest[39;49;00m                                    [01mreading sources... [39;49;00m[ 23%] [35mextending/using_params[39;49;00m                                [01mreading sources... [39;49;00m[ 23%] [35mfaq[39;49;00m                                                   [01mreading sources... [39;49;00m[ 24%] [35mglossary[39;49;00m                                              [01mreading sources... [39;49;00m[ 25%] [35mindex[39;49;00m                                                 [01mreading sources... [39;49;00m[ 25%] [35minstall[39;49;00m                                               [01mreading sources... [39;49;00m[ 26%] [35minstall_centos6[39;49;00m                                       [01mreading sources... [39;49;00m[ 26%] [35minstall_ubuntu[39;49;00m                                        [01mreading sources... [39;49;00m[ 27%] [35minstall_windows[39;49;00m                                       [01mreading sources... [39;49;00m[ 27%] [35minternal/dev_start_guide[39;49;00m                              [01mreading sources... [39;49;00m[ 28%] [35minternal/how_to_release[39;49;00m                               [01mreading sources... [39;49;00m[ 29%] [35minternal/index[39;49;00m                                        [01mreading sources... [39;49;00m[ 29%] [35minternal/metadocumentation[39;49;00m                            [01mreading sources... [39;49;00m[ 30%] [35minternal/python[39;49;00m                                       [01mreading sources... [39;49;00m[ 30%] [35minternal/release[39;49;00m                                      [01mreading sources... [39;49;00m[ 31%] [35mintroduction[39;49;00m                                          [01mreading sources... [39;49;00m[ 31%] [35mlibrary/compile/debugmode[39;49;00m                             [01mreading sources... [39;49;00m[ 32%] [35mlibrary/compile/function[39;49;00m                              [01mreading sources... [39;49;00m[ 33%] [35mlibrary/compile/index[39;49;00m                                 [01mreading sources... [39;49;00m[ 33%] [35mlibrary/compile/io[39;49;00m                                    [01mreading sources... [39;49;00m[ 34%] [35mlibrary/compile/mode[39;49;00m                                  [01mreading sources... [39;49;00m[ 34%] [35mlibrary/compile/nanguardmode[39;49;00m                          [01mreading sources... [39;49;00m[ 35%] [35mlibrary/compile/opfromgraph[39;49;00m                           [01mreading sources... [39;49;00m[ 36%] [35mlibrary/compile/ops[39;49;00m                                   [01mreading sources... [39;49;00m[ 36%] [35mlibrary/compile/profilemode[39;49;00m                           [01mreading sources... [39;49;00m[ 37%] [35mlibrary/compile/shared[39;49;00m                                [01mreading sources... [39;49;00m[ 37%] [35mlibrary/config[39;49;00m                                        [01mreading sources... [39;49;00m[ 38%] [35mlibrary/d3viz/index[39;49;00m                                   [01mreading sources... [39;49;00m[ 38%] [35mlibrary/gof/fgraph[39;49;00m                                    [01mreading sources... [39;49;00m[ 39%] [35mlibrary/gof/graph[39;49;00m                                     [01mreading sources... [39;49;00m[ 40%] [35mlibrary/gof/index[39;49;00m                                     [01mreading sources... [39;49;00m[ 40%] [35mlibrary/gof/toolbox[39;49;00m                                   [01mreading sources... [39;49;00m[ 41%] [35mlibrary/gof/type[39;49;00m                                      [01mreading sources... [39;49;00m[ 41%] [35mlibrary/gof/utils[39;49;00m                                     [01mreading sources... [39;49;00m[ 42%] [35mlibrary/gradient[39;49;00m                                      [01mreading sources... [39;49;00m[ 43%] [35mlibrary/index[39;49;00m                                         [01mreading sources... [39;49;00m[ 43%] [35mlibrary/misc/pkl_utils[39;49;00m                                [01mreading sources... [39;49;00m[ 44%] [35mlibrary/printing[39;49;00m                                      [01mreading sources... [39;49;00m[ 44%] [35mlibrary/sandbox/cuda/dnn[39;49;00m                              [01mreading sources... [39;49;00m[ 45%] [35mlibrary/sandbox/cuda/index[39;49;00m                            [01mreading sources... [39;49;00m[ 45%] [35mlibrary/sandbox/cuda/op[39;49;00m                               [01mreading sources... [39;49;00m[ 46%] [35mlibrary/sandbox/cuda/type[39;49;00m                             [01mreading sources... [39;49;00m[ 47%] [35mlibrary/sandbox/cuda/var[39;49;00m                              [01mreading sources... [39;49;00m[ 47%] [35mlibrary/sandbox/gpuarray/dnn[39;49;00m                          [01mreading sources... [39;49;00m[ 48%] [35mlibrary/sandbox/gpuarray/extra[39;49;00m                        [01mreading sources... [39;49;00m[ 48%] [35mlibrary/sandbox/gpuarray/index[39;49;00m                        [01mreading sources... [39;49;00m[ 49%] [35mlibrary/sandbox/gpuarray/op[39;49;00m                           [01mreading sources... [39;49;00m[ 50%] [35mlibrary/sandbox/gpuarray/type[39;49;00m                         [01mreading sources... [39;49;00m[ 50%] [35mlibrary/sandbox/index[39;49;00m                                 [01mreading sources... [39;49;00m[ 51%] [35mlibrary/sandbox/linalg[39;49;00m                                [01mreading sources... [39;49;00m[ 51%] [35mlibrary/sandbox/neighbours[39;49;00m                            [01mreading sources... [39;49;00m[ 52%] [35mlibrary/sandbox/rng_mrg[39;49;00m                               [01mreading sources... [39;49;00m[ 52%] [35mlibrary/scalar/index[39;49;00m                                  [01mreading sources... [39;49;00m[ 53%] [35mlibrary/scan[39;49;00m                                          [01mreading sources... [39;49;00m[ 54%] [35mlibrary/sparse/index[39;49;00m                                  [01mreading sources... [39;49;00m[ 54%] [35mlibrary/sparse/sandbox[39;49;00m                                [01mreading sources... [39;49;00m[ 55%] [35mlibrary/tensor/basic[39;49;00m                                  [01mreading sources... [39;49;00m[ 55%] [35mlibrary/tensor/extra_ops[39;49;00m                              [01mreading sources... [39;49;00m[ 56%] [35mlibrary/tensor/index[39;49;00m                                  [01mreading sources... [39;49;00m[ 56%] [35mlibrary/tensor/io[39;49;00m                                     [01mreading sources... [39;49;00m[ 57%] [35mlibrary/tensor/nlinalg[39;49;00m                                [01mreading sources... [39;49;00m[ 58%] [35mlibrary/tensor/nnet/blocksparse[39;49;00m                       [01mreading sources... [39;49;00m[ 58%] [35mlibrary/tensor/nnet/bn[39;49;00m                                [01mreading sources... [39;49;00m[ 59%] [35mlibrary/tensor/nnet/conv[39;49;00m                              /home/travis/build/Theano/Theano/theano/misc/pycuda_init.py:34: UserWarning: PyCUDA import failed in theano.misc.pycuda_init
+  warnings.warn("PyCUDA import failed in theano.misc.pycuda_init")
+[01mreading sources... [39;49;00m[ 59%] [35mlibrary/tensor/nnet/index[39;49;00m                             [01mreading sources... [39;49;00m[ 60%] [35mlibrary/tensor/nnet/neighbours[39;49;00m                        [01mreading sources... [39;49;00m[ 61%] [35mlibrary/tensor/nnet/nnet[39;49;00m                              [01mreading sources... [39;49;00m[ 61%] [35mlibrary/tensor/raw_random[39;49;00m                             [01mreading sources... [39;49;00m[ 62%] [35mlibrary/tensor/shared_randomstreams[39;49;00m                   [01mreading sources... [39;49;00m[ 62%] [35mlibrary/tensor/signal/conv[39;49;00m                            [01mreading sources... [39;49;00m[ 63%] [35mlibrary/tensor/signal/downsample[39;49;00m                      /home/travis/build/Theano/Theano/theano/tensor/signal/downsample.py:5: UserWarning: downsample module has been moved to the pool module.
+  warnings.warn("downsample module has been moved to the pool module.")
+[01mreading sources... [39;49;00m[ 63%] [35mlibrary/tensor/signal/index[39;49;00m                           [01mreading sources... [39;49;00m[ 64%] [35mlibrary/tensor/slinalg[39;49;00m                                [01mreading sources... [39;49;00m[ 65%] [35mlibrary/tensor/utils[39;49;00m                                  [01mreading sources... [39;49;00m[ 65%] [35mlibrary/typed_list[39;49;00m                                    [01mreading sources... [39;49;00m[ 66%] [35mlinks[39;49;00m                                                 [01mreading sources... [39;49;00m[ 66%] [35mnice_quotes[39;49;00m                                           [01mreading sources... [39;49;00m[ 67%] [35moptimizations[39;49;00m                                         [01mreading sources... [39;49;00m[ 68%] [35mproposals/complex_gradient[39;49;00m                            [01mreading sources... [39;49;00m[ 68%] [35mproposals/conditional[39;49;00m                                 [01mreading sources... [39;49;00m[ 69%] [35mproposals/dp_optimization[39;49;00m                             [01mreading sources... [39;49;00m[ 69%] [35mproposals/graphical_models[39;49;00m                            [01mreading sources... [39;49;00m[ 70%] [35mproposals/index[39;49;00m                                       [01mreading sources... [39;49;00m[ 70%] [35mproposals/intermediate_language[39;49;00m                       [01mreading sources... [39;49;00m[ 71%] [35mproposals/mongodb_cache[39;49;00m                               [01mreading sources... [39;49;00m[ 72%] [35mproposals/opt_patterns2[39;49;00m                               [01mreading sources... [39;49;00m[ 72%] [35mproposals/pfunc[39;49;00m                                       [01mreading sources... [39;49;00m[ 73%] [35mproposals/premerge[39;49;00m                                    [01mreading sources... [39;49;00m[ 73%] [35mproposals/tensor_attributes[39;49;00m                           [01mreading sources... [39;49;00m[ 74%] [35msandbox/broadcasting[39;49;00m                                  [01mreading sources... [39;49;00m[ 75%] [35msandbox/ccodegen[39;49;00m                                      [01mreading sources... [39;49;00m[ 75%] [35msandbox/compilation[39;49;00m                                   [01mreading sources... [39;49;00m[ 76%] [35msandbox/debugging_with_stepmode[39;49;00m                       [01mreading sources... [39;49;00m[ 76%] [35msandbox/elemwise_compiler[39;49;00m                             [01mreading sources... [39;49;00m[ 77%] [35msandbox/fg[39;49;00m                                            [01mreading sources... [39;49;00m[ 77%] [35msandbox/function[39;49;00m                                      [01mreading sources... [39;49;00m[ 78%] [35msandbox/functional[39;49;00m                                    [01mreading sources... [39;49;00m[ 79%] [35msandbox/hosting[39;49;00m                                       [01mreading sources... [39;49;00m[ 79%] [35msandbox/how_to_make_ops[39;49;00m                               [01mreading sources... [39;49;00m[ 80%] [35msandbox/index[39;49;00m                                         [01mreading sources... [39;49;00m[ 80%] [35msandbox/index2[39;49;00m                                        [01mreading sources... [39;49;00m[ 81%] [35msandbox/interactive_debugger[39;49;00m                          [01mreading sources... [39;49;00m[ 81%] [35msandbox/logistic_regression_example[39;49;00m                   [01mreading sources... [39;49;00m[ 82%] [35msandbox/max_gotcha[39;49;00m                                    [01mreading sources... [39;49;00m[ 83%] [35msandbox/performance[39;49;00m                                   [01mreading sources... [39;49;00m[ 83%] [35msandbox/randomnumbers[39;49;00m                                 [01mreading sources... [39;49;00m[ 84%] [35msandbox/rethinkccodegen[39;49;00m                               [01mreading sources... [39;49;00m[ 84%] [35msandbox/sandbox[39;49;00m                                       [01mreading sources... [39;49;00m[ 85%] [35msandbox/software[39;49;00m                                      [01mreading sources... [39;49;00m[ 86%] [35msandbox/sparse[39;49;00m                                        [01mreading sources... [39;49;00m[ 86%] [35msandbox/tensoroptools[39;49;00m                                 [01mreading sources... [39;49;00m[ 87%] [35mtutorial/adding[39;49;00m                                       [01mreading sources... [39;49;00m[ 87%] [35mtutorial/aliasing[39;49;00m                                     [01mreading sources... [39;49;00m[ 88%] [35mtutorial/conditions[39;49;00m                                   [01mreading sources... [39;49;00m[ 88%] [35mtutorial/debug_faq[39;49;00m                                    [01mreading sources... [39;49;00m[ 89%] [35mtutorial/examples[39;49;00m                                     [01mreading sources... [39;49;00m[ 90%] [35mtutorial/faq_tutorial[39;49;00m                                 [01mreading sources... [39;49;00m[ 90%] [35mtutorial/gpu_data_convert[39;49;00m                             [01mreading sources... [39;49;00m[ 91%] [35mtutorial/gradients[39;49;00m                                    [01mreading sources... [39;49;00m[ 91%] [35mtutorial/index[39;49;00m                                        [01mreading sources... [39;49;00m[ 92%] [35mtutorial/loading_and_saving[39;49;00m                           [01mreading sources... [39;49;00m[ 93%] [35mtutorial/loop[39;49;00m                                         [01mreading sources... [39;49;00m[ 93%] [35mtutorial/modes[39;49;00m                                        [01mreading sources... [39;49;00m[ 94%] [35mtutorial/multi_cores[39;49;00m                                  [01mreading sources... [39;49;00m[ 94%] [35mtutorial/nan_tutorial[39;49;00m                                 [01mreading sources... [39;49;00m[ 95%] [35mtutorial/numpy[39;49;00m                                        [01mreading sources... [39;49;00m[ 95%] [35mtutorial/printing_drawing[39;49;00m                             [01mreading sources... [39;49;00m[ 96%] [35mtutorial/profiling[39;49;00m                                    [01mreading sources... [39;49;00m[ 97%] [35mtutorial/python[39;49;00m                                       [01mreading sources... [39;49;00m[ 97%] [35mtutorial/python-memory-management[39;49;00m                     [01mreading sources... [39;49;00m[ 98%] [35mtutorial/shape_info[39;49;00m                                   [01mreading sources... [39;49;00m[ 98%] [35mtutorial/sparse[39;49;00m                                       [01mreading sources... [39;49;00m[ 99%] [35mtutorial/using_gpu[39;49;00m                                    [01mreading sources... [39;49;00m[100%] [35mtutorial/using_multi_gpu[39;49;00m                              
+
+[31;01mWarning, treated as error:[39;49;00m
+/home/travis/build/Theano/Theano/doc/extending/graphstructures.txt:445: WARNING: image file not readable: extending/./pics/symbolic_graph_unopt.png
+
+
+travis_time:end:2410526a:start=1454738767639823283,finish=1454738795998822603,duration=28358999320[0K
+[31;1mThe command "if [[ $DOC == "1" ]]; then python doc/scripts/docgen.py --nopdf --check; fi" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0ef7e7bc[0K
+travis_time:end:0ef7e7bc:start=1454738796003483282,finish=1454738796007000384,duration=3517102[0Ktravis_time:start:0c002b32[0K[32;1mnothing changed, not updating cache[0m
+
+travis_time:end:0c002b32:start=1454738796010985838,finish=1454738796321460237,duration=310474399[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_failure[0Ktravis_time:start:2b63f810[0K$ cat /home/travis/.pip/pip.log
+cat: /home/travis/.pip/pip.log: No such file or directory
+
+travis_time:end:2b63f810:start=1454738796325560083,finish=1454738796329692177,duration=4132094[0Ktravis_fold:end:after_failure[0K
+Done. Your build exited with 1.

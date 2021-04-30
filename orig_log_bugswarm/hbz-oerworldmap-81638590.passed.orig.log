@@ -1,0 +1,538 @@
+Using worker: worker-linux-docker-66c0838f.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: scala
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+[33;1mUpdating sbt[0m
+travis_fold:start:git.checkout[0Ktravis_time:start:3a9af418[0K$ git clone --depth=50 https://github.com/hbz/oerworldmap.git hbz/oerworldmap
+Cloning into 'hbz/oerworldmap'...
+remote: Counting objects: 2101, done.[K
+remote: Compressing objects:   0% (1/820)   [Kremote: Compressing objects:   1% (9/820)   [Kremote: Compressing objects:   2% (17/820)   [Kremote: Compressing objects:   3% (25/820)   [Kremote: Compressing objects:   4% (33/820)   [Kremote: Compressing objects:   5% (41/820)   [Kremote: Compressing objects:   6% (50/820)   [Kremote: Compressing objects:   7% (58/820)   [Kremote: Compressing objects:   8% (66/820)   [Kremote: Compressing objects:   9% (74/820)   [Kremote: Compressing objects:  10% (82/820)   [Kremote: Compressing objects:  11% (91/820)   [Kremote: Compressing objects:  12% (99/820)   [Kremote: Compressing objects:  13% (107/820)   [Kremote: Compressing objects:  14% (115/820)   [Kremote: Compressing objects:  15% (123/820)   [Kremote: Compressing objects:  16% (132/820)   [Kremote: Compressing objects:  17% (140/820)   [Kremote: Compressing objects:  18% (148/820)   [Kremote: Compressing objects:  19% (156/820)   [Kremote: Compressing objects:  20% (164/820)   [Kremote: Compressing objects:  21% (173/820)   [Kremote: Compressing objects:  22% (181/820)   [Kremote: Compressing objects:  23% (189/820)   [Kremote: Compressing objects:  24% (197/820)   [Kremote: Compressing objects:  25% (205/820)   [Kremote: Compressing objects:  26% (214/820)   [Kremote: Compressing objects:  27% (222/820)   [Kremote: Compressing objects:  28% (230/820)   [Kremote: Compressing objects:  29% (238/820)   [Kremote: Compressing objects:  30% (246/820)   [Kremote: Compressing objects:  31% (255/820)   [Kremote: Compressing objects:  32% (263/820)   [Kremote: Compressing objects:  33% (271/820)   [Kremote: Compressing objects:  34% (279/820)   [Kremote: Compressing objects:  35% (287/820)   [Kremote: Compressing objects:  36% (296/820)   [Kremote: Compressing objects:  37% (304/820)   [Kremote: Compressing objects:  38% (312/820)   [Kremote: Compressing objects:  39% (320/820)   [Kremote: Compressing objects:  40% (328/820)   [Kremote: Compressing objects:  41% (337/820)   [Kremote: Compressing objects:  42% (345/820)   [Kremote: Compressing objects:  43% (353/820)   [Kremote: Compressing objects:  44% (361/820)   [Kremote: Compressing objects:  45% (369/820)   [Kremote: Compressing objects:  46% (378/820)   [Kremote: Compressing objects:  47% (386/820)   [Kremote: Compressing objects:  48% (394/820)   [Kremote: Compressing objects:  49% (402/820)   [Kremote: Compressing objects:  50% (410/820)   [Kremote: Compressing objects:  51% (419/820)   [Kremote: Compressing objects:  52% (427/820)   [Kremote: Compressing objects:  53% (435/820)   [Kremote: Compressing objects:  54% (443/820)   [Kremote: Compressing objects:  55% (451/820)   [Kremote: Compressing objects:  56% (460/820)   [Kremote: Compressing objects:  57% (468/820)   [Kremote: Compressing objects:  58% (476/820)   [Kremote: Compressing objects:  59% (484/820)   [Kremote: Compressing objects:  60% (492/820)   [Kremote: Compressing objects:  61% (501/820)   [Kremote: Compressing objects:  62% (509/820)   [Kremote: Compressing objects:  63% (517/820)   [Kremote: Compressing objects:  64% (525/820)   [Kremote: Compressing objects:  65% (533/820)   [Kremote: Compressing objects:  66% (542/820)   [Kremote: Compressing objects:  67% (550/820)   [Kremote: Compressing objects:  68% (558/820)   [Kremote: Compressing objects:  69% (566/820)   [Kremote: Compressing objects:  70% (574/820)   [Kremote: Compressing objects:  71% (583/820)   [Kremote: Compressing objects:  72% (591/820)   [Kremote: Compressing objects:  73% (599/820)   [Kremote: Compressing objects:  74% (607/820)   [Kremote: Compressing objects:  75% (615/820)   [Kremote: Compressing objects:  76% (624/820)   [Kremote: Compressing objects:  77% (632/820)   [Kremote: Compressing objects:  78% (640/820)   [Kremote: Compressing objects:  79% (648/820)   [Kremote: Compressing objects:  80% (656/820)   [Kremote: Compressing objects:  81% (665/820)   [Kremote: Compressing objects:  82% (673/820)   [Kremote: Compressing objects:  83% (681/820)   [Kremote: Compressing objects:  84% (689/820)   [Kremote: Compressing objects:  85% (697/820)   [Kremote: Compressing objects:  86% (706/820)   [Kremote: Compressing objects:  87% (714/820)   [Kremote: Compressing objects:  88% (722/820)   [Kremote: Compressing objects:  89% (730/820)   [Kremote: Compressing objects:  90% (738/820)   [Kremote: Compressing objects:  91% (747/820)   [Kremote: Compressing objects:  92% (755/820)   [Kremote: Compressing objects:  93% (763/820)   [Kremote: Compressing objects:  94% (771/820)   [Kremote: Compressing objects:  95% (779/820)   [Kremote: Compressing objects:  96% (788/820)   [Kremote: Compressing objects:  97% (796/820)   [Kremote: Compressing objects:  98% (804/820)   [Kremote: Compressing objects:  99% (812/820)   [Kremote: Compressing objects: 100% (820/820)   [Kremote: Compressing objects: 100% (820/820), done.[K
+Receiving objects:   0% (1/2101)   Receiving objects:   1% (22/2101)   Receiving objects:   2% (43/2101)   Receiving objects:   3% (64/2101)   Receiving objects:   4% (85/2101)   Receiving objects:   5% (106/2101)   Receiving objects:   6% (127/2101)   Receiving objects:   7% (148/2101)   Receiving objects:   8% (169/2101)   Receiving objects:   9% (190/2101)   Receiving objects:  10% (211/2101)   Receiving objects:  11% (232/2101)   Receiving objects:  12% (253/2101)   Receiving objects:  13% (274/2101)   Receiving objects:  14% (295/2101)   Receiving objects:  15% (316/2101)   Receiving objects:  16% (337/2101)   Receiving objects:  17% (358/2101)   Receiving objects:  18% (379/2101)   Receiving objects:  19% (400/2101)   Receiving objects:  20% (421/2101)   Receiving objects:  21% (442/2101)   Receiving objects:  22% (463/2101)   Receiving objects:  23% (484/2101)   Receiving objects:  24% (505/2101)   Receiving objects:  25% (526/2101)   Receiving objects:  26% (547/2101)   Receiving objects:  27% (568/2101)   Receiving objects:  28% (589/2101)   Receiving objects:  29% (610/2101)   Receiving objects:  30% (631/2101)   Receiving objects:  31% (652/2101)   Receiving objects:  32% (673/2101)   Receiving objects:  33% (694/2101)   Receiving objects:  34% (715/2101)   Receiving objects:  35% (736/2101)   Receiving objects:  36% (757/2101)   Receiving objects:  37% (778/2101)   Receiving objects:  38% (799/2101)   Receiving objects:  39% (820/2101)   Receiving objects:  40% (841/2101)   Receiving objects:  41% (862/2101)   Receiving objects:  42% (883/2101)   Receiving objects:  43% (904/2101)   Receiving objects:  44% (925/2101)   Receiving objects:  45% (946/2101)   Receiving objects:  46% (967/2101)   Receiving objects:  47% (988/2101)   Receiving objects:  48% (1009/2101)   Receiving objects:  49% (1030/2101)   Receiving objects:  50% (1051/2101)   Receiving objects:  51% (1072/2101)   Receiving objects:  52% (1093/2101)   Receiving objects:  53% (1114/2101)   Receiving objects:  54% (1135/2101)   Receiving objects:  55% (1156/2101)   Receiving objects:  56% (1177/2101)   Receiving objects:  57% (1198/2101)   Receiving objects:  58% (1219/2101)   Receiving objects:  59% (1240/2101)   Receiving objects:  60% (1261/2101)   Receiving objects:  61% (1282/2101)   Receiving objects:  62% (1303/2101)   Receiving objects:  63% (1324/2101)   Receiving objects:  64% (1345/2101)   Receiving objects:  65% (1366/2101)   Receiving objects:  66% (1387/2101)   Receiving objects:  67% (1408/2101)   Receiving objects:  68% (1429/2101)   Receiving objects:  69% (1450/2101)   Receiving objects:  70% (1471/2101)   Receiving objects:  71% (1492/2101)   Receiving objects:  72% (1513/2101)   Receiving objects:  73% (1534/2101)   Receiving objects:  74% (1555/2101)   Receiving objects:  75% (1576/2101)   Receiving objects:  76% (1597/2101)   Receiving objects:  77% (1618/2101)   Receiving objects:  78% (1639/2101)   Receiving objects:  79% (1660/2101)   Receiving objects:  80% (1681/2101)   Receiving objects:  81% (1702/2101)   Receiving objects:  82% (1723/2101)   Receiving objects:  83% (1744/2101)   remote: Total 2101 (delta 1306), reused 1878 (delta 1143), pack-reused 0[K
+Receiving objects:  84% (1765/2101)   Receiving objects:  85% (1786/2101)   Receiving objects:  86% (1807/2101)   Receiving objects:  87% (1828/2101)   Receiving objects:  88% (1849/2101)   Receiving objects:  89% (1870/2101)   Receiving objects:  90% (1891/2101)   Receiving objects:  91% (1912/2101)   Receiving objects:  92% (1933/2101)   Receiving objects:  93% (1954/2101)   Receiving objects:  94% (1975/2101)   Receiving objects:  95% (1996/2101)   Receiving objects:  96% (2017/2101)   Receiving objects:  97% (2038/2101)   Receiving objects:  98% (2059/2101)   Receiving objects:  99% (2080/2101)   Receiving objects: 100% (2101/2101)   Receiving objects: 100% (2101/2101), 5.44 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1306)   Resolving deltas:   1% (14/1306)   Resolving deltas:  13% (172/1306)   Resolving deltas:  14% (189/1306)   Resolving deltas:  15% (197/1306)   Resolving deltas:  16% (222/1306)   Resolving deltas:  17% (223/1306)   Resolving deltas:  19% (254/1306)   Resolving deltas:  20% (272/1306)   Resolving deltas:  21% (276/1306)   Resolving deltas:  22% (288/1306)   Resolving deltas:  23% (301/1306)   Resolving deltas:  24% (321/1306)   Resolving deltas:  25% (336/1306)   Resolving deltas:  26% (341/1306)   Resolving deltas:  28% (369/1306)   Resolving deltas:  30% (393/1306)   Resolving deltas:  31% (411/1306)   Resolving deltas:  33% (431/1306)   Resolving deltas:  34% (445/1306)   Resolving deltas:  35% (458/1306)   Resolving deltas:  36% (482/1306)   Resolving deltas:  37% (488/1306)   Resolving deltas:  39% (519/1306)   Resolving deltas:  40% (524/1306)   Resolving deltas:  41% (544/1306)   Resolving deltas:  43% (564/1306)   Resolving deltas:  44% (576/1306)   Resolving deltas:  47% (623/1306)   Resolving deltas:  48% (628/1306)   Resolving deltas:  49% (640/1306)   Resolving deltas:  51% (675/1306)   Resolving deltas:  52% (686/1306)   Resolving deltas:  53% (693/1306)   Resolving deltas:  54% (706/1306)   Resolving deltas:  55% (723/1306)   Resolving deltas:  56% (733/1306)   Resolving deltas:  57% (748/1306)   Resolving deltas:  59% (773/1306)   Resolving deltas:  60% (790/1306)   Resolving deltas:  61% (801/1306)   Resolving deltas:  62% (811/1306)   Resolving deltas:  63% (824/1306)   Resolving deltas:  65% (849/1306)   Resolving deltas:  66% (864/1306)   Resolving deltas:  67% (880/1306)   Resolving deltas:  68% (891/1306)   Resolving deltas:  70% (917/1306)   Resolving deltas:  71% (930/1306)   Resolving deltas:  72% (941/1306)   Resolving deltas:  73% (959/1306)   Resolving deltas:  74% (973/1306)   Resolving deltas:  75% (982/1306)   Resolving deltas:  76% (994/1306)   Resolving deltas:  77% (1013/1306)   Resolving deltas:  78% (1022/1306)   Resolving deltas:  79% (1032/1306)   Resolving deltas:  80% (1045/1306)   Resolving deltas:  82% (1075/1306)   Resolving deltas:  83% (1085/1306)   Resolving deltas:  84% (1099/1306)   Resolving deltas:  85% (1115/1306)   Resolving deltas:  86% (1128/1306)   Resolving deltas:  87% (1137/1306)   Resolving deltas:  88% (1157/1306)   Resolving deltas:  89% (1168/1306)   Resolving deltas:  90% (1181/1306)   Resolving deltas:  91% (1189/1306)   Resolving deltas:  95% (1246/1306)   Resolving deltas:  96% (1256/1306)   Resolving deltas:  97% (1277/1306)   Resolving deltas:  98% (1280/1306)   Resolving deltas:  99% (1303/1306)   Resolving deltas: 100% (1306/1306)   Resolving deltas: 100% (1306/1306), done.
+Checking connectivity... done.
+travis_time:end:3a9af418:start=1442953440449914113,finish=1442953441962280720,duration=1512366607[0K$ cd hbz/oerworldmap
+travis_time:start:2a6dde6b[0K$ git fetch origin +refs/pull/359/merge:
+remote: Counting objects: 653, done.[K
+remote: Compressing objects:   0% (1/213)   [Kremote: Compressing objects:   1% (3/213)   [Kremote: Compressing objects:   2% (5/213)   [Kremote: Compressing objects:   3% (7/213)   [Kremote: Compressing objects:   4% (9/213)   [Kremote: Compressing objects:   5% (11/213)   [Kremote: Compressing objects:   6% (13/213)   [Kremote: Compressing objects:   7% (15/213)   [Kremote: Compressing objects:   8% (18/213)   [Kremote: Compressing objects:   9% (20/213)   [Kremote: Compressing objects:  10% (22/213)   [Kremote: Compressing objects:  11% (24/213)   [Kremote: Compressing objects:  12% (26/213)   [Kremote: Compressing objects:  13% (28/213)   [Kremote: Compressing objects:  14% (30/213)   [Kremote: Compressing objects:  15% (32/213)   [Kremote: Compressing objects:  16% (35/213)   [Kremote: Compressing objects:  17% (37/213)   [Kremote: Compressing objects:  18% (39/213)   [Kremote: Compressing objects:  19% (41/213)   [Kremote: Compressing objects:  20% (43/213)   [Kremote: Compressing objects:  21% (45/213)   [Kremote: Compressing objects:  22% (47/213)   [Kremote: Compressing objects:  23% (49/213)   [Kremote: Compressing objects:  24% (52/213)   [Kremote: Compressing objects:  25% (54/213)   [Kremote: Compressing objects:  26% (56/213)   [Kremote: Compressing objects:  27% (58/213)   [Kremote: Compressing objects:  28% (60/213)   [Kremote: Compressing objects:  29% (62/213)   [Kremote: Compressing objects:  30% (64/213)   [Kremote: Compressing objects:  31% (67/213)   [Kremote: Compressing objects:  32% (69/213)   [Kremote: Compressing objects:  33% (71/213)   [Kremote: Compressing objects:  34% (73/213)   [Kremote: Compressing objects:  35% (75/213)   [Kremote: Compressing objects:  36% (77/213)   [Kremote: Compressing objects:  37% (79/213)   [Kremote: Compressing objects:  38% (81/213)   [Kremote: Compressing objects:  39% (84/213)   [Kremote: Compressing objects:  40% (86/213)   [Kremote: Compressing objects:  41% (88/213)   [Kremote: Compressing objects:  42% (90/213)   [Kremote: Compressing objects:  43% (92/213)   [Kremote: Compressing objects:  44% (94/213)   [Kremote: Compressing objects:  45% (96/213)   [Kremote: Compressing objects:  46% (98/213)   [Kremote: Compressing objects:  47% (101/213)   [Kremote: Compressing objects:  48% (103/213)   [Kremote: Compressing objects:  49% (105/213)   [Kremote: Compressing objects:  50% (107/213)   [Kremote: Compressing objects:  51% (109/213)   [Kremote: Compressing objects:  52% (111/213)   [Kremote: Compressing objects:  53% (113/213)   [Kremote: Compressing objects:  54% (116/213)   [Kremote: Compressing objects:  55% (118/213)   [Kremote: Compressing objects:  56% (120/213)   [Kremote: Compressing objects:  57% (122/213)   [Kremote: Compressing objects:  58% (124/213)   [Kremote: Compressing objects:  59% (126/213)   [Kremote: Compressing objects:  60% (128/213)   [Kremote: Compressing objects:  61% (130/213)   [Kremote: Compressing objects:  62% (133/213)   [Kremote: Compressing objects:  63% (135/213)   [Kremote: Compressing objects:  64% (137/213)   [Kremote: Compressing objects:  65% (139/213)   [Kremote: Compressing objects:  66% (141/213)   [Kremote: Compressing objects:  67% (143/213)   [Kremote: Compressing objects:  68% (145/213)   [Kremote: Compressing objects:  69% (147/213)   [Kremote: Compressing objects:  70% (150/213)   [Kremote: Compressing objects:  71% (152/213)   [Kremote: Compressing objects:  72% (154/213)   [Kremote: Compressing objects:  73% (156/213)   [Kremote: Compressing objects:  74% (158/213)   [Kremote: Compressing objects:  75% (160/213)   [Kremote: Compressing objects:  76% (162/213)   [Kremote: Compressing objects:  77% (165/213)   [Kremote: Compressing objects:  78% (167/213)   [Kremote: Compressing objects:  79% (169/213)   [Kremote: Compressing objects:  80% (171/213)   [Kremote: Compressing objects:  81% (173/213)   [Kremote: Compressing objects:  82% (175/213)   [Kremote: Compressing objects:  83% (177/213)   [Kremote: Compressing objects:  84% (179/213)   [Kremote: Compressing objects:  85% (182/213)   [Kremote: Compressing objects:  86% (184/213)   [Kremote: Compressing objects:  87% (186/213)   [Kremote: Compressing objects:  88% (188/213)   [Kremote: Compressing objects:  89% (190/213)   [Kremote: Compressing objects:  90% (192/213)   [Kremote: Compressing objects:  91% (194/213)   [Kremote: Compressing objects:  92% (196/213)   [Kremote: Compressing objects:  93% (199/213)   [Kremote: Compressing objects:  94% (201/213)   [Kremote: Compressing objects:  95% (203/213)   [Kremote: Compressing objects:  96% (205/213)   [Kremote: Compressing objects:  97% (207/213)   [Kremote: Compressing objects:  98% (209/213)   [Kremote: Compressing objects:  99% (211/213)   [Kremote: Compressing objects: 100% (213/213)   [Kremote: Compressing objects: 100% (213/213), done.[K
+Receiving objects:   0% (1/653)   Receiving objects:   1% (7/653)   Receiving objects:   2% (14/653)   Receiving objects:   3% (20/653)   Receiving objects:   4% (27/653)   Receiving objects:   5% (33/653)   Receiving objects:   6% (40/653)   Receiving objects:   7% (46/653)   Receiving objects:   8% (53/653)   Receiving objects:   9% (59/653)   Receiving objects:  10% (66/653)   Receiving objects:  11% (72/653)   Receiving objects:  12% (79/653)   Receiving objects:  13% (85/653)   Receiving objects:  14% (92/653)   Receiving objects:  15% (98/653)   Receiving objects:  16% (105/653)   Receiving objects:  17% (112/653)   Receiving objects:  18% (118/653)   Receiving objects:  19% (125/653)   Receiving objects:  20% (131/653)   Receiving objects:  21% (138/653)   Receiving objects:  22% (144/653)   Receiving objects:  23% (151/653)   Receiving objects:  24% (157/653)   Receiving objects:  25% (164/653)   Receiving objects:  26% (170/653)   Receiving objects:  27% (177/653)   Receiving objects:  28% (183/653)   Receiving objects:  29% (190/653)   Receiving objects:  30% (196/653)   Receiving objects:  31% (203/653)   Receiving objects:  32% (209/653)   Receiving objects:  33% (216/653)   Receiving objects:  34% (223/653)   Receiving objects:  35% (229/653)   Receiving objects:  36% (236/653)   Receiving objects:  37% (242/653)   Receiving objects:  38% (249/653)   Receiving objects:  39% (255/653)   Receiving objects:  40% (262/653)   Receiving objects:  41% (268/653)   Receiving objects:  42% (275/653)   Receiving objects:  43% (281/653)   Receiving objects:  44% (288/653)   Receiving objects:  45% (294/653)   Receiving objects:  46% (301/653)   Receiving objects:  47% (307/653)   Receiving objects:  48% (314/653)   Receiving objects:  49% (320/653)   Receiving objects:  50% (327/653)   Receiving objects:  51% (334/653)   Receiving objects:  52% (340/653)   Receiving objects:  53% (347/653)   Receiving objects:  54% (353/653)   Receiving objects:  55% (360/653)   Receiving objects:  56% (366/653)   Receiving objects:  57% (373/653)   Receiving objects:  58% (379/653)   Receiving objects:  59% (386/653)   Receiving objects:  60% (392/653)   Receiving objects:  61% (399/653)   Receiving objects:  62% (405/653)   Receiving objects:  63% (412/653)   Receiving objects:  64% (418/653)   Receiving objects:  65% (425/653)   Receiving objects:  66% (431/653)   Receiving objects:  67% (438/653)   Receiving objects:  68% (445/653)   Receiving objects:  69% (451/653)   Receiving objects:  70% (458/653)   Receiving objects:  71% (464/653)   Receiving objects:  72% (471/653)   Receiving objects:  73% (477/653)   Receiving objects:  74% (484/653)   Receiving objects:  75% (490/653)   Receiving objects:  76% (497/653)   Receiving objects:  77% (503/653)   Receiving objects:  78% (510/653)   Receiving objects:  79% (516/653)   Receiving objects:  80% (523/653)   Receiving objects:  81% (529/653)   Receiving objects:  82% (536/653)   Receiving objects:  83% (542/653)   Receiving objects:  84% (549/653)   Receiving objects:  85% (556/653)   Receiving objects:  86% (562/653)   Receiving objects:  87% (569/653)   Receiving objects:  88% (575/653)   Receiving objects:  89% (582/653)   remote: Total 653 (delta 493), reused 584 (delta 426), pack-reused 0[K
+Receiving objects:  90% (588/653)   Receiving objects:  91% (595/653)   Receiving objects:  92% (601/653)   Receiving objects:  93% (608/653)   Receiving objects:  94% (614/653)   Receiving objects:  95% (621/653)   Receiving objects:  96% (627/653)   Receiving objects:  97% (634/653)   Receiving objects:  98% (640/653)   Receiving objects:  99% (647/653)   Receiving objects: 100% (653/653)   Receiving objects: 100% (653/653), 97.52 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/493)   Resolving deltas:   2% (10/493)   Resolving deltas:   4% (22/493)   Resolving deltas:   5% (28/493)   Resolving deltas:   6% (30/493)   Resolving deltas:   7% (37/493)   Resolving deltas:   9% (46/493)   Resolving deltas:  10% (53/493)   Resolving deltas:  11% (58/493)   Resolving deltas:  12% (60/493)   Resolving deltas:  14% (71/493)   Resolving deltas:  17% (84/493)   Resolving deltas:  19% (97/493)   Resolving deltas:  21% (107/493)   Resolving deltas:  23% (116/493)   Resolving deltas:  24% (119/493)   Resolving deltas:  25% (125/493)   Resolving deltas:  26% (129/493)   Resolving deltas:  30% (151/493)   Resolving deltas:  31% (154/493)   Resolving deltas:  34% (172/493)   Resolving deltas:  35% (174/493)   Resolving deltas:  36% (180/493)   Resolving deltas:  37% (184/493)   Resolving deltas:  38% (191/493)   Resolving deltas:  39% (193/493)   Resolving deltas:  41% (204/493)   Resolving deltas:  42% (211/493)   Resolving deltas:  43% (215/493)   Resolving deltas:  44% (220/493)   Resolving deltas:  47% (235/493)   Resolving deltas:  48% (237/493)   Resolving deltas:  49% (244/493)   Resolving deltas:  50% (247/493)   Resolving deltas:  51% (252/493)   Resolving deltas:  54% (268/493)   Resolving deltas:  58% (287/493)   Resolving deltas:  59% (293/493)   Resolving deltas:  62% (308/493)   Resolving deltas:  63% (311/493)   Resolving deltas:  65% (322/493)   Resolving deltas:  66% (326/493)   Resolving deltas:  67% (334/493)   Resolving deltas:  68% (338/493)   Resolving deltas:  69% (342/493)   Resolving deltas:  70% (346/493)   Resolving deltas:  71% (353/493)   Resolving deltas:  72% (358/493)   Resolving deltas:  74% (368/493)   Resolving deltas:  75% (370/493)   Resolving deltas:  76% (376/493)   Resolving deltas:  77% (383/493)   Resolving deltas:  78% (389/493)   Resolving deltas:  79% (394/493)   Resolving deltas:  80% (395/493)   Resolving deltas:  82% (407/493)   Resolving deltas:  86% (427/493)   Resolving deltas:  87% (429/493)   Resolving deltas:  89% (439/493)   Resolving deltas:  92% (455/493)   Resolving deltas:  93% (463/493)   Resolving deltas:  94% (464/493)   Resolving deltas:  96% (478/493)   Resolving deltas:  97% (479/493)   Resolving deltas:  99% (489/493)   Resolving deltas: 100% (493/493)   Resolving deltas: 100% (493/493), completed with 63 local objects.
+From https://github.com/hbz/oerworldmap
+ * branch            refs/pull/359/merge -> FETCH_HEAD
+travis_time:end:2a6dde6b:start=1442953441966151901,finish=1442953446966677223,duration=5000525322[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:00ccece4[0K$ git submodule init
+Submodule 'third-party/bootstrap' (https://github.com/twbs/bootstrap.git) registered for path 'third-party/bootstrap'
+travis_time:end:00ccece4:start=1442953447068426011,finish=1442953447099269989,duration=30843978[0Ktravis_time:start:00dfdcb4[0K$ git submodule update
+Cloning into 'third-party/bootstrap'...
+remote: Counting objects: 85310, done.[K
+remote: Compressing objects:  12% (1/8)   [Kremote: Compressing objects:  25% (2/8)   [Kremote: Compressing objects:  37% (3/8)   [Kremote: Compressing objects:  50% (4/8)   [Kremote: Compressing objects:  62% (5/8)   [Kremote: Compressing objects:  75% (6/8)   [Kremote: Compressing objects:  87% (7/8)   [Kremote: Compressing objects: 100% (8/8)   [Kremote: Compressing objects: 100% (8/8), done.[K
+Receiving objects:   0% (1/85310)   Receiving objects:   1% (854/85310)   Receiving objects:   2% (1707/85310)   Receiving objects:   3% (2560/85310)   Receiving objects:   4% (3413/85310)   Receiving objects:   5% (4266/85310)   Receiving objects:   6% (5119/85310)   Receiving objects:   7% (5972/85310)   Receiving objects:   8% (6825/85310)   Receiving objects:   9% (7678/85310)   Receiving objects:  10% (8531/85310)   Receiving objects:  11% (9385/85310)   Receiving objects:  12% (10238/85310)   Receiving objects:  13% (11091/85310)   Receiving objects:  14% (11944/85310)   Receiving objects:  15% (12797/85310)   Receiving objects:  16% (13650/85310)   Receiving objects:  17% (14503/85310), 5.76 MiB | 11.49 MiB/s   Receiving objects:  18% (15356/85310), 5.76 MiB | 11.49 MiB/s   Receiving objects:  19% (16209/85310), 5.76 MiB | 11.49 MiB/s   Receiving objects:  19% (16960/85310), 15.83 MiB | 15.80 MiB/s   Receiving objects:  20% (17062/85310), 15.83 MiB | 15.80 MiB/s   Receiving objects:  21% (17916/85310), 15.83 MiB | 15.80 MiB/s   Receiving objects:  22% (18769/85310), 15.83 MiB | 15.80 MiB/s   Receiving objects:  23% (19622/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  24% (20475/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  25% (21328/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  26% (22181/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  27% (23034/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  28% (23887/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  29% (24740/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  30% (25593/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  31% (26447/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  32% (27300/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  33% (28153/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  34% (29006/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  35% (29859/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  36% (30712/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  36% (31413/85310), 24.56 MiB | 16.34 MiB/s   Receiving objects:  37% (31565/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  38% (32418/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  39% (33271/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  40% (34124/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  41% (34978/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  42% (35831/85310), 37.10 MiB | 18.46 MiB/s   Receiving objects:  43% (36684/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  44% (37537/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  45% (38390/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  46% (39243/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  47% (40096/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  48% (40949/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  49% (41802/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  50% (42655/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  51% (43509/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  52% (44362/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  53% (45215/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  54% (46068/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  55% (46921/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  55% (47364/85310), 45.65 MiB | 18.18 MiB/s   Receiving objects:  56% (47774/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  57% (48627/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  58% (49480/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  59% (50333/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  60% (51186/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  61% (52040/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  62% (52893/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  63% (53746/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  64% (54599/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  65% (55452/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  66% (56305/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  67% (57158/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  68% (58011/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  69% (58864/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  70% (59717/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  71% (60571/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  72% (61424/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  73% (62277/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  74% (63130/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  75% (63983/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  76% (64836/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  77% (65689/85310), 59.05 MiB | 19.61 MiB/s   Receiving objects:  78% (66542/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  79% (67395/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  80% (68248/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  81% (69102/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  82% (69955/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  83% (70808/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  84% (71661/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  85% (72514/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  86% (73367/85310), 74.70 MiB | 21.26 MiB/s   Receiving objects:  86% (73993/85310), 81.96 MiB | 20.13 MiB/s   Receiving objects:  86% (74069/85310), 82.00 MiB | 17.28 MiB/s   Receiving objects:  86% (74079/85310), 82.08 MiB | 12.55 MiB/s   Receiving objects:  86% (74079/85310), 82.13 MiB | 10.40 MiB/s   Receiving objects:  86% (74080/85310), 82.21 MiB | 6.12 MiB/s   Receiving objects:  86% (74080/85310), 82.25 MiB | 3.68 MiB/s   Receiving objects:  86% (74080/85310), 82.29 MiB | 1.16 MiB/s   Receiving objects:  86% (74137/85310), 82.35 MiB | 51.00 KiB/s   Receiving objects:  86% (74173/85310), 82.37 MiB | 49.00 KiB/s   Receiving objects:  87% (74220/85310), 82.37 MiB | 49.00 KiB/s   Receiving objects:  87% (74469/85310), 82.81 MiB | 115.00 KiB/s   Receiving objects:  87% (74937/85310), 83.68 MiB | 255.00 KiB/s   Receiving objects:  88% (75073/85310), 84.12 MiB | 338.00 KiB/s   Receiving objects:  89% (75926/85310), 84.82 MiB | 481.00 KiB/s   Receiving objects:  89% (76159/85310), 84.82 MiB | 481.00 KiB/s   Receiving objects:  90% (76779/85310), 85.57 MiB | 643.00 KiB/s   Receiving objects:  91% (77633/85310), 85.57 MiB | 643.00 KiB/s   Receiving objects:  92% (78486/85310), 85.57 MiB | 643.00 KiB/s   Receiving objects:  92% (78959/85310), 86.43 MiB | 844.00 KiB/s   Receiving objects:  93% (79339/85310), 86.43 MiB | 844.00 KiB/s   Receiving objects:  94% (80192/85310), 86.43 MiB | 844.00 KiB/s   Receiving objects:  95% (81045/85310), 87.25 MiB | 1.05 MiB/s   Receiving objects:  96% (81898/85310), 87.25 MiB | 1.05 MiB/s   Receiving objects:  97% (82751/85310), 87.25 MiB | 1.05 MiB/s   Receiving objects:  98% (83604/85310), 87.25 MiB | 1.05 MiB/s   Receiving objects:  99% (84457/85310), 87.25 MiB | 1.05 MiB/s   Receiving objects:  99% (84573/85310), 88.32 MiB | 1.29 MiB/s   remote: Total 85310 (delta 0), reused 0 (delta 0), pack-reused 85302[K
+Receiving objects: 100% (85310/85310), 90.32 MiB | 1.64 MiB/s   Receiving objects: 100% (85310/85310), 93.65 MiB | 1.75 MiB/s, done.
+Resolving deltas:   0% (0/53239)   Resolving deltas:   1% (540/53239)   Resolving deltas:   2% (1067/53239)   Resolving deltas:   3% (1598/53239)   Resolving deltas:   4% (2130/53239)   Resolving deltas:   5% (2679/53239)   Resolving deltas:   6% (3195/53239)   Resolving deltas:   7% (3727/53239)   Resolving deltas:   8% (4264/53239)   Resolving deltas:   9% (4800/53239)   Resolving deltas:  10% (5334/53239)   Resolving deltas:  11% (5865/53239)   Resolving deltas:  12% (6398/53239)   Resolving deltas:  13% (7047/53239)   Resolving deltas:  14% (7472/53239)   Resolving deltas:  15% (8035/53239)   Resolving deltas:  16% (8523/53239)   Resolving deltas:  17% (9062/53239)   Resolving deltas:  18% (9673/53239)   Resolving deltas:  19% (10118/53239)   Resolving deltas:  20% (10663/53239)   Resolving deltas:  21% (11186/53239)   Resolving deltas:  21% (11345/53239)   Resolving deltas:  22% (11774/53239)   Resolving deltas:  23% (12253/53239)   Resolving deltas:  24% (12979/53239)   Resolving deltas:  25% (13570/53239)   Resolving deltas:  26% (13873/53239)   Resolving deltas:  27% (14383/53239)   Resolving deltas:  28% (14908/53239)   Resolving deltas:  29% (15441/53239)   Resolving deltas:  30% (15981/53239)   Resolving deltas:  31% (16506/53239)   Resolving deltas:  32% (17047/53239)   Resolving deltas:  33% (17587/53239)   Resolving deltas:  34% (18102/53239)   Resolving deltas:  35% (18636/53239)   Resolving deltas:  36% (19167/53239)   Resolving deltas:  37% (19713/53239)   Resolving deltas:  38% (20240/53239)   Resolving deltas:  39% (20771/53239)   Resolving deltas:  40% (21366/53239)   Resolving deltas:  41% (21828/53239)   Resolving deltas:  42% (22361/53239)   Resolving deltas:  43% (22907/53239)   Resolving deltas:  44% (23486/53239)   Resolving deltas:  45% (24021/53239)   Resolving deltas:  46% (24494/53239)   Resolving deltas:  47% (25024/53239)   Resolving deltas:  48% (25562/53239)   Resolving deltas:  48% (26016/53239)   Resolving deltas:  49% (26185/53239)   Resolving deltas:  50% (26630/53239)   Resolving deltas:  51% (27154/53239)   Resolving deltas:  52% (27707/53239)   Resolving deltas:  53% (28333/53239)   Resolving deltas:  54% (28750/53239)   Resolving deltas:  55% (29320/53239)   Resolving deltas:  56% (29818/53239)   Resolving deltas:  57% (30353/53239)   Resolving deltas:  58% (30879/53239)   Resolving deltas:  59% (31425/53239)   Resolving deltas:  60% (32000/53239)   Resolving deltas:  61% (32500/53239)   Resolving deltas:  62% (33012/53239)   Resolving deltas:  63% (33542/53239)   Resolving deltas:  64% (34098/53239)   Resolving deltas:  65% (34613/53239)   Resolving deltas:  66% (35143/53239)   Resolving deltas:  67% (35673/53239)   Resolving deltas:  68% (36205/53239)   Resolving deltas:  69% (36745/53239)   Resolving deltas:  70% (37272/53239)   Resolving deltas:  71% (37802/53239)   Resolving deltas:  72% (38336/53239)   Resolving deltas:  73% (38884/53239)   Resolving deltas:  74% (39399/53239)   Resolving deltas:  75% (39930/53239)   Resolving deltas:  76% (40496/53239)   Resolving deltas:  77% (41039/53239)   Resolving deltas:  78% (41534/53239)   Resolving deltas:  79% (42059/53239)   Resolving deltas:  80% (42596/53239)   Resolving deltas:  81% (43141/53239)   Resolving deltas:  82% (43691/53239)   Resolving deltas:  83% (44197/53239)   Resolving deltas:  84% (44723/53239)   Resolving deltas:  85% (45260/53239)   Resolving deltas:  86% (45845/53239)   Resolving deltas:  87% (46327/53239)   Resolving deltas:  88% (46853/53239)   Resolving deltas:  89% (47383/53239)   Resolving deltas:  90% (47927/53239)   Resolving deltas:  91% (48455/53239)   Resolving deltas:  92% (49072/53239)   Resolving deltas:  93% (49516/53239)   Resolving deltas:  93% (49877/53239)   Resolving deltas:  94% (50068/53239)   Resolving deltas:  95% (50644/53239)   Resolving deltas:  96% (51110/53239)   Resolving deltas:  97% (51643/53239)   Resolving deltas:  98% (52177/53239)   Resolving deltas:  99% (52727/53239)   Resolving deltas: 100% (53239/53239)   Resolving deltas: 100% (53239/53239), done.
+Checking connectivity... done.
+Submodule path 'third-party/bootstrap': checked out '063c1b0780ea0240e4adce4c88d57fc23e099475'
+travis_time:end:00dfdcb4:start=1442953447102873948,finish=1442953469856601472,duration=22753727524[0Ktravis_fold:end:git.submodule[0Ktravis_fold:start:services[0Ktravis_time:start:1bd73a78[0K$ sudo service elasticsearch start
+ * Starting Elasticsearch Server       [80G /etc/init.d/elasticsearch: 153: ulimit: error setting limit (Operation not permitted)
+error: permission denied on key 'vm.max_map_count'
+[74G[ OK ]
+travis_time:end:1bd73a78:start=1442953469861448182,finish=1442953469896848602,duration=35400420[0Ktravis_fold:end:services[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:15591d80[0K$ Installing caching utilities
+travis_time:end:15591d80:start=1442953475196104656,finish=1442953475223612447,duration=27507791[0Ktravis_time:start:130ae934[0Kattempting to download cache archive
+fetching PR.359/cache--jdk-oraclejdk8--scala-2.10.4.tgz
+found cache
+travis_time:end:130ae934:start=1442953475228822804,finish=1442953481588300733,duration=6359477929[0Ktravis_time:start:14a5b608[0Kadding /home/travis/.ivy2/cache to cache
+travis_time:end:14a5b608:start=1442953481592769435,finish=1442953489640116961,duration=8047347526[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export JVM_OPTS=@/etc/sbt/jvmopts
+$ export SBT_OPTS=@/etc/sbt/sbtopts
+$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+Using Scala 2.10.4
+travis_fold:start:before_script[0Ktravis_time:start:1c5a28f8[0K$ cp conf/travis.conf conf/test.conf
+travis_time:end:1c5a28f8:start=1442953490629323041,finish=1442953490634008570,duration=4685529[0Ktravis_fold:end:before_script[0Ktravis_time:start:02f790a0[0K$ sbt ++2.10.4 test
+Detected sbt version 0.13.7
+Using jvm options defined in file /etc/sbt/jvmopts
+# Executing command line:
+/usr/lib/jvm/java-8-oracle/bin/java
+-Xms2048M
+-Xmx2048M
+-Xss6M
+-XX:MaxPermSize=512M
+-jar
+/home/travis/.sbt/launchers/0.13.7/sbt-launch.jar
+warn
+"set javaHome in ThisBuild := Some(file("/usr/lib/jvm/java-8-oracle"))"
+info
+++2.10.4
+test
+
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=512M; support was removed in 8.0
+[0m[[0minfo[0m] [0mLoading project definition from /home/travis/build/hbz/oerworldmap/project[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/hbz/oerworldmap/project/}oerworldmap-build...[0m
+[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-plugin;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#build-link;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-exceptions;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.javassist#javassist;3.18.2-GA ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#routes-compiler_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-io#commons-io;2.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#sbt-run-support_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#io;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#control;0.13.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#config;1.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mozilla#rhino;1.7R4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.javascript#closure-compiler;v20130603 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json#json;20090211 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.guava#guava;16.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.h2database#h2;1.3.175 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.contentobjects.jnotify#jnotify;0.94 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-twirl;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#twirl-compiler_2.10;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#twirl-api_2.10;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-lang3;3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#twirl-parser_2.10;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-plugin;2.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbteclipse#sbteclipse-core;2.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-core_2.10;7.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-effect_2.10;7.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.mpeltonen#sbt-idea;1.5.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-native-packager;0.7.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-compress;1.4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.tukaani#xz;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.vafer#jdeb;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-io#commons-io;2.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-compress;1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.tukaani#xz;1.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-core;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-model;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.plexus#plexus-utils;3.0.17 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-settings;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-settings-builder;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.plexus#plexus-interpolation;1.19 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.plexus#plexus-component-annotations;1.5.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.plexus#plexus-sec-dispatcher;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.plexus#plexus-cipher;1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-repository-metadata;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-artifact;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-plugin-api;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.sisu#org.eclipse.sisu.plexus;0.0.0.M5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.enterprise#cdi-api;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.annotation#jsr250-api;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.inject#javax.inject;1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.sonatype.sisu#sisu-guice;3.1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving aopalliance#aopalliance;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.sisu#org.eclipse.sisu.inject;0.0.0.M5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.codehaus.plexus#plexus-classworlds;2.5.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-model-builder;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.maven#maven-aether-provider;3.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.aether#aether-api;0.9.0.M2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.aether#aether-spi;0.9.0.M2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.aether#aether-util;0.9.0.M2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.aether#aether-impl;0.9.0.M2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.ant#ant;1.9.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.ant#ant-launcher;1.9.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.bouncycastle#bcpg-jdk15on;1.51 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.bouncycastle#bcprov-jdk15on;1.51 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-js-engine;1.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#jse_2.10;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-actor_2.10;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-contrib_2.10;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-remote_2.10;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.netty#netty;3.8.0.Final ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.protobuf#protobuf-java;2.5.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.uncommons.maths#uncommons-maths;1.2.2a ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-cluster_2.10;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-persistence-experimental_2.10;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.iq80.leveldb#leveldb;0.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.iq80.leveldb#leveldb-api;0.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-all;1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni;1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.hawtjni#hawtjni-runtime;1.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-osx;1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-linux32;1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-linux64;1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-win32;1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.leveldbjni#leveldbjni-win64;1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.apigee.trireme#trireme-core;0.7.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.7.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.apigee.trireme#trireme-node10src;0.7.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-json_2.10;1.2.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-scala_2.10;1.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-core;1.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-simple;1.7.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.7.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#npm_2.10;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#npm;1.3.26 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#webjars-locator;0.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-databind;2.3.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-annotations;2.3.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-core;2.3.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-web;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-webdriver;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#webdriver_2.10;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-client;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-can;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-io;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-util;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-http;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.spray#spray-httpx;1.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.jvnet.mimepull#mimepull;1.9.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.htmlunit#htmlunit;2.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xalan#xalan;2.7.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xalan#serializer;2.7.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xml-apis#xml-apis;1.3.04 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-collections#commons-collections;3.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-lang3;3.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpmime;4.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.htmlunit#htmlunit-core-js;2.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xerces#xercesImpl;2.11.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xml-apis#xml-apis;1.4.01 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.nekohtml#nekohtml;1.9.20 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.cssparser#cssparser;0.9.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.w3c.css#sac;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-websocket;8.1.14.v20131031 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-util;8.1.14.v20131031 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-io;8.1.14.v20131031 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-http;8.1.14.v20131031 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.sbt#sbt-less;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#less-node;1.6.0-1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#source-map;0.1.31-2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#amdefine;0.1.0-1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webjars#mkdirp;0.3.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#sbt;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#actions;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classpath;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#launcher-interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#io;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#control;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#completion;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#collections;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving jline#jline;2.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#api;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-integration;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#incremental-compiler;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logging;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#process;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#relation;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compile;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#persist;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-tools.sbinary#sbinary_2.10;0.4.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#classfile;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-ivy-integration;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#ivy;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cross;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt.ivy#ivy;2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.jcraft#jsch;0.1.46 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-native_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-core_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json4s#json4s-ast_2.10;3.2.10 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.thoughtworks.paranamer#paranamer;2.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scalap;2.10.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.spire-math#jawn-parser_2.10;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.spire-math#json4s-support_2.10;0.6.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#run;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#task-system;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tasks;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#tracking;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#cache;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#testing;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-agent;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#main-settings;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#apply-macro;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#command;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#logic;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#compiler-interface;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_8_2;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_2;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#precompiled-2_9_3;0.13.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mSet current project to oerworldmap (in build file:/home/travis/build/hbz/oerworldmap/)[0m
+[0m[[0minfo[0m] [0mSetting version to 2.10.4[0m
+[0m[[0minfo[0m] [0mReapplying settings...[0m
+[0m[[0minfo[0m] [0mSet current project to oerworldmap (in build file:/home/travis/build/hbz/oerworldmap/)[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/travis/build/hbz/oerworldmap/}root...[0m
+[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#twirl-api_2.10;1.0.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-lang3;3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#build-link;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-exceptions;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.javassist#javassist;3.18.2-GA ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-iteratees_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-stm#scala-stm_2.10;0.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe#config;1.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-json_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-functional_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-datacommons_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving joda-time#joda-time;2.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.joda#joda-convert;1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-annotations;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-core;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml.jackson.core#jackson-databind;2.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving io.netty#netty;3.9.3.Final ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.netty#netty-http-pipelining;1.1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#slf4j-api;1.7.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#jul-to-slf4j;1.7.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.slf4j#jcl-over-slf4j;1.7.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-core;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving ch.qos.logback#logback-classic;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-actor_2.10;2.3.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.akka#akka-slf4j_2.10;2.3.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-codec#commons-codec;1.9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xerces#xercesImpl;2.11.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xml-apis#xml-apis;1.4.01 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.transaction#jta;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.yaml#snakeyaml;1.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.hibernate#hibernate-validator;5.0.3.Final ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.validation#validation-api;1.1.0.Final ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.jboss.logging#jboss-logging;3.1.1.GA ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.fasterxml#classmate;1.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.jboss.logging#jboss-logging;3.2.0.Final ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.springframework#spring-context;4.0.3.RELEASE ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.springframework#spring-core;4.0.3.RELEASE ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.springframework#spring-beans;4.0.3.RELEASE ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.reflections#reflections;0.9.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving dom4j#dom4j;1.6.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.guava#guava;16.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.code.findbugs#jsr305;2.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.tomcat#tomcat-servlet-api;8.0.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-cache_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sf.ehcache#ehcache-core;2.6.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java-ws_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-ws_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.ning#async-http-client;1.8.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving oauth.signpost#signpost-core;1.2.1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving oauth.signpost#signpost-commonshttp4;1.2.1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.0.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-validator#commons-validator;1.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-beanutils#commons-beanutils;1.8.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-digester#commons-digester;1.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#jackson-coreutils;1.8 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#msg-simple;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#btf;1.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#json-schema-validator;2.2.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.google.code.findbugs#jsr305;3.0.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.googlecode.libphonenumber#libphonenumber;6.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#json-schema-core;1.2.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.fge#uri-template;0.9 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mozilla#rhino;1.7R4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.mail#mailapi;1.4.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.activation#activation;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sf.jopt-simple#jopt-simple;4.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.googlecode.json-simple#json-simple;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-email;1.3.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.mail#mail;1.4.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving javax.activation#activation;1.1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-io;1.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-io#commons-io;1.3.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.elasticsearch#elasticsearch;1.3.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-core;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-analyzers-common;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-codecs;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-queries;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-memory;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-highlighter;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-queryparser;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-sandbox;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-suggest;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-misc;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-join;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-grouping;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.lucene#lucene-spatial;4.9.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.spatial4j#spatial4j;0.4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.antlr#antlr-runtime;3.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-commons;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.json#json;20141113 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.pegdown#pegdown;1.5.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-java;1.1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-core;1.1.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;5.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-tree;5.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-analysis;5.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-util;5.0.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.github.jknack#handlebars;2.2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.antlr#antlr4-runtime;4.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-test_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving junit#junit;4.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.hamcrest#hamcrest-core;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-core_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-matcher_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-common_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-core_2.10;7.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-concurrent_2.10;7.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalaz#scalaz-effect_2.10;7.0.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-junit_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-mock_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.mockito#mockito-core;1.9.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.objenesis#objenesis;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-matcher-extra_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#specs2-analysis_2.10;2.3.12 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#scala-compiler;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.specs2#classycle;1.4.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scalamacros#quasiquotes_2.10;2.0.0-M7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.novocode#junit-interface;0.11-RC1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-sbt#test-interface;1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fluentlenium#fluentlenium-festassert;0.9.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fluentlenium#fluentlenium-core;0.9.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-java;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-android-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-remote-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving cglib#cglib-nodep;2.1_3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-api;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpclient;4.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpcore;4.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-logging#commons-logging;1.1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.commons#commons-exec;1.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.java.dev.jna#jna;3.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.java.dev.jna#platform;3.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-chrome-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-htmlunit-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.htmlunit#htmlunit;2.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xalan#xalan;2.7.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving xalan#serializer;2.7.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-collections#commons-collections;3.2.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.apache.httpcomponents#httpmime;4.3.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.htmlunit#htmlunit-core-js;2.13 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.nekohtml#nekohtml;1.9.19 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving net.sourceforge.cssparser#cssparser;0.9.11 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.w3c.css#sac;1.3 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-io#commons-io;2.2 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-websocket;8.1.12.v20130726 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-util;8.1.12.v20130726 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-io;8.1.12.v20130726 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.eclipse.jetty#jetty-http;8.1.12.v20130726 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-firefox-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-ie-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-iphone-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-safari-driver;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.webbitserver#webbit;0.4.14 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.seleniumhq.selenium#selenium-support;2.39.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.easytesting#fest-assert;1.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.easytesting#fest-util;1.1.6 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-docs_2.10;2.3.7 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving com.typesafe.play#play-doc_2.10;1.1.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.pegdown#pegdown;1.4.0 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-java;1.1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.parboiled#parboiled-core;1.1.5 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-tree;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-analysis;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-util;4.1 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving commons-io#commons-io;2.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
+M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
+[0m[[0minfo[0m] [0mDone updating.[0m
+[0m[[0minfo[0m] [0mLESS compiling on 1 source(s)[0m
+[0m[[0minfo[0m] [0mCompiling 3 Scala sources and 37 Java sources to /home/travis/build/hbz/oerworldmap/target/scala-2.10/classes...[0m
+[0m[[0minfo[0m] [0mCompiling 16 Java sources to /home/travis/build/hbz/oerworldmap/target/scala-2.10/test-classes...[0m
+[[37minfo[0m] application - oerworldmap has started
+[[37minfo[0m] application - Elasticsearch config: Config(SimpleConfigObject({"admin":{"pass":"pass","user":"user"},"application":{"global":"controllers.Global"},"es":{"cluster":{"name":"elasticsearch"},"host":{"port":{"http":"9200","java":"9300"},"server":"localhost"},"index":{"name":"oerworldmap","type":"resource"}},"filerepo":{"dir":"data/resources"},"i18n":{"enabled":false},"java":{"version":1.8},"mail":{"smtp":{"from":"","host":"","password":"","port":1,"sender":"","ssl":false,"user":""}},"mailman":{"host":"","list":""},"user":{"email":{"unique":false},"token":{"dir":"data/tokens"}}}))
+[[37minfo[0m] application - oerworldmap shutdown...
+[[37minfo[0m] application - oerworldmap has started
+[[37minfo[0m] application - Elasticsearch config: Config(SimpleConfigObject({"admin":{"pass":"pass","user":"user"},"application":{"global":"controllers.Global"},"es":{"cluster":{"name":"elasticsearch"},"host":{"port":{"http":"9200","java":"9300"},"server":"localhost"},"index":{"name":"oerworldmap","type":"resource"}},"filerepo":{"dir":"data/resources"},"i18n":{"enabled":false},"java":{"version":1.8},"mail":{"smtp":{"from":"","host":"","password":"","port":1,"sender":"","ssl":false,"user":""}},"mailman":{"host":"","list":""},"user":{"email":{"unique":false},"token":{"dir":"data/tokens"}}}))
+[[37minfo[0m] application - oerworldmap shutdown...
+[[37minfo[0m] application - oerworldmap has started
+[[37minfo[0m] application - Elasticsearch config: Config(SimpleConfigObject({"admin":{"pass":"pass","user":"user"},"application":{"global":"controllers.Global"},"es":{"cluster":{"name":"elasticsearch"},"host":{"port":{"http":"9200","java":"9300"},"server":"localhost"},"index":{"name":"oerworldmap","type":"resource"}},"filerepo":{"dir":"data/resources"},"i18n":{"enabled":false},"java":{"version":1.8},"mail":{"smtp":{"from":"","host":"","password":"","port":1,"sender":"","ssl":false,"user":""}},"mailman":{"host":"","list":""},"user":{"email":{"unique":false},"token":{"dir":"data/tokens"}}}))
+[[37minfo[0m] application - oerworldmap shutdown...
+[[37minfo[0m] application - oerworldmap has started
+[[37minfo[0m] application - Elasticsearch config: Config(SimpleConfigObject({"admin":{"pass":"pass","user":"user"},"application":{"global":"controllers.Global"},"es":{"cluster":{"name":"elasticsearch"},"host":{"port":{"http":"9200","java":"9300"},"server":"localhost"},"index":{"name":"oerworldmap","type":"resource"}},"filerepo":{"dir":"data/resources"},"i18n":{"enabled":false},"java":{"version":1.8},"mail":{"smtp":{"from":"","host":"","password":"","port":1,"sender":"","ssl":false,"user":""}},"mailman":{"host":"","list":""},"user":{"email":{"unique":false},"token":{"dir":"data/tokens"}}}))
+[[37minfo[0m] application - oerworldmap shutdown...
+[[37minfo[0m] application - oerworldmap has started
+[[37minfo[0m] application - Elasticsearch config: Config(SimpleConfigObject({"admin":{"pass":"pass","user":"user"},"application":{"global":"controllers.Global"},"es":{"cluster":{"name":"elasticsearch"},"host":{"port":{"http":"9200","java":"9300"},"server":"localhost"},"index":{"name":"oerworldmap","type":"resource"}},"filerepo":{"dir":"data/resources"},"i18n":{"enabled":false},"java":{"version":1.8},"mail":{"smtp":{"from":"","host":"","password":"","port":1,"sender":"","ssl":false,"user":""}},"mailman":{"host":"","list":""},"user":{"email":{"unique":false},"token":{"dir":"data/tokens"}}}))
+[[37minfo[0m] application - oerworldmap shutdown...
+[0m[[0minfo[0m] [0mPassed: Total 48, Failed 0, Errors 0, Passed 48[0m
+[0m[[32msuccess[0m] [0mTotal time: 72 s, completed Sep 22, 2015 8:26:42 PM[0m
+travis_time:end:02f790a0:start=1442953490638343845,finish=1442953603025304537,duration=112386960692[0K
+[32;1mThe command "sbt ++2.10.4 test" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:007e5490[0Knothing changed, not updating cache
+travis_time:end:007e5490:start=1442953603029821498,finish=1442953604190637298,duration=1160815800[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.
