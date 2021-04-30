@@ -1,8 +1,18 @@
 # PyDFix-dev
 
 ## About
-This is the artifact accompanying the ISSTA 2021 paper titled "Fixing Dependency
-Errors for Python Build Reproducibility"
+PyDFix is a tool that helps detect and fix dependency errors that
+cause the unreproducibility of Python builds. PyDFix takes as input
+the current build log, the original build log and the source code. PyDFix first
+identifies dependency errors and possible dependency packages causing
+these errors using LogErrorAnalyzer. This is followed by iteratively
+building a patch that makes the build reproducible again by Itera-
+tiveDependencySolver. The iterative algorithm for building the patch
+keeps re-running the build with intermediate patches and analyzing the
+new build logs produced to further identify errors and problematic
+dependency version specifications. This process continues until the
+build becomes reproducible, or all patch options have been tested and
+deemed not useful.
 
 ![PyDFix Workflow](workflow_diagram.png)
 
