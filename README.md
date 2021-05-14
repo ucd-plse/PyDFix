@@ -21,7 +21,7 @@ __We recommend the use of a terminal multiplexer like ```tmux``` to run the
 processes for PyDFix. This is to prevent the processes from being interrupted
 based on connection to the terminal. The tmux command is included in Step 2 of setup.__
 ## Setup using Docker image (recommended)
-&#x1F536;__Requirement: Docker version >= 20.10.3__
+&#x1F536;__Requirement: Docker version >= 20.10.3 Ubuntu version = 18.04__
 &#x1F536; __The estimated running time for the following commands
 is: &le;15 minutes.__
 ### Step 1: Pull PyDFix docker image
@@ -144,7 +144,12 @@ $ python3 bugswarm_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugswarm 
 ```
 
 The output from running these commands is a message printed to the terminal and a file ```
-artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](#output-1).
+artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](#output-1). <br/>
+
+__Note:__ If the LogErrorAnalyzer run does not complete successfully, there may be Docker containers left running which will interfere with subsequent runs. To resolve this issue and cleanup running containers, run the following command.
+```sh
+$ source bugswarm_cleanup_containers.sh
+```
 
 ### BugsInPy 
 
