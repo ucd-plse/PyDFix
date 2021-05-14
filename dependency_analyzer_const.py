@@ -357,8 +357,8 @@ class DependencyAnalyzerConstants:
     OUTPUT_LOG = 'output-log.log'
 
     # GitHub constants
-    GITHUB_USER_NAME = 'Suchita94'
-    GITHUB_AUTH_TOKEN = 'f95f0212b5a0cf34abb68bb5f4051e6547108971'
+    GITHUB_USER_NAME =
+    GITHUB_AUTH_TOKEN =
     GITHUB_URL = 'https://github.com/'
     GITHUB_COMMITS_API_URL = 'https://api.github.com/repos/{}/commits/{}'
     GITHUB_ARCHIVE_API_URL = 'https://api.github.com/repos/{}/zipball/{}'
