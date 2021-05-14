@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y git sudo gnupg \
 	echo America/Los_Angeles > /etc/timezone
 
 USER pydfix
-RUN cd /home/pydfix; git clone https://d719e4197f40295271a1ed2c375dae6dd463ef67@github.com/BugSwarm/PyDFix-dev.git
-WORKDIR /home/pydfix/PyDFix-dev
+RUN cd /home/pydfix; git clone https://github.com/ucd-plse/PyDFix.git
+WORKDIR /home/pydfix/PyDFix
 RUN sudo su pydfix -c ./provision.sh && \
 	echo "source /etc/profile.d/rvm.sh" >> /home/pydfix/.bashrc && \
 	echo "source ~/.bashrc" >> /home/pydfix/.bash_profile

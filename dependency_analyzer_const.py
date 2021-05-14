@@ -254,7 +254,7 @@ class DependencyAnalyzerConstants:
     CREATE_DIR_CMD = 'sudo mkdir {}/{}'
     SUDO_MKDIR = 'sudo mkdir {}'
     COPY_FILE_CMD = 'cp {} {}'
-    BUGSWARM_RUN_LOG_ANALYZER = 'python3 bugswarm_log_dependency_analyzer.py -path {} -originallogs ~/PyDFix-dev/orig_log_bugswarm -solverrun {}'
+    BUGSWARM_RUN_LOG_ANALYZER = 'python3 bugswarm_log_dependency_analyzer.py -path {} -originallogs ~/PyDFix/orig_log_bugswarm -solverrun {}'
     BUGSINPY_RUN_LOG_ANALYZER = 'python3 bugsinpy_log_dependency_analyzer.py -path {} -originallogs {} -component {} -solverrun {}'
     CHANGE_PERMISSION_CMD = 'sudo chmod -R 777 {}'
     COPY_BUGSWARM_SANDBOX_LOG = 'cp ~/bugswarm-sandbox/{}_{}.log {}'

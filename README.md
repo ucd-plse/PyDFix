@@ -1,4 +1,4 @@
-# PyDFix-dev
+# PyDFix
 
 ## About
 PyDFix is a tool that helps detect and fix dependency errors that
@@ -26,12 +26,12 @@ based on connection to the terminal. The tmux command is included in Step 2 of s
 is: &le;15 minutes.__
 ### Step 1: Pull PyDFix docker image
 ```sh
-$ sudo docker pull suchita94/pydfix-dev 
+$ sudo docker pull suchita94/pydfix
 ```
 ### Step 2: Run container from PyDFix image
 ```sh
 $ tmux
-$ sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --net=host -it suchita94/pydfix-dev 
+$ sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --net=host -it suchita94/pydfix
 ```
 
 ### Step 3: Setup Docker permissions
@@ -42,36 +42,36 @@ $ sudo su pydfix
 
 ### Step 4: Setup Datasets
 ```sh
-$ export PATH=$PATH:/home/pydfix/PyDFix-dev/BugsInPy/framework/bin/
+$ export PATH=$PATH:/home/pydfix/PyDFix/BugsInPy/framework/bin/
 $ source bugsinpy_setup.sh
 $ source bugswarm_setup.sh
 ```
 
 PyDFix can also be set up without using the Docker image, the instructions are
-detailed in [this section](https://github.com/BugSwarm/PyDFix-dev#setup-without-docker-image-not-recommended).
+detailed in [this section](#setup-without-docker-image-not-recommended).
 
 # Detailed Description
 The replication process is broadly divided into 4 sections as follows:
-- *__Step 1__*: [BugSwarm Metrics](https://github.com/BugSwarm/PyDFix-dev#step-1-bugswarm-metrics)
+- *__Step 1__*: [BugSwarm Metrics](#step-1-bugswarm-metrics)
   First we gather data about the frequency of dependency package usage in BugSwarm builds as a part of our motivation. In this step, we will re-create the data presented in __Section 3.1, Figures 2 and 3__ of the
   paper.
 - *__Step 2__*:
-  [LogErrorAnalyzer](https://github.com/BugSwarm/PyDFix-dev#step-2-logerroranalyzer)
+  [LogErrorAnalyzer](#step-2-logerroranalyzer)
   Next we use the first component of PyDFix, LogErrorAnalyzer which analyzes current build logs and on comparing them with original build logs identifies builds that are unreproducible due to dependency errors. Here, the script will run LogErrorAnalyzer which is described in further detail in __Section
   4.1__ and generate the data produced in __Table 4__ of the paper.
 - *__Step 3__*:
-  [IterativeDependencySolver](https://github.com/BugSwarm/PyDFix-dev#step-3-iterativedependencysolver)
+  [IterativeDependencySolver](#step-3-iterativedependencysolver)
   The next component of PyDFix is IterativeDependencySolver which takes as input the builds identified in the previous step and iteratively computes a patch comprising of a list of pinned dependencies to make the build reproducible again. This step runs IterativeDependencySolver which is described in detail in __Section 4.2__ on all
   the artifacts identified in Step 2 to generate the data presented in __Table
   5__ of the paper.
-- *__Step 4__*: [BugsSwarm Patch Metrics](https://github.com/BugSwarm/PyDFix-dev#step-4-patch-metrics)
+- *__Step 4__*: [BugsSwarm Patch Metrics](#step-4-patch-metrics)
   Finally, we gather metrics on the patches computed by PyDFix. In this step, the script will re-create the data shown in __Table 6__ of the paper.
   <br/>
   &nbsp;
 
 __&#x1F534; Note: While running any of the commands associated with any step, errors messages maybe printed to the terminal which are encountered while using a build from the datasets used. Such error messsages *DO NOT* indicate that the command was unsuccessful. Each step prints a message at the end of the run showing the details of the run, and summarizing its results. This message will indicate that the step was successful.__
 
-In the section [Reusing PyDFix](https://github.com/BugSwarm/PyDFix-dev/blob/master/README.md#reusing-pydfix) we have provided a high level overview of the modifications required to extend the work done so far.
+In the section [Reusing PyDFix](/blob/master/README.md#reusing-pydfix) we have provided a high level overview of the modifications required to extend the work done so far.
 ## *STEP 1*: BugSwarm Metrics
 The following script gathers metrics about dependency packages from original
 build logs of BugSwarm artifacts. (Recall that we could not perform this on
@@ -79,7 +79,7 @@ BugsInPy due to the absence of original build logs.)<br/>
 &#x1F536; __The estimated running time for the following command
 is: &le;10 minutes.__
 ```sh
-$ python3 gather_metrics_from_orig_logs.py -path ~/PyDFix-dev -originallogs ~/PyDFix-dev/orig_log_bugswarm
+$ python3 gather_metrics_from_orig_logs.py -path ~/PyDFix -originallogs ~/PyDFix/orig_log_bugswarm
 ```
 
 Note: The artifacts.json for BugSwarm v1.1.3 is included in the root of the
@@ -124,7 +124,7 @@ This runs LogErrorAnalyzer on a subset of 20 BugSwarm builds, which is a represe
 is: &le;15 minutes.__
 ```sh
 $ mkdir repro_log_bugswarm
-$ python3 bugswarm_log_dependency_analyzer.py -path ~/PyDFix-dev/repro_log_bugswarm -originallogs ~/PyDFix-dev/orig_log_bugswarm -subsetrun
+$ python3 bugswarm_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugswarm -originallogs ~/PyDFix/orig_log_bugswarm -subsetrun
 ```
 
 #### Full Run
@@ -134,11 +134,11 @@ source code available on GitHub.<br/>
 is: &le;3 hours.__
 ```sh
 $ mkdir repro_log_bugswarm
-$ python3 bugswarm_log_dependency_analyzer.py -path ~/PyDFix-dev/repro_log_bugswarm -originallogs ~/PyDFix-dev/orig_log_bugswarm
+$ python3 bugswarm_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugswarm -originallogs ~/PyDFix/orig_log_bugswarm
 ```
 
 The output from running these commands is a message printed to the terminal and a file ```
-artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](https://github.com/BugSwarm/PyDFix-dev#output-1).
+artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](#output-1).
 
 ### BugsInPy 
 
@@ -148,7 +148,7 @@ This runs LogErrorAnalyzer on a subset of 20 BugsInPy builds, which is a represe
 is: &le;30 minutes.__
 ```sh
 $ mkdir repro_log_bugsinpy 
-$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix-dev/repro_log_bugsinpy -originallogs ~/PyDFix-dev/orig_log_bugsinpy -component ~/PyDFix-dev/BugsInPy -subsetrun
+$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugsinpy -originallogs ~/PyDFix/orig_log_bugsinpy -component ~/PyDFix/BugsInPy -subsetrun
 ```
 
 #### Full Run
@@ -161,13 +161,13 @@ dataset. In order to avoid this, we have provided the generated original logs in
 the directory ```orig_log_bugsinpy``` from where LogErrorAnalyzer reads the
 BugsInPy original logs for each artifact. If you wish to make this run without
 using our provided original logs, go to [With original log generation for
-BugsInPy](https://github.com/BugSwarm/PyDFix-dev#with-original-log-generation-for-bugsinpy-not-recommended).
+BugsInPy](#with-original-log-generation-for-bugsinpy-not-recommended).
 <br/>
 &#x1F536; __The estimated running time for the following command
 is: &le;7 hours.__
 ```sh
 $ mkdir repro_log_bugsinpy
-$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix-dev/repro_log_bugsinpy -originallogs ~/PyDFix-dev/orig_log_bugsinpy -component ~/PyDFix-dev/BugsInPy 
+$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugsinpy -originallogs ~/PyDFix/orig_log_bugsinpy -component ~/PyDFix/BugsInPy 
 ```
 ##### With original log generation for BugsInPy [NOT recommended]
 If you wish to run LogErrorAnalyzer along with the generation of original logs,
@@ -177,10 +177,10 @@ is: &le;120 hours.__
 ```sh
 $ mkdir repro_log_bugsinpy
 $ rm -rf orig_log_bugsinpy/*
-$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix-dev/repro_log_bugsinpy -originallogs ~/PyDFix-dev/orig_log_bugsinpy -component ~/PyDFix-dev/BugsInPy 
+$ python3 bugsinpy_log_dependency_analyzer.py -path ~/PyDFix/repro_log_bugsinpy -originallogs ~/PyDFix/orig_log_bugsinpy -component ~/PyDFix/BugsInPy 
 ```
 
-The output from running these commands is a message printed to the terminal and a file ``` bugsinpy_artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](https://github.com/BugSwarm/PyDFix-dev#output-1).
+The output from running these commands is a message printed to the terminal and a file ``` bugsinpy_artifacts_dependency_broken.csv ```. These are explained in the [LogErrorAnalyzer Output Section](#output-1).
 
 ### Output
 The output structures of LogErrorAnalyzer are explained in this section.
@@ -213,12 +213,12 @@ __*Why can the current results differ from original experimental results?*__<br/
 
 #### Subset Run
 ```sh
-$ python3 compare_logerroranalyzer_results.py -path ~/PyDFix-dev -dataset <1 for BugSwarm 2 for BugsInPy> -subsetrun
+$ python3 compare_logerroranalyzer_results.py -path ~/PyDFix -dataset <1 for BugSwarm 2 for BugsInPy> -subsetrun
 ```
 
 #### Full Run 
 ```sh
-$ python3 compare_logerroranalyzer_results.py -path ~/PyDFix-dev -dataset <1 for BugSwarm 2 for BugsInPy>
+$ python3 compare_logerroranalyzer_results.py -path ~/PyDFix -dataset <1 for BugSwarm 2 for BugsInPy>
 ```
 
 This prints to the console the overview of the comparison as shown below:
@@ -239,7 +239,7 @@ The detailed results are provided in 3 csv files:
 ### Re-creating Table 4
 This recreates the entries of Table 4 for either BugSwarm or BugsInPy or both. The script aggregates the results of running LogErrorAnalyzer on both BugSwarm and BugsInPy builds and re-creates the data shown in __Table 4__ of the paper and discussed in __Section 5.2__ of the paper. If the results for both the datasets are generated, run this step without the ```-dataset``` option, else specify which dataset is to be considered.
 ```sh
-$ python3 recreate_table4.py -path ~/PyDFix-dev 
+$ python3 recreate_table4.py -path ~/PyDFix
     (optional) -dataset <1 for BugSwarm, 2 for BugsInPy>
 ```
 Running this command will print the information relevant to Table 4 to the terminal.
@@ -267,11 +267,11 @@ is: &le;24 hours.__
 $ mkdir sourcecode_bugswarm
 $ mkdir intermediates_bugswarm
 $ mkdir ~/bugswarm-sandbox
-$ python3 bugswarm_automate_iterative_dependency_solve.py -path ~/PyDFix-dev -originallogs ~/PyDFix-dev/orig_log_bugswarm -sourcecode ~/PyDFix-dev/sourcecode_bugswarm -intermediate ~/PyDFix-dev/intermediates_bugswarm
+$ python3 bugswarm_automate_iterative_dependency_solve.py -path ~/PyDFix -originallogs ~/PyDFix/orig_log_bugswarm -sourcecode ~/PyDFix/sourcecode_bugswarm -intermediate ~/PyDFix/intermediates_bugswarm
 ```
 The output from running this command is a message printed to the terminal and a
 file named ``` iterative_solve_results.csv  ``` which are explained in the
-section [IterativeDependencySolver Output Section](https://github.com/BugSwarm/PyDFix-dev#output-2).
+section [IterativeDependencySolver Output Section](#output-2).
 
 ### BugsInPy
 This runs IterativeDependencySolver on all BugsInPy builds that have been
@@ -282,12 +282,12 @@ is: &le;3 hours.__
 is: &le;24 hours.__
 ```sh
 $ mkdir intermediates_bugsinpy
-$ python3 bugsinpy_automate_iterative_dependency_solve.py -path ~/PyDFix-dev -originallogs ~/PyDFix-dev/orig_log_bugsinpy -component ~/PyDFix-dev/BugsInPy -intermediates ~/PyDFix-dev/intermediates_bugsinpy
+$ python3 bugsinpy_automate_iterative_dependency_solve.py -path ~/PyDFix -originallogs ~/PyDFix/orig_log_bugsinpy -component ~/PyDFix/BugsInPy -intermediates ~/PyDFix/intermediates_bugsinpy
 ```
 
 The output from running this command is a message printed to the terminal and a
 file named ``` bugsinpy_iterative_solve_results.csv  ``` which are explained in the
-section [IterativeDependencySolver Output Section](https://github.com/BugSwarm/PyDFix-dev#output-2).
+section [IterativeDependencySolver Output Section](#output-2).
 
 ### Output
 The output of IterativeDependencySolver is explained in this section.
@@ -323,11 +323,11 @@ IterativeDependencySolver on either BugSwarm of BugsInPy artifacts.<br/>
 *The largely interconnected ecosystem of dependency packages is ever evolving. Thus, the list of dependency version specifications that can completely/partially fix unreproducibility in builds caused by broken dependencies can change and is one of the main use cases of PyDFix.*
 #### Subset Run
 ```sh
-$ python3 compare_iterativedependencysolver_results.py -path ~/PyDFix-dev -dataset <1 for BugSwarm 2 for BugsInPy> -subsetrun
+$ python3 compare_iterativedependencysolver_results.py -path ~/PyDFix -dataset <1 for BugSwarm 2 for BugsInPy> -subsetrun
 ```
 #### Full Run
 ```sh
-$ python3 compare_iterativedependencysolver_results.py -path ~/PyDFix-dev -dataset <1 for BugSwarm 2 for BugsInPy>
+$ python3 compare_iterativedependencysolver_results.py -path ~/PyDFix -dataset <1 for BugSwarm 2 for BugsInPy>
 ```
 This prints to the console the overview of the comparison as shown below:
 ```sh
@@ -355,7 +355,7 @@ The detailed results are provided in 7 csv files:
 ### Re-creating Table 5
 This step can be used to recreate Table 5 entries for either BugSwarm or BugsInPy or both. This script recreates the performance of IterativeDependencySolver on identified builds from BugSwarm and BugsInPy as presented in Table 5 and discussed in Section 5.2 of the paper. If the results for both the datasets are generated, run this step without the ```-dataset``` option, else specify which dataset is to be considered.
 ```sh
-$ python3 recreate_table5.py -path ~/PyDFix-dev
+$ python3 recreate_table5.py -path ~/PyDFix
     (optional) -dataset <1 for BugSwarm, 2 for BugsInPy>
 ```
 Running this command will print the information relevant to Table 5 to the
@@ -367,7 +367,7 @@ This script requires all previous steps to have been completed for BugSwarm
 (including metrics generation) and
 replicates the data represented in the paper in __Table 6__
 ```sh
-$ python3 bugswarm_gather_patch_metrics.py -path ~/PyDFix-dev
+$ python3 bugswarm_gather_patch_metrics.py -path ~/PyDFix
 ```
 The output generated by this script is in the format of the data shown in
 __Table6__ and is as follows:
@@ -454,12 +454,12 @@ Follow the steps provided below to setup PyDFix locally.
 ### Step 1: Clone PyDFix repository
 
 ```sh
-$ git clone https://github.com/BugSwarm/PyDFix-dev.git 
+$ git clone https://github.com/ucd-plse/PyDFix.git 
 ```
 
 ### Step 2: Set current working directory to cloned directory
 ```sh
-$ cd PyDFix-dev 
+$ cd PyDFix
 ```
 
 ### Step 3: Change permissions of the cloned directory
@@ -477,4 +477,4 @@ $ . venv/bin/activate
 ```sh
 $ ./provision.sh 
 ```
-After completing the above steps, resume from [Detailed Description](https://github.com/BugSwarm/PyDFix-dev#detailed-description)
+After completing the above steps, resume from [Detailed Description](#detailed-description)
