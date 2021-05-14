@@ -47,6 +47,12 @@ $ source bugsinpy_setup.sh
 $ source bugswarm_setup.sh
 ```
 
+### Step 5: Setup GitHub credentials
+This step will require your GitHub username and [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). 
+```sh
+$ source setup_credentials.sh
+```
+
 PyDFix can also be set up without using the Docker image, the instructions are
 detailed in [this section](#setup-without-docker-image-not-recommended).
 
