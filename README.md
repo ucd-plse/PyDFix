@@ -77,7 +77,7 @@ The replication process is broadly divided into 4 sections as follows:
 
 __&#x1F534; Note: While running any of the commands associated with any step, errors messages maybe printed to the terminal which are encountered while using a build from the datasets used. Such error messsages *DO NOT* indicate that the command was unsuccessful. Each step prints a message at the end of the run showing the details of the run, and summarizing its results. This message will indicate that the step was successful.__
 
-In the section [Reusing PyDFix](/blob/master/README.md#reusing-pydfix) we have provided a high level overview of the modifications required to extend the work done so far.
+In the section [Reusing PyDFix](#reusing-pydfix) we have provided a high level overview of the modifications required to extend the work done so far.
 ## *STEP 1*: BugSwarm Metrics
 The following script gathers metrics about dependency packages from original
 build logs of BugSwarm artifacts. (Recall that we could not perform this on
