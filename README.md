@@ -26,12 +26,12 @@ based on connection to the terminal. The tmux command is included in Step 2 of s
 is: &le;15 minutes.__
 ### Step 1: Pull PyDFix docker image
 ```sh
-$ sudo docker pull suchita94/pydfix
+$ sudo docker pull ucdavisplse/pydfix
 ```
 ### Step 2: Run container from PyDFix image
 ```sh
 $ tmux
-$ sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --net=host -it suchita94/pydfix
+$ sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --net=host -it ucdavisplse/pydfix
 ```
 
 ### Step 3: Setup Docker permissions
